@@ -1,0 +1,135 @@
+{%- assign selected_variant = product.selected_or_first_available_variant -%}
+
+<div class="ProductMeta">
+  {%- if section.settings.show_vendor and product.vendor != blank -%}
+    <h2 class="ProductMeta__Vendor Heading u-h6">
+      {%- assign vendor_handle = product.vendor | handle -%}
+      {%- assign collection_for_vendor = collections[vendor_handle] -%}
+
+      {%- unless collection_for_vendor.empty? -%}
+        <a href="{{ collection_for_vendor.url }}">{{ product.vendor }}</a>
+      {%- else -%}
+        {{- product.vendor -}}
+      {%- endunless -%}
+    </h2>
+  {%- endif -%}
+
+  <div class="ProductBadges">
+    {%- if product.metafields.badge.text -%}
+      {%- render 'product-badge', product: product -%}
+    {%- endif -%}
+    {%- if product.metafields.meta.pet_icons.value -%}
+      {%- assign pet_icons = product.metafields.meta.pet_icons.value | split: ',' -%}
+
+      <div class="PetIcons">
+        {%- for icon in pet_icons -%}
+          {%- render 'pet-icons', icon: icon -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+
+  {%- render 'like-badge', classes: 'hidden-pocket' -%}
+
+  <h1 class="ProductMeta__Title Heading u-h2">
+    {%- if template.name == 'product' -%}
+      {{- product.title -}}
+    {%- else -%}
+      <a href="{{ product.url }}">{{ product.title }}</a>
+    {%- endif -%}
+  </h1>
+
+  {%- if section.settings.show_sku and selected_variant.sku != blank -%}
+    <p class="ProductMeta__Sku Heading Text--subdued u-h6">{{ 'product.form.sku' | t }}: <span class="ProductMeta__SkuNumber">{{ selected_variant.sku }}</span></p>
+  {%- endif -%}
+
+  
+{% comment %}Start automatically added Judge.me widget{% endcomment %}
+  {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', concierge_install: true, product: product %}
+{% comment %}End automatically added Judge.me widget{% endcomment %}
+{%- if product.template_suffix != 'coming-soon' -%}
+    <div class="ProductMeta__PriceList Heading">
+      {%- if selected_variant.compare_at_price > selected_variant.price -%}
+        <span class="ProductMeta__Price Price Price--highlight Text--subdued u-h4">{{ selected_variant.price | money_without_trailing_zeros }}</span>
+        <span class="ProductMeta__Price Price Price--compareAt Text--subdued u-h4">{{ selected_variant.compare_at_price | money_without_trailing_zeros }}</span>
+      {%- else -%}
+        <span class="ProductMeta__Price Price Text--subdued u-h4">{{ selected_variant.price | money_without_trailing_zeros }}</span>
+      {%- endif -%}
+    </div>
+
+    {%- liquid
+      assign reference_product = product.metafields.reference.main_product.value
+      assign reference_product_selected_variant = reference_product.variants | where: 'title', selected_variant.title | first
+
+      unless selected_variant.unit_price == null and reference_product_selected_variant
+        assign reference_product_selected_variant = selected_variant
+      endunless
+    -%}
+
+    <div class="ProductMeta__UnitPriceMeasurement" style="display: {%- if reference_product_selected_variant.unit_price_measurement -%}block{% else %}none{% endif %}">
+      <div class="UnitPriceMeasurement Heading u-h6 Text--subdued">
+        <span class="UnitPriceMeasurement__Price">{{ reference_product_selected_variant.unit_price | money_without_trailing_zeros }}</span>
+        <span class="UnitPriceMeasurement__Separator">/ </span>
+        <span class="UnitPriceMeasurement__ReferenceValue" style="display: {% if reference_product_selected_variant.unit_price_measurement.reference_value != 1 %}inline{% else %}none{% endif %}">{{ reference_product_selected_variant.unit_price_measurement.reference_value }}</span>
+        <span class="UnitPriceMeasurement__ReferenceUnit">{{ reference_product_selected_variant.unit_price_measurement.reference_unit }}</span>
+      </div>
+    </div>
+  {%- endif -%}
+
+  {%- if section.settings.show_taxes_included -%}
+    {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
+      <p class="ProductMeta__TaxNotice Rte">
+        {%- if shop.taxes_included -%}
+          {{ 'product.general.include_taxes' | t }}
+        {%- endif -%}
+
+        {%- if shop.shipping_policy.body != blank  -%}
+          {%- assign has_free_shipping = selected_variant.metafields.shipping.has_free_shipping.value -%}
+         
+          <span class="js-ProductMeta__ShippingInfo{% if has_free_shipping %} u-Hidden{% endif %}">
+            {{ 'product.general.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+          </span>
+        {%- endif -%}
+      </p>
+    {%- endif -%}
+  {%- endif -%}
+</div>
+
+<script type="application/json" data-product>
+  {
+    "id": {{ product.id | json }},
+    "variants": [
+      {%- for variant in product.variants -%}
+        {
+          "id": {{ variant.id | json }},
+          "hasFreeShipping": {{ variant.metafields.shipping.has_free_shipping.value | default: false | json }}
+        }
+        {%- unless forloop.index == product.variants.size -%},{%- endunless -%}
+      {%- endfor -%}
+    ]
+  }
+</script>
+
+{%- if product.metafields.reference.main_product.type == 'product_reference' -%}
+  <script type="application/json" data-reference-product>
+    {
+      "id": {{ reference_product.id | json }},
+      "variants": [
+        {%- for variant in reference_product.variants -%}
+          {
+            "title": {{ variant.title | json }},
+            "unit_price": {{ variant.unit_price | json }},
+            "unit_price_measurement": {
+              "measured_type": {{ variant.unit_price_measurement.measured_type | json }},
+              "quantity_unit": {{ variant.unit_price_measurement.quantity_unit | json }},
+              "quantity_value": {{ variant.unit_price_measurement.quantity_value | json }},
+              "reference_unit": {{ variant.unit_price_measurement.reference_unit | json }},
+              "reference_value": {{ variant.unit_price_measurement.reference_value | json }}
+            }
+          }
+          {%- unless forloop.index == reference_product.variants.size -%},{%- endunless -%}
+        {%- endfor -%}
+      ]
+    }
+  </script>
+{%- endif -%}

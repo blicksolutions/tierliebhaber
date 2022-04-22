@@ -1,0 +1,63 @@
+{%- liquid
+  assign benefits_content = product.metafields.content.benefits.value
+  assign benefits_items = benefits_content.items  
+-%}
+
+{%- if benefits_items.size > 0 -%}
+  <section class="Section -Secondary Section--spacingNormal">
+    <div class="Container">
+      <header class="SectionHeader SectionHeader--center">
+        <h2 class="SectionHeader__Heading Heading u-h1">{{ section.settings.title }}</h2>
+      </header>
+      <div class="SectionContent">
+        <div class="Benefits swiper-container">
+          <div class="swiper-wrapper">
+            {%- for item in benefits_items -%}
+              <div class="Benefits__Item BenefitItem swiper-slide">
+                <div class="BenefitItem__Image">
+                  <img
+                    class="Image Image--lazyLoad Image--fadeIn"
+                    src="{{ images[item.image.filename] | img_url: 'master' }}"
+                    alt="{{ item.image.alt | escape }}"
+                  >
+                </div>
+                <h2 class="BenefitItem__Title Heading u-h3">{{ item.title }}</h2>
+                <p class="BenefitItem__Text">{{ item.text }}</p>
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+        
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Benefits",
+  "class": "shopify-section--bordered",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "item",
+      "settings": []
+    }
+  ],
+  "presets": [
+    {
+      "category": "Benefits",
+      "name": "Benefits",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

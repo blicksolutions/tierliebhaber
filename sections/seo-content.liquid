@@ -1,0 +1,41 @@
+{%- liquid
+  assign seo_content = section.settings.seo_content
+  
+  comment
+    Collections do not support dynamic sources yet
+    so we get the metafield manually.
+  endcomment
+
+  if template.name == 'collection'
+    assign seo_content = collection.metafields.content.seo
+  endif
+-%}
+
+{%- if seo_content -%}
+  <section class="Section Section--spacingNormal" id="section-{{ section.id }}">
+    <div class="Container Rte">
+    {{ seo_content }}
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "SEO Content",
+  "class": "shopify-section--bordered",
+  "settings": [
+    {
+      "type": "text",
+      "id": "seo_content",
+      "label": "SEO content",
+      "default": "<p>Add SEO content here.</p>"
+    }
+  ],
+  "presets": [
+      {
+          "name": "SEO content",
+          "category": "Custom"
+      }
+  ] 
+}
+{% endschema %}

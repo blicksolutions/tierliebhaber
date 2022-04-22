@@ -1,0 +1,84 @@
+<div class="FeaturedIn{% if section.blocks.size > 3 %} -Scroller{% endif %}">
+  <div class="FeaturedIn__Container">
+    <h2 class="FeaturedIn__Title Heading u-h6">{{ section.settings.title }}</h2>
+    <div class="FeaturedIn__ItemList">
+      {%- for block in section.blocks -%}
+        <div
+          class="FeaturedIn__Item"
+          {% if block.settings.max_width > 0 %}style="max-width: {{ block.settings.max_width }}px;"{% endif %}
+          >
+          {%- if block.type == 'image' -%}
+            <img 
+              class="Image"
+              src="{{ block.settings.image | img_url: 'master' }}"
+              alt="{{ block.settings.image_alt | escape }}"
+            >
+          {%- else -%}
+            {{ block.settings.html }}
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Featured In",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Auch bekannt aus"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Image alternate Text"
+        },
+        {
+          "type": "range",
+          "id": "max_width",
+          "label": "Max width",
+          "unit": "px",
+          "min": 0,
+          "max": 160,
+          "step": 8,
+          "default": 0
+        }
+      ]
+    },
+    {
+      "type": "html",
+      "name": "HTML",
+      "settings": [
+        {
+          "type": "html",
+          "id": "html",
+          "label": "HTML"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Social Proof",
+      "name": "Featured In",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

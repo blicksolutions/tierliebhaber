@@ -1,0 +1,121 @@
+<section class="Section -Secondary Section--spacingNormal">
+  <div class="Container">
+    <header class="SectionHeader SectionHeader--center">
+      <h2 class="SectionHeader__Heading Heading u-h1">{{ section.settings.title }}</h2>
+      <div class="SectionHeader__SubHeading">{{ section.settings.subtitle }}</div>
+    </header>
+    <div class="SectionContent">
+      <div class="Contact">
+        <div
+          class="Contact__ImageContainer Image"
+          style="--aspect-ratio: {{ section.settings.image.aspect_ratio }};"
+          >
+          <img
+            class="Image__Image Image--lazyLoad Image--fadeIn"
+            src="{{ section.settings.image | img_url: 'master' }}"
+            alt="{{ section.settings.image_alt | escape }}"
+          >
+        </div>
+        <div class="Contact__Content">
+          <p class="Contact__CtaTitle Heading u-h3">{{ section.settings.cta_title }}</p>
+          <div class="Contact__Buttons">
+            {%- for block in section.blocks -%}
+              <a
+                class="Button"
+                href="{{ block.settings.url }}"
+                style="--color: {{ block.settings.color }};"
+                >
+                <img
+                  class="Button__Image Image--lazyLoad Image--fadeIn"
+                  src="{{ block.settings.image | img_url: 'master' }}"
+                  alt="{{ block.settings.image_alt | escape }}"
+                >
+                <span class="Button__Text">{{ block.settings.text }}</span>
+              </a>
+            {%- endfor -%}
+          </div>
+          <div class="Contact__MicroCopy">{{ section.settings.microcopy }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact",
+  "class": "shopify-section--bordered",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alternate Text"
+    },
+    {
+      "type": "text",
+      "id": "cta_title",
+      "label": "Call to Action Title"
+    },
+    {
+      "type": "richtext",
+      "id": "microcopy",
+      "label": "Micro Copy"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "button",
+      "name": "button",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "textarea",
+          "id": "image_alt",
+          "label": "Image alternate Text"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Color"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Contact",
+      "name": "Contact",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

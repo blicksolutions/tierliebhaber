@@ -1,0 +1,16 @@
+<style>
+  @font-face {
+    font-family: 'Sweet Purple';
+    src:
+      url({{ 'sweet-purple.woff2' | asset_url }}) format('woff2'),
+      url({{ 'sweet-purple.woff' | asset_url }}) format('woff');
+  }
+</style>
+
+{%- capture layout_bundle -%}bundle.layout.{{- layout -}}.css{%- endcapture -%}
+<link rel="stylesheet" href="{{ layout_bundle | asset_url }}">
+
+{%- if template -%}
+  {%- capture template_bundle -%}bundle.template.{{- template.name | remove: 'customers/' -}}.css{%- endcapture -%}
+  <link rel="stylesheet" href="{{ template_bundle | asset_url }}">
+{%- endif -%}

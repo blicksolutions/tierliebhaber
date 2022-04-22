@@ -1,0 +1,26 @@
+{%- assign like_badge = shop.metafields.product.like_badge.value -%}
+
+{%- capture random_number -%}{%- render 'random-number', min: like_badge.like_range.min, max: like_badge.like_range.max -%}{%- endcapture -%}
+
+{%- capture like_badge_names -%}
+  {%- for dog in like_badge.dogs -%}
+    {{ dog.name }}{% unless forloop.last %}, {% endunless %}
+  {%- endfor -%}
+{%- endcapture -%}
+
+{%- assign like_badge_names = like_badge_names | strip_newlines -%}
+
+<div class="LikeBadge{% if classes %} {{ classes }}{% endif %}">
+  <div class="LikeBadge__Wrapper">
+    <div class="LikeBadge__Images">
+      {%- for dog in like_badge.dogs -%}
+        <img
+          class="LikeBadge__Image Image--lazyLoad Image--fadeIn"
+          data-src="{{ images[dog.image.filename] | img_url: 'master' }}"
+          alt="{{ dog.image.alt | escape }}"
+        >
+      {%- endfor -%}
+    </div>
+    <p class="LikeBadge__Text">{{ like_badge.text | replace: '%s', like_badge_names | replace: '%d', random_number }}</p>
+  </div>
+</div>

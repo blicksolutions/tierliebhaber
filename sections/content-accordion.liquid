@@ -1,0 +1,79 @@
+{%- liquid
+  assign accordion_content = product.metafields.content.accordion.value
+  assign accordion_items = accordion_content.items  
+-%}
+
+<div class="Section Section--spacingNormal">
+  <div class="Container">
+    {%- if accordion_items.size > 0 -%}
+      {%- for item in accordion_items -%}
+        <div class="Collapsible Collapsible--large">
+          <button
+            class="Collapsible__Button Heading u-h6"
+            data-action="toggle-collapsible"
+            aria-expanded="false"
+            >
+            {{ item.title }}
+            <span class="Collapsible__Plus"></span>
+          </button>
+          <div class="Collapsible__Inner">
+            <div class="Collapsible__Content">
+              {%- if item.type == 'accordion' -%}
+                {%- for child_item in item.content -%}
+                  <div class="Collapsible Collapsible--large">
+                    <button
+                      class="Collapsible__Button Heading u-h6"
+                      data-action="toggle-collapsible"
+                      aria-expanded="false"
+                      >
+                      {{ child_item.title }}
+                      <span class="Collapsible__Plus"></span>
+                    </button>
+    
+                    <div class="Collapsible__Inner">
+                      <div class="Collapsible__Content">
+                        <div class="Rte">{{ child_item.content }}</div>
+                      </div>
+                    </div>
+                  </div>
+                {%- endfor -%}
+              {%- else -%}
+                <div class="Rte">{{ item.content }}</div>
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+    {%- endif -%}
+
+    <div class="Collapsible Collapsible--large">
+      <button
+        class="Collapsible__Button Heading u-h6"
+        data-action="toggle-collapsible"
+        aria-expanded="false"
+        >
+        {{ 'product.accordion.details' | t }}
+        <span class="Collapsible__Plus"></span>
+      </button>
+      <div class="Collapsible__Inner">
+        <div class="Collapsible__Content">
+          <div class="Rte">{{ product.description }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Content Accordion",
+  "settings": [],
+  "presets": [
+    {
+      "category": "Content Accordion",
+      "name": "Content Accordion",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

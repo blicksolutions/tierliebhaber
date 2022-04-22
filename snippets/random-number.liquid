@@ -1,0 +1,12 @@
+{%- comment -%}
+  @param {Number} min - 
+  @param {Number} max - 
+  @returns {Number} A random number which is in the given range
+{%- endcomment -%}
+
+{%- liquid
+  assign diff = max | minus: min
+  assign random_number = 'now' | date: '%N' | modulo: diff | plus: min
+
+  echo random_number
+-%}

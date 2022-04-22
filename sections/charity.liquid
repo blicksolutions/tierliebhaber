@@ -1,0 +1,122 @@
+{%- liquid
+  assign donation_goal = section.settings.donation_goal | times: 1.0
+  assign donations = section.settings.donations_amount | times: 1.0
+  assign progressbar_fill_percentage = donations | divided_by: donation_goal | times: 100
+  assign money_remaining = donation_goal | minus: donations | times: 100 | money
+-%}
+  
+{% capture heading %}
+  {{ section.settings.heading_prefix }} {{ money_remaining }} {{ section.settings.heading_suffix }}
+{% endcapture %}
+
+<section>
+  <div class="Charity__Header SectionHeader--center">
+    <h2 class="SectionHeader__Heading Heading">{{ heading }}</h2>
+  </div>
+  <div class="Charity__Container">
+    <div class="ProgressBar">
+      <div class="ProgressBar__Background"></div>
+      <div class="ProgressBar__Fill" style="--fill-percentage:{{ progressbar_fill_percentage }};">
+      </div>
+    </div>
+
+    <p class="Charity__Goal">
+      {{ donation_goal | times: 100 | money_without_trailing_zeros }}
+    </p>
+    
+    <div class="Total">
+      {%- if section.settings.total_text -%}
+        <span class="Total__Text">
+          {{ section.settings.total_text }}
+        </span>
+      {%- endif -%}
+
+      {%- if section.settings.total_number -%}
+        <span class="Total__Number">
+          {{ section.settings.total_number }}
+        </span>
+      {%- endif -%}
+    </div>
+
+    <div class="Description">
+      {%- if section.settings.description_heading -%}  
+        <h4 class="Description__Heading">
+          {{ section.settings.description_heading }}
+        </h4>
+      {%- endif -%}
+
+      {%- if section.settings.description_text -%}  
+        <p class="Description__Text">
+          {{ section.settings.description_text | newline_to_br }}
+        </p>
+      {%- endif -%}
+
+      {%- if section.settings.description_disclaimer -%}  
+        <p class="Description__Disclaimer">
+          {{ section.settings.description_disclaimer | newline_to_br }}
+        </p>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Charity",
+  "class": "Charity shopify-section--bordered",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_prefix",
+      "label": "Heading Prefix"
+    },
+    {
+      "type": "text",
+      "id": "heading_suffix",
+      "label": "Heading Suffix"
+    },
+    {
+      "type": "number",
+      "id": "donations_amount",
+      "label": "Donations amount since last saved dog"
+    },
+    {
+      "type": "number",
+      "id": "donation_goal",
+      "label": "Donation Goal"
+    },
+    {
+      "type": "text",
+      "id": "total_text",
+      "label": "Total Text"
+    },
+    {
+      "type": "text",
+      "id": "total_number",
+      "label": "Total Number"
+    },
+    {
+      "type": "text",
+      "id": "description_heading",
+      "label": "Description Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "description_text",
+      "label": "Description Text"
+    },
+    {
+      "type": "textarea",
+      "id": "description_disclaimer",
+      "label": "Description Disclaimer"
+    }
+  ],
+  "presets": [
+    {
+      "category": "Charity",
+      "name": "Charity",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

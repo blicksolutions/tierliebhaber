@@ -1,0 +1,56 @@
+{%- liquid
+  assign a_plus_content = product.metafields.content.a_plus.value
+  assign a_plus_items = a_plus_content.items  
+-%}
+
+{%- if a_plus_items.size > 0 -%}
+  <section class="Section Section--spacingNormal">
+    <div class="Container">
+      {%- for item in a_plus_items -%}
+        {%- liquid
+          assign image = images[item.image.filename]
+          assign image_alt = item.image.alt  
+        -%}
+
+        <div class="ContentBlock{% if item.reverse_order %} -Reversed{% endif %}">
+          <div class="ContentBlock__ImageContainer">
+            <div
+              class="Image"
+              style="--aspect-ratio: {{ image.aspect_ratio }};"
+              >
+              <img
+                class="Image__Image Image--lazyLoad Image--fadeIn"
+                src="{{ image | img_url: 'master' }}"
+                alt="{{ image_alt | escape }}"
+              >
+            </div>
+          </div>
+          <div class="ContentBlock__TextContainer">
+            <h2 class="ContentBlock__Title Heading u-h1">{{ item.title }}</h2>
+            <p class="ContentBlock__Text">{{ item.text_html }}</p>
+          </div>
+        </div> 
+      {%- endfor -%}     
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Image with text",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings",
+      "info": "The content can be defined in product.metafields.content.a_plus"
+    }
+  ],
+  "presets": [
+    {
+      "category": "Image",
+      "name": "Image with text",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

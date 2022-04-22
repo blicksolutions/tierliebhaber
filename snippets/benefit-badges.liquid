@@ -1,0 +1,23 @@
+<div class="BenefitBadgeContainer">
+  {%- for index in (1..2) -%}
+    {%- liquid
+      assign image_key = 'benefit_item_' | append: index | append: '_image'
+      assign title_key = 'benefit_item_' | append: index | append: '_title'
+      assign image_url = section.settings[image_key] | img_url: '1x1' | replace: '_1x1.', '_{width}x.'
+    -%}
+    {%- capture supported_sizes -%}{%- render 'image-size', sizes: '10, 20, 40, 60, 80, 120', image: section.settings[benefit_image_key] -%}{%- endcapture -%}
+
+    <div class="BenefitBadge">
+      <img 
+        class="BenefitBadge__Image Image--lazyLoad Image--fadeIn" 
+        alt="{{ section.settings[image_key].alt | escape }}"
+        data-src="{{ image_url }}" 
+        data-widths="[{{ supported_sizes }}]" 
+        data-sizes="auto" 
+      >
+      <p class="BenefitBadge__Title">
+        {{ section.settings[title_key] }}
+      </p>
+    </div>
+  {%- endfor -%}
+</div>

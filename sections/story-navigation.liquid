@@ -1,0 +1,93 @@
+{%- assign section_class = 'Section' -%}
+
+{%- if section.settings.background == 'secondary' -%}
+  {%- assign section_class = section_class | append: ' -Secondary' -%}
+{%- endif -%}
+
+<div class="{{ section_class }}">
+  <div class="StoryNavigation">
+    <div class="StoryNavigation__Items">
+      {%- for block in section.blocks -%}
+        {%- unless collection.url == block.settings.url -%}
+          <div class="StoryItem">
+            <a class="StoryItem__Link" href="{{ block.settings.url }}">
+              <div class="StoryItem__Image">
+                <img 
+                  class="Image--lazyLoad"
+                  src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                  data-src="{{ block.settings.image | img_url: '96x96' }}"
+                  alt="{{ block.settings.img.alt }}"
+                >
+              </div>
+              <p class="StoryItem__Title">{{ block.settings.title }}</p>
+            </a>          
+          </div>
+        {%- endunless -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+  
+{% schema %}
+{
+  "name": "Story Navigation",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Link",
+      "type": "link",
+      "settings": [
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Collection"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "checkbox",
+          "id": "limited",
+          "label": "Limitierter Artikel",
+          "default": false
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Bild"
+        }
+      ]
+    }
+  ], 
+  "presets": [
+    {
+      "category": "Frames",
+      "name": "Story Navigation",
+      "settings": {},
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}

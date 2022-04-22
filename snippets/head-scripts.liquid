@@ -1,0 +1,27 @@
+<script>
+  window.translations = {
+    product: {
+      form: {
+        shippingEta: {
+          available: {{ 'product.form.shipping_eta.available' | t | json }},
+          soldOut: {{ 'product.form.shipping_eta.sold_out' | t | json }},
+          instantlyAvailable: {{ 'product.form.shipping_eta.instantly_available' | t | json }}
+        }
+      }
+    }
+  };
+</script>
+
+<script
+  src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
+  defer
+  >
+</script>
+
+{%- capture layout_bundle -%}bundle.layout.{{- layout -}}.js{%- endcapture -%}
+<script src="{{ layout_bundle | asset_url }}" defer></script>
+
+{%- if template -%}
+  {%- capture template_bundle -%}bundle.template.{{- template.name | remove: 'customers/' -}}.js{%- endcapture -%}
+  <script src="{{ template_bundle | asset_url }}" defer></script>
+{%- endif -%}

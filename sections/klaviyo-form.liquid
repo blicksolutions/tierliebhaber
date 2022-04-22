@@ -1,0 +1,27 @@
+<section class="Section -Secondary Section--spacingNormal">
+  <div class="Container">
+    <div class="KlaviyoForm">
+      <div class="klaviyo-form-{{ section.settings.id }}"></div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Klaviyo Form",
+  "settings": [
+    {
+      "type": "text",
+      "id": "id",
+      "label": "Klaviyo Form ID"
+    }
+  ],
+  "presets": [
+    {
+      "category": "Klaviyo",
+      "name": "Klaviyo Form",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

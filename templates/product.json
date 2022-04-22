@@ -1,0 +1,153 @@
+{
+  "sections": {
+    "main": {
+      "type": "product-template",
+      "settings": {
+        "show_share_buttons": false,
+        "show_vendor": false,
+        "show_sku": false,
+        "show_taxes_included": true,
+        "selector_mode": "block",
+        "show_color_swatch": false,
+        "show_color_carousel": false,
+        "show_quantity_selector": false,
+        "show_inventory_quantity": false,
+        "inventory_quantity_threshold": 0,
+        "show_price_in_button": false,
+        "show_payment_button": false,
+        "payment_providers": "paypal, klarna, master, visa, sofort, apple_pay",
+        "show_pickup_availability": false,
+        "image_size": "medium",
+        "stack_images": false,
+        "show_thumbnails": true,
+        "enable_image_zoom": false,
+        "enable_video_looping": false,
+        "tab_page_1_handle": "",
+        "tab_page_2_handle": "",
+        "reviews_enabled": false,
+        "featured_image_size": "large",
+        "benefit_item_1_image": "shopify:\/\/shop_images\/icons8-delivery-truck-64.png",
+        "benefit_item_1_title": "Versandkostenfrei ab 39€ in DE",
+        "benefit_item_2_image": "shopify:\/\/shop_images\/icons8-deutschlandkarte-100.png",
+        "benefit_item_2_title": "Mit ❤️ gemacht in Deutschland."
+      }
+    },
+    "1628804794af0431f7": {
+      "type": "benefits",
+      "settings": {
+        "title": "Vorteile"
+      }
+    },
+    "16288047979ee0ca29": {
+      "type": "content-accordion",
+      "settings": {
+      }
+    },
+    "16288473445aa6c049": {
+      "type": "image-with-text",
+      "settings": {
+      }
+    },
+    "16288048826c658212": {
+      "type": "product-reviews",
+      "settings": {
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "show_product_recommendations": true,
+        "heading": "Das könnte dir auch gefallen",
+        "show_product_info": true,
+        "show_vendor": false,
+        "show_color_swatch": false
+      }
+    },
+    "1635243951ca87a38d": {
+      "type": "custom-html",
+      "settings": {
+        "subheading": "Auf Trustpilot",
+        "title": "Meinungen anderer Kunden",
+        "html": "<!-- TrustBox widget - Quote -->\n<div class=\"trustpilot-widget\" data-locale=\"de-DE\" data-template-id=\"54d0e1d8764ea9078c79e6ee\" data-businessunit-id=\"60d5db8ab6c75b0001a3a5e3\" data-style-height=\"300px\" data-style-width=\"100%\" data-theme=\"light\" data-stars=\"4,5\" data-review-languages=\"de\">\n  <a href=\"https:\/\/de.trustpilot.com\/review\/tierliebhaber.de\" target=\"_blank\" rel=\"noopener\">Trustpilot<\/a>\n<\/div>\n<!-- End TrustBox widget -->"
+      }
+    },
+    "recently-viewed-products": {
+      "type": "recently-viewed-products",
+      "disabled": true,
+      "settings": {
+        "show_section": true,
+        "title": "Recently viewed",
+        "show_product_info": true,
+        "show_vendor": false,
+        "show_color_swatch": false
+      }
+    },
+    "162880489936c4738f": {
+      "type": "seo-content",
+      "settings": {
+        "seo_content": "{{ product.metafields.content.seo.value }}"
+      }
+    },
+    "16288049026c8dd7d1": {
+      "type": "contact",
+      "blocks": {
+        "6019ae12-5366-4bb0-b0fb-d5360dbf448b": {
+          "type": "button",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/whatsapp.png",
+            "image_alt": "",
+            "text": "Per WhatsApp",
+            "color": "#43c253",
+            "url": "https:\/\/api.whatsapp.com\/send\/?phone=4917648097026&text=Hey,%20ich%20habe%20eine%20Frage,%20auf%20die%20ich%20keine%20Antworte%20finde%20auf%20eurer%20Seite.%20%E2%98%BA%EF%B8%8F"
+          }
+        },
+        "7e85fc1c-a467-4500-83c7-3f55b878b381": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/anruf.png",
+            "image_alt": "",
+            "text": "Ruf uns an",
+            "color": "#f1af9e",
+            "url": "tel:034149980019"
+          }
+        },
+        "cd707ae6-291b-4929-8937-dbe7654b243d": {
+          "type": "button",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/email.png",
+            "image_alt": "",
+            "text": "Per Email",
+            "color": "#dddddd",
+            "url": "mailto:info@tierliebhaber.de"
+          }
+        }
+      },
+      "block_order": [
+        "6019ae12-5366-4bb0-b0fb-d5360dbf448b",
+        "7e85fc1c-a467-4500-83c7-3f55b878b381",
+        "cd707ae6-291b-4929-8937-dbe7654b243d"
+      ],
+      "settings": {
+        "title": "Fragen? Wir sind für dich da...",
+        "subtitle": "<p>Bei Fragen zu einer <strong>bestehenden Bestellung<\/strong>, wende dich an Celina unter: <strong>+49 34149980019<\/strong><\/p><p>Sie ist von Montag - Freitag von 11:00 - 15:00 Uhr telefonisch erreichbar. <br\/><\/p><p>Hast du Fragen zu unseren Produkten oder <strong>kommst bei einer Bestellung nicht weiter<\/strong>? <\/p><p>Mona hilft dir gerne unter:<\/p><p> <strong>+49 176 48097026<\/strong><\/p><p>Ihre Erreichbarkeit ist von Montag - Freitag von 15:00 - 17:00 Uhr.<br\/><\/p>",
+        "image": "shopify:\/\/shop_images\/customer-service.png",
+        "image_alt": "",
+        "cta_title": "Oder schnell & einfach",
+        "microcopy": "<p><em>Wir melden uns innerhalb eines Tages mit einer Antwort bei dir zurück!<\/em><\/p>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1628804794af0431f7",
+    "16288047979ee0ca29",
+    "16288473445aa6c049",
+    "16288048826c658212",
+    "recommendations",
+    "1635243951ca87a38d",
+    "recently-viewed-products",
+    "162880489936c4738f",
+    "16288049026c8dd7d1"
+  ]
+}

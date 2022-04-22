@@ -1,0 +1,17 @@
+<div class="Container">
+  {% render 'judgeme_widgets', widget_type: 'judgeme_review_widget', concierge_install: false, product: product %}
+</div>
+
+{% schema %}
+{
+  "name": "Product Reviews",
+  "settings": [],
+  "presets": [
+    {
+      "category": "Product",
+      "name": "Product Reviews",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

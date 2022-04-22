@@ -1,0 +1,14 @@
+{%- if product.metafields.badge.text -%}
+  <div class="ProductBadge">
+    <span class="ProductBadge__Icon">
+      {%- assign icon_name = product.metafields.badge.text | downcase | replace: ' ', '-' -%}
+      {%- render 'icon', icon: icon_name -%}
+    </span>
+    <span class="ProductBadge__Text">{{ product.metafields.badge.text }}</span>
+  </div>
+{%- else -%}
+  <div
+    class="ProductBadge -Placeholder"
+    >
+  </div>
+{%- endif -%}

@@ -1,0 +1,11 @@
+{%- case icon -%}
+  {%- when 'dogs' -%}
+    <img class="PetIcons__Icon lazyload" src="{{ 'dog-icon.png' | file_url }}" alt="{{ icon }}">
+
+  {%- when 'cats' -%}
+    <img class="PetIcons__Icon lazyload" src="{{ 'cat-icon.png' | file_url }}" alt="{{ icon }}">
+
+  {%- when 'horses' -%}
+    <img class="PetIcons__Icon lazyload" src="{{ 'horse-icon.png' | file_url }}" alt="{{ icon }}">        
+    
+{%- endcase -%}
