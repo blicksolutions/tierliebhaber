@@ -68,12 +68,56 @@
 
     <div class="ProductMeta__UnitPriceMeasurement" style="display: {%- if reference_product_selected_variant.unit_price_measurement -%}block{% else %}none{% endif %}">
       <div class="UnitPriceMeasurement Heading u-h6 Text--subdued">
-        <span class="UnitPriceMeasurement__Price">{{ reference_product_selected_variant.unit_price | money_without_trailing_zeros }}</span>
+        <span class="UnitPriceMeasurement__Price" data-alt-price="{{ reference_product_selected_variant.unit_price }}">{{ reference_product_selected_variant.unit_price | money_without_trailing_zeros }}</span>
         <span class="UnitPriceMeasurement__Separator">/ </span>
         <span class="UnitPriceMeasurement__ReferenceValue" style="display: {% if reference_product_selected_variant.unit_price_measurement.reference_value != 1 %}inline{% else %}none{% endif %}">{{ reference_product_selected_variant.unit_price_measurement.reference_value }}</span>
         <span class="UnitPriceMeasurement__ReferenceUnit">{{ reference_product_selected_variant.unit_price_measurement.reference_unit }}</span>
       </div>
     </div>
+
+    <script>
+    /* update unit price when user switches from normal buy to abonnement via "Recharge" App */
+    window.addEventListener("load" , async function() {
+      let discountElmnt;
+      while (!(discountElmnt = document.querySelector("#shopify-section-{{ section.id }} .rc_widget .rc_widget__option__discount"))) {
+        await new Promise((resolve , reject) => {
+          window.setTimeout(resolve , 50);
+        });
+      }
+      discount = discountElmnt.innerHTML;
+      discount = discount.replace("%" , "");
+      discount/= 100;
+      factor = 1 - discount;
+      let unitpriceElmnt = document.querySelector("#shopify-section-{{ section.id }} .UnitPriceMeasurement__Price");
+      let price = unitpriceElmnt.getAttribute("data-alt-price");
+      price*= factor;
+      price = Math.round(price);
+      price/= 100;
+      price = "€" + price.toString().replace("." , ",");
+      unitpriceElmnt.setAttribute("data-alt-price" , price);
+      let status;
+      function type(item) {
+        if (item.classList.contains("rc-option__subsave")) {
+          return "subsave";
+        } else {
+          return "onetime";
+        }
+      }
+      document.querySelectorAll("#shopify-section-{{ section.id }} .rc-radio-group__options .rc_widget__option ").forEach(async function(item) {
+        if (item.querySelector("input.rc-radio__input").checked) {
+          status = type(item);
+        }
+        item.addEventListener("click" , function() {
+          if (status !== type(item)) {
+            let price = unitpriceElmnt.getAttribute("data-alt-price");
+            unitpriceElmnt.setAttribute("data-alt-price" , unitpriceElmnt.innerHTML);
+            unitpriceElmnt.innerHTML = price;
+          }
+          status = type(item);
+        } , false);
+      });
+    });
+    </script>
   {%- endif -%}
 
   {%- if section.settings.show_taxes_included -%}
