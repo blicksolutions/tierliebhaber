@@ -1,0 +1,53 @@
+<div class="Section Section--spacingNormal Bundles__Wrapper">
+	<div class="Bundle">
+		<div class="headline">
+			<div class="text">
+				<span>{{ section.settings.heading_text }}</span>
+			</div>
+			<div class="banner">
+				<span>{{ section.settings.banner_text }}</span>
+			</div>
+		</div>
+		<div class="image">
+			<img src="{{ product.metafields.my_fields.upsell.value.featured_image | img_url: "400x400" }}" alt="{{ product.metafields.my_fields.upsell.value.title }}" />
+		</div>
+		<div class="meta">
+			<div class="title">{{ product.metafields.my_fields.upsell.value.title }}</div>
+			<div class="price">
+				<div class="main">
+					<span class="cmp-price"></span>
+					<span class="price"></span>
+				</div>
+				<div class="ppu">
+					<span></span>
+				</div>
+			</div>
+		</div>
+		<div class="atc">
+			<span>{{ section.settings.atc_text }}</span>
+		</div>
+	</div>
+
+{% schema %}
+{
+	"name": "Collection page",
+	"class": "shopify-section--bordered",
+	"settings": [
+		{
+			"type": "text",
+			"id": "heading_text",
+			"label": "Heading Text"
+		},
+		{
+			"type": "text",
+			"id": "banner_text",
+			"label": "Banner Text"
+		},
+		{
+			"type": "text",
+			"id": "atc_text",
+			"label": "ATC Button Text"
+		}
+	]
+}
+{% endschema %}

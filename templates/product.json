@@ -32,6 +32,12 @@
         "benefit_item_2_title": "Mit ❤️ gemacht in Deutschland."
       }
     },
+    "bundles": {
+      "type": "bundles",
+      "settings": {
+        "heading_text": "Passt perfekt dazu:"
+      }
+    },
     "1628804794af0431f7": {
       "type": "benefits",
       "settings": {
@@ -140,6 +146,7 @@
   },
   "order": [
     "main",
+    "bundles",
     "1628804794af0431f7",
     "16288047979ee0ca29",
     "16288473445aa6c049",
