@@ -1,32 +1,137 @@
 <div class="Section Section--spacingNormal Bundles__Wrapper">
+	{%- assign upsell_product = product.metafields.upsell.upsell_product.value -%}
+	{%- assign bundle_product = product.metafields.upsell.bundle_product.value -%}
 	<div class="Bundle">
 		<div class="headline">
 			<div class="text">
-				<span>{{ section.settings.heading_text }}</span>
+				<h2 class="Heading">{{ section.settings.heading_text }}</h2>
 			</div>
 			<div class="banner">
-				<span>{{ section.settings.banner_text }}</span>
+				{%- assign bundle_price = bundle_product.selected_or_first_available_variant.price | times: 1.0 -%}
+				{%- assign bundle_compare_at_price =  bundle_product.selected_or_first_available_variant.compare_at_price | times: 1.0 -%}
+				{%- assign bundle_discount = bundle_price | divided_by: bundle_compare_at_price -%}
+				{%- assign bundle_discount = 1 | minus: bundle_discount -%}
+				{%- assign bundle_discount_percent =  bundle_discount | times: 100 | round -%}
+				<span class="discount">-{{ bundle_discount_percent }}%</span>
+				<span class="caption">{{ section.settings.banner_text }}</span>
 			</div>
 		</div>
-		<div class="image">
-			<img src="{{ product.metafields.my_fields.upsell.value.featured_image | img_url: "400x400" }}" alt="{{ product.metafields.my_fields.upsell.value.title }}" />
-		</div>
-		<div class="meta">
-			<div class="title">{{ product.metafields.my_fields.upsell.value.title }}</div>
-			<div class="price">
-				<div class="main">
-					<span class="cmp-price"></span>
-					<span class="price"></span>
+		<div class="content">
+			<div class="image">
+				<img src="{{ upsell_product.featured_image | img_url: "400x400" }}" alt="{{upsell_product.title }}" />
+			</div>
+			<div class="meta">
+				<div class="title">{{ upsell_product.title }}</div>
+				<div class="price">
+					<div class="main">
+						{% if upsell_product.selected_or_first_available_variant.compare_at_price != upsell_product.selected_or_first_available_variant.price or true %}
+							<span class="cmp-price">{{ upsell_product.selected_or_first_available_variant.compare_at_price | money_without_trailing_zeros }}</span>
+						{% endif %}
+						<span class="price">{{ upsell_product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</span>
+					</div>
+					<div class="ppu">
+						{%- assign reference_value = upsell_product.selected_or_first_available_variant.unit_price_measurement.reference_value -%}
+						<span>{{ upsell_product.selected_or_first_available_variant.unit_price | money_without_trailing_zeros }}</span>
+						<span>/</span>
+						<span>
+							{%- if reference_value != 1 -%}
+								<span>{{ reference_value }}</span>
+							{%- endif -%}
+							<span>{{ upsell_product.selected_or_first_available_variant.unit_price_measurement.reference_unit }}</span>
+						</span>
+					</div>
 				</div>
-				<div class="ppu">
-					<span></span>
+				<div class="Button">
+					<span>{{ section.settings.atc_text }}</span>
 				</div>
 			</div>
-		</div>
-		<div class="atc">
-			<span>{{ section.settings.atc_text }}</span>
 		</div>
 	</div>
+</div>
+
+<style>
+#shopify-section-{{ section.id }} .Bundles__Wrapper {
+	display: flex;
+	justify-content: center;
+}
+#shopify-section-{{ section.id }} .Bundle {
+	width: 50%;
+	border-radius: 8px;
+	background-color: {{ section.settings.tile_background_color  }};
+}
+#shopify-section-{{ section.id }} .Bundle .headline {
+	display: flex;
+	width: 100%;
+	padding: 0px 25px;
+	justify-content: space-between;
+}
+#shopify-section-{{ section.id }} .Bundle .headline .text {
+	padding: 15px 0px 5px 0px;
+}
+#shopify-section-{{ section.id }} .Bundle .headline .text h2 {
+	font-size: 22px;
+}
+#shopify-section-{{ section.id }} .Bundle .headline .banner {
+	padding: 5px 10px;
+	margin: 15px 0px 5px 0px;
+	border-radius: 8px;
+	border: 1px solid {{ section.settings.banner_border_color }};
+	background-color: {{ section.settings.banner_bg_color }};
+	color: {{ section.settings.banner_font_color }};
+}
+#shopify-section-{{ section.id }} .Bundle .content {
+	display: flex;
+	width: 100%;
+	padding: 0px 10px;
+	margin-bottom: 20px;
+	justify-content: space-between;
+	align-items: center;
+}
+#shopify-section-{{ section.id }} .Bundle .content .image {
+	width: 50%;
+	padding: 15px;
+	user-select: none;
+}
+#shopify-section-{{ section.id }} .Bundle .content .image img {
+	aspect-ratio: 1;
+	border-radius: 8px;
+}
+#shopify-section-{{ section.id }} .Bundle .content .meta {
+	width: 50%;
+	padding: 15px;
+}
+#shopify-section-{{ section.id }} .Bundle .content .meta .title {
+	font-size: 20px;
+	margin: 7px 0px;
+	text-decoration: underline;
+}
+#shopify-section-{{ section.id }} .Bundle .content .meta > .price {
+	margin-bottom: 15px;
+}
+#shopify-section-{{ section.id }} .Bundle .content .meta .price .main {
+	font-size: 16px;
+}
+#shopify-section-{{ section.id }} .Bundle .content .meta .price .main .cmp-price {
+	display: inline-block;
+	margin-right: 5px;
+	color: var(--text-color-light);
+	text-decoration: line-through;
+}
+#shopify-section-{{ section.id }} .Bundle .content .meta .price .main .price {
+	display: inline-block;
+	color: {{ section.settings.offer_price_font_color }};
+}
+#shopify-section-{{ section.id }} .Bundle .content .meta .price .ppu {
+	margin-top: 5px;
+	font-size: 12px;
+	color: {{ section.settings.ppu_font_color }};
+}
+#shopify-section-{{ section.id }} .Bundle .content .meta .Button {
+	background-color: var(--button-background);
+	color: var(--button-text-color);
+	user-select: none;
+}
+</style>
 
 {% schema %}
 {
@@ -47,6 +152,42 @@
 			"type": "text",
 			"id": "atc_text",
 			"label": "ATC Button Text"
+		},
+		{
+			"type": "color",
+			"id": "tile_background_color",
+			"label": "Tile Background Color",
+			"default": "#d3d3d3"
+		},
+		{
+			"type": "color",
+			"id": "banner_bg_color",
+			"label": "Banner Background Color",
+			"default": "#fff3ef"
+		},
+		{
+			"type": "color",
+			"id": "banner_font_color",
+			"label": "Banner Font Color",
+			"default": "#e6b2a1"
+		},
+		{
+			"type": "color",
+			"id": "banner_border_color",
+			"label": "Banner Border Color",
+			"default": "#e6b2a1"
+		},
+		{
+			"type": "color",
+			"id": "offer_price_font_color",
+			"label": "Offer Price Font Color",
+			"default": "#e6b2a1"
+		},
+		{
+			"type": "color",
+			"id": "ppu_font_color",
+			"label": "PricePerUnit Font Color",
+			"default": "#6a6a6a"
 		}
 	]
 }
