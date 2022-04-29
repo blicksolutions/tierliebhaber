@@ -9,8 +9,8 @@
 			<div class="banner">
 				{%- assign bundle_price = bundle_product.selected_or_first_available_variant.price | times: 1.0 -%}
 				{%- assign bundle_compare_at_price =  bundle_product.selected_or_first_available_variant.compare_at_price | times: 1.0 -%}
-				{%- assign bundle_discount = bundle_price | divided_by: bundle_compare_at_price -%}
-				{%- assign bundle_discount = 1 | minus: bundle_discount -%}
+				{%- assign bundle_price_factor = bundle_price | divided_by: bundle_compare_at_price -%}
+				{%- assign bundle_discount = 1 | minus: bundle_price_factor -%}
 				{%- assign bundle_discount_percent =  bundle_discount | times: 100 | round -%}
 				<span class="discount">-{{ bundle_discount_percent }}%</span>
 				<span class="caption">{{ section.settings.banner_text }}</span>
@@ -28,14 +28,17 @@
 				</div>
 				<div class="price">
 					<div class="main">
-						{% if upsell_product.selected_or_first_available_variant.compare_at_price != upsell_product.selected_or_first_available_variant.price or true %}
-							<span class="cmp-price">{{ upsell_product.selected_or_first_available_variant.compare_at_price | money_without_trailing_zeros }}</span>
-						{% endif %}
-						<span class="price">{{ upsell_product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</span>
+						{%- if upsell_product.selected_or_first_available_variant.compare_at_price != upsell_product.selected_or_first_available_variant.price -%}
+							{%- assign upsell_price = upsell_product.selected_or_first_available_variant.compare_at_price -%}
+						{%- else -%}
+							{%- assign upsell_price = upsell_product.selected_or_first_available_variant.price -%}
+						{%- endif -%}
+						<span class="cmp-price">{{ upsell_price | money_without_trailing_zeros }}</span>
+						<span class="price">{{ upsell_price | times: bundle_price_factor | money_without_trailing_zeros }}</span>
 					</div>
 					<div class="ppu">
 						{%- assign reference_value = upsell_product.selected_or_first_available_variant.unit_price_measurement.reference_value -%}
-						<span>{{ upsell_product.selected_or_first_available_variant.unit_price | money_without_trailing_zeros }}</span>
+						<span>{{ upsell_product.selected_or_first_available_variant.unit_price | times: bundle_price_factor | money_without_trailing_zeros }}</span>
 						<span>/</span>
 						<span>
 							{%- if reference_value != 1 -%}
