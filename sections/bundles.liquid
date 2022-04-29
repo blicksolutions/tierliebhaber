@@ -68,6 +68,7 @@
 }
 #shopify-section-{{ section.id }} .Bundle {
 	width: 60%;
+	max-width: 900px;
 	border-radius: 8px;
 	background-color: {{ section.settings.tile_background_color  }};
 }
@@ -162,6 +163,7 @@
 @media screen and (max-width: 1007px) {
 	#shopify-section-{{ section.id }} .Bundle {
 		width: 80%;
+		max-width: none;
 	}
 	#shopify-section-{{ section.id }} .Bundle .content .meta .Button {
 		display: none;
