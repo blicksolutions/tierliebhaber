@@ -18,10 +18,14 @@
 		</div>
 		<div class="content">
 			<div class="image">
-				<img src="{{ upsell_product.featured_image | img_url: "400x400" }}" alt="{{upsell_product.title }}" />
+				<a href="{{ upsell_product.url }}">
+					<img src="{{ upsell_product.featured_image | img_url: "400x400" }}" alt="{{upsell_product.title }}" />
+				</a>
 			</div>
 			<div class="meta">
-				<div class="title">{{ upsell_product.title }}</div>
+				<div class="title">
+					<a href="{{ upsell_product.url }}">{{ upsell_product.title }}</a>
+				</div>
 				<div class="price">
 					<div class="main">
 						{% if upsell_product.selected_or_first_available_variant.compare_at_price != upsell_product.selected_or_first_available_variant.price or true %}
@@ -43,6 +47,9 @@
 				</div>
 				<div class="Button">
 					<span>{{ section.settings.atc_text }}</span>
+				</div>
+				<div class="bundle_pdp_snippet">
+					{%- render "product-form", product: bundle_product -%}
 				</div>
 			</div>
 		</div>
@@ -131,7 +138,27 @@
 	color: var(--button-text-color);
 	user-select: none;
 }
+#shopify-section-{{ section.id }} .Bundle .content .meta .bundle_pdp_snippet {
+	display: none;
+}
+#shopify-section-{{ section.id }} .Bundle .content .meta .bundle_pdp_snippet * {
+	display: none !important;
+}
 </style>
+
+<script>
+/*
+bundle ATC button handler
+
+The product-meta snippet is rendered (hidden) inside .bundle_pdp_snippet for the bundle_product, the bundle
+ATC button handler clicks the ATC button inside this snippet
+*/
+window.addEventListener("load" , async function() {
+	document.querySelector("#shopify-section-{{ section.id }} .Bundle .content .meta .Button").addEventListener("click" , function() {
+		document.querySelector("#shopify-section-{{ section.id }} .Bundle .content .meta .bundle_pdp_snippet .ProductForm__AddToCart").click();
+	});
+});
+</script>
 
 {% schema %}
 {
