@@ -1,6 +1,9 @@
+{%- assign upsell_product = product.metafields.upsell.upsell_product.value -%}
+{%- assign bundle_product = product.metafields.upsell.bundle_product.value -%}
+
+{%- if upsell_product != blank and bundle_product != blank -%}
+
 <div class="Section Section--spacingNormal Bundles__Wrapper">
-	{%- assign upsell_product = product.metafields.upsell.upsell_product.value -%}
-	{%- assign bundle_product = product.metafields.upsell.bundle_product.value -%}
 	<div class="Bundle">
 		<div class="headline">
 			<div class="text">
@@ -214,6 +217,8 @@ window.addEventListener("load" , async function() {
 	});
 });
 </script>
+
+{%- endif -%}
 
 {% schema %}
 {
