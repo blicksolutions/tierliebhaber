@@ -45,13 +45,18 @@
 						</span>
 					</div>
 				</div>
-				<div class="Button">
+				<div class="Button bundle_atc">
 					<span>{{ section.settings.atc_text }}</span>
 				</div>
-				<div class="bundle_pdp_snippet">
-					{%- render "product-form", product: bundle_product -%}
-				</div>
 			</div>
+		</div>
+		<div class="button_wrapper">
+			<div class="Button bundle_atc">
+				<span>{{ section.settings.atc_text }}</span>
+			</div>
+		</div>
+		<div class="bundle_pdp_snippet">
+			{%- render "product-form", product: bundle_product -%}
 		</div>
 	</div>
 </div>
@@ -62,9 +67,15 @@
 	justify-content: center;
 }
 #shopify-section-{{ section.id }} .Bundle {
-	width: 50%;
+	width: 60%;
 	border-radius: 8px;
 	background-color: {{ section.settings.tile_background_color  }};
+}
+#shopify-section-{{ section.id }} .Bundle .Button {
+	background-color: var(--button-background);
+	color: var(--button-text-color);
+	user-select: none;
+	cursor: pointer;
 }
 #shopify-section-{{ section.id }} .Bundle .headline {
 	display: flex;
@@ -90,7 +101,6 @@
 	display: flex;
 	width: 100%;
 	padding: 0px 10px;
-	margin-bottom: 20px;
 	justify-content: space-between;
 	align-items: center;
 }
@@ -133,16 +143,54 @@
 	font-size: 12px;
 	color: {{ section.settings.ppu_font_color }};
 }
-#shopify-section-{{ section.id }} .Bundle .content .meta .Button {
-	background-color: var(--button-background);
-	color: var(--button-text-color);
-	user-select: none;
+#shopify-section-{{ section.id }} .Bundle > .button_wrapper {
+	width: 100%;
+	padding: 0px 25px;
+	margin-bottom: 15px;
+	text-align: center;
 }
-#shopify-section-{{ section.id }} .Bundle .content .meta .bundle_pdp_snippet {
+#shopify-section-{{ section.id }} .Bundle > .button_wrapper .Button {
 	display: none;
 }
-#shopify-section-{{ section.id }} .Bundle .content .meta .bundle_pdp_snippet * {
+#shopify-section-{{ section.id }} .Bundle .bundle_pdp_snippet {
+	display: none;
+}
+#shopify-section-{{ section.id }} .Bundle .bundle_pdp_snippet * {
 	display: none !important;
+}
+
+@media screen and (max-width: 1007px) {
+	#shopify-section-{{ section.id }} .Bundle {
+		width: 80%;
+	}
+	#shopify-section-{{ section.id }} .Bundle .content .meta .Button {
+		display: none;
+	}
+	#shopify-section-{{ section.id }} .Bundle .button_wrapper .Button {
+		display: block;
+	}
+}
+@media screen and (max-width: 650px) {
+	#shopify-section-{{ section.id }} .Bundle {
+		width: calc(100% - 12px);
+	}
+	#shopify-section-{{ section.id }} .Bundle .headline {
+		padding: 0px 15px;
+	}
+	#shopify-section-{{ section.id }} .Bundle .headline .text h2 {
+		font-size: 18px;
+	}
+	#shopify-section-{{ section.id }} .Bundle .content {
+		padding: 0;
+	}
+	#shopify-section-{{ section.id }} .Bundle .content .image {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	#shopify-section-{{ section.id }} .Bundle .content .meta {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
 }
 </style>
 
@@ -154,8 +202,10 @@ The product-meta snippet is rendered (hidden) inside .bundle_pdp_snippet for the
 ATC button handler clicks the ATC button inside this snippet
 */
 window.addEventListener("load" , async function() {
-	document.querySelector("#shopify-section-{{ section.id }} .Bundle .content .meta .Button").addEventListener("click" , function() {
-		document.querySelector("#shopify-section-{{ section.id }} .Bundle .content .meta .bundle_pdp_snippet .ProductForm__AddToCart").click();
+	document.querySelectorAll("#shopify-section-{{ section.id }} .Bundle .Button.bundle_atc").forEach(async function(item) {
+		item.addEventListener("click" , function() {
+			document.querySelector("#shopify-section-{{ section.id }} .Bundle .bundle_pdp_snippet .ProductForm__AddToCart").click();
+		});
 	});
 });
 </script>
