@@ -90,6 +90,9 @@
 	</div>
 
 	<style>
+	#shopify-section-{{ section.id }} {
+		margin-top: -50px;
+	}
 	#shopify-section-{{ section.id }} .Bundles__Wrapper {
 		display: flex;
 		justify-content: center;
@@ -222,7 +225,7 @@
 			display: block;
 		}
 	}
-	@media screen and (max-width: 650px) {
+	@media screen and (max-width: 641px) {
 		#shopify-section-{{ section.id }} .Bundle {
 			width: calc(100% - 12px);
 		}
@@ -256,6 +259,16 @@
 				padding-right: 20px;
 			}
 		{%- endif -%}
+	}
+	@media screen and (min-width: 642px) {
+		#shopify-section-{{ section.id }} {
+			margin-top: -150px;
+		}
+	}
+	@media screen and (min-width: 1008px) {
+		#shopify-section-{{ section.id }} {
+			margin-top: -230px;
+		}
 	}
 	</style>
 
