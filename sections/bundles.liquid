@@ -52,16 +52,18 @@
 											<span class="cmp-price">{{ upsell_price | money_without_trailing_zeros }}</span>
 											<span class="price">{{ upsell_price | times: bundle_price_factor | money_without_trailing_zeros }}</span>
 										</div>
-										<div class="ppu">
-											{%- assign reference_value = upsell_product.selected_or_first_available_variant.unit_price_measurement.reference_value -%}
-											<span>{{ upsell_product.selected_or_first_available_variant.unit_price | times: bundle_price_factor | money_without_trailing_zeros }}</span>
-											<span>/</span>
-											<span>
-												{%- if reference_value != 1 -%}
-													<span>{{ reference_value }}</span>
-												{%- endif -%}
-												<span>{{ upsell_product.selected_or_first_available_variant.unit_price_measurement.reference_unit }}</span>
-											</span>
+										{%- if upsell_product.selected_or_first_available_variant.unit_price_measurement.reference_unit != blank and upsell_product.selected_or_first_available_variant.unit_price != blank -%}
+											<div class="ppu">
+												{%- assign reference_value = upsell_product.selected_or_first_available_variant.unit_price_measurement.reference_value -%}
+												<span>{{ upsell_product.selected_or_first_available_variant.unit_price | times: bundle_price_factor | money_without_trailing_zeros }}</span>
+												<span>/</span>
+												<span>
+													{%- if reference_value != 1 -%}
+														<span>{{ reference_value }}</span>
+													{%- endif -%}
+													<span>{{ upsell_product.selected_or_first_available_variant.unit_price_measurement.reference_unit }}</span>
+												</span>
+											</div>
 										</div>
 									</div>
 									<div class="Button bundle_atc">
