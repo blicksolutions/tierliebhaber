@@ -23,45 +23,57 @@
 					<span class="caption">{{ section.settings.banner_text }}</span>
 				</div>
 			</div>
-			{%- for upsell_product in product.metafields.upsell.upsell_product.value -%}
-				<div class="content">
-					<div class="image">
-						<a href="{{ upsell_product.url }}">
-							<img src="{{ upsell_product.featured_image | img_url: "400x400" }}" alt="{{upsell_product.title }}" />
-						</a>
-					</div>
-					<div class="meta">
-						<div class="title">
-							<a href="{{ upsell_product.url }}">{{ upsell_product.title }}</a>
-						</div>
-						<div class="price">
-							<div class="main">
-								{%- if upsell_product.selected_or_first_available_variant.compare_at_price != upsell_product.selected_or_first_available_variant.price -%}
-									{%- assign upsell_price = upsell_product.selected_or_first_available_variant.compare_at_price -%}
-								{%- else -%}
-									{%- assign upsell_price = upsell_product.selected_or_first_available_variant.price -%}
-								{%- endif -%}
-								<span class="cmp-price">{{ upsell_price | money_without_trailing_zeros }}</span>
-								<span class="price">{{ upsell_price | times: bundle_price_factor | money_without_trailing_zeros }}</span>
+			<div class="content">
+				<div class="swiper-navigation prev">
+					<img src="{{ section.settings.swiper_nav_icon_prev | img_url: "128x128" }}" />
+				</div>
+				<div class="swiper">
+					<div class="swiper-wrapper">
+						{%- for upsell_product in product.metafields.upsell.upsell_product.value -%}
+							<div class="swiper-slide">
+								<div class="image">
+									<a href="{{ upsell_product.url }}">
+										<img src="{{ upsell_product.featured_image | img_url: "400x400" }}" alt="{{upsell_product.title }}" />
+									</a>
+								</div>
+								<div class="meta">
+									<div class="title">
+										<a href="{{ upsell_product.url }}">{{ upsell_product.title }}</a>
+									</div>
+									<div class="price">
+										<div class="main">
+											{%- if upsell_product.selected_or_first_available_variant.compare_at_price != upsell_product.selected_or_first_available_variant.price -%}
+												{%- assign upsell_price = upsell_product.selected_or_first_available_variant.compare_at_price -%}
+											{%- else -%}
+												{%- assign upsell_price = upsell_product.selected_or_first_available_variant.price -%}
+											{%- endif -%}
+											<span class="cmp-price">{{ upsell_price | money_without_trailing_zeros }}</span>
+											<span class="price">{{ upsell_price | times: bundle_price_factor | money_without_trailing_zeros }}</span>
+										</div>
+										<div class="ppu">
+											{%- assign reference_value = upsell_product.selected_or_first_available_variant.unit_price_measurement.reference_value -%}
+											<span>{{ upsell_product.selected_or_first_available_variant.unit_price | times: bundle_price_factor | money_without_trailing_zeros }}</span>
+											<span>/</span>
+											<span>
+												{%- if reference_value != 1 -%}
+													<span>{{ reference_value }}</span>
+												{%- endif -%}
+												<span>{{ upsell_product.selected_or_first_available_variant.unit_price_measurement.reference_unit }}</span>
+											</span>
+										</div>
+									</div>
+									<div class="Button bundle_atc">
+										<span>{{ section.settings.atc_text }}</span>
+									</div>
+								</div>
 							</div>
-							<div class="ppu">
-								{%- assign reference_value = upsell_product.selected_or_first_available_variant.unit_price_measurement.reference_value -%}
-								<span>{{ upsell_product.selected_or_first_available_variant.unit_price | times: bundle_price_factor | money_without_trailing_zeros }}</span>
-								<span>/</span>
-								<span>
-									{%- if reference_value != 1 -%}
-										<span>{{ reference_value }}</span>
-									{%- endif -%}
-									<span>{{ upsell_product.selected_or_first_available_variant.unit_price_measurement.reference_unit }}</span>
-								</span>
-							</div>
-						</div>
-						<div class="Button bundle_atc">
-							<span>{{ section.settings.atc_text }}</span>
-						</div>
+						{%- endfor -%}
 					</div>
 				</div>
-			{%- endfor -%}
+				<div class="swiper-navigation next">
+					<img src="{{ section.settings.swiper_nav_icon_next | img_url: "128x128" }}" />
+				</div>
+			</div>
 			<div class="button_wrapper">
 				<div class="Button bundle_atc">
 					<span>{{ section.settings.atc_text }}</span>
@@ -113,45 +125,63 @@
 	#shopify-section-{{ section.id }} .Bundle .content {
 		display: flex;
 		width: 100%;
+		justify-content: space-between;
+		align-items: center;
+	}
+	#shopify-section-{{ section.id }} .Bundle .content .swiper-navigation {
+		width: 10%;
+		max-width: 40px;
+		cursor: pointer;
+	}
+	#shopify-section-{{ section.id }} .Bundle .content .swiper-navigation.swiper-button-disabled {
+		opacity: 0.3;
+	}
+	#shopify-section-{{ section.id }} .Bundle .content .swiper {
+		width: 80%;
+		min-width: calc(100% - 80px)
+	}
+	#shopify-section-{{ section.id }} .Bundle .swiper-slide {
+		display: flex;
+		width: 100%;
 		padding: 0px 10px;
 		justify-content: space-between;
 		align-items: center;
 	}
-	#shopify-section-{{ section.id }} .Bundle .content .image {
+	#shopify-section-{{ section.id }} .Bundle .swiper-slide .image {
 		width: 50%;
 		padding: 15px;
 		user-select: none;
 	}
-	#shopify-section-{{ section.id }} .Bundle .content .image img {
+	#shopify-section-{{ section.id }} .Bundle .swiper-slide .image img {
 		aspect-ratio: 1;
 		border-radius: 8px;
 	}
-	#shopify-section-{{ section.id }} .Bundle .content .meta {
+	#shopify-section-{{ section.id }} .Bundle .swiper-slide .meta {
 		width: 50%;
 		padding: 15px;
 	}
-	#shopify-section-{{ section.id }} .Bundle .content .meta .title {
+	#shopify-section-{{ section.id }} .Bundle .swiper-slide .meta .title {
 		font-size: 20px;
 		margin: 7px 0px;
 		text-decoration: underline;
 	}
-	#shopify-section-{{ section.id }} .Bundle .content .meta > .price {
+	#shopify-section-{{ section.id }} .Bundle .swiper-slide .meta > .price {
 		margin-bottom: 15px;
 	}
-	#shopify-section-{{ section.id }} .Bundle .content .meta .price .main {
+	#shopify-section-{{ section.id }} .Bundle .swiper-slide .meta .price .main {
 		font-size: 16px;
 	}
-	#shopify-section-{{ section.id }} .Bundle .content .meta .price .main .cmp-price {
+	#shopify-section-{{ section.id }} .Bundle .swiper-slide .meta .price .main .cmp-price {
 		display: inline-block;
 		margin-right: 5px;
 		color: var(--text-color-light);
 		text-decoration: line-through;
 	}
-	#shopify-section-{{ section.id }} .Bundle .content .meta .price .main .price {
+	#shopify-section-{{ section.id }} .Bundle .swiper-slide .meta .price .main .price {
 		display: inline-block;
 		color: {{ section.settings.offer_price_font_color }};
 	}
-	#shopify-section-{{ section.id }} .Bundle .content .meta .price .ppu {
+	#shopify-section-{{ section.id }} .Bundle .swiper-slide .meta .price .ppu {
 		margin-top: 5px;
 		font-size: 12px;
 		color: {{ section.settings.ppu_font_color }};
@@ -177,7 +207,7 @@
 			width: 80%;
 			max-width: none;
 		}
-		#shopify-section-{{ section.id }} .Bundle .content .meta .Button {
+		#shopify-section-{{ section.id }} .Bundle .swiper-slide .meta .Button {
 			display: none;
 		}
 		#shopify-section-{{ section.id }} .Bundle .button_wrapper .Button {
@@ -194,14 +224,14 @@
 		#shopify-section-{{ section.id }} .Bundle .headline .text h2 {
 			font-size: 18px;
 		}
-		#shopify-section-{{ section.id }} .Bundle .content {
+		#shopify-section-{{ section.id }} .Bundle .swiper-slide {
 			padding: 0;
 		}
-		#shopify-section-{{ section.id }} .Bundle .content .image {
+		#shopify-section-{{ section.id }} .Bundle .swiper-slide .image {
 			padding-left: 5px;
 			padding-right: 5px;
 		}
-		#shopify-section-{{ section.id }} .Bundle .content .meta {
+		#shopify-section-{{ section.id }} .Bundle .swiper-slide .meta {
 			padding-left: 5px;
 			padding-right: 5px;
 		}
@@ -222,13 +252,23 @@
 			});
 		});
 	});
+
+	/* multi upsell product swiper */
+	window.addEventListener("load" , async function() {
+		let swiper = new Swiper("#shopify-section-{{ section.id }} .Bundle .swiper" , {
+			navigation: {
+				nextEl: ".swiper-navigation.next",
+				prevEl: ".swiper-navigation.prev"
+			}
+		});
+	});
 	</script>
 
 {%- endif -%}
 
 {% schema %}
 {
-	"name": "Collection page",
+	"name": "Bundles",
 	"class": "shopify-section--bordered",
 	"settings": [
 		{
@@ -281,6 +321,16 @@
 			"id": "ppu_font_color",
 			"label": "PricePerUnit Font Color",
 			"default": "#6a6a6a"
+		},
+		{
+			"type": "image_picker",
+			"id": "swiper_nav_icon_prev",
+			"label": "Swiper Navigation Icon (previous)"
+		},
+		{
+			"type": "image_picker",
+			"id": "swiper_nav_icon_next",
+			"label": "Swiper Navigation Icon (next)"
 		}
 	]
 }
