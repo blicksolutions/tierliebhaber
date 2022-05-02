@@ -1,0 +1,373 @@
+{%- assign bundle_product = product.metafields.upsell.bundle_product.value -%}
+
+{%- assign upsell_product_count = 0 -%}
+{%- for upsell_product in product.metafields.upsell.upsell_product.value -%}
+	{%- assign upsell_product_count = upsell_product_count | plus: 1 -%}
+{%- endfor -%}
+
+{%- if upsell_product_count > 0 and bundle_product != blank -%}
+
+	<div class="Section Section--spacingNormal Bundles__Wrapper">
+		<div class="Bundle">
+			<div class="headline">
+				<div class="text">
+					<h2 class="Heading">{{ section.settings.heading_text }}</h2>
+				</div>
+				<div class="banner">
+					{%- assign bundle_price = bundle_product.selected_or_first_available_variant.price | times: 1.0 -%}
+					{%- assign bundle_compare_at_price =  bundle_product.selected_or_first_available_variant.compare_at_price | times: 1.0 -%}
+					{%- assign bundle_price_factor = bundle_price | divided_by: bundle_compare_at_price -%}
+					{%- assign bundle_discount = 1 | minus: bundle_price_factor -%}
+					{%- assign bundle_discount_percent =  bundle_discount | times: 100 | round -%}
+					<span class="discount">-{{ bundle_discount_percent }}%</span>
+					<span class="caption">{{ section.settings.banner_text }}</span>
+				</div>
+			</div>
+			<div class="content">
+				{%- if upsell_product_count > 1 -%}
+					<div class="swiper-navigation prev">
+						<img src="{{ section.settings.swiper_nav_icon_prev | img_url: "128x128" }}" />
+					</div>
+				{%- endif -%}
+				<div class="swiper">
+					<div class="swiper-wrapper">
+						{%- for upsell_product in product.metafields.upsell.upsell_product.value -%}
+							<div class="swiper-slide">
+								<div class="image">
+									<a href="{{ upsell_product.url }}">
+										<img src="{{ upsell_product.featured_image | img_url: "400x400" }}" alt="{{upsell_product.title }}" />
+									</a>
+								</div>
+								<div class="meta">
+									<div class="title">
+										<a href="{{ upsell_product.url }}">{{ upsell_product.title }}</a>
+									</div>
+									<div class="price">
+										<div class="main">
+											{%- if upsell_product.selected_or_first_available_variant.compare_at_price != upsell_product.selected_or_first_available_variant.price -%}
+												{%- assign upsell_price = upsell_product.selected_or_first_available_variant.compare_at_price -%}
+											{%- else -%}
+												{%- assign upsell_price = upsell_product.selected_or_first_available_variant.price -%}
+											{%- endif -%}
+											<span class="cmp-price">{{ upsell_price | money_without_trailing_zeros }}</span>
+											<span class="price">{{ upsell_price | times: bundle_price_factor | money_without_trailing_zeros }}</span>
+										</div>
+										{%- if upsell_product.selected_or_first_available_variant.unit_price_measurement.reference_unit != blank and upsell_product.selected_or_first_available_variant.unit_price != blank -%}
+											<div class="ppu">
+												{%- assign reference_value = upsell_product.selected_or_first_available_variant.unit_price_measurement.reference_value -%}
+												<span>{{ upsell_product.selected_or_first_available_variant.unit_price | times: bundle_price_factor | money_without_trailing_zeros }}</span>
+												<span>/</span>
+												<span>
+													{%- if reference_value != 1 -%}
+														<span>{{ reference_value }}</span>
+													{%- endif -%}
+													<span>{{ upsell_product.selected_or_first_available_variant.unit_price_measurement.reference_unit }}</span>
+												</span>
+											</div>
+										{%- endif -%}
+									</div>
+									<div class="Button bundle_atc">
+										<span>{{ section.settings.atc_text }}</span>
+									</div>
+								</div>
+							</div>
+						{%- endfor -%}
+					</div>
+				</div>
+				{%- if upsell_product_count > 1 -%}
+					<div class="swiper-navigation next">
+						<img src="{{ section.settings.swiper_nav_icon_next | img_url: "128x128" }}" />
+					</div>
+				{%- endif -%}
+			</div>
+			<div class="button_wrapper">
+				<div class="Button bundle_atc">
+					<span>{{ section.settings.atc_text }}</span>
+				</div>
+			</div>
+			<div class="bundle_pdp_snippet">
+				{%- render "product-form", product: bundle_product -%}
+			</div>
+		</div>
+	</div>
+
+	<style>
+	#shopify-section-{{ section.id }} {
+		margin-top: -50px;
+	}
+	#shopify-section-{{ section.id }} .Bundles__Wrapper {
+		display: flex;
+		justify-content: center;
+	}
+	#shopify-section-{{ section.id }} .Bundle {
+		width: 60%;
+		max-width: 700px;
+		border-radius: 8px;
+		background-color: {{ section.settings.tile_background_color  }};
+	}
+	#shopify-section-{{ section.id }} .Bundle .Button {
+		background-color: var(--button-background);
+		color: var(--button-text-color);
+		user-select: none;
+		cursor: pointer;
+	}
+	#shopify-section-{{ section.id }} .Bundle .headline {
+		display: flex;
+		width: 100%;
+		padding: 0px 25px;
+		justify-content: space-between;
+	}
+	#shopify-section-{{ section.id }} .Bundle .headline .text {
+		padding: 15px 0px 5px 0px;
+	}
+	#shopify-section-{{ section.id }} .Bundle .headline .text h2 {
+		font-size: 22px;
+	}
+	#shopify-section-{{ section.id }} .Bundle .headline .banner {
+		padding: 5px 10px;
+		margin: 15px 0px 5px 0px;
+		border-radius: 8px;
+		border: 1px solid {{ section.settings.banner_border_color }};
+		background-color: {{ section.settings.banner_bg_color }};
+		color: {{ section.settings.banner_font_color }};
+	}
+	#shopify-section-{{ section.id }} .Bundle .content {
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+		align-items: center;
+	}
+	#shopify-section-{{ section.id }} .Bundle .content .swiper-navigation {
+		width: 10%;
+		max-width: 40px;
+		cursor: pointer;
+	}
+	#shopify-section-{{ section.id }} .Bundle .content .swiper-navigation.swiper-button-disabled {
+		opacity: 0.3;
+	}
+	#shopify-section-{{ section.id }} .Bundle .content .swiper {
+		{%- if upsell_product_count > 1 -%}
+			width: 80%;
+			min-width: calc(100% - 80px)
+		{%- else -%}
+			width: 100%;
+		{%- endif -%}
+	}
+	#shopify-section-{{ section.id }} .Bundle .swiper-slide {
+		display: flex;
+		width: 100%;
+		padding: 0px 10px;
+		justify-content: space-between;
+		align-items: center;
+	}
+	#shopify-section-{{ section.id }} .Bundle .swiper-slide .image {
+		width: 50%;
+		padding: 15px;
+		user-select: none;
+	}
+	#shopify-section-{{ section.id }} .Bundle .swiper-slide .image img {
+		aspect-ratio: 1;
+		border-radius: 8px;
+	}
+	#shopify-section-{{ section.id }} .Bundle .swiper-slide .meta {
+		width: 50%;
+		padding: 15px;
+	}
+	#shopify-section-{{ section.id }} .Bundle .swiper-slide .meta .title {
+		font-size: 20px;
+		margin: 7px 0px;
+		text-decoration: underline;
+	}
+	#shopify-section-{{ section.id }} .Bundle .swiper-slide .meta > .price {
+		margin-bottom: 15px;
+	}
+	#shopify-section-{{ section.id }} .Bundle .swiper-slide .meta .price .main {
+		font-size: 16px;
+	}
+	#shopify-section-{{ section.id }} .Bundle .swiper-slide .meta .price .main .cmp-price {
+		display: inline-block;
+		margin-right: 5px;
+		color: var(--text-color-light);
+		text-decoration: line-through;
+	}
+	#shopify-section-{{ section.id }} .Bundle .swiper-slide .meta .price .main .price {
+		display: inline-block;
+		color: {{ section.settings.offer_price_font_color }};
+	}
+	#shopify-section-{{ section.id }} .Bundle .swiper-slide .meta .price .ppu {
+		margin-top: 5px;
+		font-size: 12px;
+		color: {{ section.settings.ppu_font_color }};
+	}
+	#shopify-section-{{ section.id }} .Bundle > .button_wrapper {
+		width: 100%;
+		padding: 0px 25px;
+		margin-bottom: 15px;
+		text-align: center;
+	}
+	#shopify-section-{{ section.id }} .Bundle > .button_wrapper .Button {
+		display: none;
+	}
+	#shopify-section-{{ section.id }} .Bundle .bundle_pdp_snippet {
+		display: none;
+	}
+	#shopify-section-{{ section.id }} .Bundle .bundle_pdp_snippet * {
+		display: none !important;
+	}
+
+	@media screen and (max-width: 1007px) {
+		#shopify-section-{{ section.id }} .Bundle {
+			width: 70%;
+			max-width: none;
+		}
+		#shopify-section-{{ section.id }} .Bundle .swiper-slide .meta .Button {
+			display: none;
+		}
+		#shopify-section-{{ section.id }} .Bundle .button_wrapper .Button {
+			display: block;
+		}
+	}
+	@media screen and (max-width: 641px) {
+		#shopify-section-{{ section.id }} .Bundle {
+			width: calc(100% - 12px);
+		}
+		#shopify-section-{{ section.id }} .Bundle .headline {
+			padding: 0px 15px;
+		}
+		#shopify-section-{{ section.id }} .Bundle .headline .text h2 {
+			font-size: 18px;
+		}
+		#shopify-section-{{ section.id }} .Bundle .swiper-slide {
+			padding: 0;
+		}
+		#shopify-section-{{ section.id }} .Bundle .swiper-slide .image {
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+		#shopify-section-{{ section.id }} .Bundle .swiper-slide .image img {
+			width: 100%;
+		}
+		#shopify-section-{{ section.id }} .Bundle .swiper-slide .meta {
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+		{%- if upsell_product_count > 1 -%}
+			#shopify-section-{{ section.id }} .Bundle .swiper-slide {
+				flex-direction: column;
+			}
+			#shopify-section-{{ section.id }} .Bundle .swiper-slide .image {
+				width: 100%;
+			}
+			#shopify-section-{{ section.id }} .Bundle .swiper-slide .meta {
+				width: 100%;
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+		{%- endif -%}
+	}
+	@media screen and (min-width: 642px) {
+		#shopify-section-{{ section.id }} {
+			margin-top: -150px;
+		}
+	}
+	</style>
+
+	<script>
+	/*
+	bundle ATC button handler
+
+	The product-meta snippet is rendered (hidden) inside .bundle_pdp_snippet with product=bundle_product, the bundle
+	ATC button handler clicks the ATC button inside this snippet
+	*/
+	window.addEventListener("load" , async function() {
+		document.querySelectorAll("#shopify-section-{{ section.id }} .Bundle .Button.bundle_atc").forEach(async function(item) {
+			item.addEventListener("click" , function() {
+				document.querySelector("#shopify-section-{{ section.id }} .Bundle .bundle_pdp_snippet .ProductForm__AddToCart").click();
+			});
+		});
+	});
+
+	/* multi upsell product swiper */
+	{%- if upsell_product_count > 1 -%}
+		window.addEventListener("load" , async function() {
+			let swiper = new Swiper("#shopify-section-{{ section.id }} .Bundle .swiper" , {
+				navigation: {
+					nextEl: ".swiper-navigation.next",
+					prevEl: ".swiper-navigation.prev"
+				}
+			});
+		});
+	{%- endif -%}
+	</script>
+
+{%- endif -%}
+
+{% schema %}
+{
+	"name": "Bundles",
+	"class": "shopify-section--bordered",
+	"settings": [
+		{
+			"type": "text",
+			"id": "heading_text",
+			"label": "Heading Text"
+		},
+		{
+			"type": "text",
+			"id": "banner_text",
+			"label": "Banner Text"
+		},
+		{
+			"type": "text",
+			"id": "atc_text",
+			"label": "ATC Button Text"
+		},
+		{
+			"type": "color",
+			"id": "tile_background_color",
+			"label": "Tile Background Color",
+			"default": "#d3d3d3"
+		},
+		{
+			"type": "color",
+			"id": "banner_bg_color",
+			"label": "Banner Background Color",
+			"default": "#fff3ef"
+		},
+		{
+			"type": "color",
+			"id": "banner_font_color",
+			"label": "Banner Font Color",
+			"default": "#e6b2a1"
+		},
+		{
+			"type": "color",
+			"id": "banner_border_color",
+			"label": "Banner Border Color",
+			"default": "#e6b2a1"
+		},
+		{
+			"type": "color",
+			"id": "offer_price_font_color",
+			"label": "Offer Price Font Color",
+			"default": "#e6b2a1"
+		},
+		{
+			"type": "color",
+			"id": "ppu_font_color",
+			"label": "PricePerUnit Font Color",
+			"default": "#6a6a6a"
+		},
+		{
+			"type": "image_picker",
+			"id": "swiper_nav_icon_prev",
+			"label": "Swiper Navigation Icon (previous)"
+		},
+		{
+			"type": "image_picker",
+			"id": "swiper_nav_icon_next",
+			"label": "Swiper Navigation Icon (next)"
+		}
+	]
+}
+{% endschema %}

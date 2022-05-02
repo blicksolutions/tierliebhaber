@@ -32,6 +32,22 @@
         "benefit_item_2_title": "Mit ❤️ gemacht in Deutschland."
       }
     },
+    "bundles": {
+      "type": "bundles",
+      "settings": {
+        "heading_text": "Passt perfekt dazu:",
+        "banner_text": "im Bundle",
+        "atc_text": "Als Bundle kaufen!",
+        "tile_background_color": "#f7f5f2",
+        "banner_bg_color": "#fef3ef",
+        "banner_font_color": "#e6b2a1",
+        "banner_border_color": "#e6b2a1",
+        "offer_price_font_color": "#027c09",
+        "ppu_font_color": "#8e8e8e",
+        "swiper_nav_icon_prev": "shopify:\/\/shop_images\/icon_2.png",
+        "swiper_nav_icon_next": "shopify:\/\/shop_images\/icon.png"
+      }
+    },
     "1628804794af0431f7": {
       "type": "benefits",
       "settings": {
@@ -140,6 +156,7 @@
   },
   "order": [
     "main",
+    "bundles",
     "1628804794af0431f7",
     "16288047979ee0ca29",
     "16288473445aa6c049",
