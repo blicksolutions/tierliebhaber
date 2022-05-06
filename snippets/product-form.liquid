@@ -347,7 +347,7 @@ for size, we use it to display a size chart (if applicable)
   -%}
 
   {%- if selling_points.size > 0 -%}
-    <div class="ProductForm__SellingPoints">
+    <div class="ProductForm__SellingPoints" style="margin-top: 45px; margin-bottom: 45px;">
       {%- for selling_point in selling_points -%}
         <div class="SellingPointItem">
           <div class="SellingPointItem__Icon">{%- render 'icon', icon: selling_point.icon -%}</div>
