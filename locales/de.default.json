@@ -439,7 +439,9 @@
         "or": "ODER WEITER MIT KREDITKARTE, ÜBERWEISUNG ODER RECHNUNG"
       },
       "order_summary": {
-        "tip_label": "Spendenaktion"
+        "tip_label": "Spendenaktion",
+        "expand_order_summary": "Bestellübersicht zeigen",
+        "collapse_order_summary": "Bestellübersicht ausblenden"
       },
       "tips": {
         "title": "Spende Tierliebe",
