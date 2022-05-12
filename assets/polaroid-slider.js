@@ -32,12 +32,6 @@ $(document).ready(function () {
             infinite: true
           },
         },
-        {
-          breakpoint: 600,
-          settings: {
-             centerPadding: '80px',
-          },
-        },
       ],
     });
   });
