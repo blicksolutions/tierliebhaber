@@ -27,3 +27,18 @@ $(document).ready(function () {
     });
   });
   
+
+$(".section-polaroid-slider .slider").on("afterChange", testingThings);
+$(".section-polaroid-slider .slider").on("breakpoint", testingThings);
+$(".section-polaroid-slider .slider").on("init", testingThings);
+
+function testingThings (event, slick) {
+  var slidesToShow = slick.slickGetOption("slidesToShow");
+
+  if (slidesToShow % 2 == 0) {
+    // Even number of slides in Slick Carousel is incorrectly offset.
+    // Adjust active slides.
+    slick["$slides"][slick.slickCurrentSlide()].previousElementSibling.classList.add("slick-active")
+    slick["$slides"][slick.slickCurrentSlide()].nextElementSibling.classList.remove("slick-active")
+  }
+}
