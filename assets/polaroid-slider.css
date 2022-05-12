@@ -38,6 +38,12 @@
   margin-bottom: 10px;
 }
 
+@media(max-width: 767px) {
+  .section-polaroid-slider .image {
+	height: 190px;
+  }
+}
+
 .section-polaroid-slider h3 {
   text-transform: uppercase;
 }
