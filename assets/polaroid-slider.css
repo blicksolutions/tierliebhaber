@@ -55,6 +55,13 @@
   margin-bottom: 100px;
 }
 
+@media(max-width: 1199px) {
+  .section-polaroid-slider .headline-wrapper {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+}
+
 .section-polaroid-slider .headline-wrapper h2 {
   font-size: 25px;
   margin-bottom: 10px;
