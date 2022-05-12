@@ -38,12 +38,6 @@
   margin-bottom: 10px;
 }
 
-@media(max-width: 767px) {
-  .section-polaroid-slider .image {
-	height: 190px;
-  }
-}
-
 .section-polaroid-slider h3 {
   text-transform: uppercase;
 }
@@ -120,6 +114,11 @@
   transform: scale(1.3);
 }
 
+@media(max-width: 767px) {
+ .section-polaroid-slider .slick-center.slick-active.item .polaroid{
+  transform: scale(1.1);
+ }
+}
 
 .section-polaroid-slider .slick-active .polaroid:before {
   background: rgba(0,0,0, 0);
