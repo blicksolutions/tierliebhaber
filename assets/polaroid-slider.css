@@ -68,6 +68,12 @@
   font-weight: 600;
 }
 
+@media(max-width: 767px) {
+ .section-polaroid-slider .headline-wrapper h2 {
+  font-size: 22px;
+ }
+}
+
 .section-polaroid-slider .headline-wrapper h3 {
   font-size: 16px;
   font-weight: 700;
