@@ -6,6 +6,7 @@ $(document).ready(function () {
       centerPadding: '60px',
       slidesToShow: 5,
       slidesToScroll: 1,
+      slidesPerRow: 3,
       infinite: true,
       //autoplay: true,
       //autoplaySpeed: 5000,
