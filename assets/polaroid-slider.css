@@ -7,8 +7,6 @@
 @media (max-width: 767px) {
   .section-polaroid-slider {
     overflow-x: hidden;
-    max-width: 90%;
-    margin: 0 auto;
   }
 }
 
@@ -92,6 +90,13 @@
 .section-polaroid-slider .slider {
   max-width: 800px;
   margin: 0 auto;
+}
+
+@media(max-width: 767px) {
+  .section-polaroid-slider .slider {
+     max-width: 90%;
+    margin: 0 auto;
+  }
 }
 
 .section-polaroid-slider .item .polaroid {
