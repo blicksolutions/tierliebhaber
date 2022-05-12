@@ -22,8 +22,19 @@ $(document).ready(function () {
             centerPadding: '130px',
           },
         },
+        
          {
           breakpoint: 767,
+          settings: {
+            slidesToShow: 1,
+            dots: false,
+            arrows: false,
+            centerMode: true,
+            infinite: true,
+          },
+        },
+         {
+          breakpoint: 600,
           settings: {
             slidesToShow: 1,
             dots: false,
