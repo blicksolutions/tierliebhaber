@@ -47,6 +47,15 @@
   margin-bottom: 100px;
 }
 
+.section-polaroid-slider .headline-wrapper h2 {
+  font-size: 25px;
+}
+
+.section-polaroid-slider .headline-wrapper h3 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
 .section-polaroid-slider .headlines h2 , .section-polaroid-slider .headlines h3 {
   font-size: 14px;
   margin-bottom: 0px;
