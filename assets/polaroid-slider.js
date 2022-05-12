@@ -21,7 +21,8 @@ $(document).ready(function () {
             infinite: true,
             centerPadding: '130px',
           },
-        {
+        },
+         {
           breakpoint: 767,
           settings: {
             slidesToShow: 1,
