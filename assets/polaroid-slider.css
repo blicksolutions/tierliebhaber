@@ -14,7 +14,6 @@
   position: relative;
   text-align: center;
   background-color: #ffffff;
-    transition: all 300ms ease;
 }
 
 .section-polaroid-slider .polaroid:before {
@@ -106,18 +105,22 @@ position: relative;
 }
 
 
-.section-polaroid-slider .slick-active.item  {
+.section-polaroid-slider .item.slick-slide .polaroid {
+  transform: scale(0.7) translate(640px);
+}
+
+
+
+.section-polaroid-slider .slick-active.item .polaroid {
   transform: scale(0.8) translate(250px);
 }
 
-.section-polaroid-slider .slick-center + .slick-slide {
+.section-polaroid-slider .slick-center + .slick-slide .polaroid {
   transform: scale(0.8) translate(-250px);
 }
 
-.section-polaroid-slider .slick-center.item  {
+.section-polaroid-slider .slick-center.item .polaroid {
 	transform: scale(1);
-  	position: relative;
-  	z-index: 1;
 }
 
 .section-polaroid-slider .slick-active .polaroid:before {
