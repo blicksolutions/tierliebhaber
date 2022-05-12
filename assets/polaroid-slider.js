@@ -4,7 +4,7 @@ $(document).ready(function () {
     $(".section-polaroid-slider .slider").slick({
       centerMode: true,
       centerPadding: '60px',
-      slidesToShow: 5,
+      slidesToShow: 3,
       slidesToScroll: 1,
       infinite: true,
       //autoplay: true,
