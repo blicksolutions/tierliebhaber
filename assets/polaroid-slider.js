@@ -19,7 +19,7 @@ $(document).ready(function () {
             arrows: false,
             centerMode: true,
             infinite: true,
-           
+            centerPadding: '80px',
           },
         },
       ],
