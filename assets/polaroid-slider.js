@@ -22,7 +22,7 @@ $(document).ready(function () {
           },
         },
         {
-          breakpoint: 767,
+          breakpoint: 810,
           settings: {
             dots: false,
           },
