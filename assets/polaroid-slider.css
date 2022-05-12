@@ -149,21 +149,6 @@
   right: -70px;
 }
 
-@media (max-width: 1350px) {
-  .slick-prev,
-  .slick-next {
-    width: 30px;
-    height: 30px;
-  }
-
-  .slick-prev {
-    left: -30px;
-  }
-
-  .slick-next {
-    right: -30px;
-  }
-}
 
 @media (max-width: 800px) {
   .slick-prev,
