@@ -13,6 +13,7 @@
 .section-polaroid-slider .polaroid {
   position: relative;
   text-align: center;
+  background-color: #ffffff;
 }
 
 .section-polaroid-slider .polaroid:before {
