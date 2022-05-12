@@ -110,7 +110,9 @@
   transform: scale(1);
 }
 
-.section-polaroid-slider .slick-center.slick-active.item {
+.section-polaroid-slider .slick-center.slick-active.item .polaroid{
+  position: relative;
+  z-index: 1;
   transform: scale(1.2);
 }
 
