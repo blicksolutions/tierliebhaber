@@ -80,6 +80,12 @@
 
 /* -- slick styles -- */
 
+.section-polaroid-slider .slider {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+
 /* slick arrows */
 
 .slick-prev,
