@@ -1042,8 +1042,21 @@
       },
       "1652349198366a4829": {
         "type": "polaroid-slider",
+        "blocks": {
+          "9fbcce09-1bf4-4ae1-bf12-4a1c7f5fe5ae": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/banner-v2-new.jpg",
+              "item-headline": "Headline",
+              "item-subline": "Subline"
+            }
+          }
+        },
+        "block_order": [
+          "9fbcce09-1bf4-4ae1-bf12-4a1c7f5fe5ae"
+        ],
         "settings": {
-          "background-color": "#F2F8F5",
+          "background-color": "#f2f8f5",
           "slider-headline": "Unser Team",
           "slider-subline": "Das Tierlieber Team"
         }
