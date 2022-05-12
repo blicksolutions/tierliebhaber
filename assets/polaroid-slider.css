@@ -1,17 +1,5 @@
-/* image text slider section */
+/* polaroid slider section */
 
-
-@media (max-width: 1350px) {
-  .section-polaroid-slider {
-    max-width: 800px;
-  }
-}
-
-@media (max-width: 1100px) and (min-width: 768px) {
-  .section-polaroid-slider {
-    max-width: 650px;
-  }
-}
 
 @media (max-width: 767px) {
   .section-polaroid-slider {
