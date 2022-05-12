@@ -173,38 +173,13 @@
 }
 
 /* slick items */
-/* 
+
 .slick-slide {
-  margin-left: 35px;
-  margin-right: 35px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .slick-list {
-  margin-left: -35px;
-  margin-right: -35px;
+  margin-left: -10px;
+  margin-right: -10px;
 }
-
-@media (max-width: 1350px) {
-  .slick-slide {
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-
-  .slick-list {
-    margin-left: -20px;
-    margin-right: -20px;
-  }
-}
-
-@media (max-width: 767px) {
-  .slick-slide {
-    margin-left: 7px;
-    margin-right: 7px;
-  }
-
-  .slick-list {
-    margin-left: -7px;
-    margin-right: -7px;
-  }
-}
-*/
