@@ -1,5 +1,8 @@
 /* polaroid slider section */
 
+.section-polaroid-slider {
+ padding: 60px 0 85px; 
+}
 
 @media (max-width: 767px) {
   .section-polaroid-slider {
