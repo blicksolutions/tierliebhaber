@@ -38,17 +38,17 @@
   margin-bottom: 10px;
 }
 
-.section-polaroid-slider h2 , .section-polaroid-slider h3 {
-  font-size: 14px;
-  margin-bottom: 0px;
-}
-
 .section-polaroid-slider h3 {
   text-transform: uppercase;
 }
 
 .section-polaroid-slider .headline-wrapper {
   text-align: center;
+}
+
+.section-polaroid-slider .headlines h2 , .section-polaroid-slider .headlines h3 {
+  font-size: 14px;
+  margin-bottom: 0px;
 }
 
 
