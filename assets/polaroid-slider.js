@@ -19,6 +19,16 @@ $(document).ready(function () {
             arrows: false,
             centerMode: true,
             infinite: true,
+            centerPadding: '130px',
+          },
+        {
+          breakpoint: 767,
+          settings: {
+            slidesToShow: 1,
+            dots: false,
+            arrows: false,
+            centerMode: true,
+            infinite: true,
             centerPadding: '80px',
           },
         },
