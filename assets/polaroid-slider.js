@@ -7,6 +7,7 @@ $(document).ready(function () {
       slidesToShow: 3,
       slidesToScroll: 1,
       infinite: true,
+      dots: false,
       //autoplay: true,
       //autoplaySpeed: 5000,
       touchMove: true,
@@ -15,7 +16,6 @@ $(document).ready(function () {
           breakpoint: 992,
           settings: {
             slidesToShow: 1,
-            arrows: false,
             centerMode: true,
             infinite: true,
             centerPadding: '130px',
