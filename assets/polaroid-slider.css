@@ -103,6 +103,7 @@
 }
 
 .section-polaroid-slider .slick-center.item .polaroid {
+	  transform: scale(1.35);
 
 }
 
