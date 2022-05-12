@@ -1,9 +1,5 @@
 /* image text slider section */
 
-.section-polaroid-slider {
-  max-width: 1120px;
-  margin: 50px auto 90px;
-}
 
 @media (max-width: 1350px) {
   .section-polaroid-slider {
