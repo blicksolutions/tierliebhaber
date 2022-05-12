@@ -29,7 +29,8 @@ $(document).ready(function () {
             dots: false,
             arrows: false,
             centerMode: true,
-            infinite: true
+            infinite: true,
+            centerPadding: '80px',
           },
         },
       ],
