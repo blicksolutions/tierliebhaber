@@ -98,6 +98,7 @@
 
 .section-polaroid-slider .item .polaroid {
   transform: scale(0.9);
+  transition: all 300ms ease;
 }
 
 .section-polaroid-slider .slick-active.item .polaroid {
