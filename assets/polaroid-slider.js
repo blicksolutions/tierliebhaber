@@ -2,6 +2,8 @@
 
 $(document).ready(function () {
     $(".section-polaroid-slider .slider").slick({
+      centerMode: true,
+      centerPadding: '60px',
       slidesToShow: 7,
       slidesToScroll: 1,
       infinite: true,
