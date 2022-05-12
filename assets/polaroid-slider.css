@@ -96,6 +96,14 @@
   margin: 0 auto;
 }
 
+.section-polaroid-slider .item .polaroid {
+  transform: scale(0.9);
+}
+
+.section-polaroid-slider .slick-active.item .polaroid {
+  transform: scale(1);
+}
+
 .section-polaroid-slider .slick-active .polaroid:before {
   background: rgba(0,0,0, 0);
 }
