@@ -38,7 +38,7 @@ function testingThings (event, slick) {
   if (slidesToShow % 2 == 0) {
     // Even number of slides in Slick Carousel is incorrectly offset.
     // Adjust active slides.
-    slick["$slides"][slick.slickCurrentSlide()].previousElementSibling.classList.add("slick-active")
-    slick["$slides"][slick.slickCurrentSlide()].nextElementSibling.classList.remove("slick-active")
+    slick["$slides"][slick.slickCurrentSlide()].previousElementSibling.classList.add("slick-test")
+    slick["$slides"][slick.slickCurrentSlide()].nextElementSibling.classList.remove("slick-test")
   }
 }
