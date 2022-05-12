@@ -101,6 +101,11 @@
   transition: all 300ms ease;
 }
 
+.section-polaroid-slider .slick-center.item .polaroid {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 .section-polaroid-slider .slick-active.item .polaroid {
   transform: scale(1);
 }
