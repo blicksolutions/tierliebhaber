@@ -97,6 +97,14 @@
   margin: 0 auto;
 }
 
+.item.slick-slide {
+  width: 400px;
+height: 400px !important;
+transition: transform .5s ease;
+position: relative;
+}
+
+
 .section-polaroid-slider .item.slick-slide .polaroid {
   transform: scale(0.7) translate(640px);
 }
