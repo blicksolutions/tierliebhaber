@@ -3,7 +3,7 @@
 $(document).ready(function () {
     $(".section-polaroid-slider .slider").slick({
       centerMode: true,
-      centerPadding: '100px',
+      centerPadding: '60px',
       slidesToShow: 5,
       slidesToScroll: 1,
       slidesPerRow: 3,
