@@ -15,11 +15,16 @@ $(document).ready(function () {
           breakpoint: 992,
           settings: {
             slidesToShow: 1,
-            dots: false,
             arrows: false,
             centerMode: true,
             infinite: true,
             centerPadding: '130px',
+          },
+        },
+        {
+          breakpoint: 767,
+          settings: {
+            dots: false,
           },
         },
          {
