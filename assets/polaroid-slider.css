@@ -111,7 +111,7 @@
 .section-polaroid-slider .slick-center.slick-active.item .polaroid{
   position: relative;
   z-index: 1;
-  transform: scale(1.3);
+  transform: scale(1.25);
 }
 
 .section-polaroid-slider .slick-active .polaroid:before {
