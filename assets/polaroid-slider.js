@@ -12,7 +12,7 @@ $(document).ready(function () {
       touchMove: true,
       responsive: [
         {
-          breakpoint: 991,
+          breakpoint: 992,
           settings: {
             slidesToShow: 1,
             dots: false,
