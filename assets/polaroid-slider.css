@@ -96,8 +96,8 @@
   margin: 0 auto;
 }
 
-.section-polaroid-slider .slick-active .polaroid {
-  background-color: white;
+.section-polaroid-slider .slick-active .polaroid:before {
+  background: rgba(0,0,0, 0);
 }
 
 
