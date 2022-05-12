@@ -10,9 +10,12 @@
   }
 }
 
-.section-polaroid-text-slider .item img {
-  width: 100%;
-  margin-bottom: 20px;
+.section-polaroid-text-slider .polaroid-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 245px;
+  width 230px;;
 }
 
 .section-polaroid-slider h2 {
