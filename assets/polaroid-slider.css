@@ -38,6 +38,8 @@
   margin-bottom: 10px;
 }
 
+/* headlines */
+
 .section-polaroid-slider h3 {
   text-transform: uppercase;
 }
@@ -81,7 +83,7 @@
   }
 }
 
-/* -- Slider -- */
+/* -- polaroid slider -- */
 
 .slick-track {
  padding: 50px 0; 
