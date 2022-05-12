@@ -116,7 +116,7 @@
 
 @media(max-width: 767px) {
  .section-polaroid-slider .slick-center.slick-active.item .polaroid{
-  transform: scale(1.1);
+  transform: scale(1.3);
  }
 }
 
