@@ -1,7 +1,7 @@
 /* polaroid slider section */
 
 .section-polaroid-slider {
-  padding: 60px 0 85px; 
+  padding: 60px 0 85px;
 }
 
 @media (max-width: 767px) {
@@ -19,14 +19,14 @@
 }
 
 .section-polaroid-slider .polaroid:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
-  background: rgba(0,0,0, 0.15);
+  background: rgba(0, 0, 0, 0.15);
   width: 100%;
   height: 100%;
-   transition: all 300ms ease;
+  transition: all 300ms ease;
 }
 
 .section-polaroid-slider .image {
@@ -38,10 +38,10 @@
   margin-bottom: 10px;
 }
 
-@media(max-width: 600px) {
+@media (max-width: 600px) {
   .section-polaroid-slider .image {
     height: 190px;
- }
+  }
 }
 
 /* headlines */
@@ -55,7 +55,7 @@
   margin-bottom: 80px;
 }
 
-@media(max-width: 1199px) {
+@media (max-width: 1199px) {
   .section-polaroid-slider .headline-wrapper {
     text-align: center;
     margin-bottom: 40px;
@@ -68,10 +68,10 @@
   font-weight: 600;
 }
 
-@media(max-width: 767px) {
- .section-polaroid-slider .headline-wrapper h2 {
-  font-size: 22px;
- }
+@media (max-width: 767px) {
+  .section-polaroid-slider .headline-wrapper h2 {
+    font-size: 22px;
+  }
 }
 
 .section-polaroid-slider .headline-wrapper h3 {
@@ -79,7 +79,8 @@
   font-weight: 700;
 }
 
-.section-polaroid-slider .headlines h2 , .section-polaroid-slider .headlines h3 {
+.section-polaroid-slider .headlines h2,
+.section-polaroid-slider .headlines h3 {
   font-size: 14px;
   margin-bottom: 0px;
 }
@@ -108,7 +109,7 @@
 /* -- polaroid slider -- */
 
 .slick-track {
- padding: 50px 0; 
+  padding: 50px 0;
 }
 
 .section-polaroid-slider .slider {
@@ -116,15 +117,15 @@
   margin: 0 auto;
 }
 
-@media(max-width: 991px) {
+@media (max-width: 991px) {
   .section-polaroid-slider .slider {
-     max-width: 650px;
+    max-width: 650px;
   }
 }
 
-@media(max-width: 767px) {
+@media (max-width: 767px) {
   .section-polaroid-slider .slider {
-     max-width: 90%;
+    max-width: 90%;
   }
 }
 
@@ -137,22 +138,21 @@
   transform: scale(1);
 }
 
-.section-polaroid-slider .slick-center.slick-active.item .polaroid{
+.section-polaroid-slider .slick-center.slick-active.item .polaroid {
   position: relative;
   z-index: 1;
   transform: scale(1.3);
 }
 
-@media(max-width: 767px) {
- .section-polaroid-slider .slick-center.slick-active.item .polaroid{
-  transform: scale(1.3);
- }
+@media (max-width: 767px) {
+  .section-polaroid-slider .slick-center.slick-active.item .polaroid {
+    transform: scale(1.3);
+  }
 }
 
 .section-polaroid-slider .slick-active .polaroid:before {
-  background: rgba(0,0,0, 0);
+  background: rgba(0, 0, 0, 0);
 }
-
 
 /* slick arrows */
 
@@ -170,8 +170,6 @@
 .slick-next {
   right: -70px;
 }
-
-
 
 @media (max-width: 800px) {
   .slick-prev,
