@@ -11,7 +11,16 @@
 }
 
 .section-polaroid-slider .polaroid {
+  position: relative;
   text-align: center;
+}
+
+.section-polaroid-slider .polaroid:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0, 0.15);
 }
 
 .section-polaroid-slider .image {
@@ -77,7 +86,7 @@
   }
 }
 
-/* -- slick styles -- */
+/* -- Slider -- */
 
 .section-polaroid-slider .slider {
   max-width: 1400px;
