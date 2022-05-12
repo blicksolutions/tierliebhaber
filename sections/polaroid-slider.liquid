@@ -19,7 +19,7 @@
         {%- for slider in section.blocks -%}
            <div class="item">
             <div class="polaroid">
-              <img src="{{ slider.settings.image | img_url: '230x245' }}" loading="lazy" alt="" width="230" height="245" />
+              <div class="image" style="background-image: url('{{ slider.settings.image | img_url: '230x245' }}');">
               <div class="headlines">
                 <h2>{{ slider.settings.item-headline }}</h2>
                 <h3>{{ slider.settings.item-subline }}</h3>
