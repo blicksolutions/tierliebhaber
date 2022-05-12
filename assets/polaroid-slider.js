@@ -2,9 +2,9 @@
 
 $(document).ready(function () {
     $(".section-polaroid-slider .slider").slick({
-      slidesToShow: 3,
+      slidesToShow: 7,
       slidesToScroll: 1,
-      infinite: false,
+      infinite: true,
       autoplay: true,
       autoplaySpeed: 5000,
       touchMove: true,
