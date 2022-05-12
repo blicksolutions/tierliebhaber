@@ -92,6 +92,10 @@
 
 /* -- Slider -- */
 
+.slick-track {
+ padding: 50px 0; 
+}
+
 .section-polaroid-slider .slider {
   max-width: 1400px;
   margin: 0 auto;
@@ -107,7 +111,7 @@
 }
 
 .section-polaroid-slider .slick-center.slick-active.item {
-  transform: scale(1.35);
+  transform: scale(1.2);
 }
 
 .section-polaroid-slider .slick-active .polaroid:before {
