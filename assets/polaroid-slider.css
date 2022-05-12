@@ -38,7 +38,7 @@
   margin-bottom: 10px;
 }
 
-@media(max-width: 767px) {
+@media(max-width: 600px) {
   .section-polaroid-slider .image {
     height: 190px;
  }
