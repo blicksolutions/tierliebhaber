@@ -96,6 +96,10 @@
   margin: 0 auto;
 }
 
+.section-polaroid-slider .slick-active .polaroid {
+  background-color: white;
+}
+
 
 /* slick arrows */
 
