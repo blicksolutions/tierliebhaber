@@ -78,6 +78,9 @@
   margin-bottom: 0px;
 }
 
+.section-polaroid-slider .headlines h3 {
+  font-size: 12px;
+}
 
 @media (max-width: 767px) {
   .section-polaroid-slider h2 {
