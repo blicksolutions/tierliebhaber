@@ -102,11 +102,11 @@
   transition: all 300ms ease;
 }
 
-.section-polaroid-slider .slick-active.item {
+.section-polaroid-slider .slick-active.item .polaroid {
   transform: scale(1);
 }
 
-.section-polaroid-slider .slick-center.slick-active.item .polaroid {
+.section-polaroid-slider .slick-center.slick-active.item {
   transform: scale(1.35);
 }
 
