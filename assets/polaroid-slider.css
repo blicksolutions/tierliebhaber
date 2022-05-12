@@ -106,15 +106,15 @@ position: relative;
 }
 
 
-.section-polaroid-slider .slick-active.item .polaroid {
+.section-polaroid-slider .slick-active.item  {
   transform: scale(0.8) translate(250px);
 }
 
-.section-polaroid-slider .slick-center + .slick-slide .polaroid {
+.section-polaroid-slider .slick-center + .slick-slide {
   transform: scale(0.8) translate(-250px);
 }
 
-.section-polaroid-slider .slick-center.item .polaroid {
+.section-polaroid-slider .slick-center.item  {
 	transform: scale(1);
   	position: relative;
   	z-index: 1;
