@@ -52,14 +52,7 @@
 
 .section-polaroid-slider .headline-wrapper {
   text-align: center;
-  margin-bottom: 80px;
-}
-
-@media (max-width: 1199px) {
-  .section-polaroid-slider .headline-wrapper {
-    text-align: center;
-    margin-bottom: 40px;
-  }
+  margin-bottom: 40px;
 }
 
 .section-polaroid-slider .headline-wrapper h2 {
