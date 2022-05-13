@@ -1043,6 +1043,14 @@
       "1652440853255ce756": {
         "type": "polaroid-slider",
         "blocks": {
+          "39dc3e9f-7214-40fc-a8ea-99703bb366ce": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/1.png",
+              "item-headline": "Ich bin Tierliebhaber weil",
+              "item-subline": "Tierliebhaber sein verbindet!"
+            }
+          },
           "6e6ac8b4-c69d-4e46-b873-8ef52dc7279f": {
             "type": "item",
             "settings": {
@@ -1059,20 +1067,20 @@
               "item-subline": "diese Liebe für mich bedingungslos ist."
             }
           },
+          "07c13b6a-7d00-4c6b-8eb3-a5226d8341ae": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/8.png",
+              "item-headline": "Ich bin Tierliebhaber weil",
+              "item-subline": "Tierliebe verbindet und meine Sprotte mich immer zum Lächeln bringt."
+            }
+          },
           "e7da5d0b-e6f2-4dc8-bb17-43e7d2427a0a": {
             "type": "item",
             "settings": {
               "image": "shopify:\/\/shop_images\/7.png",
               "item-headline": "Ich bin Tierliebhaber weil",
               "item-subline": "Tieren egal ist, wer du bist und was du hast. Bist du gut zu ihnen, sind sie gut zu dir."
-            }
-          },
-          "907d64bb-7ed5-4221-819c-5ba7bad02c9a": {
-            "type": "item",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/9.png",
-              "item-headline": "Ich bin Tierliebhaber weil",
-              "item-subline": "Tiere die ehrlichste Form des Lebens zeigen!"
             }
           },
           "7bbe8948-4bae-40bb-8b62-2707d411df05": {
@@ -1091,12 +1099,20 @@
               "item-subline": "Tiere einfach unheimlich viel Wärme zurückgeben!"
             }
           },
-          "07c13b6a-7d00-4c6b-8eb3-a5226d8341ae": {
+          "907d64bb-7ed5-4221-819c-5ba7bad02c9a": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/8.png",
+              "image": "shopify:\/\/shop_images\/9.png",
               "item-headline": "Ich bin Tierliebhaber weil",
-              "item-subline": "Tierliebe verbindet und meine Sprotte mich immer zum Lächeln bringt."
+              "item-subline": "Tiere die ehrlichste Form des Lebens zeigen!"
+            }
+          },
+          "fbc8d66f-53c5-48bf-97bc-18660c2decc3": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/3.png",
+              "item-headline": "Ich bin Tierliebhaber weil",
+              "item-subline": "jedes Tier Inspiration birgt."
             }
           },
           "7fc1f111-fcf6-44c4-8333-2d6d0965c18b": {
@@ -1114,39 +1130,23 @@
               "item-headline": "Ich bin Tierliebhaber weil",
               "item-subline": "durch Tiere meine Welt zu einem besseren Ort wird."
             }
-          },
-          "fbc8d66f-53c5-48bf-97bc-18660c2decc3": {
-            "type": "item",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/3.png",
-              "item-headline": "Ich bin Tierliebhaber weil",
-              "item-subline": "jedes Tier Inspiration birgt."
-            }
-          },
-          "39dc3e9f-7214-40fc-a8ea-99703bb366ce": {
-            "type": "item",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/1.png",
-              "item-headline": "Ich bin Tierliebhaber weil",
-              "item-subline": "Tierliebhaber sein verbindet!"
-            }
           }
         },
         "block_order": [
+          "39dc3e9f-7214-40fc-a8ea-99703bb366ce",
           "6e6ac8b4-c69d-4e46-b873-8ef52dc7279f",
           "fbf0c782-db4b-4751-8b2e-bfd39a9071c9",
+          "07c13b6a-7d00-4c6b-8eb3-a5226d8341ae",
           "e7da5d0b-e6f2-4dc8-bb17-43e7d2427a0a",
-          "907d64bb-7ed5-4221-819c-5ba7bad02c9a",
           "7bbe8948-4bae-40bb-8b62-2707d411df05",
           "6bda2625-ceee-49bb-abe7-690b3a098683",
-          "07c13b6a-7d00-4c6b-8eb3-a5226d8341ae",
-          "7fc1f111-fcf6-44c4-8333-2d6d0965c18b",
-          "011087d7-c3b7-4f9c-89c1-814eda2200e1",
+          "907d64bb-7ed5-4221-819c-5ba7bad02c9a",
           "fbc8d66f-53c5-48bf-97bc-18660c2decc3",
-          "39dc3e9f-7214-40fc-a8ea-99703bb366ce"
+          "7fc1f111-fcf6-44c4-8333-2d6d0965c18b",
+          "011087d7-c3b7-4f9c-89c1-814eda2200e1"
         ],
         "settings": {
-          "background-color": "#F2F8F5",
+          "background-color": "#f2f8f5",
           "slider-headline": "Wir sind",
           "slider-subline": "Tierliebhaber"
         }
