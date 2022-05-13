@@ -102,6 +102,10 @@
         color: white;
       }
       
+      .breadcrumb .breadcrumb__item--completed:after{
+        cursor: pointer;
+      }
+
       .breadcrumb .breadcrumb__item--completed:after,  .breadcrumb .breadcrumb__item--current:after {
         background: #5CAB68;
         color: white;
@@ -192,6 +196,11 @@
       document.querySelector('.breadcrumb').innerHTML += `<li class="breadcrumb__item">
         <a class="breadcrumb__text">Fertig</a>
       </li>`;
+      document.querySelectorAll('.breadcrumb .breadcrumb__item.breadcrumb__item--completed').forEach(elem => {
+        elem.addEventListener("click", (e) => {
+          elem.querySelector(".breadcrumb__link").click();
+        });
+      });
     </script>
   </body>
 </html>
