@@ -1039,90 +1039,6 @@
           "text_color": "#ffffff",
           "button_color": "#363636"
         }
-      },
-      "1652349198366a4829": {
-        "type": "polaroid-slider",
-        "blocks": {
-          "9fbcce09-1bf4-4ae1-bf12-4a1c7f5fe5ae": {
-            "type": "item",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/banner-v2-new.jpg",
-              "item-headline": "Headline",
-              "item-subline": "Subline"
-            }
-          },
-          "dcdb5297-1075-437c-be25-56889e283eae": {
-            "type": "item",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/7363525312671-a-plus-0.jpg",
-              "item-headline": "Headline",
-              "item-subline": "Subline"
-            }
-          },
-          "05569b06-777d-4900-8a7c-2cb74863bc77": {
-            "type": "item",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/7363525312671-a-plus-1.jpg",
-              "item-headline": "Headline",
-              "item-subline": "Subline"
-            }
-          },
-          "b7e35634-9f90-4528-a1cd-c0f52f8df240": {
-            "type": "item",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/7325624500383-a-plus-1.jpg",
-              "item-headline": "Headline",
-              "item-subline": "Subline"
-            }
-          },
-          "560567e4-1c99-4d69-8aeb-f970e5ee40bb": {
-            "type": "item",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/Jetzt_probieren_2.png",
-              "item-headline": "Headline",
-              "item-subline": "Subline"
-            }
-          },
-          "864b964a-7bed-415a-b0c8-e0901c211d27": {
-            "type": "item",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/7325624500383-a-plus-0.jpg",
-              "item-headline": "Headline",
-              "item-subline": "Subline"
-            }
-          },
-          "5ca4dee0-f8ec-4159-8bf4-bf7a4c2c12ec": {
-            "type": "item",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/z-snack-banner.jpg",
-              "item-headline": "Headline",
-              "item-subline": "Subline"
-            }
-          },
-          "81fc938c-f846-4d66-8970-944b2842c902": {
-            "type": "item",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/7363525312671-a-plus-0.jpg",
-              "item-headline": "Headline",
-              "item-subline": "Subline"
-            }
-          }
-        },
-        "block_order": [
-          "9fbcce09-1bf4-4ae1-bf12-4a1c7f5fe5ae",
-          "dcdb5297-1075-437c-be25-56889e283eae",
-          "05569b06-777d-4900-8a7c-2cb74863bc77",
-          "b7e35634-9f90-4528-a1cd-c0f52f8df240",
-          "560567e4-1c99-4d69-8aeb-f970e5ee40bb",
-          "864b964a-7bed-415a-b0c8-e0901c211d27",
-          "5ca4dee0-f8ec-4159-8bf4-bf7a4c2c12ec",
-          "81fc938c-f846-4d66-8970-944b2842c902"
-        ],
-        "settings": {
-          "background-color": "#f2f8f5",
-          "slider-headline": "Unser Team",
-          "slider-subline": "Das Tierlieber Team."
-        }
       }
     },
     "content_for_index": [
@@ -1142,8 +1058,7 @@
       "1630396737d0d511a7",
       "16282363208edc1fef",
       "162878573798fbf9f0",
-      "1629465395882c28f0",
-      "1652349198366a4829"
+      "1629465395882c28f0"
     ],
     "blocks": {
       "162859120942cad3d6": {
