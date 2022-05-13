@@ -1051,14 +1051,6 @@
               "item-subline": "Marcel"
             }
           },
-          "6e6ac8b4-c69d-4e46-b873-8ef52dc7279f": {
-            "type": "item",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/5.png",
-              "item-headline": "die liebe eines Tieres unvergleichbar bedingungslos ist.",
-              "item-subline": "Artur"
-            }
-          },
           "fbf0c782-db4b-4751-8b2e-bfd39a9071c9": {
             "type": "item",
             "settings": {
@@ -1073,6 +1065,14 @@
               "image": "shopify:\/\/shop_images\/8.png",
               "item-headline": "Tierliebe verbindet und meine Sprotte mich immer zum Lächeln bringt.",
               "item-subline": "Katharina"
+            }
+          },
+          "6e6ac8b4-c69d-4e46-b873-8ef52dc7279f": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/5.png",
+              "item-headline": "die liebe eines Tieres unvergleichbar bedingungslos ist.",
+              "item-subline": "Artur"
             }
           },
           "e7da5d0b-e6f2-4dc8-bb17-43e7d2427a0a": {
@@ -1134,9 +1134,9 @@
         },
         "block_order": [
           "39dc3e9f-7214-40fc-a8ea-99703bb366ce",
-          "6e6ac8b4-c69d-4e46-b873-8ef52dc7279f",
           "fbf0c782-db4b-4751-8b2e-bfd39a9071c9",
           "07c13b6a-7d00-4c6b-8eb3-a5226d8341ae",
+          "6e6ac8b4-c69d-4e46-b873-8ef52dc7279f",
           "e7da5d0b-e6f2-4dc8-bb17-43e7d2427a0a",
           "7bbe8948-4bae-40bb-8b62-2707d411df05",
           "6bda2625-ceee-49bb-abe7-690b3a098683",
