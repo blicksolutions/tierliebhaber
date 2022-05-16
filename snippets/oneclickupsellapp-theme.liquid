@@ -932,8 +932,7 @@ PopupDispatcher.prototype = {
 
             if (!variant) throw new Error('Variant not found');
 
-            payload.product_page_product_id = +variant.product_id;
-            payload.product_page_variant_id = +variant.variant_id
+            payload.line_items.push(variant)
         }
 
         utils.store.set('productLocation', variant);
@@ -1025,17 +1024,24 @@ PopupDispatcher.prototype = {
         if (!this.isProductAction) return {};
 
         const variant = this.target.querySelector('[name="id"]');
-        const isVariantAvailable = lqd.product.available || lqd.product.variants.find(function(item) {
+        const quantity = this.target.querySelector('[name="quantity"]');
+        const currentVariant = lqd.product.variants.find(function(item) {
             return item.id === +variant.value && item.available;
         });
+        const isVariantAvailable = lqd.product.available || currentVariant;
 
         const availableVariantId = isVariantAvailable && !Number.isNaN(+variant.value);
 
         if (!availableVariantId) return null;
 
+        const productEntity = currentVariant || lqd.product;
+
         return {
+            variant_id: +variant.value,
             product_id: lqd.product.id,
-            variant_id: variant.value
+            price: productEntity.price,
+            quantity: (quantity && +quantity.value) || 1,
+            is_product_location: true
         };
     },
 
@@ -1442,7 +1448,7 @@ window.OCUIncart = {
             const keys = this.triggers.metafields.excluded || { products: 'pre_excluded_product_ids' };
 
             return {
-                products: this.getMetafields(keys.products, '[]'),
+                products: []
             };
         },
         getMetafields: function(key) {
