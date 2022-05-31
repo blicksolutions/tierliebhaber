@@ -458,7 +458,8 @@
         "last_name_label": "Nachname",
         "company_label": "Firma (optional) \/ Adresszusatz",
         "optional_company_label": "Firma (optional) \/ Adresszusatz",
-        "address1_label": "Straße, Hausnummer \/ Packstation"
+        "address1_label": "Straße, Hausnummer \/ Packstation",
+        "address2_label": "Zimmer, DHL Postnummer (optional)"
       }
     }
   },
