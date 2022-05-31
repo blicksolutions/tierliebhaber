@@ -451,6 +451,14 @@
         "add_tip": "Spende hinzufügen",
         "update_tip": "Spende aktualisieren",
         "message": "Vielen Dank! Eure Spenden werden wöchentlich an BAWA (Bali Animal Welfare Association) übermittelt und 100% transparent auf Instagram dokumentiert."
+      },
+      "contact": {
+        "first_name_label": "Vorname",
+        "optional_first_name_label": "Vorname",
+        "last_name_label": "Nachname",
+        "company_label": "Firma (optional) \/ Adresszusatz",
+        "optional_company_label": "Firma (optional) \/ Adresszusatz",
+        "address1_label": "Straße, Hausnummer \/ Packstation"
       }
     }
   },
