@@ -457,8 +457,8 @@
         "optional_first_name_label": "Vorname",
         "last_name_label": "Nachname",
         "company_label": "Firma (optional) \/ Adresszusatz",
-        "optional_company_label": "Firma (optional) \/ Adresszusatz",
-        "address1_label": "Straße, Hausnummer \/ Packstation",
+        "optional_company_label": "Packstation \/ Firma (optional) ",
+        "address1_label": "Straße, Hausnummer",
         "address2_label": "Zimmer, DHL Postnummer (optional)",
         "optional_address2_label": "Zimmer, DHL Postnummer (optional)"
       }
