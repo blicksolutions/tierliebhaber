@@ -10,6 +10,14 @@ for size, we use it to display a size chart (if applicable)
 {%- assign product_popovers = '' -%}
 {%- assign show_option_label = false -%}
 
+{%- if show_shipping == nil -%}
+  {%- assign show_shipping = true -%}
+{%- endif -%}
+
+{%- if show_benefits == nil -%}
+  {%- assign show_benefits = true -%}
+{%- endif -%}
+
 {%- assign selected_variant = product.selected_or_first_available_variant -%}
 
 {%- form 'product', product, data-productid: product.id, class: 'ProductForm' -%}
@@ -279,24 +287,24 @@ for size, we use it to display a size chart (if applicable)
       </p>
     {%- endif -%}
   </div>
+  {%- if show_shipping -%}
+    {%- liquid
+      assign shipping_eta_class = 'ProductForm__ShippingEta'
 
-  {%- liquid
-    assign shipping_eta_class = 'ProductForm__ShippingEta'
-
-    if selected_variant.available
-      if selected_variant.requires_shipping
-        assign shipping_eta_translation_key = 'product.form.shipping_eta.available' 
-      else 
-        assign shipping_eta_translation_key = 'product.form.shipping_eta.instantly_available'
+      if selected_variant.available
+        if selected_variant.requires_shipping
+          assign shipping_eta_translation_key = 'product.form.shipping_eta.available' 
+        else 
+          assign shipping_eta_translation_key = 'product.form.shipping_eta.instantly_available'
+        endif
+      else
+        assign shipping_eta_translation_key = 'product.form.shipping_eta.sold_out'
+        assign shipping_eta_class = shipping_eta_class | append: ' -Unavailable'
       endif
-    else
-      assign shipping_eta_translation_key = 'product.form.shipping_eta.sold_out'
-      assign shipping_eta_class = shipping_eta_class | append: ' -Unavailable'
-    endif
-  -%}
+    -%}
 
-  <p class="{{ shipping_eta_class }}">{{ shipping_eta_translation_key | t }}</p>
-
+    <p class="{{ shipping_eta_class }}">{{ shipping_eta_translation_key | t }}</p>
+  {%- endif -%}
   {%- comment -%}
   --------------------------------------------------------------------------------------------------------------------
   ADD TO CART BUTTON
@@ -339,8 +347,9 @@ for size, we use it to display a size chart (if applicable)
     {%- endfor -%}
   </ul>
 
-  {%- render 'benefit-badges' -%}
-
+  {%- if show_benefits -%}
+    {%- render 'benefit-badges' -%}
+  {%- endif -%}
   {%- liquid
     assign selling_points_content = product.metafields.content.selling_points.value
     assign selling_points = selling_points_content.items  
