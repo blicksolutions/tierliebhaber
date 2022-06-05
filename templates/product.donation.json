@@ -1,99 +1,130 @@
 {
-    "sections": {
-      "main": {
-        "type": "product-template-donations",
-        "settings": {
-          "show_share_buttons": false,
-          "show_vendor": false,
-          "show_sku": false,
-          "show_taxes_included": false,
-          "selector_mode": "block",
-          "show_color_swatch": false,
-          "show_color_carousel": false,
-          "show_quantity_selector": false,
-          "show_inventory_quantity": false,
-          "inventory_quantity_threshold": 0,
-          "show_price_in_button": false,
-          "show_payment_button": false,
-          "payment_providers": "paypal, klarna, master, visa, sofort, apple_pay",
-          "show_pickup_availability": false,
-          "image_size": "medium",
-          "stack_images": false,
-          "show_thumbnails": true,
-          "enable_image_zoom": false,
-          "enable_video_looping": false,
-          "tab_page_1_handle": "",
-          "tab_page_2_handle": "",
-          "reviews_enabled": false,
-          "featured_image_size": "large"
-        }
-      },
-      "16288047979ee0ca29": {
-        "type": "content-accordion",
-        "settings": {
-        }
-      },
-      "162880489936c4738f": {
-        "type": "seo-content",
-        "settings": {
-          "seo_content": "{{ product.metafields.content.seo.value }}"
-        }
-      },
-      "16288049026c8dd7d1": {
-        "type": "contact",
-        "blocks": {
-          "6019ae12-5366-4bb0-b0fb-d5360dbf448b": {
-            "type": "button",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/whatsapp.png",
-              "image_alt": "",
-              "text": "Per WhatsApp",
-              "color": "#43c253",
-              "url": "https:\/\/api.whatsapp.com\/send\/?phone=4917648097026&text=Hey,%20ich%20habe%20eine%20Frage,%20auf%20die%20ich%20keine%20Antworte%20finde%20auf%20eurer%20Seite.%20%E2%98%BA%EF%B8%8F"
-            }
-          },
-          "7e85fc1c-a467-4500-83c7-3f55b878b381": {
-            "type": "button",
-            "disabled": true,
-            "settings": {
-              "image": "shopify:\/\/shop_images\/anruf.png",
-              "image_alt": "",
-              "text": "Ruf uns an",
-              "color": "#f1af9e",
-              "url": "tel:034149980019"
-            }
-          },
-          "cd707ae6-291b-4929-8937-dbe7654b243d": {
-            "type": "button",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/email.png",
-              "image_alt": "",
-              "text": "Per Email",
-              "color": "#dddddd",
-              "url": "mailto:info@tierliebhaber.de"
-            }
-          }
-        },
-        "block_order": [
-          "6019ae12-5366-4bb0-b0fb-d5360dbf448b",
-          "7e85fc1c-a467-4500-83c7-3f55b878b381",
-          "cd707ae6-291b-4929-8937-dbe7654b243d"
-        ],
-        "settings": {
-          "title": "Fragen? Wir sind für dich da...",
-          "subtitle": "<p>Bei Fragen zu einer bestehenden Bestellung, schreib uns einfach eine Nachricht per WhatsApp oder per E-Mail - bitte schicke uns dazu auch deine Bestellnummer.<br\/><br\/>Hast du Fragen zu unseren Produkten oder kommst bei einer Bestellung nicht weiter?<br\/>Celina und Mona sind Montag - Freitag von 11:00 - 15:00 Uhr telefonisch erreichbar unter:<br\/>+49 34149980019<\/p>",
-          "image": "shopify:\/\/shop_images\/customer-service.png",
-          "image_alt": "",
-          "cta_title": "Schnell & einfach",
-          "microcopy": "<p><em>Wir melden uns innerhalb eines<\/em><\/p><p><em>Tages mit einer Antwort bei dir zurück!<\/em><\/p>"
-        }
+  "sections": {
+    "charity": {
+      "type": "charity",
+      "settings": {
+        "title": "SPENDE TIERLIEBE!",
+        "heading_prefix": "Nur noch",
+        "heading_suffix": "bis zur Rettung des nächsten Hundelebens.",
+        "donations_amount": 96,
+        "donation_goal": 120,
+        "total_text": "Bereits gerettete Hunde:",
+        "total_number": "35",
+        "description_heading": "",
+        "description_text": "",
+        "description_disclaimer": "",
+        "image": "shopify:\/\/shop_images\/7966944461068-a-plus-1.jpg"
       }
     },
-    "order": [
-      "main",
-      "16288047979ee0ca29",
-      "162880489936c4738f",
-      "16288049026c8dd7d1"
-    ]
-  }
-  
+    "main": {
+      "type": "product-template-donations",
+      "settings": {
+        "show_share_buttons": false,
+        "show_vendor": false,
+        "show_sku": false,
+        "show_taxes_included": false,
+        "selector_mode": "block",
+        "show_color_swatch": false,
+        "show_color_carousel": false,
+        "show_quantity_selector": false,
+        "show_inventory_quantity": false,
+        "inventory_quantity_threshold": 0,
+        "show_price_in_button": false,
+        "show_payment_button": false,
+        "payment_providers": "paypal, klarna, master, visa, sofort, apple_pay",
+        "show_pickup_availability": false,
+        "tab_page_1_handle": "",
+        "tab_page_2_handle": "",
+        "reviews_enabled": false,
+        "featured_image_size": "large"
+      }
+    },
+    "162880489936c4738f": {
+      "type": "seo-content",
+      "settings": {
+        "seo_content": "{{ product.metafields.content.seo.value }}"
+      }
+    },
+    "16288049026c8dd7d1": {
+      "type": "contact",
+      "blocks": {
+        "6019ae12-5366-4bb0-b0fb-d5360dbf448b": {
+          "type": "button",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/whatsapp.png",
+            "image_alt": "",
+            "text": "Per WhatsApp",
+            "color": "#43c253",
+            "url": "https:\/\/api.whatsapp.com\/send\/?phone=4917648097026&text=Hey,%20ich%20habe%20eine%20Frage,%20auf%20die%20ich%20keine%20Antworte%20finde%20auf%20eurer%20Seite.%20%E2%98%BA%EF%B8%8F"
+          }
+        },
+        "7e85fc1c-a467-4500-83c7-3f55b878b381": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/anruf.png",
+            "image_alt": "",
+            "text": "Ruf uns an",
+            "color": "#f1af9e",
+            "url": "tel:034149980019"
+          }
+        },
+        "cd707ae6-291b-4929-8937-dbe7654b243d": {
+          "type": "button",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/email.png",
+            "image_alt": "",
+            "text": "Per Email",
+            "color": "#dddddd",
+            "url": "mailto:info@tierliebhaber.de"
+          }
+        }
+      },
+      "block_order": [
+        "6019ae12-5366-4bb0-b0fb-d5360dbf448b",
+        "7e85fc1c-a467-4500-83c7-3f55b878b381",
+        "cd707ae6-291b-4929-8937-dbe7654b243d"
+      ],
+      "settings": {
+        "title": "Fragen? Wir sind für dich da...",
+        "subtitle": "<p>Bei Fragen zu einer bestehenden Bestellung, schreib uns einfach eine Nachricht per WhatsApp oder per E-Mail - bitte schicke uns dazu auch deine Bestellnummer.<br\/><br\/>Hast du Fragen zu unseren Produkten oder kommst bei einer Bestellung nicht weiter?<br\/>Celina und Mona sind Montag - Freitag von 11:00 - 15:00 Uhr telefonisch erreichbar unter:<br\/>+49 34149980019<\/p>",
+        "image": "shopify:\/\/shop_images\/customer-service.png",
+        "image_alt": "",
+        "cta_title": "Schnell & einfach",
+        "microcopy": "<p><em>Wir melden uns innerhalb eines<\/em><\/p><p><em>Tages mit einer Antwort bei dir zurück!<\/em><\/p>"
+      }
+    },
+    "165445344587f2e456": {
+      "type": "tabs",
+      "blocks": {
+        "46e1a9d8-4725-4436-ada9-3b73c8c17466": {
+          "type": "tab",
+          "settings": {
+            "title": "My Title",
+            "content": "My Content"
+          }
+        },
+        "aac6c56a-31bd-41a1-b469-8927cbbaa547": {
+          "type": "tab",
+          "settings": {
+            "title": "My Title",
+            "content": "My Content"
+          }
+        }
+      },
+      "block_order": [
+        "46e1a9d8-4725-4436-ada9-3b73c8c17466",
+        "aac6c56a-31bd-41a1-b469-8927cbbaa547"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "charity",
+    "main",
+    "162880489936c4738f",
+    "16288049026c8dd7d1",
+    "165445344587f2e456"
+  ]
+}

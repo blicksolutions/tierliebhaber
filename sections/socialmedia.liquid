@@ -1,0 +1,72 @@
+<div class="Social__Wrapper">
+    <div class="Social__Text">
+        {{section.settings.text}}
+    </div>
+    <div class="Social__Links">
+        {%-for block in section.blocks -%}
+            {%- if block.settings.image -%}
+                <a class="Social__Link" href="{{block.settings.link}}">
+                    {{ block.settings.image | image_url: width: 50 | image_tag }}
+                </a>
+            {%- endif -%}
+        {%- endfor -%}
+    </div>
+</div>
+
+<style>
+.Social__Text {
+    font-size: 14pt;
+}
+
+.Social__Links {
+    display: flex;
+    gap: 10px;
+}
+
+
+.Social__Wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    margin: 40px 0;
+}
+</style>
+
+{% schema %}
+{
+    "name": "Socialmedia Links",
+    "settings": [
+        {
+            "type": "text",
+            "label": "Text",
+            "id": "text"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "link",
+            "name": "Link",
+            "settings": [
+                {
+                    "type": "text",
+                    "label": "Link",
+                    "id": "link"
+                },
+                {
+                    "type": "image_picker",
+                    "label": "Image Picker",
+                    "id": "image"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "category": "Socialmedia",
+            "name": "Socialmedia Links",
+            "settings": {}
+        }
+    ]
+}
+{% endschema %}

@@ -1,0 +1,108 @@
+
+<div class="Product__Tabs">
+    {%- for block in section.blocks -%}
+        <div class="Collapsible Collapsible--large">
+            <button class="Collapsible__Button Heading u-h6" data-action="toggle-collapsible" aria-expanded="false">
+                {{block.settings.title}} <span class="Collapsible__Plus"></span>
+            </button>
+
+            <div class="Collapsible__Inner">
+                <div class="Collapsible__Content">
+                <div class="Rte">
+                    {{block.settings.content}}
+                </div>
+                </div>
+            </div>
+        </div>  
+    {%- endfor - %}  
+</div>
+
+<style>
+.ProductTabsSection{
+    background: #ABCDBE1A;
+    padding: 20px;
+}
+
+.Product__Tabs{
+    padding: 0 100px;
+    margin: 0;
+}
+
+.Collapsible .Heading {
+    font-size: 16pt;
+}
+
+.Collapsible__Content{
+    font-size: 14pt;
+}
+
+.Collapsible__Plus {
+    width: 18px;
+    height: 18px;
+}
+
+.Collapsible__Button {
+    padding: 16px 8px !important;
+}
+
+.Collapsible__Content {
+    padding-bottom: 16px !important;
+}
+
+.Collapsible__Plus::before {
+    width: 18px;
+}
+
+.Collapsible__Plus::after {
+    height: 18px;
+}
+
+.Collapsible:first-of-type{
+    border-top: none;
+}
+
+.Collapsible:last-of-type{
+    border-bottom: none;
+}
+
+@media screen and (max-width: 600px){
+    .Product__Tabs{
+        padding: 0 20px;
+    }
+}
+</style>
+
+{% schema %}
+{
+    "name": "Product Tabs",
+    "settings": [],
+    "class":"ProductTabsSection",
+    "blocks": [
+        {
+            "type": "tab",
+            "name": "Tab",
+            "settings": [
+                {
+                    "type": "text",
+                    "label": "Title",
+                    "id": "title",
+                    "default": "My Title"
+                },
+                {
+                    "type": "text",
+                    "label": "Content",
+                    "id": "content",
+                    "default": "My Content"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "category": "Product",
+            "name": "Product Tabs",
+            "settings": {}
+        }
+    ]
+}
+{% endschema %}
