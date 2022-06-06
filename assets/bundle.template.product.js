@@ -2203,7 +2203,7 @@
                         o = e.device,
                         l = e.support,
                         d = !!i.nested;
-                    if(!s) return;
+                        if(typeof s.removeEventListener === "undefined") return; 
                     if (!l.touch && l.pointerEvents) s.removeEventListener(n.start, e.onTouchStart, !1), t.removeEventListener(n.move, e.onTouchMove, d), t.removeEventListener(n.end, e.onTouchEnd, !1);
                     else {
                         if (l.touch) {
@@ -2341,6 +2341,7 @@
                     var e = this,
                         t = e.$el,
                         i = e.classNames;
+                        if(!t) return;
                     t.removeClass(i.join(" ")), e.emitContainerClasses();
                 },
             },
@@ -2664,7 +2665,7 @@
                             (r.initialized = !1),
                             r.detachEvents(),
                             n.loop && r.loopDestroy(),
-                            t &&
+                            t && s && a &&
                                 (r.removeClasses(),
                                 s.removeAttr("style"),
                                 a.removeAttr("style"),
@@ -2673,7 +2674,7 @@
                             Object.keys(r.eventsListeners).forEach(function (e) {
                                 r.off(e);
                             }),
-                            !1 !== e &&
+                            !1 !== e && r.$el &&
                                 ((r.$el[0].swiper = null),
                                 (i = r),
                                 Object.keys(i).forEach(function (e) {
