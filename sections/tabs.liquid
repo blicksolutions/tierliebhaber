@@ -26,6 +26,8 @@
 .Product__Tabs{
     padding: 0 100px;
     margin: 0;
+    max-width: 1400px;
+    margin:auto;
 }
 
 .Collapsible .Heading {
@@ -47,6 +49,7 @@
 
 .Collapsible__Content {
     padding-bottom: 16px !important;
+    padding-left: 8px;
 }
 
 .Collapsible__Plus::before {
@@ -66,8 +69,11 @@
 }
 
 @media screen and (max-width: 600px){
-    .Product__Tabs{
-        padding: 0 20px;
+    .Product__Tabs, .Collapsible {
+        padding: 0 !important;
+    }
+    .ProductTabsSection{
+        padding: 5px 20px;
     }
 }
 </style>

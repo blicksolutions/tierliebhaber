@@ -6,7 +6,7 @@
         {%-for block in section.blocks -%}
             {%- if block.settings.image -%}
                 <a class="Social__Link" href="{{block.settings.link}}">
-                    {{ block.settings.image | image_url: width: 50 | image_tag }}
+                    {{ block.settings.image | image_url: width: 30 | image_tag }}
                 </a>
             {%- endif -%}
         {%- endfor -%}
@@ -16,6 +16,7 @@
 <style>
 .Social__Text {
     font-size: 14pt;
+    text-align: center;
 }
 
 .Social__Links {
@@ -31,6 +32,12 @@
     gap: 10px;
     margin: 40px 0;
 }
+
+@media screen and (max-width: 600px){
+    .Social__Text {
+        font-size: 13pt;
+    }
+  }
 </style>
 
 {% schema %}

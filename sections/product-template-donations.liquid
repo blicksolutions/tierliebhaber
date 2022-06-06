@@ -93,7 +93,7 @@
           {%-endif-%}
 
           {%- if product.template_suffix != 'coming-soon' -%}
-            {%- render 'product-form', product: product, show_shipping: false, show_benefits: false -%}
+            {%- render 'product-form', product: product, show_shipping: false, show_benefits: false, atc: "Jetzt Spenden" -%}
           {%- endif -%}
 
           {%- if section.settings.stack_images and product_aside != blank and media_count > 0 -%}
@@ -200,6 +200,11 @@ We allow merchants to use one image as a "featured image" by adding the alt tag 
 </script>
 
 <style>
+
+    .ProductForm__AddToCart span{
+        font-size: 13pt;
+    }
+
     .Product__InfoWrapper{
         position: relative;
     }
@@ -236,7 +241,7 @@ We allow merchants to use one image as a "featured image" by adding the alt tag 
       border-radius: 5px;
       border-width: 2px !important;
       padding: 5px 20px;
-      font-size: 14pt;
+      font-size: 13pt;
       font-weight: 600;
     }
 
@@ -264,7 +269,7 @@ We allow merchants to use one image as a "featured image" by adding the alt tag 
 
     .Charity__Title .Heading, .ProductMeta__Title {
       font-weight: 700 !important;
-      font-size: 22pt !important;
+      font-size: 18pt !important;
     }
 
     .Charity__Title {
@@ -275,7 +280,7 @@ We allow merchants to use one image as a "featured image" by adding the alt tag 
     .Charity {
       margin: 0;
       max-width: unset;
-      margin-bottom: 200px;
+      margin-bottom: 150px;
       padding: 0;
     }
 
@@ -297,6 +302,16 @@ We allow merchants to use one image as a "featured image" by adding the alt tag 
 
     .shopify-section--bordered + .shopify-section--bordered{
       border-top: none;
+    }
+
+    @media screen and (max-width: 600px){
+      .Charity__Wrapper{
+        padding: 20px 20px 0 20px;
+      }
+
+      .Charity__Header, .Charity__Container {
+        padding: 0 30px;
+      }
     }
 
 </style>
