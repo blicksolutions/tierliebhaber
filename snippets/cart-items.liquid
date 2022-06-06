@@ -73,7 +73,7 @@
             {%- endif -%}
           </div>
 
-          {%- unless line_item.product.has_only_default_variant -%}
+          {%- unless line_item.product.has_only_default_variant or line_item.product.type == "Donation" -%}
             <p class="CartItem__Variant">{{ line_item.variant.title }}</p>
           {%- endunless -%}
 
