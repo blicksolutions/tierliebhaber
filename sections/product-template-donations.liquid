@@ -4,12 +4,9 @@
   "templateSuffix": {{ product.template_suffix | json }},
   "showInventoryQuantity": {{ section.settings.show_inventory_quantity | json }},
   "showSku": {{ section.settings.show_sku | json }},
-  "stackProductImages": {{ section.settings.stack_images | json }},
   "showThumbnails": {{ section.settings.show_thumbnails | json }},
-  "enableVideoLooping": {{ section.settings.enable_video_looping | json }},
   "inventoryQuantityThreshold": {{ section.settings.inventory_quantity_threshold }},
   "showPriceInButton": {{ section.settings.show_price_in_button | json }},
-  "enableImageZoom": {{ section.settings.enable_image_zoom | json }},
   "showPaymentButton": {{ section.settings.show_payment_button | json }},
   "useAjaxCart": {% if settings.cart_type == 'drawer' %}true{% else %}false{% endif %}
 }
