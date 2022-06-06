@@ -44,7 +44,7 @@
 
   <h1 class="ProductMeta__Title Heading u-h2">
     {%- if template.name == 'product' -%}
-      {{- product.title -}}
+      {%-if custom_title-%}{{custom_title}}{%-else-%}{{- product.title -}}{%-endif-%}
     {%- else -%}
       <a href="{{ product.url }}">{{ product.title }}</a>
     {%- endif -%}

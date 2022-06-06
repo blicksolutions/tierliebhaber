@@ -8,6 +8,31 @@
     "theme_support_url": "https:\/\/support.maestrooo.com\/article\/203-contact-us"
   },
   {
+    "name": "Charity",
+    "settings": [
+      {
+        "type": "number",
+        "id": "donations_amount",
+        "label": "Donations amount since last saved dog"
+      },
+      {
+        "type": "number",
+        "id": "donation_goal",
+        "label": "Donation Goal"
+      },
+      {
+        "type": "text",
+        "id": "total_text",
+        "label": "Total Text"
+      },
+      {
+        "type": "text",
+        "id": "total_number",
+        "label": "Total Number"
+      }
+    ]
+  },
+  {
     "name": "Colors",
     "settings": [
       {

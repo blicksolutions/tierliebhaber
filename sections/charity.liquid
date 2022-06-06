@@ -1,6 +1,6 @@
 {%- liquid
-  assign donation_goal = section.settings.donation_goal | times: 1.0
-  assign donations = section.settings.donations_amount | times: 1.0
+  assign donation_goal = settings.donation_goal | times: 1.0
+  assign donations = settings.donations_amount | times: 1.0
   assign progressbar_fill_percentage = donations | divided_by: donation_goal | times: 100
   assign money_remaining = donation_goal | minus: donations | times: 100 | money
 -%}
@@ -30,15 +30,15 @@
     </p>
     
     <div class="Total">
-      {%- if section.settings.total_text -%}
+      {%- if settings.total_text -%}
         <span class="Total__Text">
-          {{ section.settings.total_text }}
+          {{ settings.total_text }}
         </span>
       {%- endif -%}
 
-      {%- if section.settings.total_number -%}
+      {%- if settings.total_number -%}
         <span class="Total__Number">
-          {{ section.settings.total_number }}
+          {{ settings.total_number }}
         </span>
       {%- endif -%}
     </div>
@@ -92,26 +92,6 @@
       "type": "text",
       "id": "heading_suffix",
       "label": "Heading Suffix"
-    },
-    {
-      "type": "number",
-      "id": "donations_amount",
-      "label": "Donations amount since last saved dog"
-    },
-    {
-      "type": "number",
-      "id": "donation_goal",
-      "label": "Donation Goal"
-    },
-    {
-      "type": "text",
-      "id": "total_text",
-      "label": "Total Text"
-    },
-    {
-      "type": "text",
-      "id": "total_number",
-      "label": "Total Number"
     },
     {
       "type": "text",
