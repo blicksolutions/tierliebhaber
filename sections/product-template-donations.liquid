@@ -85,7 +85,12 @@
     <div class="Product__InfoWrapper">
       <div class="Product__Info {% if media_count == 0 %}Product__Info--noGallery{% endif %}">
         <div class="Container">
-          {%- render 'product-meta', product: product, show_description: true, show_like_badge: false, show_price: false -%}
+          {%- assign description_length = product.description | size -%}
+          {%- if section.settings.custom_title -%}
+            {%- render 'product-meta', product: product, show_description: true, show_like_badge: false, show_price: false, custom_title: section.settings.custom_title -%}
+          {%-else-%}
+            {%- render 'product-meta', product: product, show_description: true, show_like_badge: false, show_price: false -%}
+          {%-endif-%}
 
           {%- if product.template_suffix != 'coming-soon' -%}
             {%- render 'product-form', product: product, show_shipping: false, show_benefits: false -%}
@@ -208,7 +213,7 @@ We allow merchants to use one image as a "featured image" by adding the alt tag 
 
     .Product__Info{
         position: relative;
-        top:0;
+        top:0 !important;
         margin: 0;
     }
 
@@ -403,6 +408,11 @@ We allow merchants to use one image as a "featured image" by adding the alt tag 
       "label": "Show local pickup availability",
       "info": "Show customers where they can pick up the product. [Learn more](https://help.shopify.com/en/manual/shipping/setting-up-and-managing-your-shipping/local-methods/local-pickup#show-pickup-availability-to-your-customers)",
       "default": false
+    },
+    {
+      "type": "text",
+      "id": "custom_title",
+      "label": "Custom Product Title"
     },
     {
       "type": "header",
