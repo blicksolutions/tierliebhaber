@@ -2203,6 +2203,7 @@
                         o = e.device,
                         l = e.support,
                         d = !!i.nested;
+                    if(!s) return;
                     if (!l.touch && l.pointerEvents) s.removeEventListener(n.start, e.onTouchStart, !1), t.removeEventListener(n.move, e.onTouchMove, d), t.removeEventListener(n.end, e.onTouchEnd, !1);
                     else {
                         if (l.touch) {
