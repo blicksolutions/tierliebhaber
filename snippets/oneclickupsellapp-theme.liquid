@@ -1,5 +1,5 @@
 {% comment %}
-  Updated: 2022/05/05
+  Updated: 2022/06/07
 {% endcomment %}
 
 {% unless oneclickupsellapp %}
@@ -785,7 +785,7 @@ PopupDispatcher.prototype = {
         const isSameCart = self.helpers.isSameCart(cart);
         const isSameCartToken = self.helpers.isSameCartToken(cart);
 
-        if (!isSameCart && !isSameCartToken) utils.cookie.remove('ocu_popup_ids')
+        if ((!isSameCart && !isSameCartToken) || !isSameCartToken) utils.cookie.remove('ocu_popup_ids')
         const isShownOfferIdPresent = utils.cookie.get('ocu_popup_ids');
 
         if (isShownOfferIdPresent) query += 'split_test_weight=' + isShownOfferIdPresent;
@@ -881,7 +881,7 @@ PopupDispatcher.prototype = {
     nativeClick: function() {
         this._clearFlow();
         this.secondAttempt = true;
-        const button = this.target.querySelector('[type="submit"], [name="add"], [name="checkout"]');
+        const button = this.target.querySelector('[type="submit"], [name="add"], [name="checkout"], [data-skip-cart]');
 
         this.context.helpers.removeExtraClassList(button);
         button.click();
@@ -1203,7 +1203,9 @@ class CartDispatcher {
         subtotalEls.forEach(subtotalEl => {
             if (!subtotalEl) return;
 
-            subtotalEl.innerHTML = this.getCurrency(subtotal, OCUIncart.money_format);
+            const withCurrency = subtotalEl.dataset.ocuSubtotal;
+
+            subtotalEl.innerHTML = this.getCurrency(subtotal, OCUIncart.money_format, withCurrency);
         });
     }
 
@@ -1218,9 +1220,12 @@ class CartDispatcher {
         });
     }
 
-    getCurrency(price, format) {
+    getCurrency(price, format, withCurrency) {
         const currencyCode = (window.Shopify && Shopify.currency && +Shopify.currency.active) || 'USD';
-        return Shopify.formatMoney && Shopify.formatMoney(price, format) || window.OCUApi.currency(price/100, format, currencyCode);
+        const isCurrencyMissing = !format.match(currencyCode);
+        const moneyFormat = isCurrencyMissing && withCurrency ? `${format} ${currencyCode}` : format;
+
+        return Shopify.formatMoney && Shopify.formatMoney(price, moneyFormat) || window.OCUApi.currency(price/100, moneyFormat, currencyCode);
     }
 
     fillSelectors(selectors) {
@@ -2796,7 +2801,32 @@ const UpdaterPrecheckout = {
     acceptAddOffer: function(data) {
         return this.updateCart().then(this.addToCart.bind(this, data));
     },
-    acceptUpgradeOffer: function(addData, cartItem, cartItemLine) {
+    acceptUpgradeOffer: function(...params) {
+        try {
+            return this._vintageUpgrade(...params);
+        } catch (err) {
+            console.log('os2 used');
+            return this._os2Upgrade(...params);
+        }
+    },
+    _os2Upgrade: function(addData, cartItem, cartItemLine) {
+        const getChangeData = (cart, lineItem, line) => {
+            const item = cart.items.find(({ key }) => key === lineItem.key);
+            if (!item) return null;
+            return { line, quantity: item.quantity - 1 };
+        };
+
+        const changeCart = (...params) => {
+            const changeData = getChangeData(...params);
+            return changeData && !OCUIncart._is_product_action && this.changeCart(changeData);
+        };
+
+        return this.updateCart(new FormData(this.form))
+            .then((cart) => changeCart(cart.data, cartItem, cartItemLine))
+            .then(() => this.addToCart(addData))
+            .catch((err) => console.log(err));
+    },
+    _vintageUpgrade: function(addData, cartItem, cartItemLine) {
         const data = this._getUpgradeOfferData(cartItem, cartItemLine);
         const changeData = Object.assign({}, data.changeData);
         delete changeData.__line;
@@ -2911,7 +2941,6 @@ const UpdaterHelpers = {
             item.closest('[data-line]') && item.closest('[data-line]').dataset.line);
     },
     _getKey: function(item) {
-        if (this._isDawnTheme()) return this._getThemeKey(item);
         const match = this.regs.key.exec(
             item.dataset.id ||
             item.dataset.key ||
@@ -2921,7 +2950,6 @@ const UpdaterHelpers = {
         return match && match[1].split('_')[0];
     },
     _getId: function(item) {
-        if (this._isDawnTheme()) return this._getThemeId(item);
         const match = this.regs.id.exec(
             item.dataset.variant ||
             item.dataset.id ||
@@ -2966,30 +2994,6 @@ const UpdaterHelpers = {
     get needCurrencyUpdate() {
         return this.currencyElement && this.currencyElement.value !== this.data.currency;
     },
-    _isDawnTheme: function() {
-        return /^Dawn(\s*?\|?|$)/.test(window.Shopify.theme.name);
-      },
-    _getThemeKey: function(item) {
-        const link = item.closest('[id^="CartItem"]').querySelector('[id^="Remove"] a').href;
-        const match = this.regs.key.exec(link);
-        return match && match[1].split('_')[0];
-      },
-    _getThemeId: function(item) {
-        const selectors = [
-            { selector: '[id^="Remove"] a', regexp: /id=(\d+)/ },
-            { selector: 'a[href*=\'variant=\']', regexp: /variant=(\d+)/ }
-        ];
-        return selectors.reduce((acc, element) => {
-            if (acc) return acc;
-
-            const link = item
-                .closest('[id^="CartItem"]')
-                .querySelector(element.selector);
-            const match = link && link.href.match(element.regexp);
-
-            return match && +match[1];
-        }, null) || [];
-      },
     _getClosestKey: function(item) {
         const closestKey = item.closest(this.selectors.cartItemKey);
         if (!closestKey) return;
@@ -3679,7 +3683,7 @@ function Helpers() {
     };
 
     this.isActionButton = function(e) {
-        const submitSelectors = ['[type="submit"]', '[name="add"]', '[name="checkout"]'];
+        const submitSelectors = ['[type="submit"]', '[name="add"]', '[name="checkout"]', '[data-skip-cart]'];
         return submitSelectors.reduce(function(acc,select) {
             const el = e.closest(select);
             if (el) acc = true;
