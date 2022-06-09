@@ -710,7 +710,7 @@ PopupDispatcher.prototype = {
                     return this.checkout();
                 }
 
-                if ((utils.store.get('amazonPayInitiated') || lqd.is_precheckout) && !utils.cookie.get('ocu_shown_popup')) {
+                if (!utils.cookie.get('ocu_shown_popup')) {
                     return this.show(event, target);
                 }
 
@@ -840,7 +840,7 @@ PopupDispatcher.prototype = {
     productLocation: function(event, target) {
         const variantId = this._formVariantId(target);
         if (this.popupAccepted) return this.nativeClick();
-        if (!this._variantWasTrigger(variantId) && !this._productWasTrigger()) return this.breakHandling(event, target); // exit handling if product not trigger
+        // if (!this._variantWasTrigger(variantId) && !this._productWasTrigger()) return this.breakHandling(event, target); // exit handling if product not trigger
 
         this.context.prevent(event, true);
         if (this.bt && this.bt.present) this.bt.startLoadingBtn();
@@ -928,6 +928,7 @@ PopupDispatcher.prototype = {
 
         payload.cart_token = this.cartToken;
         payload.location = this.getTriggerAction();
+        payload.currency = this.context.helpers.currencyRate();
 
         if (shownPopupId) payload.shown_popup_id = shownPopupId;
         if (payload.location === 'product') {
@@ -3463,6 +3464,8 @@ function PublicMethod() {
             header_type: header
         });
 
+        payload.currency = this.helpers.currencyRate();
+
         return payload;
     }
 
@@ -3830,6 +3833,10 @@ function Helpers() {
 
         elem.classList.remove(classList);
     };
+
+    this.currencyRate = function() {
+        return Shopify?.currency || {};
+    }
 }
 
 function ApplicationsUtils() {
