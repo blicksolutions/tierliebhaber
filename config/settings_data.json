@@ -132,10 +132,10 @@
             "type": "image",
             "settings": {
               "image": "shopify:\/\/shop_images\/banner_desktop-01_1.png",
-              "mobile_image": "shopify:\/\/shop_images\/banner_mobile-01_1.png",
+              "mobile_image": "shopify:\/\/shop_images\/banner2_mobile_1.png",
               "apply_overlay": false,
-              "content_offset_mobile_left": 39,
-              "content_offset_mobile_top": 57,
+              "content_offset_mobile_left": 50,
+              "content_offset_mobile_top": 74,
               "content_offset_desktop_left": 31,
               "content_offset_desktop_top": 55,
               "content_position": "middleCenter",
@@ -149,7 +149,7 @@
               "button_font_size": 14,
               "button_font_weight": 700,
               "button_text_color": "#ffffff",
-              "button_background": "#3c3a36"
+              "button_background": "#3164ff"
             }
           }
         },
