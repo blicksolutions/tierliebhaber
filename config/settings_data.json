@@ -1154,6 +1154,15 @@
           "slider-headline": "Wir sind",
           "slider-subline": "Tierliebhaber WEIL"
         }
+      },
+      "cart-drawer": {
+        "type": "cart-drawer",
+        "settings": {
+          "upsell_products": [
+            "tl0002-cs3",
+            "tl0002-cs2-10"
+          ]
+        }
       }
     },
     "content_for_index": [
