@@ -91,47 +91,54 @@
 
         {%- capture item_actions -%}
           <div class="CartItem__Actions Heading Text--subdued" style="text-align: center">
-            <div class="CartItem__QuantitySelector">               
-              <div class="QuantitySelector{% if line_item.variant.metafields.limit.quantity %} QuantitySelector--Disabled{% endif %}">
-                {%- assign quantity_minus_one = line_item.quantity | minus: 1 -%}
+            
+            {%- if item_upsell -%}
+              <div class="CartItem__QuantitySelector">               
+                <div class="QuantitySelector{% if line_item.variant.metafields.limit.quantity %} QuantitySelector--Disabled{% endif %}">
+                  {%- assign quantity_minus_one = line_item.quantity | minus: 1 -%}
 
-                <a
-                  class="QuantitySelector__Button Link Link--primary"
-                  title="{{ 'cart.items.set_quantity' | t: new_quantity: quantity_minus_one }}"
-                  href="{{ routes.cart_change_url }}?quantity={{ quantity_minus_one }}&line={{ forloop.index }}"
-                  data-quantity="{{ quantity_minus_one }}"
-                  data-line="{{ forloop.index }}"
-                  data-action="update-item-quantity"
+                  <a
+                    class="QuantitySelector__Button Link Link--primary"
+                    title="{{ 'cart.items.set_quantity' | t: new_quantity: quantity_minus_one }}"
+                    href="{{ routes.cart_change_url }}?quantity={{ quantity_minus_one }}&line={{ forloop.index }}"
+                    data-quantity="{{ quantity_minus_one }}"
+                    data-line="{{ forloop.index }}"
+                    data-action="update-item-quantity"
+                    >
+                    {%- render 'icon' with 'minus' -%}
+                  </a>
+
+                  <input
+                    type="text"
+                    name="updates[]"
+                    id="updates_{{ line_item.key }}"
+                    class="QuantitySelector__CurrentQuantity"
+                    pattern="[0-9]*"
+                    data-line="{{ forloop.index }}"
+                    value="{% if line_item.variant.metafields.limit.quantity %}{{ line_item.variant.metafields.limit.quantity | prepend: 'max. ' }}{% else %}{{ line_item.quantity }}{% endif %}"
                   >
-                  {%- render 'icon' with 'minus' -%}
-                </a>
 
-                <input
-                  type="text"
-                  name="updates[]"
-                  id="updates_{{ line_item.key }}"
-                  class="QuantitySelector__CurrentQuantity"
-                  pattern="[0-9]*"
-                  data-line="{{ forloop.index }}"
-                  value="{% if line_item.variant.metafields.limit.quantity %}{{ line_item.variant.metafields.limit.quantity | prepend: 'max. ' }}{% else %}{{ line_item.quantity }}{% endif %}"
-                >
+                  {%- assign quantity_plus_one = line_item.quantity | plus: 1 -%}
 
-                {%- assign quantity_plus_one = line_item.quantity | plus: 1 -%}
-
-                <a
-                  class="QuantitySelector__Button Link Link--primary"
-                  title="{{ 'cart.items.set_quantity' | t: new_quantity: quantity_plus_one }}"
-                  href="{{ routes.cart_change_url }}?quantity={{ quantity_plus_one }}&line={{ forloop.index }}"
-                  data-quantity="{{ quantity_plus_one }}"
-                  data-line="{{ forloop.index }}"
-                  data-action="update-item-quantity"
-                  >
-                  {%- render 'icon' with 'plus' -%}
-                </a>
+                  <a
+                    class="QuantitySelector__Button Link Link--primary"
+                    title="{{ 'cart.items.set_quantity' | t: new_quantity: quantity_plus_one }}"
+                    href="{{ routes.cart_change_url }}?quantity={{ quantity_plus_one }}&line={{ forloop.index }}"
+                    data-quantity="{{ quantity_plus_one }}"
+                    data-line="{{ forloop.index }}"
+                    data-action="update-item-quantity"
+                    >
+                    {%- render 'icon' with 'plus' -%}
+                  </a>
+                </div>
               </div>
-            </div>
 
-            <a href="{{ routes.cart_change_url }}?quantity=0&line={{ forloop.index }}" class="CartItem__Remove Link Link--underline Link--underlineShort" data-quantity="0" data-line="{{ forloop.index }}" data-action="remove-item">{{ 'cart.items.remove' | t }}</a>
+              <a href="{{ routes.cart_change_url }}?quantity=0&line={{ forloop.index }}" class="CartItem__Remove Link Link--underline Link--underlineShort" data-quantity="0" data-line="{{ forloop.index }}" data-action="remove-item">{{ 'cart.items.remove' | t }}</a>
+            
+            {%- else -%}
+            
+            {%- endif -%}
+        
           </div>
         {%- endcapture -%}
 
