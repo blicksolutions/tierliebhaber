@@ -11143,7 +11143,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   display: block;
   position: absolute;
   top: 0;
-  right: 7px;
+  right: 12px;
   bottom: 0;
   width: 48px;
   background: url(dark-down-icon.svg) left 15px center / 15px no-repeat;
