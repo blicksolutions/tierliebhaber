@@ -11132,7 +11132,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   cursor: pointer;
   color: #515151;
   height: 60px;
-  padding: 19px 12px 5px 41px;
+  padding: 19px 41px 5px 30px;
   font-size: 14px;
   position: relative;
   cursor: pointer;
