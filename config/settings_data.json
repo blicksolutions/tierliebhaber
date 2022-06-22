@@ -1158,7 +1158,8 @@
       "cart-drawer": {
         "type": "cart-drawer",
         "settings": {
-          "upsell_products": [
+          "upsell_title": "Deine perfekte Ergänzung:",
+          "upsell_items": [
             "tl0002-cs3",
             "tl0002-cs2-10"
           ]
