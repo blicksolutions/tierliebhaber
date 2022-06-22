@@ -60,10 +60,7 @@
           {% render 'cart-items' %}
         </div>
       {%- endif -%}
-    </div>
-
-    {%- unless cart.item_count == 0 -%}
-
+      
       <!-- Upsell items -->
       {%- assign availableUpsellItemFound = false -%}
       <div class="CartUpsells__Container">
@@ -88,6 +85,10 @@
         </div>
       </div>
       <!-- /Upsell items -->
+
+    </div>
+
+    {%- unless cart.item_count == 0 -%}
 
       <div class="Drawer__Footer" data-drawer-animated-bottom>
         
