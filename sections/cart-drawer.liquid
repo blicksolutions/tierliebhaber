@@ -43,26 +43,6 @@
         </div>
       {%- endif -%}
       
-      
-      <!-- Upsell products -->
-      <div class="CartUpsells__Container">
-        <p class="CartUpsells__Title">
-          {{ section.settings.upsell_title }}
-        </p>
-        <div class="CartUpsells__Items">
-          {%- for line_item in section.settings.upsell_items -%}
-            {%- assign has_free_shipping = line_item.variant.metafields.shipping.has_free_shipping -%}
-
-            {%- if has_free_shipping -%}
-              {%- assign contains_free_shipping_variant = true -%}
-              {%- break -%}
-            {%- endif -%}
-          {%- endfor -%}
-        </div>
-      </div>
-      <!-- /Upsell products -->
-      
-
       {%- if cart.item_count == 0 -%}
         <p class="Cart__Empty Heading u-h5">{{ 'cart.general.empty' | t }}</p>
       {%- else -%}
@@ -83,6 +63,25 @@
     </div>
 
     {%- unless cart.item_count == 0 -%}
+
+      <!-- Upsell products -->
+      <div class="CartUpsells__Container">
+        <p class="CartUpsells__Title">
+          {{ section.settings.upsell_title }}
+        </p>
+        <div class="CartUpsells__Items">
+          {%- for line_item in section.settings.upsell_items -%}
+            {%- assign has_free_shipping = line_item.variant.metafields.shipping.has_free_shipping -%}
+
+            {%- if has_free_shipping -%}
+              {%- assign contains_free_shipping_variant = true -%}
+            {%- break -%}
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+      <!-- /Upsell products -->
+
       <div class="Drawer__Footer" data-drawer-animated-bottom>
         
         <div class="Drawer__Footer__Inner">
