@@ -11443,6 +11443,8 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 .CartUpsells__Title {
   text-align: center;
   color: #737373;
+  margin-bottom: 0;
+  line-height: normal;
 }
 
 .CartItem__Actions__UpsellBtn {
