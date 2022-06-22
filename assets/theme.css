@@ -6261,12 +6261,12 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
   line-height: 23px;
   color: #6C6D6E;
   display: inline-block;
-  margin-left: 6px;
+  margin-left: 7px;
 }
 
 .CartItem__UnitPriceMeasurement {
   display: inline-block;
-  margin: 0 0 0 5px;
+  margin: 0 0 0 6px;
 }
 
 .CartItem__UnitPriceMeasurement > .UnitPriceMeasurement {
