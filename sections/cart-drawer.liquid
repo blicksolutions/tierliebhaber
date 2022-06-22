@@ -65,18 +65,24 @@
     {%- unless cart.item_count == 0 -%}
 
       <!-- Upsell products -->
+      {%- assign availableUpsellItemFound = false -%}
       <div class="CartUpsells__Container">
         <p class="CartUpsells__Title">
           {{ section.settings.upsell_title }}
         </p>
         <div class="CartUpsells__Items">
           {%- for line_item in section.settings.upsell_items -%}
-            <div class="Drawer__Container">
-              <input type="hidden" name="attributes[collection_mobile_items_per_row]" value="">
-              <input type="hidden" name="attributes[collection_desktop_items_per_row]" value="">
-
-              {% render 'cart-items' %}
-            </div>
+            {%- if availableUpsellItemFound == false -%}
+              {%- if line_item.available -%}
+      			{%- assign availableUpsellItemFound = true -%}
+                <div class="Drawer__Container">
+                  <input type="hidden" name="attributes[collection_mobile_items_per_row]" value="">
+                  <input type="hidden" name="attributes[collection_desktop_items_per_row]" value="">
+                  {% render 'cart-items' %}
+                </div>
+              {%- endif -%}
+            {%- else -%}
+            {%- endif -%}
           {%- endfor -%}
         </div>
       </div>
