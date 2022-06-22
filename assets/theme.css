@@ -11441,6 +11441,8 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 }
 
 .CartUpsells__Title {
+  border: 1px solid #F8F8F8;
+  padding-top: 12px;
   text-align: center;
   color: #737373;
   margin-bottom: 0;
