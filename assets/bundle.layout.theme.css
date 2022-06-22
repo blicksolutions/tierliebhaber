@@ -1,7 +1,7 @@
 .u-Hidden{display:none}.Image{height:100%;margin:0 auto;overflow:hidden;position:relative;width:100%}.Image:before{content:"";display:block;padding-bottom:calc(100%/var(--aspect-ratio))}.Image__Image{border-radius:inherit;height:100%;left:0;-o-object-fit:cover;object-fit:cover;-o-object-position:center;object-position:center;position:absolute;top:0;width:100%}.Section.-Secondary{background-color:rgba(var(--light-background-rgb),1)}.Cart .Cheering{font-size:12px;text-align:center}.Cheering{margin:12px 0}.Cheering__Title{display:inline-block;font-weight:700;margin-bottom:0;position:relative}.Cheering__Title:after{background-color:rgba(241,175,158,.35);bottom:4px;content:"";height:5px;left:-4px;position:absolute;width:calc(100% + 4px)}.ProductBadge:not(.-Placeholder){align-items:center;background-color:#fff3ef;border:1px solid #e6b2a1;border-radius:4px;display:flex;flex-direction:row;padding:4px}.ProductBadge.-Placeholder{padding-top:22px}.ProductBadge__Icon{margin-right:4px}.ProductBadge__Icon .Icon{display:block;height:8px;width:8px}.ProductBadge__Text{color:#e6b2a1;font-size:10px;line-height:12px;text-align:center}.ProductItem .ProductBadge{display:inline-flex;margin:0 auto 8px}.ProductMeta .ProductBadge{display:inline-flex;margin:0 6px}@media screen and (min-width:1008px){.ProductMeta .ProductBadge{margin:0}}.ProductMeta .ProductBadge__Text{font-size:12px}
 
 #sidebar-cart .Drawer__Header {
-  height: 51px;
+  height: 50px;
   padding-left: 16px;
 }
 
