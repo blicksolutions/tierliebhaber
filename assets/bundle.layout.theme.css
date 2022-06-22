@@ -4,6 +4,10 @@
   height: 51px;
 }
 
+#sidebar-cart .Drawer__Header .Drawer__Title {
+  font-size: 16px;
+}
+
 #sidebar-cart .Cheering__Title {
   font-size: 14px;
   line-height: 16px;
