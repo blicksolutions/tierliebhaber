@@ -56,7 +56,11 @@
         "settings": {
           "primary_menu": "main-menu",
           "secondary_menu": "",
-          "show_social_media": true
+          "show_social_media": true,
+          "cart_sidebar_upsell_products": [
+            "tl0002-cs3",
+            "tl0002-cs2-10"
+          ]
         }
       },
       "announcement": {
