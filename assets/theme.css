@@ -11268,7 +11268,8 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 }
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalLabel {
-  font-size: 100%;
+/*   font-size: 100%; */
+  font-size: 16px;
 }
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalPrice {
