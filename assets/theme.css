@@ -6193,6 +6193,7 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-bottom: 0;
 }
 
 .CartItem__Title a {
