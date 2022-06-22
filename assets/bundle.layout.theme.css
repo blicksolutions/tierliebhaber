@@ -9,6 +9,10 @@
   font-size: 16px;
 }
 
+#sidebar-cart .Drawer__Close {
+  top: 18px;
+}
+
 #sidebar-cart .Drawer__Close svg {
   width: 22px;
   height: 22px;
