@@ -32,14 +32,7 @@
         </h2>
 
         <div class="CartItem__Meta Heading Text--subdued">
-          {%- unless line_item.product.has_only_default_variant -%}
-            <p class="CartItem__Variant">{{ line_item.variant.title }}</p>
-          {%- endunless -%}
-
-          {%- if line_item.selling_plan_allocation -%}
-            <p class="CartItem__PlanAllocation">{{ line_item.selling_plan_allocation.selling_plan.name }}</p>
-          {%- endif -%}
-
+          
           <div class="CartItem__PriceList">
             {%- if line_item.original_price != line_item.final_price -%}
               <span class="CartItem__Price Price Price--highlight">{{ line_item.final_price | money_without_trailing_zeros }}</span>
@@ -58,6 +51,14 @@
               </ul>
             {%- endif -%}
           </div>
+
+          {%- unless line_item.product.has_only_default_variant -%}
+            <p class="CartItem__Variant">{{ line_item.variant.title }}</p>
+          {%- endunless -%}
+
+          {%- if line_item.selling_plan_allocation -%}
+            <p class="CartItem__PlanAllocation">{{ line_item.selling_plan_allocation.selling_plan.name }}</p>
+          {%- endif -%}
 
           {%- if line_item.properties != empty -%}
             <ul class="CartItem__PropertyList">
