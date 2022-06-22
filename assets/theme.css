@@ -11250,6 +11250,11 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Subtotal {
   display: flex;
   justify-content: space-between;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 4px;
 }
 
 #sidebar-cart .Drawer__Footer .sc_simple-container {
@@ -11258,13 +11263,6 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 
 #sidebar-cart .Drawer__Footer .scDiscount.scActive form {
   display: none !important;
-}
-
-#sidebar-cart .Drawer__Footer .Drawer__Footer__Subtotal {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
 }
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalLabel {
