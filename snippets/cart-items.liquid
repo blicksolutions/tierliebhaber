@@ -136,7 +136,9 @@
               <a href="{{ routes.cart_change_url }}?quantity=0&line={{ forloop.index }}" class="CartItem__Remove Link Link--underline Link--underlineShort" data-quantity="0" data-line="{{ forloop.index }}" data-action="remove-item">{{ 'cart.items.remove' | t }}</a>
             
             {%- else -%}
-            
+              <button type="button" class="Button Button--secondary">
+                {{ 'cart.sidebar.upsell.add' | t }}
+              </button>
             {%- endif -%}
         
           </div>
