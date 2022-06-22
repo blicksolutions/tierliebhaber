@@ -64,7 +64,7 @@
 
     {%- unless cart.item_count == 0 -%}
 
-      <!-- Upsell products -->
+      <!-- Upsell items -->
       {%- assign availableUpsellItemFound = false -%}
       <div class="CartUpsells__Container">
         <p class="CartUpsells__Title">
@@ -78,7 +78,7 @@
                 <div class="Drawer__Container">
                   <input type="hidden" name="attributes[collection_mobile_items_per_row]" value="">
                   <input type="hidden" name="attributes[collection_desktop_items_per_row]" value="">
-                  {% render 'cart-items', 'upsell_item': true %}
+                  {% render 'cart-items', 'upsell_item': false %}
                 </div>
               {%- endif -%}
             {%- else -%}
@@ -86,7 +86,7 @@
           {%- endfor -%}
         </div>
       </div>
-      <!-- /Upsell products -->
+      <!-- /Upsell items -->
 
       <div class="Drawer__Footer" data-drawer-animated-bottom>
         
