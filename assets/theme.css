@@ -6290,7 +6290,9 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
 
 .CartItem__Remove {
   margin: 8px 0;
-  font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 8px));
+/*   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 8px)); */
+  font-size: 12px;
+  color: #6A6B6A;
 }
 
 .CartItem__Remove::before {
@@ -6335,7 +6337,7 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
   }
 
   .CartItem__Remove {
-    font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 9px));
+/*     font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 9px)); */
   }
 
   .CartItem__Actions {
