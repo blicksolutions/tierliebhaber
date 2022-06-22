@@ -92,7 +92,7 @@
         {%- capture item_actions -%}
           <div class="CartItem__Actions Heading Text--subdued" style="text-align: center">
             
-            {%- if item_upsell -%}
+            {%- if item_upsell == true -%}
               <div class="CartItem__QuantitySelector">               
                 <div class="QuantitySelector{% if line_item.variant.metafields.limit.quantity %} QuantitySelector--Disabled{% endif %}">
                   {%- assign quantity_minus_one = line_item.quantity | minus: 1 -%}
