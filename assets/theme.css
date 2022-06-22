@@ -11411,5 +11411,6 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   border-radius: 0;
   font-size: 12px;
   min-width: 177px;
+  color: #6A6B6A;
 }
 /* /Cart sidebar upsell */
