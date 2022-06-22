@@ -93,6 +93,11 @@
           <div class="CartItem__Actions Heading Text--subdued" style="text-align: center">
             
             {%- if item_upsell -%}
+              <button type="button" class="Button Button--secondary">
+                {{ 'cart.sidebar.upsell.add' | t }}
+              </button>
+            {%- else -%}
+            
               <div class="CartItem__QuantitySelector">               
                 <div class="QuantitySelector{% if line_item.variant.metafields.limit.quantity %} QuantitySelector--Disabled{% endif %}">
                   {%- assign quantity_minus_one = line_item.quantity | minus: 1 -%}
@@ -134,11 +139,6 @@
               </div>
 
               <a href="{{ routes.cart_change_url }}?quantity=0&line={{ forloop.index }}" class="CartItem__Remove Link Link--underline Link--underlineShort" data-quantity="0" data-line="{{ forloop.index }}" data-action="remove-item">{{ 'cart.items.remove' | t }}</a>
-            
-            {%- else -%}
-              <button type="button" class="Button Button--secondary">
-                {{ 'cart.sidebar.upsell.add' | t }}
-              </button>
             {%- endif -%}
         
           </div>
