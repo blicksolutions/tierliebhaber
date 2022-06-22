@@ -40,20 +40,6 @@
             <p class="CartItem__PlanAllocation">{{ line_item.selling_plan_allocation.selling_plan.name }}</p>
           {%- endif -%}
 
-          {%- if line_item.properties != empty -%}
-            <ul class="CartItem__PropertyList">
-              {%- for property in line_item.properties -%}
-                {%- assign first_character_in_key = property.first | truncate: 1, '' -%}
-
-                {%- if property.last == blank or first_character_in_key == '_' -%}
-                  {%- continue -%}
-                {%- endif -%}
-
-                <li class="CartItem__Property">{{ property.first }}: {{ property.last }}</li>
-              {%- endfor -%}
-            </ul>
-          {%- endif -%}
-
           <div class="CartItem__PriceList">
             {%- if line_item.original_price != line_item.final_price -%}
               <span class="CartItem__Price Price Price--highlight">{{ line_item.final_price | money_without_trailing_zeros }}</span>
@@ -72,6 +58,20 @@
               </ul>
             {%- endif -%}
           </div>
+
+          {%- if line_item.properties != empty -%}
+            <ul class="CartItem__PropertyList">
+              {%- for property in line_item.properties -%}
+                {%- assign first_character_in_key = property.first | truncate: 1, '' -%}
+
+                {%- if property.last == blank or first_character_in_key == '_' -%}
+                  {%- continue -%}
+                {%- endif -%}
+
+                <li class="CartItem__Property">{{ property.first }}: {{ property.last }}</li>
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
 
           {%- if line_item.unit_price_measurement -%}
             <div class="CartItem__UnitPriceMeasurement">
