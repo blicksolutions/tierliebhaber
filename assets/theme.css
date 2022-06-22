@@ -6167,6 +6167,7 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
 .CartItem {
   display: table;
   table-layout: fixed;
+/*   margin: 30px 0; */
   margin: 30px 0;
   width: 100%;
 }
@@ -6283,7 +6284,8 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin-top: 16px;
+/*   margin-top: 16px; */
+  margin-top: 5px;
 }
 
 .CartItem__Remove {
@@ -6337,7 +6339,7 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
   }
 
   .CartItem__Actions {
-    margin-top: 20px;
+/*     margin-top: 20px; */
   }
 }
 
