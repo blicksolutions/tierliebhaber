@@ -6213,6 +6213,12 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 9px));
 }
 
+.CartItem__PriceList .CartItem__Price {
+  font-size: 16px;
+  line-height: 23px;
+  color: #6A6B6A;
+}
+
 .CartItem__PropertyList {
   list-style: none;
   font-style: italic;
