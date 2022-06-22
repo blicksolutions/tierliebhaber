@@ -78,7 +78,7 @@
                 <div class="Drawer__Container">
                   <input type="hidden" name="attributes[collection_mobile_items_per_row]" value="">
                   <input type="hidden" name="attributes[collection_desktop_items_per_row]" value="">
-                  {% render 'cart-items', 'upsell_item': true %}
+                  {% render 'cart-items', 'item_type': 'upsell' %}
                 </div>
               {%- endif -%}
             {%- else -%}
