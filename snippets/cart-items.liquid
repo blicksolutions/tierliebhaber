@@ -92,8 +92,6 @@
         {%- capture item_actions -%}
           <div class="CartItem__Actions Heading Text--subdued" style="text-align: center">
             
-            
-            <div>line_item_type: {{ line_item_type }}</div>
             {%- if line_item_type == 'upsell' -%}
               <button type="button" class="Button Button--secondary">
                 {{ 'cart.sidebar.upsell.add' | t }}
