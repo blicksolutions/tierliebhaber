@@ -11437,7 +11437,6 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 
 /* Cart sidebar upsell */
 .CartUpsells__Container {
-/*   border: 2px red solid; */
   padding: 10px 5px;
 }
 
@@ -11453,5 +11452,6 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   color: #6A6B6A;
   letter-spacing: normal;
   min-width: 177px;
+  padding-top: 13px;
 }
 /* /Cart sidebar upsell */
