@@ -72,13 +72,14 @@
         </p>
         <div class="CartUpsells__Items">
           {%- for line_item in section.settings.upsell_items -%}
+            {%- assign line_item_type = 'upsell' -%}
             {%- if availableUpsellItemFound == false -%}
               {%- if line_item.available -%}
       			{%- assign availableUpsellItemFound = true -%}
                 <div class="Drawer__Container">
                   <input type="hidden" name="attributes[collection_mobile_items_per_row]" value="">
                   <input type="hidden" name="attributes[collection_desktop_items_per_row]" value="">
-                  {% render 'cart-items' %}
+                  {% render 'cart-items' with line_item_type %}
                 </div>
               {%- endif -%}
             {%- else -%}

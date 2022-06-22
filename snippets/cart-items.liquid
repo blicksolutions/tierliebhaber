@@ -92,9 +92,7 @@
         {%- capture item_actions -%}
           <div class="CartItem__Actions Heading Text--subdued" style="text-align: center">
             
-            <div>item_type: {{ availableUpsellItemFound | json }}</div>
-            
-            {%- if item_upsell -%}
+            {%- if line_item_type == 'upsell' -%}
               <button type="button" class="Button Button--secondary">
                 {{ 'cart.sidebar.upsell.add' | t }}
               </button>
