@@ -11131,7 +11131,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon-title {
   cursor: pointer;
   color: #515151;
-  height: 47px;
+  height: 60px;
   padding: 12px 12px 5px 41px;
   font-size: 14px;
   position: relative;
