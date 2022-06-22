@@ -11403,5 +11403,6 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 
 .CartUpsells__Title {
   text-align: center;
+  color: #737373;
 }
 /* /Cart sidebar upsell */
