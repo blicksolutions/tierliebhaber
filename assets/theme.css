@@ -11156,7 +11156,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon-content {
   position: relative;
-  margin: 0px 15px 21px;
+  margin: 0px 30px 21px 36px;
   min-height: 43px;
   display: none;
 }
