@@ -6298,7 +6298,8 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
 }
 
 .CartItem__Remove::before {
-  background: var(--text-color-light);
+/*   background: var(--text-color-light); */
+  background: #6A6B6A;
 }
 
 .CartItem__QuantitySelector .QuantitySelector--Disabled {
