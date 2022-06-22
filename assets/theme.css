@@ -6168,7 +6168,7 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
   display: table;
   table-layout: fixed;
 /*   margin: 30px 0; */
-  margin: 30px 0;
+  margin: 10px 0;
   width: 100%;
 }
 
