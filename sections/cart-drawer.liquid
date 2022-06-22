@@ -46,6 +46,9 @@
       
       <!-- Upsell products -->
       <div class="CartUpsells">
+        <p class="CartUpsells__Title">
+          {{ section.settings.upsell_title }}
+        </p>
         {%- for line_item in section.settings.upsell_items -%}
           {%- assign has_free_shipping = line_item.variant.metafields.shipping.has_free_shipping -%}
           
