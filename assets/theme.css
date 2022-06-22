@@ -6189,12 +6189,15 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
 
 .CartItem__Title {
   width: 100%;
-/*   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 11px)); */
-  font-size: 16px;
-  line-height: 23px;
+  font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 11px));
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.CartItem__Title a {
+  font-size: 16px;
+  line-height: 23px;
 }
 
 .CartItem__Title,
