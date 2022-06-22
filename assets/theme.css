@@ -11397,7 +11397,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 
 /* Cart sidebar upsell */
 .CartUpsells__Container {
-  border: 2px red solid;
+/*   border: 2px red solid; */
   padding: 10px;
 }
 
