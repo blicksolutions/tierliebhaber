@@ -6292,7 +6292,9 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
   margin: 8px 0;
 /*   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 8px)); */
   font-size: 12px;
+  font-weight: normal;
   color: #6A6B6A;
+  line-height: normal;
 }
 
 .CartItem__Remove::before {
