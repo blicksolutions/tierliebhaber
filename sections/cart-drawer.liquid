@@ -42,6 +42,21 @@
           </div>
         </div>
       {%- endif -%}
+      
+      
+      <!-- Upsell products -->
+      <div class="CartUpsells">
+        {%- for line_item in section.settings.upsell_items -%}
+          {%- assign has_free_shipping = line_item.variant.metafields.shipping.has_free_shipping -%}
+          
+          {%- if has_free_shipping -%}
+            {%- assign contains_free_shipping_variant = true -%}
+            {%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+      <!-- /Upsell products -->
+      
 
       {%- if cart.item_count == 0 -%}
         <p class="Cart__Empty Heading u-h5">{{ 'cart.general.empty' | t }}</p>
@@ -145,7 +160,7 @@
     },
     {
       "type": "product_list",
-      "id": "upsell_products",
+      "id": "upsell_items",
       "label": "Upsell products",
       "limit": 2
     }
