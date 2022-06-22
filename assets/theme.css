@@ -6259,7 +6259,7 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
 
 .CartItem__UnitPriceMeasurement {
   display: inline-block;
-  margin: 0 0 0 8px;
+  margin: 0 0 0 6px;
 }
 
 .CartItem__UnitPriceMeasurement > .UnitPriceMeasurement {
