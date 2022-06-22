@@ -267,6 +267,13 @@
     }
   },
   "cart": {
+    "sidebar": {
+      "coupon": {
+        "title": "Gib deinen Rabattcode ein",
+        "field": "Rabattcode",
+        "button": "Einlösen"
+      }
+    },
     "general": {
       "title": "Warenkorb",
       "empty": "Dein Warenkorb ist leer",
