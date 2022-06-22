@@ -6174,7 +6174,7 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
 .CartItem__ImageWrapper,
 .CartItem__Info {
   display: table-cell;
-  vertical-align: middle;
+  vertical-align: top;
 }
 
 .CartItem__ImageWrapper {
