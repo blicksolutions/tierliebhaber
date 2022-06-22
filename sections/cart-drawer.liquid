@@ -71,12 +71,12 @@
         </p>
         <div class="CartUpsells__Items">
           {%- for line_item in section.settings.upsell_items -%}
-            {%- assign has_free_shipping = line_item.variant.metafields.shipping.has_free_shipping -%}
+            <div class="Drawer__Container">
+              <input type="hidden" name="attributes[collection_mobile_items_per_row]" value="">
+              <input type="hidden" name="attributes[collection_desktop_items_per_row]" value="">
 
-            {%- if has_free_shipping -%}
-              {%- assign contains_free_shipping_variant = true -%}
-            {%- break -%}
-            {%- endif -%}
+              {% render 'cart-items' %}
+            </div>
           {%- endfor -%}
         </div>
       </div>
