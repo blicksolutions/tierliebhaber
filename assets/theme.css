@@ -6193,6 +6193,7 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-top: 15px;
   margin-bottom: 0;
 }
 
@@ -6201,7 +6202,7 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
   line-height: 23px;
 }
 
-.CartItem__Title,
+/* .CartItem__Title, */
 .CartItem__Variant,
 .CartItem__PlanAllocation,
 .CartItem__PropertyList {
