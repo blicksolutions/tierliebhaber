@@ -11396,8 +11396,12 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 /* /Cart sidebar coupon */
 
 /* Cart sidebar upsell */
-.CartUpsells {
+.CartUpsells__Container {
   border: 2px red solid;
   padding: 10px;
+}
+
+.CartUpsells__Title {
+  text-align: center;
 }
 /* /Cart sidebar upsell */
