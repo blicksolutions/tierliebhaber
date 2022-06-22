@@ -64,6 +64,26 @@
 
     {%- unless cart.item_count == 0 -%}
       <div class="Drawer__Footer" data-drawer-animated-bottom>
+        
+        <div class="Drawer__Footer__Inner">
+          <div class="Drawer__Footer__Subtotal">
+            <small class="Drawer__Footer__SubtotalLabel">{{ 'cart.general.subtotal' | t }}</small> 
+            <span class="Drawer__Footer__SubtotalPrice">{{ cart.total_price | money }}</span>
+          </div>
+
+          <!-- Cart sidebar coupon -->
+          <div class="Drawer__Footer__Coupon">
+            <div class="Drawer__Footer__Coupon-title">
+              {{ 'cart.sidebar.coupon.title' | t }}
+            </div>
+            <div class="Drawer__Footer__Coupon-content">
+              <div class="Drawer__Footer__Coupon-dcart"></div>
+              <div class="Drawer__Footer__Coupon-percentage"></div>
+            </div>
+          </div>
+          <!-- /Cart sidebar coupon -->
+        </div>
+        
         {%- capture shipping_and_taxes_notice -%}{{ 'cart.general.shipping_and_taxes_notice' | t }}{%- endcapture -%}
 
         {%- if settings.cart_enable_notes or shipping_and_taxes_notice != blank -%}
