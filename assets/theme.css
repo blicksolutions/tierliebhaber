@@ -6193,7 +6193,7 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-top: 15px;
+  margin-top: 12px;
   margin-bottom: 0;
 }
 
