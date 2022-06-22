@@ -6249,7 +6249,8 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
   margin-top: 4px;
 }
 
-.CartItem__Variant {
+.CartItem__Variant,
+.CartItem__UnitPriceMeasurement {
   font-weight: 400;
   font-size: 10px;
   line-height: 23px;
