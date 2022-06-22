@@ -11,6 +11,7 @@
 
 #sidebar-cart .Drawer__Close {
   top: 18px;
+  right: 18px;
 }
 
 #sidebar-cart .Drawer__Close svg {
