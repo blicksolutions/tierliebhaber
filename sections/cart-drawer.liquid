@@ -50,7 +50,12 @@
         <!-- Steps message -->
         <div class="CartMessage__Steps">
           <div class="CartMessage__Steps__Text">
-            {{ section.settings.message_text }}
+            <div>remaining_amount: {{ remaining_amount }}</div>
+            {%- if remaining_amount -%}
+              {{ section.settings.message_delivery_text }}
+            {%- else -%}
+              {{ section.settings.message_delivery_text }}
+            {%- endif -%}
           </div>
           <div class="CartMessage__StepsLines__Container">
             <div class="CartMessage__StepsLines">
