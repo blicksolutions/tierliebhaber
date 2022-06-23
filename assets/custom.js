@@ -48,6 +48,7 @@ $(document).ready(function () {
         
         if (newPrice.length) {
           const newPriceValue = parseFloat(newPrice.text().trim().replace(/\,/, ''));
+          console.log('newPriceValue', newPriceValue);
 
           const percentageValue = (oldPriceValue - newPriceValue) /oldPriceValue * 100;
 
