@@ -50,6 +50,7 @@
         <!-- Steps message -->
         <div class="CartMessage__Steps">
           <div class="CartMessage__Steps__Text">
+            <div>cart.total_price: {{ cart.total_price }}</div>
             {%- if cart.total_price >= 60000 -%}
               {{ section.settings.message_gift_text | replace: 'price', remaining_amount }}
             {%- else -%}
