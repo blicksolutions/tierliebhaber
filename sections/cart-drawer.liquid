@@ -105,7 +105,7 @@
               <div class="Drawer__Container">
                 <input type="hidden" name="attributes[collection_mobile_items_per_row]" value="">
                 <input type="hidden" name="attributes[collection_desktop_items_per_row]" value="">
-                {% render 'cart-items', line_item_type: 'upsell', line_items: [upsell_item: upsell_item] %}
+                {% render 'cart-upsell-item', line_item: upsell_item: upsell_item %}
               </div>
             </div>
           </div>
