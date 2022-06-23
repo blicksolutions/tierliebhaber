@@ -21,8 +21,6 @@
 
 #sidebar-cart .Cheering {
   margin-top: 15px;
-  margin-right: 10px;
-  margin-left: 10px;
 }
 
 #sidebar-cart .Cheering__Title {
@@ -57,4 +55,6 @@
   color: #000;
   border-bottom: 1px solid #F8F8F8;
   padding-bottom: 17px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
