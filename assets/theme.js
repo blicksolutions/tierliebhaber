@@ -2192,23 +2192,6 @@ function _classCallCheck(e, t) {
           }).then((function(i) {
             console.log('_rerenderCart');
           
-            const cartSidebar = $('#sidebar-cart');
-            const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
-            const cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.text().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
-            console.log('cartSidebarTotalPriceValue', cartSidebarTotalPriceValue);
-            
-            const maxPriceValue = 60;
-            let cartSidebarPercentage = cartSidebarTotalPriceValue / maxPriceValue * 100;
-            
-            if (cartSidebarPercentage > 100) {
-              cartSidebarPercentage = 100;
-            }
-            
-            const cartSidebarLine = document.querySelector('.CartMessage__StepsLines__Active');
-            console.log('cartSidebarLine', cartSidebarLine);
-            cartSidebarLine.style.width = cartSidebarPercentage + '%';
-            
-            
             if (t.options.drawer && e) {
               var n = new TimelineLite({
                 onComplete: function() {
@@ -2256,6 +2239,33 @@ function _classCallCheck(e, t) {
           })), l.forEach((function(e) {
             e.textContent = t.itemCount
           })), document.dispatchEvent(new CustomEvent("cart:rendered"))
+          
+          
+          
+          
+          
+            const cartSidebar = $('#sidebar-cart');
+            const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
+            const cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.text().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
+            console.log('cartSidebarTotalPriceValue', cartSidebarTotalPriceValue);
+            
+            const maxPriceValue = 60;
+            let cartSidebarPercentage = cartSidebarTotalPriceValue / maxPriceValue * 100;
+            
+            if (cartSidebarPercentage > 100) {
+              cartSidebarPercentage = 100;
+            }
+            
+            const cartSidebarLine = document.querySelector('.CartMessage__StepsLines__Active');
+            console.log('cartSidebarLine', cartSidebarLine);
+            cartSidebarLine.style.width = cartSidebarPercentage + '%';
+            
+            
+          
+          
+          
+          
+          
         }
       }]), e
     }();
