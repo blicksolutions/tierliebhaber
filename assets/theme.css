@@ -11469,14 +11469,14 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 }
 
 .CartUpsells__ScrollBtn {
-  position: absolute;
-  bottom: 16px;
+  position: fixed;
+  right: 50%;
   width: 16px;
   height: 24px;
   background: #fff;
   border: 1px #808080 solid;
   border-radius: 16px;
-  left: 0;
+  margin-top: -16px;
   
 }
 /* /Cart sidebar upsell */
