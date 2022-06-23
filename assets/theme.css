@@ -11493,7 +11493,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   width: 13px;
   height: 13px;
   position: absolute;
-  top: 100%;
+  top: calc(100% + 3px);
   right: calc(13px / -2);
   background: red;
 }
