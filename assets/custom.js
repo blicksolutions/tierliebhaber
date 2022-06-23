@@ -3,6 +3,7 @@ $(document).ready(function () {
   const obj = function(){};
   
   obj.cartSidebar = (function(){
+    
     $(document).on('click', '#sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon-title', function() {
       const sidebarCart = $('#sidebar-cart');
       sidebarCart.toggleClass('Drawer__Footer__CouponActive');
