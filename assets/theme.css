@@ -11562,3 +11562,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   opacity: .6;
 }
 /* /Cart sidebar scroll button */
+
+.CartPayment__Image {
+  margin-top: 10px;
+}
