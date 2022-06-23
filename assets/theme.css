@@ -11563,6 +11563,14 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 }
 /* /Cart sidebar scroll button */
 
+/* Cart sidebar button */
+.Cart__Checkout {
+  height: 53px;
+}
+/* /Cart sidebar button */
+
+/* Cart sidebar payment image */
 .CartPayment__Image {
   margin-top: 12px;
 }
+/* /Cart sidebar payment image */
