@@ -11146,6 +11146,10 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   display: none;
 }
 
+#sidebar-cart .Drawer__Footer {
+  padding-bottom: 0;
+}
+
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon {
   border-bottom: 1px solid #E5E5E5;
 }
@@ -11453,6 +11457,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 }
 /* /Cart sidebar message */
 
+/* Cart sidebar lines */
 .CartMessage__StepsLines__Container {
   position: relative;
   margin: 10px 34px 5px;
@@ -11503,6 +11508,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 .CartMessage__StepsLines__Gift {
   right: 80%;
 }
+/* /Cart sidebar lines */
 
 /* Cart sidebar upsell */
 .CartUpsells__Container {
@@ -11527,7 +11533,9 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   min-width: 177px;
   padding-top: 13px;
 }
+/* /Cart sidebar upsell */
 
+/* Cart sidebar scroll button */
 .CartUpsells__ScrollBtn {
   position: absolute;
   top: -42px;
@@ -11552,8 +11560,4 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   margin: 1px 0 0 0;
   opacity: .6;
 }
-/* /Cart sidebar upsell */
-
-#sidebar-cart .Drawer__Footer {
-  padding-bottom: 0;
-}
+/* /Cart sidebar scroll button */
