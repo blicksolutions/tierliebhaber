@@ -1158,6 +1158,9 @@
       "cart-drawer": {
         "type": "cart-drawer",
         "settings": {
+          "message_text": "Noch 4€ bis zum kostenlosen Versand",
+          "message_delivery_icon": "shopify:\/\/shop_images\/image_8.png",
+          "message_gift_icon": "shopify:\/\/shop_images\/image_7.png",
           "upsell_title": "Deine perfekte Ergänzung:",
           "upsell_items": [
             "tl0002-cs3",
