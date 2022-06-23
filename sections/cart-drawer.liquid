@@ -97,7 +97,6 @@
                   {%- assign availableUpsellItemFound = true -%}
                   {%- assign line_item_type = 'upsell' -%}
                   <div class="Drawer__Container">
-                    <div>availableUpsellItemFound: {{ availableUpsellItemFound }}</div>
                     <input type="hidden" name="attributes[collection_mobile_items_per_row]" value="">
                     <input type="hidden" name="attributes[collection_desktop_items_per_row]" value="">
                     {% render 'cart-items', line_item_type: line_item_type %}
