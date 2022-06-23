@@ -2084,7 +2084,31 @@ function _classCallCheck(e, t) {
       }, {
         key: "_attachListeners",
         value: function() {
-          this._onProductAddedListener = this._onProductAdded.bind(this), this.delegateElement.on("change", "#cart-note", this._updateCartNote.bind(this)), "page" !== this.options.type ? (this.delegateElement.on("click", '[data-action="update-item-quantity"], [data-action="remove-item"]', this._updateItemQuantity.bind(this)), this.delegateElement.on("change", ".QuantitySelector__CurrentQuantity", this._updateItemQuantity.bind(this))) : this.delegateElement.on("change", ".QuantitySelector__CurrentQuantity", this._reloadPageWithQuantity.bind(this)), this.options.drawer && this.delegateElement.on("click", '[data-action="toggle-cart-note"]', this._toggleCartNote.bind(this)), document.addEventListener("product:added", this._onProductAddedListener), this.documentDelegate.on("cart:refresh", this._rerenderCart.bind(this, !1))
+          this._onProductAddedListener = 
+            this._onProductAdded.bind(this), 
+            this.delegateElement.on("change", "#cart-note", this._updateCartNote.bind(this)), "page" !== this.options.type ? (this.delegateElement.on("click", '[data-action="update-item-quantity"], [data-action="remove-item"]', this._updateItemQuantity.bind(this)), 
+            this.delegateElement.on("change", ".QuantitySelector__CurrentQuantity", this._updateItemQuantity.bind(this))) : this.delegateElement.on("change", ".QuantitySelector__CurrentQuantity", this._reloadPageWithQuantity.bind(this)), 
+            this.options.drawer && this.delegateElement.on("click", '[data-action="toggle-cart-note"]', this._toggleCartNote.bind(this)), 
+            this.delegateElement.on("click", '.CartItem__Actions__UpsellBtn', this._addUpsellItem.bind(this)), 
+            document.addEventListener("product:added", this._onProductAddedListener), 
+            this.documentDelegate.on("cart:refresh", this._rerenderCart.bind(this, !1))
+        }
+      }, {
+        key: "_addUpsellItem",
+        value: function(e, t) {
+          console.log('_addUpsellItem');
+          
+          fetch(window.routes.cartUrl + "/add.js", {
+            body: JSON.stringify({
+              note: e.getAttribute('data-id')
+            }),
+            credentials: "same-origin",
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "X-Requested-With": "XMLHttpRequest"
+            }
+          })
         }
       }, {
         key: "_updateCartNote",

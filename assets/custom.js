@@ -13,18 +13,18 @@ $(document).ready(function () {
       const btn = $(this);
       btn.prop('disabled', true);
       
-      $.ajax({
-        type: 'POST',
-        url: '/cart/add.js',
-        data: {
-          quantity: 1,
-          id: btn.attr('data-id')
-        },
-        dataType: 'json', 
-        success: function (result) {
-          console.log('');
-        } 
-      });
+//       $.ajax({
+//         type: 'POST',
+//         url: '/cart/add.js',
+//         data: {
+//           quantity: 1,
+//           id: btn.attr('data-id')
+//         },
+//         dataType: 'json', 
+//         success: function (result) {
+//           console.log('');
+//         } 
+//       });
     });
 
     /* Remove discount */
