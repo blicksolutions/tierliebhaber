@@ -11479,7 +11479,6 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   border-radius: 16px;
   margin-top: -16px;
   opacity: .75;
-  z-index: 9;
 }
 
 .CartUpsells__ScrollBtn img {
