@@ -2222,7 +2222,7 @@ function _classCallCheck(e, t) {
             i = document.createElement("div");
           i.innerHTML = e;
           
-          console.log('replace', i.querySelector(".Cart"), this.element.querySelector(".Cart"));
+          console.log('replace', i, this.element.querySelector(".Cart"));
           
           var n = this.element.querySelector(".Cart").parentNode;
           if (this.options.drawer && "cart" !== window.theme.pageType) {
