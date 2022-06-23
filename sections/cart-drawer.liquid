@@ -94,7 +94,18 @@
         {%- for line_item in section.settings.upsell_items -%}
           {%- if upsell_item == null -%}
             {%- if line_item.available -%}
-              {%- assign upsell_item = line_item -%}
+                {%- assign upsell_item_found = false -%}
+      
+              {%- for cart_line_item in cart.items -%}
+            	{%- if cart_line_item.id == line_item.id -%}
+                  {%- assign upsell_item_found = true -%}
+            	{%- endif -%}
+              {%- endfor -%}
+      
+              {%- unless upsell_item_found -%}
+                {%- assign upsell_item = line_item -%}
+      		  {%- endunless -%}
+      
             {%- endif -%}
           {%- else -%}
           {%- endif -%}
