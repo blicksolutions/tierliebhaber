@@ -11240,6 +11240,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   width: 13px !important;
   height: 13px !important;
   opacity: .9;
+  margin-top: 3px;
 }
 
 #sidebar-cart .Drawer__Footer .sc_simple-info .sc-tag .code .code-name {
