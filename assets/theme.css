@@ -11241,8 +11241,8 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 }
 
 #sidebar-cart .Drawer__Footer .sc_simple-info .sc-tag button svg {
-  width: 13px !important;
-  height: 13px !important;
+  width: 12px !important;
+  height: 12px !important;
   opacity: .9;
   margin-top: 3px;
 }
