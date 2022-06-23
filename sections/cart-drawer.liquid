@@ -97,7 +97,7 @@
               {%- assign upsell_item_found = false -%}
       
               {%- for cart_line_item in cart.items -%}
-            	{%- if cart_line_item.title == line_item.title -%}
+            	{%- if cart_line_item.product.title == line_item.title -%}
                   {%- assign upsell_item_found = true -%}
             	{%- endif -%}
               {%- endfor -%}
