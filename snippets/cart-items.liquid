@@ -19,11 +19,6 @@
   {%- endunless -%}
   
   {%- for line_item in line_items -%}
-  <div>line_item: {{ line_item | json }}</div>
-  {%- endfor -%}
-  
-  
-  {%- for line_item in line_items -%}
     {%- if for_drawer -%}
       <div class="CartItemWrapper">
     {%- endif -%}
@@ -103,6 +98,9 @@
           <div class="CartItem__Actions Heading Text--subdued" style="text-align: center">
             
             {%- if line_item_type == 'upsell' -%}
+            <div>line_item: {{ line_item | json }}</div>
+  
+  
               <button type="button" 
                       class="Button Button--secondary CartItem__Actions__UpsellBtn"
                       data-action="add-to-cart">
