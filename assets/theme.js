@@ -415,7 +415,7 @@ function _classCallCheck(e, t) {
         key: "open",
         value: function(e) {
           if (!this.isOpen) {
-            
+
             
             /* Cart sidebar coupon */
             let drawerButtonId = this.element.getAttribute('id');
