@@ -11294,7 +11294,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Inner {
   position: relative;
-  padding-bottom: 32px;
+  padding-bottom: 31px;
 }
 
 /* Error */
