@@ -28,7 +28,7 @@
       <div class="CartItem__ImageWrapper AspectRatio">
         <div class="AspectRatio" style="--aspect-ratio: {{ line_item.image.aspect_ratio }}">
           {%- if line_item_type == 'upsell' -%}
-          <div>{{ line_item.image | json }}</div>
+          <div>{{ line_item.product-featured_image | json }}</div>
             <img class="CartItem__Image" src="{{ line_item.image | img_url: '240x' }}" alt="{{ line_item.image.alt | escape }}">
           {%- else -%}
             <img class="CartItem__Image" src="{{ line_item.image | img_url: '240x' }}" alt="{{ line_item.image.alt | escape }}">
