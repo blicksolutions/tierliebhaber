@@ -158,6 +158,15 @@
             <button type="button" class="Button Button--primary Button--full" data-action="toggle-cart-note">{{ 'cart.general.save_note' | t }}</button>
           </div>
         {%- endif -%}
+        
+        {%- if section.payment_image -%}
+          <!-- Payment image -->
+          <div class="CartPayment__Image">
+            
+          </div>
+          <!-- /Payment image -->
+        {%- endif -%}
+        
       </div>
     {%- endunless -%}
   </form>
@@ -189,7 +198,7 @@
     {
       "type": "image_picker",
       "id": "payment_image",
-      "label": "Payment logo"
+      "label": "Payment image"
     }
   ]
 }
