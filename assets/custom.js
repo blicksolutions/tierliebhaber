@@ -37,13 +37,14 @@ $(document).ready(function () {
     });
 
     setInterval(function() {
-      const oldPrice = $('#sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalPrice > s > span.money');
-      const percentage = $('.Drawer__Footer__Coupon-percentage');
+      const sidebarCart = $('#sidebar-cart');
+      const oldPrice = sidebarCart.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > s > span.money');
+      const percentage = sidebarCart.find('.Drawer__Footer__Coupon-percentage');
 
       if (oldPrice.length) {
         const oldPriceValue = parseFloat(oldPrice.text().trim().replace(/\,/, ''));
 
-        const newPrice = $('#sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
+        const newPrice = sidebarCart.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
         
         if (newPrice.length) {
           const newPriceValue = parseFloat(newPrice.text().trim().replace(/\,/, ''));
