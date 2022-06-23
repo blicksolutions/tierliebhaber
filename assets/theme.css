@@ -11563,6 +11563,10 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 }
 /* /Cart sidebar scroll button */
 
+.Cart__Taxes {
+  margin-bottom: 24px;
+}
+
 /* Cart sidebar button */
 .Cart__Checkout {
   font-size: 16px;
