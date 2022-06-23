@@ -11300,7 +11300,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 /* Error */
 #sidebar-cart .Drawer__Footer .scDiscount .scError {
   position: absolute;
-  top: -31px;
+  top: -38px;
   right: -1px;
   color: #E24B4B;
   font-size: 14px;
