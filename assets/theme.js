@@ -2096,7 +2096,14 @@ function _classCallCheck(e, t) {
       }, {
         key: "_addUpsellItem",
         value: function(e, t) {
-          console.log('_addUpsellItem', e, t);
+          console.log('_addUpsellItem', e, t, JSON.stringify({
+              items: [
+                {
+                  id: t.getAttribute('data-product-id'),
+                  quantity: 1
+                }
+              ]
+            }));
           
           fetch(window.routes.cartUrl + "/add.js", {
             body: JSON.stringify({
