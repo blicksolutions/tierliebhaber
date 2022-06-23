@@ -11252,6 +11252,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   font-weight: bold;
   margin-right: 2px;
   margin-left: 2px;
+  color: #666;
 }
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Subtotal {
