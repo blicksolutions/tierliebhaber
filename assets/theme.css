@@ -11485,6 +11485,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 .CartUpsells__ScrollBtn img {
   width: 14px;
   display: block;
-  margin: 0;
+  margin: -6px 0 0 0;
+  opacity: .6;
 }
 /* /Cart sidebar upsell */
