@@ -2221,9 +2221,6 @@ function _classCallCheck(e, t) {
           var t = this,
             i = document.createElement("div");
           i.innerHTML = e;
-          
-          console.log('replace', i, this.element.querySelector(".Cart"));
-          
           var n = this.element.querySelector(".Cart").parentNode;
           if (this.options.drawer && "cart" !== window.theme.pageType) {
             var a = this.element.querySelector(".Drawer__Main").scrollTop;
