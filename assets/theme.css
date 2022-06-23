@@ -11477,6 +11477,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   border: 1.5px #808080 solid;
   border-radius: 16px;
   margin-top: -16px;
-  opacity: .6;
+  opacity: .75;
+  z-index: 9;
 }
 /* /Cart sidebar upsell */
