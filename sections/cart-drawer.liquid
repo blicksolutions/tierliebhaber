@@ -162,7 +162,7 @@
         {%- if section.settings.payment_image -%}
           <!-- Payment image -->
           <div class="CartPayment__Image">
-            {%- assign image = section.payment_image -%}
+            {%- assign image = section.settings.payment_image -%}
             {%- capture supported_sizes -%}{%- render 'image-size', sizes: '200,400,600,800', image: image -%}{%- endcapture -%}
             {%- assign image_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
             <img class="VariantSelector__Image Image--lazyLoad Image--fadeIn" 
