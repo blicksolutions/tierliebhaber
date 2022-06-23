@@ -11459,6 +11459,12 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   border-radius: 10px;
   background: #fff;
   margin: 10px 34px 10px;
+  overflow: hidden;
+}
+
+.CartMessage__Steps__ActiveLine {
+  bcakground: #ABCDBE;
+  width: 40%;
 }
 
 /* Cart sidebar upsell */
