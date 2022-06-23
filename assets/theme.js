@@ -433,7 +433,7 @@ function _classCallCheck(e, t) {
                   scrollBtn.removeClass('Visible');
                 }, 4000);
                 
-              }, 500);
+              }, 1000);
               /* /Scroll button */
               
               const couponCode = sidebarCart.find('.scDiscount__container .sc_simple-info__tag > .sc-tag > .code > .code-name');
