@@ -15,7 +15,8 @@
   {%- endunless -%}
   
   {%- if line_item_type == 'upsell' -%}
-    {%- assign items = cart.items | limit: 1 -%}
+  <div>upsells</div>
+    {%- assign items = cart.items | limit: 0 -%}
   {%- else -%}
     {%- assign items = cart.items -%}
   {%- endif -%}
