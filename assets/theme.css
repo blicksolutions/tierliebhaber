@@ -11415,7 +11415,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 }
 
 #sidebar-cart .Drawer__Footer .scDiscount input[type="text"].active + label {
-  top: -5px;
+  top: -4px;
   left: 7px;
   font-size: 6px;
   padding: 0 3px;
