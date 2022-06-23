@@ -2224,7 +2224,8 @@ function _classCallCheck(e, t) {
           var n = this.element.querySelector(".Cart").parentNode;
           if (this.options.drawer && "cart" !== window.theme.pageType) {
             var a = this.element.querySelector(".Drawer__Main").scrollTop;
-            n.replaceChild(i.querySelector(".Cart"), this.element.querySelector(".Cart")), this.element.querySelector(".Drawer__Main").scrollTop = a
+            n.replaceChild(i.querySelector(".Cart"), this.element.querySelector(".Cart")), 
+            this.element.querySelector(".Drawer__Main").scrollTop = a
           } else 0 === this.itemCount ? this.element.innerHTML = i.querySelector(".shopify-section").firstElementChild.innerHTML : (n.replaceChild(i.querySelector(".Cart"), this.element.querySelector(".Cart")), this.element.querySelector(".PageHeader").innerHTML = i.querySelector(".PageHeader").innerHTML);
           var o = JSON.parse(i.querySelector('[data-section-type="cart"]').getAttribute("data-section-settings")),
             r = s.default.nodeListToArray(document.querySelectorAll(".Header__CartDot")),
