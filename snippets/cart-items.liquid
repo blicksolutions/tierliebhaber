@@ -18,6 +18,8 @@
     {%- assign line_items = cart.items -%}
   {%- endunless -%}
   
+  <div>{{ line_items | json }}</div>
+  
   {%- for line_item in line_items -%}
   
     {%- if for_drawer -%}
