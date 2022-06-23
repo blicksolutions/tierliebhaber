@@ -11457,6 +11457,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 
 .CartMessage__StepsLines__Container {
   position: relative;
+  margin: 10px 34px 5px;
 }
 
 .CartMessage__StepsLines {
@@ -11465,7 +11466,6 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   background: #fff;
   overflow: hidden;
   position: relative;
-  margin: 10px 34px 5px;
 }
 
 .CartMessage__StepsLines__Active {
