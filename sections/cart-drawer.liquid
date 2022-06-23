@@ -49,6 +49,9 @@
       
         <!-- Steps message -->
         <div class="CartMessage__Steps">
+          <div class="CartMessage__Steps__Text">
+            {{ section.settings.message_text }}
+          </div>
         </div>
         <!-- /Steps message -->
       
@@ -189,6 +192,16 @@
 {
   "name": "Cart sidebar",
   "settings": [
+    {
+      "type": "header",
+      "content": "Message"
+    },
+    {
+      "type": "text",
+      "id": "message_text",
+      "label": "Message text",
+      "default": "Noch 4€ bis zum kostenlosen Versand"
+    },
     {
       "type": "header",
       "content": "Upsell"
