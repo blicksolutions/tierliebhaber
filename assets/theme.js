@@ -2198,7 +2198,7 @@ function _classCallCheck(e, t) {
             console.log('cartSidebarTotalPriceValue', cartSidebarTotalPriceValue);
             
             const maxPriceValue = 60;
-            const cartSidebarPercentage = cartSidebarTotalPriceValue / maxPriceValue * 100;
+            let cartSidebarPercentage = cartSidebarTotalPriceValue / maxPriceValue * 100;
             
             if (cartSidebarPercentage > 100) {
               cartSidebarPercentage = 100;
