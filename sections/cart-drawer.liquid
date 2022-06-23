@@ -84,30 +84,33 @@
           {% render 'cart-items' %}
         </div>
       
-        <!-- Upsell items -->
-        {%- assign availableUpsellItemFound = false -%}
-        <div class="CartUpsells__Container">
-          <p class="CartUpsells__Title">
-            {{ section.settings.upsell_title }}
-          </p>
-          <div class="CartUpsells__Items">
-            {%- for line_item in section.settings.upsell_items -%}
-              {%- if availableUpsellItemFound == false -%}
-                {%- if line_item.available -%}
-                  {%- assign availableUpsellItemFound = true -%}
-                  {%- assign line_item_type = 'upsell' -%}
-                  <div class="Drawer__Container">
-                    <input type="hidden" name="attributes[collection_mobile_items_per_row]" value="">
-                    <input type="hidden" name="attributes[collection_desktop_items_per_row]" value="">
-                    {% render 'cart-items', line_item_type: line_item_type, line_items: section.settings.upsell_items %}
-                  </div>
-                {%- endif -%}
-              {%- else -%}
-              {%- endif -%}
-            {%- endfor -%}
+        {%- assign upsell_item = null -%}
+            
+        {%- for line_item in section.settings.upsell_items -%}
+          {%- if upsell_item == null -%}
+            {%- if line_item.available -%}
+              {%- assign upsell_item = line_item -%}
+            {%- endif -%}
+          {%- else -%}
+          {%- endif -%}
+        {%- endfor -%}
+      
+        {%- if upsell_item -%}
+          <!-- Upsell items -->
+          <div class="CartUpsells__Container">
+            <p class="CartUpsells__Title">
+              {{ section.settings.upsell_title }}
+            </p>
+            <div class="CartUpsells__Items">
+              <div class="Drawer__Container">
+                <input type="hidden" name="attributes[collection_mobile_items_per_row]" value="">
+                <input type="hidden" name="attributes[collection_desktop_items_per_row]" value="">
+                {% render 'cart-items', line_item_type: 'upsell', [upsell_item: upsell_item] %}
+              </div>
+            </div>
           </div>
-        </div>
-        <!-- /Upsell items -->
+          <!-- /Upsell items -->
+        {%- endif -%}
       {%- endif -%}
 
     </div>
