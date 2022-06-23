@@ -11482,8 +11482,8 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   position: absolute;
   top: -1px;
   bottom: -1px;
-  background: #ABCDBE;
-  width: 40%;
+  background: #000;
+  width: 1px;
 }
 
 .CartMessage__StepsLines__Delivery {
