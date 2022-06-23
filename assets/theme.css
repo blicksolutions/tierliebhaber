@@ -11534,6 +11534,12 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   min-width: 177px;
   padding-top: 13px;
 }
+
+.CartItem__Actions__UpsellBtn[disabled] {
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.22, 1);
+  opacity: .5;
+  cursor: wait;
+}
 /* /Cart sidebar upsell */
 
 /* Cart sidebar scroll button */
