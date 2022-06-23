@@ -52,9 +52,9 @@
           <div class="CartMessage__Steps__Text">
             <div>remaining_amount: {{ remaining_amount }}</div>
             {%- if cart.total_price >= 60 -%}
-              {{ section.settings.message_gift_text | replace: 'price', threshold_in_cents }}
+              {{ section.settings.message_gift_text | replace: '\{ \{ price', remaining_amount }}
             {%- else -%}
-              {{ section.settings.message_delivery_text | replace: 'price', threshold_in_cents }}
+              {{ section.settings.message_delivery_text | replace: 'price', remaining_amount }}
             {%- endif -%}
           </div>
           <div class="CartMessage__StepsLines__Container">
