@@ -11445,6 +11445,14 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 /** /Percentage **/
 /* /Cart sidebar coupon */
 
+/* Cart sidebar message */
+.CartMessage__Steps {
+  bcakground: #F9ECE7;
+  height: 78px;
+  text-align: center;
+}
+/* /Cart sidebar message */
+
 /* Cart sidebar upsell */
 .CartUpsells__Container {
   padding: 10px 5px;
