@@ -11503,11 +11503,11 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 }
 
 .CartMessage__StepsLines__Delivery {
-  right: 60%;
+  right: 40%;
 }
 
 .CartMessage__StepsLines__Gift {
-  right: 80%;
+  right: 20%;
 }
 /* /Cart sidebar lines */
 
