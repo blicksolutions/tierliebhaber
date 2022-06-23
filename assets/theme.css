@@ -11486,8 +11486,8 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   width: 1px;
 }
 
-.CartMessage__StepsLines__Delivery,
-.CartMessage__StepsLines__Gift {
+.CartMessage__StepsLines__Delivery:before,
+.CartMessage__StepsLines__Gift:before {
   content: '';
   display: block;
   width: 13px;
