@@ -11454,21 +11454,43 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 }
 /* /Cart sidebar message */
 
-.CartMessage__Steps__Lines {
+.CartMessage__StepsLines__Wrapper {
+  position: relative;
+  margin: 10px 34px 10px;
+}
+
+.CartMessage__StepsLines {
   height: 10px;
   border-radius: 10px;
   background: #fff;
-  margin: 10px 34px 10px;
   overflow: hidden;
+  position: relative;
 }
 
-.CartMessage__Steps__ActiveLine {
+.CartMessage__StepsLines__Active {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   background: #ABCDBE;
   width: 40%;
+}
+
+.CartMessage__StepsLines__Delivery,
+.CartMessage__StepsLines__Gift {
+  position: absolute;
+  top: -1px;
+  bottom: -1px;
+  background: #ABCDBE;
+  width: 40%;
+}
+
+.CartMessage__StepsLines__Delivery {
+  right: 60%;
+}
+
+.CartMessage__StepsLines__Gift {
+  right: 80%;
 }
 
 /* Cart sidebar upsell */
