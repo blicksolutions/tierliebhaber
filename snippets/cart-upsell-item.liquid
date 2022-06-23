@@ -48,7 +48,7 @@
           <div class="CartItem__Actions Heading Text--subdued" style="text-align: center">
             <button type="button" 
                     class="Button Button--secondary CartItem__Actions__UpsellBtn"
-                    data-action="add-to-cart">
+                    data-product-id="{{ line_item.id }}">
               {{ 'cart.sidebar.upsell.add' | t }}
             </button>
           </div>
