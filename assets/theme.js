@@ -569,6 +569,43 @@ function _classCallCheck(e, t) {
                             key: "open",
                             value: function (e) {
                                 if (!this.isOpen) {
+                                  
+
+
+                                  /* Cart sidebar coupon */
+                                  let drawerButtonId = this.element.getAttribute('id');
+                                  $('body').attr('data-drawer-id-opened', drawerButtonId);
+
+                                  if (drawerButtonId == 'sidebar-cart') {
+                                    //             const drawerFooter = $('#sidebar-cart .Drawer__Footer');
+
+                                    const sidebarCart = $('#sidebar-cart');
+                                    const couponCode = sidebarCart.find('.scDiscount__container .sc_simple-info__tag > .sc-tag > .code > .code-name');
+                                    const couponTitle = sidebarCart.find('.Drawer__Footer__Coupon-title');
+
+                                    if (couponCode.length) {
+                                      const couponCodeText = couponCode.text().trim();
+                                      //               drawerFooter.attr('data-discount-code', couponCodeText);
+                                      sidebarCart.addClass('Drawer__Footer__CouponActive');
+
+                                    } else {
+                                      //               drawerFooter.removeAttr('data-discount-code'); 
+                                    }
+
+                                    /* Field label */
+                                    const dcartField = sidebarCart.find('.scDiscount input[type="text"]');
+
+                                    if (!dcartField.next('label').length) {
+                                      dcartField.after(
+                                        '<label>' + dcartField.attr('placeholder') + '</label>'
+                                      );
+                                    }
+                                    /* /Field label */
+                                  }
+                                  /* /Cart sidebar coupon */
+                                  
+                                  
+                                  
                                     this.element.dispatchEvent(new CustomEvent("search:close", { bubbles: !0 })),
                                         e && e.preventDefault(),
                                         this.element.setAttribute("aria-hidden", "false"),
