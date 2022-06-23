@@ -11463,7 +11463,11 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 }
 
 .CartMessage__Steps__ActiveLine {
-  bcakground: #ABCDBE;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: #ABCDBE;
   width: 40%;
 }
 
