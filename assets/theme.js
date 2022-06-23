@@ -2103,7 +2103,7 @@ function _classCallCheck(e, t) {
           
           fetch(window.routes.cartUrl + "/add.js", {
             body: JSON.stringify({
-              id: t.getAttribute('data-product-id'),
+              id: t.getAttribute('data-variant-id'),
               quantity: 1
             }),
             credentials: "same-origin",
