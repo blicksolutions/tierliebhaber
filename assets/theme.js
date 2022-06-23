@@ -425,12 +425,15 @@ function _classCallCheck(e, t) {
               const sidebarCart = $('#sidebar-cart');
               
               /* Scroll button */
-              const scrollBtn = sidebarCart.find('.CartUpsells__ScrollBtn');
-              scrollBtn.addClass('Visible');
-
               setTimeout(function() {
-                scrollBtn.removeClass('Visible');
-              }, 4000);
+                const scrollBtn = sidebarCart.find('.CartUpsells__ScrollBtn');
+                scrollBtn.addClass('Visible');
+
+                setTimeout(function() {
+                  scrollBtn.removeClass('Visible');
+                }, 4000);
+                
+              }, 500);
               /* /Scroll button */
               
               const couponCode = sidebarCart.find('.scDiscount__container .sc_simple-info__tag > .sc-tag > .code > .code-name');
