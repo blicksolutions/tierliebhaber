@@ -11455,7 +11455,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 }
 /* /Cart sidebar message */
 
-.CartMessage__StepsLines__Wrapper {
+.CartMessage__StepsLines__Container {
   position: relative;
 }
 
