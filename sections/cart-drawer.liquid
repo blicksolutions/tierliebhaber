@@ -94,7 +94,7 @@
         {%- for line_item in section.settings.upsell_items -%}
           {%- if upsell_item == null -%}
             {%- if line_item.available -%}
-                {%- assign upsell_item_found = false -%}
+              {%- assign upsell_item_found = false -%}
       
               {%- for cart_line_item in cart.items -%}
             	{%- if cart_line_item.id == line_item.id -%}
@@ -102,9 +102,9 @@
             	{%- endif -%}
               {%- endfor -%}
       
-              {%- unless upsell_item_found -%}
+              {%- if upsell_item_found == false -%}
                 {%- assign upsell_item = line_item -%}
-      		  {%- endunless -%}
+      		  {%- endif -%}
       
             {%- endif -%}
           {%- else -%}
