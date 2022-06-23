@@ -2096,11 +2096,9 @@ function _classCallCheck(e, t) {
       }, {
         key: "_addUpsellItem",
         value: function(e, t) {
-          console.log('_addUpsellItem', e, t, JSON.stringify({
-            id: t.getAttribute('data-product-id'),
-            quantity: 1
-          }));
-          
+          var i = this;
+          document.dispatchEvent(new CustomEvent("theme:loading:start"));
+       
           fetch(window.routes.cartUrl + "/add.js", {
             body: JSON.stringify({
               id: t.getAttribute('data-variant-id'),
@@ -2112,7 +2110,11 @@ function _classCallCheck(e, t) {
               "Content-Type": "application/json",
               "X-Requested-With": "XMLHttpRequest"
             }
-          })
+          }).then((function(e) {
+            e.json().then((function(e) {
+              i.itemCount = e.item_count, i._rerenderCart(s), document.dispatchEvent(new CustomEvent("theme:loading:end"))
+            }))
+          })), e.preventDefault()
         }
       }, {
         key: "_updateCartNote",
