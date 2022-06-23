@@ -87,10 +87,6 @@
         <!-- Upsell items -->
         {%- assign availableUpsellItemFound = false -%}
         <div class="CartUpsells__Container">
-          <span class="CartUpsells__ScrollBtn">
-          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAh0lEQVRIie2TQQqAIBBFn13M47TsKOWqTpttRhhE0TIhwg8DguN//y+EoZflZao1dQoyAAPwB4AB7A0fK2+qZAAHnMAS3aV+8iy7RwqSa+BleU1AYvM9ZVySATYB6Sa6QUjuyaR/AgmAZnMNcQrio7NrMdeQ0ERPU/IS5FXzGNLFXEO6mX9TFwuTLBH05pO4AAAAAElFTkSuQmCC" 
-               alt="">
-          </span>
           <p class="CartUpsells__Title">
             {{ section.settings.upsell_title }}
           </p>
@@ -126,6 +122,13 @@
             <span class="Drawer__Footer__SubtotalPrice">{{ cart.total_price | money }}</span>
           </div>
 
+          <!-- Scroll button -->
+          <span class="CartUpsells__ScrollBtn">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAh0lEQVRIie2TQQqAIBBFn13M47TsKOWqTpttRhhE0TIhwg8DguN//y+EoZflZao1dQoyAAPwB4AB7A0fK2+qZAAHnMAS3aV+8iy7RwqSa+BleU1AYvM9ZVySATYB6Sa6QUjuyaR/AgmAZnMNcQrio7NrMdeQ0ERPU/IS5FXzGNLFXEO6mX9TFwuTLBH05pO4AAAAAElFTkSuQmCC" 
+               alt="">
+          </span>
+          <!-- /Scroll button -->
+          
           <!-- Cart sidebar coupon -->
           <div class="Drawer__Footer__Coupon">
             <div class="Drawer__Footer__Coupon-title">
