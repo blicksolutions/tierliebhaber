@@ -19,7 +19,7 @@
   {%- endunless -%}
   
   {%- for line_item in line_items -%}
-  <div>line_item: {{ line_item.product.title | json }}</div>
+  <div>line_item: {{ line_item | json }}</div>
   {%- endfor -%}
   
   
