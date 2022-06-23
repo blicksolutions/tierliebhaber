@@ -5,6 +5,10 @@
   padding-left: 16px;
 }
 
+#sidebar-cart .Drawer__Main {
+  padding-bottom: 15px; 
+}
+
 #sidebar-cart .Drawer__Header .Drawer__Title {
   font-size: 16px;
 }
