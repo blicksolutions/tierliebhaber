@@ -11479,6 +11479,11 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   border: 1.5px #808080 solid;
   border-radius: 16px;
   margin-top: -16px;
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.22, 1);
+}
+
+.CartUpsells__ScrollBtn.Visible {
   opacity: .75;
 }
 
