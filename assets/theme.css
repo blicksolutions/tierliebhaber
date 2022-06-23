@@ -11530,7 +11530,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 
 .CartUpsells__ScrollBtn {
   position: absolute;
-  top: -30px;
+  top: -42px;
   right: calc(50% - 8px);
   width: 16px;
   height: 24px;
@@ -11549,7 +11549,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 .CartUpsells__ScrollBtn img {
   width: 14px;
   display: block;
-  margin: -6px 0 0 0;
+  margin: 1px 0 0 0;
   opacity: .6;
 }
 /* /Cart sidebar upsell */
