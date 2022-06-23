@@ -99,7 +99,7 @@
                   <div class="Drawer__Container">
                     <input type="hidden" name="attributes[collection_mobile_items_per_row]" value="">
                     <input type="hidden" name="attributes[collection_desktop_items_per_row]" value="">
-                    {% render 'cart-items', line_item_type: line_item_type %}
+                    {% render 'cart-items', line_item_type: line_item_type, items: section.settings.upsell_items %}
                   </div>
                 {%- endif -%}
               {%- else -%}
