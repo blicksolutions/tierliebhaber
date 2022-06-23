@@ -9,6 +9,12 @@ $(document).ready(function () {
       sidebarCart.toggleClass('Drawer__Footer__CouponActive');
     });
 
+    $(document).on('click', '#sidebar-cart .CartItem__Actions__UpsellBtn', function() {
+      const btn = $(this);
+      
+      
+    });
+
     /* Remove discount */
     $(document).on('click', '#sidebar-cart .Drawer__Footer .sc_simple-info .sc-tag', function() {
       const field = $('#sidebar-cart .Drawer__Footer .scDiscount input[type="text"]');
