@@ -11457,7 +11457,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 
 .CartMessage__StepsLines__Wrapper {
   position: relative;
-  margin: 10px 34px 10px;
+  margin: 9px 34px 7px;
 }
 
 .CartMessage__StepsLines {
