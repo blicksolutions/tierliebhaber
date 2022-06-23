@@ -11474,10 +11474,17 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   width: 16px;
   height: 24px;
   background: #fff;
+  text-align: center;
   border: 1.5px #808080 solid;
   border-radius: 16px;
   margin-top: -16px;
   opacity: .75;
   z-index: 9;
+}
+
+.CartUpsells__ScrollBtn img {
+  width: 14px;
+  display: block;
+  margin: 0;
 }
 /* /Cart sidebar upsell */
