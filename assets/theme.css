@@ -11553,3 +11553,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   opacity: .6;
 }
 /* /Cart sidebar upsell */
+
+#sidebar-cart .Drawer__Footer {
+  padding-bottom: 0;
+}
