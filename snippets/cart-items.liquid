@@ -14,11 +14,11 @@
     </div>
   {%- endunless -%}
 
-  {%- unless items -%}
-    {%- assign items = cart.items -%}
+  {%- unless line_items -%}
+    {%- assign line_items = cart.items -%}
   {%- endunless -%}
   
-  {%- for line_item in items -%}
+  {%- for line_item in line_items -%}
     {%- if for_drawer -%}
       <div class="CartItemWrapper">
     {%- endif -%}
