@@ -3757,7 +3757,8 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
 
 @media screen and (min-width: 641px) {
   .QuantitySelector__Button {
-    padding: 7px 14px 8px 14px;
+/*     padding: 7px 14px 8px 14px; */
+    padding: 9px 14px 10px;
   }
 
   .QuantitySelector__CurrentQuantity {
