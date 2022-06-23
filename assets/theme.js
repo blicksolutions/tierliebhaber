@@ -2197,9 +2197,15 @@ function _classCallCheck(e, t) {
             const cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.text().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
             console.log('cartSidebarTotalPriceValue', cartSidebarTotalPriceValue);
             
-            if (cartSidebarTotalPriceValue < 60) {
-              
+            const maxPriceValue = 60;
+            const cartSidebarPercentage = cartSidebarTotalPriceValue / maxPriceValue * 100;
+            
+            if (cartSidebarPercentage > 100) {
+              cartSidebarPercentage = 100;
             }
+            
+            const cartSidebarLine = document.querySelector('.CartMessage__StepsLines__Active');
+            cartSidebarLine.style.width = cartSidebarPercentage.toFixed(2) + '%';
             
             
             if (t.options.drawer && e) {
