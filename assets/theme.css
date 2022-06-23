@@ -6262,6 +6262,7 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
   line-height: 23px;
   color: #6C6D6E;
   display: inline-block;
+  margin-bottom: 3px;
   margin-left: 7px;
 }
 
