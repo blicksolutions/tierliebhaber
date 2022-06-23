@@ -42,38 +42,6 @@
             <p class="CartItem__Variant">{{ line_item.selected_or_first_available_variant.title }}</p>
           {%- endunless -%}
 
-          {%- if line_item.selling_plan_allocation -%}
-            <p class="CartItem__PlanAllocation">{{ line_item.selling_plan_allocation.selling_plan.name }}</p>
-          {%- endif -%}
-
-          {%- if line_item.properties != empty -%}
-            <ul class="CartItem__PropertyList">
-              {%- for property in line_item.properties -%}
-                {%- assign first_character_in_key = property.first | truncate: 1, '' -%}
-
-                {%- if property.last == blank or first_character_in_key == '_' -%}
-                  {%- continue -%}
-                {%- endif -%}
-
-                <li class="CartItem__Property">{{ property.first }}: {{ property.last }}</li>
-              {%- endfor -%}
-            </ul>
-          {%- endif -%}
-
-          {%- if line_item.unit_price_measurement -%}
-            <div class="CartItem__UnitPriceMeasurement">
-              <div class="UnitPriceMeasurement Heading Text--subdued">
-                <span class="UnitPriceMeasurement__Price">{{ line_item.unit_price | money_without_trailing_zeros }}</span>
-                <span class="UnitPriceMeasurement__Separator">/ </span>
-
-                {%- if line_item.unit_price_measurement.reference_value != 1 -%}
-                  <span class="UnitPriceMeasurement__ReferenceValue">{{ line_item.unit_price_measurement.reference_value }}</span>
-                {%- endif -%}
-
-                <span class="UnitPriceMeasurement__ReferenceUnit">{{ line_item.unit_price_measurement.reference_unit }}</span>
-              </div>
-            </div>
-          {%- endif -%}
         </div>
 
         {%- capture item_actions -%}
