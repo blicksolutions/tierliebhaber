@@ -2205,7 +2205,8 @@ function _classCallCheck(e, t) {
             }
             
             const cartSidebarLine = document.querySelector('.CartMessage__StepsLines__Active');
-            cartSidebarLine.style.width = cartSidebarPercentage.toFixed(2) + '%';
+            console.log('cartSidebarLine', cartSidebarLine);
+            cartSidebarLine.style.width = cartSidebarPercentage + '%';
             
             
             if (t.options.drawer && e) {
