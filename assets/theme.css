@@ -11243,7 +11243,6 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 }
 
 #sidebar-cart .Drawer__Footer .sc_simple-info .sc-tag .code .code-name {
-  font-family: var(--text-font-family);
   font-size: 14.5px;
   font-weight: bold;
   margin-right: 2px;
@@ -11269,12 +11268,10 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 }
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalLabel {
-/*   font-size: 100%; */
   font-size: 16px;
 }
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalPrice {
-/*   height: 26.4px; */
   font-size: 16px;
 }
 
