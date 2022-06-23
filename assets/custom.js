@@ -47,7 +47,7 @@ $(document).ready(function () {
         const newPrice = sidebarCart.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
         
         if (newPrice.length) {
-          const newPriceValue = parseFloat(newPrice.text().trim().replace(/\,/, '').replace(/[^0-9\.]+/, ''));
+          const newPriceValue = parseFloat(newPrice.text().trim().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
           console.log('newPriceValue', newPriceValue);
 
           const percentageValue = (oldPriceValue - newPriceValue) /oldPriceValue * 100;
