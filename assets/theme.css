@@ -11451,7 +11451,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   height: 78px;
   text-align: center;
   border-bottom: 1px solid #E6E5E5;
-  padding-top: 9px;
+  padding-top: 10px;
 }
 /* /Cart sidebar message */
 
