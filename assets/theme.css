@@ -11394,8 +11394,8 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 
 #sidebar-cart .Drawer__Footer .scDiscount input[type="text"].active + label + .sc_code-btn > input[type="button"] {
   color: #fff !important;
-  background-color: #006750 !important;
-  border-color: #006750 !important;
+  background-color: #f1af9e !important;
+  border-color: #f1af9e !important;
 }
 /** /Button **/
 
