@@ -9,16 +9,6 @@
   font-size: 16px;
 }
 
-#sidebar-cart .Drawer__Header .Drawer__Title:after {
-  background-color: #f1af9e59;
-  bottom: 2px;
-  content: "";
-  height: 3px;
-  left: -4px;
-  position: absolute;
-  width: calc(100% + 4px);
-}
-
 #sidebar-cart .Drawer__Close {
   top: 18px;
   right: 18px;
@@ -37,6 +27,16 @@
   font-size: 14px;
   line-height: 16px;
   margin-bottom: 6px;
+}
+
+#sidebar-cart .Cheering__Title:after {
+  background-color: #f1af9e59;
+  bottom: 2px;
+  content: "";
+  height: 3px;
+  left: -4px;
+  position: absolute;
+  width: calc(100% + 4px);
 }
 
 #sidebar-cart .Cart__ShippingNotice {
