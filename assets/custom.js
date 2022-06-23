@@ -44,12 +44,18 @@ $(document).ready(function () {
         const oldPriceValue = parseFloat(oldPrice.text().trim().replace(/\,/, ''));
 
         const newPrice = $('#sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
-        const newPriceValue = parseFloat(newPrice.text().trim().replace(/\,/, ''));
+        
+        if (newPrice.length) {
+          const newPriceValue = parseFloat(newPrice.text().trim().replace(/\,/, ''));
 
-        const percentageValue = (oldPriceValue - newPriceValue) /oldPriceValue * 100;
+          const percentageValue = (oldPriceValue - newPriceValue) /oldPriceValue * 100;
 
-        console.log('newPriceValue', newPriceValue, 'oldPriceValue', oldPriceValue, 'percentageValue', percentageValue);
-        percentage.text('-' + Math.ceil(percentageValue) + '%');
+          console.log('newPriceValue', newPriceValue, 'oldPriceValue', oldPriceValue, 'percentageValue', percentageValue);
+          percentage.text('-' + Math.ceil(percentageValue) + '%');
+        
+        } else {
+          percentage.text('');
+        }
 
       } else {
         percentage.text('');
