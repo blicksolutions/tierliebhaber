@@ -46,6 +46,12 @@
       {%- if cart.item_count == 0 -%}
         <p class="Cart__Empty Heading u-h5">{{ 'cart.general.empty' | t }}</p>
       {%- else -%}
+      
+        <!-- Steps message -->
+        <div class="CartMessage__Steps">
+        </div>
+        <!-- /Steps message -->
+      
         <div class="Drawer__Container">
           <div class="Cheering">
             <p class="Cheering__Title">
@@ -61,36 +67,36 @@
 
           {% render 'cart-items' %}
         </div>
-      {%- endif -%}
       
-      <!-- Upsell items -->
-      {%- assign availableUpsellItemFound = false -%}
-      <div class="CartUpsells__Container">
-        <span class="CartUpsells__ScrollBtn">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAh0lEQVRIie2TQQqAIBBFn13M47TsKOWqTpttRhhE0TIhwg8DguN//y+EoZflZao1dQoyAAPwB4AB7A0fK2+qZAAHnMAS3aV+8iy7RwqSa+BleU1AYvM9ZVySATYB6Sa6QUjuyaR/AgmAZnMNcQrio7NrMdeQ0ERPU/IS5FXzGNLFXEO6mX9TFwuTLBH05pO4AAAAAElFTkSuQmCC" 
-             alt="">
-        </span>
-        <p class="CartUpsells__Title">
-          {{ section.settings.upsell_title }}
-        </p>
-        <div class="CartUpsells__Items">
-          {%- for line_item in section.settings.upsell_items -%}
-            {%- if availableUpsellItemFound == false -%}
-              {%- if line_item.available -%}
-      			{%- assign availableUpsellItemFound = true -%}
-                {%- assign line_item_type = 'upsell' -%}
-                <div class="Drawer__Container">
-                  <input type="hidden" name="attributes[collection_mobile_items_per_row]" value="">
-                  <input type="hidden" name="attributes[collection_desktop_items_per_row]" value="">
-                  {% render 'cart-items', line_item_type: line_item_type %}
-                </div>
+        <!-- Upsell items -->
+        {%- assign availableUpsellItemFound = false -%}
+        <div class="CartUpsells__Container">
+          <span class="CartUpsells__ScrollBtn">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAh0lEQVRIie2TQQqAIBBFn13M47TsKOWqTpttRhhE0TIhwg8DguN//y+EoZflZao1dQoyAAPwB4AB7A0fK2+qZAAHnMAS3aV+8iy7RwqSa+BleU1AYvM9ZVySATYB6Sa6QUjuyaR/AgmAZnMNcQrio7NrMdeQ0ERPU/IS5FXzGNLFXEO6mX9TFwuTLBH05pO4AAAAAElFTkSuQmCC" 
+               alt="">
+          </span>
+          <p class="CartUpsells__Title">
+            {{ section.settings.upsell_title }}
+          </p>
+          <div class="CartUpsells__Items">
+            {%- for line_item in section.settings.upsell_items -%}
+              {%- if availableUpsellItemFound == false -%}
+                {%- if line_item.available -%}
+                  {%- assign availableUpsellItemFound = true -%}
+                  {%- assign line_item_type = 'upsell' -%}
+                  <div class="Drawer__Container">
+                    <input type="hidden" name="attributes[collection_mobile_items_per_row]" value="">
+                    <input type="hidden" name="attributes[collection_desktop_items_per_row]" value="">
+                    {% render 'cart-items', line_item_type: line_item_type %}
+                  </div>
+                {%- endif -%}
+              {%- else -%}
               {%- endif -%}
-            {%- else -%}
-            {%- endif -%}
-          {%- endfor -%}
+            {%- endfor -%}
+          </div>
         </div>
-      </div>
-      <!-- /Upsell items -->
+        <!-- /Upsell items -->
+      {%- endif -%}
 
     </div>
 
