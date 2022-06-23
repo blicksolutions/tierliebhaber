@@ -18,10 +18,6 @@
       <div class="CartItemWrapper">
     {%- endif -%}
 
-        <div>
-          line_item: {{ line_item | json }}
-        </div>
-        
     <div class="CartItem">
       <div class="CartItem__ImageWrapper AspectRatio">
         <div class="AspectRatio" style="--aspect-ratio: {{ line_item.media[0].image.aspect_ratio }}">
@@ -39,22 +35,7 @@
         <div class="CartItem__Meta Heading Text--subdued">
           
           <div class="CartItem__PriceList">
-            {%- if line_item.original_price != line_item.final_price -%}
-              <span class="CartItem__Price Price Price--highlight">{{ line_item.final_price | money_without_trailing_zeros }}</span>
-              <span class="CartItem__OriginalPrice Price Price--compareAt">{{ line_item.original_price | money_without_trailing_zeros }}</span>
-            {%- else -%}
-              <span class="CartItem__Price Price">{{ line_item.final_price | money_without_trailing_zeros }}</span>
-            {%- endif -%}
-
-            {%- if line_item.line_level_discount_allocations != blank -%}
-              <ul class="CartItem__DiscountList">
-                {%- for discount_allocation in line_item.line_level_discount_allocations -%}
-                  <li class="CartItem__Discount">
-                    {%- render 'icon' with 'sale' -%}{{ discount_allocation.discount_application.title }}: -{{ discount_allocation.amount | money }}
-                  </li>
-                {%- endfor -%}
-              </ul>
-            {%- endif -%}
+            <span class="CartItem__Price Price">{{ line_item.price | money_without_trailing_zeros }}</span>
           </div>
 
           {%- unless line_item.product.has_only_default_variant -%}
