@@ -11447,7 +11447,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 
 /* Cart sidebar message */
 .CartMessage__Steps {
-  bcakground: #F9ECE7;
+  background: #F9ECE7;
   height: 78px;
   text-align: center;
 }
