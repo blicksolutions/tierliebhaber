@@ -18,6 +18,10 @@
       <div class="CartItemWrapper">
     {%- endif -%}
 
+        <div>
+          line_item: {{ line_item }}
+        </div>
+        
     <div class="CartItem">
       <div class="CartItem__ImageWrapper AspectRatio">
         <div class="AspectRatio" style="--aspect-ratio: {{ line_item.media[0].image.aspect_ratio }}">
