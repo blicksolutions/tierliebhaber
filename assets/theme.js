@@ -435,7 +435,7 @@ function _classCallCheck(e, t) {
 
                   setTimeout(function() {
                     scrollBtn.removeClass('Visible');
-                  }, 4000);
+                  }, 3000);
 
                 }, 500);
               }
