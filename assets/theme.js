@@ -2185,6 +2185,9 @@ function _classCallCheck(e, t) {
       }, {
         key: "_rerenderCart",
         value: function(e) {
+          
+          console.log('_rerenderCart');
+          
           var t = this;
           return fetch(window.routes.cartUrl + "?view=" + (this.options.drawer && "cart" !== window.theme.pageType ? "drawer" : "ajax") + "&timestamp=" + Date.now(), {
             credentials: "same-origin",
