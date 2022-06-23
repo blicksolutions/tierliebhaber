@@ -2185,14 +2185,23 @@ function _classCallCheck(e, t) {
       }, {
         key: "_rerenderCart",
         value: function(e) {
-          
-          console.log('_rerenderCart');
-          
           var t = this;
           return fetch(window.routes.cartUrl + "?view=" + (this.options.drawer && "cart" !== window.theme.pageType ? "drawer" : "ajax") + "&timestamp=" + Date.now(), {
             credentials: "same-origin",
             method: "GET"
           }).then((function(i) {
+            console.log('_rerenderCart');
+          
+            const cartSidebar = $('#sidebar-cart');
+            const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
+            const cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.text().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
+            console.log('cartSidebarTotalPriceValue', cartSidebarTotalPriceValue);
+            
+            if (cartSidebarTotalPriceValue < 60) {
+              
+            }
+            
+            
             if (t.options.drawer && e) {
               var n = new TimelineLite({
                 onComplete: function() {
