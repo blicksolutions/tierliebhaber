@@ -13,8 +13,14 @@
       <span class="Cart__HeadItem Heading Text--subdued u-h7" style="text-align: right">{{ 'cart.items.total' | t }}</span>
     </div>
   {%- endunless -%}
+  
+  {%- if line_item_type == 'upsell' -%}
+    {%- assign items = cart.items | limit: 1 -%}
+  {%- else -%}
+    {%- assign items = cart.items -%}
+  {%- endif -%}
 
-  {%- for line_item in cart.items -%}
+  {%- for line_item in items -%}
     {%- if for_drawer -%}
       <div class="CartItemWrapper">
     {%- endif -%}
