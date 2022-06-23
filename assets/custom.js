@@ -3,15 +3,6 @@ $(document).ready(function () {
   const obj = function(){};
   
   obj.cartSidebar = (function(){
-    /* Scroll button */
-    const scrollBtn = $('.CartUpsells__ScrollBtn');
-    scrollBtn.addClass('Visible');
-    
-    setTimeout(function() {
-      scrollBtn.removeClass('Visible');
-    }, 4000);
-    /* /Scroll button */
-  
     $(document).on('click', '#sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon-title', function() {
       const sidebarCart = $('#sidebar-cart');
       sidebarCart.toggleClass('Drawer__Footer__CouponActive');
