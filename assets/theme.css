@@ -11533,6 +11533,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   letter-spacing: normal;
   min-width: 177px;
   padding-top: 13px;
+  margin-top: 5px;
 }
 
 .CartItem__Actions__UpsellBtn[disabled] {
