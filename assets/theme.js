@@ -2370,10 +2370,6 @@ function _classCallCheck(e, t) {
           const giftItemVariantId = 41322345496735;
           let giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
           
-          if (!giftItem.length) {
-            giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:first');
-          }
-          
           console.log('cartSidebarTotalPriceValue', cartSidebarTotalPriceValue);
           
           if (giftItem.length) {
@@ -2382,11 +2378,20 @@ function _classCallCheck(e, t) {
           
           console.log('cartSidebarTotalPriceValue', cartSidebarTotalPriceValue);
           
-          if (cartSidebarTotalPriceValue >= 60) {
-            this._addBgItem();
-
+          if (giftItem.length) {
+            
           } else {
-            this._removeBgItem();
+            let giftItemToRemove = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:not([data-free-gift]):first');
+            
+            if (giftItemToRemove.length) {
+              this._removeBgItem();
+              
+            } else {
+             
+              if (cartSidebarTotalPriceValue >= 60) {
+                this._addBgItem();
+              }
+            }
           }
 
           let cartSidebarPercentage = cartSidebarTotalPriceValue / maxPriceValue * 100;
