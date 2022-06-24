@@ -2302,13 +2302,13 @@ function _classCallCheck(e, t) {
 //             this._removeBgItem();
           }
 
-//           if (cartSidebarPercentage > 100) {
-//             cartSidebarPercentage = 100;
-//           }
+          if (cartSidebarPercentage > 100) {
+            cartSidebarPercentage = 100;
+          }
 
-//           const cartSidebarLine = document.querySelector('.CartMessage__StepsLines__Active');
-//           console.log('cartSidebarLine', cartSidebarLine);
-//           cartSidebarLine.style.width = cartSidebarPercentage + '%';
+          const cartSidebarLine = document.querySelector('.CartMessage__StepsLines__Active');
+          console.log('cartSidebarLine', cartSidebarLine);
+          cartSidebarLine.style.width = cartSidebarPercentage + '%';
           
           
         }
