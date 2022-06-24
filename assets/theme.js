@@ -2256,12 +2256,8 @@ function _classCallCheck(e, t) {
             giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:first');
           }
           
-//           console.log('giftItem', giftItem.length);
-       
           if (!giftItem.length) {
-//             console.log('add free gift', giftItem.length);
-
-            
+            console.log('add free gift', giftItem.length);
             
             $.ajax({
               type: 'POST',
@@ -2326,11 +2322,9 @@ function _classCallCheck(e, t) {
           
           if (giftItem.length) {
             giftItem.hide();
-//             console.log('remove free gift', giftItem.length);
+            console.log('remove free gift', giftItem.length);
             const giftItemI = giftItem.attr('data-index');
 //             console.log('giftItemI', giftItemI);
-            
-            
             
             $.ajax({
               type: 'POST',
