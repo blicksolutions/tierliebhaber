@@ -2300,6 +2300,7 @@ function _classCallCheck(e, t) {
                   success: function (result) {
                     console.log('success', result);
 
+                    cartSidebar.find('.Drawer__Main').html($(result).find('.Drawer__Main').html());
                   } 
                 });
                 
