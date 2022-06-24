@@ -87,7 +87,7 @@ $(document).ready(function () {
         }, 3000);
       }
       
-      $('.Drawer__Footer__ProductsTotal, .Drawer__Footer__Subtotal').removeClass('Loading');
+      $('.Drawer__Footer__ProductsTotal, .Drawer__Footer__Subtotal').addClass('Loaded');
 
     }, 1000);
     
