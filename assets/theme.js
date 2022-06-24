@@ -2153,6 +2153,8 @@ function _classCallCheck(e, t) {
           const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
           const cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.text().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
 
+          console.log('cartSidebarTotalPriceValue', cartSidebarTotalPriceValue);
+          
           if (cartSidebarTotalPriceValue >= 60) {
             this._addBgItem();
 
