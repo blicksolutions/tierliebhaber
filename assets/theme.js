@@ -2252,7 +2252,7 @@ function _classCallCheck(e, t) {
                   url: '/cart?view=drawer',
                   dataType: 'html', 
                   success: function (result2) {
-                    cartSidebar.find('.Drawer__Main').html($(result2).find('#sidebar-cart .Drawer__Main').html());
+                    cartSidebar.find('.Cart__ItemList').html($(result2).find('#sidebar-cart .Cart__ItemList').html());
                   } 
                 });
               }
@@ -2314,7 +2314,7 @@ function _classCallCheck(e, t) {
                   url: '/cart?view=drawer',
                   dataType: 'html', 
                   success: function (result2) {
-                    cartSidebar.find('.Drawer__Main').html($(result2).find('#sidebar-cart .Drawer__Main').html());
+                    cartSidebar.find('.Cart__ItemList').html($(result2).find('#sidebar-cart .Cart__ItemList').html());
                   } 
                 });
               }
