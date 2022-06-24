@@ -2286,7 +2286,6 @@ function _classCallCheck(e, t) {
           })), document.dispatchEvent(new CustomEvent("cart:rendered"))
           
           
-          
           const cartSidebar = $('#sidebar-cart');
           const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
           const cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.text().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
@@ -2307,10 +2306,7 @@ function _classCallCheck(e, t) {
           }
 
           const cartSidebarLine = document.querySelector('.CartMessage__StepsLines__Active');
-          console.log('cartSidebarLine', cartSidebarLine);
           cartSidebarLine.style.width = cartSidebarPercentage + '%';
-          
-          
         }
       }]), e
     }();
