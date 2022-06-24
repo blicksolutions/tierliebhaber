@@ -18,6 +18,7 @@
   
     {%- if for_drawer -%}
       <div class="CartItemWrapper" 
+           data-index="{{ forloop.index }}" 
            data-variant-id="{{ line_item.id }}" 
            data-product-id="{{ line_item.product.id }}">
     {%- endif -%}
