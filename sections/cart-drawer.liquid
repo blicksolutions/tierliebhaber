@@ -151,11 +151,14 @@
           <div class="Drawer__Footer__Delivery">
             <small>{{ 'cart.general.delivery' | t }}</small> 
             <span>
+
               {%- if contains_free_shipping_variant -%}
-                {{ 0 | money }}
+                {%- assign delivery_cost = 0 -%}
               {%- else -%}
-                {{ threshold_in_cents | devided_by: 100 }} / {{ threshold_in_cents | devided_by: 100 | money }}
+                {%- assign delivery_cost = threshold_in_cents -%}
               {%- endif -%}
+              
+              {{ delivery_cost | money }}
             </span>
           </div>
           <!-- /Delivery -->
