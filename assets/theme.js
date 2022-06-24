@@ -2314,9 +2314,6 @@ function _classCallCheck(e, t) {
                 });
               } 
             });
-            
-            
-            
 
 //             fetch(window.routes.cartUrl + "/change.js", {
 //               body: JSON.stringify({
