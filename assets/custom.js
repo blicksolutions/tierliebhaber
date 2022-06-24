@@ -4,6 +4,18 @@ $(document).ready(function () {
   
   obj.cartSidebar = (function(){
     
+    $(document).on('click', '#sidebar-cart .CartUpsells__ScrollBtn', function() {
+      
+      $('#sidebar-cart #Drawer__Main').animate({
+        scrollTop: 1000
+      }, 2000);
+    });
+
+    $(document).on('click', '#sidebar-cart .CartItem__Actions__UpsellBtn', function() {
+      const btn = $(this);
+      btn.prop('disabled', true);
+    });
+    
     $(document).on('click', '#sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon-title', function() {
       const sidebarCart = $('#sidebar-cart');
       sidebarCart.toggleClass('Drawer__Footer__CouponActive');
