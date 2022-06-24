@@ -11306,8 +11306,9 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 }
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalPrice > s > span.money {
-  margin-right: 13px;
-  color: #515151 !important;
+/*   margin-right: 13px; */
+/*   color: #515151 !important; */
+  color: #abcdbe !important;
   opacity: 1 !important;
 }
 
