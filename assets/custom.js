@@ -8,7 +8,7 @@ $(document).ready(function () {
       const btn = $(this);
       btn.removeClass('Visible');
       
-      $('#sidebar-cart #Drawer__Main').animate({
+      $('#sidebar-cart .Drawer__Main').animate({
         scrollTop: 1000
       }, 2000);
     });
