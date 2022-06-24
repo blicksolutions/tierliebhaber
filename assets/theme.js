@@ -2246,7 +2246,15 @@ function _classCallCheck(e, t) {
               },
               dataType: 'html', 
               success: function (result) {
-                cartSidebar.find('.Cart__ItemList').html($(result).find('.Cart__ItemList').html());
+                
+                $.ajax({
+                  type: 'GET',
+                  url: '/cart?view=drawer',
+                  dataType: 'html', 
+                  success: function (result2) {
+                    cartSidebar.find('.Drawer__Main').html($(result2).find('#sidebar-cart .Drawer__Main').html());
+                  } 
+                });
               }
             });
             
@@ -2300,16 +2308,15 @@ function _classCallCheck(e, t) {
               },
               dataType: 'html', 
               success: function (result) {
-                cartSidebar.find('.Cart__ItemList').html($(result).find('.Cart__ItemList').html());
                 
-//                 $.ajax({
-//                   type: 'GET',
-//                   url: '/cart?view=drawer',
-//                   dataType: 'html', 
-//                   success: function (result2) {
-//                     cartSidebar.find('.Cart__ItemList').html($(result2).find('.Cart__ItemList').html());
-//                   } 
-//                 });
+                $.ajax({
+                  type: 'GET',
+                  url: '/cart?view=drawer',
+                  dataType: 'html', 
+                  success: function (result2) {
+                    cartSidebar.find('.Drawer__Main').html($(result2).find('#sidebar-cart .Drawer__Main').html());
+                  } 
+                });
               }
             });
 
