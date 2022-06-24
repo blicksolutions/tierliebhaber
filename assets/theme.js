@@ -2228,9 +2228,9 @@ function _classCallCheck(e, t) {
           
           const giftItemVariantId = 41322345496735;
           const giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
+          console.log('add free gift', giftItem.length);
        
           if (!giftItem.length) {
-            console.log('add free gift');
 
             fetch(window.routes.cartUrl + "/add.js", {
               body: JSON.stringify({
@@ -2261,10 +2261,10 @@ function _classCallCheck(e, t) {
           
           const giftItemVariantId = 41322345496735;
           const giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
-          const giftItemI = giftItem.attr('data-index');
+          console.log('remove free gift', giftItem.length);
           
           if (giftItem.length) {
-            console.log('remove free gift', giftItemI);
+            const giftItemI = giftItem.attr('data-index');
 
             fetch(window.routes.cartUrl + "/update.js", {
               body: JSON.stringify({
