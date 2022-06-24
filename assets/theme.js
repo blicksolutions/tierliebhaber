@@ -2242,7 +2242,7 @@ function _classCallCheck(e, t) {
             
             $.ajax({
               type: 'POST',
-              url: '/cart/add?view=drawer',
+              url: '/cart/add',
               data: {
                 form_type: 'product',
                 id: giftItemVariantId,
@@ -2250,7 +2250,7 @@ function _classCallCheck(e, t) {
               },
               dataType: 'html', 
               success: function (result) {
-                cartSidebar.find('.Drawer__Main').html($(result).find('.Drawer__Main').html());
+                cartSidebar.find('.Cart__ItemList').html($(result).find('.Cart__ItemList').html());
               } 
             });
             
