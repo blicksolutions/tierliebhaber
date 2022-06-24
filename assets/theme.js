@@ -2327,6 +2327,8 @@ function _classCallCheck(e, t) {
 // //                 });
 //               }
 //             });
+            
+            giftItemToRemove.remove();
 
             fetch(window.routes.cartUrl + "/change.js", {
               body: JSON.stringify({
@@ -2342,8 +2344,6 @@ function _classCallCheck(e, t) {
             }).then((function(e) {
               e.json().then((function(e) {
                 console.log('free gift is removed');
-                giftItemToRemove.css('border', '2px red solid');
-                
                 i._rerenderCart();
               }))
             }));
