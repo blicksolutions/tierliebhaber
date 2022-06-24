@@ -2296,6 +2296,19 @@ function _classCallCheck(e, t) {
 
           if (cartSidebarTotalPriceValue >= 60) {
 //             this._addBgItem();
+            const giftItemId = 7139832463519;
+            
+//             $.post('/cart/add.js', {
+//               items: [{
+//                 quantity: 1,
+//                 id: 6564672929928
+//               }]
+//             },
+//                    function(res) {
+//               console.log(res)
+//             }
+//                    });
+      
             
             console.log('add gift');
             
@@ -2303,8 +2316,10 @@ function _classCallCheck(e, t) {
               type: "POST",
               url: "".concat(window.routes.cartUrl + "/add.js"),
               data: {
-                id: 7139832463519,
-                quantity: 1
+                items: [{
+                  quantity: 1,
+                  id: giftItemId
+                }]
               },
               contentType: "application/json; charset=utf-8",
               dataType: "json",
