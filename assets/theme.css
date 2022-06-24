@@ -11459,11 +11459,11 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon-percentage {
   position: absolute;
   top: 7px;
-/*   color: #f1af9e; */
-  color: #7d7d7d;
+  color: #f1af9e;
+/*   color: #7d7d7d; */
   font-family: var(--heading-font-family);
   font-weight: var(--heading-font-weight);
-  font-size: 15px;
+  font-size: 16px;
 }
 
 @media screen and (max-width: 640px) {
