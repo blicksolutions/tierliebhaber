@@ -2240,7 +2240,7 @@ function _classCallCheck(e, t) {
             e.json().then((function(e) {
               i.itemCount = e.item_count, i._rerenderCart(s), document.dispatchEvent(new CustomEvent("theme:loading:end"))
             }))
-          })), e.preventDefault()
+          }))
         }
       }, {
         key: "_removeBgItem",
@@ -2263,7 +2263,7 @@ function _classCallCheck(e, t) {
             e.json().then((function(e) {
               i.itemCount = e.item_count, i._rerenderCart(s), document.dispatchEvent(new CustomEvent("theme:loading:end"))
             }))
-          })), e.preventDefault()
+          }))
         }
       }, {
         key: "_replaceContent",
@@ -2299,10 +2299,10 @@ function _classCallCheck(e, t) {
             let cartSidebarPercentage = cartSidebarTotalPriceValue / maxPriceValue * 100;
             
             if (cartSidebarTotalPriceValue >= 60) {
-              this._addBgItem(e);
+              this._addBgItem();
             
             } else {
-              this._removeBgItem(e);
+              this._removeBgItem();
             }
           
             if (cartSidebarPercentage > 100) {
