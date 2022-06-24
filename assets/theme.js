@@ -2293,8 +2293,7 @@ function _classCallCheck(e, t) {
               e.json().then((function(e) {
                 console.log('free gift is removed', e);
                 
-                giftItem.remove();
-                i._rerenderCart();
+//                 i._rerenderCart();
             
 //                 $.ajax({
 //                   type: 'GET',
