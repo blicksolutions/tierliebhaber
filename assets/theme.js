@@ -2242,7 +2242,7 @@ function _classCallCheck(e, t) {
             
             $.ajax({
               type: 'POST',
-              url: '/cart/add',
+              url: '/cart/add?view=drawer',
               data: {
                 form_type: 'product',
                 id: giftItemVariantId,
