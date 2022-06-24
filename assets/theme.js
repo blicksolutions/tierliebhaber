@@ -2279,24 +2279,42 @@ function _classCallCheck(e, t) {
 //             console.log('remove free gift', giftItem.length);
             const giftItemI = giftItem.attr('data-index');
 //             console.log('giftItemI', giftItemI);
-
-            fetch(window.routes.cartUrl + "/change.js", {
-              body: JSON.stringify({
+            
+            
+            
+            $.ajax({
+              type: 'POST',
+              url: '/cart/change',
+              data: {
                 line: giftItemI,
-                quantity: 0
-              }),
-              credentials: "same-origin",
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                "X-Requested-With": "XMLHttpRequest"
-              }
-            }).then((function(e) {
-              e.json().then((function(e) {
-//                 console.log('free gift is removed');
-                giftItem.remove();
-              }))
-            }));
+                quantity: 1,
+              },
+              dataType: 'json', 
+              success: function (result) {
+                cartSidebar.find('.Drawer__Main').html($(result).find('.Drawer__Main').html());
+              } 
+            });
+            
+            
+            
+
+//             fetch(window.routes.cartUrl + "/change.js", {
+//               body: JSON.stringify({
+//                 line: giftItemI,
+//                 quantity: 0
+//               }),
+//               credentials: "same-origin",
+//               method: "POST",
+//               headers: {
+//                 "Content-Type": "application/json",
+//                 "X-Requested-With": "XMLHttpRequest"
+//               }
+//             }).then((function(e) {
+//               e.json().then((function(e) {
+// //                 console.log('free gift is removed');
+//                 giftItem.remove();
+//               }))
+//             }));
           }
         }
       }, {
