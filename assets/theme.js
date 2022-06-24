@@ -2223,45 +2223,65 @@ function _classCallCheck(e, t) {
         key: "_addBgItem",
         value: function() {
           var i = this;
+          
+          const cartSidebar = $('#sidebar-cart');
+          
+          const giftItemVariantId = 41322345496735;
+          const giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
        
-          fetch(window.routes.cartUrl + "/add.js", {
-            body: JSON.stringify({
-              id: 7139832463519,
-              quantity: 1
-            }),
-            credentials: "same-origin",
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              "X-Requested-With": "XMLHttpRequest"
-            }
-          }).then((function(e) {
-            e.json().then((function(e) {
-              
-            }))
-          }))
+          if (!giftItem.length) {
+            console.log('add free gift');
+
+            fetch(window.routes.cartUrl + "/add.js", {
+              body: JSON.stringify({
+                items: [{
+                  quantity: 1,
+                  id: giftItemVariantId
+                }]
+              }),
+              credentials: "same-origin",
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                "X-Requested-With": "XMLHttpRequest"
+              }
+            }).then((function(e) {
+              e.json().then((function(e) {
+                console.log('free gift is added');
+              }))
+            }));
+          }
         }
       }, {
         key: "_removeBgItem",
         value: function() {
           var i = this;
+          
+          const cartSidebar = $('#sidebar-cart');
+          
+          const giftItemVariantId = 41322345496735;
+          const giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
        
-          fetch(window.routes.cartUrl + "/update.js", {
-            body: JSON.stringify({
-              id: 7139832463519,
-              quantity: 0
-            }),
-            credentials: "same-origin",
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              "X-Requested-With": "XMLHttpRequest"
-            }
-          }).then((function(e) {
-            e.json().then((function(e) {
+          if (giftItem.length) {
+            console.log('remove free gift');
 
-            }))
-          }))
+            fetch(window.routes.cartUrl + "/update.js", {
+              body: JSON.stringify({
+                line: 1,
+                quantity: 0
+              }),
+              credentials: "same-origin",
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                "X-Requested-With": "XMLHttpRequest"
+              }
+            }).then((function(e) {
+              e.json().then((function(e) {
+
+              }))
+            }));
+          }
         }
       }, {
         key: "_replaceContent",
@@ -2300,53 +2320,53 @@ function _classCallCheck(e, t) {
           console.log('giftItem', giftItem.length);
           
           if (cartSidebarTotalPriceValue >= 60) {
-//             this._addBgItem();
+            this._addBgItem();
             
-            console.log('add gift');
+//             console.log('add gift');
             
-            if (!giftItem.length) {
+//             if (!giftItem.length) {
 
-              $.ajax({
-                type: "POST",
-                url: "".concat(window.routes.cartUrl + "/add.js"),
-                data: JSON.stringify({
-                  items: [{
-                    quantity: 1,
-                    id: giftItemVariantId
-                  }]
-                }),
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function(content) {
-                  console.log('gift added', content);
-                }
-              });
-            }
+//               $.ajax({
+//                 type: "POST",
+//                 url: "".concat(window.routes.cartUrl + "/add.js"),
+//                 data: JSON.stringify({
+//                   items: [{
+//                     quantity: 1,
+//                     id: giftItemVariantId
+//                   }]
+//                 }),
+//                 contentType: "application/json; charset=utf-8",
+//                 dataType: "json",
+//                 success: function(content) {
+//                   console.log('gift added', content);
+//                 }
+//               });
+//             }
 
           } else {
-//             this._removeBgItem();
+            this._removeBgItem();
             
-            console.log('remove gift');
+//             console.log('remove gift');
             
-            if (giftItem.length) {
-              const giftItemIndex = giftItem.attr('data-index');
+//             if (giftItem.length) {
+//               const giftItemIndex = giftItem.attr('data-index');
               
-              console.log('giftItemIndex', giftItemIndex);
+//               console.log('giftItemIndex', giftItemIndex);
 
-              $.ajax({
-                type: "POST",
-                url: "".concat(window.routes.cartChangeUrl, ".js"),
-                data: JSON.stringify({
-                  line: giftItemIndex,
-                  quantity: 0
-                }),
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function(content) {
-                  giftItem.remove();
-                }
-              });
-            }
+//               $.ajax({
+//                 type: "POST",
+//                 url: "".concat(window.routes.cartChangeUrl, ".js"),
+//                 data: JSON.stringify({
+//                   line: giftItemIndex,
+//                   quantity: 0
+//                 }),
+//                 contentType: "application/json; charset=utf-8",
+//                 dataType: "json",
+//                 success: function(content) {
+//                   giftItem.remove();
+//                 }
+//               });
+//             }
           }
 
           if (cartSidebarPercentage > 100) {
