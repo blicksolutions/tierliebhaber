@@ -2295,9 +2295,8 @@ function _classCallCheck(e, t) {
           }
           
           if (giftItem.length) {
-            console.log('remove free gift', giftItem.length);
             const giftItemI = giftItem.attr('data-index');
-//             console.log('giftItemI', giftItemI);
+            console.log('remove free gift', giftItem.length, giftItemI);
             
             $.ajax({
               type: 'POST',
@@ -2306,7 +2305,7 @@ function _classCallCheck(e, t) {
                 line: giftItemI,
                 quantity: 1,
               },
-              dataType: 'html', 
+              dataType: 'html',
               success: function (result) {
                 
                 $.ajax({
