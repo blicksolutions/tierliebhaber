@@ -2248,6 +2248,8 @@ function _classCallCheck(e, t) {
             }).then((function(e) {
               e.json().then((function(e) {
                 console.log('free gift is added', e);
+                
+                this._rerenderCart();
               }))
             }));
           }
@@ -2280,6 +2282,8 @@ function _classCallCheck(e, t) {
             }).then((function(e) {
               e.json().then((function(e) {
                 console.log('free gift is removed', e);
+                
+                this._rerenderCart();
               }))
             }));
           }
