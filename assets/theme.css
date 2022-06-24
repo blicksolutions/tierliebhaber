@@ -11600,6 +11600,13 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   margin: 1px 0 0 0;
   opacity: .6;
 }
+
+@media screen and (min-width: 641px) {
+  
+  .CartUpsells__ScrollBtn {
+    display: none !important;
+  }
+}
 /* /Cart sidebar scroll button */
 
 /* Cart sidebar button */
