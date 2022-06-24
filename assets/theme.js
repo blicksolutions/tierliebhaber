@@ -2326,6 +2326,8 @@ function _classCallCheck(e, t) {
             
             if (giftItem) {
               const giftItemIndex = giftItem.attr('data-index');
+              
+              console.log('giftItemIndex', giftItemIndex);
 
               $.ajax({
                 type: "POST",
