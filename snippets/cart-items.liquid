@@ -112,18 +112,18 @@
             </div>
           {%- endif -%}
 
-          {%- if line_item.line_level_discount_allocations != blank -%}
-            <ul class="CartItem__DiscountList">
-              {%- for discount_allocation in line_item.line_level_discount_allocations -%}
-                <li class="CartItem__Discount">
-                  {%- unless line_item_free_gift -%}
-                    {%- render 'icon' with 'sale' -%}
-                  {%- endunless -%}
-                  {{ discount_allocation.discount_application.title }}{%- unless line_item_free_gift -%}: -{{ discount_allocation.amount | money }}{%- endunless -%}
-                </li>
-              {%- endfor -%}
-            </ul>
-          {%- endif -%}
+          {%- unless line_item_free_gift -%}
+            {%- if line_item.line_level_discount_allocations != blank -%}
+              <ul class="CartItem__DiscountList">
+                {%- for discount_allocation in line_item.line_level_discount_allocations -%}
+                  <li class="CartItem__Discount">
+                      {%- render 'icon' with 'sale' -%}
+                    {{ discount_allocation.discount_application.title }}: -{{ discount_allocation.amount | money }}
+                  </li>
+                {%- endfor -%}
+              </ul>
+            {%- endif -%}
+          {%- endunless -%}
         </div>
 
         {%- capture item_actions -%}
