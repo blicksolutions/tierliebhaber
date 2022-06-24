@@ -150,7 +150,13 @@
           <!-- Delivery -->
           <div class="Drawer__Footer__Delivery">
             <small>{{ 'cart.general.delivery' | t }}</small> 
-            <span>{%- if contains_free_shipping_variant -%}{{ 0 | money }}{%- else -%}{{ 0 | money }}{%- endif -%}</span>
+            <span>
+              {%- if contains_free_shipping_variant -%}
+                {{ 0 | money }}
+              {%- else -%}
+                {{ threshold_in_cents }} / {{ threshold_in_cents | money }}
+              {%- endif -%}
+            </span>
           </div>
           <!-- /Delivery -->
           
