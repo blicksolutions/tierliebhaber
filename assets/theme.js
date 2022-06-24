@@ -2310,7 +2310,10 @@ function _classCallCheck(e, t) {
                 data: JSON.stringify({
                   items: [{
                     quantity: 1,
-                    id: giftItemVariantId
+                    id: giftItemVariantId,
+                    properties: {
+                      'Free gift!'
+                    }
                   }]
                 }),
                 contentType: "application/json; charset=utf-8",
