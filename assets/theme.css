@@ -11266,7 +11266,17 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 }
 
 
-
+#sidebar-cart .Drawer__Footer .Drawer__Footer__ProductsTotal,
+#sidebar-cart .Drawer__Footer .Drawer__Footer__Delivery {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  right: 0;
+  bottom: 30px;
+  left: 0;
+  outline: 1px red solid;
+  font-size: 16px;
+}
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__ProductsTotal {
   display: flex;
@@ -11277,6 +11287,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   left: 0;
   outline: 1px red solid;
   font-size: 16px;
+  bottom: 30px;
 }
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Delivery {
