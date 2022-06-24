@@ -2296,42 +2296,38 @@ function _classCallCheck(e, t) {
           
           const giftItemVariantId = 41322345496735 ;
 
+          const giftItemDiscount = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"] .CartItem__Discount');
+          
           if (cartSidebarTotalPriceValue >= 60) {
 //             this._addBgItem();
             
-            $.post('/cart/add.js', {
-              items: [{
-                quantity: 1,
-                id: giftItemVariantId
-              }]
-            }, function(res) {
-              console.log(res);
-            });
-      
-            console.log('add gift');
-            
-            $.ajax({
-              type: "POST",
-              url: "".concat(window.routes.cartUrl + "/add.js"),
-              data: JSON.stringify({
-                items: [{
-                  quantity: 1,
-                  id: giftItemVariantId
-                }]
-              }),
-              contentType: "application/json; charset=utf-8",
-              dataType: "json",
-              success: function(content) {
-                console.log('content', content);
-              }
-            });
+            if (!giftItemDiscount.length) {
+              console.log('add gift');
+
+              $.ajax({
+                type: "POST",
+                url: "".concat(window.routes.cartUrl + "/add.js"),
+                data: JSON.stringify({
+                  items: [{
+                    quantity: 1,
+                    id: giftItemVariantId
+                  }]
+                }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function(content) {
+                  console.log('gift added');
+                }
+              });
+            }
 
           } else {
 //             this._removeBgItem();
-            const giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]');
-            const giftItemIndex = giftItem.attr('data-index');
             
-            if (giftItem.length) {
+            if (giftItemDiscount) {
+              const giftItem = giftItemDiscount.parents('.CartItemWrapper');
+              const giftItemIndex = giftItem.attr('data-index');
+
               $.ajax({
                 type: "POST",
                 url: "".concat(window.routes.cartChangeUrl, ".js"),
