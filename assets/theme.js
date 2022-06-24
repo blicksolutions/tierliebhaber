@@ -2297,12 +2297,14 @@ function _classCallCheck(e, t) {
           const giftItemVariantId = 41322345496735 ;
 
           const giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
+          console.log('giftItem', giftItem.length);
           
           if (cartSidebarTotalPriceValue >= 60) {
 //             this._addBgItem();
             
+            console.log('add gift');
+            
             if (!giftItem.length) {
-              console.log('add gift');
 
               $.ajax({
                 type: "POST",
@@ -2324,10 +2326,12 @@ function _classCallCheck(e, t) {
           } else {
 //             this._removeBgItem();
             
+            console.log('remove gift');
+            
             if (giftItem.length) {
               const giftItemIndex = giftItem.attr('data-index');
               
-              console.log('giftItem', giftItem.length, 'giftItemIndex', giftItemIndex);
+              console.log('giftItemIndex', giftItemIndex);
 
               $.ajax({
                 type: "POST",
