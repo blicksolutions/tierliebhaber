@@ -2361,13 +2361,11 @@ function _classCallCheck(e, t) {
           })), document.dispatchEvent(new CustomEvent("cart:rendered"))
           
           
+          const maxPriceValue = 71.48934;
+          
           const cartSidebar = $('#sidebar-cart');
           const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
           let cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.text().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
-
-          const maxPriceValue = 71.48934;
-
-          let cartSidebarPercentage = cartSidebarTotalPriceValue / maxPriceValue * 100;
           
           const giftItemVariantId = 41322345496735;
           let giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
@@ -2384,7 +2382,6 @@ function _classCallCheck(e, t) {
           
           console.log('cartSidebarTotalPriceValue', cartSidebarTotalPriceValue);
           
-          
           if (cartSidebarTotalPriceValue >= 60) {
             this._addBgItem();
 
@@ -2392,6 +2389,8 @@ function _classCallCheck(e, t) {
             this._removeBgItem();
           }
 
+          let cartSidebarPercentage = cartSidebarTotalPriceValue / maxPriceValue * 100;
+          
           if (cartSidebarPercentage > 100) {
             cartSidebarPercentage = 100;
           }
