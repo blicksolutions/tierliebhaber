@@ -11279,6 +11279,11 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   margin-bottom: 0;
 }
 
+.Drawer__Footer__ProductsTotal.Loading > span,
+.Drawer__Footer__Subtotal.Loading > span {
+  filter: blur(4px);
+}
+
 #sidebar-cart .Drawer__Footer .Drawer__Footer__ProductsTotal small,
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Delivery small,
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Subtotal small {
