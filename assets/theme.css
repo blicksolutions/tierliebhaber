@@ -11154,10 +11154,6 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   border-bottom: 1px solid #E5E5E5;
 }
 
-#sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon-title {
-  position: relative;
-}
-
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon-title:before {
   content: '';
   display: block;
