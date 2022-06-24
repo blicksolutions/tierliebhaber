@@ -62,10 +62,11 @@ $(document).ready(function () {
       
       const couponError = sidebarCart.find('.scDiscount__container .scError');
       
-      if (couponError.length) {
-        couponError.css('opacity', 0);
+      if (couponError.length && !couponError.hasClass('Hidden')) {
+        couponError.addClass('Hidden');
 
         setTimeout(function() {
+          couponError.css('opacity', 0);
 
           setTimeout(function() {
             couponError.remove();
