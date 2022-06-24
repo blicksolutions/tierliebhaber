@@ -154,7 +154,7 @@
               {%- if contains_free_shipping_variant -%}
                 {{ 0 | money }}
               {%- else -%}
-                {{ threshold_in_cents }} / {{ threshold_in_cents | money }}
+                {{ threshold_in_cents }} / {{ threshold_in_cents | devided_by: 100 | money }}
               {%- endif -%}
             </span>
           </div>
