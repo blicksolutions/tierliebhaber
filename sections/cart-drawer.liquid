@@ -63,7 +63,9 @@
           </div>
           <div class="CartMessage__StepsLines__Container">
             <div class="CartMessage__StepsLines">
-              <span class="CartMessage__StepsLines__Active"></span>
+              {%- assign message_line_percentage = cart.total_price | divided_by: 71.48934 | times: 100 -%}
+              <span class="CartMessage__StepsLines__Active" 
+                    style="width: {%- if message_line_percentage > 100 -%}100{%- else -%}{{ message_line_percentage }}{%- endif -%}%;"></span>
             </div>
             <span class="CartMessage__StepsLines__Delivery">
               <img src="{{ section.settings.message_delivery_icon | img_url: '32x32' }}" 
