@@ -2144,6 +2144,27 @@ function _classCallCheck(e, t) {
       }, {
         key: "_updateItemQuantity",
         value: function(e, t) {
+          
+          
+          
+          
+          
+          const cartSidebar = $('#sidebar-cart');
+          const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
+          const cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.text().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
+
+          if (cartSidebarTotalPriceValue >= 60) {
+            this._addBgItem();
+
+          } else {
+            this._removeBgItem();
+          }
+          
+          
+          
+          
+          
+          
           var i = this;
           document.dispatchEvent(new CustomEvent("theme:loading:start"));
           var n, s = null;
@@ -2388,55 +2409,12 @@ function _classCallCheck(e, t) {
           const giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
           console.log('_replaceContent', cartSidebarTotalPriceValue);
           
-          if (cartSidebarTotalPriceValue >= 60) {
-            this._addBgItem();
-            
-//             console.log('add gift');
-            
-//             if (!giftItem.length) {
+//           if (cartSidebarTotalPriceValue >= 60) {
+//             this._addBgItem();
 
-//               $.ajax({
-//                 type: "POST",
-//                 url: "".concat(window.routes.cartUrl + "/add.js"),
-//                 data: JSON.stringify({
-//                   items: [{
-//                     quantity: 1,
-//                     id: giftItemVariantId
-//                   }]
-//                 }),
-//                 contentType: "application/json; charset=utf-8",
-//                 dataType: "json",
-//                 success: function(content) {
-//                   console.log('gift added', content);
-//                 }
-//               });
-//             }
-
-          } else {
-            this._removeBgItem();
-            
-//             console.log('remove gift');
-            
-//             if (giftItem.length) {
-//               const giftItemIndex = giftItem.attr('data-index');
-              
-//               console.log('giftItemIndex', giftItemIndex);
-
-//               $.ajax({
-//                 type: "POST",
-//                 url: "".concat(window.routes.cartChangeUrl, ".js"),
-//                 data: JSON.stringify({
-//                   line: giftItemIndex,
-//                   quantity: 0
-//                 }),
-//                 contentType: "application/json; charset=utf-8",
-//                 dataType: "json",
-//                 success: function(content) {
-//                   giftItem.remove();
-//                 }
-//               });
-//             }
-          }
+//           } else {
+//             this._removeBgItem();
+//           }
 
           if (cartSidebarPercentage > 100) {
             cartSidebarPercentage = 100;
