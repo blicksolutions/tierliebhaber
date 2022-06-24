@@ -2369,8 +2369,6 @@ function _classCallCheck(e, t) {
 
           let cartSidebarPercentage = cartSidebarTotalPriceValue / maxPriceValue * 100;
           
-          const giftItemVariantId = 41322345496735 ;
-
           const giftItemVariantId = 41322345496735;
           let giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
           
