@@ -17,6 +17,22 @@
   {%- for line_item in cart.items -%}
   
     {%- if for_drawer -%}
+  
+      {%- assign line_item_free_gift = false -%}
+      {%- if line_item.product.id == 7139832463519 -%}
+        {%- if line_item.properties != empty -%}
+          {%- for property in line_item.properties -%}
+            {%- assign first_character_in_key = property.first | truncate: 1, '' -%}
+            {%- if property.last == blank or first_character_in_key == '_' -%}
+              {%- continue -%}
+            {%- endif -%}
+            {%- if property.first == 'Price' and property.last == 'Free Gift!' -%}
+      		  {%- assign line_item_free_gift = true -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endif -%}
+      {%- endif -%}
+  
       <div class="CartItemWrapper" 
            data-index="{{ forloop.index }}" 
            data-variant-id="{{ line_item.id }}" 
@@ -47,17 +63,14 @@
               <span class="CartItem__Price Price">{{ line_item.final_price | money_without_trailing_zeros }}</span>
             {%- endif -%}
 
-            {%- assign line_item_has_discount = false -%}
-            
             {%- if line_item.line_level_discount_allocations != blank -%}
               <ul class="CartItem__DiscountList">
                 {%- for discount_allocation in line_item.line_level_discount_allocations -%}
-            	  {%- assign line_item_has_discount = true -%}
                   <li class="CartItem__Discount">
-                    {%- unless line_item.product.id == 7139832463519 -%}
+                    {%- unless line_item_free_gift -%}
                       {%- render 'icon' with 'sale' -%}
                     {%- endunless -%}
-                    {{ discount_allocation.discount_application.title }}{%- unless line_item.product.id == 7139832463519 -%}: -{{ discount_allocation.amount | money }}{%- endunless -%}
+                    {{ discount_allocation.discount_application.title }}{%- unless line_item_free_gift -%}: -{{ discount_allocation.amount | money }}{%- endunless -%}
                   </li>
                 {%- endfor -%}
               </ul>
@@ -72,7 +85,7 @@
             <p class="CartItem__PlanAllocation">{{ line_item.selling_plan_allocation.selling_plan.name }}</p>
           {%- endif -%}
 
-          {%- unless line_item.product.id == 7139832463519 -%}
+          {%- unless line_item_free_gift -%}
           {%- if line_item.properties != empty -%}
             <ul class="CartItem__PropertyList">
               {%- for property in line_item.properties -%}
@@ -151,7 +164,7 @@
           </div>
         {%- endcapture -%}
 
-        {%- unless line_item_has_discount -%}
+        {%- unless line_item_free_gift -%}
           {{ item_actions }}
         {%- endunless -%}
       </div>
