@@ -2303,7 +2303,7 @@ function _classCallCheck(e, t) {
               url: '/cart/change',
               data: {
                 line: giftItemI,
-                quantity: 1,
+                quantity: 0
               },
               dataType: 'html',
               success: function (result) {
