@@ -140,20 +140,26 @@
         
         <div class="Drawer__Footer__Inner">
           
+          <!-- Products subtotal -->
           <div class="Drawer__Footer__ProductsTotal">
             <small>{{ 'cart.general.products' | t }}</small> 
             <span>{{ cart.total_price | money }}</span>
           </div>
+          <!-- /Products subtotal -->
           
+          <!-- Delivery -->
           <div class="Drawer__Footer__Delivery">
             <small>{{ 'cart.general.delivery' | t }}</small> 
             <span>{%- if contains_free_shipping_variant -%}{{ 0 | money }}{%- else -%}{{ 0 | money }}{%- endif -%}</span>
           </div>
+          <!-- /Delivery -->
           
+          <!-- Subtotal -->
           <div class="Drawer__Footer__Subtotal">
             <small class="Drawer__Footer__SubtotalLabel">{{ 'cart.general.subtotal' | t }}</small> 
             <span class="Drawer__Footer__SubtotalPrice">{{ cart.total_price | money }}</span>
           </div>
+          <!-- /Subtotal -->
 
           <!-- Scroll button -->
           <span class="CartUpsells__ScrollBtn">
