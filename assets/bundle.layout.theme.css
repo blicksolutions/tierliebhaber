@@ -68,6 +68,7 @@
   margin-right: 10px;
   margin-left: 0;
   font-weight: normal;
+  color: #6A6B6A;
 }
 
 #sidebar-cart .Price--compareAt + .CartItem__Price {
