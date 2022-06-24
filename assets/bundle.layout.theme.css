@@ -62,3 +62,8 @@
   margin-right: 10px;
   margin-left: 10px;
 }
+
+#sidebar-cart .Price--compareAt {
+  font-size: 16px;
+  color: #ABCDBE;
+}
