@@ -11151,6 +11151,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 }
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon {
+  border-top: 1px solid #E5E5E5;
   border-bottom: 1px solid #E5E5E5;
 }
 
