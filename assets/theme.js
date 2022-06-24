@@ -2286,37 +2286,28 @@ function _classCallCheck(e, t) {
           
           
           
-          
-          
-            const cartSidebar = $('#sidebar-cart');
-            const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
-//             const cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.text().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
-            const cartSidebarTotalPriceValue = 39;
-            console.log('cartSidebarTotalPriceValue', cartSidebarTotalPriceValue);
-            
-            const maxPriceValue = 71.48934;
-          
-            let cartSidebarPercentage = cartSidebarTotalPriceValue / maxPriceValue * 100;
-            
-            if (cartSidebarTotalPriceValue >= 60) {
-              this._addBgItem();
-            
-            } else {
-              this._removeBgItem();
-            }
-          
-            if (cartSidebarPercentage > 100) {
-              cartSidebarPercentage = 100;
-            }
-            
-            const cartSidebarLine = document.querySelector('.CartMessage__StepsLines__Active');
-            console.log('cartSidebarLine', cartSidebarLine);
-            cartSidebarLine.style.width = cartSidebarPercentage + '%';
-            
-            
-          
-          
-          
+          const cartSidebar = $('#sidebar-cart');
+          const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
+          const cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.text().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
+
+          const maxPriceValue = 71.48934;
+
+          let cartSidebarPercentage = cartSidebarTotalPriceValue / maxPriceValue * 100;
+
+          if (cartSidebarTotalPriceValue >= 60) {
+            this._addBgItem();
+
+          } else {
+            this._removeBgItem();
+          }
+
+          if (cartSidebarPercentage > 100) {
+            cartSidebarPercentage = 100;
+          }
+
+          const cartSidebarLine = document.querySelector('.CartMessage__StepsLines__Active');
+          console.log('cartSidebarLine', cartSidebarLine);
+          cartSidebarLine.style.width = cartSidebarPercentage + '%';
           
           
         }
