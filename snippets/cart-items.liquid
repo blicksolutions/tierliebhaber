@@ -97,20 +97,6 @@
             {%- endif -%}
           {%- endunless -%}
 
-            {%- if line_item.line_level_discount_allocations != blank -%}
-              <ul class="CartItem__DiscountList">
-                {%- for discount_allocation in line_item.line_level_discount_allocations -%}
-                  <li class="CartItem__Discount">
-                    {%- unless line_item_free_gift -%}
-                      {%- render 'icon' with 'sale' -%}
-                    {%- endunless -%}
-                    {{ discount_allocation.discount_application.title }}{%- unless line_item_free_gift -%}: -{{ discount_allocation.amount | money }}{%- endunless -%}
-                  </li>
-                {%- endfor -%}
-              </ul>
-            {%- endif -%}
-          
-
           {%- if line_item.unit_price_measurement -%}
             <div class="CartItem__UnitPriceMeasurement">
               <div class="UnitPriceMeasurement Heading Text--subdued">
@@ -124,6 +110,19 @@
                 <span class="UnitPriceMeasurement__ReferenceUnit">{{ line_item.unit_price_measurement.reference_unit }}</span>
               </div>
             </div>
+          {%- endif -%}
+
+          {%- if line_item.line_level_discount_allocations != blank -%}
+            <ul class="CartItem__DiscountList">
+              {%- for discount_allocation in line_item.line_level_discount_allocations -%}
+                <li class="CartItem__Discount">
+                  {%- unless line_item_free_gift -%}
+                    {%- render 'icon' with 'sale' -%}
+                  {%- endunless -%}
+                  {{ discount_allocation.discount_application.title }}{%- unless line_item_free_gift -%}: -{{ discount_allocation.amount | money }}{%- endunless -%}
+                </li>
+              {%- endfor -%}
+            </ul>
           {%- endif -%}
         </div>
 
