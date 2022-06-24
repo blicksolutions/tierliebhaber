@@ -69,8 +69,6 @@ $(document).ready(function () {
         totalProductsPrice.text($('body').attr('data-currency-symbol') + (totalNewPriceValue - deliveryPriceValue).toFixed(2).replace(/\./, ','));
         /* /Products total price */
         
-        $('.Drawer__Footer__ProductsTotal, .Drawer__Footer__Subtotal').addClass('Loaded');
-        
       } else {
         couponPercentage.text('');
       }
