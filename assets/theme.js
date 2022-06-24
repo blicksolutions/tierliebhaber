@@ -2328,7 +2328,7 @@ function _classCallCheck(e, t) {
 //               }
 //             });
             
-            giftItemToRemove.remove();
+            giftItemToRemove.hide();
 
             fetch(window.routes.cartUrl + "/change.js", {
               body: JSON.stringify({
