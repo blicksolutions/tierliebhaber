@@ -22,6 +22,7 @@
            data-product-id="{{ line_item.product.id }}">
     {%- endif -%}
         <div>
+          index: {{ foreach.index }}<br>
           line_item.id: {{ line_item.id }}<br>
           line_item.product.id: {{ line_item.product.id }}<br>
         </div>
