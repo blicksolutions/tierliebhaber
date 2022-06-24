@@ -429,7 +429,7 @@ function _classCallCheck(e, t) {
               
               if (drawerContent.prop('clientHeight') < drawerContent.prop('scrollHeight')) {
                 
-                setTimeout(function() {
+//                 setTimeout(function() {
                   const scrollBtn = sidebarCart.find('.CartUpsells__ScrollBtn');
                   scrollBtn.addClass('Visible');
 
@@ -437,7 +437,7 @@ function _classCallCheck(e, t) {
                     scrollBtn.removeClass('Visible');
                   }, 3000);
 
-                }, 500);
+//                 }, 500);
               }
               /* /Scroll button */
               
