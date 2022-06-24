@@ -2290,14 +2290,14 @@ function _classCallCheck(e, t) {
           const cartSidebar = $('#sidebar-cart');
           
           const giftItemVariantId = 41322345496735;
-          let giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
+          let giftItemToRemove = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:not([data-free-gift]):first');
           
 //           if (!giftItem.length) {
 //             giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:first');
 //           }
           
-          if (giftItem.length) {
-            const giftItemI = giftItem.attr('data-index');
+          if (giftItemToRemove.length) {
+            const giftItemI = giftItemToRemove.attr('data-index');
             console.log('remove free gift', giftItem.length, giftItemI);
             
             $.ajax({
