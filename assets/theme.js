@@ -2363,7 +2363,7 @@ function _classCallCheck(e, t) {
           
           const cartSidebar = $('#sidebar-cart');
           const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
-          const cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.text().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
+          let cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.text().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
 
           const maxPriceValue = 71.48934;
 
@@ -2371,6 +2371,19 @@ function _classCallCheck(e, t) {
           
           const giftItemVariantId = 41322345496735 ;
 
+          const giftItemVariantId = 41322345496735;
+          let giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
+          
+          if (!giftItem.length) {
+            giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:first');
+          }
+          
+          if (giftItem.length) {
+            cartSidebarTotalPriceValue -= parseInt(giftItem.attr('data-price') / 100);
+          }
+          
+          
+          
           if (cartSidebarTotalPriceValue >= 60) {
             this._addBgItem();
 
