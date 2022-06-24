@@ -140,12 +140,6 @@
         
         <div class="Drawer__Footer__Inner">
           
-          {%- capture shipping_and_taxes_notice -%}{{ 'cart.general.shipping_and_taxes_notice' | t }}{%- endcapture -%}
-
-          {%- if shipping_and_taxes_notice != blank -%}
-            <div class="Cart__Taxes Text--subdued">{{ shipping_and_taxes_notice }}</div>
-          {%- endif -%}
-          
           <div class="Drawer__Footer__ProductsTotal">
             <small class="Drawer__Footer__SubtotalLabel">{{ 'cart.general.products' | t }}</small> 
             <span class="Drawer__Footer__SubtotalPrice">{{ cart.total_price | money }}</span>
@@ -189,6 +183,8 @@
               <button type="button" class="Cart__NoteButton" data-action="toggle-cart-note">{{ 'cart.general.edit_note' | t }}</button>
             {%- endif -%}
           {%- endif -%}
+
+          {%- capture shipping_and_taxes_notice -%}{{ 'cart.general.shipping_and_taxes_notice' | t }}{%- endcapture -%}
 
           {% comment %}
           {%- if shipping_and_taxes_notice != blank -%}
