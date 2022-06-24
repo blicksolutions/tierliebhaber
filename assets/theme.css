@@ -11274,7 +11274,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   right: 0;
   bottom: 30px;
   left: 0;
-  outline: 1px red solid;
+/*   outline: 1px red solid; */
   font-size: 16px;
   margin-bottom: 0;
 }
@@ -11320,7 +11320,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 }
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalPrice > s + span.money {
-  color: #f1af9e !important;
+/*   color: #f1af9e !important; */
 }
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Inner {
