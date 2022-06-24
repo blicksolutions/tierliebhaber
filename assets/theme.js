@@ -2144,29 +2144,6 @@ function _classCallCheck(e, t) {
       }, {
         key: "_updateItemQuantity",
         value: function(e, t) {
-          
-          
-          
-          
-          
-//           const cartSidebar = $('#sidebar-cart');
-//           const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
-//           const cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.text().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
-
-//           console.log('cartSidebarTotalPriceValue', cartSidebarTotalPriceValue);
-          
-//           if (cartSidebarTotalPriceValue >= 60) {
-//             this._addBgItem();
-
-//           } else {
-//             this._removeBgItem();
-//           }
-          
-          
-          
-          
-          
-          
           var i = this;
           document.dispatchEvent(new CustomEvent("theme:loading:start"));
           var n, s = null;
@@ -2270,15 +2247,6 @@ function _classCallCheck(e, t) {
               dataType: 'html', 
               success: function (result) {
                 cartSidebar.find('.Cart__ItemList').html($(result).find('.Cart__ItemList').html());
-
-                $.ajax({
-                  type: 'GET',
-                  url: '/cart?view=drawer',
-                  dataType: 'html', 
-                  success: function (result2) {
-                    cartSidebar.find('.Cart__ItemList').html($(result2).find('.Cart__ItemList').html());
-                  } 
-                });
               } 
             });
             
@@ -2321,7 +2289,6 @@ function _classCallCheck(e, t) {
           }
           
           if (giftItem.length) {
-            giftItem.hide();
             console.log('remove free gift', giftItem.length);
             const giftItemI = giftItem.attr('data-index');
 //             console.log('giftItemI', giftItemI);
