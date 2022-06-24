@@ -22,12 +22,7 @@
            data-variant-id="{{ line_item.id }}" 
            data-product-id="{{ line_item.product.id }}">
     {%- endif -%}
-        <div>
-          index: {{ forloop.index }}<br>
-          line_item.id: {{ line_item.id }}<br>
-          line_item.product.id: {{ line_item.product.id }}<br>
-        </div>
-        
+
     <div class="CartItem">
       <div class="CartItem__ImageWrapper AspectRatio">
         <div class="AspectRatio" style="--aspect-ratio: {{ line_item.image.aspect_ratio }}">
