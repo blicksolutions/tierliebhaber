@@ -11460,6 +11460,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   position: absolute;
   top: 7px;
 /*   color: #f1af9e; */
+  color: #7d7d7d;
   font-family: var(--heading-font-family);
   font-weight: var(--heading-font-weight);
   font-size: 15px;
