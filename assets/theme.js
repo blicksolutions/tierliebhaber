@@ -2308,8 +2308,10 @@ function _classCallCheck(e, t) {
                 quantity: 0
               },
               dataType: 'html',
+              beforeSend: function() {
+                giftItemToRemove.remove();
+              },
               success: function (result) {
-                giftItem.remove();
                 
 //                 $.ajax({
 //                   type: 'GET',
