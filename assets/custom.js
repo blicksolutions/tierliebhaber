@@ -59,9 +59,14 @@ $(document).ready(function () {
         couponPercentage.text('-' + Math.ceil(percentageValue) + '%');
         /* /Total price */
 
+        /* Delivery price */
+        const deliveryPrice = $('.Drawer__Footer__Delivery > span');
+        const deliveryPriceValue = parseFloat(deliveryPrice.text().trim().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
+        /* /Delivery price */
+
         /* Products total price */
         const totalProductsPrice = $('.Drawer__Footer__ProductsTotal > span');
-        totalProductsPrice.text((totalOldPriceValue - totalNewPriceValue) / totalOldPriceValue * 100);
+        totalProductsPrice.text((totalNewPriceValue - deliveryPriceValue).toFixed(2));
         /* /Products total price */
         
       } else {
