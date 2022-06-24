@@ -2296,9 +2296,64 @@ function _classCallCheck(e, t) {
 
           if (cartSidebarTotalPriceValue >= 60) {
 //             this._addBgItem();
+            
+            $.ajax({
+              type: "POST",
+              url: "".concat(window.routes.cartUrl + "/add.js"),
+              data: JSON.stringify({
+                id: 7139832463519,
+                quantity: 1
+              }),
+              contentType: "application/json; charset=utf-8",
+              dataType: "json",
+              success: function(content) {
+                _this2.itemCount = content["item_count"];
+                _this2._rerenderCart(elementToAnimate);
+                
+                console.log('content', content);
+
+                /* Cart sidebar coupon */
+//                 const sidebarCart = $('#sidebar-cart');
+//                 const couponCode = sidebarCart.find('.scDiscount__container .sc_simple-info__tag > .sc-tag > .code > .code-name');
+
+//                 if (couponCode.length) {
+//                   sidebarCart.addClass('Drawer__Footer__CouponActive');
+//                 }
+                /* /Cart sidebar coupon */
+
+                document.dispatchEvent(new CustomEvent("theme:loading:end"));
+              }
+            });
 
           } else {
 //             this._removeBgItem();
+            
+//             $.ajax({
+//               type: "POST",
+//               url: "".concat(window.routes.cartChangeUrl, ".js"),
+//               data: JSON.stringify({
+//                 line: target.getAttribute("data-line"),
+//                 quantity: quantity,
+//               }),
+//               contentType: "application/json; charset=utf-8",
+//               dataType: "json",
+//               success: function(content) {
+//                 _this2.itemCount = content["item_count"];
+//                 _this2._rerenderCart(elementToAnimate);
+
+//                 /* Cart sidebar coupon */
+//                 const sidebarCart = $('#sidebar-cart');
+//                 const couponCode = sidebarCart.find('.scDiscount__container .sc_simple-info__tag > .sc-tag > .code > .code-name');
+
+//                 if (couponCode.length) {
+//                   sidebarCart.addClass('Drawer__Footer__CouponActive');
+//                 }
+//                 /* /Cart sidebar coupon */
+
+//                 document.dispatchEvent(new CustomEvent("theme:loading:end"));
+//               }
+//             });
+          
           }
 
           if (cartSidebarPercentage > 100) {
