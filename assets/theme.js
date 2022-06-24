@@ -2310,7 +2310,7 @@ function _classCallCheck(e, t) {
 //                     cartSidebar.find('.Cart__ItemList').html($(result2).find('.Cart__ItemList').html());
 //                   } 
 //                 });
-              } 
+              }
             });
 
 //             fetch(window.routes.cartUrl + "/change.js", {
