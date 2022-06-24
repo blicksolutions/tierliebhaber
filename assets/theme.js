@@ -2275,6 +2275,7 @@ function _classCallCheck(e, t) {
           }
           
           if (giftItem.length) {
+            giftItem.hide();
 //             console.log('remove free gift', giftItem.length);
             const giftItemI = giftItem.attr('data-index');
 //             console.log('giftItemI', giftItemI);
