@@ -2295,7 +2295,7 @@ function _classCallCheck(e, t) {
             
                 $.ajax({
                   type: 'GET',
-                  url: window.routes.cartUrl + 'cart?view=drawer&timestamp=' + Date.now(),
+                  url: window.routes.cartUrl + '?view=drawer&timestamp=' + Date.now(),
                   dataType: 'html', 
                   success: function (result) {
                     console.log('success', result);
