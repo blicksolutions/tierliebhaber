@@ -11286,15 +11286,15 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 }
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__ProductsTotal {
-  bottom: 60px;
+  bottom: 85px;
 }
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Delivery {
-  bottom: 30px;
+  bottom: 54px;
 }
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Subtotal {
-  bottom: 0;
+  bottom: 23px;
 }
 
 #sidebar-cart .Drawer__Footer .sc_simple-container {
