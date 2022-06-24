@@ -11374,7 +11374,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 
 #sidebar-cart .Drawer__Footer .scDiscount input[type="text"]:hover,
 #sidebar-cart .Drawer__Footer .scDiscount input[type="text"]:focus {
-  border-color: #707070 !important;
+/*   border-color: #707070 !important; */
 }
 /** /Field **/
 
