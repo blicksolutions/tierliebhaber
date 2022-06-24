@@ -160,7 +160,7 @@
               
               {%- assign delivery_cost = delivery_cost | devided_by: 50 -%}
               
-              {{ delivery_cost | money_without_trailing_zeros }}
+              {{ delivery_cost }} / {{ delivery_cost | money_without_trailing_zeros }}
             </span>
           </div>
           <!-- /Delivery -->
