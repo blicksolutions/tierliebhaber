@@ -2292,16 +2292,17 @@ function _classCallCheck(e, t) {
             }).then((function(e) {
               e.json().then((function(e) {
                 console.log('free gift is removed', e);
-            
-                $.ajax({
-                  type: 'GET',
-                  url: window.routes.cartUrl + '?view=drawer&timestamp=' + Date.now(),
-                  dataType: 'html', 
-                  success: function (result) {
-                    cartSidebar.find('.Drawer__Main').html($(result).find('.Drawer__Main').html());
-                  } 
-                });
                 
+                i._rerenderCart();
+            
+//                 $.ajax({
+//                   type: 'GET',
+//                   url: window.routes.cartUrl + '?view=drawer&timestamp=' + Date.now(),
+//                   dataType: 'html', 
+//                   success: function (result) {
+//                     cartSidebar.find('.Drawer__Main').html($(result).find('.Drawer__Main').html());
+//                   } 
+//                 });
               }))
             }));
           }
