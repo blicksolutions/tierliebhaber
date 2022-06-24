@@ -2312,7 +2312,7 @@ function _classCallCheck(e, t) {
                     quantity: 1,
                     id: giftItemVariantId,
                     properties: {
-                      'Gift': 'Free!'
+                      'price': 'free gift!'
                     }
                   }]
                 }),
