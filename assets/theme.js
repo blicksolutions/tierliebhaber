@@ -2190,7 +2190,7 @@ function _classCallCheck(e, t) {
             credentials: "same-origin",
             method: "GET"
           }).then((function(i) {
-            console.log('_rerenderCart');
+//             console.log('_rerenderCart');
           
             if (t.options.drawer && e) {
               var n = new TimelineLite({
@@ -2234,7 +2234,7 @@ function _classCallCheck(e, t) {
           }
           
           if (!giftItem.length) {
-            console.log('add free gift', giftItem.length);
+//             console.log('add free gift', giftItem.length);
             
 //             $.ajax({
 //               type: 'POST',
@@ -2275,7 +2275,7 @@ function _classCallCheck(e, t) {
               }
             }).then((function(e) {
               e.json().then((function(e) {
-                console.log('free gift is added', e);
+//                 console.log('free gift is added', e);
                 
                 i._rerenderCart();
               }))
@@ -2292,7 +2292,7 @@ function _classCallCheck(e, t) {
           const giftItemVariantId = 41322345496735;
           let giftItemToRemove = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:not([data-free-gift]):first');
           
-          console.log('_removeBgItem');
+//           console.log('_removeBgItem');
           
 //           if (!giftItem.length) {
 //             giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:first');
@@ -2300,7 +2300,7 @@ function _classCallCheck(e, t) {
           
           if (giftItemToRemove.length) {
             const giftItemI = giftItemToRemove.attr('data-index');
-            console.log('remove free gift', giftItemToRemove.length, giftItemI);
+//             console.log('remove free gift', giftItemToRemove.length, giftItemI);
             
 //             $.ajax({
 //               type: 'POST',
@@ -2343,7 +2343,7 @@ function _classCallCheck(e, t) {
               }
             }).then((function(e) {
               e.json().then((function(e) {
-                console.log('free gift is removed');
+//                 console.log('free gift is removed');
                 i._rerenderCart();
               }))
             }));
@@ -2380,7 +2380,7 @@ function _classCallCheck(e, t) {
           const giftItemVariantId = 41322345496735;
           const giftItemToRemove = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:not([data-free-gift]):first');
           
-          console.log('cartSidebarTotalPriceValue', cartSidebarTotalPriceValue);
+//           console.log('cartSidebarTotalPriceValue', cartSidebarTotalPriceValue);
           
           if (giftItemToRemove.length) {
             cartSidebarTotalPriceValue -= parseInt(giftItemToRemove.attr('data-price') / 100);
