@@ -146,6 +146,16 @@
             <div class="Cart__Taxes Text--subdued">{{ shipping_and_taxes_notice }}</div>
           {%- endif -%}
           
+          <div class="Drawer__Footer__ProductsTotal">
+            <small class="Drawer__Footer__SubtotalLabel">{{ 'cart.general.products' | t }}</small> 
+            <span class="Drawer__Footer__SubtotalPrice">{{ cart.total_price | money }}</span>
+          </div>
+          
+          <div class="Drawer__Footer__Delivery">
+            <small class="Drawer__Footer__DeliveryLabel">{{ 'cart.general.delivery' | t }}</small> 
+            <span class="Drawer__Footer__DeliveryPrice">{%- if contains_free_shipping_variant -%}{{ 0 | money }}{%- else -%}{{ 0 | money }}{%- endif -%}</span>
+          </div>
+          
           <div class="Drawer__Footer__Subtotal">
             <small class="Drawer__Footer__SubtotalLabel">{{ 'cart.general.subtotal' | t }}</small> 
             <span class="Drawer__Footer__SubtotalPrice">{{ cart.total_price | money }}</span>
