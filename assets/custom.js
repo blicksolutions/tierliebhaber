@@ -5,6 +5,8 @@ $(document).ready(function () {
   obj.cartSidebar = (function(){
     
     $(document).on('click', '#sidebar-cart .CartUpsells__ScrollBtn', function() {
+      const btn = $(this);
+      btn.removeClass('Visible');
       
       $('#sidebar-cart #Drawer__Main').animate({
         scrollTop: 1000
