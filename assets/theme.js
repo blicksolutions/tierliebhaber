@@ -2296,10 +2296,10 @@ function _classCallCheck(e, t) {
           let cartSidebarPercentage = cartSidebarTotalPriceValue / maxPriceValue * 100;
 
           if (cartSidebarTotalPriceValue >= 60) {
-            this._addBgItem();
+//             this._addBgItem();
 
           } else {
-            this._removeBgItem();
+//             this._removeBgItem();
           }
 
 //           if (cartSidebarPercentage > 100) {
