@@ -11265,6 +11265,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   color: #666;
 }
 
+
 #sidebar-cart .Drawer__Footer .Drawer__Footer__ProductsTotal,
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Delivery {
   display: flex;
@@ -11283,33 +11284,12 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 }
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__ProductsTotal {
-  display: flex;
-  justify-content: space-between;
-  position: absolute;
-  right: 0;
-  bottom: 30px;
-  left: 0;
-  outline: 1px red solid;
-  font-size: 16px;
-  bottom: 30px;
+  bottom: 80px;
 }
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Delivery {
-  display: flex;
-  justify-content: space-between;
-  position: absolute;
-  right: 0;
-  bottom: 90px;
-  left: 0;
-  outline: 1px green solid;
-  font-size: 16px;
+  bottom: 30px;
 }
-
-
-
-
-
-
 
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Subtotal {
