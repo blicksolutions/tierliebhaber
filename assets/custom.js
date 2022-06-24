@@ -54,7 +54,7 @@ $(document).ready(function () {
         const totalNewPrice = sidebarCart.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
         const totalNewPriceValue = parseFloat(totalNewPrice.text().trim().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
         
-        const percentageValue = (totalOldPriceValue - totalNewPriceValue) /oldPriceValue * 100;
+        const percentageValue = (totalOldPriceValue - totalNewPriceValue) / totalOldPriceValue * 100;
         couponPercentage.text('-' + Math.ceil(percentageValue) + '%');
 
       } else {
