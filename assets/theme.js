@@ -2246,7 +2246,7 @@ function _classCallCheck(e, t) {
         value: function() {
           var i = this;
        
-          fetch(window.routes.cartChangeUrl + ".js", {
+          fetch(window.routes.cartUrl + "/update.js", {
             body: JSON.stringify({
               id: 7139832463519,
               quantity: 0
