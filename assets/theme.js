@@ -2296,12 +2296,12 @@ function _classCallCheck(e, t) {
           
           const giftItemVariantId = 41322345496735 ;
 
-          const giftItemDiscount = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"] .CartItem__Discount');
+          const giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
           
           if (cartSidebarTotalPriceValue >= 60) {
 //             this._addBgItem();
             
-            if (!giftItemDiscount.length) {
+            if (!giftItem.length) {
               console.log('add gift');
 
               $.ajax({
@@ -2327,8 +2327,7 @@ function _classCallCheck(e, t) {
           } else {
 //             this._removeBgItem();
             
-            if (giftItemDiscount) {
-              const giftItem = giftItemDiscount.parents('.CartItemWrapper');
+            if (giftItem) {
               const giftItemIndex = giftItem.attr('data-index');
 
               $.ajax({
