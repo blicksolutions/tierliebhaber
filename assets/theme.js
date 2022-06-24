@@ -2293,71 +2293,59 @@ function _classCallCheck(e, t) {
           const maxPriceValue = 71.48934;
 
           let cartSidebarPercentage = cartSidebarTotalPriceValue / maxPriceValue * 100;
+          
+          const giftItemVariantId = 41322345496735 ;
 
           if (cartSidebarTotalPriceValue >= 60) {
 //             this._addBgItem();
-            const giftItemId = 7139832463519;
             
-//             $.post('/cart/add.js', {
-//               items: [{
-//                 quantity: 1,
-//                 id: 6564672929928
-//               }]
-//             },
-//                    function(res) {
-//               console.log(res)
-//             }
-//                    });
+            $.post('/cart/add.js', {
+              items: [{
+                quantity: 1,
+                id: giftItemVariantId
+              }]
+            }, function(res) {
+              console.log(res);
+            });
       
-            
             console.log('add gift');
             
             $.ajax({
               type: "POST",
               url: "".concat(window.routes.cartUrl + "/add.js"),
-              data: {
+              data: JSON.stringify({
                 items: [{
                   quantity: 1,
-                  id: giftItemId
+                  id: giftItemVariantId
                 }]
-              },
+              }),
               contentType: "application/json; charset=utf-8",
               dataType: "json",
               success: function(content) {
                 console.log('content', content);
-
               }
             });
 
           } else {
 //             this._removeBgItem();
+            const giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]');
+            const giftItemIndex = giftItem.attr('data-index');
             
-//             $.ajax({
-//               type: "POST",
-//               url: "".concat(window.routes.cartChangeUrl, ".js"),
-//               data: JSON.stringify({
-//                 line: target.getAttribute("data-line"),
-//                 quantity: quantity,
-//               }),
-//               contentType: "application/json; charset=utf-8",
-//               dataType: "json",
-//               success: function(content) {
-//                 _this2.itemCount = content["item_count"];
-//                 _this2._rerenderCart(elementToAnimate);
-
-//                 /* Cart sidebar coupon */
-//                 const sidebarCart = $('#sidebar-cart');
-//                 const couponCode = sidebarCart.find('.scDiscount__container .sc_simple-info__tag > .sc-tag > .code > .code-name');
-
-//                 if (couponCode.length) {
-//                   sidebarCart.addClass('Drawer__Footer__CouponActive');
-//                 }
-//                 /* /Cart sidebar coupon */
-
-//                 document.dispatchEvent(new CustomEvent("theme:loading:end"));
-//               }
-//             });
-          
+            if (giftItem.length) {
+              $.ajax({
+                type: "POST",
+                url: "".concat(window.routes.cartChangeUrl, ".js"),
+                data: JSON.stringify({
+                  line: giftItemIndex,
+                  quantity: 0
+                }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function(content) {
+                  giftItem.remove();
+                }
+              });
+            }
           }
 
           if (cartSidebarPercentage > 100) {
