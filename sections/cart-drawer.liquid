@@ -141,6 +141,11 @@
       <div class="Drawer__Footer" data-drawer-animated-bottom>
         
         <div class="Drawer__Footer__Inner">
+          
+          {%- if shipping_and_taxes_notice != blank -%}
+            <div class="Cart__Taxes Text--subdued">{{ shipping_and_taxes_notice }}</div>
+          {%- endif -%}
+          
           <div class="Drawer__Footer__Subtotal">
             <small class="Drawer__Footer__SubtotalLabel">{{ 'cart.general.subtotal' | t }}</small> 
             <span class="Drawer__Footer__SubtotalPrice">{{ cart.total_price | money }}</span>
@@ -177,9 +182,11 @@
             {%- endif -%}
           {%- endif -%}
 
+          {% comment %}
           {%- if shipping_and_taxes_notice != blank -%}
             <p class="Cart__Taxes Text--subdued">{{ shipping_and_taxes_notice }}</p>
           {%- endif -%}
+          {% endcomment %}
 
           {%- if cart.cart_level_discount_applications != blank -%}
             {%- for discount_application in cart.cart_level_discount_applications -%}
