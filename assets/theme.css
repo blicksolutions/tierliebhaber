@@ -6365,7 +6365,6 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 18px;
 }
 
 .Cart__OffscreenNoteContainer {
