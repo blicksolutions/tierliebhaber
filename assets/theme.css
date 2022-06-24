@@ -11279,8 +11279,8 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   margin-bottom: 0;
 }
 
-.Drawer__Footer__ProductsTotal.Loading > span,
-.Drawer__Footer__Subtotal.Loading > span {
+.Drawer__Footer__ProductsTotal:not(.Loaded) > span,
+.Drawer__Footer__Subtotal:not(.Loaded) > span {
   filter: blur(4px);
 }
 
