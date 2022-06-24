@@ -2232,10 +2232,9 @@ function _classCallCheck(e, t) {
           if (!giftItem.length) {
             const giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:first');
           }
-          
-          console.log('add free gift', giftItem.length);
        
           if (!giftItem.length) {
+            console.log('add free gift', giftItem.length);
 
             fetch(window.routes.cartUrl + "/add.js", {
               body: JSON.stringify({
@@ -2273,9 +2272,8 @@ function _classCallCheck(e, t) {
             const giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:first');
           }
           
-          console.log('remove free gift', giftItem.length);
-          
           if (giftItem.length) {
+            console.log('remove free gift', giftItem.length);
             const giftItemI = giftItem.attr('data-index');
 
             fetch(window.routes.cartUrl + "/update.js", {
