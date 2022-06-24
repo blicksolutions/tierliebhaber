@@ -141,13 +141,13 @@
         <div class="Drawer__Footer__Inner">
           
           <div class="Drawer__Footer__ProductsTotal">
-            <small class="Drawer__Footer__SubtotalLabel">{{ 'cart.general.products' | t }}</small> 
-            <span class="Drawer__Footer__SubtotalPrice">{{ cart.total_price | money }}</span>
+            <small>{{ 'cart.general.products' | t }}</small> 
+            <span>{{ cart.total_price | money }}</span>
           </div>
           
           <div class="Drawer__Footer__Delivery">
-            <small class="Drawer__Footer__DeliveryLabel">{{ 'cart.general.delivery' | t }}</small> 
-            <span class="Drawer__Footer__DeliveryPrice">{%- if contains_free_shipping_variant -%}{{ 0 | money }}{%- else -%}{{ 0 | money }}{%- endif -%}</span>
+            <small>{{ 'cart.general.delivery' | t }}</small> 
+            <span>{%- if contains_free_shipping_variant -%}{{ 0 | money }}{%- else -%}{{ 0 | money }}{%- endif -%}</span>
           </div>
           
           <div class="Drawer__Footer__Subtotal">
