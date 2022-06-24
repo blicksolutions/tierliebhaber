@@ -158,7 +158,7 @@
                 {%- assign delivery_cost = threshold_in_cents -%}
               {%- endif -%}
               
-              {%- assign delivery_cost = delivery_cost | devideb_by: 50 -%}
+              {%- assign delivery_cost = delivery_cost | devided_by: 50 -%}
               
               {{ delivery_cost | money_without_trailing_zeros }}
             </span>
