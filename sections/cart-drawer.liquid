@@ -140,10 +140,16 @@
         
         <div class="Drawer__Footer__Inner">
           
+          {%- if contains_free_shipping_variant -%}
+            {%- assign delivery_cost = 0 -%}
+          {%- else -%}
+            {%- assign delivery_cost = threshold_in_cents | divided_by: 10 -%}
+          {%- endif -%}
+
           <!-- Products subtotal -->
           <div class="Drawer__Footer__ProductsTotal">
             <small>{{ 'cart.general.products' | t }}</small>
-            <span></span>
+            <span>{{ cart.total_price | minus: delivery_cost | money_without_trailing_zeros }}</span>
           </div>
           <!-- /Products subtotal -->
           
@@ -151,13 +157,6 @@
           <div class="Drawer__Footer__Delivery">
             <small>{{ 'cart.general.delivery' | t }}</small> 
             <span>
-
-              {%- if contains_free_shipping_variant -%}
-                {%- assign delivery_cost = 0 -%}
-              {%- else -%}
-                {%- assign delivery_cost = threshold_in_cents | divided_by: 10 -%}
-              {%- endif -%}
-              
               {{ delivery_cost | money_without_trailing_zeros }}
             </span>
           </div>
