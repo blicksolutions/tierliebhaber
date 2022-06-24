@@ -2261,13 +2261,14 @@ function _classCallCheck(e, t) {
           
           const giftItemVariantId = 41322345496735;
           const giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
-       
+          const giftItemI = giftItem.attr('data-index');
+          
           if (giftItem.length) {
-            console.log('remove free gift');
+            console.log('remove free gift', giftItemI);
 
             fetch(window.routes.cartUrl + "/update.js", {
               body: JSON.stringify({
-                line: 1,
+                line: giftItemI,
                 quantity: 0
               }),
               credentials: "same-origin",
