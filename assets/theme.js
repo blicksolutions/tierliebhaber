@@ -2267,7 +2267,6 @@ function _classCallCheck(e, t) {
           const cartSidebar = $('#sidebar-cart');
           
           const giftItemVariantId = 41322345496735;
-          
           const giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
           
           if (!giftItem.length) {
