@@ -11154,7 +11154,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   border-bottom: 1px solid #E5E5E5;
 }
 
-#sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon-title:after {
+/* #sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon-title:after {
   content: '';
   display: block;
   position: absolute;
@@ -11162,7 +11162,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   right: 0;
   left: 0;
   border-top: 1px solid #E5E5E5;
-}
+} */
 
 #sidebar-cart.Drawer__Footer__CouponActive .Drawer__Footer__Coupon {
   height: 125px;
