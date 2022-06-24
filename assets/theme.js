@@ -2190,7 +2190,6 @@ function _classCallCheck(e, t) {
             credentials: "same-origin",
             method: "GET"
           }).then((function(i) {
-            console.log('_rerenderCart');
           
             if (t.options.drawer && e) {
               var n = new TimelineLite({
@@ -2317,7 +2316,7 @@ function _classCallCheck(e, t) {
           const giftItemVariantId = 41322345496735 ;
 
           const giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
-          console.log('__', cartSidebarTotalPriceValue);
+          console.log('_replaceContent', cartSidebarTotalPriceValue);
           
           if (cartSidebarTotalPriceValue >= 60) {
             this._addBgItem();
