@@ -2383,13 +2383,13 @@ function _classCallCheck(e, t) {
           console.log('cartSidebarTotalPriceValue', cartSidebarTotalPriceValue);
           
           if (giftItemToRemove.length) {
+            cartSidebarTotalPriceValue -= parseInt(giftItemToRemove.attr('data-price') / 100);
             this._removeBgItem();
             
           } else {
             const giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
             
             if (!giftItem.length) {
-              cartSidebarTotalPriceValue -= parseInt(giftItemToRemove.attr('data-price') / 100);
 
               if (cartSidebarTotalPriceValue >= 60) {
                 this._addBgItem();
