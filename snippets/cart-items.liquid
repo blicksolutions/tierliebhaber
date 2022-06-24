@@ -51,6 +51,7 @@
                 {%- for discount_allocation in line_item.line_level_discount_allocations -%}
             	  {%- assign line_item_has_discount = true -%}
                   <li class="CartItem__Discount">
+                    {{ line_item.product.id }} /
                     {%- if line_item.product.id == 7139832463519 -%}
                       {%- render 'icon' with 'sale' -%}
                     {%- endif -%}
