@@ -2292,6 +2292,8 @@ function _classCallCheck(e, t) {
           const giftItemVariantId = 41322345496735;
           let giftItemToRemove = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:not([data-free-gift]):first');
           
+          console.log('_removeBgItem');
+          
 //           if (!giftItem.length) {
 //             giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:first');
 //           }
