@@ -2267,7 +2267,7 @@ function _classCallCheck(e, t) {
               e.json().then((function(e) {
                 console.log('free gift is added', e);
                 
-//                 i._rerenderCart();
+                i._rerenderCart();
               }))
             }));
           }
