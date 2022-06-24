@@ -2378,11 +2378,12 @@ function _classCallCheck(e, t) {
           console.log('cartSidebarTotalPriceValue', cartSidebarTotalPriceValue);
           
           if (giftItemToRemove.length) {
+            this._removeBgItem();
+            
             cartSidebarTotalPriceValue -= parseInt(giftItemToRemove.attr('data-price') / 100);
-          }
           
-          console.log('cartSidebarTotalPriceValue', cartSidebarTotalPriceValue);
-          
+          } else {
+            
           if (giftItem.length) {
             
           } else {
@@ -2397,6 +2398,10 @@ function _classCallCheck(e, t) {
               }
             }
           }
+          }
+          
+          console.log('cartSidebarTotalPriceValue', cartSidebarTotalPriceValue);
+          
 
           let cartSidebarPercentage = cartSidebarTotalPriceValue / maxPriceValue * 100;
           
