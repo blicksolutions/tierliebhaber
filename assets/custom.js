@@ -44,20 +44,21 @@ $(document).ready(function () {
 
     setInterval(function() {
       const sidebarCart = $('#sidebar-cart');
-      const oldPrice = sidebarCart.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > s > span.money');
-      const percentage = sidebarCart.find('.Drawer__Footer__Coupon-percentage');
+      
+      const couponPercentage = sidebarCart.find('.Drawer__Footer__Coupon-percentage');
+      const totalOldPrice = sidebarCart.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > s > span.money');
 
-      if (oldPrice.length) {
-        const oldPriceValue = parseFloat(oldPrice.text().trim().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
+      if (totalOldPrice.length) {
+        const totalOldPriceValue = parseFloat(totalOldPrice.text().trim().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
 
-        const newPrice = sidebarCart.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
-        const newPriceValue = parseFloat(newPrice.text().trim().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
+        const totalNewPrice = sidebarCart.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
+        const totalNewPriceValue = parseFloat(totalNewPrice.text().trim().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
         
-        const percentageValue = (oldPriceValue - newPriceValue) /oldPriceValue * 100;
-        percentage.text('-' + Math.ceil(percentageValue) + '%');
+        const percentageValue = (totalOldPriceValue - totalNewPriceValue) /oldPriceValue * 100;
+        couponPercentage.text('-' + Math.ceil(percentageValue) + '%');
 
       } else {
-        percentage.text('');
+        couponPercentage.text('');
       }
       
       const couponError = sidebarCart.find('.scDiscount__container .scError');
