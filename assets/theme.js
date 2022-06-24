@@ -426,9 +426,9 @@ function _classCallCheck(e, t) {
               
               /* Scroll button */
               const drawerContent = sidebarCart.find('.Drawer__Main');
-              console.log('drawerContent', drawerContent.prop('clientHeight'), drawerContent.prop('scrollHeight'));
+              console.log('drawerContent', drawerContent.prop('scrollHeight'), drawerContent.prop('clientHeight'));
               
-              if (drawerContent.prop('clientHeight') < drawerContent.prop('scrollHeight')) {
+              if (drawerContent.prop('scrollHeight') > drawerContent.prop('clientHeight')) {
                 
 //                 setTimeout(function() {
                   const scrollBtn = sidebarCart.find('.CartUpsells__ScrollBtn');
