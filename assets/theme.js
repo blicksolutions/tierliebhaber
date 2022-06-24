@@ -2236,40 +2236,40 @@ function _classCallCheck(e, t) {
           if (!giftItem.length) {
             console.log('add free gift', giftItem.length);
             
-//             $.ajax({
-//               type: 'POST',
-//               url: '/cart/add',
-//               data: {
-//                 form_type: 'product',
-//                 id: giftItemVariantId,
-//                 quantity: 1
-//               },
-//               dataType: 'html', 
-//               success: function (result) {
-// //                 cartSidebar.find('.Cart__ItemList').html($(result).find('.Cart__ItemList').html());
-//               } 
-//             });
-            
-            fetch(window.routes.cartUrl + "/add.js", {
-              body: JSON.stringify({
-                items: [{
-                  quantity: 1,
-                  id: giftItemVariantId
-                }]
-              }),
-              credentials: "same-origin",
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                "X-Requested-With": "XMLHttpRequest"
+            $.ajax({
+              type: 'POST',
+              url: '/cart/add',
+              data: {
+                form_type: 'product',
+                id: giftItemVariantId,
+                quantity: 1
+              },
+              dataType: 'html', 
+              success: function (result) {
+                cartSidebar.find('.Cart__ItemList').html($(result).find('.Cart__ItemList').html());
               }
-            }).then((function(e) {
-              e.json().then((function(e) {
-                console.log('free gift is added', e);
+            });
+            
+//             fetch(window.routes.cartUrl + "/add.js", {
+//               body: JSON.stringify({
+//                 items: [{
+//                   quantity: 1,
+//                   id: giftItemVariantId
+//                 }]
+//               }),
+//               credentials: "same-origin",
+//               method: "POST",
+//               headers: {
+//                 "Content-Type": "application/json",
+//                 "X-Requested-With": "XMLHttpRequest"
+//               }
+//             }).then((function(e) {
+//               e.json().then((function(e) {
+//                 console.log('free gift is added', e);
                 
-                i._rerenderCart();
-              }))
-            }));
+//                 i._rerenderCart();
+//               }))
+//             }));
           }
         }
       }, {
