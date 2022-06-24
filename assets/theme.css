@@ -11283,7 +11283,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   justify-content: space-between;
   position: absolute;
   right: 0;
-  bottom: 30px;
+  bottom: 90px;
   left: 0;
   outline: 1px green solid;
 }
