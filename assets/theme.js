@@ -2378,10 +2378,13 @@ function _classCallCheck(e, t) {
             giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:first');
           }
           
+          console.log('cartSidebarTotalPriceValue', cartSidebarTotalPriceValue);
+          
           if (giftItem.length) {
             cartSidebarTotalPriceValue -= parseInt(giftItem.attr('data-price') / 100);
           }
           
+          console.log('cartSidebarTotalPriceValue', cartSidebarTotalPriceValue);
           
           
           if (cartSidebarTotalPriceValue >= 60) {
