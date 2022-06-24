@@ -11575,7 +11575,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   right: 0;
   bottom: 34px;
   left: 0;
-  font-size: 16px;
+/*   font-size: 16px; */
   margin-bottom: 0;
 }
 
