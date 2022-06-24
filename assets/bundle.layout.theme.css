@@ -65,5 +65,11 @@
 
 #sidebar-cart .Price--compareAt {
   font-size: 16px;
+  margin-right: 10px;
+  margin-left: 0;
+  font-weight: normal;
+}
+
+#sidebar-cart .Price--compareAt + .CartItem__Price {
   color: #ABCDBE;
 }
