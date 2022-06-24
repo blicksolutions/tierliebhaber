@@ -2236,50 +2236,50 @@ function _classCallCheck(e, t) {
           if (!giftItem.length) {
             console.log('add free gift', giftItem.length);
             
-            $.ajax({
-              type: 'POST',
-              url: '/cart/add',
-              data: {
-                form_type: 'product',
-                id: giftItemVariantId,
-                quantity: 1
-              },
-              dataType: 'html', 
-              success: function (result) {
+//             $.ajax({
+//               type: 'POST',
+//               url: '/cart/add',
+//               data: {
+//                 form_type: 'product',
+//                 id: giftItemVariantId,
+//                 quantity: 1
+//               },
+//               dataType: 'html', 
+//               success: function (result) {
                 
-                $.ajax({
-                  type: 'GET',
-                  url: '/cart?view=drawer',
-                  dataType: 'html', 
-                  success: function (result2) {
-                    const ajaxCartSidebar = $(result2).find('#sidebar-cart .Drawer__Content');
-                    console.log('ajaxCartSidebar', ajaxCartSidebar.length);
-                    cartSidebar.find('.Cart Drawer__Content').html(ajaxCartSidebar.html());
-                  } 
-                });
-              }
-            });
-            
-//             fetch(window.routes.cartUrl + "/add.js", {
-//               body: JSON.stringify({
-//                 items: [{
-//                   quantity: 1,
-//                   id: giftItemVariantId
-//                 }]
-//               }),
-//               credentials: "same-origin",
-//               method: "POST",
-//               headers: {
-//                 "Content-Type": "application/json",
-//                 "X-Requested-With": "XMLHttpRequest"
+//                 $.ajax({
+//                   type: 'GET',
+//                   url: '/cart?view=drawer',
+//                   dataType: 'html', 
+//                   success: function (result2) {
+//                     const ajaxCartSidebar = $(result2).find('#sidebar-cart .Drawer__Content');
+//                     console.log('ajaxCartSidebar', ajaxCartSidebar.length);
+//                     cartSidebar.find('.Cart Drawer__Content').html(ajaxCartSidebar.html());
+//                   } 
+//                 });
 //               }
-//             }).then((function(e) {
-//               e.json().then((function(e) {
-//                 console.log('free gift is added', e);
+//             });
+            
+            fetch(window.routes.cartUrl + "/add.js", {
+              body: JSON.stringify({
+                items: [{
+                  quantity: 1,
+                  id: giftItemVariantId
+                }]
+              }),
+              credentials: "same-origin",
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                "X-Requested-With": "XMLHttpRequest"
+              }
+            }).then((function(e) {
+              e.json().then((function(e) {
+                console.log('free gift is added', e);
                 
-//                 i._rerenderCart();
-//               }))
-//             }));
+                i._rerenderCart();
+              }))
+            }));
           }
         }
       }, {
