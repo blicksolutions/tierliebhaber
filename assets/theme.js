@@ -2297,6 +2297,8 @@ function _classCallCheck(e, t) {
           if (cartSidebarTotalPriceValue >= 60) {
 //             this._addBgItem();
             
+            console.log('add gift');
+            
             $.ajax({
               type: "POST",
               url: "".concat(window.routes.cartUrl + "/add.js"),
