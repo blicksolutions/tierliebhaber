@@ -2388,6 +2388,8 @@ function _classCallCheck(e, t) {
           
           } else {
             
+          }
+            
           if (giftItem.length) {
             
           } else {
@@ -2401,7 +2403,6 @@ function _classCallCheck(e, t) {
                 this._addBgItem();
               }
             }
-          }
           }
           
           console.log('cartSidebarTotalPriceValue', cartSidebarTotalPriceValue);
