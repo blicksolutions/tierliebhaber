@@ -18,6 +18,7 @@
 
   <form class="Cart Drawer__Content" action="{{ routes.cart_url }}" method="POST" novalidate>
     <div class="Drawer__Main" data-scrollable>
+      <div class="Drawer__Main__Inner">
       {%- if settings.cart_show_free_shipping_threshold -%}
         {%- assign threshold_in_cents = settings.cart_free_shipping_threshold | times: 100 -%}
         {%- assign contains_free_shipping_variant = false -%}
@@ -132,7 +133,7 @@
           <!-- /Upsell items -->
         {%- endif -%}
       {%- endif -%}
-
+      </div>
     </div>
 
     {%- unless cart.item_count == 0 -%}
