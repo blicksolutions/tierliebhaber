@@ -11305,14 +11305,16 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   display: none !important;
 }
 
-#sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalPrice > s > span.money {
-/*   margin-right: 13px; */
+#sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalPrice > s {
   color: #6a6a6a !important;
+}
+
+#sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalPrice > s > span.money {
+  color: inherit !important;
   opacity: 1 !important;
 }
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalPrice > s + span.money {
-/*   color: #f1af9e; */
   color: #abcdbe !important;
   font-weight: 700;
 }
