@@ -2227,11 +2227,11 @@ function _classCallCheck(e, t) {
           const cartSidebar = $('#sidebar-cart');
           
           const giftItemVariantId = 41322345496735;
-          let giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
+          let giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:first');
           
-          if (!giftItem.length) {
-            giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:first');
-          }
+//           if (!giftItem.length) {
+//             giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:first');
+//           }
           
           if (!giftItem.length) {
             console.log('add free gift', giftItem.length);
@@ -2246,7 +2246,7 @@ function _classCallCheck(e, t) {
               },
               dataType: 'html', 
               success: function (result) {
-                cartSidebar.find('.Cart__ItemList').html($(result).find('.Cart__ItemList').html());
+//                 cartSidebar.find('.Cart__ItemList').html($(result).find('.Cart__ItemList').html());
               } 
             });
             
@@ -2282,11 +2282,11 @@ function _classCallCheck(e, t) {
           const cartSidebar = $('#sidebar-cart');
           
           const giftItemVariantId = 41322345496735;
-          let giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
+          let giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]:first');
           
-          if (!giftItem.length) {
-            giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:first');
-          }
+//           if (!giftItem.length) {
+//             giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:first');
+//           }
           
           if (giftItem.length) {
             console.log('remove free gift', giftItem.length);
