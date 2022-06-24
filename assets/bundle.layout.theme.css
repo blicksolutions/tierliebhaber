@@ -71,6 +71,11 @@
   color: #6A6B6A;
 }
 
+#sidebar-cart .Price--compareAt:before {
+  left: 0;
+  width: 100%;
+}
+
 #sidebar-cart .Price--compareAt + .CartItem__Price {
   color: #ABCDBE;
 }
