@@ -155,12 +155,10 @@
               {%- if contains_free_shipping_variant -%}
                 {%- assign delivery_cost = 0 -%}
               {%- else -%}
-                {%- assign delivery_cost = threshold_in_cents -%}
+                {%- assign delivery_cost = threshold_in_cents | divided_by: 10 -%}
               {%- endif -%}
               
-              {%- assign delivery_cost = delivery_cost | divided_by: 10 -%}
-              
-              {{ delivery_cost }} / {{ delivery_cost | money_without_trailing_zeros }}
+              {{ delivery_cost | money_without_trailing_zeros }}
             </span>
           </div>
           <!-- /Delivery -->
