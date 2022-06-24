@@ -50,6 +50,7 @@
         <!-- Steps message -->
         <div class="CartMessage__Steps">
           <div class="CartMessage__Steps__Text">
+            {{ cart.total_price }}<br>
             {%- if cart.total_price > 6000 -%}
               {{ section.settings.message_final_text }}
             {%- else if cart.total_price >= 3900 and cart.total_price < 6000 -%}
