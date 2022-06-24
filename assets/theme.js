@@ -2300,7 +2300,7 @@ function _classCallCheck(e, t) {
           
           if (giftItemToRemove.length) {
             const giftItemI = giftItemToRemove.attr('data-index');
-            console.log('remove free gift', giftItem.length, giftItemI);
+            console.log('remove free gift', giftItemToRemove.length, giftItemI);
             
             $.ajax({
               type: 'POST',
