@@ -2290,10 +2290,12 @@ function _classCallCheck(e, t) {
           
             const cartSidebar = $('#sidebar-cart');
             const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
-            const cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.text().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
+//             const cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.text().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
+            const cartSidebarTotalPriceValue = 60;
             console.log('cartSidebarTotalPriceValue', cartSidebarTotalPriceValue);
             
             const maxPriceValue = 71.48934;
+          
             let cartSidebarPercentage = cartSidebarTotalPriceValue / maxPriceValue * 100;
             
             if (cartSidebarTotalPriceValue >= 60) {
