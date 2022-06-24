@@ -11281,7 +11281,8 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 }
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__ProductsTotal small,
-#sidebar-cart .Drawer__Footer .Drawer__Footer__Delivery small {
+#sidebar-cart .Drawer__Footer .Drawer__Footer__Delivery small,
+#sidebar-cart .Drawer__Footer .Drawer__Footer__Subtotal small {
   font-size: 16px;
 }
 
@@ -11303,14 +11304,6 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 
 #sidebar-cart .Drawer__Footer .scDiscount.scActive form {
   display: none !important;
-}
-
-#sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalLabel {
-  font-size: 16px;
-}
-
-#sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalPrice {
-  font-size: 16px;
 }
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalPrice > s > span.money {
