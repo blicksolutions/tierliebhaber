@@ -2370,7 +2370,7 @@ function _classCallCheck(e, t) {
             e.textContent = t.itemCount
           })), document.dispatchEvent(new CustomEvent("cart:rendered"))
           
-          $('.Drawer__Footer__ProductsTotal, .Drawer__Footer__Subtotal').addClass('Loading');
+          $('.Drawer__Footer__ProductsTotal, .Drawer__Footer__Subtotal').removedClass('Loaded');
           
           const maxPriceValue = 71.48934;
           
