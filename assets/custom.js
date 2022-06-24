@@ -12,19 +12,6 @@ $(document).ready(function () {
     $(document).on('click', '#sidebar-cart .CartItem__Actions__UpsellBtn', function() {
       const btn = $(this);
       btn.prop('disabled', true);
-            
-//       $.ajax({
-//         type: 'POST',
-//         url: '/cart/add.js',
-//         data: {
-//           quantity: 1,
-//           id: 7139832463519
-//         },
-//         dataType: 'json', 
-//         success: function (result) {
-//           console.log('success');
-//         } 
-//       });
     });
 
     /* Remove discount */

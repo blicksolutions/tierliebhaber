@@ -426,11 +426,10 @@ function _classCallCheck(e, t) {
               
               /* Scroll button */
               const drawerContent = sidebarCart.find('.Drawer__Main');
-              console.log('drawerContent', drawerContent.prop('scrollHeight'), drawerContent.prop('clientHeight'));
               
               if (drawerContent.prop('scrollHeight') > drawerContent.prop('clientHeight')) {
                 
-//                 setTimeout(function() {
+                setTimeout(function() {
                   const scrollBtn = sidebarCart.find('.CartUpsells__ScrollBtn');
                   scrollBtn.addClass('Visible');
 
@@ -438,7 +437,7 @@ function _classCallCheck(e, t) {
                     scrollBtn.removeClass('Visible');
                   }, 3000);
 
-//                 }, 500);
+                }, 500);
               }
               /* /Scroll button */
               
