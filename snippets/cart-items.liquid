@@ -17,8 +17,12 @@
   {%- for line_item in cart.items -%}
   
     {%- if for_drawer -%}
-      <div class="CartItemWrapper">
+      <div class="CartItemWrapper" data-variant-id="{{ line_item.product.id }}">
     {%- endif -%}
+        <div>
+          line_item.id: {{ line_item.id }}<br>
+          line_item.product.id: {{ line_item.product.id }}<br>
+        </div>
         
     <div class="CartItem">
       <div class="CartItem__ImageWrapper AspectRatio">
