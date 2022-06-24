@@ -2302,49 +2302,51 @@ function _classCallCheck(e, t) {
             const giftItemI = giftItemToRemove.attr('data-index');
             console.log('remove free gift', giftItemToRemove.length, giftItemI);
             
-            $.ajax({
-              type: 'POST',
-              url: '/cart/change',
-              data: {
-                line: giftItemI,
-                quantity: 0
-              },
-              dataType: 'html',
-              beforeSend: function() {
-                giftItemToRemove.remove();
-              },
-              success: function (result) {
-                
-//                 $.ajax({
-//                   type: 'GET',
-//                   url: '/cart?view=drawer',
-//                   dataType: 'html', 
-//                   success: function (result2) {
-//                     const ajaxCartSidebar = $(result2).find('#sidebar-cart .Drawer__Content');
-//                     console.log('ajaxCartSidebar', ajaxCartSidebar.length);
-//                     cartSidebar.find('.Cart Drawer__Content').html(ajaxCartSidebar.html());
-//                   } 
-//                 });
-              }
-            });
-
-//             fetch(window.routes.cartUrl + "/change.js", {
-//               body: JSON.stringify({
+//             $.ajax({
+//               type: 'POST',
+//               url: '/cart/change',
+//               data: {
 //                 line: giftItemI,
 //                 quantity: 0
-//               }),
-//               credentials: "same-origin",
-//               method: "POST",
-//               headers: {
-//                 "Content-Type": "application/json",
-//                 "X-Requested-With": "XMLHttpRequest"
+//               },
+//               dataType: 'html',
+//               beforeSend: function() {
+//                 giftItemToRemove.remove();
+//               },
+//               success: function (result) {
+                
+// //                 $.ajax({
+// //                   type: 'GET',
+// //                   url: '/cart?view=drawer',
+// //                   dataType: 'html', 
+// //                   success: function (result2) {
+// //                     const ajaxCartSidebar = $(result2).find('#sidebar-cart .Drawer__Content');
+// //                     console.log('ajaxCartSidebar', ajaxCartSidebar.length);
+// //                     cartSidebar.find('.Cart Drawer__Content').html(ajaxCartSidebar.html());
+// //                   } 
+// //                 });
 //               }
-//             }).then((function(e) {
-//               e.json().then((function(e) {
-//                 console.log('free gift is removed');
-// //                 giftItem.remove();
-//               }))
-//             }));
+//             });
+
+            fetch(window.routes.cartUrl + "/change.js", {
+              body: JSON.stringify({
+                line: giftItemI,
+                quantity: 0
+              }),
+              credentials: "same-origin",
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                "X-Requested-With": "XMLHttpRequest"
+              }
+            }).then((function(e) {
+              e.json().then((function(e) {
+                console.log('free gift is removed');
+                giftItem.css('border', '2px red solid');
+                
+                i._rerenderCart();
+              }))
+            }));
           }
         }
       }, {
