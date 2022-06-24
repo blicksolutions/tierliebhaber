@@ -11287,10 +11287,12 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__ProductsTotal {
   bottom: 85px;
+  color: #737373;
 }
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Delivery {
   bottom: 54px;
+  color: #737373;
 }
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Subtotal {
