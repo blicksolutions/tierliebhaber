@@ -2324,7 +2324,7 @@ function _classCallCheck(e, t) {
           } else {
 //             this._removeBgItem();
             
-            if (giftItem) {
+            if (giftItem.length) {
               const giftItemIndex = giftItem.attr('data-index');
               
               console.log('giftItem', giftItem.length, 'giftItemIndex', giftItemIndex);
