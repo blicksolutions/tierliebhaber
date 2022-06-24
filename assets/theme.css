@@ -11278,6 +11278,16 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   outline: 1px red solid;
 }
 
+#sidebar-cart .Drawer__Footer .Drawer__Footer__Delivery {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  right: 0;
+  bottom: 30px;
+  left: 0;
+  outline: 1px red solid;
+}
+
 
 
 
