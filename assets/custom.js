@@ -49,6 +49,7 @@ $(document).ready(function () {
       const totalOldPrice = sidebarCart.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > s > span.money');
 
       if (totalOldPrice.length) {
+        /* Total price */
         const totalOldPriceValue = parseFloat(totalOldPrice.text().trim().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
 
         const totalNewPrice = sidebarCart.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
@@ -56,7 +57,13 @@ $(document).ready(function () {
         
         const percentageValue = (totalOldPriceValue - totalNewPriceValue) / totalOldPriceValue * 100;
         couponPercentage.text('-' + Math.ceil(percentageValue) + '%');
+        /* /Total price */
 
+        /* Products total price */
+        const totalProductsPrice = $('.Drawer__Footer__ProductsTotal > span');
+        totalProductsPrice.text((totalOldPriceValue - totalNewPriceValue) / totalOldPriceValue * 100);
+        /* /Products total price */
+        
       } else {
         couponPercentage.text('');
       }
