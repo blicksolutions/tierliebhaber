@@ -11576,9 +11576,9 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 
 /* Cart sidebar button */
 .Cart__Checkout {
-  font-size: 16px;
+/*   font-size: 16px;
   height: 53px;
-  letter-spacing: normal;
+  letter-spacing: normal; */
 }
 /* /Cart sidebar button */
 
