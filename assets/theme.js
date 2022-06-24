@@ -2251,7 +2251,7 @@ function _classCallCheck(e, t) {
           fetch(window.routes.cartChangeUrl + ".js", {
             body: JSON.stringify({
               id: 7139832463519,
-              quantity: 1
+              quantity: 0
             }),
             credentials: "same-origin",
             method: "POST",
