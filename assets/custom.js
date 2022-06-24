@@ -59,6 +59,19 @@ $(document).ready(function () {
       } else {
         percentage.text('');
       }
+      
+      const couponError = sidebar.find('.scDiscount__container .scError');
+      
+      if (couponError.length) {
+        couponError.css('opacity', 0);
+
+        setTimeout(function() {
+
+          setTimeout(function() {
+            couponError.remove();
+          }, 450);
+        }, 3000);
+      }
 
     }, 1000);
     
