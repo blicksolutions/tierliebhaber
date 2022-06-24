@@ -2253,13 +2253,8 @@ function _classCallCheck(e, t) {
                 cartSidebar.find('.Cart__ItemList').html($(result).find('.Cart__ItemList').html());
 
                 $.ajax({
-                  type: 'POST',
+                  type: 'GET',
                   url: '/cart?view=drawer',
-                  data: {
-                    form_type: 'product',
-                    id: giftItemVariantId,
-                    quantity: 1
-                  },
                   dataType: 'html', 
                   success: function (result2) {
                     cartSidebar.find('.Cart__ItemList').html($(result2).find('.Cart__ItemList').html());
@@ -2324,6 +2319,15 @@ function _classCallCheck(e, t) {
               dataType: 'json', 
               success: function (result) {
                 cartSidebar.find('.Drawer__Main').html($(result).find('.Drawer__Main').html());
+                
+                $.ajax({
+                  type: 'GET',
+                  url: '/cart?view=drawer',
+                  dataType: 'html', 
+                  success: function (result2) {
+                    cartSidebar.find('.Cart__ItemList').html($(result2).find('.Cart__ItemList').html());
+                  } 
+                });
               } 
             });
             
