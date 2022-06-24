@@ -2297,6 +2297,7 @@ function _classCallCheck(e, t) {
           const giftItemVariantId = 41322345496735 ;
 
           const giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
+          console.log('__');
           console.log('giftItem', giftItem.length);
           
           if (cartSidebarTotalPriceValue >= 60) {
