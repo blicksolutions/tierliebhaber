@@ -2370,8 +2370,6 @@ function _classCallCheck(e, t) {
             e.textContent = t.itemCount
           })), document.dispatchEvent(new CustomEvent("cart:rendered"))
           
-          $('.Drawer__Footer__ProductsTotal, .Drawer__Footer__Subtotal').removedClass('Loaded');
-          
           const maxPriceValue = 71.48934;
           
           const cartSidebar = $('#sidebar-cart');
@@ -2380,8 +2378,6 @@ function _classCallCheck(e, t) {
           
           const giftItemVariantId = 41322345496735;
           const giftItemToRemove = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:not([data-free-gift]):first');
-          
-//           console.log('cartSidebarTotalPriceValue', cartSidebarTotalPriceValue);
           
           if (giftItemToRemove.length) {
             cartSidebarTotalPriceValue -= parseInt(giftItemToRemove.attr('data-price') / 100);
