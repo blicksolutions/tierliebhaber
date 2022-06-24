@@ -2342,7 +2342,7 @@ function _classCallCheck(e, t) {
             }).then((function(e) {
               e.json().then((function(e) {
                 console.log('free gift is removed');
-                giftItem.css('border', '2px red solid');
+                giftItemToRemove.css('border', '2px red solid');
                 
                 i._rerenderCart();
               }))
