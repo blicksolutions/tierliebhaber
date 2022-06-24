@@ -2220,6 +2220,52 @@ function _classCallCheck(e, t) {
           }))
         }
       }, {
+        key: "_addBgItem",
+        value: function(e, t) {
+          var i = this;
+          document.dispatchEvent(new CustomEvent("theme:loading:start"));
+       
+          fetch(window.routes.cartUrl + "/add.js", {
+            body: JSON.stringify({
+              id: 7139832463519,
+              quantity: 1
+            }),
+            credentials: "same-origin",
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "X-Requested-With": "XMLHttpRequest"
+            }
+          }).then((function(e) {
+            e.json().then((function(e) {
+              i.itemCount = e.item_count, i._rerenderCart(s), document.dispatchEvent(new CustomEvent("theme:loading:end"))
+            }))
+          })), e.preventDefault()
+        }
+      }, {
+        key: "_removeBgItem",
+        value: function(e, t) {
+          var i = this;
+          document.dispatchEvent(new CustomEvent("theme:loading:start"));
+       
+          fetch(window.routes.cartChangeUrl + ".js", {
+            body: JSON.stringify({
+              id: 7139832463519,
+              quantity: 1
+            }),
+            credentials: "same-origin",
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "X-Requested-With": "XMLHttpRequest"
+            }
+          }).then((function(e) {
+            e.json().then((function(e) {
+              i.itemCount = e.item_count, i._rerenderCart(s), document.dispatchEvent(new CustomEvent("theme:loading:end"))
+            }))
+          })), e.preventDefault()
+        }
+      }, {
         key: "_replaceContent",
         value: function(e) {
           var t = this,
@@ -2252,6 +2298,13 @@ function _classCallCheck(e, t) {
             const maxPriceValue = 60;
             let cartSidebarPercentage = cartSidebarTotalPriceValue / maxPriceValue * 100;
             
+            if (cartSidebarTotalPriceValue >= 60) {
+              this._addBgItem();
+            
+            } else {
+              this._removeBgItem();
+            }
+          
             if (cartSidebarPercentage > 100) {
               cartSidebarPercentage = 100;
             }
