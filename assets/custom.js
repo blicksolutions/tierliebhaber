@@ -66,7 +66,7 @@ $(document).ready(function () {
 
         /* Products total price */
         const totalProductsPrice = $('.Drawer__Footer__ProductsTotal > span');
-        totalProductsPrice.text((totalNewPriceValue - deliveryPriceValue).toFixed(2));
+        totalProductsPrice.text((totalNewPriceValue - deliveryPriceValue).toFixed(2).replace(/\./, ','));
         /* /Products total price */
         
       } else {
