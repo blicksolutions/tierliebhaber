@@ -11276,6 +11276,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   bottom: 30px;
   left: 0;
   outline: 1px red solid;
+  font-size: 16px;
 }
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Delivery {
@@ -11286,6 +11287,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   bottom: 90px;
   left: 0;
   outline: 1px green solid;
+  font-size: 16px;
 }
 
 
