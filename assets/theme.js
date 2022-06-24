@@ -2190,6 +2190,7 @@ function _classCallCheck(e, t) {
             credentials: "same-origin",
             method: "GET"
           }).then((function(i) {
+            console.log('_rerenderCart');
           
             if (t.options.drawer && e) {
               var n = new TimelineLite({
