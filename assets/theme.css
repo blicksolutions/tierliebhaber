@@ -11311,6 +11311,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalPrice > s {
   color: #6a6a6a !important;
+  font-weight: normal;
 }
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalPrice > s > span.money {
