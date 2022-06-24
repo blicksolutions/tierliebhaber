@@ -2298,8 +2298,6 @@ function _classCallCheck(e, t) {
                   url: window.routes.cartUrl + '?view=drawer&timestamp=' + Date.now(),
                   dataType: 'html', 
                   success: function (result) {
-                    console.log('success', result);
-
                     cartSidebar.find('.Drawer__Main').html($(result).find('.Drawer__Main').html());
                   } 
                 });
