@@ -11171,14 +11171,14 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 @media screen and (max-width: 640px) {
 
   .Drawer__Footer__Coupon {
-    margin: -15px -24px 12px;
+    margin: -15px -24px 0;
   }
 }
 
 @media screen and (min-width: 641px) {
 
   .Drawer__Footer__Coupon {
-    margin: -20px -30px 12px;
+    margin: -20px -30px 0;
   }
 }
 
@@ -11318,7 +11318,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Inner {
   position: relative;
-  padding-bottom: 92px;
+  padding-bottom: 124px;
 }
 
 /* Error */
