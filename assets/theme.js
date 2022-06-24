@@ -2373,11 +2373,12 @@ function _classCallCheck(e, t) {
           
           const giftItemVariantId = 41322345496735;
           let giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
+          let giftItemToRemove = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:not([data-free-gift]):first');
           
           console.log('cartSidebarTotalPriceValue', cartSidebarTotalPriceValue);
           
-          if (giftItem.length) {
-            cartSidebarTotalPriceValue -= parseInt(giftItem.attr('data-price') / 100);
+          if (giftItemToRemove.length) {
+            cartSidebarTotalPriceValue -= parseInt(giftItemToRemove.attr('data-price') / 100);
           }
           
           console.log('cartSidebarTotalPriceValue', cartSidebarTotalPriceValue);
@@ -2385,7 +2386,6 @@ function _classCallCheck(e, t) {
           if (giftItem.length) {
             
           } else {
-            let giftItemToRemove = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:not([data-free-gift]):first');
             
             if (giftItemToRemove.length) {
               this._removeBgItem();
