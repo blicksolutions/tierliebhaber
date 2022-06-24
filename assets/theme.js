@@ -2282,8 +2282,17 @@ function _classCallCheck(e, t) {
             }).then((function(e) {
               e.json().then((function(e) {
                 console.log('free gift is removed', e);
+            
+                $.ajax({
+                  type: 'GET',
+                  url: window.routes.cartUrl + 'cart?view=drawer&timestamp=' + Date.now(),
+                  dataType: 'html', 
+                  success: function (result) {
+                    console.log('success', result);
+
+                  } 
+                });
                 
-                this._rerenderCart();
               }))
             }));
           }
