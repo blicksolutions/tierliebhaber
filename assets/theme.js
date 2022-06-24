@@ -2371,6 +2371,11 @@ function _classCallCheck(e, t) {
           })), document.dispatchEvent(new CustomEvent("cart:rendered"))
           
           
+          $('.Drawer__Footer__ProductsTotal').addClass('Loading');
+          $('.Drawer__Footer__Subtotal').addClass('Loading');
+          
+          
+          
           const maxPriceValue = 71.48934;
           
           const cartSidebar = $('#sidebar-cart');
