@@ -2299,10 +2299,10 @@ function _classCallCheck(e, t) {
             let cartSidebarPercentage = cartSidebarTotalPriceValue / maxPriceValue * 100;
             
             if (cartSidebarTotalPriceValue >= 60) {
-              this._addBgItem();
+              this._addBgItem(e);
             
             } else {
-              this._removeBgItem();
+              this._removeBgItem(e);
             }
           
             if (cartSidebarPercentage > 100) {
