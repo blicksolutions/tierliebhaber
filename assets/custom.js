@@ -60,7 +60,7 @@ $(document).ready(function () {
         percentage.text('');
       }
       
-      const couponError = sidebar.find('.scDiscount__container .scError');
+      const couponError = sidebarCart.find('.scDiscount__container .scError');
       
       if (couponError.length) {
         couponError.css('opacity', 0);
