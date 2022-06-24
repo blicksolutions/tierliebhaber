@@ -2338,7 +2338,7 @@ function _classCallCheck(e, t) {
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function(content) {
-                  giftItem.remove();
+//                   giftItem.remove();
                 }
               });
             }
