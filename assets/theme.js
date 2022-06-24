@@ -2221,9 +2221,8 @@ function _classCallCheck(e, t) {
         }
       }, {
         key: "_addBgItem",
-        value: function(e, t) {
+        value: function() {
           var i = this;
-          document.dispatchEvent(new CustomEvent("theme:loading:start"));
        
           fetch(window.routes.cartUrl + "/add.js", {
             body: JSON.stringify({
@@ -2238,15 +2237,14 @@ function _classCallCheck(e, t) {
             }
           }).then((function(e) {
             e.json().then((function(e) {
-              i.itemCount = e.item_count, i._rerenderCart(s), document.dispatchEvent(new CustomEvent("theme:loading:end"))
+              
             }))
           }))
         }
       }, {
         key: "_removeBgItem",
-        value: function(e, t) {
+        value: function() {
           var i = this;
-          document.dispatchEvent(new CustomEvent("theme:loading:start"));
        
           fetch(window.routes.cartChangeUrl + ".js", {
             body: JSON.stringify({
@@ -2261,7 +2259,7 @@ function _classCallCheck(e, t) {
             }
           }).then((function(e) {
             e.json().then((function(e) {
-              i.itemCount = e.item_count, i._rerenderCart(s), document.dispatchEvent(new CustomEvent("theme:loading:end"))
+
             }))
           }))
         }
@@ -2299,10 +2297,10 @@ function _classCallCheck(e, t) {
             let cartSidebarPercentage = cartSidebarTotalPriceValue / maxPriceValue * 100;
             
             if (cartSidebarTotalPriceValue >= 60) {
-//               this._addBgItem();
+              this._addBgItem();
             
             } else {
-//               this._removeBgItem();
+              this._removeBgItem();
             }
           
             if (cartSidebarPercentage > 100) {
