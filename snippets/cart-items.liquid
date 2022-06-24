@@ -42,7 +42,7 @@
   
       <div class="CartItemWrapper"
            {% if line_item_free_gift %}data-free-gift="true"{% endif %}
-           data-price="{{ line_item.final_price | divided_by: 100 }} / {{ line_item.price | divided_by: 100 }} / {{ line_item.final_line_price }}"
+           data-price="{{ line_item.final_line_price | divided_by: 100 }}"
            data-index="{{ forloop.index }}" 
            data-variant-id="{{ line_item.id }}" 
            data-product-id="{{ line_item.product.id }}">
