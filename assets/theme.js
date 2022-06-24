@@ -2277,6 +2277,7 @@ function _classCallCheck(e, t) {
           if (giftItem.length) {
             console.log('remove free gift', giftItem.length);
             const giftItemI = giftItem.attr('data-index');
+            console.log('giftItemI', giftItemI);
 
             fetch(window.routes.cartUrl + "/update.js", {
               body: JSON.stringify({
