@@ -2279,7 +2279,7 @@ function _classCallCheck(e, t) {
             const giftItemI = giftItem.attr('data-index');
             console.log('giftItemI', giftItemI);
 
-            fetch(window.routes.cartUrl + "/update.js", {
+            fetch(window.routes.cartUrl + "/change.js", {
               body: JSON.stringify({
                 line: giftItemI,
                 quantity: 0
