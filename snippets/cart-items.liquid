@@ -19,6 +19,8 @@
     {%- if for_drawer -%}
   
       {%- assign line_item_free_gift = false -%}
+  
+      {% comment %}
       {%- if line_item.product.id == 7139832463519 -%}
         {%- if line_item.properties != empty -%}
           {%- for property in line_item.properties -%}
@@ -31,6 +33,11 @@
             {%- endif -%}
           {%- endfor -%}
         {%- endif -%}
+      {%- endif -%}
+      {% endcomment %}
+
+      {%- if line_item.line_level_discount_allocations != blank -%}
+        {%- assign line_item_free_gift = true -%}
       {%- endif -%}
   
       <div class="CartItemWrapper" 
