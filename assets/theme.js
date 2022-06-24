@@ -2233,10 +2233,10 @@ function _classCallCheck(e, t) {
             giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:first');
           }
           
-          console.log('giftItem', giftItem.length);
+//           console.log('giftItem', giftItem.length);
        
           if (!giftItem.length) {
-            console.log('add free gift', giftItem.length);
+//             console.log('add free gift', giftItem.length);
 
             fetch(window.routes.cartUrl + "/add.js", {
               body: JSON.stringify({
@@ -2275,9 +2275,9 @@ function _classCallCheck(e, t) {
           }
           
           if (giftItem.length) {
-            console.log('remove free gift', giftItem.length);
+//             console.log('remove free gift', giftItem.length);
             const giftItemI = giftItem.attr('data-index');
-            console.log('giftItemI', giftItemI);
+//             console.log('giftItemI', giftItemI);
 
             fetch(window.routes.cartUrl + "/change.js", {
               body: JSON.stringify({
@@ -2292,19 +2292,8 @@ function _classCallCheck(e, t) {
               }
             }).then((function(e) {
               e.json().then((function(e) {
-                console.log('free gift is removed', e);
+//                 console.log('free gift is removed');
                 giftItem.remove();
-                
-//                 i._rerenderCart();
-            
-//                 $.ajax({
-//                   type: 'GET',
-//                   url: window.routes.cartUrl + '?view=drawer&timestamp=' + Date.now(),
-//                   dataType: 'html', 
-//                   success: function (result) {
-//                     cartSidebar.find('.Drawer__Main').html($(result).find('.Drawer__Main').html());
-//                   } 
-//                 });
               }))
             }));
           }
