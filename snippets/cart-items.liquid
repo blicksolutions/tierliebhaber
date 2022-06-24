@@ -72,6 +72,7 @@
             <p class="CartItem__PlanAllocation">{{ line_item.selling_plan_allocation.selling_plan.name }}</p>
           {%- endif -%}
 
+          {%- unless line_item.product.id == 7139832463519 -%}
           {%- if line_item.properties != empty -%}
             <ul class="CartItem__PropertyList">
               {%- for property in line_item.properties -%}
@@ -85,6 +86,7 @@
               {%- endfor -%}
             </ul>
           {%- endif -%}
+          {%- endunless -%}
 
           {%- if line_item.unit_price_measurement -%}
             <div class="CartItem__UnitPriceMeasurement">
