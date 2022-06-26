@@ -88,6 +88,8 @@ $(document).ready(function () {
       let totalPriceValue = parseFloat(totalPrice.text().trim().replace(/\./, ',').replace(/[^0-9\.]+/, ''));
       
       
+      console.log('subtotalNewPriceValue', subtotalNewPriceValue, 'deliveryPriceValue', deliveryPriceValue);
+      
       if (subtotalOldPrice.length) {
         totalPriceValue = subtotalNewPriceValue + deliveryPriceValue;
 //         totalProductsPriceValue = subtotalNewPriceValue + deliveryPriceValue;
