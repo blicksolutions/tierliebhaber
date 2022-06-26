@@ -63,6 +63,18 @@ $(document).ready(function () {
       const totalOldPrice = sidebarCart.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > s > span.money');
 
       if (totalOldPrice.length) {
+        
+        /* Products total price */
+        const totalProductsPrice = $('.Drawer__Footer__ProductsTotal > span');
+        const = totalProductsPriceValue = parseFloat(totalProductsPrice.replace(/\./, ',').replace(/[^0-9\.]+/, ''));
+        totalProductsPrice.text($('body').attr('data-currency-symbol') + (totalNewPriceValue - deliveryPriceValue).toFixed(2));
+        /* /Products total price */
+        
+        /* Delivery price */
+        const deliveryPrice = $('.Drawer__Footer__Delivery > span');
+        const deliveryPriceValue = parseFloat(deliveryPrice.text().trim().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
+        /* /Delivery price */
+
         /* Total price */
         const totalOldPriceValue = parseFloat(totalOldPrice.text().trim().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
 
@@ -73,16 +85,6 @@ $(document).ready(function () {
         couponPercentage.text('-' + Math.ceil(percentageValue) + '%');
         /* /Total price */
 
-        /* Delivery price */
-        const deliveryPrice = $('.Drawer__Footer__Delivery > span');
-        const deliveryPriceValue = parseFloat(deliveryPrice.text().trim().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
-        /* /Delivery price */
-
-        /* Products total price */
-        const totalProductsPrice = $('.Drawer__Footer__ProductsTotal > span');
-        totalProductsPrice.text($('body').attr('data-currency-symbol') + (totalNewPriceValue - deliveryPriceValue).toFixed(2).replace(/\./, ','));
-        /* /Products total price */
-        
       } else {
         couponPercentage.text('');
       }
