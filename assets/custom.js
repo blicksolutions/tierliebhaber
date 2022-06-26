@@ -87,9 +87,9 @@ $(document).ready(function () {
       const totalPrice = $('.Drawer__Footer__Total > span');
       let totalPriceValue = parseFloat(totalPrice.text().trim().replace(/\./, ',').replace(/[^0-9\.]+/, ''));
       
-      totalPriceValue = subtotalNewPriceValue + deliveryPriceValue;
       
       if (subtotalOldPrice.length) {
+        totalPriceValue = subtotalNewPriceValue + deliveryPriceValue;
 //         totalProductsPriceValue = subtotalNewPriceValue + deliveryPriceValue;
       
       } else {
