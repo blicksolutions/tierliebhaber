@@ -58,7 +58,6 @@ $(document).ready(function () {
 
     setInterval(function() {
       const sidebarCart = $('#sidebar-cart');
-      console.log('__');
       
       const couponPercentage = sidebarCart.find('.Drawer__Footer__Coupon-percentage');
       
