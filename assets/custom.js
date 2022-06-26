@@ -93,8 +93,6 @@ $(document).ready(function () {
       }
       /* /Total price */
       
-      const totalOldPrice = sidebarCart.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > s > span.money');
-
       const couponError = sidebarCart.find('.scDiscount__container .scError');
       
       if (couponError.length && !couponError.hasClass('Hidden')) {
