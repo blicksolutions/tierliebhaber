@@ -88,20 +88,14 @@ $(document).ready(function () {
       const totalPrice = $('.Drawer__Footer__Total > span');
       let totalPriceValue = parseFloat(totalPrice.text().trim().replace(/\./, ',').replace(/[^0-9\.]+/, ''));
       
-      console.log('deliveryPriceValue', deliveryPriceValue);
-      
       if (subtotalOldPrice.length) {
-        console.log('subtotalNewPriceValue', subtotalNewPriceValue, 'deliveryPriceValue', deliveryPriceValue);
         totalPriceValue = subtotalNewPriceValue + deliveryPriceValue;
-//         totalProductsPriceValue = subtotalNewPriceValue + deliveryPriceValue;
-      
-      } else {
-        
       }
       
       totalPrice.text($('body').attr('data-currency-symbol') + totalPriceValue.toFixed(2));
       /* /Total price */
       
+      /* Error */
       const couponError = sidebarCart.find('.scDiscount__container .scError');
       
       if (couponError.length && !couponError.hasClass('Hidden')) {
@@ -115,6 +109,7 @@ $(document).ready(function () {
           }, 450);
         }, 3000);
       }
+      /* /Error */
 
     }, 500);
     
