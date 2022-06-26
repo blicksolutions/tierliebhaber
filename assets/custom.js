@@ -84,10 +84,10 @@ $(document).ready(function () {
       /* /Delivery price */
       
       /* Total price */
-      const totalProductsPrice = $('.Drawer__Footer__ProductsTotal > span');
-      let totalProductsPriceValue = parseFloat(totalProductsPrice.replace(/\./, ',').replace(/[^0-9\.]+/, ''));
+      const totalPrice = $('.Drawer__Footer__Total > span');
+      let totalPriceValue = parseFloat(totalPrice.replace(/\./, ',').replace(/[^0-9\.]+/, ''));
       
-      totalProductsPriceValue = subtotalNewPriceValue + deliveryPriceValue;
+      totalPriceValue = subtotalNewPriceValue + deliveryPriceValue;
       
       if (subtotalOldPrice.length) {
 //         totalProductsPriceValue = subtotalNewPriceValue + deliveryPriceValue;
@@ -96,7 +96,7 @@ $(document).ready(function () {
         
       }
       
-      totalProductsPrice.text($('body').attr('data-currency-symbol') + totalProductsPriceValue.toFixed(2));
+      totalPrice.text($('body').attr('data-currency-symbol') + totalPriceValue.toFixed(2));
       /* /Total price */
       
       const couponError = sidebarCart.find('.scDiscount__container .scError');
