@@ -87,9 +87,15 @@ $(document).ready(function () {
       const totalPrice = $('.Drawer__Footer__Total > span');
       let totalPriceValue = parseFloat(totalPrice.text().trim().replace(/\./, ',').replace(/[^0-9\.]+/, ''));
       
+      console.log('__');
+      console.log('subtotalNewPriceValue', subtotalNewPriceValue);
+      console.log('deliveryPriceValue', deliveryPriceValue);
+      
       if (subtotalOldPrice.length) {
         totalPriceValue = subtotalNewPriceValue + deliveryPriceValue;
       }
+      
+      console.log('totalPriceValue', totalPriceValue);
       
       totalPrice.text($('body').attr('data-currency-symbol') + totalPriceValue.toFixed(2));
       /* /Total price */
