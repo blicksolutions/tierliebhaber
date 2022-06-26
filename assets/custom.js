@@ -91,9 +91,9 @@ $(document).ready(function () {
       console.log('subtotalNewPriceValue', subtotalNewPriceValue);
       console.log('deliveryPriceValue', deliveryPriceValue);
       
-      if (subtotalOldPrice.length) {
+//       if (subtotalOldPrice.length) {
         totalPriceValue = subtotalNewPriceValue + deliveryPriceValue;
-      }
+//       }
       
       console.log('totalPriceValue', totalPriceValue);
       
