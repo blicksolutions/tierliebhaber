@@ -149,7 +149,7 @@
           <!-- Products subtotal -->
           <div class="Drawer__Footer__ProductsTotal">
             <small>{{ 'cart.general.products' | t }}</small>
-            <span>{{ cart.total_price | minus: delivery_cost | money_without_trailing_zeros }}</span>
+            <span>{{ cart.total_price | money_without_trailing_zeros }}</span>
           </div>
           <!-- /Products subtotal -->
           
@@ -165,7 +165,7 @@
           <!-- Subtotal -->
           <div class="Drawer__Footer__Subtotal">
             <small class="Drawer__Footer__SubtotalLabel">{{ 'cart.general.subtotal' | t }}</small> 
-            <span class="Drawer__Footer__SubtotalPrice">{{ cart.total_price | money_without_trailing_zeros }}</span>
+            <span class="Drawer__Footer__SubtotalPrice">{{ cart.total_price | plus: delivery_cost | money_without_trailing_zeros }}</span>
           </div>
           <!-- /Subtotal -->
 
