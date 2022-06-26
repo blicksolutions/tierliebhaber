@@ -64,12 +64,12 @@ $(document).ready(function () {
       
       /* `Subtotal price */
       const subtotalOldPrice = sidebarCart.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > s > span.money');
+      
+      const subtotalNewPrice = sidebarCart.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
+      const subtotalNewPriceValue = parseFloat(subtotalNewPrice.text().trim().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
 
       if (subtotalOldPrice.length) {
         const subtotalOldPriceValue = parseFloat(subtotalOldPrice.text().trim().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
-
-        const subtotalNewPrice = sidebarCart.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
-        const subtotalNewPriceValue = parseFloat(subtotalNewPrice.text().trim().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
 
         const percentageValue = (subtotalOldPriceValue - subtotalNewPriceValue) / subtotalOldPriceValue * 100;
         couponPercentage.text('-' + Math.ceil(percentageValue) + '%');
