@@ -11264,10 +11264,9 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   color: #666;
 }
 
-
-#sidebar-cart .Drawer__Footer .Drawer__Footer__ProductsTotal,
+#sidebar-cart .Drawer__Footer .Drawer__Footer__Subtotal,
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Delivery,
-#sidebar-cart .Drawer__Footer .Drawer__Footer__Subtotal {
+#sidebar-cart .Drawer__Footer .Drawer__Footer__Total {
   display: flex;
   justify-content: space-between;
   position: absolute;
@@ -11278,13 +11277,13 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   margin-bottom: 0;
 }
 
-#sidebar-cart .Drawer__Footer .Drawer__Footer__ProductsTotal small,
+#sidebar-cart .Drawer__Footer .Drawer__Footer__Subtotal small,
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Delivery small,
-#sidebar-cart .Drawer__Footer .Drawer__Footer__Subtotal small {
+#sidebar-cart .Drawer__Footer .Drawer__Footer__Total small {
   font-size: 16px;
 }
 
-#sidebar-cart .Drawer__Footer .Drawer__Footer__ProductsTotal {
+#sidebar-cart .Drawer__Footer .Drawer__Footer__Subtotal {
   bottom: 85px;
   color: #737373;
 }
@@ -11294,10 +11293,10 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   color: #737373;
 }
 
-#sidebar-cart .Drawer__Footer .Drawer__Footer__Subtotal {
+#sidebar-cart .Drawer__Footer .Drawer__Footer__Total {
+  bottom: 23px;
   font-family: var(--heading-font-family);
   font-weight: var(--heading-font-weight);
-  bottom: 23px;
 }
 
 #sidebar-cart .Drawer__Footer .sc_simple-container {
@@ -11308,18 +11307,18 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   display: none !important;
 }
 
-#sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalPrice > s {
+#sidebar-cart .Drawer__Footer .Drawer__Footer__TotalPrice > s {
   color: #6a6a6a !important;
   font-weight: normal;
   margin-right: 4px;
 }
 
-#sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalPrice > s > span.money {
+#sidebar-cart .Drawer__Footer .Drawer__Footer__TotalPrice > s > span.money {
   color: inherit !important;
   opacity: 1 !important;
 }
 
-#sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalPrice > s + span.money {
+#sidebar-cart .Drawer__Footer .Drawer__Footer__TotalPrice > s + span.money {
   color: #abcdbe !important;
 }
 
