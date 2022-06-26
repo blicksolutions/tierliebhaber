@@ -90,7 +90,7 @@ $(document).ready(function () {
       totalProductsPriceValue = subtotalNewPriceValue + deliveryPriceValue;
       
       if (subtotalOldPrice.length) {
-        totalProductsPriceValue = subtotalNewPriceValue + deliveryPriceValue;
+//         totalProductsPriceValue = subtotalNewPriceValue + deliveryPriceValue;
       
       } else {
         
