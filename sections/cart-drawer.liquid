@@ -146,13 +146,13 @@
             {%- assign delivery_cost = threshold_in_cents | divided_by: 10 -%}
           {%- endif -%}
 
-          <!-- Products subtotal -->
-          <div class="Drawer__Footer__ProductsTotal">
-            <small>{{ 'cart.general.products' | t }}</small>
-            <span>{{ cart.total_price | money_without_trailing_zeros }}</span>
+          <!-- Subtotal -->
+          <div class="Drawer__Footer__Subtotal">
+            <small class="Drawer__Footer__SubtotalLabel">{{ 'cart.general.subtotal' | t }}</small> 
+            <span class="Drawer__Footer__SubtotalPrice">{{ cart.total_price | plus: delivery_cost | money_without_trailing_zeros }}</span>
           </div>
-          <!-- /Products subtotal -->
-          
+          <!-- /Subtotal -->
+
           <!-- Delivery -->
           <div class="Drawer__Footer__Delivery">
             <small>{{ 'cart.general.delivery' | t }}</small> 
@@ -162,13 +162,13 @@
           </div>
           <!-- /Delivery -->
           
-          <!-- Subtotal -->
-          <div class="Drawer__Footer__Subtotal">
-            <small class="Drawer__Footer__SubtotalLabel">{{ 'cart.general.subtotal' | t }}</small> 
-            <span class="Drawer__Footer__SubtotalPrice">{{ cart.total_price | plus: delivery_cost | money_without_trailing_zeros }}</span>
+          <!-- Total -->
+          <div class="Drawer__Footer__Total">
+            <small>{{ 'cart.general.products' | t }}</small>
+            <span>{{ cart.total_price | money_without_trailing_zeros }}</span>
           </div>
-          <!-- /Subtotal -->
-
+          <!-- /Total -->
+          
           <!-- Scroll button -->
           <span class="CartUpsells__ScrollBtn">
           <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAh0lEQVRIie2TQQqAIBBFn13M47TsKOWqTpttRhhE0TIhwg8DguN//y+EoZflZao1dQoyAAPwB4AB7A0fK2+qZAAHnMAS3aV+8iy7RwqSa+BleU1AYvM9ZVySATYB6Sa6QUjuyaR/AgmAZnMNcQrio7NrMdeQ0ERPU/IS5FXzGNLFXEO6mX9TFwuTLBH05pO4AAAAAElFTkSuQmCC" 
