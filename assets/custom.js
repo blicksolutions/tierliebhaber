@@ -58,6 +58,7 @@ $(document).ready(function () {
 
     setInterval(function() {
       const sidebarCart = $('#sidebar-cart');
+      console.log('__');
       
       const couponPercentage = sidebarCart.find('.Drawer__Footer__Coupon-percentage');
       
@@ -87,10 +88,10 @@ $(document).ready(function () {
       const totalPrice = $('.Drawer__Footer__Total > span');
       let totalPriceValue = parseFloat(totalPrice.text().trim().replace(/\./, ',').replace(/[^0-9\.]+/, ''));
       
-      
-      console.log('subtotalNewPriceValue', subtotalNewPriceValue, 'deliveryPriceValue', deliveryPriceValue);
+      console.log('deliveryPriceValue', deliveryPriceValue);
       
       if (subtotalOldPrice.length) {
+        console.log('subtotalNewPriceValue', subtotalNewPriceValue, 'deliveryPriceValue', deliveryPriceValue);
         totalPriceValue = subtotalNewPriceValue + deliveryPriceValue;
 //         totalProductsPriceValue = subtotalNewPriceValue + deliveryPriceValue;
       
