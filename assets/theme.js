@@ -416,7 +416,6 @@ function _classCallCheck(e, t) {
         value: function(e) {
           if (!this.isOpen) {
 
-            
             /* Cart sidebar coupon */
             let drawerButtonId = this.element.getAttribute('id');
             $('body').attr('data-drawer-id-opened', drawerButtonId);
@@ -460,7 +459,6 @@ function _classCallCheck(e, t) {
               /* /Field label */
             }
             /* /Cart sidebar coupon */
-
             
             this.element.dispatchEvent(new CustomEvent("search:close", {
               bubbles: !0
