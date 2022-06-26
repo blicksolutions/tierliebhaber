@@ -58,6 +58,7 @@ $(document).ready(function () {
 
     setInterval(function() {
       const sidebarCart = $('#sidebar-cart');
+      const currencySymbol = $('body').attr('data-currency-symbol');
       
       const couponPercentage = sidebarCart.find('.Drawer__Footer__Coupon-percentage');
       
@@ -86,7 +87,7 @@ $(document).ready(function () {
       /* Total price */
       const totalPrice = $('.Drawer__Footer__Total > span');
       const totalPriceValue = subtotalNewPriceValue + deliveryPriceValue;
-      totalPrice.text($('body').attr('data-currency-symbol') + totalPriceValue.toFixed(2));
+      totalPrice.text(currencySymbol + totalPriceValue.toFixed(2));
       /* /Total price */
       
       /* Error */
