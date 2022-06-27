@@ -87,7 +87,7 @@ $(document).ready(function () {
           'subtotalOldPriceValue', subtotalOldPriceValue,
           'subtotalNewPriceValue', subtotalNewPriceValue
         );
-        couponPercentage.text('-' + Math.ceil(percentageValue) + '%');
+        couponPercentage.text('-' + Math.ceil(percentageValue.toFixed(4)) + '%');
       
       } else {
         couponPercentage.text('');
