@@ -72,6 +72,8 @@ $(document).ready(function () {
         const subtotalOldPriceValue = parseFloat(subtotalOldPrice.text().trim().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
 
         const percentageValue = (subtotalOldPriceValue - subtotalNewPriceValue) / subtotalOldPriceValue * 100;
+        
+        console.log('percentageValue', percentageValue);
         couponPercentage.text('-' + Math.ceil(percentageValue) + '%');
       
       } else {
