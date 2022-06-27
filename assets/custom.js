@@ -100,7 +100,7 @@ $(document).ready(function () {
       
       /* Delivery price */
       const deliveryPrice = $('.Drawer__Footer__Delivery > span');
-      const deliveryPriceValue = obj.strToPrice(deliveryPrice.text());
+      const deliveryPriceValue = obj.strToPrice(deliveryPrice.attr('data-price'));
       /* /Delivery price */
       
       /* Total price */
