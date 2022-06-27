@@ -62,7 +62,7 @@ $(document).ready(function () {
       
       const couponPercentage = sidebarCart.find('.Drawer__Footer__Coupon-percentage');
       
-      /* `Subtotal price */
+      /* Subtotal price */
       const subtotalOldPrice = sidebarCart.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > s > span.money');
       
       const subtotalNewPrice = sidebarCart.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
