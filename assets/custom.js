@@ -72,13 +72,13 @@ $(document).ready(function () {
       if (subtotalOldPrice.length) {
         subtotalOldPriceValue = parseFloat(subtotalOldPrice.text().trim().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
         
-//         const giftItem = sidebarCart.find('.CartItemWrapper[data-free-gift="true"]');
+        const giftItem = sidebarCart.find('.CartItemWrapper[data-free-gift="true"]');
         
-//         if (giftItem.length) {
-//           const giftItemPriceValue = parseFloat(giftItem.find('.CartItem__OriginalPrice').text().trim().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
-//           console.log('giftItemPriceValue', giftItemPriceValue);
-//           subtotalOldPriceValue -= giftItemPriceValue;
-//         }
+        if (giftItem.length) {
+          const giftItemPriceValue = parseFloat(giftItem.find('.CartItem__OriginalPrice').text().trim().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
+          console.log('giftItemPriceValue', giftItemPriceValue);
+          subtotalOldPriceValue -= giftItemPriceValue;
+        }
 
         const percentageValue = (subtotalOldPriceValue - subtotalNewPriceValue) / subtotalOldPriceValue * 100;
         
