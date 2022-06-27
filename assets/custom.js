@@ -73,7 +73,11 @@ $(document).ready(function () {
 
         const percentageValue = (subtotalOldPriceValue - subtotalNewPriceValue) / subtotalOldPriceValue * 100;
         
-        console.log('percentageValue', percentageValue);
+        console.log(
+          'percentageValue', percentageValue, 
+          'subtotalOldPriceValue', subtotalOldPriceValue,
+          'subtotalNewPriceValue', subtotalNewPriceValue
+        );
         couponPercentage.text('-' + Math.ceil(percentageValue) + '%');
       
       } else {
