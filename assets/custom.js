@@ -2,6 +2,16 @@
 $(document).ready(function () {
   const obj = function(){};
   
+  obj.priceToStr = function(price) {
+    const str = price.toFixed(2).replace(/\./, ',');
+    return str;
+  };
+  
+  obj.strToPrice = function(str) {
+    const price = parseFloat(str.trim().replace(/\./, '').replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
+    return price;
+  };
+  
   obj.cartSidebar = (function(){
     
     $(document).on('click', '#sidebar-cart .CartUpsells__ScrollBtn', function() {
@@ -66,27 +76,21 @@ $(document).ready(function () {
       const subtotalOldPrice = sidebarCart.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > s > span.money');
       
       const subtotalNewPrice = sidebarCart.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
-      const subtotalNewPriceValue = parseFloat(subtotalNewPrice.text().trim().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
+      const subtotalNewPriceValue = obj.strToPrice(subtotalNewPrice.text());
       let subtotalOldPriceValue;
 
       if (subtotalOldPrice.length) {
-        subtotalOldPriceValue = parseFloat(subtotalOldPrice.text().trim().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
+        subtotalOldPriceValue = obj.strToPrice(subtotalOldPrice.text());
         
         const giftItem = sidebarCart.find('.CartItemWrapper[data-free-gift="true"]');
         
         if (giftItem.length) {
-          const giftItemPriceValue = parseFloat(giftItem.find('.CartItem__OriginalPrice').text().trim().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
+          const giftItemPriceValue = obj.strToPrice(giftItem.find('.CartItem__OriginalPrice').text());
           console.log('giftItemPriceValue', giftItemPriceValue);
           subtotalOldPriceValue -= giftItemPriceValue;
         }
 
         const percentageValue = (subtotalOldPriceValue - subtotalNewPriceValue) / subtotalOldPriceValue * 100;
-        
-        console.log(
-          'percentageValue', percentageValue, 
-          'subtotalOldPriceValue', subtotalOldPriceValue,
-          'subtotalNewPriceValue', subtotalNewPriceValue
-        );
         couponPercentage.text('-' + Math.ceil(percentageValue.toFixed(4)) + '%');
       
       } else {
@@ -96,13 +100,13 @@ $(document).ready(function () {
       
       /* Delivery price */
       const deliveryPrice = $('.Drawer__Footer__Delivery > span');
-      const deliveryPriceValue = parseFloat(deliveryPrice.text().trim().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
+      const deliveryPriceValue = obj.strToPrice(deliveryPrice.text());
       /* /Delivery price */
       
       /* Total price */
       const totalPrice = $('.Drawer__Footer__Total > span');
       const totalPriceValue = subtotalNewPriceValue + deliveryPriceValue;
-      totalPrice.text(currencySymbol + totalPriceValue.toFixed(2).replace(/\./, ','));
+      totalPrice.text(obj.priceToStr(currencySymbol + totalPriceValue));
       /* /Total price */
       
       /* Error */
