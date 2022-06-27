@@ -157,7 +157,7 @@
           <div class="Drawer__Footer__Delivery">
             <small>{{ 'cart.general.delivery' | t }}</small> 
             <span data-price="{{ delivery_cost }}">
-              {%- if delivery_cost -%}
+              {%- if delivery_cost > 0 -%}
                 {{ delivery_cost | money_without_trailing_zeros }}
               {%- else -%}
                 {{ 'cart.sidebar.free_shipping' | t }}
