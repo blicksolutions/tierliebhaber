@@ -156,7 +156,7 @@
           <!-- Delivery -->
           <div class="Drawer__Footer__Delivery">
             <small>{{ 'cart.general.delivery' | t }}</small> 
-            <span data-price="{{ delivery_cost }}">
+            <span data-price="{{ delivery_cost | money_without_trailing_zeros }}">
               {%- if delivery_cost > 0 -%}
                 {{ delivery_cost | money_without_trailing_zeros }}
               {%- else -%}
