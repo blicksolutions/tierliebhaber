@@ -102,7 +102,7 @@ $(document).ready(function () {
       /* Total price */
       const totalPrice = $('.Drawer__Footer__Total > span');
       const totalPriceValue = subtotalNewPriceValue + deliveryPriceValue;
-//       totalPrice.text(currencySymbol + totalPriceValue.toFixed(2).replace(/\./, ','));
+      totalPrice.text(currencySymbol + totalPriceValue.toFixed(2).replace(/\./, ','));
       /* /Total price */
       
       /* Error */
