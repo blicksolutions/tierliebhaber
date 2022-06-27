@@ -4,7 +4,7 @@ $(document).ready(function () {
   
   obj.priceToStr = function(price) {
     const currencySymbol = $('body').attr('data-currency-symbol');
-    const str = currencySymbol + price.toFixed(2).replace(/\./, ',');
+    const str = currencySymbol + price.toFixed(2).replace(/\./, ',').replace(/^([0-9]+)([0-9]{3})\,/, '$1.$2,');
     return str;
   };
   
