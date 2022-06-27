@@ -1158,7 +1158,6 @@
       "cart-drawer": {
         "type": "cart-drawer",
         "settings": {
-          "message_text": "Noch 4€ bis zum kostenlosen Versand",
           "message_delivery_icon": "shopify:\/\/shop_images\/image_8.png",
           "message_gift_icon": "shopify:\/\/shop_images\/image_7.png",
           "upsell_title": "Deine perfekte Ergänzung:",
@@ -1206,7 +1205,7 @@
       },
       "59932080463680390": {
         "type": "shopify:\/\/apps\/dcart-discount-on-cart\/blocks\/app-embed\/731e2611-8bdf-4514-b5e4-f64f1cae3fb7",
-        "disabled": false,
+        "disabled": true,
         "settings": {
         }
       }
