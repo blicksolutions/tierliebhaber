@@ -39,7 +39,8 @@
           </div>
 
           {%- unless line_item.product.selected_or_first_available_variant -%}
-            {%- unless line_item.selected_or_first_available_variant.title == 'Default title' -%}
+            {%- assign variantTitle = line_item.selected_or_first_available_variant.title | downcase -%}
+            {%- unless variantTitle == 'default title' -%}
               <p class="CartItem__Variant">{{ line_item.selected_or_first_available_variant.title }}</p>
             {%- endunless -%}
           {%- endunless -%}
