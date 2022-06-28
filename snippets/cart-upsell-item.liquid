@@ -1,0 +1,78 @@
+{%- assign for_drawer = true -%}
+
+{%- if template == 'cart' or template == 'cart.ajax' -%}
+  {%- assign for_drawer = false -%}
+{%- endif -%}
+
+<div class="Cart__ItemList">
+  {%- unless for_drawer -%}
+    <div class="Cart__Head hidden-phone">
+      <span class="Cart__HeadItem Heading Text--subdued u-h7">{{ 'cart.items.product' | t }}</span>
+      <span class="Cart__HeadItem"></span>
+      <span class="Cart__HeadItem Heading Text--subdued u-h7" style="text-align: center">{{ 'cart.items.quantity' | t }}</span>
+      <span class="Cart__HeadItem Heading Text--subdued u-h7" style="text-align: right">{{ 'cart.items.total' | t }}</span>
+    </div>
+  {%- endunless -%}
+
+    {%- if for_drawer -%}
+      <div class="CartItemWrapper">
+    {%- endif -%}
+
+    <div class="CartItem">
+      <div class="CartItem__ImageWrapper AspectRatio">
+        <div class="AspectRatio" style="--aspect-ratio: {{ line_item.media[0].image.aspect_ratio }}">
+          <img class="CartItem__Image" src="{{ line_item.media[0].preview_image | img_url: '240x' }}" alt="{{ line_item.media[0].alt | escape }}">
+        </div>
+      </div>
+
+      <div class="CartItem__Info">
+        <h2 class="CartItem__Title Heading">
+          <a href="{{ line_item.url }}">
+            {{ line_item.title }}
+          </a>
+        </h2>
+
+        <div class="CartItem__Meta Heading Text--subdued">
+          
+          <div class="CartItem__PriceList">
+            <span class="CartItem__Price Price">{{ line_item.price | money_without_trailing_zeros }}</span>
+          </div>
+
+          {%- unless line_item.product.selected_or_first_available_variant -%}
+            <p class="CartItem__Variant">{{ line_item.selected_or_first_available_variant.title }}</p>
+          {%- endunless -%}
+
+        </div>
+
+        {%- capture item_actions -%}
+          <div class="CartItem__Actions Heading Text--subdued" style="text-align: center">
+            <button type="button" 
+                    class="Button Button--secondary CartItem__Actions__UpsellBtn"
+                    data-product-id="{{ line_item.id }}"
+                    data-variant-id="{{ line_item.selected_or_first_available_variant.id }}">
+              {{ 'cart.sidebar.upsell.add' | t }}
+            </button>
+          </div>
+        {%- endcapture -%}
+
+        {{ item_actions }}
+      </div>
+
+      {%- unless for_drawer -%}
+        {{ item_actions }}
+
+        <div class="CartItem__LinePriceList Heading Text--subdued" style="text-align: right">
+          {%- if line_item.original_line_price != line_item.final_line_price -%}
+            <span class="CartItem__Price Price Price--highlight">{{ line_item.final_line_price | money_without_trailing_zeros }}</span>
+            <span class="CartItem__Price Price Price--compareAt">{{ line_item.original_line_price | money_without_trailing_zeros }}</span>
+          {%- else -%}
+            <span class="CartItem__Price Price">{{ line_item.final_line_price | money_without_trailing_zeros }}</span>
+          {%- endif -%}
+        </div>
+      {%- endunless -%}
+    </div>
+
+    {%- if for_drawer -%}
+      </div>
+    {%- endif -%}
+</div>

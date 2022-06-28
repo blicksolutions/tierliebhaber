@@ -188,7 +188,10 @@
     {%- assign classes = classes | append: ' features--show-element-staggering' -%}
   {%- endif -%}
 
-  <body class="prestige--v4 {{ classes }} {% if template.directory %}template-{{ template.directory | handle }}{% endif %} template-{{ template.name | handle }}">
+  {%- assign shopCurrencySymbol = 100 | money | replace: '1.00' | replace: '1,00' -%}
+  
+  <body class="prestige--v4 {{ classes }} {% if template.directory %}template-{{ template.directory | handle }}{% endif %} template-{{ template.name | handle }}"
+        data-currency-symbol="{{ shopCurrencySymbol }}">
     <a class="PageSkipLink u-visually-hidden" href="#main">{{ 'header.navigation.skip_to_content' | t }}</a>
     <span class="LoadingBar"></span>
     <div class="PageOverlay"></div>
@@ -201,7 +204,7 @@
     {% section 'sidebar-menu' %}
 
     {%- if template != 'cart' -%}
-      {% render 'cart-drawer' %}
+      {% section 'cart-drawer' %}
     {%- endif -%}
 
     <div class="PageContainer">

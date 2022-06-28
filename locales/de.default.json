@@ -267,6 +267,17 @@
     }
   },
   "cart": {
+    "sidebar": {
+      "coupon": {
+        "title": "Du hast einen Rabattcode?",
+        "field": "Rabattcode",
+        "button": "Einlösen"
+      },
+      "free_shipping": "kostenlos",
+      "upsell": {
+        "add": "Hinzufügen"
+      }
+    },
     "general": {
       "title": "Warenkorb",
       "empty": "Dein Warenkorb ist leer",
@@ -279,8 +290,10 @@
       "free_shipping_remaining_html": "Kaufe für zusätzliche {{remaining_amount}} um kostenlosen Versand zu erhalten!",
       "shipping_and_taxes_notice": "Versand & Steuern im Checkout berechnet",
       "discount": "Rabatt",
+      "subtotal": "Zwischensumme",
+      "delivery": "Versandkosten",
       "total": "Gesamt",
-      "checkout": "Zum Checkout"
+      "checkout": "Sicher zur Kasse"
     },
     "items": {
       "product": "Produkt",
