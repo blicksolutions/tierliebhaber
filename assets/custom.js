@@ -109,6 +109,8 @@ $(document).ready(function () {
       totalPrice.text(obj.priceToStr(totalPriceValue));
       /* /Total price */
       
+      console.log('subtotalOldPriceValue', subtotalOldPriceValue, 'deliveryPriceValue', deliveryPriceValue, 'totalPriceValue', totalPriceValue);
+      
       /* Error */
       const couponError = sidebarCart.find('.scDiscount__container .scError');
       
