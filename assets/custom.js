@@ -111,7 +111,10 @@ $(document).ready(function () {
       /* Total price */
       const totalPrice = $('.Drawer__Footer__Total > span');
       const totalPriceValue = subtotalPriceValue + deliveryPriceValue;
-      totalPrice.text(obj.priceToStr(totalPriceValue));
+      
+      if (totalPriceValue > 1) {
+        totalPrice.text(obj.priceToStr(totalPriceValue));
+      }
       /* /Total price */
       
       console.log('subtotalOldPrice', subtotalOldPrice.length, 'subtotalNewPrice', subtotalNewPrice.length);
