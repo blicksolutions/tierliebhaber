@@ -1159,12 +1159,15 @@
         "settings": {
           "message_delivery_text": "Noch %price% bis zum kostenlosen Versand",
           "message_gift_text": "Noch %price% bis zum Geschenk",
-          "message_final_text": "Glückwunsch: du erhältst ein Geschenk!",
+          "message_final_text": "Glückwunsch: du erhältst ein Geschenk! 🎁",
+          "message_delivery_icon": "shopify:\/\/shop_images\/image_8.png",
+          "message_gift_icon": "shopify:\/\/shop_images\/image_7.png",
           "upsell_title": "Probier´s doch mal:",
           "upsell_items": [
             "kokos-schwarzkuemmel-shampoo",
             "pfoten-nasenbalsam"
-          ]
+          ],
+          "payment_image": "shopify:\/\/shop_images\/Bildschirmfoto_2022-05-14_um_19.25_1_1.png"
         }
       }
     },
