@@ -70,7 +70,7 @@ $(document).ready(function () {
     setInterval(function() {
       const sidebarCart = $('#sidebar-cart');
       
-      console.log('old price __');
+      console.log('__');
       
       const couponPercentage = sidebarCart.find('.Drawer__Footer__Coupon-percentage');
       
@@ -81,15 +81,6 @@ $(document).ready(function () {
       const subtotalNewPriceValue = obj.strToPrice(subtotalNewPrice.text());
       let subtotalOldPriceValue;
 
-      if (subtotalOldPrice.length) {
-        subtotalOldPriceValue = obj.strToPrice(subtotalOldPrice.text());
-        console.log('old price found');
-        
-      } else {
-        subtotalOldPriceValue = obj.strToPrice(subtotalNewPrice.text());
-        console.log('old price not found');
-      }
-      
       if (subtotalOldPrice.length) {
         subtotalOldPriceValue = obj.strToPrice(subtotalOldPrice.text());
         
@@ -119,6 +110,8 @@ $(document).ready(function () {
       const totalPriceValue = subtotalNewPriceValue + deliveryPriceValue;
       totalPrice.text(obj.priceToStr(totalPriceValue));
       /* /Total price */
+      
+      console.log('subtotalOldPrice', subtotalOldPrice.length, 'subtotalNewPrice', subtotalNewPrice.length);
       
       console.log('subtotalOldPriceValue', subtotalOldPriceValue, 'deliveryPriceValue', deliveryPriceValue, 'totalPriceValue', totalPriceValue);
       
