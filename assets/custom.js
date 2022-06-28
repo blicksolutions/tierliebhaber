@@ -77,23 +77,26 @@ $(document).ready(function () {
       
       const subtotalNewPrice = sidebarCart.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
       const subtotalNewPriceValue = obj.strToPrice(subtotalNewPrice.text());
+      let subtotalPriceValue;
+      
       let subtotalOldPriceValue;
 
       if (subtotalOldPrice.length) {
         subtotalOldPriceValue = obj.strToPrice(subtotalOldPrice.text());
+        subtotalPriceValue = subtotalOldPriceValue;
         
         const giftItem = sidebarCart.find('.CartItemWrapper[data-free-gift="true"]');
         
         if (giftItem.length) {
           const giftItemPriceValue = obj.strToPrice(giftItem.find('.CartItem__OriginalPrice').text());
-          console.log('giftItemPriceValue', giftItemPriceValue);
           subtotalOldPriceValue -= giftItemPriceValue;
         }
 
         const percentageValue = (subtotalOldPriceValue - subtotalNewPriceValue) / subtotalOldPriceValue * 100;
         couponPercentage.text('-' + Math.ceil(percentageValue.toFixed(4)) + '%');
-      
+        
       } else {
+        subtotalPriceValue = subtotalNewPriceValue;
         couponPercentage.text('');
       }
       /* /Subtotal price */
@@ -105,8 +108,11 @@ $(document).ready(function () {
       
       /* Total price */
       const totalPrice = $('.Drawer__Footer__Total > span');
-      const totalPriceValue = subtotalNewPriceValue + deliveryPriceValue;
-      totalPrice.text(obj.priceToStr(totalPriceValue));
+      const totalPriceValue = subtotalPriceValue + deliveryPriceValue;
+      
+      if (totalPriceValue > 1) {
+        totalPrice.text(obj.priceToStr(totalPriceValue));
+      }
       /* /Total price */
       
       /* Error */
