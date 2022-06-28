@@ -58,8 +58,7 @@
           "secondary_menu": "",
           "show_social_media": true,
           "cart_sidebar_upsell_products": [
-            "tl0002-cs3",
-            "tl0002-cs2-10"
+
           ]
         }
       },
@@ -1160,15 +1159,12 @@
         "settings": {
           "message_delivery_text": "Noch %price% bis zum kostenlosen Versand",
           "message_gift_text": "Noch %price% bis zum Geschenk",
-          "message_final_text": "Glückwunsch: du erhältst ein Geschenk! 🎁",
-          "message_delivery_icon": "shopify:\/\/shop_images\/image_8.png",
-          "message_gift_icon": "shopify:\/\/shop_images\/image_7.png",
+          "message_final_text": "Glückwunsch: du erhältst ein Geschenk!",
           "upsell_title": "Probier´s doch mal:",
           "upsell_items": [
-            "kokos-schwarzkummel-shampoo-blog",
+            "kokos-schwarzkuemmel-shampoo",
             "pfoten-nasenbalsam"
-          ],
-          "payment_image": "shopify:\/\/shop_images\/Bildschirmfoto_2022-05-14_um_19.25_1_1.png"
+          ]
         }
       }
     },
@@ -1204,12 +1200,6 @@
         "disabled": true,
         "settings": {
           "position": "left"
-        }
-      },
-      "59932080463680390": {
-        "type": "shopify:\/\/apps\/dcart-discount-on-cart\/blocks\/app-embed\/731e2611-8bdf-4514-b5e4-f64f1cae3fb7",
-        "disabled": false,
-        "settings": {
         }
       }
     }
