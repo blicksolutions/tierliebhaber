@@ -2223,6 +2223,7 @@ function _classCallCheck(e, t) {
           var i = this;
           
           const cartSidebar = $('#sidebar-cart');
+          console.log('_addBgItem');
           
           const giftItemId = cartSidebar.attr('data-gift-item-id');
           const giftItemVariantId = cartSidebar.attr('data-gift-variant-id');
@@ -2268,7 +2269,8 @@ function _classCallCheck(e, t) {
           var i = this;
           
           const cartSidebar = $('#sidebar-cart');
-          
+          console.log('_removeBgItem');
+            
           const giftItemId = cartSidebar.attr('data-gift-item-id');
           const giftItemVariantId = cartSidebar.attr('data-gift-variant-id');
           
