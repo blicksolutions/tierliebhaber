@@ -106,6 +106,8 @@ $(document).ready(function () {
       }
       /* /Subtotal price */
       
+      console.log('subtotalOldPriceValue', subtotalOldPriceValue);
+      
       /* Delivery price */
       const deliveryPrice = $('.Drawer__Footer__Delivery > span');
       const deliveryPriceValue = obj.strToPrice(deliveryPrice.attr('data-price'));
