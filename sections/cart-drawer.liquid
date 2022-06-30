@@ -157,7 +157,7 @@
           <div class="Drawer__Footer__Delivery">
             <small>{{ 'cart.general.delivery' | t }}</small> 
             <span data-freeshipping-text="{{ 'cart.sidebar.free_shipping' | t }}"
-                  data-shipping-price="{{ threshold_in_cents | divided_by: 10 | money }}"
+                  data-delivery-price="{{ threshold_in_cents | divided_by: 10 | money }}"
                   data-mintotal-price="{{ threshold_in_cents | divided_by: 10 | money }}">
               {%- if delivery_cost > 0 -%}
                 {{ delivery_cost | money }}
