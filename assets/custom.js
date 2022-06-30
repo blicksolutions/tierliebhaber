@@ -41,6 +41,8 @@ $(document).ready(function () {
       } else {
         sidebarCart.classList.remove('Drawer__Footer__CouponActive');
       }
+      
+      console.log('sidebarCart.classList', sidebarCart.classList);
     });
 
     $(document).on('click', '#sidebar-cart .CartItem__Actions__UpsellBtn', function() {
