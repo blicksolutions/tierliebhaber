@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 //       const btn = $(this);
 //       btn.prop('disabled', true);
 //     });
+      console.log('coupon title', cartSidebarSettings.coupon.title);
     
     cartSidebarSettings.coupon.title.addEventListener('click', function() {
       console.log('coupon title');
