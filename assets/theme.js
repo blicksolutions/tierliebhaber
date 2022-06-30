@@ -2228,7 +2228,7 @@ function _classCallCheck(e, t) {
           const giftItemId = cartSidebar.attr('data-gift-item-id');
           console.log('giftItemId', giftItemId, 'giftItemVariantId', giftItemVariantId);
           
-          if ($('body.template-product').length && $('form.ProductForm[data-productid="' + giftItemId + '"]')) {
+          if ($('body.template-product').length && $('form.ProductForm[data-productid="' + giftItemId + '"]').length) {
             console.log('gift page');
             /* Gift page */
 
@@ -2276,7 +2276,7 @@ function _classCallCheck(e, t) {
           
           console.log('giftItemId', giftItemId, 'giftItemVariantId', giftItemVariantId);
           
-          if ($('body.template-product').length && $('form.ProductForm[data-productid="' + giftItemId + '"]')) {
+          if ($('body.template-product').length && $('form.ProductForm[data-productid="' + giftItemId + '"]').length) {
             /* Gift page */
             console.log('gift page');
             
