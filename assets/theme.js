@@ -2337,7 +2337,10 @@ function _classCallCheck(e, t) {
           }
 
           const cartSidebarLine = document.querySelector('.CartMessage__StepsLines__Active');
-          cartSidebarLine.style.width = cartSidebarPercentage + '%';
+          
+          if (cartSidebarLine) {
+            cartSidebarLine.style.width = cartSidebarPercentage + '%';
+          }
         }
       }]), e
     }();
