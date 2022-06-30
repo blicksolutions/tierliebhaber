@@ -88,6 +88,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
       }
     });
     
+    if (1 === 3) {
+    
     $(document).on('click', '#sidebar-cart .Drawer__Footer .sc_simple-info .sc-tag', function() {
       const field = document.querySelector('#sidebar-cart .Drawer__Footer .scDiscount input[type="text"]');
       field.classList.remove('active');
@@ -114,6 +116,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         field.classList.add('active');
       }
     });
+    }
 
     setInterval(function() {
       const couponPercentage = document.querySelector('#sidebar-cart .Drawer__Footer__Coupon-percentage');
