@@ -76,6 +76,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
       }
     });
     
+    delegate(document, 'click', '#sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon-title', function(e) {
+      console.log('coupon title');
+    });
+    
 //     $(document).on('click', '#sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon-title', function() {
 //       const sidebarCart = document.querySelector('#sidebar-cart');
       
@@ -102,6 +106,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
       if (e.target && e.target.id == 'brnPrepend') {
         //do something
       }
+    });
+    
+    
+    delegate(document, 'click', '#sidebar-cart .Drawer__Footer .sc_simple-info .sc-tag', function(e) {
+      console.log('tag click');
     });
     
     if (1 === 3) {
