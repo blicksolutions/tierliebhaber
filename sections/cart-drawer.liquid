@@ -17,7 +17,7 @@
   </div>
 
   <form class="Cart Drawer__Content" action="{{ routes.cart_url }}" method="POST" novalidate>
-    <div class="Drawer__Main" data-scrollable data-gift-item-id="{{ section.settings.gift_item | json }}">
+    <div class="Drawer__Main" data-scrollable data-gift-item-id="{{ section.settings.gift_item | json }} {{ section.settings.gift_item.title }} {{ section.settings.gift_item.product.title }}">
       {%- if settings.cart_show_free_shipping_threshold -%}
         {%- assign threshold_in_cents = settings.cart_free_shipping_threshold | times: 100 -%}
         {%- assign contains_free_shipping_variant = false -%}
