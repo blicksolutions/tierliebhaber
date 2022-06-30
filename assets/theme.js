@@ -2343,13 +2343,13 @@ function _classCallCheck(e, t) {
 
             if (giftItemToRemove.length) {
               cartSidebarTotalPriceValue -= parseInt(giftItemToRemove.attr('data-price') / 100);
-              this._removeBgItem();
+//               this._removeBgItem();
 
             } else {
               const giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
 
               if (!giftItem.length && cartSidebarTotalPriceValue >= 60) {
-                this._addBgItem();
+//                 this._addBgItem();
               }
             }
           }
