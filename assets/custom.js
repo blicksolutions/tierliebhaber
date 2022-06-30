@@ -1,7 +1,4 @@
 /* Cart sidebar coupon */
-
-if (1 === 3) {
-
 $(document).ready(function () {
   const obj = function(){};
   
@@ -149,5 +146,4 @@ $(document).ready(function () {
     
   })();
 });
-}
 /* /Cart sidebar coupon */
