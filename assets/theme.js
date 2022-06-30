@@ -2272,6 +2272,8 @@ function _classCallCheck(e, t) {
           const giftItemVariantId = cartSidebar.attr('data-gift-variant-id');
           const giftItemId = cartSidebar.attr('data-gift-item-id');
           
+          console.log('giftItemId', giftItemId, 'giftItemVariantId', giftItemVariantId);
+          
           if ($('body.template-product').length && $('form.ProductForm[data-productid="' + giftItemId + '"]')) {
             /* Upsell page */
             
