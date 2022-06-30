@@ -58,15 +58,15 @@ $(document).ready(function () {
 
       if (!fieldLabel.length) {
         field.after(
-          '<label>' + field.attr('placeholder') + '</label>'
+          '<label>' + field.getAttribute('placeholder') + '</label>'
         );
       }
 
-      if (field.val().trim().length) {
-        field.addClass('active');
+      if (field.value.trim().length) {
+        field.classList.add('active');
 
       } else {
-        field.removeClass('active');
+        field.classList.add('active');
       }
     });
 
