@@ -39,7 +39,7 @@ $(document).ready(function () {
         sidebarCart.classList.add('Drawer__Footer__CouponActive');
 
       } else {
-        sidebarCart.classList.add('Drawer__Footer__CouponActive');
+        sidebarCart.classList.remove('Drawer__Footer__CouponActive');
       }
     });
 
