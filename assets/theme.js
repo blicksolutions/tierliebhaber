@@ -2267,7 +2267,7 @@ function _classCallCheck(e, t) {
           if ($('body.template-product').length && $('form.ProductForm[data-productid="' + giftItemId + '"]')) {
             
             
-          } else {
+          } else if (1 === 4) {
             const cartSidebar = $('#sidebar-cart');
 
             let giftItemToRemove = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:not([data-free-gift]):first');
