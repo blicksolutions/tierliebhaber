@@ -30,8 +30,6 @@ $(document).ready(function () {
     });
     
     $(document).on('click', '#sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon-title', function() {
-      console.log('click');
-      
       const sidebarCart = document.querySelector('#sidebar-cart');
       
       if (!sidebarCart.classList.contains('Drawer__Footer__CouponActive')) {
@@ -40,8 +38,6 @@ $(document).ready(function () {
       } else {
         sidebarCart.classList.remove('Drawer__Footer__CouponActive');
       }
-      
-      console.log('sidebarCart.classList', sidebarCart.classList);
     });
 
     $(document).on('click', '#sidebar-cart .CartItem__Actions__UpsellBtn', function() {
