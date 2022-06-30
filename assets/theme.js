@@ -2225,7 +2225,6 @@ function _classCallCheck(e, t) {
           const cartSidebar = $('#sidebar-cart');
           
           const giftItemVariantId = $('#sidebar-cart').attr('data-gift-variant-id');
-          console.log('giftItemVariantId', giftItemVariantId, 'item id', $('#sidebar-cart').attr('data-gift-id'));
           let giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
           
           if (!giftItem.length) {
@@ -2261,33 +2260,40 @@ function _classCallCheck(e, t) {
         value: function() {
           var i = this;
           
-          const cartSidebar = $('#sidebar-cart');
-          
           const giftItemVariantId = $('#sidebar-cart').attr('data-gift-variant-id');
-          console.log('giftItemVariantId', giftItemVariantId, 'item id', $('#sidebar-cart').attr('data-gift-id'));
-          let giftItemToRemove = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:not([data-free-gift]):first');
+          const giftItemId = $('#sidebar-cart').attr('data-gift-item-id');
+          console.log('giftItemVariantId', giftItemVariantId, 'giftItemId', giftItemId);
           
-          if (giftItemToRemove.length) {
-            const giftItemI = giftItemToRemove.attr('data-index');
-            giftItemToRemove.hide();
+          if ($('body.template-product').length && $('form.ProductForm[data-productid="' + giftItemId + '"]')) {
+            
+            
+          } else {
+            const cartSidebar = $('#sidebar-cart');
 
-            fetch(window.routes.cartUrl + "/change.js", {
-              body: JSON.stringify({
-                line: giftItemI,
-                quantity: 0
-              }),
-              credentials: "same-origin",
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                "X-Requested-With": "XMLHttpRequest"
-              }
-            }).then((function(e) {
-              e.json().then((function(e) {
-//                 console.log('free gift is removed');
-                i._rerenderCart();
-              }))
-            }));
+            let giftItemToRemove = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:not([data-free-gift]):first');
+
+            if (giftItemToRemove.length) {
+              const giftItemI = giftItemToRemove.attr('data-index');
+              giftItemToRemove.hide();
+
+              fetch(window.routes.cartUrl + "/change.js", {
+                body: JSON.stringify({
+                  line: giftItemI,
+                  quantity: 0
+                }),
+                credentials: "same-origin",
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  "X-Requested-With": "XMLHttpRequest"
+                }
+              }).then((function(e) {
+                e.json().then((function(e) {
+                  //                 console.log('free gift is removed');
+                  i._rerenderCart();
+                }))
+              }));
+            }
           }
         }
       }, {
