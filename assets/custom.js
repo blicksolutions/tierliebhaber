@@ -113,12 +113,12 @@ $(document).ready(function () {
       
       if (subtotalPriceValue > 39) {
         const freeShippingText = deliveryPrice.attr('data-freeshipping-text');
-        const deliveryPrice = 0;
+        const deliveryPriceValue = 0;
         deliveryPrice.text(freeShippingText);
         
       } else {
         const deliveryCostText = deliveryPrice.attr('data-shipping-price');
-        const deliveryPrice = obj.strToPrice(deliveryCostText);
+        const deliveryPriceValue = obj.strToPrice(deliveryCostText);
         deliveryPrice.text(deliveryCostText);
       }
       /* /Delivery price */
