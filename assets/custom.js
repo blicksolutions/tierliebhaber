@@ -112,8 +112,6 @@ $(document).ready(function () {
       const deliveryPrice = $('.Drawer__Footer__Delivery > span');
       let deliveryPriceValue;
       
-      subtotalPriceValue = 38;
-      
       if (subtotalPriceValue > 39) {
         const freeShippingText = deliveryPrice.attr('data-freeshipping-text');
         deliveryPriceValue = 0;
