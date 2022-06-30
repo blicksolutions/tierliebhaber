@@ -14,36 +14,58 @@ $(document).ready(function () {
   };
   
   obj.cartSidebar = (function(){
+    const cartSidebarSettings = {
+      sidebar: document.querySelector('#sidebar-cart'),
+      scrollButton: document.querySelector('#sidebar-cart .CartUpsells__ScrollBtn'),
+      upsells: {
+        buttons: document.querySelectorAll('#sidebar-cart .CartItem__Actions__UpsellBtn')
+      },
+      coupon: {
+        title: document.querySelector('#sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon-title')
+      }
+    };
     
-    $(document).on('click', '#sidebar-cart .CartUpsells__ScrollBtn', function() {
-      const btn = $(this);
-      btn.removeClass('Visible');
+    cartSidebarSettings.scrollButton.addEventListener('click', function() {
+      cartSidebarSettings.scrollButton.classList.remove('Visible');
       
-      $('#sidebar-cart .Drawer__Main').animate({
-        scrollTop: 1000
-      }, 2000);
-    });
-
-    $(document).on('click', '#sidebar-cart .CartItem__Actions__UpsellBtn', function() {
-      const btn = $(this);
-      btn.prop('disabled', true);
+//       $('#sidebar-cart .Drawer__Main').animate({
+//         scrollTop: 1000
+//       }, 2000);
     });
     
-    $(document).on('click', '#sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon-title', function() {
-      const sidebarCart = document.querySelector('#sidebar-cart');
+    for (var i = 0; i < cartSidebarSettings.upsells.buttons.length; i++) {
       
-      if (!sidebarCart.classList.contains('Drawer__Footer__CouponActive')) {
-        sidebarCart.classList.add('Drawer__Footer__CouponActive');
+      cartSidebarSettings.upsells.buttons.addEventListener('click', function() {
+        let upsellBtn = cartSidebarSettings.upsells.buttons[i];
+        upsellBtn.disabled = true;
+      });
+    }
+    
+//     $(document).on('click', '#sidebar-cart .CartItem__Actions__UpsellBtn', function() {
+//       const btn = $(this);
+//       btn.prop('disabled', true);
+//     });
+    
+    cartSidebarSettings.coupon.title.addEventListener('click', function() {
+      
+      if (!cartSidebarSettings.sidebarCart.classList.contains('Drawer__Footer__CouponActive')) {
+        cartSidebarSettings.sidebarCart.classList.add('Drawer__Footer__CouponActive');
 
       } else {
-        sidebarCart.classList.remove('Drawer__Footer__CouponActive');
+        cartSidebarSettings.sidebarCart.classList.remove('Drawer__Footer__CouponActive');
       }
     });
+    
+//     $(document).on('click', '#sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon-title', function() {
+//       const sidebarCart = document.querySelector('#sidebar-cart');
+      
+//       if (!cartSidebarSettings.sidebarCart.classList.contains('Drawer__Footer__CouponActive')) {
+//         cartSidebarSettings.sidebarCart.classList.add('Drawer__Footer__CouponActive');
 
-    $(document).on('click', '#sidebar-cart .CartItem__Actions__UpsellBtn', function() {
-      const btn = $(this);
-      btn.prop('disabled', true);
-    });
+//       } else {
+//         cartSidebarSettings.sidebarCart.classList.remove('Drawer__Footer__CouponActive');
+//       }
+//     });
 
     /* Remove discount */
     $(document).on('click', '#sidebar-cart .Drawer__Footer .sc_simple-info .sc-tag', function() {
@@ -74,8 +96,6 @@ $(document).ready(function () {
     });
 
     setInterval(function() {
-      const sidebarCart = $('#sidebar-cart');
-      
       const couponPercentage = document.querySelector('#sidebar-cart .Drawer__Footer__Coupon-percentage');
       
       /* Subtotal price */
