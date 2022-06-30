@@ -14,6 +14,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
   };
   
   obj.cartSidebar = function(){
+    console.log('cartSidebar');
+    
     const cartSidebarSettings = {
       sidebar: document.querySelector('#sidebar-cart'),
       scrollButton: document.querySelector('#sidebar-cart .CartUpsells__ScrollBtn'),
