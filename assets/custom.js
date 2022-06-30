@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       percentage.innerHTML = '';
     });
     
-    delegate(document, 'change keyup', '#sidebar-cart .Drawer__Footer .sc_simple-info .sc-tag', function(e) {
+    delegate(document, 'change keyup', '#sidebar-cart .Drawer__Footer .scDiscount input[type="text"]', function(e) {
       let field = e;
       let fieldLabel = field.parentNode.querySelector('label');
           
