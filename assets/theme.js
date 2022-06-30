@@ -2222,16 +2222,14 @@ function _classCallCheck(e, t) {
         value: function() {
           var i = this;
           
-          const cartSidebar = $('#sidebar-cart');
-          
           const giftItemVariantId = 41322345496735;
-          let giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
+          let giftItem = document.querySelector('#sidebar-cart .CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
           
-          if (!giftItem.length) {
-            giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:first');
+          if (!giftItem) {
+            giftItem = document.querySelector('#sidebar-cart .CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:first');
           }
           
-          if (!giftItem.length) {
+          if (!giftItem) {
             
             fetch(window.routes.cartUrl + "/add.js", {
               body: JSON.stringify({
@@ -2260,14 +2258,12 @@ function _classCallCheck(e, t) {
         value: function() {
           var i = this;
           
-          const cartSidebar = $('#sidebar-cart');
-          
           const giftItemVariantId = 41322345496735;
-          let giftItemToRemove = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:not([data-free-gift]):first');
+          let giftItemToRemove = document.querySelector('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:not([data-free-gift]):first');
           
-          if (giftItemToRemove.length) {
-            const giftItemI = giftItemToRemove.attr('data-index');
-            giftItemToRemove.hide();
+          if (giftItemToRemove) {
+            const giftItemI = giftItemToRemove.getAttribute('data-index');
+            giftItemToRemove.style.display = 'none';;
 
             fetch(window.routes.cartUrl + "/change.js", {
               body: JSON.stringify({
@@ -2311,19 +2307,18 @@ function _classCallCheck(e, t) {
           
           const maxPriceValue = 71.48934;
           
-          const cartSidebar = $('#sidebar-cart');
-          const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
-          let cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.text().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
+          const cartSidebarTotalPrice = document.querySelector('#sidebar-cart .Drawer__Footer__SubtotalPrice');
+          let cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.innerHTML.replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
           
           const giftItemVariantId = 41322345496735;
-          const giftItemToRemove = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:not([data-free-gift]):first');
+          const giftItemToRemove = document.querySelector('#sidebar-cart .CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:not([data-free-gift]):first');
           
           if (giftItemToRemove.length) {
-            cartSidebarTotalPriceValue -= parseInt(giftItemToRemove.attr('data-price') / 100);
+            cartSidebarTotalPriceValue -= parseInt(giftItemToRemove.getAttribute('data-price') / 100);
             this._removeBgItem();
             
           } else {
-            const giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
+            const giftItem = document.querySelector('#sidebar-cart .CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
             
             if (!giftItem.length && cartSidebarTotalPriceValue >= 60) {
               this._addBgItem();
