@@ -2320,7 +2320,7 @@ function _classCallCheck(e, t) {
           } else {
             const giftItem = document.querySelector('#sidebar-cart .CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
             
-            if (!giftItem.length && cartSidebarTotalPriceValue >= 60) {
+            if (!giftItem && cartSidebarTotalPriceValue >= 60) {
               this._addBgItem();
             }
           }
