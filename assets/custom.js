@@ -77,28 +77,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
     });
     
     delegate(document, 'click', '#sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon-title', function(e) {
-      console.log('coupon title');
-    });
-    
-//     $(document).on('click', '#sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon-title', function() {
-//       const sidebarCart = document.querySelector('#sidebar-cart');
       
-//       if (!cartSidebarSettings.sidebarCart.classList.contains('Drawer__Footer__CouponActive')) {
-//         cartSidebarSettings.sidebarCart.classList.add('Drawer__Footer__CouponActive');
+      if (!cartSidebarSettings.sidebarCart.classList.contains('Drawer__Footer__CouponActive')) {
+        cartSidebarSettings.sidebarCart.classList.add('Drawer__Footer__CouponActive');
 
-//       } else {
-//         cartSidebarSettings.sidebarCart.classList.remove('Drawer__Footer__CouponActive');
-//       }
-//     });
-
-    
-    
-    
-    
-    
-    
-    
-    
+      } else {
+        cartSidebarSettings.sidebarCart.classList.remove('Drawer__Footer__CouponActive');
+      }
+    });
     
     /* Remove discount */
     document.addEventListener('click', function(e) {
