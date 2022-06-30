@@ -2262,7 +2262,7 @@ function _classCallCheck(e, t) {
           
           const cartSidebar = $('#sidebar-cart');
           
-          const giftItemVariantId = $('#sidebar-cart').attr('data-gift-item-variant-id');
+          const giftItemVariantId = $('#sidebar-cart').attr('data-gift-variant-id');
           let giftItemToRemove = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:not([data-free-gift]):first');
           
           if (giftItemToRemove.length) {
