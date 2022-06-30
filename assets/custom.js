@@ -86,7 +86,7 @@ $(document).ready(function () {
       const subtotalOldPrice = document.querySelector('#sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalPrice > s > span.money');
       
       const subtotalNewPrice = document.querySelector('#sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
-      const subtotalNewPriceValue = obj.strToPrice(subtotalNewPrice.text());
+      const subtotalNewPriceValue = obj.strToPrice(subtotalNewPrice.innerHTML);
       let subtotalPriceValue;
       
       let subtotalOldPriceValue;
