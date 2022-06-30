@@ -91,7 +91,7 @@ $(document).ready(function () {
       
       let subtotalOldPriceValue;
 
-      if (subtotalOldPrice.length) {
+      if (subtotalOldPrice) {
         subtotalOldPriceValue = obj.strToPrice(subtotalOldPrice.innerHTML);
         subtotalPriceValue = subtotalOldPriceValue;
         
