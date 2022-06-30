@@ -6,7 +6,7 @@ $(document).ready(function () {
   const obj = function(){};
   
   obj.priceToStr = function(price) {
-    const currencySymbol = $('body').attr('data-currency-symbol');
+    const currencySymbol = document.body.getAttribute('data-currency-symbol');
     const str = currencySymbol + price.toFixed(2).replace(/\./, ',').replace(/^([0-9]+)([0-9]{3})\,/, '$1.$2,');
     return str;
   };
@@ -44,11 +44,11 @@ $(document).ready(function () {
 
     /* Remove discount */
     $(document).on('click', '#sidebar-cart .Drawer__Footer .sc_simple-info .sc-tag', function() {
-      const field = $('#sidebar-cart .Drawer__Footer .scDiscount input[type="text"]');
-      field.removeClass('active');
+      const field = document.querySelector('#sidebar-cart .Drawer__Footer .scDiscount input[type="text"]');
+      field.classList.remove('active');
 
-      const percentage = $('.Drawer__Footer__Coupon-percentage');
-      percentage.text('');
+      const percentage = document.querySelector('.Drawer__Footer__Coupon-percentage');
+      percentage.innerHTML = '';
     });
 
     $(document).on('change keyup', '#sidebar-cart .Drawer__Footer .scDiscount input[type="text"]', function() {
@@ -73,25 +73,25 @@ $(document).ready(function () {
     setInterval(function() {
       const sidebarCart = $('#sidebar-cart');
       
-      const couponPercentage = sidebarCart.find('.Drawer__Footer__Coupon-percentage');
+      const couponPercentage = document.querySelector('#sidebar-cart .Drawer__Footer__Coupon-percentage');
       
       /* Subtotal price */
-      const subtotalOldPrice = sidebarCart.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > s > span.money');
+      const subtotalOldPrice = document.querySelector('#sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalPrice > s > span.money');
       
-      const subtotalNewPrice = sidebarCart.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
+      const subtotalNewPrice = document.querySelector('#sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
       const subtotalNewPriceValue = obj.strToPrice(subtotalNewPrice.text());
       let subtotalPriceValue;
       
       let subtotalOldPriceValue;
 
       if (subtotalOldPrice.length) {
-        subtotalOldPriceValue = obj.strToPrice(subtotalOldPrice.text());
+        subtotalOldPriceValue = obj.strToPrice(subtotalOldPrice.innerHTML);
         subtotalPriceValue = subtotalOldPriceValue;
         
-        const giftItem = sidebarCart.find('.CartItemWrapper[data-free-gift="true"]');
+        const giftItem = document.querySelector('#sidebar-cart .CartItemWrapper[data-free-gift="true"]');
         
-        if (giftItem.length) {
-          const giftItemPriceValue = obj.strToPrice(giftItem.find('.CartItem__OriginalPrice').text());
+        if (giftItem) {
+          const giftItemPriceValue = obj.strToPrice(giftItem.querySelector('.CartItem__OriginalPrice').innerHTML);
           subtotalOldPriceValue -= giftItemPriceValue;
         }
 
@@ -100,35 +100,36 @@ $(document).ready(function () {
         
       } else {
         subtotalPriceValue = subtotalNewPriceValue;
-        couponPercentage.text('');
+        couponPercentage.innerHTML = '';
       }
       /* /Subtotal price */
       
       /* Delivery price */
-      const deliveryPrice = $('.Drawer__Footer__Delivery > span');
-      const deliveryPriceValue = obj.strToPrice(deliveryPrice.attr('data-price'));
+      const deliveryPrice = document.querySelector('#sidebar-cart .Drawer__Footer__Delivery > span');
+      const deliveryPriceValue = obj.strToPrice(deliveryPrice.getAttribute('data-price'));
       /* /Delivery price */
       
       /* Total price */
-      const totalPrice = $('.Drawer__Footer__Total > span');
+      const totalPrice = document.querySelector('#sidebar-cart .Drawer__Footer__Total > span');
       const totalPriceValue = subtotalPriceValue + deliveryPriceValue;
       
       if (totalPriceValue > 1) {
-        totalPrice.text(obj.priceToStr(totalPriceValue));
+        totalPrice.innerHTML = obj.priceToStr(totalPriceValue);
       }
       /* /Total price */
       
       /* Error */
-      const couponError = sidebarCart.find('.scDiscount__container .scError');
+      const couponError = document.querySelector('#sidebar-cart .scDiscount__container .scError');
       
-      if (couponError.length && !couponError.hasClass('Hidden')) {
-        couponError.addClass('Hidden');
+      if (couponError && !couponError.classList.contains('Hidden')) {
+        couponError.classList.add('Hidden');
 
         setTimeout(function() {
-          couponError.css('opacity', 0);
+          couponError.style.opacity = 0;
 
           setTimeout(function() {
-            couponError.remove();
+            couponError.parentNode.removeChild(couponError);
+            
           }, 450);
         }, 3000);
       }
