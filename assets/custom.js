@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 //     });
     
     cartSidebarSettings.coupon.title.addEventListener('click', function() {
-      
+      console.log('coupon title');
       if (!cartSidebarSettings.sidebarCart.classList.contains('Drawer__Footer__CouponActive')) {
         cartSidebarSettings.sidebarCart.classList.add('Drawer__Footer__CouponActive');
 
