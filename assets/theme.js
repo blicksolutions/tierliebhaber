@@ -2226,9 +2226,11 @@ function _classCallCheck(e, t) {
           
           const giftItemVariantId = cartSidebar.attr('data-gift-variant-id');
           const giftItemId = cartSidebar.attr('data-gift-item-id');
+          console.log('giftItemId', giftItemId, 'giftItemVariantId', giftItemVariantId);
           
           if ($('body.template-product').length && $('form.ProductForm[data-productid="' + giftItemId + '"]')) {
-            /* Upsell page */
+            console.log('gift page');
+            /* Gift page */
 
           } else {
             let giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
@@ -2275,7 +2277,8 @@ function _classCallCheck(e, t) {
           console.log('giftItemId', giftItemId, 'giftItemVariantId', giftItemVariantId);
           
           if ($('body.template-product').length && $('form.ProductForm[data-productid="' + giftItemId + '"]')) {
-            /* Upsell page */
+            /* Gift page */
+            console.log('gift page');
             
           } else {
             let giftItemToRemove = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:not([data-free-gift]):first');
