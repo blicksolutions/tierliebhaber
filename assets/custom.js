@@ -35,7 +35,7 @@ $(document).ready(function () {
     $(document).on('click', '#sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon-title', function() {
       const sidebarCart = document.querySelector('#sidebar-cart');
       
-      if (sidebarCart.classList.contains('Drawer__Footer__CouponActive')) {
+      if (!sidebarCart.classList.contains('Drawer__Footer__CouponActive')) {
         sidebarCart.classList.add('Drawer__Footer__CouponActive');
 
       } else {
