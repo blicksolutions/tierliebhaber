@@ -2277,7 +2277,8 @@ function _classCallCheck(e, t) {
             
           } else {
             let giftItemToRemove = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:not([data-free-gift]):first');
-
+            console.log('giftItemToRemove', giftItemToRemove.length, giftItemVariantId);
+            
             if (giftItemToRemove.length) {
               const giftItemI = giftItemToRemove.attr('data-index');
               giftItemToRemove.hide();
