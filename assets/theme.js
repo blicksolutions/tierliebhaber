@@ -2225,6 +2225,7 @@ function _classCallCheck(e, t) {
           const cartSidebar = $('#sidebar-cart');
           
           const giftItemVariantId = $('#sidebar-cart').attr('data-gift-variant-id');
+          console.log('giftItemVariantId', giftItemVariantId);
           let giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
           
           if (!giftItem.length) {
@@ -2263,6 +2264,7 @@ function _classCallCheck(e, t) {
           const cartSidebar = $('#sidebar-cart');
           
           const giftItemVariantId = $('#sidebar-cart').attr('data-gift-variant-id');
+          console.log('giftItemVariantId', giftItemVariantId);
           let giftItemToRemove = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:not([data-free-gift]):first');
           
           if (giftItemToRemove.length) {
