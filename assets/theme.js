@@ -2224,8 +2224,8 @@ function _classCallCheck(e, t) {
           
           const cartSidebar = $('#sidebar-cart');
           
-          const giftItemVariantId = cartSidebar.attr('data-gift-variant-id');
           const giftItemId = cartSidebar.attr('data-gift-item-id');
+          const giftItemVariantId = cartSidebar.attr('data-gift-variant-id');
           
           if ($('body.template-product').length && $('form.ProductForm[data-productid="' + giftItemId + '"]').length) {
             /* Gift page */
@@ -2269,8 +2269,8 @@ function _classCallCheck(e, t) {
           
           const cartSidebar = $('#sidebar-cart');
           
-          const giftItemVariantId = cartSidebar.attr('data-gift-variant-id');
           const giftItemId = cartSidebar.attr('data-gift-item-id');
+          const giftItemVariantId = cartSidebar.attr('data-gift-variant-id');
           
           if ($('body.template-product').length && $('form.ProductForm[data-productid="' + giftItemId + '"]').length) {
             /* Gift page */
@@ -2329,6 +2329,7 @@ function _classCallCheck(e, t) {
           const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
           let cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.text().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
           
+          const giftItemId = cartSidebar.attr('data-gift-item-id');
           const giftItemVariantId = $('#sidebar-cart').attr('data-gift-variant-id');
           
           if ($('body.template-product').length && $('form.ProductForm[data-productid="' + giftItemId + '"]').length) {
