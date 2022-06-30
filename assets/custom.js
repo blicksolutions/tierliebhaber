@@ -110,11 +110,17 @@ $(document).ready(function () {
       
       /* Delivery price */
       const deliveryPrice = $('.Drawer__Footer__Delivery > span');
-      const deliveryPriceValue = obj.strToPrice(deliveryPrice.attr('data-shipping-price'));
       
-      const ShippingValue = obj.strToPrice(deliveryPrice.attr('data-mintotal-price'));
-      const freeShippingValue = obj.strToPrice(deliveryPrice.attr('data-freeshipping-price'));
-      
+      if (subtotalPriceValue > 39) {
+        const freeShippingText = deliveryPrice.attr('data-freeshipping-text');
+        const deliveryPrice = 0;
+        deliveryPrice.text(freeShippingText);
+        
+      } else {
+        const deliveryCostText = deliveryPrice.attr('data-shipping-price');
+        const deliveryPrice = obj.strToPrice(deliveryCostText);
+        deliveryPrice.text(deliveryCostText);
+      }
       /* /Delivery price */
       
       /* Total price */
