@@ -2226,7 +2226,7 @@ function _classCallCheck(e, t) {
           let giftItem = document.querySelector('#sidebar-cart .CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
           
           if (!giftItem) {
-            giftItem = document.querySelector('#sidebar-cart .CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:first');
+            giftItem = document.querySelector('#sidebar-cart .CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:first-child');
           }
           
           if (!giftItem) {
@@ -2259,7 +2259,7 @@ function _classCallCheck(e, t) {
           var i = this;
           
           const giftItemVariantId = 41322345496735;
-          let giftItemToRemove = document.querySelector('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:not([data-free-gift]):first');
+          let giftItemToRemove = document.querySelector('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:not([data-free-gift]):first-child');
           
           if (giftItemToRemove) {
             const giftItemI = giftItemToRemove.getAttribute('data-index');
