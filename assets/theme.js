@@ -2224,7 +2224,7 @@ function _classCallCheck(e, t) {
           
           const cartSidebar = $('#sidebar-cart');
           
-          const giftItemVariantId = 41322345496735;
+          const giftItemVariantId = 41495453892767;
           let giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
           
           if (!giftItem.length) {
@@ -2262,7 +2262,7 @@ function _classCallCheck(e, t) {
           
           const cartSidebar = $('#sidebar-cart');
           
-          const giftItemVariantId = 41322345496735;
+          const giftItemVariantId = 41495453892767;
           let giftItemToRemove = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:not([data-free-gift]):first');
           
           if (giftItemToRemove.length) {
@@ -2315,7 +2315,7 @@ function _classCallCheck(e, t) {
           const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
           let cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.text().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
           
-          const giftItemVariantId = 41322345496735;
+          const giftItemVariantId = 41495453892767;
           const giftItemToRemove = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:not([data-free-gift]):first');
           
           if (giftItemToRemove.length) {
