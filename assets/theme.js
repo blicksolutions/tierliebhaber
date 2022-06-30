@@ -2225,7 +2225,7 @@ function _classCallCheck(e, t) {
           const cartSidebar = $('#sidebar-cart');
           
           const giftItemVariantId = $('#sidebar-cart').attr('data-gift-variant-id');
-          console.log('giftItemVariantId', giftItemVariantId);
+          console.log('giftItemVariantId', giftItemVariantId, 'item id', $('#sidebar-cart').attr('data-gift-item-id'));
           let giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
           
           if (!giftItem.length) {
