@@ -1,5 +1,5 @@
 /* Cart sidebar coupon */
-$(document).ready(function () {
+document.addEventListener("DOMContentLoaded", function(event) { 
   const obj = function(){};
   
   obj.priceToStr = function(price) {
@@ -13,7 +13,7 @@ $(document).ready(function () {
     return price;
   };
   
-  obj.cartSidebar = (function(){
+  obj.cartSidebar = function(){
     const cartSidebarSettings = {
       sidebar: document.querySelector('#sidebar-cart'),
       scrollButton: document.querySelector('#sidebar-cart .CartUpsells__ScrollBtn'),
@@ -27,6 +27,7 @@ $(document).ready(function () {
     
     cartSidebarSettings.scrollButton.addEventListener('click', function() {
       cartSidebarSettings.scrollButton.classList.remove('Visible');
+      document.querySelector('#sidebar-cart .Drawer__Main').scrollIntoView();
       
 //       $('#sidebar-cart .Drawer__Main').animate({
 //         scrollTop: 1000
@@ -67,7 +68,23 @@ $(document).ready(function () {
 //       }
 //     });
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
     /* Remove discount */
+    document.addEventListener('click', function(e) {
+      
+      if (e.target && e.target.id == 'brnPrepend') {
+        //do something
+      }
+    });
+    
     $(document).on('click', '#sidebar-cart .Drawer__Footer .sc_simple-info .sc-tag', function() {
       const field = document.querySelector('#sidebar-cart .Drawer__Footer .scDiscount input[type="text"]');
       field.classList.remove('active');
@@ -159,7 +176,6 @@ $(document).ready(function () {
       /* /Error */
 
     }, 500);
-    
-  })();
+  };
 });
 /* /Cart sidebar coupon */
