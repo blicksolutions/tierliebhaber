@@ -110,7 +110,11 @@ $(document).ready(function () {
       
       /* Delivery price */
       const deliveryPrice = $('.Drawer__Footer__Delivery > span');
-      const deliveryPriceValue = obj.strToPrice(deliveryPrice.attr('data-price'));
+      const deliveryPriceValue = obj.strToPrice(deliveryPrice.attr('data-shipping-price'));
+      
+      const ShippingValue = obj.strToPrice(deliveryPrice.attr('data-mintotal-price'));
+      const freeShippingValue = obj.strToPrice(deliveryPrice.attr('data-freeshipping-price'));
+      
       /* /Delivery price */
       
       /* Total price */
