@@ -30,8 +30,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
   };
   
   obj.cartSidebar = function(){
-    console.log('cartSidebar');
-    
     const cartSidebarSettings = {
       sidebar: document.querySelector('#sidebar-cart'),
       scrollButton: document.querySelector('#sidebar-cart .CartUpsells__ScrollBtn'),
@@ -45,11 +43,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     
     cartSidebarSettings.scrollButton.addEventListener('click', function() {
       cartSidebarSettings.scrollButton.classList.remove('Visible');
-      document.querySelector('#sidebar-cart .Drawer__Main').scrollIntoView();
-      
-//       $('#sidebar-cart .Drawer__Main').animate({
-//         scrollTop: 1000
-//       }, 2000);
     });
     
     for (var i = 0; i < cartSidebarSettings.upsells.buttons.length; i++) {
@@ -59,12 +52,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         upsellBtn.disabled = true;
       });
     }
-    
-//     $(document).on('click', '#sidebar-cart .CartItem__Actions__UpsellBtn', function() {
-//       const btn = $(this);
-//       btn.prop('disabled', true);
-//     });
-      console.log('coupon title', cartSidebarSettings.coupon.title);
     
     cartSidebarSettings.coupon.title.addEventListener('click', function() {
       console.log('coupon title');
@@ -113,25 +100,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
       }
     });
     
-//     $(document).on('change keyup', '#sidebar-cart .Drawer__Footer .scDiscount input[type="text"]', function() {
-//       let field = $(this);
-//       let fieldLabel = field.next('label');
-//       let fieldButton = field.siblings('input[type="button"]');
-
-//       if (!fieldLabel.length) {
-//         field.after(
-//           '<label>' + field.getAttribute('placeholder') + '</label>'
-//         );
-//       }
-
-//       if (field.value.trim().length) {
-//         field.classList.add('active');
-
-//       } else {
-//         field.classList.add('active');
-//       }
-//     });
-
     setInterval(function() {
       const couponPercentage = document.querySelector('#sidebar-cart .Drawer__Footer__Coupon-percentage');
       
