@@ -2313,7 +2313,7 @@ function _classCallCheck(e, t) {
           const giftItemVariantId = 41322345496735;
           const giftItemToRemove = document.querySelector('#sidebar-cart .CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:not([data-free-gift]):first-child');
           
-          if (giftItemToRemove.length) {
+          if (giftItemToRemove) {
             cartSidebarTotalPriceValue -= parseInt(giftItemToRemove.getAttribute('data-price') / 100);
             this._removeBgItem();
             
