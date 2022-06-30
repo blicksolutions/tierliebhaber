@@ -9,6 +9,11 @@ $(document).ready(function () {
   };
   
   obj.strToPrice = function(str) {
+    
+    if (!str) {
+      return null;
+    }
+    
     const price = parseFloat(str.trim().replace(/\./, '').replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
     return price;
   };
