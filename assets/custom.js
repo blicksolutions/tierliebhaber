@@ -177,5 +177,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     }, 500);
   };
+  
+  obj.cartSidebar();
 });
 /* /Cart sidebar coupon */
