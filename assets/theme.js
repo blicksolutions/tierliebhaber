@@ -2311,7 +2311,7 @@ function _classCallCheck(e, t) {
           let cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.innerHTML.replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
           
           const giftItemVariantId = 41322345496735;
-          const giftItemToRemove = document.querySelector('#sidebar-cart .CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:not([data-free-gift]):first');
+          const giftItemToRemove = document.querySelector('#sidebar-cart .CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:not([data-free-gift]):first-child');
           
           if (giftItemToRemove.length) {
             cartSidebarTotalPriceValue -= parseInt(giftItemToRemove.getAttribute('data-price') / 100);
