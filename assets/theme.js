@@ -2330,17 +2330,23 @@ function _classCallCheck(e, t) {
           let cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.text().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
           
           const giftItemVariantId = $('#sidebar-cart').attr('data-gift-variant-id');
-          const giftItemToRemove = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:not([data-free-gift]):first');
           
-          if (giftItemToRemove.length) {
-            cartSidebarTotalPriceValue -= parseInt(giftItemToRemove.attr('data-price') / 100);
-            this._removeBgItem();
-            
+          if ($('body.template-product').length && $('form.ProductForm[data-productid="' + giftItemId + '"]').length) {
+            /* Gift page */
+
           } else {
-            const giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
-            
-            if (!giftItem.length && cartSidebarTotalPriceValue >= 60) {
-              this._addBgItem();
+            const giftItemToRemove = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:not([data-free-gift]):first');
+
+            if (giftItemToRemove.length) {
+              cartSidebarTotalPriceValue -= parseInt(giftItemToRemove.attr('data-price') / 100);
+              this._removeBgItem();
+
+            } else {
+              const giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
+
+              if (!giftItem.length && cartSidebarTotalPriceValue >= 60) {
+                this._addBgItem();
+              }
             }
           }
           
