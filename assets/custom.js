@@ -87,34 +87,19 @@ document.addEventListener("DOMContentLoaded", function(event) {
     });
     
     /* Remove discount */
-    document.addEventListener('click', function(e) {
-      
-      if (e.target && e.target.id == 'brnPrepend') {
-        //do something
-      }
-    });
-    
-    
     delegate(document, 'click', '#sidebar-cart .Drawer__Footer .sc_simple-info .sc-tag', function(e) {
-      console.log('tag click');
-    });
-    
-    if (1 === 3) {
-    
-    $(document).on('click', '#sidebar-cart .Drawer__Footer .sc_simple-info .sc-tag', function() {
       const field = document.querySelector('#sidebar-cart .Drawer__Footer .scDiscount input[type="text"]');
       field.classList.remove('active');
 
       const percentage = document.querySelector('.Drawer__Footer__Coupon-percentage');
       percentage.innerHTML = '';
     });
-
-    $(document).on('change keyup', '#sidebar-cart .Drawer__Footer .scDiscount input[type="text"]', function() {
-      let field = $(this);
-      let fieldLabel = field.next('label');
-      let fieldButton = field.siblings('input[type="button"]');
-
-      if (!fieldLabel.length) {
+    
+    delegate(document, 'change keyup', '#sidebar-cart .Drawer__Footer .sc_simple-info .sc-tag', function(e) {
+      let field = e;
+      let fieldLabel = field.parentNode.querySelector('label');
+          
+      if (!fieldLabel) {
         field.after(
           '<label>' + field.getAttribute('placeholder') + '</label>'
         );
@@ -127,7 +112,25 @@ document.addEventListener("DOMContentLoaded", function(event) {
         field.classList.add('active');
       }
     });
-    }
+    
+//     $(document).on('change keyup', '#sidebar-cart .Drawer__Footer .scDiscount input[type="text"]', function() {
+//       let field = $(this);
+//       let fieldLabel = field.next('label');
+//       let fieldButton = field.siblings('input[type="button"]');
+
+//       if (!fieldLabel.length) {
+//         field.after(
+//           '<label>' + field.getAttribute('placeholder') + '</label>'
+//         );
+//       }
+
+//       if (field.value.trim().length) {
+//         field.classList.add('active');
+
+//       } else {
+//         field.classList.add('active');
+//       }
+//     });
 
     setInterval(function() {
       const couponPercentage = document.querySelector('#sidebar-cart .Drawer__Footer__Coupon-percentage');
