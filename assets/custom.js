@@ -100,6 +100,7 @@ $(document).ready(function () {
         couponPercentage.text('-' + Math.ceil(percentageValue.toFixed(4)) + '%');
         
       } else {
+        console.log('no old price');
         couponPercentage.text('');
         subtotalNewPriceValue = obj.strToPrice(subtotalNewPrice.attr('data-price'));
         forDeliverySubtotalPriceValue = subtotalNewPriceValue;
