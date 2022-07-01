@@ -86,7 +86,7 @@ $(document).ready(function () {
       let forDeliverySubtotalPriceValue;
 
       if (subtotalOldPrice.length) {
-        const subtotalOldPriceValue = obj.strToPrice(subtotalOldPrice.text());
+        let subtotalOldPriceValue = obj.strToPrice(subtotalOldPrice.text());
         forDeliverySubtotalPriceValue = subtotalOldPriceValue;
         
         const giftItem = sidebarCart.find('.CartItemWrapper[data-free-gift="true"]');
