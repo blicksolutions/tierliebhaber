@@ -82,7 +82,6 @@ $(document).ready(function () {
       
       const subtotalNewPrice = sidebarCart.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
       const subtotalNewPriceValue = obj.strToPrice(subtotalNewPrice.text());
-      let subtotalPriceValue;
       
       let forDeliverySubtotalPriceValue;
 
