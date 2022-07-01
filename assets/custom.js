@@ -105,8 +105,11 @@ $(document).ready(function () {
         couponPercentage.text('');
         
         if (subtotalNewPrice.text().trim() != subtotalNewPrice.attr('data-price')) {
-          subtotalNewPrice.text(subtotalNewPrice.attr('data-price'));
-          subtotalNewPriceValue = obj.strToPrice(subtotalNewPrice.attr('data-price'));
+          
+          if (subtotalNewPrice.children('.money.mw-price').length) {
+            subtotalNewPrice.children('.money.mw-price').text(subtotalNewPrice.attr('data-price'));
+            subtotalNewPriceValue = obj.strToPrice(subtotalNewPrice.attr('data-price'));
+          }
         }
         
         forDeliverySubtotalPriceValue = subtotalNewPriceValue;
