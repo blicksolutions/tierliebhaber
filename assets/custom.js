@@ -102,7 +102,7 @@ $(document).ready(function () {
         
       } else {
         couponPercentage.text('');
-      forDeliverySubtotalPriceValue = subtotalNewPriceValue;
+        forDeliverySubtotalPriceValue = subtotalNewPriceValue;
       }
       
       const subtotalPriceValue = subtotalNewPriceValue;
