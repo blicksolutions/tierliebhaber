@@ -85,10 +85,11 @@ $(document).ready(function () {
       let subtotalPriceValue;
       
       let subtotalOldPriceValue;
+      let forDeliverySubtotalPriceValue;
 
       if (subtotalOldPrice.length) {
         subtotalOldPriceValue = obj.strToPrice(subtotalOldPrice.text());
-        subtotalPriceValue = subtotalOldPriceValue;
+        forDeliverySubtotalPriceValue = subtotalOldPriceValue;
         
         const giftItem = sidebarCart.find('.CartItemWrapper[data-free-gift="true"]');
         
@@ -104,13 +105,15 @@ $(document).ready(function () {
         subtotalPriceValue = subtotalNewPriceValue;
         couponPercentage.text('');
       }
+      
+      forDeliverySubtotalPriceValue = subtotalNewPriceValue;
       /* /Subtotal price */
       
       /* Delivery price */
       const deliveryPrice = $('.Drawer__Footer__Delivery > span');
       let deliveryPriceValue;
       
-      if (subtotalPriceValue > 39) {
+      if (forDeliverySubtotalPriceValue > 39) {
         const freeShippingText = deliveryPrice.attr('data-freeshipping-text');
         deliveryPriceValue = 0;
         deliveryPrice.text(freeShippingText);
