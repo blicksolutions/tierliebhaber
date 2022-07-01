@@ -105,6 +105,7 @@ $(document).ready(function () {
         couponPercentage.text('');
         
         if (subtotalNewPrice.text().trim() != subtotalNewPrice.attr('data-price')) {
+          console.log('subtotalNewPrice.text().trim()', subtotalNewPrice.text().trim(), '/', subtotalNewPrice.attr('data-price'));
           
           if (subtotalNewPrice.children('.money.mw-price').length) {
             subtotalNewPrice.children('.money.mw-price').text(subtotalNewPrice.attr('data-price'));
