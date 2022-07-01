@@ -2269,7 +2269,7 @@ function _classCallCheck(e, t) {
           var i = this;
           
           const cartSidebar = $('#sidebar-cart');
-          console.log('_removeBgItem');
+//           console.log('_removeBgItem');
             
           const giftItemId = cartSidebar.attr('data-gift-item-id');
           const giftItemVariantId = cartSidebar.attr('data-gift-variant-id');
@@ -2279,7 +2279,7 @@ function _classCallCheck(e, t) {
             
           } else {
             let giftItemToRemove = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:not([data-free-gift]):first');
-            console.log('giftItemToRemove', giftItemToRemove.length, giftItemVariantId);
+//             console.log('giftItemToRemove', giftItemToRemove.length, giftItemVariantId);
             
             if (giftItemToRemove.length) {
               const giftItemI = giftItemToRemove.attr('data-index');
