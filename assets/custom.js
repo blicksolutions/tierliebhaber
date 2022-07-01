@@ -81,7 +81,7 @@ $(document).ready(function () {
       const subtotalOldPrice = sidebarCart.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > s > span.money');
       
       const subtotalNewPrice = sidebarCart.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
-      const subtotalNewPriceValue = obj.strToPrice(subtotalNewPrice.text());
+      let subtotalNewPriceValue = obj.strToPrice(subtotalNewPrice.text());
       
       let forDeliverySubtotalPriceValue;
 
@@ -101,6 +101,7 @@ $(document).ready(function () {
         
       } else {
         couponPercentage.text('');
+        subtotalNewPriceValue = obj.strToPrice(subtotalNewPrice.attr('data-price'));
         forDeliverySubtotalPriceValue = subtotalNewPriceValue;
       }
       
