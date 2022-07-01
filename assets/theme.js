@@ -2342,7 +2342,7 @@ function _classCallCheck(e, t) {
           if ($('body.template-product').length && $('form.ProductForm[data-productid="' + giftItemId + '"]').length) {
             /* Gift page */
 
-          } else {
+          } else if (cartSidebarTotalPriceValue > 0) {
             const giftItemToRemove = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:not([data-free-gift]):first');
 
             if (giftItemToRemove.length) {
