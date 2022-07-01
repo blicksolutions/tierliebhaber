@@ -168,7 +168,7 @@
           <!-- /Delivery -->
           
           <!-- Total -->
-          <div class="Drawer__Footer__Total">
+          <div class="Drawer__Footer__Total" data-price="{{ cart.total_price | plus: delivery_cost | money }}">
             <small>{{ 'cart.general.total' | t }}</small>
             <span>{{ cart.total_price | plus: delivery_cost | money }}</span>
           </div>
