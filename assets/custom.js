@@ -107,10 +107,8 @@ $(document).ready(function () {
         if (subtotalNewPrice.text().trim() != subtotalNewPrice.parent().attr('data-price')) {
           console.log('subtotalNewPrice.text().trim()', subtotalNewPrice.text().trim(), '/', subtotalNewPrice.parent().attr('data-price'));
           
-          if (subtotalNewPrice.children('.money.mw-price').length) {
-            subtotalNewPrice.children('.money.mw-price').text(subtotalNewPrice.parent().attr('data-price'));
-            subtotalNewPriceValue = obj.strToPrice(subtotalNewPrice.parent().attr('data-price'));
-          }
+          subtotalNewPrice.text(subtotalNewPrice.parent().attr('data-price'));
+          subtotalNewPriceValue = obj.strToPrice(subtotalNewPrice.parent().attr('data-price'));
         }
         
         forDeliverySubtotalPriceValue = subtotalNewPriceValue;
