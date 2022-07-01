@@ -86,6 +86,7 @@ $(document).ready(function () {
       let forDeliverySubtotalPriceValue;
 
       if (subtotalOldPrice.length) {
+        console.log('is old price');
         let subtotalOldPriceValue = obj.strToPrice(subtotalOldPrice.text());
         forDeliverySubtotalPriceValue = subtotalOldPriceValue;
         
