@@ -148,7 +148,7 @@ $(document).ready(function () {
       }
       /* /Error */
 
-    }, 500);
+    }, 500 * 1000);
     
   })();
 });
