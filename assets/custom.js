@@ -103,7 +103,12 @@ $(document).ready(function () {
       } else {
         console.log('no old price');
         couponPercentage.text('');
-        subtotalNewPriceValue = obj.strToPrice(subtotalNewPrice.attr('data-price'));
+        
+        if (subtotalNewPrice.text().trim() != subtotalNewPrice.attr('data-price')) {
+          subtotalNewPrice.text(subtotalNewPrice.attr('data-price'));
+          subtotalNewPriceValue = obj.strToPrice(subtotalNewPrice.attr('data-price'));
+        }
+        
         forDeliverySubtotalPriceValue = subtotalNewPriceValue;
       }
       
