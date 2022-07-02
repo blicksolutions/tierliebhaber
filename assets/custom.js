@@ -95,6 +95,10 @@ $(document).ready(function () {
         if (giftItem.length) {
           const giftItemPriceValue = obj.strToPrice(giftItem.find('.CartItem__OriginalPrice').text());
           subtotalOldPriceValue -= giftItemPriceValue;
+          
+          if (!subtotalOldPrice.attr('data-original-price')) {
+            subtotalOldPrice.attr('data-original-price', subtotalOldPrice.text()).text(obj.strToPrice(subtotalOldPriceValue));
+          }
         }
 
         const percentageValue = (subtotalOldPriceValue - subtotalNewPriceValue) / subtotalOldPriceValue * 100;
