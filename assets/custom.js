@@ -97,7 +97,7 @@ $(document).ready(function () {
           subtotalOldPriceValue -= giftItemPriceValue;
           
           if (!subtotalOldPrice.attr('data-original-price')) {
-            subtotalOldPrice.attr('data-original-price', subtotalOldPrice.text()).text(obj.strToPrice(subtotalOldPriceValue));
+            subtotalOldPrice.attr('data-original-price', subtotalOldPrice.text()).text(obj.priceToStr(subtotalOldPriceValue));
           }
         }
 
