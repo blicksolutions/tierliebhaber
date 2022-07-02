@@ -11288,6 +11288,15 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   color: #737373;
 }
 
+#sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalPrice > s > .money[data-updated-price] {
+  font-size: 0;
+}
+
+#sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalPrice > s > .money[data-updated-price]:before {
+  content: attr(data-updated-text);
+  font-size: 16px;
+}
+
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Delivery {
   bottom: 54px;
   color: #737373;
