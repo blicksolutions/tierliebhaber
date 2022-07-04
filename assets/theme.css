@@ -11621,3 +11621,11 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   margin-top: 12px;
 }
 /* /Cart sidebar payment image */
+
+
+/* Buy in Bundle */
+#rbr-container-element-false {
+  max-width: 1330px;
+  margin: 0 auto;
+}
+/* /Cart sidebar payment image */
