@@ -2334,7 +2334,7 @@ function _classCallCheck(e, t) {
           const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
           let cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.text().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
           
-          console.log('cartSidebarTotalPriceValue', cartSidebarTotalPriceValue);
+//           console.log('cartSidebarTotalPriceValue', cartSidebarTotalPriceValue);
           
           const giftItemId = cartSidebar.attr('data-gift-item-id');
           const giftItemVariantId = $('#sidebar-cart').attr('data-gift-variant-id');
