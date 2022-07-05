@@ -11743,7 +11743,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 
 .rbr-sbap_item {
     padding: 14px 20px !important;
-    margin: 10px 0;
+    margin: 10px 0 !important;
     border-radius: 8px;
     border-bottom: none !important;
     background-color: #f7f5f2;
