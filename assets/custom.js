@@ -86,7 +86,7 @@ $(document).ready(function () {
       let forDeliverySubtotalPriceValue;
 
       if (subtotalOldPrice.length) {
-        console.log('is old price');
+//         console.log('is old price');
         let subtotalOldPriceValue = obj.strToPrice(subtotalOldPrice.text());
         forDeliverySubtotalPriceValue = subtotalOldPriceValue;
         
@@ -103,11 +103,11 @@ $(document).ready(function () {
         couponPercentage.text('-' + Math.ceil(percentageValue.toFixed(4)) + '%');
         
       } else {
-        console.log('no old price');
+//         console.log('no old price');
         couponPercentage.text('');
         
         if (subtotalNewPrice.text().trim() != subtotalNewPrice.parent().attr('data-price')) {
-          console.log('subtotalNewPrice.text().trim()', subtotalNewPrice.text().trim(), '/', subtotalNewPrice.parent().attr('data-price'));
+//           console.log('subtotalNewPrice.text().trim()', subtotalNewPrice.text().trim(), '/', subtotalNewPrice.parent().attr('data-price'));
           
           subtotalNewPrice.text(subtotalNewPrice.parent().attr('data-price'));
           subtotalNewPriceValue = obj.strToPrice(subtotalNewPrice.parent().attr('data-price'));
