@@ -11740,4 +11740,17 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
         margin-top: 15px !important;
     }
 }
+
+.rbr-sbap_item:last-of-type {
+    padding-bottom: 0;
+}
+
+#rbr-container-element-true + .ProductForm {
+    margin-top: -10px;
+}
+
+#rbr-container-element-true + .ProductForm .rbr-bap-new-footer {
+    background-color: rgb(241, 175, 158) !important;
+    width: 100% !important;
+}
 /* /Buy in Bundle */
