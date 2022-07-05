@@ -11749,6 +11749,10 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
     background-color: #f7f5f2;
 }
 
+.rbr-sbap_item .rbr-thumbnail-container {
+    border-radius: 8px;
+}
+
 #rbr-container-element-true + .ProductForm {
     margin-top: -10px;
 }
