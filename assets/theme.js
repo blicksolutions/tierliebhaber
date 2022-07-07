@@ -2184,6 +2184,18 @@ function _classCallCheck(e, t) {
         key: "_rerenderCart",
         value: function(e) {
           var t = this;
+          
+          
+          
+          let oldTotalPrice = $('#sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalPrice > s > .money');
+          
+          if (oldTotalPrice.length) {
+            oldTotalPrice.removeAttr('data-updated-price');
+          }
+          
+          
+          
+          
           return fetch(window.routes.cartUrl + "?view=" + (this.options.drawer && "cart" !== window.theme.pageType ? "drawer" : "ajax") + "&timestamp=" + Date.now(), {
             credentials: "same-origin",
             method: "GET"
@@ -2312,12 +2324,6 @@ function _classCallCheck(e, t) {
         value: function(e) {
           
           console.log('_replaceContent');
-          
-          let oldTotalPrice = $('#sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalPrice > s > .money');
-          
-          if (oldTotalPrice.length) {
-            oldTotalPrice.removeAttr('data-updated-price');
-          }
           
           var t = this,
             i = document.createElement("div");
