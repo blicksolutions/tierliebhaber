@@ -97,9 +97,9 @@ $(document).ready(function () {
         
         if (giftItem.length) {
           const giftItemPriceValue = obj.strToPrice(giftItem.find('.CartItem__OriginalPrice').text());
-          subtotalOldPriceValue -= giftItemPriceValue;
           
-          if (subtotalOldPriceValue > subtotalNewPriceValue) {
+          if ((subtotalOldPriceValue - giftItemPriceValue) > subtotalNewPriceValue) {
+            subtotalOldPriceValue -= giftItemPriceValue;
             subtotalOldPrice.attr('data-updated-price', obj.priceToStr(subtotalOldPriceValue));
           
           } else {
