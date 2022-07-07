@@ -99,7 +99,12 @@ $(document).ready(function () {
           const giftItemPriceValue = obj.strToPrice(giftItem.find('.CartItem__OriginalPrice').text());
           subtotalOldPriceValue -= giftItemPriceValue;
           
-          subtotalOldPrice.attr('data-updated-price', obj.priceToStr(subtotalOldPriceValue));
+          if (subtotalOldPriceValue > subtotalNewPriceValue) {
+            subtotalOldPrice.attr('data-updated-price', obj.priceToStr(subtotalOldPriceValue));
+          
+          } else {
+            subtotalOldPrice.removeAttr('data-updated-price');
+          }
         }
 
         const percentageValue = (subtotalOldPriceValue - subtotalNewPriceValue) / subtotalOldPriceValue * 100;
