@@ -2348,6 +2348,8 @@ function _classCallCheck(e, t) {
             if (giftItemToRemove.length) {
               cartSidebarTotalPriceValue -= parseInt(giftItemToRemove.attr('data-price') / 100);
               
+              console.log('cartSidebarTotalPriceValue', cartSidebarTotalPriceValue);
+              
               if (cartSidebarTotalPriceValue < 60) {
                 this._removeBgItem();
               }
