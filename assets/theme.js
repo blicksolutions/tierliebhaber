@@ -2349,7 +2349,10 @@ function _classCallCheck(e, t) {
               cartSidebarTotalPriceValue -= parseInt(giftItemToRemove.attr('data-price') / 100);
               
               console.log('cartSidebarTotalPriceValue', cartSidebarTotalPriceValue);
-              this._removeBgItem();
+              
+//               if (cartSidebarTotalPriceValue < 60) {
+                this._removeBgItem();
+//               }
 
             } else {
               const giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
