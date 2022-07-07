@@ -2188,7 +2188,7 @@ function _classCallCheck(e, t) {
             credentials: "same-origin",
             method: "GET"
           }).then((function(i) {
-//             console.log('_rerenderCart');
+            console.log('_rerenderCart');
           
             if (t.options.drawer && e) {
               var n = new TimelineLite({
@@ -2310,6 +2310,15 @@ function _classCallCheck(e, t) {
       }, {
         key: "_replaceContent",
         value: function(e) {
+          
+          console.log('_replaceContent');
+          
+          let oldTotalPrice = $('#sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalPrice > s > .money');
+          
+          if (oldTotalPrice.length) {
+            oldTotalPrice.removeAttr('data-updated-price');
+          }
+          
           var t = this,
             i = document.createElement("div");
           i.innerHTML = e;
