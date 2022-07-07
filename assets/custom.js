@@ -102,7 +102,13 @@ $(document).ready(function () {
         console.log('subtotalOldPriceValue', subtotalOldPriceValue, 'subtotalNewPriceValue', subtotalNewPriceValue);
         
         const percentageValue = (subtotalOldPriceValue - subtotalNewPriceValue) / subtotalOldPriceValue * 100;
-        couponPercentage.text('-' + Math.ceil(percentageValue.toFixed(4)) + '%');
+        
+        if (percentageValue > 0) {
+          couponPercentage.text('-' + Math.ceil(percentageValue.toFixed(4)) + '%');
+        
+        } else {
+          couponPercentage.text('');
+        }
         
       } else {
 //         console.log('no old price');
