@@ -95,6 +95,7 @@ $(document).ready(function () {
         
         const giftItem = sidebarCart.find('.CartItemWrapper[data-free-gift="true"]');
         
+        /* If the gift item is added */
         if (giftItem.length) {
           const giftItemPriceValue = obj.strToPrice(giftItem.find('.CartItem__OriginalPrice').text());
           
