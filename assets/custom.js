@@ -73,6 +73,9 @@ $(document).ready(function () {
     });
 
     setInterval(function() {
+      
+      console.log('__cart interval');
+      
       const sidebarCart = $('#sidebar-cart');
       
       const couponPercentage = sidebarCart.find('.Drawer__Footer__Coupon-percentage');
