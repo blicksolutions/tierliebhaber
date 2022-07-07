@@ -99,9 +99,9 @@ $(document).ready(function () {
           subtotalOldPrice.attr('data-updated-price', obj.priceToStr(subtotalOldPriceValue));
         }
 
-        console.log('subtotalOldPriceValue', subtotalOldPriceValue, 'subtotalNewPriceValue', subtotalNewPriceValue);
-        
         const percentageValue = (subtotalOldPriceValue - subtotalNewPriceValue) / subtotalOldPriceValue * 100;
+        
+        console.log('subtotalOldPriceValue', subtotalOldPriceValue, 'subtotalNewPriceValue', subtotalNewPriceValue, 'percentageValue', percentageValue);
         
         if (percentageValue > 0) {
           couponPercentage.text('-' + Math.ceil(percentageValue.toFixed(4)) + '%');
