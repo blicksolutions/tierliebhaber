@@ -18,6 +18,10 @@ $(document).ready(function () {
     return price;
   };
   
+  obj.cartSidebarRefresh = function() {
+    
+  };
+  
   obj.cartSidebar = (function(){
     
     window.addEventListener('sc:discount.init', function() {
@@ -25,11 +29,6 @@ $(document).ready(function () {
       
     });
     
-    
-    window.addEventListener('sc:discount.calculated', function() {
-      console.log('dcart calculated');
-      
-    });
     
     $(document).on('click', '#sidebar-cart .CartUpsells__ScrollBtn', function() {
       const btn = $(this);
@@ -83,9 +82,11 @@ $(document).ready(function () {
       }
     });
 
-    setInterval(function() {
-      
-      console.log('__cart interval');
+    
+    
+    
+    window.addEventListener('sc:discount.calculated', function() {
+      console.log('dcart calculated');
       
       const sidebarCart = $('#sidebar-cart');
       
@@ -187,8 +188,7 @@ $(document).ready(function () {
         }, 3000);
       }
       /* /Error */
-
-    }, 1000);
+    });
     
   })();
 });
