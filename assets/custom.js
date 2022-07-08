@@ -41,10 +41,10 @@ $(document).ready(function () {
       
       /* Subtotal price */
       const subtotalOldPrice = cartSidebar.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > s > span.money');
-      let subtotalOldPriceValue = scData.total;
+      let subtotalOldPriceValue = parseFloat(scData.total);
       
       const subtotalNewPrice = cartSidebar.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
-      let subtotalNewPriceValue = scData.subtotal;
+      let subtotalNewPriceValue = parseFloat(scData.subtotal);
       /* /Subtotal price */
 
     /* Delivery price */
