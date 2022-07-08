@@ -86,6 +86,7 @@ $(document).ready(function () {
       console.log('dcart calculated');
       
       const sidebarCart = $('#sidebar-cart');
+      sidebarCart.removeClass('Drawer__Footer-loading');
       
       const couponPercentage = sidebarCart.find('.Drawer__Footer__Coupon-percentage');
       
