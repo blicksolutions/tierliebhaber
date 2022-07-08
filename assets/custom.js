@@ -1,5 +1,5 @@
 /* Cart sidebar coupon */
-$(document).ready(function () {
+
   window.obj = function(){};
   
   window.obj.priceToStr = function(price) {
@@ -105,7 +105,8 @@ $(document).ready(function () {
     /* /Error */
   };
   
-  window.obj.cartSidebar = (function(){
+  window.obj.cartSidebar = function(){
+    console.log('cartSidebar');
     
     $(document).on('click', '#sidebar-cart .CartUpsells__ScrollBtn', function() {
       const btn = $(this);
@@ -183,7 +184,10 @@ $(document).ready(function () {
       const totalPrice = cartSidebar.find('.Drawer__Footer__Total > span');
       totalPrice.text(totalPrice.attr('data-price')); 
     });
-    
-  })();
+  };
+
+
+$(document).ready(function () {
+  window.obj.cartSidebar();
 });
 /* /Cart sidebar coupon */
