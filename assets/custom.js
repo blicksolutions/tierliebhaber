@@ -112,9 +112,6 @@ $(document).ready(function () {
           if ((subtotalOldPriceValue - giftItemPriceValue) > subtotalNewPriceValue) {
             subtotalOldPriceValue -= giftItemPriceValue;
             subtotalOldPrice.attr('data-updated-price', obj.priceToStr(subtotalOldPriceValue));
-          
-          } else {
-            subtotalOldPrice.removeAttr('data-updated-price');
           }
         }
 
