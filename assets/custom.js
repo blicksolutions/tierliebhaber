@@ -47,8 +47,7 @@ $(document).ready(function () {
       
       const subtotalNewPrice = cartSidebar.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
       let subtotalNewPriceValue;
-      //     let subtotalNewPriceValue = obj.strToPrice(subtotalNewPrice.text());
-
+      
       let forDeliverySubtotalPriceValue;
 
       console.log('subtotalOldPrice', subtotalOldPrice.length);
@@ -74,12 +73,6 @@ $(document).ready(function () {
         }
 
       } else {
-
-        //       if (subtotalNewPrice.text().trim() != subtotalNewPrice.parent().attr('data-price')) {
-        //         subtotalNewPrice.text(subtotalNewPrice.parent().attr('data-price'));
-        //         subtotalNewPriceValue = obj.strToPrice(subtotalNewPrice.parent().attr('data-price'));
-        //       }
-
         subtotalNewPriceValue = scData.subtotal;
         forDeliverySubtotalPriceValue = subtotalNewPriceValue;
       }
@@ -113,6 +106,7 @@ $(document).ready(function () {
 //     totalPrice.text(obj.priceToStr(totalPriceValue));
     //       }
     /* /Total price */
+    }
 
     /* Error */
     const couponError = cartSidebar.find('.scDiscount__container .scError');
@@ -129,7 +123,6 @@ $(document).ready(function () {
       }, 3000);
     }
     /* /Error */
-    }
   };
   
   obj.cartSidebar = (function(){
