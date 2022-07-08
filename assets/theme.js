@@ -2267,7 +2267,7 @@ function _classCallCheck(e, t) {
                   i._rerenderCart();
                   
                   const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
-                  cartSidebarTotalPrice.text(cartSidebarTotalPrice.attr('data-price'));
+                  cartSidebarTotalPrice.children('.money').text(cartSidebarTotalPrice.attr('data-price'));
                 }))
               }));
             }
