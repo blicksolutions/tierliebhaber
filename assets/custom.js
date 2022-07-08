@@ -77,6 +77,7 @@ $(document).ready(function () {
       /* Total price */
       const totalPrice = $('.Drawer__Footer__Total > span');
       const totalPriceValue = subtotalNewPriceValue + deliveryPriceValue;
+      totalPrice.text(obj.priceToStr(totalPriceValue));
       /* /Total price */
     }
 
