@@ -2343,6 +2343,8 @@ function _classCallCheck(e, t) {
           const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
           let cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.attr('data-price').replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
           
+          consoel.log('cartSidebarTotalPriceValue', cartSidebarTotalPriceValue);
+          
           const giftItemId = cartSidebar.attr('data-gift-item-id');
           const giftItemVariantId = $('#sidebar-cart').attr('data-gift-variant-id');
           
@@ -2368,17 +2370,17 @@ function _classCallCheck(e, t) {
             }
           }
           
-          let cartSidebarPercentage = cartSidebarTotalPriceValue / maxPriceValue * 100;
+//           let cartSidebarPercentage = cartSidebarTotalPriceValue / maxPriceValue * 100;
           
-          if (cartSidebarPercentage > 100) {
-            cartSidebarPercentage = 100;
-          }
+//           if (cartSidebarPercentage > 100) {
+//             cartSidebarPercentage = 100;
+//           }
 
-          const cartSidebarLine = document.querySelector('.CartMessage__StepsLines__Active');
+//           const cartSidebarLine = document.querySelector('.CartMessage__StepsLines__Active');
           
-          if (cartSidebarLine) {
-            cartSidebarLine.style.width = cartSidebarPercentage + '%';
-          }
+//           if (cartSidebarLine) {
+//             cartSidebarLine.style.width = cartSidebarPercentage + '%';
+//           }
         }
       }]), e
     }();
