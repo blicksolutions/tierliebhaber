@@ -182,7 +182,6 @@ $(document).ready(function () {
       
       const totalPrice = cartSidebar.find('.Drawer__Footer__Total > span');
       totalPrice.text(totalPrice.attr('data-price')); 
-    }
     });
     
   })();
