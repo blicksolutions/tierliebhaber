@@ -11619,9 +11619,9 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 /* /Cart sidebar payment image */
 
 #sidebar-cart .Drawer__Footer__SubtotalPrice {
-  transition: filter .5s;
+  transition: filter 500ms linear;
 }
 
 #sidebar-cart.Drawer__Footer-loading .Drawer__Footer__SubtotalPrice {
-  filter: blur(5px);
+  filter: blur(3px);
 }
