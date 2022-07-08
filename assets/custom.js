@@ -1,14 +1,14 @@
 /* Cart sidebar coupon */
 $(document).ready(function () {
-  const obj = function(){};
+  window.obj = function(){};
   
-  obj.priceToStr = function(price) {
+  window.obj.priceToStr = function(price) {
     const currencySymbol = $('body').attr('data-currency-symbol');
     const str = currencySymbol + price.toFixed(2).replace(/\./, ',').replace(/^([0-9]+)([0-9]{3})\,/, '$1.$2,');
     return str;
   };
   
-  obj.strToPrice = function(str) {
+  window.obj.strToPrice = function(str) {
     
     if (!str) {
       return null;
@@ -18,7 +18,7 @@ $(document).ready(function () {
     return price;
   };
   
-  obj.cartSidebarRefresh = function() {
+  window.obj.cartSidebarRefresh = function() {
     console.log('cartSidebarRefresh');
     
     const cartSidebar = $('#sidebar-cart');
@@ -104,7 +104,7 @@ $(document).ready(function () {
     /* /Error */
   };
   
-  obj.cartSidebar = (function(){
+  window.obj.cartSidebar = (function(){
     
     $(document).on('click', '#sidebar-cart .CartUpsells__ScrollBtn', function() {
       const btn = $(this);
@@ -165,13 +165,13 @@ $(document).ready(function () {
       cartSidebar.attr("data-dcart-calculated", 0);
       cartSidebar.addClass('Drawer__Footer__DCart-inited').removeClass('Drawer__Footer-loading');
       
-      obj.cartSidebarRefresh();
+      window.obj.cartSidebarRefresh();
     });
     
     window.addEventListener('sc:discount.calculated', function() {
       console.log('dcart calculated');
       
-      obj.cartSidebarRefresh();
+      window.obj.cartSidebarRefresh();
     });
     
   })();
