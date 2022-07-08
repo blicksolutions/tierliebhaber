@@ -39,73 +39,51 @@ $(document).ready(function () {
       }
       /* /Percentage */
       
-      console.log('couponPercentage', couponPercentage.length);
-
       /* Subtotal price */
       const subtotalOldPrice = cartSidebar.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > s > span.money');
-      let subtotalOldPriceValue;
+      let subtotalOldPriceValue = scData.total;
       
       const subtotalNewPrice = cartSidebar.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
-      let subtotalNewPriceValue;
-      
-      let forDeliverySubtotalPriceValue;
-
-      console.log('subtotalOldPrice', subtotalOldPrice.length);
-
-      if (subtotalOldPrice.length) {
-//         let subtotalOldPriceValue = obj.strToPrice(subtotalOldPrice.text());
-        subtotalOldPriceValue = scData.total;
-        forDeliverySubtotalPriceValue = subtotalOldPriceValue;
-
-        const giftItem = cartSidebar.find('.CartItemWrapper[data-free-gift="true"]');
-
-        /* If the gift item is added */
-        if (giftItem.length) {
-          const giftItemPriceValue = obj.strToPrice(giftItem.find('.CartItem__OriginalPrice').text());
-
-          if ((subtotalOldPriceValue - giftItemPriceValue) > subtotalNewPriceValue) {
-            subtotalOldPriceValue -= giftItemPriceValue;
-            subtotalOldPrice.attr('data-updated-price', obj.priceToStr(subtotalOldPriceValue));
-
-          } else {
-            subtotalOldPrice.removeAttr('data-updated-price');
-          }
-        }
-
-      } else {
-        subtotalNewPriceValue = scData.subtotal;
-        forDeliverySubtotalPriceValue = subtotalNewPriceValue;
-      }
-    
-    const subtotalPriceValue = subtotalNewPriceValue;
-    /* /Subtotal price */
+      let subtotalNewPriceValue = scData.subtotal;
+      /* /Subtotal price */
 
     /* Delivery price */
-    const deliveryPrice = $('.Drawer__Footer__Delivery > span');
-    let deliveryPriceValue;
+      let forDeliverySubtotalPriceValue = scData.total;
 
-    if (forDeliverySubtotalPriceValue > 39) {
-      const freeShippingText = deliveryPrice.attr('data-freeshipping-text');
-      deliveryPriceValue = 0;
-      deliveryPrice.text(freeShippingText);
+      const giftItem = cartSidebar.find('.CartItemWrapper[data-free-gift="true"]');
 
-    } else {
-      const deliveryCostText = deliveryPrice.attr('data-shipping-price');
-      deliveryPriceValue = obj.strToPrice(deliveryCostText);
-      deliveryPrice.text(deliveryCostText);
-    }
-    /* /Delivery price */
+      /* If the gift item is added */
+      if (giftItem.length) {
+        const giftItemPriceValue = obj.strToPrice(giftItem.find('.CartItem__OriginalPrice').text());
+        subtotalOldPriceValue -= giftItemPriceValue;
+        subtotalOldPrice.attr('data-updated-price', obj.priceToStr(subtotalOldPriceValue));
+      }
 
-    /* Total price */
-    const totalPrice = $('.Drawer__Footer__Total > span');
-    const totalPriceValue = subtotalPriceValue + deliveryPriceValue;
+      const deliveryPrice = $('.Drawer__Footer__Delivery > span');
+      let deliveryPriceValue;
 
-    console.log('totalPriceValue', totalPriceValue, 'subtotalPriceValue', subtotalPriceValue, 'deliveryPriceValue', deliveryPriceValue);
+      if (forDeliverySubtotalPriceValue > 39) {
+        const freeShippingText = deliveryPrice.attr('data-freeshipping-text');
+        deliveryPriceValue = 0;
+        deliveryPrice.text(freeShippingText);
 
-    //       if (totalPriceValue > 1) {
-//     totalPrice.text(obj.priceToStr(totalPriceValue));
-    //       }
-    /* /Total price */
+      } else {
+        const deliveryCostText = deliveryPrice.attr('data-shipping-price');
+        deliveryPriceValue = obj.strToPrice(deliveryCostText);
+        deliveryPrice.text(deliveryCostText);
+      }
+      /* /Delivery price */
+
+      /* Total price */
+      const totalPrice = $('.Drawer__Footer__Total > span');
+      const totalPriceValue = subtotalPriceValue + deliveryPriceValue;
+
+      console.log('totalPriceValue', totalPriceValue, 'subtotalPriceValue', subtotalPriceValue, 'deliveryPriceValue', deliveryPriceValue);
+
+      //       if (totalPriceValue > 1) {
+      //     totalPrice.text(obj.priceToStr(totalPriceValue));
+      //       }
+      /* /Total price */
     }
 
     /* Error */
