@@ -11761,4 +11761,11 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
     background-color: rgb(241, 175, 158) !important;
     width: 100% !important;
 }
+
+.BenefitBadgeContainer {
+    margin-bottom: 20px !important;
+}
+
+
+
 /* /Buy in Bundle */

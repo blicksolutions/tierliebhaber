@@ -74,7 +74,7 @@ $(document).ready(function () {
       
       /* Subtotal price */
       const subtotalOldPrice = sidebarCart.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > s > span.money');
-      
+
       const subtotalNewPrice = sidebarCart.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
       const subtotalNewPriceValue = obj.strToPrice(subtotalNewPrice.text());
       let subtotalPriceValue;
@@ -83,8 +83,8 @@ $(document).ready(function () {
 
       if (subtotalOldPrice.length) {
         subtotalOldPriceValue = obj.strToPrice(subtotalOldPrice.text());
-        subtotalPriceValue = subtotalOldPriceValue;
-        
+        subtotalPriceValue = subtotalNewPriceValue;
+
         const giftItem = sidebarCart.find('.CartItemWrapper[data-free-gift="true"]');
         
         if (giftItem.length) {
@@ -94,7 +94,7 @@ $(document).ready(function () {
 
         const percentageValue = (subtotalOldPriceValue - subtotalNewPriceValue) / subtotalOldPriceValue * 100;
         couponPercentage.text('-' + Math.ceil(percentageValue.toFixed(4)) + '%');
-        
+
       } else {
         subtotalPriceValue = subtotalNewPriceValue;
         couponPercentage.text('');
