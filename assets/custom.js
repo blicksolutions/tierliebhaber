@@ -25,7 +25,10 @@ $(document).ready(function () {
     cartSidebar.removeClass('Drawer__Footer-loading');
     cartSidebar.attr("data-dcart-calculated", (parseInt(cartSidebar.attr("data-dcart-calculated")) + 1));
 
+    const scData = JSON.parse(sessionStorage.getItem("scDiscountData"))
+    
     const couponPercentage = cartSidebar.find('.Drawer__Footer__Coupon-percentage');
+    console.log('couponPercentage', couponPercentage.length);
 
     /* Subtotal price */
     const subtotalOldPrice = cartSidebar.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > s > span.money');
@@ -54,6 +57,8 @@ $(document).ready(function () {
         }
       }
 
+      
+      
       const percentageValue = (subtotalOldPriceValue - subtotalNewPriceValue) / subtotalOldPriceValue * 100;
 
       if (percentageValue > 0) {
