@@ -2342,7 +2342,8 @@ function _classCallCheck(e, t) {
           const cartSidebar = $('#sidebar-cart');
           
           const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
-          let cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.attr('data-price').replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
+//           let cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.attr('data-price').replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
+          let cartSidebarTotalPriceValue = window.obj.cartSidebarSettings;
           
           console.log('cartSidebarTotalPriceValue', cartSidebarTotalPriceValue);
           
