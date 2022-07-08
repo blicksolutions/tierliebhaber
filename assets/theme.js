@@ -2373,6 +2373,8 @@ function _classCallCheck(e, t) {
             }
           }
           
+          window.obj.cartSidebarRefresh();
+          
 //           let cartSidebarPercentage = cartSidebarTotalPriceValue / maxPriceValue * 100;
           
 //           if (cartSidebarPercentage > 100) {
