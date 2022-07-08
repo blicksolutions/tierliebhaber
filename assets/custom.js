@@ -84,7 +84,7 @@ $(document).ready(function () {
       console.log('deliveryPriceValue', deliveryPriceValue);
       console.log('totalPriceValue', totalPriceValue);
       
-      totalPrice.text(window.obj.priceToStr(totalPriceValue));
+      totalPrice.text(window.obj.priceToStr(totalPriceValue) + '/');
       /* /Total price */
     }
 
