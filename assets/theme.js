@@ -2187,6 +2187,9 @@ function _classCallCheck(e, t) {
           
           console.log('_rerenderCart');
           
+          const cartSidebar = $('#sidebar-cart');
+          cartSidebar.addClass('Drawer__Footer-loading');
+          
           return fetch(window.routes.cartUrl + "?view=" + (this.options.drawer && "cart" !== window.theme.pageType ? "drawer" : "ajax") + "&timestamp=" + Date.now(), {
             credentials: "same-origin",
             method: "GET"
@@ -2333,7 +2336,6 @@ function _classCallCheck(e, t) {
           const maxPriceValue = 71.48934;
           
           const cartSidebar = $('#sidebar-cart');
-          cartSidebar.addClass('Drawer__Footer-loading');
           
           const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
           let cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.text().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
