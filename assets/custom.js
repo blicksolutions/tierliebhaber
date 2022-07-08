@@ -90,6 +90,8 @@ $(document).ready(function () {
     } else {
       let totalPriceValue = obj.strToPrice(totalPrice.attr('data-price'))
       
+      const giftItem = cartSidebar.find('.CartItemWrapper[data-free-gift="true"]');
+
       /* If the gift item is added */
       if (giftItem.length) {
         const giftItemPriceValue = obj.strToPrice(giftItem.find('.CartItem__OriginalPrice').text());
