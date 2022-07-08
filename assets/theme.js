@@ -2185,6 +2185,8 @@ function _classCallCheck(e, t) {
         value: function(e) {
           var t = this;
           
+          console.log('_rerenderCart');
+          
           return fetch(window.routes.cartUrl + "?view=" + (this.options.drawer && "cart" !== window.theme.pageType ? "drawer" : "ajax") + "&timestamp=" + Date.now(), {
             credentials: "same-origin",
             method: "GET"
