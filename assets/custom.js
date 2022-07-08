@@ -89,7 +89,7 @@ $(document).ready(function () {
       
       const cartSidebar = $('#sidebar-cart');
       cartSidebar.removeClass('Drawer__Footer-loading');
-      cartSidebar.attr("data-dcart-calculated", cartSidebar.attr("data-dcart-calculated")++);
+      cartSidebar.attr("data-dcart-calculated", (parseInt(cartSidebar.attr("data-dcart-calculated")) + 1));
       
       const couponPercentage = cartSidebar.find('.Drawer__Footer__Coupon-percentage');
       
