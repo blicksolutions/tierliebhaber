@@ -25,6 +25,12 @@ $(document).ready(function () {
       
     });
     
+    
+    window.addEventListener('sc:discount.calculated', function() {
+      console.log('dcart calculated');
+      
+    });
+    
     $(document).on('click', '#sidebar-cart .CartUpsells__ScrollBtn', function() {
       const btn = $(this);
       btn.removeClass('Visible');
