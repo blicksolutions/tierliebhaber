@@ -93,6 +93,7 @@ $(document).ready(function () {
       
       const couponPercentage = cartSidebar.find('.Drawer__Footer__Coupon-percentage');
       
+      if (1 === 3) {
       /* Subtotal price */
       const subtotalOldPrice = cartSidebar.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > s > span.money');
       
@@ -183,6 +184,7 @@ $(document).ready(function () {
         }, 3000);
       }
       /* /Error */
+      }
     });
     
   })();
