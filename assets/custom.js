@@ -37,6 +37,8 @@ $(document).ready(function () {
     let subtotalNewPriceValue = obj.strToPrice(subtotalNewPrice.text());
 
     let forDeliverySubtotalPriceValue;
+    
+    let percentageValue;
 
     if (subtotalOldPrice.length) {
       let subtotalOldPriceValue = obj.strToPrice(subtotalOldPrice.text());
@@ -57,9 +59,7 @@ $(document).ready(function () {
         }
       }
 
-      
-      
-      const percentageValue = (subtotalOldPriceValue - subtotalNewPriceValue) / subtotalOldPriceValue * 100;
+      percentageValue = (subtotalOldPriceValue - subtotalNewPriceValue) / subtotalOldPriceValue * 100;
 
       if (percentageValue > 0) {
         couponPercentage.text('-' + Math.ceil(percentageValue.toFixed(4)) + '%');
