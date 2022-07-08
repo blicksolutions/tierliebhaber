@@ -2332,6 +2332,7 @@ function _classCallCheck(e, t) {
           const maxPriceValue = 71.48934;
           
           const cartSidebar = $('#sidebar-cart');
+          
           const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
           let cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.text().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
           
