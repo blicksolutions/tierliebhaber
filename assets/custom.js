@@ -45,8 +45,8 @@ $(document).ready(function () {
     });
     
     $(document).on('click', '#sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon-title', function() {
-      const sidebarCart = $('#sidebar-cart');
-      sidebarCart.toggleClass('Drawer__Footer__CouponActive');
+      const cartSidebar = $('#sidebar-cart');
+      cartSidebar.toggleClass('Drawer__Footer__CouponActive');
     });
 
     $(document).on('click', '#sidebar-cart .CartItem__Actions__UpsellBtn', function() {
@@ -85,15 +85,15 @@ $(document).ready(function () {
     window.addEventListener('sc:discount.calculated', function() {
       console.log('dcart calculated');
       
-      const sidebarCart = $('#sidebar-cart');
-      sidebarCart.removeClass('Drawer__Footer-loading');
+      const cartSidebar = $('#sidebar-cart');
+      cartSidebar.removeClass('Drawer__Footer-loading');
       
-      const couponPercentage = sidebarCart.find('.Drawer__Footer__Coupon-percentage');
+      const couponPercentage = cartSidebar.find('.Drawer__Footer__Coupon-percentage');
       
       /* Subtotal price */
-      const subtotalOldPrice = sidebarCart.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > s > span.money');
+      const subtotalOldPrice = cartSidebar.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > s > span.money');
       
-      const subtotalNewPrice = sidebarCart.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
+      const subtotalNewPrice = cartSidebar.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
       let subtotalNewPriceValue = obj.strToPrice(subtotalNewPrice.text());
       
       let forDeliverySubtotalPriceValue;
@@ -102,7 +102,7 @@ $(document).ready(function () {
         let subtotalOldPriceValue = obj.strToPrice(subtotalOldPrice.text());
         forDeliverySubtotalPriceValue = subtotalOldPriceValue;
         
-        const giftItem = sidebarCart.find('.CartItemWrapper[data-free-gift="true"]');
+        const giftItem = cartSidebar.find('.CartItemWrapper[data-free-gift="true"]');
         
         /* If the gift item is added */
         if (giftItem.length) {
@@ -166,7 +166,7 @@ $(document).ready(function () {
       /* /Total price */
       
       /* Error */
-      const couponError = sidebarCart.find('.scDiscount__container .scError');
+      const couponError = cartSidebar.find('.scDiscount__container .scError');
       
       if (couponError.length && !couponError.hasClass('Hidden')) {
         couponError.addClass('Hidden');
