@@ -102,6 +102,22 @@ $(document).ready(function () {
       }, 3000);
     }
     /* /Error */
+    
+
+    /* Message */
+    const maxPriceValue = 71.48934;
+    let cartSidebarPercentage = totalPriceValue / maxPriceValue * 100;
+
+    if (cartSidebarPercentage > 100) {
+      cartSidebarPercentage = 100;
+    }
+
+    const cartSidebarLine = document.querySelector('.CartMessage__StepsLines__Active');
+
+    if (cartSidebarLine) {
+      cartSidebarLine.style.width = cartSidebarPercentage + '%';
+    }
+    /* /Message */
   };
   
   window.obj.cartSidebar = (function(){
