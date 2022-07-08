@@ -2373,7 +2373,7 @@ function _classCallCheck(e, t) {
             }
           }
           
-//           window.obj.cartSidebarRefresh();
+          window.obj.cartSidebarRefresh();
           
           let cartSidebarPercentage = cartSidebarTotalPriceValue / maxPriceValue * 100;
           
