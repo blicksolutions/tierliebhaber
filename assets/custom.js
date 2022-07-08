@@ -163,9 +163,9 @@ $(document).ready(function () {
       const totalPrice = $('.Drawer__Footer__Total > span');
       const totalPriceValue = subtotalPriceValue + deliveryPriceValue;
       
-      if (totalPriceValue > 1) {
+//       if (totalPriceValue > 1) {
         totalPrice.text(obj.priceToStr(totalPriceValue));
-      }
+//       }
       /* /Total price */
       
       /* Error */
