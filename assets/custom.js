@@ -39,6 +39,8 @@ $(document).ready(function () {
     let forDeliverySubtotalPriceValue;
     
     let percentageValue;
+    
+    console.log('subtotalOldPrice', subtotalOldPrice.length);
 
     if (subtotalOldPrice.length) {
       let subtotalOldPriceValue = obj.strToPrice(subtotalOldPrice.text());
@@ -66,7 +68,7 @@ $(document).ready(function () {
       }
 
     } else {
-      couponPercentage.text('');
+//       couponPercentage.text('');
 
       if (subtotalNewPrice.text().trim() != subtotalNewPrice.parent().attr('data-price')) {
         subtotalNewPrice.text(subtotalNewPrice.parent().attr('data-price'));
