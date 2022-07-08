@@ -3,7 +3,6 @@ $(document).ready(function () {
   const obj = function(){};
   
   obj.priceToStr = function(price) {
-    let price = parseFloat(price);
     const currencySymbol = $('body').attr('data-currency-symbol');
     const str = currencySymbol + price.toFixed(2).replace(/\./, ',').replace(/^([0-9]+)([0-9]{3})\,/, '$1.$2,');
     return str;
@@ -77,7 +76,7 @@ $(document).ready(function () {
 
       /* Total price */
       const totalPrice = $('.Drawer__Footer__Total > span');
-      const totalPriceValue = subtotalNewPriceValue + deliveryPriceValue;
+      const totalPriceValue = parseFloat(subtotalNewPriceValue + deliveryPriceValue);
       
       console.log('totalPriceValue', totalPriceValue);
       
