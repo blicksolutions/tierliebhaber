@@ -174,6 +174,12 @@ $(document).ready(function () {
       window.obj.cartSidebarRefresh();
     });
     
+    window.addEventListener('sc:discount.remove', function() {
+      console.log('dcart remove');
+      
+      window.obj.cartSidebarRefresh();
+    });
+    
   })();
 });
 /* /Cart sidebar coupon */
