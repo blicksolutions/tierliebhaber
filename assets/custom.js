@@ -75,6 +75,8 @@ $(document).ready(function () {
 
       forDeliverySubtotalPriceValue = subtotalNewPriceValue;
     }
+    
+    console.log('percentageValue', percentageValue);
 
     const subtotalPriceValue = subtotalNewPriceValue;
     /* /Subtotal price */
