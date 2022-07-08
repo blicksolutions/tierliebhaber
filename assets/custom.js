@@ -80,7 +80,7 @@ $(document).ready(function () {
       console.log('dcart init');
       
       const cartSidebar = $('#sidebar-cart');
-      cartSidebar.removeClass('Drawer__Footer-loading');
+      cartSidebar.addClass('Drawer__Footer__DCart-inited').removeClass('Drawer__Footer-loading');
     });
     
     window.addEventListener('sc:discount.calculated_', function() {
