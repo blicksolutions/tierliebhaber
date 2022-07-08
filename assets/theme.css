@@ -11147,6 +11147,11 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 
 #sidebar-cart .Drawer__Footer {
   padding-bottom: 0;
+  min-height: 271px;
+}
+
+#sidebar-cart.Drawer__Footer__CouponActive .Drawer__Footer {
+  min-height: 335px;
 }
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon {
