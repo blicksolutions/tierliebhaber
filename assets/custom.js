@@ -56,7 +56,7 @@ $(document).ready(function () {
       if (giftItem.length) {
         const giftItemPriceValue = obj.strToPrice(giftItem.find('.CartItem__OriginalPrice').text());
         subtotalOldPriceValue -= giftItemPriceValue;
-        subtotalOldPrice.attr('data-updated-price', obj.priceToStr(subtotalOldPriceValue));
+        subtotalOldPrice.text(obj.priceToStr(subtotalOldPriceValue));
       }
 
       const deliveryPrice = $('.Drawer__Footer__Delivery > span');
