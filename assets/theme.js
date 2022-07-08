@@ -2265,6 +2265,9 @@ function _classCallCheck(e, t) {
               }).then((function(e) {
                 e.json().then((function(e) {
                   i._rerenderCart();
+                  
+                  const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
+                  cartSidebarTotalPrice.text(cartSidebarTotalPrice.attr('data-price'));
                 }))
               }));
             }
