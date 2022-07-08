@@ -11158,16 +11158,6 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   border-bottom: 1px solid #E5E5E5;
 }
 
-/* #sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon-title:after {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  border-top: 1px solid #E5E5E5;
-} */
-
 #sidebar-cart.Drawer__Footer__CouponActive .Drawer__Footer__Coupon {
   height: 125px;
   background: #fff;
@@ -11622,16 +11612,16 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 }
 /* /Cart sidebar scroll button */
 
-/* Cart sidebar button */
-.Cart__Checkout {
-/*   font-size: 16px;
-  height: 53px;
-  letter-spacing: normal; */
-}
-/* /Cart sidebar button */
-
 /* Cart sidebar payment image */
 .CartPayment__Image {
   margin-top: 12px;
 }
 /* /Cart sidebar payment image */
+
+#sidebar-cart .Drawer__Footer__SubtotalPrice {
+  transition: filter .5s;
+}
+
+#sidebar-cart.Drawer__Footer-loading .Drawer__Footer__SubtotalPrice {
+  filter: blur(5px);
+}
