@@ -25,7 +25,6 @@ $(document).ready(function () {
     cartSidebar.removeClass('Drawer__Footer-loading');
     cartSidebar.attr("data-dcart-calculated", (parseInt(cartSidebar.attr("data-dcart-calculated")) + 1));
     
-    const totalPrice = $('.Drawer__Footer__Total > span');
 
     const scData = JSON.parse(sessionStorage.getItem("scDiscountData"));
     
@@ -77,6 +76,7 @@ $(document).ready(function () {
       /* /Delivery price */
 
       /* Total price */
+      const totalPrice = cartSidebar.find('.Drawer__Footer__Total > span');
       const totalPriceValue = parseFloat(subtotalNewPriceValue + deliveryPriceValue);
       
       console.log('__');
@@ -86,19 +86,6 @@ $(document).ready(function () {
       
       totalPrice.text(window.obj.priceToStr(totalPriceValue));
       /* /Total price */
-    
-    } else {
-      let totalPriceValue = window.obj.strToPrice(totalPrice.attr('data-price'))
-      
-      const giftItem = cartSidebar.find('.CartItemWrapper[data-free-gift="true"]');
-
-      /* If the gift item is added */
-      if (giftItem.length) {
-        const giftItemPriceValue = window.obj.strToPrice(giftItem.find('.CartItem__OriginalPrice').text());
-        totalPriceValue -= giftItemPriceValue;
-      }
-      
-      totalPrice.text(window.obj.priceToStr(totalPriceValue)); 
     }
 
     /* Error */
@@ -191,7 +178,11 @@ $(document).ready(function () {
     window.addEventListener('sc:discount.remove', function() {
       console.log('dcart remove');
       
-      window.obj.cartSidebarRefresh();
+      const cartSidebar = $('#sidebar-cart');
+      
+      const totalPrice = cartSidebar.find('.Drawer__Footer__Total > span');
+      totalPrice.text(totalPrice.attr('data-price')); 
+    }
     });
     
   })();
