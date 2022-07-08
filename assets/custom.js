@@ -80,6 +80,7 @@ $(document).ready(function () {
       console.log('dcart init');
       
       const cartSidebar = $('#sidebar-cart');
+      cartSidebar.attr("data-dcart-calculated", 0);
       cartSidebar.addClass('Drawer__Footer__DCart-inited').removeClass('Drawer__Footer-loading');
     });
     
@@ -88,6 +89,7 @@ $(document).ready(function () {
       
       const cartSidebar = $('#sidebar-cart');
       cartSidebar.removeClass('Drawer__Footer-loading');
+      cartSidebar.attr("data-dcart-calculated", cartSidebar.attr("data-dcart-calculated")++);
       
       const couponPercentage = cartSidebar.find('.Drawer__Footer__Coupon-percentage');
       
