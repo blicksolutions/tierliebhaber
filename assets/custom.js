@@ -106,7 +106,6 @@
   };
   
   window.obj.cartSidebar = function(){
-    console.log('cartSidebar');
     
     $(document).on('click', '#sidebar-cart .CartUpsells__ScrollBtn', function() {
       const btn = $(this);
