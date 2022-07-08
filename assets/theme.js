@@ -2188,7 +2188,10 @@ function _classCallCheck(e, t) {
           console.log('_rerenderCart');
           
           const cartSidebar = $('#sidebar-cart');
-          cartSidebar.addClass('Drawer__Footer-loading');
+          
+          if (cartSidebar.hasClass('Drawer__Footer__DCart-inited')) {
+            cartSidebar.addClass('Drawer__Footer-loading');
+          }
           
           return fetch(window.routes.cartUrl + "?view=" + (this.options.drawer && "cart" !== window.theme.pageType ? "drawer" : "ajax") + "&timestamp=" + Date.now(), {
             credentials: "same-origin",
