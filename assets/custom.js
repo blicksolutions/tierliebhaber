@@ -172,23 +172,25 @@ $(document).ready(function () {
         field.removeClass('active');
       }
     });
+    
+  })();
+});
+
+
 
     window.addEventListener('sc:discount.init', function() {
       console.log('dcart init');
       
-      const cartSidebar = $('#sidebar-cart');
-      cartSidebar.attr("data-dcart-calculated", 0);
-      cartSidebar.addClass('Drawer__Footer__DCart-inited').removeClass('Drawer__Footer-loading');
+//       const cartSidebar = $('#sidebar-cart');
+//       cartSidebar.attr("data-dcart-calculated", 0);
+//       cartSidebar.addClass('Drawer__Footer__DCart-inited').removeClass('Drawer__Footer-loading');
       
-      obj.cartSidebarRefresh();
+//       obj.cartSidebarRefresh();
     });
     
     window.addEventListener('sc:discount.calculated', function() {
       console.log('dcart calculated');
       
-      obj.cartSidebarRefresh();
+//       obj.cartSidebarRefresh();
     });
-    
-  })();
-});
 /* /Cart sidebar coupon */
