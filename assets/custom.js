@@ -58,9 +58,6 @@ $(document).ready(function () {
 
       if (percentageValue > 0) {
         couponPercentage.text('-' + Math.ceil(percentageValue.toFixed(4)) + '%');
-
-      } else {
-        couponPercentage.text('');
       }
 
     } else {
