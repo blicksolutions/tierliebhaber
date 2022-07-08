@@ -19,6 +19,8 @@ $(document).ready(function () {
   };
   
   obj.cartSidebarRefresh = function() {
+    console.log('cartSidebarRefresh');
+    
     const cartSidebar = $('#sidebar-cart');
     cartSidebar.removeClass('Drawer__Footer-loading');
     cartSidebar.attr("data-dcart-calculated", (parseInt(cartSidebar.attr("data-dcart-calculated")) + 1));
