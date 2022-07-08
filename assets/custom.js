@@ -78,6 +78,9 @@ $(document).ready(function () {
       const totalPrice = $('.Drawer__Footer__Total > span');
       const totalPriceValue = parseFloat(subtotalNewPriceValue + deliveryPriceValue);
       
+      console.log('__');
+      console.log('subtotalNewPriceValue', subtotalNewPriceValue);
+      console.log('deliveryPriceValue', deliveryPriceValue);
       console.log('totalPriceValue', totalPriceValue);
       
       totalPrice.text(obj.priceToStr(totalPriceValue));
