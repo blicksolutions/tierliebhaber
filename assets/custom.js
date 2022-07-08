@@ -24,6 +24,8 @@ $(document).ready(function () {
     const cartSidebar = $('#sidebar-cart');
     cartSidebar.removeClass('Drawer__Footer-loading');
     cartSidebar.attr("data-dcart-calculated", (parseInt(cartSidebar.attr("data-dcart-calculated")) + 1));
+    
+    const totalPrice = $('.Drawer__Footer__Total > span');
 
     const scData = JSON.parse(sessionStorage.getItem("scDiscountData"));
     
@@ -75,7 +77,6 @@ $(document).ready(function () {
       /* /Delivery price */
 
       /* Total price */
-      const totalPrice = $('.Drawer__Footer__Total > span');
       const totalPriceValue = parseFloat(subtotalNewPriceValue + deliveryPriceValue);
       
       console.log('__');
@@ -85,6 +86,9 @@ $(document).ready(function () {
       
       totalPrice.text(obj.priceToStr(totalPriceValue));
       /* /Total price */
+    
+    } else {
+      totalPrice.text(totalPrice.attr('data-price'));
     }
 
     /* Error */
