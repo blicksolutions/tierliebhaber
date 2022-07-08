@@ -11619,14 +11619,14 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 /* /Cart sidebar payment image */
 
 #sidebar-cart .Drawer__Footer__SubtotalPrice,
-#sidebar-cart .Drawer__Footer .Drawer__Footer__Delivery,
-#sidebar-cart .Drawer__Footer .Drawer__Footer__Total {
-  transition: filter 500ms linear;
+#sidebar-cart .Drawer__Footer .Drawer__Footer__Delivery > span,
+#sidebar-cart .Drawer__Footer .Drawer__Footer__Total > span {
+  transition: filter 250ms linear;
 }
 
 #sidebar-cart.Drawer__Footer-loading .Drawer__Footer__SubtotalPrice,
 #sidebar-cart.Drawer__Footer-loading .Drawer__Footer .Drawer__Footer__Delivery,
-#sidebar-cart.Drawer__Footer-loading .Drawer__Footer .Drawer__Footer__Delivery,
-#sidebar-cart.Drawer__Footer-loading .Drawer__Footer .Drawer__Footer__Total {
-  filter: blur(3px);
+#sidebar-cart.Drawer__Footer-loading .Drawer__Footer .Drawer__Footer__Delivery > span,
+#sidebar-cart.Drawer__Footer-loading .Drawer__Footer .Drawer__Footer__Total > span {
+  filter: blur(2px);
 }
