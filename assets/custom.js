@@ -56,9 +56,9 @@ $(document).ready(function () {
 
       /* If the gift item is added */
       if (giftItem.length) {
-        const giftItemPriceValue = obj.strToPrice(giftItem.find('.CartItem__OriginalPrice').text());
+        const giftItemPriceValue = window.obj.strToPrice(giftItem.find('.CartItem__OriginalPrice').text());
         subtotalOldPriceValue -= giftItemPriceValue;
-        subtotalOldPrice.text(obj.priceToStr(subtotalOldPriceValue));
+        subtotalOldPrice.text(window.obj.priceToStr(subtotalOldPriceValue));
       }
 
       const deliveryPrice = $('.Drawer__Footer__Delivery > span');
@@ -71,7 +71,7 @@ $(document).ready(function () {
 
       } else {
         const deliveryCostText = deliveryPrice.attr('data-shipping-price');
-        deliveryPriceValue = obj.strToPrice(deliveryCostText);
+        deliveryPriceValue = window.obj.strToPrice(deliveryCostText);
         deliveryPrice.text(deliveryCostText);
       }
       /* /Delivery price */
@@ -84,21 +84,21 @@ $(document).ready(function () {
       console.log('deliveryPriceValue', deliveryPriceValue);
       console.log('totalPriceValue', totalPriceValue);
       
-      totalPrice.text(obj.priceToStr(totalPriceValue));
+      totalPrice.text(window.obj.priceToStr(totalPriceValue));
       /* /Total price */
     
     } else {
-      let totalPriceValue = obj.strToPrice(totalPrice.attr('data-price'))
+      let totalPriceValue = window.obj.strToPrice(totalPrice.attr('data-price'))
       
       const giftItem = cartSidebar.find('.CartItemWrapper[data-free-gift="true"]');
 
       /* If the gift item is added */
       if (giftItem.length) {
-        const giftItemPriceValue = obj.strToPrice(giftItem.find('.CartItem__OriginalPrice').text());
+        const giftItemPriceValue = window.obj.strToPrice(giftItem.find('.CartItem__OriginalPrice').text());
         totalPriceValue -= giftItemPriceValue;
       }
       
-      totalPrice.text(obj.priceToStr(totalPriceValue)); 
+      totalPrice.text(window.obj.priceToStr(totalPriceValue)); 
     }
 
     /* Error */
