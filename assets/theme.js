@@ -2257,8 +2257,6 @@ function _classCallCheck(e, t) {
                 }
               }).then((function(e) {
                 e.json().then((function(e) {
-                  //                 console.log('free gift is added', e);
-
                   i._rerenderCart();
                 }))
               }));
@@ -2278,11 +2276,11 @@ function _classCallCheck(e, t) {
           
           if ($('body.template-product').length && $('form.ProductForm[data-productid="' + giftItemId + '"]').length) {
             /* Gift page */
-            console.log('gift page');
+//             console.log('gift page');
             
           } else {
             let giftItemToRemove = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:not([data-free-gift]):first');
-            console.log('giftItemToRemove', giftItemToRemove.length, giftItemVariantId);
+//             console.log('giftItemToRemove', giftItemToRemove.length, giftItemVariantId);
             
             if (giftItemToRemove.length) {
               const giftItemI = giftItemToRemove.attr('data-index');
@@ -2301,7 +2299,6 @@ function _classCallCheck(e, t) {
                 }
               }).then((function(e) {
                 e.json().then((function(e) {
-                  //                 console.log('free gift is removed');
                   i._rerenderCart();
                 }))
               }));
@@ -2338,8 +2335,6 @@ function _classCallCheck(e, t) {
           const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
           let cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.text().replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
           
-//           console.log('cartSidebarTotalPriceValue', cartSidebarTotalPriceValue);
-          
           const giftItemId = cartSidebar.attr('data-gift-item-id');
           const giftItemVariantId = $('#sidebar-cart').attr('data-gift-variant-id');
           
@@ -2352,11 +2347,9 @@ function _classCallCheck(e, t) {
             if (giftItemToRemove.length) {
               cartSidebarTotalPriceValue -= parseInt(giftItemToRemove.attr('data-price') / 100);
               
-              console.log('cartSidebarTotalPriceValue', cartSidebarTotalPriceValue);
-              
-//               if (cartSidebarTotalPriceValue < 60) {
+              if (cartSidebarTotalPriceValue < 60) {
                 this._removeBgItem();
-//               }
+              }
 
             } else {
               const giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
