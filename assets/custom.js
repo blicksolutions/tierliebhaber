@@ -20,6 +20,11 @@ $(document).ready(function () {
   
   obj.cartSidebar = (function(){
     
+    window.addEventListener('sc:discount.init', function() {
+      console.log('dcart init');
+      
+    });
+    
     $(document).on('click', '#sidebar-cart .CartUpsells__ScrollBtn', function() {
       const btn = $(this);
       btn.removeClass('Visible');
