@@ -421,15 +421,15 @@ function _classCallCheck(e, t) {
             $('body').attr('data-drawer-id-opened', drawerButtonId);
 
             if (drawerButtonId == 'sidebar-cart') {
-              const sidebarCart = $('#sidebar-cart');
+              const cartSidebar = $('#sidebar-cart');
               
               /* Scroll button */
-              const drawerContent = sidebarCart.find('.Drawer__Main');
+              const drawerContent = cartSidebar.find('.Drawer__Main');
               
               if (drawerContent.prop('scrollHeight') > drawerContent.prop('clientHeight') + 60) {
                 
                 setTimeout(function() {
-                  const scrollBtn = sidebarCart.find('.CartUpsells__ScrollBtn');
+                  const scrollBtn = cartSidebar.find('.CartUpsells__ScrollBtn');
                   scrollBtn.addClass('Visible');
 
                   setTimeout(function() {
@@ -440,16 +440,16 @@ function _classCallCheck(e, t) {
               }
               /* /Scroll button */
               
-              const couponCode = sidebarCart.find('.scDiscount__container .sc_simple-info__tag > .sc-tag > .code > .code-name');
-              const couponTitle = sidebarCart.find('.Drawer__Footer__Coupon-title');
+              const couponCode = cartSidebar.find('.scDiscount__container .sc_simple-info__tag > .sc-tag > .code > .code-name');
+              const couponTitle = cartSidebar.find('.Drawer__Footer__Coupon-title');
 
               if (couponCode.length) {
                 const couponCodeText = couponCode.text().trim();
-                sidebarCart.addClass('Drawer__Footer__CouponActive');
+                cartSidebar.addClass('Drawer__Footer__CouponActive');
               }
 
               /* Field label */
-              const dcartField = sidebarCart.find('.scDiscount input[type="text"]');
+              const dcartField = cartSidebar.find('.scDiscount input[type="text"]');
 
               if (!dcartField.next('label').length) {
                 dcartField.after(
