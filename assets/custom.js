@@ -1,9 +1,6 @@
 /* Cart sidebar coupon */
 $(document).ready(function () {
   window.obj = function(){};
-  window.obj.cartSidebarSettings = {
-    total: 0
-  };
   
   window.obj.priceToStr = function(price) {
     const currencySymbol = $('body').attr('data-currency-symbol');
@@ -105,24 +102,6 @@ $(document).ready(function () {
       }, 3000);
     }
     /* /Error */
-    
-
-    /* Message */
-    const maxPriceValue = 71.48934;
-    let cartSidebarPercentage = totalPriceValue / maxPriceValue * 100;
-
-    if (cartSidebarPercentage > 100) {
-      cartSidebarPercentage = 100;
-    }
-
-    const cartSidebarLine = document.querySelector('.CartMessage__StepsLines__Active');
-
-    if (cartSidebarLine) {
-      cartSidebarLine.style.width = cartSidebarPercentage + '%';
-    }
-    /* /Message */
-    
-    window.obj.cartSidebarSettings = totalPriceValue;
   };
   
   window.obj.cartSidebar = (function(){
