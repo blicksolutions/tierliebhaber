@@ -2189,7 +2189,7 @@ function _classCallCheck(e, t) {
           
           const cartSidebar = $('#sidebar-cart');
           
-          if (cartSidebar.hasClass('Drawer__Footer__DCart-inited')) {
+          if (cartSidebar.hasClass('Drawer__Footer__DCart-inited') && cartSidebar.attr("data-dcart-calculated") > 1) {
             cartSidebar.addClass('Drawer__Footer-loading');
           }
           
