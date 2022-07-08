@@ -2339,8 +2339,6 @@ function _classCallCheck(e, t) {
             e.textContent = t.itemCount
           })), document.dispatchEvent(new CustomEvent("cart:rendered"))
           
-          const maxPriceValue = 71.48934;
-          
           const cartSidebar = $('#sidebar-cart');
           
           const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
@@ -2374,18 +2372,6 @@ function _classCallCheck(e, t) {
           }
           
           window.obj.cartSidebarRefresh();
-          
-//           let cartSidebarPercentage = cartSidebarTotalPriceValue / maxPriceValue * 100;
-          
-//           if (cartSidebarPercentage > 100) {
-//             cartSidebarPercentage = 100;
-//           }
-
-//           const cartSidebarLine = document.querySelector('.CartMessage__StepsLines__Active');
-          
-//           if (cartSidebarLine) {
-//             cartSidebarLine.style.width = cartSidebarPercentage + '%';
-//           }
         }
       }]), e
     }();
