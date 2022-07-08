@@ -83,7 +83,7 @@ $(document).ready(function () {
       cartSidebar.addClass('Drawer__Footer__DCart-inited').removeClass('Drawer__Footer-loading');
     });
     
-    window.addEventListener('sc:discount.calculated_', function() {
+    window.addEventListener('sc:discount.calculated', function() {
       console.log('dcart calculated');
       
       const cartSidebar = $('#sidebar-cart');
