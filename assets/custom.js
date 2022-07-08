@@ -83,7 +83,7 @@ $(document).ready(function () {
       console.log('deliveryPriceValue', deliveryPriceValue);
       console.log('totalPriceValue', totalPriceValue);
       
-      totalPrice.text(obj.priceToStr(totalPriceValue));
+      totalPrice.text(obj.priceToStr(totalPriceValue) + '//');
       /* /Total price */
     }
 
