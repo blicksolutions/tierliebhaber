@@ -2339,7 +2339,6 @@ function _classCallCheck(e, t) {
             e.textContent = t.itemCount
           })), document.dispatchEvent(new CustomEvent("cart:rendered"))
           
-          if (1 === 3) {
           const maxPriceValue = 71.48934;
           
           const cartSidebar = $('#sidebar-cart');
@@ -2385,7 +2384,6 @@ function _classCallCheck(e, t) {
 //           if (cartSidebarLine) {
 //             cartSidebarLine.style.width = cartSidebarPercentage + '%';
 //           }
-          }
         }
       }]), e
     }();
