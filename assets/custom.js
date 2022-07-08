@@ -28,72 +28,60 @@ $(document).ready(function () {
     const scData = JSON.parse(sessionStorage.getItem("scDiscountData"));
     
     if (scData.stage == 'complete') {
-    
-    const couponPercentage = cartSidebar.find('.Drawer__Footer__Coupon-percentage');
-      
+      /* Percentage */
+      const couponPercentage = cartSidebar.find('.Drawer__Footer__Coupon-percentage');
+
       if (scData.discount.value > 0) {
-       couponPercentage.text(parseInt(scData.discount.value) + '%');
-        
+        couponPercentage.text(parseInt(scData.discount.value) + '%');
+
       } else {
-       couponPercentage.text('');
+        couponPercentage.text('');
       }
+      /* /Percentage */
       
-      
-      
-    console.log('couponPercentage', couponPercentage.length);
+      console.log('couponPercentage', couponPercentage.length);
 
-    /* Subtotal price */
-    const subtotalOldPrice = cartSidebar.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > s > span.money');
+      /* Subtotal price */
+      const subtotalOldPrice = cartSidebar.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > s > span.money');
+      let subtotalOldPriceValue = scData.total;
 
-    const subtotalNewPrice = cartSidebar.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
-    let subtotalNewPriceValue = obj.strToPrice(subtotalNewPrice.text());
-      
-      console.log('subtotalNewPriceValue', subtotalNewPriceValue);
+      const subtotalNewPrice = cartSidebar.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
+      let subtotalNewPriceValue = scData.subtotal;
+      //     let subtotalNewPriceValue = obj.strToPrice(subtotalNewPrice.text());
 
-    let forDeliverySubtotalPriceValue;
-    
-    let percentageValue;
-    
-    console.log('subtotalOldPrice', subtotalOldPrice.length);
+      let forDeliverySubtotalPriceValue;
 
-    if (subtotalOldPrice.length) {
-      let subtotalOldPriceValue = obj.strToPrice(subtotalOldPrice.text());
-      forDeliverySubtotalPriceValue = subtotalOldPriceValue;
+      console.log('subtotalOldPrice', subtotalOldPrice.length);
 
-      const giftItem = cartSidebar.find('.CartItemWrapper[data-free-gift="true"]');
+      if (subtotalOldPrice.length) {
+        let subtotalOldPriceValue = obj.strToPrice(subtotalOldPrice.text());
+        forDeliverySubtotalPriceValue = subtotalOldPriceValue;
 
-      /* If the gift item is added */
-      if (giftItem.length) {
-        const giftItemPriceValue = obj.strToPrice(giftItem.find('.CartItem__OriginalPrice').text());
+        const giftItem = cartSidebar.find('.CartItemWrapper[data-free-gift="true"]');
 
-        if ((subtotalOldPriceValue - giftItemPriceValue) > subtotalNewPriceValue) {
-          subtotalOldPriceValue -= giftItemPriceValue;
-          subtotalOldPrice.attr('data-updated-price', obj.priceToStr(subtotalOldPriceValue));
+        /* If the gift item is added */
+        if (giftItem.length) {
+          const giftItemPriceValue = obj.strToPrice(giftItem.find('.CartItem__OriginalPrice').text());
 
-        } else {
-          subtotalOldPrice.removeAttr('data-updated-price');
+          if ((subtotalOldPriceValue - giftItemPriceValue) > subtotalNewPriceValue) {
+            subtotalOldPriceValue -= giftItemPriceValue;
+            subtotalOldPrice.attr('data-updated-price', obj.priceToStr(subtotalOldPriceValue));
+
+          } else {
+            subtotalOldPrice.removeAttr('data-updated-price');
+          }
         }
+
+      } else {
+
+        //       if (subtotalNewPrice.text().trim() != subtotalNewPrice.parent().attr('data-price')) {
+        //         subtotalNewPrice.text(subtotalNewPrice.parent().attr('data-price'));
+        //         subtotalNewPriceValue = obj.strToPrice(subtotalNewPrice.parent().attr('data-price'));
+        //       }
+
+        forDeliverySubtotalPriceValue = subtotalNewPriceValue;
       }
-
-      percentageValue = (subtotalOldPriceValue - subtotalNewPriceValue) / subtotalOldPriceValue * 100;
-
-      if (percentageValue > 0) {
-//         couponPercentage.text('-' + Math.ceil(percentageValue.toFixed(4)) + '%');
-      }
-
-    } else {
-//       couponPercentage.text('');
-
-      if (subtotalNewPrice.text().trim() != subtotalNewPrice.parent().attr('data-price')) {
-        subtotalNewPrice.text(subtotalNewPrice.parent().attr('data-price'));
-        subtotalNewPriceValue = obj.strToPrice(subtotalNewPrice.parent().attr('data-price'));
-      }
-
-      forDeliverySubtotalPriceValue = subtotalNewPriceValue;
-    }
     
-    console.log('percentageValue', percentageValue);
-
     const subtotalPriceValue = subtotalNewPriceValue;
     /* /Subtotal price */
 
