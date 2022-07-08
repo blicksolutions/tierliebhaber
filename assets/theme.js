@@ -2359,18 +2359,6 @@ function _classCallCheck(e, t) {
               }
             }
           }
-          
-          let cartSidebarPercentage = cartSidebarTotalPriceValue / maxPriceValue * 100;
-          
-          if (cartSidebarPercentage > 100) {
-            cartSidebarPercentage = 100;
-          }
-
-          const cartSidebarLine = document.querySelector('.CartMessage__StepsLines__Active');
-          
-          if (cartSidebarLine) {
-            cartSidebarLine.style.width = cartSidebarPercentage + '%';
-          }
         }
       }]), e
     }();
