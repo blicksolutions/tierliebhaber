@@ -43,10 +43,10 @@ $(document).ready(function () {
 
       /* Subtotal price */
       const subtotalOldPrice = cartSidebar.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > s > span.money');
-      let subtotalOldPriceValue = scData.total;
-
+      let subtotalOldPriceValue;
+      
       const subtotalNewPrice = cartSidebar.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
-      let subtotalNewPriceValue = scData.subtotal;
+      let subtotalNewPriceValue;
       //     let subtotalNewPriceValue = obj.strToPrice(subtotalNewPrice.text());
 
       let forDeliverySubtotalPriceValue;
@@ -54,7 +54,8 @@ $(document).ready(function () {
       console.log('subtotalOldPrice', subtotalOldPrice.length);
 
       if (subtotalOldPrice.length) {
-        let subtotalOldPriceValue = obj.strToPrice(subtotalOldPrice.text());
+//         let subtotalOldPriceValue = obj.strToPrice(subtotalOldPrice.text());
+        subtotalOldPriceValue = scData.total;
         forDeliverySubtotalPriceValue = subtotalOldPriceValue;
 
         const giftItem = cartSidebar.find('.CartItemWrapper[data-free-gift="true"]');
@@ -79,6 +80,7 @@ $(document).ready(function () {
         //         subtotalNewPriceValue = obj.strToPrice(subtotalNewPrice.parent().attr('data-price'));
         //       }
 
+        subtotalNewPriceValue = scData.subtotal;
         forDeliverySubtotalPriceValue = subtotalNewPriceValue;
       }
     
