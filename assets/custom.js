@@ -75,7 +75,7 @@ $(document).ready(function () {
       /* /Delivery price */
 
       /* Total price */
-      const totalPrice = $('.Drawer__Footer__Total > b');
+      const totalPrice = $('.Drawer__Footer__Total > span');
       const totalPriceValue = parseFloat(subtotalNewPriceValue + deliveryPriceValue);
       
       console.log('__');
