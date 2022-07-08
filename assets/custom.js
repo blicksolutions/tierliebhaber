@@ -98,7 +98,7 @@ $(document).ready(function () {
         totalPriceValue -= giftItemPriceValue;
       }
       
-      totalPrice.text(obj.priceToStr(subtotalOldPriceValue)); 
+      totalPrice.text(obj.priceToStr(totalPriceValue)); 
     }
 
     /* Error */
