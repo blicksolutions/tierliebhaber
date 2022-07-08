@@ -100,7 +100,7 @@ $(document).ready(function () {
     console.log('totalPriceValue', totalPriceValue, 'subtotalPriceValue', subtotalPriceValue, 'deliveryPriceValue', deliveryPriceValue);
 
     //       if (totalPriceValue > 1) {
-    totalPrice.text(obj.priceToStr(totalPriceValue));
+//     totalPrice.text(obj.priceToStr(totalPriceValue));
     //       }
     /* /Total price */
 
