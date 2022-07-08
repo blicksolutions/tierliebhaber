@@ -1,6 +1,9 @@
 /* Cart sidebar coupon */
 $(document).ready(function () {
   window.obj = function(){};
+  window.obj.cartSidebarSettings = {
+    total: 0
+  };
   
   window.obj.priceToStr = function(price) {
     const currencySymbol = $('body').attr('data-currency-symbol');
@@ -118,6 +121,8 @@ $(document).ready(function () {
       cartSidebarLine.style.width = cartSidebarPercentage + '%';
     }
     /* /Message */
+    
+    window.obj.cartSidebarSettings = totalPriceValue;
   };
   
   window.obj.cartSidebar = (function(){
