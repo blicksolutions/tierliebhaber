@@ -76,13 +76,7 @@ $(document).ready(function () {
 
       /* Total price */
       const totalPrice = $('.Drawer__Footer__Total > span');
-      const totalPriceValue = subtotalPriceValue + deliveryPriceValue;
-
-      console.log('totalPriceValue', totalPriceValue, 'subtotalPriceValue', subtotalPriceValue, 'deliveryPriceValue', deliveryPriceValue);
-
-      //       if (totalPriceValue > 1) {
-      //     totalPrice.text(obj.priceToStr(totalPriceValue));
-      //       }
+      const totalPriceValue = subtotalNewPriceValue + deliveryPriceValue;
       /* /Total price */
     }
 
