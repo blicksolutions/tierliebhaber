@@ -88,7 +88,15 @@ $(document).ready(function () {
       /* /Total price */
     
     } else {
-      totalPrice.text(totalPrice.attr('data-price'));
+      let totalPriceValue = obj.strToPrice(totalPrice.attr('data-price'))
+      
+      /* If the gift item is added */
+      if (giftItem.length) {
+        const giftItemPriceValue = obj.strToPrice(giftItem.find('.CartItem__OriginalPrice').text());
+        totalPriceValue -= giftItemPriceValue;
+      }
+      
+      totalPrice.text(obj.priceToStr(subtotalOldPriceValue)); 
     }
 
     /* Error */
