@@ -2266,8 +2266,8 @@ function _classCallCheck(e, t) {
                 e.json().then((function(e) {
                   i._rerenderCart();
                   
-                  const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
-                  cartSidebarTotalPrice.children('.money').text(cartSidebarTotalPrice.attr('data-price'));
+//                   const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
+//                   cartSidebarTotalPrice.children('.money').text(cartSidebarTotalPrice.attr('data-price'));
                 }))
               }));
             }
