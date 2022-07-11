@@ -179,20 +179,20 @@
       
       const cartSidebar = $('#sidebar-cart');
       
-      setTimeout(function() {
-        const subtotalPrice = cartSidebar.find('.Drawer__Footer__Subtotal > span');
+//       setTimeout(function() {
+//         const subtotalPrice = cartSidebar.find('.Drawer__Footer__Subtotal > span');
 
-        if (subtotalPrice.children('span.money').length) {
-          subtotalPrice.children('span.money').text(subtotalPrice.attr('data-price')); 
+//         if (subtotalPrice.children('span.money').length) {
+//           subtotalPrice.children('span.money').text(subtotalPrice.attr('data-price')); 
 
-        } else {
-          subtotalPrice.text(subtotalPrice.attr('data-price')); 
-        }
+//         } else {
+//           subtotalPrice.text(subtotalPrice.attr('data-price')); 
+//         }
         
-      }, 125);
+//       }, 125);
       
-      const totalPrice = cartSidebar.find('.Drawer__Footer__Total > span');
-      totalPrice.text(totalPrice.attr('data-price')); 
+//       const totalPrice = cartSidebar.find('.Drawer__Footer__Total > span');
+//       totalPrice.text(totalPrice.attr('data-price')); 
     });
   };
 
