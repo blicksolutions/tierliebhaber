@@ -32,7 +32,7 @@
       const couponPercentage = cartSidebar.find('.Drawer__Footer__Coupon-percentage');
 
       if (scData.discount.value > 0) {
-        couponPercentage.text(parseInt(scData.discount.value) + '%');
+        couponPercentage.text('-' + parseInt(scData.discount.value) + '%');
 
       } else {
         couponPercentage.text('');
