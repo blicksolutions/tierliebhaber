@@ -2277,8 +2277,6 @@ function _classCallCheck(e, t) {
                 }
               });
               
-              
-              
               if (1 === 3) {              
               
               fetch(window.routes.cartUrl + "/add.js", {
@@ -2329,6 +2327,33 @@ function _classCallCheck(e, t) {
               const giftItemI = giftItemToRemove.attr('data-index');
               giftItemToRemove.hide();
 
+              $.ajax({
+                type: "POST",
+                url: window.routes.cartUrl + "/change.js",
+                data: JSON.stringify({
+                  line: giftItemI,
+                  quantity: 0
+                }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function(result) {
+                
+                  fetch(window.routes.cartUrl + "?view=drawer&timestamp=" + Date.now(), {
+                    credentials: "same-origin",
+                    method: "GET"
+                  }).then((function(e) {
+                    e.json().then((function(e) {
+                      i._replaceContent(e);
+                    }))
+                  }));
+                  
+                },
+                error: function(errMsg) {
+                  alert(errMsg);
+                }
+              });
+              
+              if (1 === 3) {  
               fetch(window.routes.cartUrl + "/change.js", {
                 body: JSON.stringify({
                   line: giftItemI,
@@ -2345,6 +2370,7 @@ function _classCallCheck(e, t) {
                   i._replaceContent(e);
                 }))
               }));
+              }
             }
           }
         }
