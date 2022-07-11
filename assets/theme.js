@@ -2263,24 +2263,11 @@ function _classCallCheck(e, t) {
                 success: function(result) {
                 
                   fetch(window.routes.cartUrl + "?view=" + (this.options.drawer && "cart" !== window.theme.pageType ? "drawer" : "ajax") + "&timestamp=" + Date.now(), {
-                    body: JSON.stringify({
-                      items: [{
-                        quantity: 1,
-                        id: giftItemVariantId
-                      }]
-                    }),
                     credentials: "same-origin",
-                    method: "POST",
-                    headers: {
-                      "Content-Type": "application/json",
-                      "X-Requested-With": "XMLHttpRequest"
-                    }
+                    method: "GET"
                   }).then((function(e) {
                     e.json().then((function(e) {
                       i._replaceContent(e);
-
-    //                   const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
-    //                   cartSidebarTotalPrice.children('.money').text(cartSidebarTotalPrice.attr('data-price'));
                     }))
                   }));
                   
