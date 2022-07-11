@@ -149,7 +149,10 @@
           <!-- Subtotal -->
           <div class="Drawer__Footer__Subtotal">
             <small class="Drawer__Footer__SubtotalLabel">{{ 'cart.general.subtotal' | t }}</small> 
-            <span class="Drawer__Footer__SubtotalPrice" data-price="{{ cart.total_price | money }}">{{ cart.total_price | money }}</span>
+            <span class="Drawer__Footer__SubtotalPrice" data-price="{{ cart.total_price | money }}">
+              {{ cart.total_price | money }}
+              <div class="Drawer__Footer__SubtotalPrice__Visible"></div>
+            </span>
           </div>
           <!-- /Subtotal -->
 
