@@ -2454,10 +2454,6 @@ function _classCallCheck(e, t) {
             if (cartSidebarLine) {
               cartSidebarLine.style.width = cartSidebarPercentage + '%';
             }
-            
-            
-            
-            
           }
         }
       }]), e
