@@ -2409,6 +2409,11 @@ function _classCallCheck(e, t) {
           if (cartSidebarItems.length) {
             const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
             let cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.attr('data-price').replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
+            
+            if (cartSidebarTotalPrice.text().trim() == '€0') {
+              alert('empty');
+              cartSidebarTotalPrice.text(cartSidebarTotalPrice.attr('data-price'));
+            }
 
             const giftItemId = cartSidebar.attr('data-gift-item-id');
             const giftItemVariantId = cartSidebar.attr('data-gift-variant-id');
@@ -2446,6 +2451,10 @@ function _classCallCheck(e, t) {
             if (cartSidebarLine) {
               cartSidebarLine.style.width = cartSidebarPercentage + '%';
             }
+            
+            
+            
+            
           }
         }
       }]), e
