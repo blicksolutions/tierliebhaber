@@ -180,8 +180,13 @@
       const cartSidebar = $('#sidebar-cart');
       
       const subtotalPrice = cartSidebar.find('.Drawer__Footer__Subtotal > span');
-      console.log('subtotalPrice', subtotalPrice.attr('data-price'));
-      subtotalPrice.text(subtotalPrice.attr('data-price')); 
+      
+      if (subtotalPrice.children('span.money').length) {
+        subtotalPrice.children('span.money').text(subtotalPrice.attr('data-price')); 
+        
+      } else {
+        subtotalPrice.text(subtotalPrice.attr('data-price')); 
+      }
       
       const totalPrice = cartSidebar.find('.Drawer__Footer__Total > span');
       totalPrice.text(totalPrice.attr('data-price')); 
