@@ -56,7 +56,7 @@
       if (giftItem.length) {
         const giftItemPriceValue = window.obj.strToPrice(giftItem.find('.CartItem__OriginalPrice').text());
         subtotalOldPriceValue -= giftItemPriceValue;
-        subtotalOldPrice.text(window.obj.priceToStr(subtotalOldPriceValue));
+//         subtotalOldPrice.text(window.obj.priceToStr(subtotalOldPriceValue));
       }
 
       const deliveryPrice = $('.Drawer__Footer__Delivery > span');
