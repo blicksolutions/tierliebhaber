@@ -11147,21 +11147,16 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 
 #sidebar-cart .Drawer__Footer {
   padding-bottom: 0;
+  height: 271px;
+}
+
+#sidebar-cart.Drawer__Footer__CouponActive .Drawer__Footer {
+  height: 335px;
 }
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon {
   border-bottom: 1px solid #E5E5E5;
 }
-
-/* #sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon-title:after {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  border-top: 1px solid #E5E5E5;
-} */
 
 #sidebar-cart.Drawer__Footer__CouponActive .Drawer__Footer__Coupon {
   height: 125px;
@@ -11291,6 +11286,15 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   bottom: 85px;
   color: #737373;
 }
+
+/* #sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalPrice > s > .money[data-updated-price] {
+  font-size: 0;
+}
+
+#sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalPrice > s > .money[data-updated-price]:before {
+  content: attr(data-updated-price);
+  font-size: 16px;
+} */
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Delivery {
   bottom: 54px;
@@ -11612,16 +11616,20 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 }
 /* /Cart sidebar scroll button */
 
-/* Cart sidebar button */
-.Cart__Checkout {
-/*   font-size: 16px;
-  height: 53px;
-  letter-spacing: normal; */
-}
-/* /Cart sidebar button */
-
 /* Cart sidebar payment image */
 .CartPayment__Image {
   margin-top: 12px;
 }
 /* /Cart sidebar payment image */
+
+#sidebar-cart .Drawer__Footer__SubtotalPrice,
+#sidebar-cart .Drawer__Footer .Drawer__Footer__Delivery > span,
+#sidebar-cart .Drawer__Footer .Drawer__Footer__Total > span {
+  transition: filter 250ms linear;
+}
+
+#sidebar-cart.Drawer__Footer-loading .Drawer__Footer__SubtotalPrice,
+#sidebar-cart.Drawer__Footer-loading .Drawer__Footer .Drawer__Footer__Delivery > span,
+#sidebar-cart.Drawer__Footer-loading .Drawer__Footer .Drawer__Footer__Total > span {
+  filter: blur(3px);
+}
