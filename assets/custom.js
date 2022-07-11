@@ -24,7 +24,6 @@
     const cartSidebar = $('#sidebar-cart');
     cartSidebar.removeClass('Drawer__Footer-loading');
     cartSidebar.attr("data-dcart-calculated", (parseInt(cartSidebar.attr("data-dcart-calculated")) + 1));
-    
 
     const scData = JSON.parse(sessionStorage.getItem("scDiscountData"));
     
@@ -179,6 +178,9 @@
       console.log('dcart remove');
       
       const cartSidebar = $('#sidebar-cart');
+      
+      const subtotalPrice = cartSidebar.find('.Drawer__Footer__Subtotal > span');
+      subtotalPrice.text(subtotalPrice.attr('data-price')); 
       
       const totalPrice = cartSidebar.find('.Drawer__Footer__Total > span');
       totalPrice.text(totalPrice.attr('data-price')); 
