@@ -134,6 +134,8 @@
     $(document).on('click', '#sidebar-cart .Drawer__Footer .sc_simple-info .sc-tag', function() {
       const field = $('#sidebar-cart .Drawer__Footer .scDiscount input[type="text"]');
       field.removeClass('active');
+      
+      console.log('removeee');
 
       const percentage = $('.Drawer__Footer__Coupon-percentage');
       percentage.text('');
