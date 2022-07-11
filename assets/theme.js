@@ -2349,7 +2349,7 @@ function _classCallCheck(e, t) {
             let cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.attr('data-price').replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
 
             const giftItemId = cartSidebar.attr('data-gift-item-id');
-            const giftItemVariantId = $('#sidebar-cart').attr('data-gift-variant-id');
+            const giftItemVariantId = cartSidebar.attr('data-gift-variant-id');
 
             if ($('body.template-product').length && $('form.ProductForm[data-productid="' + giftItemId + '"]').length) {
               /* Gift page */
