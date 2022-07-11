@@ -131,7 +131,7 @@
     });
 
     /* Remove discount */
-    $(document).on('click', '#sidebar-cart .Drawer__Footer .sc_simple-info .sc-tag', function() {
+    $(document).on('click', '#sidebar-cart .Drawer__Footer .sc_simple-info .sc-tag button', function() {
       const field = $('#sidebar-cart .Drawer__Footer .scDiscount input[type="text"]');
       field.removeClass('active');
       
