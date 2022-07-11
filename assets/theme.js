@@ -2264,7 +2264,7 @@ function _classCallCheck(e, t) {
                 }
               }).then((function(e) {
                 e.json().then((function(e) {
-                  i._rerenderCart();
+                  i._replaceContent(e);
                   
 //                   const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
 //                   cartSidebarTotalPrice.children('.money').text(cartSidebarTotalPrice.attr('data-price'));
@@ -2309,7 +2309,7 @@ function _classCallCheck(e, t) {
                 }
               }).then((function(e) {
                 e.json().then((function(e) {
-                  i._rerenderCart();
+                  i._replaceContent(e);
                 }))
               }));
             }
@@ -2360,7 +2360,7 @@ function _classCallCheck(e, t) {
               if (giftItemToRemove.length) {
                 cartSidebarTotalPriceValue -= parseInt(giftItemToRemove.attr('data-price') / 100);
 
-//                 this._removeBgItem();
+                this._removeBgItem();
 
               } else {
                 const giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
