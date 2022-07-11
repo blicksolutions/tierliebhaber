@@ -11186,10 +11186,6 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   width: auto !important;
 }
 
-.Drawer__Footer__Coupon {
-  display: none !important;
-}
-
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon-title {
   cursor: pointer;
   color: #515151;
