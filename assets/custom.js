@@ -179,14 +179,17 @@
       
       const cartSidebar = $('#sidebar-cart');
       
-      const subtotalPrice = cartSidebar.find('.Drawer__Footer__Subtotal > span');
-      
-      if (subtotalPrice.children('span.money').length) {
-        subtotalPrice.children('span.money').text(subtotalPrice.attr('data-price')); 
+      setTimeout(function() {
+        const subtotalPrice = cartSidebar.find('.Drawer__Footer__Subtotal > span');
+
+        if (subtotalPrice.children('span.money').length) {
+          subtotalPrice.children('span.money').text(subtotalPrice.attr('data-price')); 
+
+        } else {
+          subtotalPrice.text(subtotalPrice.attr('data-price')); 
+        }
         
-      } else {
-        subtotalPrice.text(subtotalPrice.attr('data-price')); 
-      }
+      }, 125);
       
       const totalPrice = cartSidebar.find('.Drawer__Footer__Total > span');
       totalPrice.text(totalPrice.attr('data-price')); 
