@@ -180,6 +180,7 @@
       const cartSidebar = $('#sidebar-cart');
       
       const subtotalPrice = cartSidebar.find('.Drawer__Footer__Subtotal > span');
+      console.log('subtotalPrice', subtotalPrice.attr('data-price'));
       subtotalPrice.text(subtotalPrice.attr('data-price')); 
       
       const totalPrice = cartSidebar.find('.Drawer__Footer__Total > span');
