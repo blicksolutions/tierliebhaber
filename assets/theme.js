@@ -2262,14 +2262,14 @@ function _classCallCheck(e, t) {
                 dataType: "json",
                 success: function(result) {
                 
-//                   fetch(window.routes.cartUrl + "?view=" + (this.options.drawer && "cart" !== window.theme.pageType ? "drawer" : "ajax") + "&timestamp=" + Date.now(), {
-//                     credentials: "same-origin",
-//                     method: "GET"
-//                   }).then((function(e) {
-//                     e.json().then((function(e) {
-//                       i._replaceContent(e);
-//                     }))
-//                   }));
+                  fetch(window.routes.cartUrl + "?view=" + (this.options.drawer && "cart" !== window.theme.pageType ? "drawer" : "ajax") + "&timestamp=" + Date.now(), {
+                    credentials: "same-origin",
+                    method: "GET"
+                  }).then((function(e) {
+                    e.json().then((function(e) {
+                      i._replaceContent(e);
+                    }))
+                  }));
                   
                 },
                 error: function(errMsg) {
