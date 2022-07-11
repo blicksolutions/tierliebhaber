@@ -2249,6 +2249,51 @@ function _classCallCheck(e, t) {
 
             if (!giftItem.length) {
 
+              $.ajax({
+                type: "POST",
+                url: window.routes.cartUrl + "/add.js",
+                data: JSON.stringify({
+                  items: [{
+                    quantity: 1,
+                    id: giftItemVariantId
+                  }]
+                }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function(result) {
+                
+                  fetch(window.routes.cartUrl + "?view=" + (this.options.drawer && "cart" !== window.theme.pageType ? "drawer" : "ajax") + "&timestamp=" + Date.now(), {
+                    body: JSON.stringify({
+                      items: [{
+                        quantity: 1,
+                        id: giftItemVariantId
+                      }]
+                    }),
+                    credentials: "same-origin",
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                      "X-Requested-With": "XMLHttpRequest"
+                    }
+                  }).then((function(e) {
+                    e.json().then((function(e) {
+                      i._replaceContent(e);
+
+    //                   const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
+    //                   cartSidebarTotalPrice.children('.money').text(cartSidebarTotalPrice.attr('data-price'));
+                    }))
+                  }));
+                  
+                },
+                error: function(errMsg) {
+                  alert(errMsg);
+                }
+              });
+              
+              
+              
+              if (1 === 3) {              
+              
               fetch(window.routes.cartUrl + "/add.js", {
                 body: JSON.stringify({
                   items: [{
@@ -2270,6 +2315,7 @@ function _classCallCheck(e, t) {
 //                   cartSidebarTotalPrice.children('.money').text(cartSidebarTotalPrice.attr('data-price'));
                 }))
               }));
+              }
             }
           }
         }
