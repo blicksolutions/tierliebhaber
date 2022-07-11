@@ -2410,6 +2410,8 @@ function _classCallCheck(e, t) {
             const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
             let cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.attr('data-price').replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
             
+            console.log('cartSidebarTotalPrice.text().trim()', cartSidebarTotalPrice.text().trim());
+            
             if (cartSidebarTotalPrice.text().trim() == '€0') {
               alert('empty');
               cartSidebarTotalPrice.text(cartSidebarTotalPrice.attr('data-price'));
@@ -2439,6 +2441,7 @@ function _classCallCheck(e, t) {
             }
 
             window.obj.cartSidebarRefresh();
+            console.log('cartSidebarTotalPrice.text().trim() 2', cartSidebarTotalPrice.text().trim());
 
             let cartSidebarPercentage = cartSidebarTotalPriceValue / maxPriceValue * 100;
 
