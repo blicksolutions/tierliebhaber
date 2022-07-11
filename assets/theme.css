@@ -11624,7 +11624,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   transition: filter 250ms linear;
 }
 
-#sidebar-cart.Drawer__Footer-loading .Drawer__Footer__SubtotalPrice > span:contains(€0) {
+#sidebar-cart.Drawer__Footer-loading .Drawer__Footer__SubtotalPrice > span > span:contains(€) {
   background: red; 
 }
 
