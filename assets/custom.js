@@ -54,6 +54,7 @@
 
       const giftItem = cartSidebar.find('.CartItemWrapper[data-free-gift="true"]');
 
+      console.log('giftItem', giftItem.length);
       /* If the gift item is added */
       if (giftItem.length) {
         const giftItemPriceValue = window.obj.strToPrice(giftItem.find('.CartItem__OriginalPrice').text());
