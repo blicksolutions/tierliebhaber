@@ -11632,7 +11632,8 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   background: green;
 }
 
-#sidebar-cart:not([data-dcart-code]) .Drawer__Footer__SubtotalPrice > span {
+#sidebar-cart:not([data-dcart-code]) .Drawer__Footer__SubtotalPrice > span,
+#sidebar-cart:not([data-dcart-code]) .Drawer__Footer__SubtotalPrice:after {
   display: none;
 }
 
