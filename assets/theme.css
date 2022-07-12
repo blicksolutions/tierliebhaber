@@ -11283,6 +11283,12 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   color: #737373;
 }
 
+#sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalPrice {
+  color: #6a6a6a;
+  font-weight: normal;
+  margin-right: 4px;
+}
+
 /* #sidebar-cart .Drawer__Footer .Drawer__Footer__SubtotalPrice > s > .money[data-updated-price] {
   font-size: 0;
 }
@@ -11311,7 +11317,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   display: none !important;
 }
 
-#sidebar-cart .Drawer__Footer .Drawer__Footer__TotalPrice > s {
+/* #sidebar-cart .Drawer__Footer .Drawer__Footer__TotalPrice > s {
   color: #6a6a6a !important;
   font-weight: normal;
   margin-right: 4px;
@@ -11324,7 +11330,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__TotalPrice > s + span.money {
   color: #abcdbe !important;
-}
+} */
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Inner {
   position: relative;
