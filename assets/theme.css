@@ -11618,6 +11618,10 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 }
 /* /Cart sidebar payment image */
 
+#sidebar-cart[data-dcart-code][data-free-gift] .Drawer__Footer__Subtotal > .Drawer__Footer__SubtotalPrice {
+  display: flex;
+}
+
 #sidebar-cart .Drawer__Footer__SubtotalPrice,
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Delivery > span,
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Total > span {
