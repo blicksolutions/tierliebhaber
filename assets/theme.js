@@ -2426,7 +2426,11 @@ function _classCallCheck(e, t) {
                 const giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
 
                 if (!giftItem.length && cartSidebarTotalPriceValue >= 60) {
+                  
+                  setTimeout(function() {
                   this._addBgItem();
+                    
+                  }, 500);
                 }
               }
             }
