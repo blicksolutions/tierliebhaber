@@ -11636,7 +11636,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   display: none;
 }
 
-#sidebar-cart:not([data-dcart-code]) .Drawer__Footer__Subtotal > .Drawer__Footer__SubtotalPrice:after {
+#sidebar-cart:not([data-dcart-code]) .Drawer__Footer__Subtotal > .Drawer__Footer__SubtotalPrice:before {
   content: attr(data-price);
   color: red;
   font-size: 16px !important;
