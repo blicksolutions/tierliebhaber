@@ -11625,6 +11625,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 
 #sidebar-cart .Drawer__Footer__Subtotal > .Drawer__Footer__SubtotalPrice {
   display: flex;
+  gap: 5px;
 }
 
 #sidebar-cart .Drawer__Footer__SubtotalPrice,
