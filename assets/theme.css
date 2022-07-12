@@ -11635,6 +11635,17 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   margin-left: 5px;
 }
 
+#sidebar-cart[data-dcart-code] .Drawer__Footer__Subtotal > .Drawer__Footer__SubtotalPrice:before {
+  content: attr(data-price);
+  font-size: 16px !important;
+  color: #737373;
+  opacity: .5;
+}
+
+#sidebar-cart[data-dcart-code] .Drawer__Footer__Subtotal > .Drawer__Footer__SubtotalPrice > s {
+  display: none;
+}
+
 #sidebar-cart:not([data-dcart-code]) .Drawer__Footer__Subtotal > .Drawer__Footer__SubtotalPrice:before {
   content: attr(data-price);
   font-size: 16px !important;
