@@ -28,6 +28,8 @@
     const scData = JSON.parse(sessionStorage.getItem("scDiscountData"));
     
     if (scData.stage == 'complete') {
+      cartSidebar.attr('data-dcart-code', scData.code);
+      
       /* Percentage */
       const couponPercentage = cartSidebar.find('.Drawer__Footer__Coupon-percentage');
 
@@ -85,6 +87,9 @@
       
       totalPrice.text(window.obj.priceToStr(totalPriceValue));
       /* /Total price */
+    
+    } else {
+      cartSidebar.removeAttr('data-dcart-code');
     }
 
     /* Error */
@@ -180,6 +185,7 @@
       console.log('dcart remove');
       
       const cartSidebar = $('#sidebar-cart');
+      cartSidebar.removeAttr('data-dcart-code');
       
       setTimeout(function() {
         const subtotalPrice = cartSidebar.find('.Drawer__Footer__Subtotal > span');
