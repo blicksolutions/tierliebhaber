@@ -11636,7 +11636,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 #sidebar-cart:not([data-dcart-code]) .Drawer__Footer__Subtotal > .Drawer__Footer__SubtotalPrice:before,
 #sidebar-cart:not([data-dcart-code]) .Drawer__Footer__SubtotalPrice > span {
   margin-left: 5px;
-  float: right;
+/*   float: right; */
 }
 
 #sidebar-cart:not([data-dcart-code]) .Drawer__Footer__Subtotal > .Drawer__Footer__SubtotalPrice:before {
@@ -11644,6 +11644,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   font-size: 16px !important;
   margin-left: 5px;
   background: yellow;
+  
 /*   float: right; */
 }
 
