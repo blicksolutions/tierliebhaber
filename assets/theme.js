@@ -2238,7 +2238,7 @@ function _classCallCheck(e, t) {
           
           if ($('body.template-product').length && $('form.ProductForm[data-productid="' + giftItemId + '"]').length) {
             /* Gift page */
-            console.log('gift page');
+//             console.log('gift page');
 
           } else {
             let giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
