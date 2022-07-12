@@ -2428,9 +2428,13 @@ function _classCallCheck(e, t) {
 
               } else {
                 const giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
-
-                if (!giftItem.length && cartSidebarTotalPriceValue >= 60) {
-                  this._addBgItem();
+                
+                if (cartSidebarTotalPriceValue >= 60) {
+                  cartSidebar.attr('data-free-gift', true);
+                
+                  if (!giftItem.length) {
+                    this._addBgItem();
+                  }
                 }
               }
             }
