@@ -2262,7 +2262,7 @@ function _classCallCheck(e, t) {
                 dataType: "json",
                 success: function(result) {
                   
-                  i._rerenderCart();
+//                   i._rerenderCart();
                 
 //                   fetch(window.routes.cartUrl + "?view=drawer&timestamp=" + Date.now(), {
 //                     credentials: "same-origin",
