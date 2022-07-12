@@ -2249,6 +2249,8 @@ function _classCallCheck(e, t) {
 
             if (!giftItem.length) {
 
+                  
+                  setTimeout(function() {
               $.ajax({
                 type: "POST",
                 url: window.routes.cartUrl + "/add.js",
@@ -2277,6 +2279,8 @@ function _classCallCheck(e, t) {
                   alert(errMsg);
                 }
               });
+                    
+                  }, 500);
               
               if (1 === 3) {              
               
@@ -2426,11 +2430,7 @@ function _classCallCheck(e, t) {
                 const giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
 
                 if (!giftItem.length && cartSidebarTotalPriceValue >= 60) {
-                  
-                  setTimeout(function() {
                   this._addBgItem();
-                    
-                  }, 500);
                 }
               }
             }
