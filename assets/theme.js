@@ -2262,6 +2262,9 @@ function _classCallCheck(e, t) {
                 dataType: "json",
                 success: function(result) {
                   
+                  const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
+                  cartSidebarTotalPrice.children('.money').text(cartSidebarTotalPrice.attr('data-price'));
+                  
 //                   i._rerenderCart();
                 
 //                   fetch(window.routes.cartUrl + "?view=drawer&timestamp=" + Date.now(), {
