@@ -62,7 +62,7 @@
         
         setTimeout(function() {
           subtotalOldPrice.text(window.obj.priceToStr(subtotalOldPriceValue));
-        }, 500);
+        }, 1500);
       }
 
       const deliveryPrice = $('.Drawer__Footer__Delivery > span');
