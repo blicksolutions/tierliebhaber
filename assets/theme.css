@@ -11629,7 +11629,16 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 }
 
 #sidebar-cart:not([data-dcart-code]) .Drawer__Footer__SubtotalPrice > span {
-  background: green; 
+  background: green;
+}
+
+#sidebar-cart:not([data-dcart-code]) .Drawer__Footer__SubtotalPrice > span {
+  display: none;
+}
+
+#sidebar-cart:not([data-dcart-code]) .Drawer__Footer__SubtotalPrice:after {
+  content: attr(data-dcart-code);
+  color: red;
 }
 
 #sidebar-cart.Drawer__Footer-loading .Drawer__Footer__SubtotalPrice,
