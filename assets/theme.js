@@ -2296,7 +2296,7 @@ function _classCallCheck(e, t) {
                 }
               }).then((function(e) {
                 e.json().then((function(e) {
-                  i._rerenderCart();
+//                   i._rerenderCart();
                   
 //                   const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
 //                   cartSidebarTotalPrice.children('.money').text(cartSidebarTotalPrice.attr('data-price'));
@@ -2339,7 +2339,7 @@ function _classCallCheck(e, t) {
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function(result) {
-                  i._rerenderCart();
+//                   i._rerenderCart();
                 
 //                   fetch(window.routes.cartUrl + "?view=drawer&timestamp=" + Date.now(), {
 //                     credentials: "same-origin",
