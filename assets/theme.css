@@ -11636,14 +11636,16 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 #sidebar-cart:not([data-dcart-code]) .Drawer__Footer__Subtotal > .Drawer__Footer__SubtotalPrice:before,
 #sidebar-cart:not([data-dcart-code]) .Drawer__Footer__SubtotalPrice > span {
   margin-left: 5px;
+  order: 1;
 /*   float: right; */
 }
 
 #sidebar-cart:not([data-dcart-code]) .Drawer__Footer__Subtotal > .Drawer__Footer__SubtotalPrice:before {
   content: attr(data-price);
-  font-size: 16px !important;
+  font-size: 16px;
   margin-left: 5px;
   background: yellow;
+  order: 2;
   
 /*   float: right; */
 }
