@@ -11637,17 +11637,13 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 #sidebar-cart:not([data-dcart-code]) .Drawer__Footer__SubtotalPrice > span {
   margin-left: 5px;
   order: 1;
-/*   float: right; */
 }
 
 #sidebar-cart:not([data-dcart-code]) .Drawer__Footer__Subtotal > .Drawer__Footer__SubtotalPrice:before {
   content: attr(data-price);
   font-size: 16px;
   margin-left: 5px;
-  background: yellow;
   order: 2;
-  
-/*   float: right; */
 }
 
 #sidebar-cart[data-dcart-code][data-free-gift] .Drawer__Footer__Subtotal > .Drawer__Footer__SubtotalPrice:before {
@@ -11657,7 +11653,6 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   opacity: .5;
   text-decoration: line-through;
   margin-right: 5px;
-  background: red;
 }
 
 #sidebar-cart[data-dcart-code][data-free-gift] .Drawer__Footer__Subtotal > .Drawer__Footer__SubtotalPrice > s {
