@@ -2295,7 +2295,7 @@ function _classCallCheck(e, t) {
                 }
               }).then((function(e) {
                 e.json().then((function(e) {
-//                   i._rerenderCart();
+                  i._rerenderCart();
                   
 //                   const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
 //                   cartSidebarTotalPrice.children('.money').text(cartSidebarTotalPrice.attr('data-price'));
@@ -2338,7 +2338,7 @@ function _classCallCheck(e, t) {
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function(result) {
-//                   i._rerenderCart();
+                  i._rerenderCart();
                 
 //                   fetch(window.routes.cartUrl + "?view=drawer&timestamp=" + Date.now(), {
 //                     credentials: "same-origin",
@@ -2409,13 +2409,6 @@ function _classCallCheck(e, t) {
             const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
             let cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.attr('data-price').replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
             
-            console.log('cartSidebarTotalPrice.text().trim()', cartSidebarTotalPrice.text().trim());
-            
-            if (cartSidebarTotalPrice.text().trim() == '€0') {
-              alert('empty');
-              cartSidebarTotalPrice.text(cartSidebarTotalPrice.attr('data-price'));
-            }
-
             const giftItemId = cartSidebar.attr('data-gift-item-id');
             const giftItemVariantId = cartSidebar.attr('data-gift-variant-id');
 
@@ -2427,7 +2420,6 @@ function _classCallCheck(e, t) {
 
               if (giftItemToRemove.length) {
                 cartSidebarTotalPriceValue -= parseInt(giftItemToRemove.attr('data-price') / 100);
-
                 this._removeBgItem();
 
               } else {
