@@ -11643,7 +11643,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   content: attr(data-price);
   font-size: 16px !important;
   margin-left: 5px;
-  float: right;
+/*   float: right; */
 }
 
 #sidebar-cart[data-dcart-code][data-free-gift] .Drawer__Footer__Subtotal > .Drawer__Footer__SubtotalPrice:before {
@@ -11653,6 +11653,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   opacity: .5;
   text-decoration: line-through;
   margin-right: 5px;
+  background: red;
 }
 
 #sidebar-cart[data-dcart-code][data-free-gift] .Drawer__Footer__Subtotal > .Drawer__Footer__SubtotalPrice > s {
