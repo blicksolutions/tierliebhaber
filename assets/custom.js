@@ -19,7 +19,7 @@
   };
   
   window.obj.cartSidebarRefresh = function() {
-    console.log('cartSidebarRefresh');
+//     console.log('cartSidebarRefresh');
     
     const cartSidebar = $('#sidebar-cart');
     cartSidebar.removeClass('Drawer__Footer-loading');
@@ -80,10 +80,10 @@
       const totalPrice = cartSidebar.find('.Drawer__Footer__Total > span');
       const totalPriceValue = parseFloat(subtotalNewPriceValue + deliveryPriceValue);
       
-      console.log('__');
-      console.log('subtotalNewPriceValue', subtotalNewPriceValue);
-      console.log('deliveryPriceValue', deliveryPriceValue);
-      console.log('totalPriceValue', totalPriceValue);
+//       console.log('__');
+//       console.log('subtotalNewPriceValue', subtotalNewPriceValue);
+//       console.log('deliveryPriceValue', deliveryPriceValue);
+//       console.log('totalPriceValue', totalPriceValue);
       
       totalPrice.text(window.obj.priceToStr(totalPriceValue));
       /* /Total price */
