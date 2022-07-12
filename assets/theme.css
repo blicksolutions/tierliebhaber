@@ -11631,8 +11631,15 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 
 #sidebar-cart:not([data-dcart-code]) .Drawer__Footer__Subtotal > .Drawer__Footer__SubtotalPrice:before,
 #sidebar-cart:not([data-dcart-code]) .Drawer__Footer__SubtotalPrice > span {
-  float: right;
   margin-left: 5px;
+  float: right;
+}
+
+#sidebar-cart:not([data-dcart-code]) .Drawer__Footer__Subtotal > .Drawer__Footer__SubtotalPrice:before {
+  content: attr(data-price);
+  font-size: 16px !important;
+  margin-left: 5px;
+  float: right;
 }
 
 #sidebar-cart[data-dcart-code] .Drawer__Footer__Subtotal > .Drawer__Footer__SubtotalPrice:before {
@@ -11640,15 +11647,11 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   font-size: 16px !important;
   color: #737373;
   opacity: .5;
+  text-decoration: line-through;
 }
 
 #sidebar-cart[data-dcart-code] .Drawer__Footer__Subtotal > .Drawer__Footer__SubtotalPrice > s {
   display: none;
-}
-
-#sidebar-cart:not([data-dcart-code]) .Drawer__Footer__Subtotal > .Drawer__Footer__SubtotalPrice:before {
-  content: attr(data-price);
-  font-size: 16px !important;
 }
 
 #sidebar-cart.Drawer__Footer-loading .Drawer__Footer__SubtotalPrice,
