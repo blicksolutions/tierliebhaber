@@ -19,7 +19,7 @@
   };
   
   window.obj.cartSidebarRefresh = function() {
-//     console.log('cartSidebarRefresh');
+    console.log('cartSidebarRefresh');
     
     const cartSidebar = $('#sidebar-cart');
     cartSidebar.removeClass('Drawer__Footer-loading');
