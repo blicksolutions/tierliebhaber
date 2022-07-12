@@ -11624,12 +11624,12 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   transition: filter 250ms linear;
 }
 
-#sidebar-cart .Drawer__Footer__SubtotalPrice:contain("€") {
-  background: green; 
+#sidebar-cart[data-dcart-code] .Drawer__Footer__SubtotalPrice > span {
+  background: red; 
 }
 
-#sidebar-cart .Drawer__Footer__SubtotalPrice > span:contain("€") {
-  background: red; 
+#sidebar-cart:not([data-dcart-code]) .Drawer__Footer__SubtotalPrice > span {
+  background: green; 
 }
 
 #sidebar-cart.Drawer__Footer-loading .Drawer__Footer__SubtotalPrice,
