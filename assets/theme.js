@@ -2431,9 +2431,8 @@ function _classCallCheck(e, t) {
               }
             }
 
-            window.obj.cartSidebarRefresh();
-            console.log('cartSidebarTotalPrice.text().trim() 2', cartSidebarTotalPrice.text().trim());
-
+//             window.obj.cartSidebarRefresh();
+            
             let cartSidebarPercentage = cartSidebarTotalPriceValue / maxPriceValue * 100;
 
             if (cartSidebarPercentage > 100) {
