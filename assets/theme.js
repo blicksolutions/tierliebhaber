@@ -2261,6 +2261,8 @@ function _classCallCheck(e, t) {
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function(result) {
+                  cartSidebar.attr('data-free-gift', true);
+                  
                   i._rerenderCart();
                 
 //                   fetch(window.routes.cartUrl + "?view=drawer&timestamp=" + Date.now(), {
@@ -2338,6 +2340,8 @@ function _classCallCheck(e, t) {
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function(result) {
+                  cartSidebar.removeAttr('data-free-gift');
+                  
                   i._rerenderCart();
                 
 //                   fetch(window.routes.cartUrl + "?view=drawer&timestamp=" + Date.now(), {
