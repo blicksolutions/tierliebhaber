@@ -2263,14 +2263,14 @@ function _classCallCheck(e, t) {
                 success: function(result) {
 //                   i._rerenderCart();
                 
-                  fetch(window.routes.cartUrl + "?view=drawer&timestamp=" + Date.now(), {
-                    credentials: "same-origin",
-                    method: "GET"
-                  }).then((function(e) {
-                    e.json().then((function(e) {
-                      i._replaceContent(e);
-                    }))
-                  }));
+//                   fetch(window.routes.cartUrl + "?view=drawer&timestamp=" + Date.now(), {
+//                     credentials: "same-origin",
+//                     method: "GET"
+//                   }).then((function(e) {
+//                     e.json().then((function(e) {
+//                       i._replaceContent(e);
+//                     }))
+//                   }));
                   
                 },
                 error: function(errMsg) {
