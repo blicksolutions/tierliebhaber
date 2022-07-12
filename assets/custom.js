@@ -59,7 +59,10 @@
       if (giftItem.length) {
         const giftItemPriceValue = window.obj.strToPrice(giftItem.find('.CartItem__OriginalPrice').text());
         subtotalOldPriceValue -= giftItemPriceValue;
-        subtotalOldPrice.text(window.obj.priceToStr(subtotalOldPriceValue));
+        
+        setTimeout(function() {
+          subtotalOldPrice.text(window.obj.priceToStr(subtotalOldPriceValue));
+        }, 500);
       }
 
       const deliveryPrice = $('.Drawer__Footer__Delivery > span');
