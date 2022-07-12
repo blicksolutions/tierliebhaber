@@ -2249,8 +2249,6 @@ function _classCallCheck(e, t) {
 
             if (!giftItem.length) {
 
-                  
-                  setTimeout(function() {
               $.ajax({
                 type: "POST",
                 url: window.routes.cartUrl + "/add.js",
@@ -2263,7 +2261,7 @@ function _classCallCheck(e, t) {
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function(result) {
-//                   i._rerenderCart();
+                  i._rerenderCart();
                 
 //                   fetch(window.routes.cartUrl + "?view=drawer&timestamp=" + Date.now(), {
 //                     credentials: "same-origin",
@@ -2279,8 +2277,6 @@ function _classCallCheck(e, t) {
                   alert(errMsg);
                 }
               });
-                    
-                  }, 500);
               
               if (1 === 3) {              
               
