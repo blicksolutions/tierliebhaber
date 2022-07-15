@@ -17,6 +17,7 @@ window.addEventListener('load', function () {
                     console.log("empty code SO RELOAD")
                     window.location.reload();
                 } else {
+                    console.log("CODE IS THERE!")
                     clearInterval(interval)
                 }
             }
