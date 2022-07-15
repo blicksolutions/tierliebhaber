@@ -3,8 +3,6 @@ window.addEventListener('load', function () {
     const bundles = bundleSection.querySelectorAll('.rbr-page-container');
     const buyInBundleButtons = document.querySelectorAll('.rbr-addBundleBtn-container');
 
-    console.log("I AM LOGGING")
-
     if (bundleSection) {
         const section = bundleSection.closest('.shopify-section');
         bundleSection.remove();
