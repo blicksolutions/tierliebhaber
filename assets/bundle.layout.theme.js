@@ -39,7 +39,7 @@ window.addEventListener('load', function () {
             button.addEventListener('click', () => {
                 setTimeout(() => {
                     window.location = '/cart';
-                }, 500)
+                }, 1000)
             });
         });
     }
