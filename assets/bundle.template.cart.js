@@ -9,9 +9,10 @@ window.addEventListener('load', function () {
                 console.log("TEST!!!")
                 console.log("I FOUND IT!!!")
                 console.log(discountCodeName)
-                clearInterval(interval);
 
                 if (discountCodeName.title === '') {
+                    console.log("EMPTY CODE I WILL RELODAD")
+                    clearInterval(interval);
                     window.location.reload();
                 }
 
