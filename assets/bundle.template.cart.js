@@ -21,7 +21,7 @@ window.addEventListener('load', function () {
 
             }
 
-            if (i == 10) clearInterval(interval);
+            if (i == 5) clearInterval(interval);
 
             i++;
         }
