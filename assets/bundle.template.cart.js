@@ -13,11 +13,6 @@ window.addEventListener('load', function () {
                 console.log("I FOUND IT!!!")
                 console.log(discountCodeName)
 
-                if (discountCodeName.title == '') {
-                    console.log("EMPTY CODE I WILL RELODAD")
-                    clearInterval(interval);
-                    window.location.reload();
-                }
 
             }
 
