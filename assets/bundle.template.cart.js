@@ -5,8 +5,11 @@ window.addEventListener('load', function () {
             const discountCodeName = cartFooter.querySelector('.code-name');
 
             if (discountCodeName) {
+
+                console.log("I FOUND IT!!!")
+                console.log("discountCodeName")
+
                 clearInterval(interval);
-                console.log("IMMA RELOAD CYA")
                 // window.location.reload();
             }
         }
