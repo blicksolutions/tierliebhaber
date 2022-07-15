@@ -7,7 +7,7 @@ window.addEventListener('load', function () {
             if (discountCodeName) {
 
                 console.log("I FOUND IT!!!")
-                console.log("discountCodeName")
+                console.log(discountCodeName)
 
                 clearInterval(interval);
                 // window.location.reload();
