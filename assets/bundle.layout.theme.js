@@ -1,6 +1,7 @@
 window.addEventListener('load', function () {
     const bundleSection = document.querySelector('#rbr-container-element-false');
     const bundles = bundleSection.querySelectorAll('.rbr-page-container');
+    const buyInBundleButtons = document.querySelectorAll('.rbr-addBundleBtn-container');
 
     if (bundleSection) {
         const section = bundleSection.closest('.shopify-section');
@@ -31,5 +32,13 @@ window.addEventListener('load', function () {
         });
 
         bundleSection.style.display = 'block';
+    }
+
+    if (buyInBundleButtons) {
+        buyInBundleButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                window.location = '/cart';
+            });
+        });
     }
 }, false);
