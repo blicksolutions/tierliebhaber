@@ -11,6 +11,6 @@ window.addEventListener('load', function () {
             if (discountCodeName) {
                 console.log("DISCOUNTCODE IS THERE")
             }
-        }, 1000);
+        }, 5000);
     }
 }, false);
