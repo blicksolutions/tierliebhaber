@@ -9,10 +9,8 @@ window.addEventListener('load', function () {
             if (discountCodeName) {
                 if (discountCodeName.scrollWidth < 2) {
                     clearInterval(interval)
-                    console.log("empty code SO RELOAD")
                     window.location.reload();
                 } else {
-                    console.log("CODE IS THERE!")
                     clearInterval(interval)
                 }
             }
