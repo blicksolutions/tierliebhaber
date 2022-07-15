@@ -9,7 +9,6 @@ window.addEventListener('load', function () {
 
             if (discountCodeName) {
 
-                console.log("TEST!!!")
                 console.log("I FOUND IT!!!")
                 console.log(discountCodeName)
 
