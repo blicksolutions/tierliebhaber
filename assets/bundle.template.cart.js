@@ -8,6 +8,9 @@ window.addEventListener('load', function () {
         const interval = setInterval(() => {
             const discountCodeName = cartFooter.querySelector('.code-name');
             console.log("INTERVALLLLL")
+
+            console.log(discountCodeName)
+
             if (discountCodeName) {
                 console.log("DISCOUNTCODE IS THERE")
 
