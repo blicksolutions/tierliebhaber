@@ -16,7 +16,6 @@ window.addEventListener('load', function () {
                     window.location.reload();
                 }
 
-                // window.location.reload();
             }
         }
     }, 500);
