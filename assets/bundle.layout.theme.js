@@ -37,7 +37,9 @@ window.addEventListener('load', function () {
     if (buyInBundleButtons) {
         buyInBundleButtons.forEach((button) => {
             button.addEventListener('click', () => {
-                window.location = '/cart';
+                setTimeout(() => {
+                    window.location = '/cart';
+                }, 250)
             });
         });
     }
