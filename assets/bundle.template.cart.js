@@ -2,21 +2,15 @@ console.log("CARTTTTTTT")
 window.addEventListener('load', function () {
     const cartFooter = document.querySelector('.Cart__Footer');
 
-
-
-
     if (cartFooter) {
-
-
         console.log("CARTFOOTER IS THERE")
-        const discountCodeName = cartFooter.querySelector('.code-name');
 
-        if (discountCodeName) {
-            console.log("DISCOUNTCODE IS THERE")
-        }
+        setTimeout(() => {
+            const discountCodeName = cartFooter.querySelector('.code-name');
+
+            if (discountCodeName) {
+                console.log("DISCOUNTCODE IS THERE")
+            }
+        }, 1000);
     }
-
-
-
-
 }, false);
