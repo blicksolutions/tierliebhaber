@@ -1,11 +1,10 @@
 console.log("CARTTTTTTT")
 window.addEventListener('load', function () {
-    const cartFooter = document.querySelector('.Cart__Footer');
+    const interval = setInterval(() => {
+        const cartFooter = document.querySelector('.Cart__Footer');
+        if (cartFooter) {
+            console.log("CARTFOOTER IS THERE")
 
-    if (cartFooter) {
-        console.log("CARTFOOTER IS THERE")
-
-        const interval = setInterval(() => {
             const discountCodeName = cartFooter.querySelector('.code-name');
             console.log("INTERVALLLLL")
 
@@ -13,10 +12,8 @@ window.addEventListener('load', function () {
 
             if (discountCodeName) {
                 console.log("DISCOUNTCODE IS THERE")
-
+                clearInterval(interval);
             }
-            clearInterval(interval);
-
-        }, 500);
-    }
+        }
+    }, 500);
 }, false);
