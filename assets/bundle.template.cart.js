@@ -12,6 +12,10 @@ window.addEventListener('load', function () {
                 console.log("I FOUND IT!!!")
                 console.log(discountCodeName)
 
+                if (discountCodeName.scrollWidth < 2) {
+                    console.log("empty code")
+                }
+
 
             }
 
