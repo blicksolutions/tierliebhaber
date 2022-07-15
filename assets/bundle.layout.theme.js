@@ -40,7 +40,7 @@ window.addEventListener('load', function () {
         buyInBundleButtons.forEach((button) => {
             button.addEventListener('click', () => {
                 setTimeout(() => {
-                    window.location = '/cart';
+                    window.location.assign('/cart');
                 }, 1000)
             });
         });
