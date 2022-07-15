@@ -1,4 +1,7 @@
 window.addEventListener('load', function () {
+
+    let i = 0;
+
     const interval = setInterval(() => {
         const cartFooter = document.querySelector('.Cart__Footer');
         if (cartFooter) {
@@ -17,6 +20,10 @@ window.addEventListener('load', function () {
                 }
 
             }
+
+            if (i == 10) clearInterval(interval);
+
+            i++;
         }
     }, 500);
 }, false);
