@@ -1,5 +1,4 @@
 window.addEventListener('load', function () {
-
     let i = 0;
 
     const interval = setInterval(() => {
@@ -8,10 +7,6 @@ window.addEventListener('load', function () {
             const discountCodeName = cartFooter.querySelector('.code-name');
 
             if (discountCodeName) {
-
-                console.log("I FOUND IT!!!")
-                console.log(discountCodeName)
-
                 if (discountCodeName.scrollWidth < 2) {
                     clearInterval(interval)
                     console.log("empty code SO RELOAD")
@@ -21,7 +16,7 @@ window.addEventListener('load', function () {
                     clearInterval(interval)
                 }
             }
-            if (i == 10) clearInterval(interval);
+            if (i === 10) clearInterval(interval);
             i++;
         }
     }, 500);
