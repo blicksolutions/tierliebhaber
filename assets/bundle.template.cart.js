@@ -5,12 +5,14 @@ window.addEventListener('load', function () {
     if (cartFooter) {
         console.log("CARTFOOTER IS THERE")
 
-        setTimeout(() => {
+        const interval = setInterval(() => {
             const discountCodeName = cartFooter.querySelector('.code-name');
 
             if (discountCodeName) {
                 console.log("DISCOUNTCODE IS THERE")
+
+                clearInterval(interval);
             }
-        }, 5000);
+        }, 500);
     }
 }, false);
