@@ -13,7 +13,7 @@ window.addEventListener('load', function () {
                 console.log(discountCodeName)
 
                 if (discountCodeName.scrollWidth < 2) {
-                    console.log("empty code")
+                    window.location.reload();
                 }
 
 
