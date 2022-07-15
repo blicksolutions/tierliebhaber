@@ -7,7 +7,7 @@ window.addEventListener('load', function () {
             if (discountCodeName) {
                 clearInterval(interval);
                 console.log("IMMA RELOAD CYA")
-                window.location.reload();
+                // window.location.reload();
             }
         }
     }, 500);
