@@ -14,8 +14,9 @@ window.addEventListener('load', function () {
             if (discountCodeName) {
                 console.log("DISCOUNTCODE IS THERE")
 
-                clearInterval(interval);
             }
+            clearInterval(interval);
+
         }, 500);
     }
 }, false);
