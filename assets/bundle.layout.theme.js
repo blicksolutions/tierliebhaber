@@ -1,7 +1,6 @@
 window.addEventListener('load', function () {
     const bundleSection = document.querySelector('#rbr-container-element-false');
-    const bundles = bundleSection.querySelectorAll('.rbr-page-container');
-    const buyInBundleButtons = document.querySelectorAll('.rbr-addBundleBtn-container');
+    const buyInBundleButtons = document.querySelectorAll('.rbr-addBundleBtn-container, .rbr-bap-new-footer');
 
     if (bundleSection) {
         const section = bundleSection.closest('.shopify-section');
@@ -9,7 +8,9 @@ window.addEventListener('load', function () {
         section.appendChild(bundleSection);
     }
 
-    if (bundles) {
+    if (bundleSection && bundleSection.querySelectorAll('.rbr-page-container')) {
+        const bundles = bundleSection.querySelectorAll('.rbr-page-container');
+
         bundles.forEach((bundle) => {
             const title = bundle.querySelector('.rbr-standard-bundle__title');
             const totalbox = bundle.querySelector('.rbr-total-box');
