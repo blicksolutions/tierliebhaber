@@ -37,7 +37,7 @@ window.addEventListener('load', function () {
 
     if (buyInBundleButtons) {
         buyInBundleButtons.forEach((button) => {
-            console.log("BUTTON CLICK")
+            console.log("BUY BUTTON CLIKED")
             button.addEventListener('click', () => {
                 setTimeout(() => {
                     window.location.assign('/cart');
