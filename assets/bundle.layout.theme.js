@@ -1,7 +1,10 @@
 window.addEventListener('load', function () {
     const bundleSection = document.querySelector('#rbr-container-element-false');
     const bundles = bundleSection.querySelectorAll('.rbr-page-container');
-    const buyInBundleButtons = document.querySelectorAll('.rbr-addBundleBtn-container');
+    let buyInBundleButtons = document.querySelectorAll('.rbr-addBundleBtn-container', '.rbr-bap-new-footer');
+    const buyInBundleProductButtons = document.querySelectorAll('.rbr-bap-new-footer');
+
+    buyInBundleButtons.push(buyInBundleProductButtons);
 
     if (bundleSection) {
         const section = bundleSection.closest('.shopify-section');
