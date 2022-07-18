@@ -8,7 +8,7 @@ window.addEventListener('load', function () {
         section.appendChild(bundleSection);
     }
 
-    if (bundleSection.querySelectorAll('.rbr-page-container')) {
+    if (bundleSection && bundleSection.querySelectorAll('.rbr-page-container')) {
         const bundles = bundleSection.querySelectorAll('.rbr-page-container');
 
         bundles.forEach((bundle) => {
