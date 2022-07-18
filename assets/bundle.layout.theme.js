@@ -1,6 +1,5 @@
 window.addEventListener('load', function () {
     const bundleSection = document.querySelector('#rbr-container-element-false');
-    const bundles = bundleSection.querySelectorAll('.rbr-page-container');
     const buyInBundleButtons = document.querySelectorAll('.rbr-addBundleBtn-container, .rbr-bap-new-footer');
 
     buyInBundleButtons.push(buyInBundleProductButtons);
@@ -11,7 +10,9 @@ window.addEventListener('load', function () {
         section.appendChild(bundleSection);
     }
 
-    if (bundles) {
+    if (bundleSection.querySelectorAll('.rbr-page-container')) {
+        const bundles = bundleSection.querySelectorAll('.rbr-page-container');
+
         bundles.forEach((bundle) => {
             const title = bundle.querySelector('.rbr-standard-bundle__title');
             const totalbox = bundle.querySelector('.rbr-total-box');
