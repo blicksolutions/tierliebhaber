@@ -2,8 +2,6 @@ window.addEventListener('load', function () {
     const bundleSection = document.querySelector('#rbr-container-element-false');
     const buyInBundleButtons = document.querySelectorAll('.rbr-addBundleBtn-container, .rbr-bap-new-footer');
 
-    buyInBundleButtons.push(buyInBundleProductButtons);
-
     if (bundleSection) {
         const section = bundleSection.closest('.shopify-section');
         bundleSection.remove();
