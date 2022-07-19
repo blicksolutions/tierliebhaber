@@ -421,7 +421,10 @@ HEADER CONTENT
           </ul>
         </nav>
       {%- endunless -%}
-
+<button   class="Header__Icon" data-action="toggle-search" data-animate-bottom aria-expanded="false">
+            <span >{% render 'icon' with 'search' %}</span>
+            
+          </button>
 
       {%- if shop.customer_accounts_enabled and section.settings.show_icons or use_sidebar_menu -%}
         <a href="{{ routes.account_url }}" class="Header__Icon Icon-Wrapper Icon-Wrapper--clickable hidden-phone">
