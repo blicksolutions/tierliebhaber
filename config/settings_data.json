@@ -134,25 +134,25 @@
           "slide-0": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/banner2_desktopflat.png",
-              "mobile_image": "shopify:\/\/shop_images\/banner2_mobile_1.png",
+              "image": "shopify:\/\/shop_images\/banner_goldenbundle_desktop-01.png",
+              "mobile_image": "shopify:\/\/shop_images\/banner_goldenbundle_mobile-01.png",
               "apply_overlay": false,
               "content_offset_mobile_left": 50,
-              "content_offset_mobile_top": 74,
+              "content_offset_mobile_top": 37,
               "content_offset_desktop_left": 50,
               "content_offset_desktop_top": 60,
               "content_position": "middleCenter",
               "subheading": "",
-              "title": "Dentalspray",
-              "button_1_text": "Jetzt probieren!",
-              "button_1_link": "shopify:\/\/products\/z-snack",
+              "title": "",
+              "button_1_text": "Jetzt sichern!",
+              "button_1_link": "https:\/\/tierliebhaber.de\/products\/reise-bundle",
               "button_2_text": "",
               "button_2_link": "",
               "button_font": "Poppins",
               "button_font_size": 14,
               "button_font_weight": 700,
               "button_text_color": "#ffffff",
-              "button_background": "#3164ff"
+              "button_background": "#dcb930"
             }
           }
         },
