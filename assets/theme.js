@@ -2254,7 +2254,7 @@ function _classCallCheck(e, t) {
                 url: window.routes.cartUrl + "/add.js",
                 data: JSON.stringify({
                   items: [{
-                    quantity: 1,
+                    quantity: 2,
                     id: giftItemVariantId
                   }]
                 }),
