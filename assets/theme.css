@@ -11142,7 +11142,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 }
 
 #sidebar-cart .CartItemWrapper[data-free-gift="true"] .QuantitySelector {
-  border: 1px solid #dddddd61;
+  border: 1px solid #dddddd40;
 }
 
 #sidebar-cart .CartItemWrapper[data-free-gift="true"] .QuantitySelector__CurrentQuantity {
