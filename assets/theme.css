@@ -11141,6 +11141,16 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   z-index: 999999;
 }
 
+#sidebar-cart .CartItemWrapper[data-free-gift="true"] .QuantitySelector {
+  border: 1px solid #dddddd61;
+}
+
+#sidebar-cart .CartItemWrapper[data-free-gift="true"] .QuantitySelector__CurrentQuantity {
+  height: 44px;
+  line-height: 44px;
+  width: 98px;
+}
+
 #sidebar-cart .sc_simple-info .sc_simple-info__row {
   display: none;
 }
