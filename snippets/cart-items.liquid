@@ -132,7 +132,7 @@
               <div class="QuantitySelector{% if line_item.variant.metafields.limit.quantity %} QuantitySelector--Disabled{% endif %}">
                 {%- assign quantity_minus_one = line_item.quantity | minus: 1 -%}
 
-                {% if line_item_free_gift %}
+                {% unless line_item_free_gift %}
                   <a
                      class="QuantitySelector__Button Link Link--primary"
                      title="{{ 'cart.items.set_quantity' | t: new_quantity: quantity_minus_one }}"
@@ -143,21 +143,24 @@
                      >
                     {%- render 'icon' with 'minus' -%}
                   </a>
-                {% endif %}
+                {% endunless %}
 
-                <input
-                 type="text"
-                 name="updates[]"
-                 id="updates_{{ line_item.key }}"
-                 class="QuantitySelector__CurrentQuantity"
-                 pattern="[0-9]*"
-                 data-line="{{ forloop.index }}"
-                 value="{% if line_item.variant.metafields.limit.quantity %}{{ line_item.variant.metafields.limit.quantity | prepend: 'max. ' }}{% else %}{{ line_item.quantity }}{% endif %}"
-                 >
+                {% if line_item_free_gift %}
+                {%  else %}
+                  <input
+                   type="text"
+                   name="updates[]"
+                   id="updates_{{ line_item.key }}"
+                   class="QuantitySelector__CurrentQuantity"
+                   pattern="[0-9]*"
+                   data-line="{{ forloop.index }}"
+                   value="{% if line_item.variant.metafields.limit.quantity %}{{ line_item.variant.metafields.limit.quantity | prepend: 'max. ' }}{% else %}{{ line_item.quantity }}{% endif %}"
+                   >
+                {% endif %}
 
                 {%- assign quantity_plus_one = line_item.quantity | plus: 1 -%}
 
-                {% if line_item_free_gift %}
+                {% unless line_item_free_gift %}
                   <a
                      class="QuantitySelector__Button Link Link--primary"
                      title="{{ 'cart.items.set_quantity' | t: new_quantity: quantity_plus_one }}"
@@ -168,7 +171,7 @@
                      >
                     {%- render 'icon' with 'plus' -%}
                   </a>
-                {% endif %}
+                {% endunless %}
               </div>
             </div>
 
