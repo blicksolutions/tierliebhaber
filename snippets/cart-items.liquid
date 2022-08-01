@@ -146,6 +146,9 @@
                 {% endunless %}
 
                 {% if line_item_free_gift %}
+                  <span class="QuantitySelector__CurrentQuantity">
+                    {% if line_item.variant.metafields.limit.quantity %}{{ line_item.variant.metafields.limit.quantity | prepend: 'max. ' }}{% else %}{{ line_item.quantity }}{% endif %}
+                  </span>
                 {%  else %}
                   <input
                    type="text"
