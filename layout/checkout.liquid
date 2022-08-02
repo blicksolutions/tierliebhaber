@@ -164,6 +164,8 @@
     </style>
 
     {%- render 'head-scripts', layout: 'checkout' -%}
+
+    {{ 'dropp-checkout.js' | asset_url | script_tag }}
   </head>
   <body>
     {{ skip_to_content_link }}
