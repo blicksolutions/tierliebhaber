@@ -134,25 +134,25 @@
           "slide-0": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/banner2_desktopflat.png",
-              "mobile_image": "shopify:\/\/shop_images\/banner2_mobile_1.png",
+              "image": "shopify:\/\/shop_images\/banner_neueprodukte_desktop.png",
+              "mobile_image": "shopify:\/\/shop_images\/banner_neuepulver_mobile-01.png",
               "apply_overlay": false,
               "content_offset_mobile_left": 50,
-              "content_offset_mobile_top": 40,
+              "content_offset_mobile_top": 50,
               "content_offset_desktop_left": 50,
-              "content_offset_desktop_top": 68,
+              "content_offset_desktop_top": 83,
               "content_position": "middleCenter",
               "subheading": "",
               "title": "",
-              "button_1_text": "Jetzt probieren!",
-              "button_1_link": "https:\/\/tierliebhaber.de\/collections\/alle-produkte-1",
+              "button_1_text": "Jetzt entdecken!",
+              "button_1_link": "shopify:\/\/collections\/neuheiten",
               "button_2_text": "",
               "button_2_link": "",
               "button_font": "Poppins",
               "button_font_size": 14,
               "button_font_weight": 700,
               "button_text_color": "#ffffff",
-              "button_background": "#1261df"
+              "button_background": "#1d66f6"
             }
           }
         },
