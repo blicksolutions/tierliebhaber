@@ -1,5 +1,12 @@
 {%- assign like_badge = shop.metafields.product.like_badge.value -%}
+
+{%- assign product_animal = 'Horse' -%}
+
 {%- assign like_badge_text = '%s und %d andere %a finden dieses Produkt super' -%}
+
+{%- if like_badge_text contains '%a' -%}
+  {%- assign like_badge_text = like_badge_text | replace: '%a', product_animal -%}
+{%- endif -%}
 
 <div>
   like_badge_text:<br/>
