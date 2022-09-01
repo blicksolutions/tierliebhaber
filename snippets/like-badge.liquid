@@ -1,9 +1,9 @@
 {%- assign like_badge = shop.metafields.product.like_badge.value -%}
-{%- assign like_badge.text = '%s und %d andere %a finden dieses Produkt super' -%}
+{%- assign like_badge_text = '%s und %d andere %a finden dieses Produkt super' -%}
 
 <div>
-  like_badge.text:<br/>
-  {{ like_badge.text }}
+  like_badge_text:<br/>
+  {{ like_badge_text }}
 </div>
 
 {%- capture random_number -%}{%- render 'random-number', min: like_badge.like_range.min, max: like_badge.like_range.max -%}{%- endcapture -%}
@@ -27,6 +27,6 @@
         >
       {%- endfor -%}
     </div>
-    <p class="LikeBadge__Text">{{ like_badge.text | replace: '%s', like_badge_names | replace: '%d', random_number }}</p>
+    <p class="LikeBadge__Text">{{ like_badge_text | replace: '%s', like_badge_names | replace: '%d', random_number }}</p>
   </div>
 </div>
