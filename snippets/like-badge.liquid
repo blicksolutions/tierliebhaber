@@ -6,7 +6,7 @@
   {%- assign like_badge_animal = shop.metafields.product.like_badge.default_animal -%}
 {%- endif -%}
 
-{%- assign like_badge_text = shop.metafields.product.like_badge.animal_text | replace: '%a', like_badge_animal -%}
+{%- assign like_badge_text = shop.metafields.product.like_badge.value.animal_text | replace: '%a', like_badge_animal -%}
 
 <div>
   like_badge_text: {{ like_badge_text }}<br/>
