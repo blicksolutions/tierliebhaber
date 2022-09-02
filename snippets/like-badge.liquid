@@ -10,7 +10,9 @@
 
 <div>
   like_badge_text: {{ like_badge_text }}<br/>
-  like_badge_animal: {{ like_badge_animal }}
+  like_badge_animal: {{ like_badge_animal }}<br/>
+  {{ shop.metafields.product.like_badge | json }}<br/>
+  {{ shop.metafields.product.like_badge }}
 </div>
 
 {%- capture random_number -%}{%- render 'random-number', min: like_badge.like_range.min, max: like_badge.like_range.max -%}{%- endcapture -%}
