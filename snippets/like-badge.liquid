@@ -12,8 +12,8 @@
   like_badge_text: {{ like_badge_text }}<br/>
   like_badge_animal: {{ like_badge_animal }}<br/>
   {{ shop.metafields.product.like_badge }}<br/>
-  default_animal: {{ shop.metafield.product.like_badge.default_animal }}<br/>
-  default_animal: {{ shop.metafields.product.like_badge.default_animal }}
+  default_animal: {{ product.metafield.like_badge.animal }}<br/>
+  default_animal: {{ product.metafields.like_badge.animal }}
 </div>
 
 {%- capture random_number -%}{%- render 'random-number', min: like_badge.like_range.min, max: like_badge.like_range.max -%}{%- endcapture -%}
