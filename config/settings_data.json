@@ -134,25 +134,25 @@
           "slide-0": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/20220829_jb_pferdeprodukte_banner.jpg",
-              "mobile_image": "shopify:\/\/shop_images\/20220829_jb_pferdeprodukte_bannermobile.jpg",
+              "image": "shopify:\/\/shop_images\/banner2_desktopflat.png",
+              "mobile_image": "shopify:\/\/shop_images\/banner2_mobile_1.png",
               "apply_overlay": false,
               "content_offset_mobile_left": 50,
-              "content_offset_mobile_top": 50,
-              "content_offset_desktop_left": 75,
-              "content_offset_desktop_top": 83,
+              "content_offset_mobile_top": 78,
+              "content_offset_desktop_left": 50,
+              "content_offset_desktop_top": 60,
               "content_position": "middleCenter",
               "subheading": "",
               "title": "",
               "button_1_text": "Jetzt entdecken!",
-              "button_1_link": "shopify:\/\/collections\/pferde",
+              "button_1_link": "shopify:\/\/collections\/z-produkte",
               "button_2_text": "",
               "button_2_link": "",
               "button_font": "Poppins",
               "button_font_size": 14,
               "button_font_weight": 700,
               "button_text_color": "#ffffff",
-              "button_background": "#419b49"
+              "button_background": "#004bc4"
             }
           }
         },
