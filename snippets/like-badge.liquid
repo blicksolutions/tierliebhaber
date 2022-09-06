@@ -33,7 +33,7 @@
         {%- for pet_image in like_badge.pets[product.metafields.meta.pet_icons].images -%}
           <img
             class="LikeBadge__Image Image--lazyLoad Image--fadeIn"
-            data-src="{{ pet_image.filename | asset_url }}"
+            data-src="{{ pet_image.filename | file_url }}"
             alt="{{ pet_image.alt | escape }}"
           >
         {%- endfor -%}
