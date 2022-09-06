@@ -134,13 +134,13 @@
           "slide-0": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/banner2_desktopflat.png",
-              "mobile_image": "shopify:\/\/shop_images\/banner2_mobile_1.png",
+              "image": "shopify:\/\/shop_images\/20220901_jb_EOSZ_banner_desktop-01.jpg",
+              "mobile_image": "shopify:\/\/shop_images\/20220901_jb_EOSZ_banner_mobile-01.jpg",
               "apply_overlay": false,
               "content_offset_mobile_left": 50,
               "content_offset_mobile_top": 78,
-              "content_offset_desktop_left": 50,
-              "content_offset_desktop_top": 60,
+              "content_offset_desktop_left": 59,
+              "content_offset_desktop_top": 13,
               "content_position": "middleCenter",
               "subheading": "",
               "title": "",
@@ -152,7 +152,7 @@
               "button_font_size": 14,
               "button_font_weight": 700,
               "button_text_color": "#ffffff",
-              "button_background": "#004bc4"
+              "button_background": "#ffb400"
             }
           }
         },
