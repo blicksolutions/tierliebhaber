@@ -1,23 +1,7 @@
 {%- assign like_badge = shop.metafields.product.like_badge.value -%}
 
-{%- if product.metafields.meta.pet_icons != blank -%}
-
-  {%- case product.metafields.meta.pet_icons -%}
-    {%- when 'horses' -%}
-
-      <div>product.metafields.meta.pet_icons: {{ product.metafields.meta.pet_icons }}</div>
-      <div>like_badge: {{ like_badge.pets[product.metafields.meta.pet_icons] | json }}</div>
-    
-      {%- assign like_badge_animal = product.metafields.meta.pets.value['horses'] -%}
-    
-      {%- assign like_badge_animal = 'Pferde' -%}
-    {%- when 'dogs' -%}
-      {%- assign like_badge_animal = 'DOGS' -%}
-    {%- else -%}
-       #f00;
-  {%- endcase -%}
-  
-  {%- assign like_badge_animal = product.metafields.meta.pet_icons -%}
+{%- if product.metafields.meta.pet_icons != blank and like_badge.pets[product.metafields.meta.pet_icons] != blank -%}
+  {%- assign like_badge_animal = like_badge.pets[product.metafields.meta.pet_icons] -%}
 {%- elsif product.metafields.like_badge.animal != blank -%}
   {%- assign like_badge_animal = product.metafields.like_badge.animal -%}
 {%- else -%}
