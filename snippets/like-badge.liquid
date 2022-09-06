@@ -6,8 +6,8 @@
   {%- assign pet_icon = product.metafields.meta.pet_icons -%}
 {%- endif -%}
 
-{%- if product.metafields.meta.pet_icons != blank and like_badge.pets[product.metafields.meta.pet_icons].pet != blank -%}
-  {%- assign like_badge_pet = like_badge.pets[product.metafields.meta.pet_icons].pet -%}
+{%- if pet_icon != blank and like_badge.pets[pet_icon].pet != blank -%}
+  {%- assign like_badge_pet = like_badge.pets[pet_icon].pet -%}
 {%- else -%}
   {%- assign like_badge_pet = like_badge.default_pet -%}
 {%- endif -%}
