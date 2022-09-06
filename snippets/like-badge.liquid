@@ -1,14 +1,12 @@
 {%- assign like_badge = shop.metafields.product.like_badge.value -%}
 
 {%- if product.metafields.meta.pet_icons != blank and like_badge.pets[product.metafields.meta.pet_icons].pet != blank -%}
-  {%- assign like_badge_animal = like_badge.pets[product.metafields.meta.pet_icons].pet -%}
-{%- elsif product.metafields.like_badge.animal != blank -%}
-  {%- assign like_badge_animal = product.metafields.like_badge.animal -%}
+  {%- assign like_badge_pet = like_badge.pets[product.metafields.meta.pet_icons].pet -%}
 {%- else -%}
-  {%- assign like_badge_animal = like_badge.default_animal -%}
+  {%- assign like_badge_pet = like_badge.default_pet -%}
 {%- endif -%}
 
-{%- assign like_badge_text = like_badge.animal_text | replace: '%a', like_badge_animal -%}
+{%- assign like_badge_text = like_badge.pet_text | replace: '%a', like_badge_pet -%}
 
 {%- capture random_number -%}{%- render 'random-number', min: like_badge.like_range.min, max: like_badge.like_range.max -%}{%- endcapture -%}
 
