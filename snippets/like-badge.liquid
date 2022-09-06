@@ -39,7 +39,7 @@
       {%- if like_badge.pets[product.metafields.meta.pet_icons].images != blank -%}
         {%- for pet_image in like_badge.pets[product.metafields.meta.pet_icons].images -%}
           <img
-            data-iamge="{{ pet_image.filename }}"
+            data-iamge="{{ pet_image.filename | asset_url }}"
             class="LikeBadge__Image Image--lazyLoad Image--fadeIn"
             data-src="{{ images[pet_image.filename] | img_url: 'master' }}"
             alt="{{ pet_image.alt | escape }}"
