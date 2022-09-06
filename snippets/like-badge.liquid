@@ -46,6 +46,15 @@
         {%- endfor -%}
       {%- endif -%}
     </div>
-    <p class="LikeBadge__Text">{{ like_badge_text | replace: '%d', random_number | replace: '%s', like_badge_names }}</p>
+
+    {%- assign like_badge_text_final = like_badge_text | replace: '%d', random_number -%}
+    {%- assign like_badge_text_final = like_badge_text_final | replace: '%s', like_badge_names -%}
+
+
+    
+    <p class="LikeBadge__Text">{{ like_badge_text_final }}</p>
+    <br>
+    <br>
+    <p>random_number: {{ random_number }}</p>
   </div>
 </div>
