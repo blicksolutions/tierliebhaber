@@ -12,7 +12,7 @@
   {%- assign like_badge_pet = like_badge.default_pet -%}
 {%- endif -%}
 
-{%- assign like_badge_text = like_badge.pet_text | replace: '%a', like_badge_pet -%}
+{%- assign like_badge_text = like_badge.pet_text -%}
 
 {%- capture random_number -%}{%- render 'random-number', min: like_badge.like_range.min, max: like_badge.like_range.max -%}{%- endcapture -%}
 
@@ -47,11 +47,6 @@
         {%- endfor -%}
       {%- endif -%}
     </div>
-
-    {%- assign like_badge_text_final = like_badge_text | replace: '%d', random_number -%}
-    {%- assign like_badge_text_final = like_badge_text_final | replace: '%d', random_number -%}
-    {%- assign like_badge_text_final = like_badge_text_final | replace: '%s', like_badge_names -%}
-    
-    <p class="LikeBadge__Text">{{ like_badge_text | replace: '%s', like_badge_names }}</p>
+    <p class="LikeBadge__Text">{{ like_badge_text | replace: '%s', like_badge_names | replace: '%d', random_number | replace: '%a', like_badge_pet }}</p>
   </div>
 </div>
