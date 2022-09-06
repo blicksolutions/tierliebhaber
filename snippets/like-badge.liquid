@@ -14,6 +14,7 @@
 
 {%- assign like_badge_text = like_badge.pet_text | replace: '%a', like_badge_pet -%}
 
+{%- capture random_number -%}{%- render 'random-number', min: like_badge.like_range.min, max: like_badge.like_range.max -%}{%- endcapture -%}
 {%- capture random_number -%}33{%- endcapture -%}
 
 {%- capture like_badge_names -%}
@@ -45,6 +46,6 @@
         {%- endfor -%}
       {%- endif -%}
     </div>
-    <p class="LikeBadge__Text">{{ like_badge_text | replace: '%s', like_badge_names | replace: '%d', random_number }}</p>
+    <p class="LikeBadge__Text">{{ like_badge_text | replace: '%s', like_badge_names | replace: '%d', random_number }} test</p>
   </div>
 </div>
