@@ -41,7 +41,7 @@
   </div>
 </div>
 
-<div style="border: 2px solid red;" class="LikeBadge{% if classes %} {{ classes }}{% endif %}">
+<div class="LikeBadge{% if classes %} {{ classes }}{% endif %}">
   <div class="LikeBadge__Wrapper">
     <div class="LikeBadge__Images">
       {%- if like_badge.pets[product.metafields.meta.pet_icons].images != blank -%}
@@ -50,6 +50,14 @@
             class="LikeBadge__Image Image--lazyLoad Image--fadeIn"
             data-src="{{ pet_image.filename | asset_url }}"
             alt="{{ pet_image.alt | escape }}"
+          >
+        {%- endfor -%}
+      {%- else -%}
+        {%- for dog in like_badge.dogs -%}
+          <img
+            class="LikeBadge__Image Image--lazyLoad Image--fadeIn"
+            data-src="{{ images[dog.image.filename] | img_url: 'master' }}"
+            alt="{{ dog.image.alt | escape }}"
           >
         {%- endfor -%}
       {%- endif -%}
