@@ -4,7 +4,7 @@
 
   {%- case product.metafields.meta.pet_icons -%}
     {%- when 'horses' -%}
-      {%- assign like_badge_animal = product.metafields.meta.pets[product.metafields.meta.pet_icons] -%}
+      {%- assign like_badge_animal = product.metafields.meta.pets.value['horses'] -%}
     
       {%- assign like_badge_animal = 'Pferde' -%}
     {%- when 'dogs' -%}
