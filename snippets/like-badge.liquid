@@ -48,7 +48,8 @@
     </div>
 
     {%- assign like_badge_text_final = like_badge_text -%}
-    {%- assign like_badge_text_final = like_badge_text_final | replace: '%d', random_number -%}
+    {%- assign like_badge_text_final = like_badge_text_final | replace: '%d ', random_number -%}
+    {%- assign like_badge_text_final = like_badge_text_final | replace: '%s ', like_badge_names -%}
 
 
     
