@@ -6,7 +6,7 @@
     {%- when 'horses' -%}
 
       <div>product.metafields.meta.pet_icons: {{ product.metafields.meta.pet_icons }}</div>
-      <div>like_badge: {{ like_badge.pets | json }}</div>
+      <div>like_badge: {{ like_badge.pets[product.metafields.meta.pet_icons] | json }}</div>
     
       {%- assign like_badge_animal = product.metafields.meta.pets.value['horses'] -%}
     
