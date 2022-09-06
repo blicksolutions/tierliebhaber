@@ -1,6 +1,8 @@
 {%- assign like_badge = shop.metafields.product.like_badge.value -%}
 
-{%- if product.metafields.like_badge.animal != blank -%}
+{%- if product.metafields.meta.pet_icons != blank -%}
+  {%- assign like_badge_animal = product.metafields.meta.pet_icons -%}
+{%- elsif product.metafields.like_badge.animal != blank -%}
   {%- assign like_badge_animal = product.metafields.like_badge.animal -%}
 {%- else -%}
   {%- assign like_badge_animal = like_badge.default_animal -%}
