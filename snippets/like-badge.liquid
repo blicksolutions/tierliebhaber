@@ -47,13 +47,11 @@
       {%- endif -%}
     </div>
 
-    {%- assign like_badge_text_final = like_badge_text -%}
-    {%- assign like_badge_text_final = like_badge_text_final | replace: '%d ', random_number -%}
-    {%- assign like_badge_text_final = like_badge_text_final | replace: '%s ', like_badge_names -%}
-
-
+    {%- assign like_badge_text_final = like_badge_text | replace: '%d', random_number -%}
+    {%- assign like_badge_text_final = like_badge_text_final | replace: '%d', random_number -%}
+    {%- assign like_badge_text_final = like_badge_text_final | replace: '%s', like_badge_names -%}
     
-    <p class="LikeBadge__Text">{{ like_badge_text_final }}</p>
+    <p class="LikeBadge__Text">{{ like_badge_text | replace: '%d', random_number }}</p>
     <br>
     <br>
     <p>random_number: {{ random_number }}</p>
