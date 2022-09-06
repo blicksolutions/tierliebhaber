@@ -1,5 +1,11 @@
 {%- assign like_badge = shop.metafields.product.like_badge.value -%}
 
+{%- if product.metafields.meta.pet_icons contains ', ' -%}
+  {%- assign pet_icon = product.metafields.meta.pet_icons | split: ', ' | first -%}
+{%- else -%}
+  {%- assign pet_icon = product.metafields.meta.pet_icons -%}
+{%- endif -%}
+
 {%- if product.metafields.meta.pet_icons != blank and like_badge.pets[product.metafields.meta.pet_icons].pet != blank -%}
   {%- assign like_badge_pet = like_badge.pets[product.metafields.meta.pet_icons].pet -%}
 {%- else -%}
@@ -18,6 +24,8 @@
 
 {%- assign like_badge_names = like_badge_names | strip_newlines -%}
 
+<div>product.metafields.meta.pet_icons: {{ product.metafields.meta.pet_icons }}</div>
+  
 <div class="LikeBadge{% if classes %} {{ classes }}{% endif %}">
   <div class="LikeBadge__Wrapper">
     <div class="LikeBadge__Images">
