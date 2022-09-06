@@ -1,6 +1,6 @@
 {%- assign like_badge = shop.metafields.product.like_badge.value -%}
 
-{%- if product.metafields.meta.pet_icons contains ', ' -%}
+{%- if product.metafields.meta.pet_icons contains ',' -%}
   {%- assign pet_icon = product.metafields.meta.pet_icons | split: ', ' | first -%}
 {%- else -%}
   {%- assign pet_icon = product.metafields.meta.pet_icons -%}
