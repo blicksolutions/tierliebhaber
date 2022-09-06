@@ -24,23 +24,6 @@
 
 {%- assign like_badge_names = like_badge_names | strip_newlines -%}
 
-<div>product.metafields.meta.pet_icons: {{ product.metafields.meta.pet_icons }}</div>
-  
-<div class="LikeBadge{% if classes %} {{ classes }}{% endif %}">
-  <div class="LikeBadge__Wrapper">
-    <div class="LikeBadge__Images">
-      {%- for dog in like_badge.dogs -%}
-        <img
-          class="LikeBadge__Image Image--lazyLoad Image--fadeIn"
-          data-src="{{ images[dog.image.filename] | img_url: 'master' }}"
-          alt="{{ dog.image.alt | escape }}"
-        >
-      {%- endfor -%}
-    </div>
-    <p class="LikeBadge__Text">{{ like_badge_text | replace: '%s', like_badge_names | replace: '%d', random_number }}</p>
-  </div>
-</div>
-
 <div class="LikeBadge{% if classes %} {{ classes }}{% endif %}">
   <div class="LikeBadge__Wrapper">
     <div class="LikeBadge__Images">
