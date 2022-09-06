@@ -1,7 +1,7 @@
 {%- assign like_badge = shop.metafields.product.like_badge.value -%}
 
-{%- if product.metafields.meta.pet_icons != blank and like_badge.pets[product.metafields.meta.pet_icons] != blank -%}
-  {%- assign like_badge_animal = like_badge.pets[product.metafields.meta.pet_icons] -%}
+{%- if product.metafields.meta.pet_icons != blank and like_badge.pets[product.metafields.meta.pet_icons].pet != blank -%}
+  {%- assign like_badge_animal = like_badge.pets[product.metafields.meta.pet_icons].pet -%}
 {%- elsif product.metafields.like_badge.animal != blank -%}
   {%- assign like_badge_animal = product.metafields.like_badge.animal -%}
 {%- else -%}
@@ -30,6 +30,23 @@
           alt="{{ dog.image.alt | escape }}"
         >
       {%- endfor -%}
+    </div>
+    <p class="LikeBadge__Text">{{ like_badge_text | replace: '%s', like_badge_names | replace: '%d', random_number }}</p>
+  </div>
+</div>
+
+<div style="border: 2px solid red;" class="LikeBadge{% if classes %} {{ classes }}{% endif %}">
+  <div class="LikeBadge__Wrapper">
+    <div class="LikeBadge__Images">
+      {%- if like_badge.pets[product.metafields.meta.pet_icons].images != blank -%}
+        {%- for pet_image in like_badge.pets[product.metafields.meta.pet_icons].images -%}
+          <img
+            class="LikeBadge__Image Image--lazyLoad Image--fadeIn"
+            data-src="{{ images[pet_image.filename] | img_url: 'master' }}"
+            alt="{{ pet_image.alt | escape }}"
+          >
+        {%- endfor -%}
+      {%- endif -%}
     </div>
     <p class="LikeBadge__Text">{{ like_badge_text | replace: '%s', like_badge_names | replace: '%d', random_number }}</p>
   </div>
