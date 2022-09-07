@@ -2231,14 +2231,13 @@ function _classCallCheck(e, t) {
           var i = this;
           
           const cartSidebar = $('#sidebar-cart');
-          // console.log('_addBgItem');
+          console.log('_addBgItem');
           
           const giftItemId = cartSidebar.attr('data-gift-item-id');
           const giftItemVariantId = cartSidebar.attr('data-gift-variant-id');
           
           if ($('body.template-product').length && $('form.ProductForm[data-productid="' + giftItemId + '"]').length) {
             /* Gift page */
-//             console.log('gift page');
 
           } else {
             let giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
@@ -2246,6 +2245,9 @@ function _classCallCheck(e, t) {
             if (!giftItem.length) {
               giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:first');
             }
+
+            console.log('giftItem', giftItem.length);
+            console.log('giftItemVariantId', giftItemVariantId);
 
             if (!giftItem.length) {
 
