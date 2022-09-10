@@ -94,12 +94,14 @@
       /* /Total price */
 
       /* Discount code */
-      const discountCode = cartSidebar.find('.Drawer__Footer .sc_simple-info .sc-tag .code .code-name');
-      console.log('discountCode', discountCode.length);
-
-      if (discountCode.length) {
-        discountCode.text(scData.code);
-      }
+      setTimeout(function() {
+        const discountCode = cartSidebar.find('.Drawer__Footer .sc_simple-info .sc-tag .code .code-name');
+        console.log('discountCode', discountCode.length);
+  
+        if (discountCode.length) {
+          discountCode.text(scData.code);
+        }
+      }, 1000);
       /* /Discount code */
     
     } else {
