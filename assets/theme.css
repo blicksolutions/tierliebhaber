@@ -11673,6 +11673,12 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   display: none;
 }
 
+#sidebar-cart[data-dcart-code][data-free-gift] .Drawer__Footer__Subtotal > .Drawer__Footer__SubtotalPrice[data-new-price]:after {
+  content: attr(data-new-price);
+  font-size: 16px !important;
+  color: #737373;
+}
+
 #sidebar-cart.Drawer__Footer-loading .Drawer__Footer__SubtotalPrice,
 #sidebar-cart.Drawer__Footer-loading .Drawer__Footer .Drawer__Footer__Delivery > span,
 #sidebar-cart.Drawer__Footer-loading .Drawer__Footer .Drawer__Footer__Total > span {
