@@ -18,7 +18,7 @@
     return price;
   };
   
-  window.obj.cartSidebarRefresh = function() {
+  window.obj.cartSidebarRefresh = function(initLoading) {
     console.log('cartSidebarRefresh');
     
     const cartSidebar = $('#sidebar-cart');
@@ -96,11 +96,18 @@
       /* Discount code */
       setTimeout(function() {
         const discountCode = cartSidebar.find('.Drawer__Footer .sc_simple-info .sc-tag .code .code-name');
-        console.log('discountCode', discountCode.length);
-  
-        if (discountCode.length) {
-          discountCode.text(scData.code);
+
+        if (scData.code) {
+          
+          if (discountCode.length) {
+            discountCode.text(scData.code);
+          }
+          
+          if (initLoading) {
+            cartSidebar.addClass('Drawer__Footer__CouponActive');
+          }
         }
+        
       }, 1000);
       /* /Discount code */
     
@@ -185,8 +192,8 @@
       const cartSidebar = $('#sidebar-cart');
       cartSidebar.attr("data-dcart-calculated", 0);
       cartSidebar.addClass('Drawer__Footer__DCart-inited').removeClass('Drawer__Footer-loading');
-      
-      window.obj.cartSidebarRefresh();
+
+      window.obj.cartSidebarRefresh(true);
     });
     
     window.addEventListener('sc:discount.calculated', function() {
