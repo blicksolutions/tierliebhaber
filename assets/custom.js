@@ -52,7 +52,7 @@
         console.log('subtotalNewPrice', subtotalNewPrice.length);
         
         setTimeout(function() {
-          subtotalNewPrice.attr('data-new-price', window.obj.priceToStr(subtotalNewPriceValue)).html('////');
+          cartSidebar.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice').attr('data-new-price', window.obj.priceToStr(subtotalNewPriceValue));
         }, 1500);
       }
       /* /Subtotal price */
