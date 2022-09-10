@@ -104,6 +104,7 @@
       /* Discount code */
       setTimeout(function() {
         const discountCode = cartSidebar.find('.Drawer__Footer .sc_simple-info .sc-tag .code .code-name');
+        console.log('discountCode', discountCode.length);
 
         if (scData.code) {
           
