@@ -50,7 +50,10 @@
         console.log('subtotalNewPrice', subtotalNewPrice.length);
 
       if (subtotalNewPrice.length) {
-        subtotalNewPrice.text('////' + window.obj.priceToStr(subtotalNewPriceValue));
+        
+        setTimeout(function() {
+          subtotalNewPrice.text('////' + window.obj.priceToStr(subtotalNewPriceValue));
+        }, 1500);
       }
       /* /Subtotal price */
 
