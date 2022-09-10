@@ -11679,6 +11679,10 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   color: #737373;
 }
 
+#sidebar-cart[data-dcart-code][data-free-gift] .Drawer__Footer__Subtotal > .Drawer__Footer__SubtotalPrice[data-new-price] > .money {
+  display: none;
+}
+
 #sidebar-cart.Drawer__Footer-loading .Drawer__Footer__SubtotalPrice,
 #sidebar-cart.Drawer__Footer-loading .Drawer__Footer .Drawer__Footer__Delivery > span,
 #sidebar-cart.Drawer__Footer-loading .Drawer__Footer .Drawer__Footer__Total > span {
