@@ -46,10 +46,10 @@
       let subtotalOldPriceValue = parseFloat(scData.total);
       
       const subtotalNewPrice = cartSidebar.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
+      let subtotalNewPriceValue = parseFloat(scData.subtotal);
+        console.log('subtotalNewPrice', subtotalNewPrice.length);
 
       if (subtotalNewPrice.length) {
-        console.log('subtotalNewPrice', subtotalNewPrice.length);
-        let subtotalNewPriceValue = parseFloat(scData.subtotal);
         subtotalNewPrice.text('' + window.obj.priceToStr(subtotalNewPriceValue));
       }
       /* /Subtotal price */
