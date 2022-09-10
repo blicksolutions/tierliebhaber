@@ -95,7 +95,11 @@
 
       /* Discount code */
       const discountCode = cartSidebar.find('.Drawer__Footer .sc_simple-info .sc-tag .code .code-name');
-      discountCode.text(scData.code);
+      console.log('discountCode', discountCode.length);
+
+      if (discountCode.length) {
+        discountCode.text(scData.code);
+      }
       /* /Discount code */
     
     } else {
