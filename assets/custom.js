@@ -52,7 +52,7 @@
         console.log('subtotalNewPrice', subtotalNewPrice.length);
         
         setTimeout(function() {
-          subtotalNewPrice.attr('data-price', window.obj.priceToStr(subtotalNewPriceValue)).html('////');
+          subtotalNewPrice.attr('data-new-price', window.obj.priceToStr(subtotalNewPriceValue)).html('////');
         }, 1500);
       }
       /* /Subtotal price */
