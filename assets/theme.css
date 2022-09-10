@@ -11264,7 +11264,8 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 #sidebar-cart .Drawer__Footer .sc_simple-info .sc-tag .code .code-name {
   font-size: 13px;
   font-weight: bold;
-  margin-right: 2px;
+/*   margin-right: 2px; */
+  margin-right: 8px;
   margin-left: 2px;
   color: #666;
 }
