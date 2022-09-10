@@ -47,12 +47,12 @@
       
       const subtotalNewPrice = cartSidebar.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
       let subtotalNewPriceValue = parseFloat(scData.subtotal);
-        console.log('subtotalNewPrice', subtotalNewPrice.length);
 
       if (subtotalNewPrice.length) {
+        console.log('subtotalNewPrice', subtotalNewPrice.length);
         
         setTimeout(function() {
-          subtotalNewPrice.text('////' + window.obj.priceToStr(subtotalNewPriceValue));
+          subtotalNewPrice.text('////');
         }, 1500);
       }
       /* /Subtotal price */
