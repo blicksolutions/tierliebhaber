@@ -62,7 +62,7 @@
         subtotalOldPriceValue -= giftItemPriceValue;
         
         setTimeout(function() {
-          subtotalOldPrice.text(window.obj.priceToStr(subtotalOldPriceValue));
+          // subtotalOldPrice.text(window.obj.priceToStr(subtotalOldPriceValue));
         }, 1500);
       }
 
