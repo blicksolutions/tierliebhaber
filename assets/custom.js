@@ -47,6 +47,7 @@
       
       const subtotalNewPrice = cartSidebar.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
       let subtotalNewPriceValue = parseFloat(scData.subtotal);
+      subtotalNewPrice.text(window.obj.priceToStr(subtotalNewPriceValue));
       /* /Subtotal price */
 
       /* Delivery price */
@@ -62,7 +63,7 @@
         subtotalOldPriceValue -= giftItemPriceValue;
         
         setTimeout(function() {
-          // subtotalOldPrice.text(window.obj.priceToStr(subtotalOldPriceValue));
+          subtotalOldPrice.text(window.obj.priceToStr(subtotalOldPriceValue));
         }, 1500);
       }
 
