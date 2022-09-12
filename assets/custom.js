@@ -140,12 +140,12 @@ window.obj.cartSidebarRefresh = function(initLoading) {
   /* /Error */
 };
 
-window.obj.checkCartSidebarDiscount = function(discountCode, scData, initLoading){
+window.obj.checkCartSidebarDiscount = function(discountCode, scData, initLoading) {
+  const cartSidebar = $('#sidebar-cart');
 
   if (scData.code) {
 
     if (/^Bundle\-/i.test(scData.code)) {
-      const cartSidebar = $('#sidebar-cart');
       cartSidebar.find('.Drawer__Footer__Coupon-percentage').remove();
     }
     
