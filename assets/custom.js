@@ -141,6 +141,7 @@ window.obj.cartSidebarRefresh = function(initLoading) {
 };
 
 window.obj.checkCartSidebarDiscount = function(discountCode, scData, initLoading) {
+  console.log('checkCartSidebarDiscount');
   const cartSidebar = $('#sidebar-cart');
 
   console.log('checkCartSidebarDiscount', cartSidebar.find('.Drawer__Footer__Coupon-percentage').length);
