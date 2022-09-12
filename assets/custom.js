@@ -143,6 +143,11 @@ window.obj.cartSidebarRefresh = function(initLoading) {
 window.obj.checkCartSidebarDiscount = function(discountCode, scData, initLoading){
 
   if (scData.code) {
+
+    if (/^Bundle\-/i.test(scData.code)) {
+      const cartSidebar = $('#sidebar-cart');
+      cartSidebar.find('.Drawer__Footer__Coupon-percentage').remove();
+    }
     
     if (discountCode.length) {
       discountCode.text(scData.code);
