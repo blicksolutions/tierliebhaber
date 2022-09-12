@@ -102,18 +102,16 @@ window.obj.cartSidebarRefresh = function(initLoading) {
     /* /Total price */
 
     /* Discount code */
-    const discountCode = cartSidebar.find('.Drawer__Footer .sc_simple-info .sc-tag .code .code-name');
-    
-    window.obj.checkCartSidebarDiscount(discountCode, scData, initLoading);
+    window.obj.checkCartSidebarDiscount(scData, initLoading);
     
     setTimeout(function() {
-      window.obj.checkCartSidebarDiscount(discountCode, scData, initLoading);
+      window.obj.checkCartSidebarDiscount(scData, initLoading);
       
       setTimeout(function() {
-        window.obj.checkCartSidebarDiscount(discountCode, scData, initLoading);
+        window.obj.checkCartSidebarDiscount(scData, initLoading);
         
         setTimeout(function() {
-          window.obj.checkCartSidebarDiscount(discountCode, scData, initLoading);
+          window.obj.checkCartSidebarDiscount(scData, initLoading);
         }, 1500);
       }, 1500);
     }, 1500);
@@ -144,6 +142,8 @@ window.obj.checkCartSidebarDiscount = function(discountCode, scData, initLoading
   console.log('checkCartSidebarDiscount');
   const cartSidebar = $('#sidebar-cart');
 
+  const discountCode = cartSidebar.find('.Drawer__Footer .sc_simple-info .sc-tag .code .code-name');
+    
   console.log('checkCartSidebarDiscount', cartSidebar.find('.Drawer__Footer__Coupon-percentage').length, /^Bundle\-/i.test(scData.code));
 
   if (scData.code) {
