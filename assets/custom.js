@@ -33,7 +33,7 @@ window.obj.cartSidebarRefresh = function(initLoading) {
     /* Percentage */
     const couponPercentage = cartSidebar.find('.Drawer__Footer__Coupon-percentage');
 
-    if (scData.discount.value > 0) {
+    if (scData.discount.value > 0 && !/^Bundle\-/i.test(scData.code)) {
       couponPercentage.text('-' + parseInt(scData.discount.value) + '%');
 
     } else {
