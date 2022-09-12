@@ -160,9 +160,13 @@ window.obj.checkCartSidebarDiscount = function(scData, initLoading) {
 
 window.obj.cartSidebar = function(){
 
-  // if (/(\?|\&)openSlider\=true/.test(window.location.href)) {
-  //   $('.Header__Icon[data-drawer-id="sidebar-cart"] .hidden-phone').click();
-  // }
+  if (/(\?|\&)openSlider\=true/.test(window.location.href)) {
+    const cartBtn = $('.Header__Icon[data-drawer-id="sidebar-cart"] .hidden-phone');
+
+    if (cartBtn.length) {
+      cartBtn.click();
+    }
+  }
   
   $(document).on('click', '#sidebar-cart .CartUpsells__ScrollBtn', function() {
     const btn = $(this);
