@@ -138,13 +138,9 @@ window.obj.cartSidebarRefresh = function(initLoading) {
   /* /Error */
 };
 
-window.obj.checkCartSidebarDiscount = function(discountCode, scData, initLoading) {
-  console.log('checkCartSidebarDiscount');
+window.obj.checkCartSidebarDiscount = function(scData, initLoading) {
   const cartSidebar = $('#sidebar-cart');
-
   const discountCode = cartSidebar.find('.Drawer__Footer .sc_simple-info .sc-tag .code .code-name');
-    
-  console.log('checkCartSidebarDiscount', cartSidebar.find('.Drawer__Footer__Coupon-percentage').length, /^Bundle\-/i.test(scData.code));
 
   if (scData.code) {
 
