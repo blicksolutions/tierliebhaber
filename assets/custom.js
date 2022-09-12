@@ -160,7 +160,7 @@ window.obj.checkCartSidebarDiscount = function(scData, initLoading) {
 
 window.obj.cartSidebar = function(){
 
-  if (/\(\?|\&)openSlider\=true/.test(window.location.href)) {
+  if (/(\?|\&)openSlider\=true/.test(window.location.href)) {
     $('.Header__Icon[data-drawer-id="sidebar-cart"] .hidden-phone').click();
   }
   
