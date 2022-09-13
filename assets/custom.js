@@ -19,7 +19,7 @@ window.obj.strToPrice = function(str) {
 };
 
 window.obj.cartSidebarRefresh = function(initLoading) {
-  console.log('cartSidebarRefresh');
+  // console.log('cartSidebarRefresh');
   
   const cartSidebar = $('#sidebar-cart');
   cartSidebar.removeClass('Drawer__Footer-loading');
@@ -61,8 +61,7 @@ window.obj.cartSidebarRefresh = function(initLoading) {
     let forDeliverySubtotalPriceValue = scData.total;
 
     const giftItem = cartSidebar.find('.CartItemWrapper[data-free-gift="true"]');
-
-    console.log('giftItem', giftItem.length);
+    // console.log('giftItem', giftItem.length);
     
     /* If the gift item is added */
     if (giftItem.length) {
@@ -93,10 +92,10 @@ window.obj.cartSidebarRefresh = function(initLoading) {
     const totalPrice = cartSidebar.find('.Drawer__Footer__Total > span');
     const totalPriceValue = parseFloat(subtotalNewPriceValue + deliveryPriceValue);
     
-    console.log('__');
-    console.log('subtotalNewPriceValue', subtotalNewPriceValue);
-    console.log('deliveryPriceValue', deliveryPriceValue);
-    console.log('totalPriceValue', totalPriceValue);
+    // console.log('__');
+    // console.log('subtotalNewPriceValue', subtotalNewPriceValue);
+    // console.log('deliveryPriceValue', deliveryPriceValue);
+    // console.log('totalPriceValue', totalPriceValue);
     
     totalPrice.text(window.obj.priceToStr(totalPriceValue));
     /* /Total price */
@@ -237,7 +236,7 @@ window.obj.cartSidebar = function(){
   });
   
   window.addEventListener('sc:discount.remove', function() {
-    console.log('dcart remove');
+    // console.log('dcart remove');
     
     const cartSidebar = $('#sidebar-cart');
     cartSidebar.removeAttr('data-dcart-code');
