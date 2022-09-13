@@ -42,6 +42,8 @@
           </div>
         </div>
       {%- endif -%}
+
+      {%- assign free_delivery_amount = section.settings.free_delivery_amount | times: 100 -%}
       
       {%- if cart.item_count == 0 -%}
         <p class="Cart__Empty Heading u-h5">{{ 'cart.general.empty' | t }}</p>
@@ -50,17 +52,13 @@
         <!-- Steps message -->
         <div class="CartMessage__Steps">
           <div class="CartMessage__Steps__Text">
-
-            {%- assign free_delivery_amount = section.settings.free_delivery_amount | times: 100 -%}
-            <div>free_delivery_amount: {{ free_delivery_amount }}</div>
-        
             {%- if cart.total_price > 6000 -%}
               {{ section.settings.message_final_text }}
-            {%- elsif cart.total_price >= 3900 and cart.total_price < 6000 -%}
+            {%- elsif cart.total_price >= free_delivery_amount and cart.total_price < 6000 -%}
               {%- assign left_amount_message = 6000 | minus: cart.total_price | money_without_trailing_zeros -%}
               {{ section.settings.message_gift_text | replace: "%price%", left_amount_message }}
-            {%- elsif cart.total_price < 3900 -%}
-              {%- assign left_amount_message = 3900 | minus: cart.total_price | money_without_trailing_zeros -%}
+            {%- elsif cart.total_price < free_delivery_amount -%}
+              {%- assign left_amount_message = free_delivery_amount | minus: cart.total_price | money_without_trailing_zeros -%}
               {{ section.settings.message_delivery_text | replace: '%price%', left_amount_message }}
             {%- else -%}
             {%- endif -%}
@@ -144,7 +142,7 @@
         
         <div class="Drawer__Footer__Inner">
           
-          {%- if contains_free_shipping_variant or cart.total_price >= 3900 -%}
+          {%- if contains_free_shipping_variant or cart.total_price >= free_delivery_amount -%}
             {%- assign delivery_cost = 0 -%}
           {%- else -%}
             {%- assign delivery_cost = threshold_in_cents | divided_by: 10 -%}
