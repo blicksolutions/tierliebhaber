@@ -51,7 +51,7 @@
         <div class="CartMessage__Steps">
           <div class="CartMessage__Steps__Text">
 
-            {%- assign free_delivery_amount = free_delivery_amount | times: 100 -%}
+            {%- assign free_delivery_amount = section.settings.free_delivery_amount | times: 100 -%}
             <div>free_delivery_amount: {{ free_delivery_amount }}</div>
         
             {%- if cart.total_price > 6000 -%}
