@@ -67,6 +67,7 @@
             <div class="CartMessage__StepsLines">
               {%- assign message_line_percentage = cart.total_price | divided_by: 71.48934 | times: 100 -%}
               <span class="CartMessage__StepsLines__Active" 
+                    data-free-delivery-amount="{{ section.settings.free_delivery_amount }}"
                     style="width: {%- if message_line_percentage > 100 -%}100{%- else -%}{{ message_line_percentage }}{%- endif -%}%;"></span>
             </div>
             <span class="CartMessage__StepsLines__Delivery">
