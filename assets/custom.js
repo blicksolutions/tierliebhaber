@@ -68,7 +68,7 @@
       const deliveryPrice = $('.Drawer__Footer__Delivery > span');
       let deliveryPriceValue;
 
-      const freeDeliveryAmount = parseFlot(cartSidebar.find('.CartMessage__StepsLines__Active').attr('data-free-delivery-amount'));
+      const freeDeliveryAmount = parseFloat(cartSidebar.find('.CartMessage__StepsLines__Active').attr('data-free-delivery-amount'));
 
       if (forDeliverySubtotalPriceValue > freeDeliveryAmount) {
         const freeShippingText = deliveryPrice.attr('data-freeshipping-text');
