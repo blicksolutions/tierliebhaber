@@ -71,7 +71,7 @@
                     style="width: {%- if message_line_percentage > 100 -%}100{%- else -%}{{ message_line_percentage }}{%- endif -%}%;"></span>
             </div>
 
-            {%- assign free_delivery_percentage = free_delivery_amount_percentage | divided_by: 71.48934 | times: 100 -%}
+            {%- assign free_delivery_percentage = section.settings.free_delivery_amount | divided_by: 71.48934 | times: 100 -%}
             <span class="CartMessage__StepsLines__Delivery"
                   style="left: {{ free_delivery_percentage }}%;">
               <img src="{{ section.settings.message_delivery_icon | img_url: '32x32' }}" 
