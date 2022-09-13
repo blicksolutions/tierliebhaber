@@ -66,15 +66,20 @@
           <div class="CartMessage__StepsLines__Container">
             <div class="CartMessage__StepsLines">
               {%- assign message_line_percentage = cart.total_price | divided_by: 71.48934 | times: 100 -%}
-              <span class="CartMessage__StepsLines__Active" 
+              <span class="CartMessage__StepsLines__Active"
                     data-free-delivery-amount="{{ section.settings.free_delivery_amount }}"
                     style="width: {%- if message_line_percentage > 100 -%}100{%- else -%}{{ message_line_percentage }}{%- endif -%}%;"></span>
             </div>
-            <span class="CartMessage__StepsLines__Delivery">
+
+            {%- assign free_delivery_percentage = section.settings.free_delivery_amount | divided_by: 71.48934 | times: 100 -%}
+            <span class="CartMessage__StepsLines__Delivery"
+                  style="left: {{ free_delivery_percentage }}%;">
               <img src="{{ section.settings.message_delivery_icon | img_url: '32x32' }}" 
                    alt="{{ section.settings.message_delivery_icon.alt | escape }}">
             </span>
-            <span class="CartMessage__StepsLines__Gift">
+        
+            <span class="CartMessage__StepsLines__Gift"
+                  style="right: 16%;">
               <img src="{{ section.settings.message_gift_icon | img_url: '32x32' }}" 
                    alt="{{ section.settings.message_gift_icon.alt | escape }}">
             </span>

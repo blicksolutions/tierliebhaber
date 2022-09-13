@@ -11551,14 +11551,6 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
   top: calc(100% + 3px);
   right: calc(13px / -2);
 }
-
-.CartMessage__StepsLines__Delivery {
-  right: 45.5%;
-}
-
-.CartMessage__StepsLines__Gift {
-  right: 16%;
-}
 /* /Cart sidebar lines */
 
 /* Cart sidebar upsell */
