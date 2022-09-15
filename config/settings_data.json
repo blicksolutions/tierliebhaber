@@ -1159,17 +1159,20 @@
       "cart-drawer": {
         "type": "cart-drawer",
         "settings": {
-          "message_delivery_text": "Noch %price% bis zum kostenlosen Versand",
-          "message_gift_text": "Noch %price% bis zum Geschenk",
-          "message_final_text": "Glückwunsch: du erhältst ein Geschenk! 🎁",
-          "message_delivery_icon": "shopify:\/\/shop_images\/image_8.png",
+          "message_gift_enabled": false,
           "message_gift_icon": "shopify:\/\/shop_images\/image_7.png",
+          "message_gift_text": "Noch %price% bis zum Geschenk",
+          "gift_item": "gelenk-sticks-probe",
+          "message_delivery_icon": "shopify:\/\/shop_images\/image_8.png",
+          "message_delivery_text": "Noch %price% bis zum kostenlosen Versand",
+          "free_delivery_amount": 49,
+          "message_final_text": "Glückwunsch: sie erhalten kostenlosen Versand!",
+          "message_final_gift_text": "Glückwunsch: du erhältst ein Geschenk!",
           "upsell_title": "Probier´s doch mal:",
           "upsell_items": [
             "kokos-schwarzkuemmel-shampoo",
             "pfoten-nasenbalsam"
           ],
-          "gift_item": "gelenk-sticks-probe",
           "payment_image": "shopify:\/\/shop_images\/Bildschirmfoto_2022-05-14_um_19.25_1_1.png"
         }
       }
