@@ -54,13 +54,21 @@
           <div class="CartMessage__Steps__Text">
             {%- if cart.total_price > 6000 -%}
               {{ section.settings.message_final_text }}
+              
             {%- elsif cart.total_price >= free_delivery_amount and cart.total_price < 6000 -%}
-              {%- assign left_amount_message = 6000 | minus: cart.total_price | money_without_trailing_zeros -%}
-              {{ section.settings.message_gift_text | replace: "%price%", left_amount_message }}
+            
+              {%- if message_gift_enabled != blank -%}
+                {%- assign left_amount_message = 6000 | minus: cart.total_price | money_without_trailing_zeros -%}
+                {{ section.settings.message_gift_text | replace: "%price%", left_amount_message }}
+                
+              {%- else -%}
+                {%- assign left_amount_message = free_delivery_amount | minus: cart.total_price | money_without_trailing_zeros -%}
+                {{ section.settings.message_delivery_text | replace: '%price%', left_amount_message }}
+              {%- endif -%}
+              
             {%- elsif cart.total_price < free_delivery_amount -%}
               {%- assign left_amount_message = free_delivery_amount | minus: cart.total_price | money_without_trailing_zeros -%}
               {{ section.settings.message_delivery_text | replace: '%price%', left_amount_message }}
-            {%- else -%}
             {%- endif -%}
           </div>
           <div class="CartMessage__StepsLines__Container">
