@@ -275,7 +275,27 @@
   "settings": [
     {
       "type": "header",
-      "content": "Message"
+      "content": "Free gift"
+    },
+    {
+      "type": "image_picker",
+      "id": "message_gift_icon",
+      "label": "Free gift icon"
+    },
+    {
+      "type": "text",
+      "id": "message_gift_text",
+      "label": "Message free gift text",
+      "default": "Noch %price% bis zum Geschenk"
+    },
+    {
+      "type": "product",
+      "id": "gift_item",
+      "label": "Free gift item"
+    },
+    {
+      "type": "header",
+      "content": "Free delivery"
     },
     {
       "type": "text",
@@ -290,16 +310,8 @@
       "default": 49
     },
     {
-      "type": "text",
-      "id": "message_gift_text",
-      "label": "Message gift text",
-      "default": "Noch %price% bis zum Geschenk"
-    },
-    {
-      "type": "text",
-      "id": "message_final_text",
-      "label": "Message final text",
-      "default": "Glückwunsch: du erhältst ein Geschenk!"
+      "type": "header",
+      "content": "Final"
     },
     {
       "type": "image_picker",
@@ -307,9 +319,10 @@
       "label": "Message delivery icon"
     },
     {
-      "type": "image_picker",
-      "id": "message_gift_icon",
-      "label": "Message gift icon"
+      "type": "text",
+      "id": "message_final_text",
+      "label": "Message final text",
+      "default": "Glückwunsch: du erhältst ein Geschenk!"
     },
     {
       "type": "header",
@@ -325,11 +338,6 @@
       "id": "upsell_items",
       "label": "Upsell products",
       "limit": 2
-    },
-    {
-      "type": "product",
-      "id": "gift_item",
-      "label": "Free gift item"
     },
     {
       "type": "header",
