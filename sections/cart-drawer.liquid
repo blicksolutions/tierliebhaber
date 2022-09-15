@@ -53,7 +53,13 @@
         <div class="CartMessage__Steps">
           <div class="CartMessage__Steps__Text">
             {%- if cart.total_price > 6000 -%}
-              {{ section.settings.message_final_text }}
+
+              {%- if section.settings.message_gift_enabled != blank -%}
+                {{ section.settings.message_final_gift_text }}
+              
+              {%- else -%}
+                {{ section.settings.message_final_text }}
+              {%- endif -%}
               
             {%- elsif cart.total_price >= free_delivery_amount and cart.total_price < 6000 -%}
             
