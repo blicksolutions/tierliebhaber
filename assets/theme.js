@@ -2418,24 +2418,29 @@ function _classCallCheck(e, t) {
             const giftItemId = cartSidebar.attr('data-gift-item-id');
             const giftItemVariantId = cartSidebar.attr('data-gift-variant-id');
 
-            if ($('body.template-product').length && $('form.ProductForm[data-productid="' + giftItemId + '"]').length) {
-              /* Gift page */
+            const freeGiftIcon = cartSidebar.find('.CartMessage__StepsLines__Gift');
 
-            } else if (cartSidebarTotalPriceValue > 0) {
-              const giftItemToRemove = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:not([data-free-gift]):first');
-
-              if (giftItemToRemove.length) {
-                cartSidebarTotalPriceValue -= parseInt(giftItemToRemove.attr('data-price') / 100);
-                this._removeBgItem();
-
-              } else {
-                const giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
-                
-                if (cartSidebarTotalPriceValue >= 60) {
-                  cartSidebar.attr('data-free-gift', true);
-                
-                  if (!giftItem.length) {
-                    this._addBgItem();
+            if (freeGiftIcon.length) {
+              
+              if ($('body.template-product').length && $('form.ProductForm[data-productid="' + giftItemId + '"]').length) {
+                /* Gift page */
+  
+              } else if (cartSidebarTotalPriceValue > 0) {
+                const giftItemToRemove = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:not([data-free-gift]):first');
+  
+                if (giftItemToRemove.length) {
+                  cartSidebarTotalPriceValue -= parseInt(giftItemToRemove.attr('data-price') / 100);
+                  this._removeBgItem();
+  
+                } else {
+                  const giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
+                  
+                  if (cartSidebarTotalPriceValue >= 60) {
+                    cartSidebar.attr('data-free-gift', true);
+                  
+                    if (!giftItem.length) {
+                      this._addBgItem();
+                    }
                   }
                 }
               }
