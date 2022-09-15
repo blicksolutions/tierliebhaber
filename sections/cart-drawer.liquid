@@ -86,7 +86,7 @@
                    alt="{{ section.settings.message_delivery_icon.alt | escape }}">
             </span>
 
-            {%- if message_gift_enabled != blank -%}
+            {%- if section.settings.message_gift_enabled != blank -%}
               <span class="CartMessage__StepsLines__Gift"
                     style="right: 16%;">
                 <img src="{{ section.settings.message_gift_icon | img_url: '32x32' }}" 
