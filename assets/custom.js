@@ -86,11 +86,6 @@
       const totalPrice = cartSidebar.find('.Drawer__Footer__Total > span');
       const totalPriceValue = parseFloat(subtotalNewPriceValue + deliveryPriceValue);
       
-//       console.log('__');
-//       console.log('subtotalNewPriceValue', subtotalNewPriceValue);
-//       console.log('deliveryPriceValue', deliveryPriceValue);
-//       console.log('totalPriceValue', totalPriceValue);
-      
       totalPrice.text(window.obj.priceToStr(totalPriceValue));
       /* /Total price */
     
@@ -142,14 +137,6 @@
     });
 
     /* Remove discount */
-//     $(document).on('click', '#sidebar-cart .Drawer__Footer .sc_simple-info .sc-tag button', function() {
-//       const field = $('#sidebar-cart .Drawer__Footer .scDiscount input[type="text"]');
-//       field.removeClass('active');
-      
-//       const percentage = $('.Drawer__Footer__Coupon-percentage');
-//       percentage.text('');
-//     });
-
     $(document).on('change keyup', '#sidebar-cart .Drawer__Footer .scDiscount input[type="text"]', function() {
       let field = $(this);
       let fieldLabel = field.next('label');

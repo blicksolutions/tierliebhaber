@@ -53,14 +53,28 @@
         <div class="CartMessage__Steps">
           <div class="CartMessage__Steps__Text">
             {%- if cart.total_price > 6000 -%}
-              {{ section.settings.message_final_text }}
+
+              {%- if section.settings.message_gift_enabled != blank -%}
+                {{ section.settings.message_final_gift_text }}
+              
+              {%- else -%}
+                {{ section.settings.message_final_text }}
+              {%- endif -%}
+              
             {%- elsif cart.total_price >= free_delivery_amount and cart.total_price < 6000 -%}
-              {%- assign left_amount_message = 6000 | minus: cart.total_price | money_without_trailing_zeros -%}
-              {{ section.settings.message_gift_text | replace: "%price%", left_amount_message }}
+            
+              {%- if section.settings.message_gift_enabled != blank -%}
+                {%- assign left_amount_message = 6000 | minus: cart.total_price | money_without_trailing_zeros -%}
+                {{ section.settings.message_gift_text | replace: "%price%", left_amount_message }}
+                
+              {%- else -%}
+                {{ section.settings.message_final_text }}
+              {%- endif -%}
+              
             {%- elsif cart.total_price < free_delivery_amount -%}
               {%- assign left_amount_message = free_delivery_amount | minus: cart.total_price | money_without_trailing_zeros -%}
               {{ section.settings.message_delivery_text | replace: '%price%', left_amount_message }}
-            {%- else -%}
+              
             {%- endif -%}
           </div>
           <div class="CartMessage__StepsLines__Container">
@@ -77,12 +91,14 @@
               <img src="{{ section.settings.message_delivery_icon | img_url: '32x32' }}" 
                    alt="{{ section.settings.message_delivery_icon.alt | escape }}">
             </span>
-        
-            <span class="CartMessage__StepsLines__Gift"
-                  style="right: 16%;">
-              <img src="{{ section.settings.message_gift_icon | img_url: '32x32' }}" 
-                   alt="{{ section.settings.message_gift_icon.alt | escape }}">
-            </span>
+
+            {%- if section.settings.message_gift_enabled != blank -%}
+              <span class="CartMessage__StepsLines__Gift"
+                    style="right: 16%;">
+                <img src="{{ section.settings.message_gift_icon | img_url: '32x32' }}" 
+                     alt="{{ section.settings.message_gift_icon.alt | escape }}">
+              </span>
+            {%- endif -%}
           </div>
         </div>
         <!-- /Steps message -->
@@ -275,41 +291,65 @@
   "settings": [
     {
       "type": "header",
-      "content": "Message"
+      "content": "Free gift"
+    },
+    {
+      "type": "checkbox",
+      "id": "message_gift_enabled",
+      "label": "Enabled"
+    },
+    {
+      "type": "image_picker",
+      "id": "message_gift_icon",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "message_gift_text",
+      "label": "Message",
+      "default": "Noch %price% bis zum Geschenk"
+    },
+    {
+      "type": "product",
+      "id": "gift_item",
+      "label": "Item"
+    },
+    {
+      "type": "header",
+      "content": "Free delivery"
+    },
+    {
+      "type": "image_picker",
+      "id": "message_delivery_icon",
+      "label": "Icon"
     },
     {
       "type": "text",
       "id": "message_delivery_text",
-      "label": "Message delivery text",
+      "label": "Message",
       "default": "Noch %price% bis zum kostenlosen Versand"
     },
     {
       "type": "number",
       "id": "free_delivery_amount",
-      "label": "Free delivery amount",
+      "label": "Minimum amount",
       "default": 49
     },
     {
-      "type": "text",
-      "id": "message_gift_text",
-      "label": "Message gift text",
-      "default": "Noch %price% bis zum Geschenk"
+      "type": "header",
+      "content": "Final"
     },
     {
       "type": "text",
       "id": "message_final_text",
-      "label": "Message final text",
+      "label": "Message",
+      "default": "Glückwunsch: sie erhalten kostenlosen Versand!"
+    },
+    {
+      "type": "text",
+      "id": "message_final_gift_text",
+      "label": "Message (free gift is enabled)",
       "default": "Glückwunsch: du erhältst ein Geschenk!"
-    },
-    {
-      "type": "image_picker",
-      "id": "message_delivery_icon",
-      "label": "Message delivery icon"
-    },
-    {
-      "type": "image_picker",
-      "id": "message_gift_icon",
-      "label": "Message gift icon"
     },
     {
       "type": "header",
@@ -325,11 +365,6 @@
       "id": "upsell_items",
       "label": "Upsell products",
       "limit": 2
-    },
-    {
-      "type": "product",
-      "id": "gift_item",
-      "label": "Free gift item"
     },
     {
       "type": "header",
