@@ -54,11 +54,13 @@
     <p class="ProductMeta__Sku Heading Text--subdued u-h6">{{ 'product.form.sku' | t }}: <span class="ProductMeta__SkuNumber">{{ selected_variant.sku }}</span></p>
   {%- endif -%}
 
+  {% comment %}
   {%- if show_description -%}
     <p class="Product__Description">
       {{product.description}}
     </p>
   {%- endif -%}
+  {% endcomment %}
 {% comment %}Start automatically added Judge.me widget{% endcomment %}
   {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', concierge_install: true, product: product %}
 {% comment %}End automatically added Judge.me widget{% endcomment %}
