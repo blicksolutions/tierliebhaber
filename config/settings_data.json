@@ -1,5 +1,9 @@
 {
   "current": {
+    "donations_amount": 96,
+    "donation_goal": 120,
+    "total_text": "Bereits gerettete Hunde:",
+    "total_number": "35",
     "heading_color": "#1c1b1b",
     "text_color": "#1c1b1b",
     "text_light_color": "#6a6a6a",
@@ -50,10 +54,6 @@
     "checkout_sidebar_background_color": "#fdf6f4",
     "checkout_accent_color": "#310f07",
     "checkout_button_color": "#f1af9e",
-    "donations_amount": 96,
-    "donation_goal": 120,
-    "total_text": "Bereits gerettete Hunde:",
-    "total_number": "35",
     "sections": {
       "sidebar-menu": {
         "type": "sidebar-menu",
@@ -788,6 +788,7 @@
       },
       "1629450062a372f406": {
         "type": "custom-html",
+        "disabled": true,
         "settings": {
           "subheading": "",
           "title": "Das sagen unsere Kunden",
@@ -989,6 +990,7 @@
       },
       "16346490400a4b1df7": {
         "type": "custom-html",
+        "disabled": true,
         "settings": {
           "subheading": "",
           "title": "Wer dahinter steckt...",
@@ -1024,12 +1026,9 @@
       "164847561630f9cc4a": {
         "type": "charity",
         "settings": {
+          "title": "",
           "heading_prefix": "Nur noch",
           "heading_suffix": "bis zur Rettung des nächsten Hundelebens.",
-          "donations_amount": 102,
-          "donation_goal": 120,
-          "total_text": "Bereits gerettete Hunde:",
-          "total_number": "55",
           "description_heading": "Spende Tierliebe! ❤️🌏",
           "description_text": "Beim Kauf eines Produkts hast du die Möglichkeit, deinem Einkauf eine Spende hinzuzufügen (an der Kasse). Die Spenden werden wöchentlich an BAWA (Bali Animal Welfare Association) übermittelt und 100% transparent auf Instagram dokumentiert.",
           "description_disclaimer": "Ein Straßenhund, der von der Hundeorganisation BAWA gerettet und versorgt wird, kostet bis zur Adoption im Durchschnitt 120€. Inklusive Impfung, (Sterilisation), Wurmbehandlung, Essen und Trinken."
