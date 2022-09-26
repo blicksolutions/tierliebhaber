@@ -95,7 +95,7 @@
         cartAddNote: {{ 'cart.general.add_note' | t | json }},
         cartEditNote: {{ 'cart.general.edit_note' | t | json }},
         productImageLoadingError: {{ 'product.slideshow.image_loading_error' | t | json }},
-        productFormAddToCart: {% if product.template_suffix == 'pre-order' %}{{ 'product.form.pre_order' | t | json }}{% else %}{{ 'product.form.add_to_cart' | t | json }}{% endif %},
+        productFormAddToCart: {% if product.template_suffix == 'pre-order' %}{{ 'product.form.pre_order' | t | json }}{% elsif product.template_suffix == 'donation' %}"Jetzt Spenden"{%else%}{{ 'product.form.add_to_cart' | t | json }}{% endif %},
         productFormUnavailable: {{ 'product.form.unavailable' | t | json }},
         productFormSoldOut: {{ 'product.form.sold_out' | t | json }},
         shippingEstimatorOneResult: {{ 'cart.shipping_estimator.one_result_title' | t | json }},

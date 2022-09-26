@@ -63,17 +63,7 @@
         </h2>
 
         <div class="CartItem__Meta Heading Text--subdued">
-          
-          <div class="CartItem__PriceList">
-            {%- if line_item.original_price != line_item.final_price -%}
-              <span class="CartItem__OriginalPrice Price Price--compareAt">{{ line_item.original_price | money_without_trailing_zeros }}</span>
-              <span class="CartItem__Price Price Price--highlight">{{ line_item.final_price | money_without_trailing_zeros }}</span>
-            {%- else -%}
-              <span class="CartItem__Price Price">{{ line_item.final_price | money_without_trailing_zeros }}</span>
-            {%- endif -%}
-          </div>
-
-          {%- unless line_item.product.has_only_default_variant -%}
+          {%- unless line_item.product.has_only_default_variant or line_item.product.type == "Donation" -%}
             <p class="CartItem__Variant">{{ line_item.variant.title }}</p>
           {%- endunless -%}
 

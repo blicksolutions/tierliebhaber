@@ -1,6 +1,6 @@
 {%- liquid
-  assign donation_goal = section.settings.donation_goal | times: 1.0
-  assign donations = section.settings.donations_amount | times: 1.0
+  assign donation_goal = settings.donation_goal | times: 1.0
+  assign donations = settings.donations_amount | times: 1.0
   assign progressbar_fill_percentage = donations | divided_by: donation_goal | times: 100
   assign money_remaining = donation_goal | minus: donations | times: 100 | money
 -%}
@@ -8,8 +8,13 @@
 {% capture heading %}
   {{ section.settings.heading_prefix }} {{ money_remaining }} {{ section.settings.heading_suffix }}
 {% endcapture %}
-
+<div class="Charity__Wrapper">
 <section>
+  {%- if section.settings.title -%}
+    <div class="Charity__Title SectionHeader--center">
+      <h2 class="SectionHeader__Heading Heading">{{ section.settings.title }}</h2>
+    </div>
+  {%- endif -%}
   <div class="Charity__Header SectionHeader--center">
     <h2 class="SectionHeader__Heading Heading">{{ heading }}</h2>
   </div>
@@ -25,15 +30,15 @@
     </p>
     
     <div class="Total">
-      {%- if section.settings.total_text -%}
+      {%- if settings.total_text -%}
         <span class="Total__Text">
-          {{ section.settings.total_text }}
+          {{ settings.total_text }}
         </span>
       {%- endif -%}
 
-      {%- if section.settings.total_number -%}
+      {%- if settings.total_number -%}
         <span class="Total__Number">
-          {{ section.settings.total_number }}
+          {{ settings.total_number }}
         </span>
       {%- endif -%}
     </div>
@@ -58,13 +63,26 @@
       {%- endif -%}
     </div>
   </div>
+  {%- if section.settings.image -%}
+    {{ section.settings.image | image_url: width: 1000 | image_tag }}
+  {%- endif -%}
 </section>
+</div>
+
+<style>
+.Charity{-webkit-hyphens:auto;-ms-hyphens:auto;hyphens:auto;-moz-hyphens:auto;margin-bottom:48px;max-width:612px;padding:0 24px}@media screen and (min-width:641px){.Charity{margin:50px auto 160px}}.Charity__Header{font-size:20px;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none;-moz-hyphens:auto;line-height:23px;margin:56px 0 20px}@media screen and (min-width:641px){.Charity__Header{font-size:24px;line-height:28px;margin:80px 0 24px}}.Charity .ProgressBar{height:8px;position:relative;width:100%}.Charity .ProgressBar__Background{background-color:rgba(var(--light-background-rgb),1);border:1px solid #dedede;border-radius:4px;height:8px;position:absolute;width:100%;z-index:0}.Charity .ProgressBar__Fill{background-color:#f1af9e;border:1px solid #f1af9e;border-radius:25px;height:8px;position:absolute;width:0;width:calc(var(--fill-percentage, 0)*1%);z-index:1}.Charity__Goal{color:var(--text-color-light);font-size:10px;line-height:12px;margin-top:4px;text-align:right}@media screen and (min-width:641px){.Charity__Goal{font-size:14px;line-height:16px}}.Charity .Total{align-items:baseline;color:var(--text-color);display:flex;font-size:16px;line-height:19px;margin:20px 0}@media screen and (min-width:641px){.Charity .Total{margin:12px 0 28px}}.Charity .Total__Number{color:var(--text-color);font-size:16px;font-weight:var(--heading-font-weight);line-height:19px;margin-left:8px}@media screen and (min-width:641px){.Charity .Total__Number{font-size:24px;line-height:28px}}.Charity .Description{color:var(--text-color-light);margin-top:20px}.Charity .Description__Heading{font-size:var(--base-text-font-size);font-weight:600;line-height:16px;margin-bottom:0}@media screen and (min-width:641px){.Charity .Description__Heading{font-size:18px;line-height:21px;margin-bottom:4px}}.Charity .Description__Text{font-size:12px;line-height:14px;margin:0}@media screen and (min-width:641px){.Charity .Description__Text{font-size:16px;line-height:19px}}.Charity .Description__Disclaimer{font-size:10px;line-height:12px;margin-top:4px}@media screen and (min-width:641px){.Charity .Description__Disclaimer{font-size:14px;line-height:16px;margin-top:8px}}
+</style>
 
 {% schema %}
 {
   "name": "Charity",
   "class": "Charity shopify-section--bordered",
   "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titel"
+    },
     {
       "type": "text",
       "id": "heading_prefix",
@@ -74,26 +92,6 @@
       "type": "text",
       "id": "heading_suffix",
       "label": "Heading Suffix"
-    },
-    {
-      "type": "number",
-      "id": "donations_amount",
-      "label": "Donations amount since last saved dog"
-    },
-    {
-      "type": "number",
-      "id": "donation_goal",
-      "label": "Donation Goal"
-    },
-    {
-      "type": "text",
-      "id": "total_text",
-      "label": "Total Text"
-    },
-    {
-      "type": "text",
-      "id": "total_number",
-      "label": "Total Number"
     },
     {
       "type": "text",
@@ -109,6 +107,12 @@
       "type": "textarea",
       "id": "description_disclaimer",
       "label": "Description Disclaimer"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Bild",
+      "info": "Das Bild wird nur auf manchen Seiten angezeigt"
     }
   ],
   "presets": [
