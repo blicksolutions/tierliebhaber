@@ -1,4 +1,13 @@
 {%- assign selected_variant = product.selected_or_first_available_variant -%}
+{%- if show_like_badge == nil -%}
+  {%- assign show_like_badge = true -%}
+{%- endif -%}
+{%-if show_description == nil -%}
+  {%- assign show_description = false-%}
+{%- endif -%}
+{%-if show_price == nil -%}
+  {%- assign show_price = true-%}
+{%- endif -%}
 
 <div class="ProductMeta">
   {%- if section.settings.show_vendor and product.vendor != blank -%}
@@ -29,11 +38,13 @@
     {%- endif -%}
   </div>
 
-  {%- render 'like-badge', classes: 'hidden-pocket' -%}
+  {%- if show_like_badge -%}
+    {%- render 'like-badge', classes: 'hidden-pocket' -%}
+  {%- endif-%}
 
   <h1 class="ProductMeta__Title Heading u-h2">
     {%- if template.name == 'product' -%}
-      {{- product.title -}}
+      {%-if custom_title-%}{{custom_title}}{%-else-%}{{- product.title -}}{%-endif-%}
     {%- else -%}
       <a href="{{ product.url }}">{{ product.title }}</a>
     {%- endif -%}
@@ -43,11 +54,17 @@
     <p class="ProductMeta__Sku Heading Text--subdued u-h6">{{ 'product.form.sku' | t }}: <span class="ProductMeta__SkuNumber">{{ selected_variant.sku }}</span></p>
   {%- endif -%}
 
-  
+  {% comment %}
+  {%- if show_description -%}
+    <p class="Product__Description">
+      {{product.description}}
+    </p>
+  {%- endif -%}
+  {% endcomment %}
 {% comment %}Start automatically added Judge.me widget{% endcomment %}
   {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', concierge_install: true, product: product %}
 {% comment %}End automatically added Judge.me widget{% endcomment %}
-{%- if product.template_suffix != 'coming-soon' -%}
+{%- if product.template_suffix != 'coming-soon' and show_price -%}
     <div class="ProductMeta__PriceList Heading">
       {%- if selected_variant.compare_at_price > selected_variant.price -%}
         <span class="ProductMeta__Price Price Price--highlight Text--subdued u-h4">{{ selected_variant.price | money_without_trailing_zeros }}</span>
