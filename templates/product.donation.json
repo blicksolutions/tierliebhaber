@@ -5,10 +5,10 @@
       "settings": {
         "title": "RUNNING FOR CAUSE",
         "heading_prefix": "Nur noch",
-        "heading_suffix": "bis zum Spendenziel.",
+        "heading_suffix": "bis zum ersten Ziel.",
         "description_heading": "Was du mit deinen Schritten bewirken kannst.",
         "description_text": "Laufe mit und helfe Hunden in Not für ein besseres Leben und gesunde Lebensumstände.",
-        "description_disclaimer": "",
+        "description_disclaimer": "Von den Spenden werden weiterhin Hunde gefüttert aber auch am Gebäude der künftigen Tierklinik gearbeitet. (Decken, OP-Tische, OP-Utensilien, Zäune etc.)",
         "image": "shopify:\/\/shop_images\/10_auf_neue_Futter_12.jpg"
       }
     },
@@ -29,7 +29,7 @@
         "show_payment_button": false,
         "payment_providers": "paypal, klarna, master, visa, sofort, apple_pay",
         "show_pickup_availability": false,
-        "custom_title": "Nutze jetzt deine Chance",
+        "custom_title": "Für mehr Tierwohl sorgen",
         "tab_page_1_handle": "",
         "tab_page_2_handle": "",
         "reviews_enabled": false,
