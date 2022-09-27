@@ -5,7 +5,7 @@
       "settings": {
         "title": "RUNNING FOR CAUSE",
         "heading_prefix": "Only",
-        "heading_suffix": "bis zum Spendenziel.",
+        "heading_suffix": "to donation goal.",
         "description_heading": "Was du mit deinen Schritten bewirken kannst.",
         "description_text": "Laufe mit und helfe Hunden in Not für ein besseres Leben und gesunde Lebensumstände.",
         "description_disclaimer": "",
@@ -29,7 +29,7 @@
         "show_payment_button": false,
         "payment_providers": "paypal, klarna, master, visa, sofort, apple_pay",
         "show_pickup_availability": false,
-        "custom_title": "Nutze jetzt deine Chance",
+        "custom_title": "Donation",
         "tab_page_1_handle": "",
         "tab_page_2_handle": "",
         "reviews_enabled": false,
@@ -92,7 +92,7 @@
         "b0b61cd4-0838-4d37-bfec-1054adbdd1aa"
       ],
       "settings": {
-        "text": "Teile unsere Aktion mit deinen Freunden:"
+        "text": "Share the project with your friends:"
       }
     },
     "16288049026c8dd7d1": {
