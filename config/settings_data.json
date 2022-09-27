@@ -139,10 +139,10 @@
             "type": "image",
             "settings": {
               "image": "shopify:\/\/shop_images\/banner2_desktopflat.png",
-              "mobile_image": "shopify:\/\/shop_images\/banner2_mobile_1.png",
+              "mobile_image": "shopify:\/\/shop_images\/20220901_jb_gelenkliebe_banner_mobile-01.jpg",
               "apply_overlay": false,
               "content_offset_mobile_left": 50,
-              "content_offset_mobile_top": 80,
+              "content_offset_mobile_top": 21,
               "content_offset_desktop_left": 50,
               "content_offset_desktop_top": 64,
               "content_position": "middleCenter",
@@ -156,7 +156,7 @@
               "button_font_size": 14,
               "button_font_weight": 700,
               "button_text_color": "#ffffff",
-              "button_background": "#0078ff"
+              "button_background": "#0c881d"
             }
           }
         },
