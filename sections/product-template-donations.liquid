@@ -89,7 +89,7 @@
             {%- render 'product-meta', product: product, show_description: true, show_like_badge: false, show_price: false -%}
           {%-endif-%}
 
-          {%- if product.template_suffix != 'coming-soon' AND product.template.name != 'donation-en' -%}
+          {%- if product.template_suffix != 'coming-soon' AND product.template_suffix != 'donation-en' -%}
             {%- render 'product-form', product: product, show_shipping: false, show_benefits: false, atc: {{ 'product.form.add_to_cart_donation' | t | json }} -%}
           {%- endif -%}
 
