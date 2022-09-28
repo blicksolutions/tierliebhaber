@@ -11,10 +11,10 @@ for size, we use it to display a size chart (if applicable)
 {%- assign show_option_label = false -%}
 
 {%- if atc -%}
-  {%- if template.suffix != 'donation-en' -%}
-    {%- assign atc_text = atc -%}
+  {%- if template.suffix == 'donation-en' -%}
+    {%- assign atc_text = "Donate now" -%}  
   {% else %}
-    {%- assign atc_text = "Donate now" -%}
+    {%- assign atc_text = atc -%}
   {%- endif -%}
 {%- else -%}
 {%- assign atc_text = 'product.form.add_to_cart' | t -%}
