@@ -91,6 +91,8 @@
 
           {%- if product.template_suffix != 'coming-soon' -%}
             {%- render 'product-form', product: product, show_shipping: false, show_benefits: false, atc: {{ 'product.form.add_to_cart_donation' | t | json }} -%}
+          {%- elsif product.template_suffix == 'donation-en' -%}
+            {%- render 'product-form', product: product, show_shipping: false, show_benefits: false, atc: "Donate now" -%}
           {%- endif -%}
 
           {%- if section.settings.stack_images and product_aside != blank and media_count > 0 -%}
