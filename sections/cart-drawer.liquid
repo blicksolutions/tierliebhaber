@@ -172,9 +172,19 @@
             {%- assign delivery_cost_price = threshold_in_cents | divided_by: 10 | money -%}
 
             {% comment %}Set free delivery if a product in the "0% Steuer" collection{% endcomment %}
+            {%- assign only_0_tax_items = false -%}
+            
             {%- for line_item in cart.items -%}
               {%- for line_item_product_collection in line_item.product.collections -%}
-                {%- if line_item_product_collection.title == '0% Steuer' and cart.items.size == 1 -%} 
+                {%- unless line_item_product_collection.title == '0% Steuer' -%} 
+                  {%- assign only_0_tax_items = true -%}
+                {%- endunless -%}
+              {%- endfor -%}
+            {%- endfor -%}
+            
+            {%- for line_item in cart.items -%}
+              {%- for line_item_product_collection in line_item.product.collections -%}
+                {%- if line_item_product_collection.title == '0% Steuer' and only_0_tax_items == true -%} 
                   {%- assign delivery_cost = 0 -%}
                   {%- assign delivery_cost_price = 0 | money -%}
                 {%- endif -%}
