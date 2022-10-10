@@ -168,6 +168,13 @@
             {%- assign delivery_cost = 0 -%}
           {%- else -%}
             {%- assign delivery_cost = threshold_in_cents | divided_by: 10 -%}
+
+            {%- for line_item in cart.items -%}
+              {%- if line_item.collections contains '0% Steuer' -%}
+                <div style="border: 1px solid red;">{{ line_item.collections | json }}</div>
+              {%- endif -%}
+            {%- endfor -%}
+            
           {%- endif -%}
 
           <!-- Subtotal -->
