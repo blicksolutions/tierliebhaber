@@ -95,16 +95,22 @@
       let deliveryPriceValue;
 
       const freeDeliveryAmount = parseFloat(cartSidebar.find('.CartMessage__StepsLines__Active').attr('data-free-delivery-amount'));
+      const freeShippingText = deliveryPrice.attr('data-freeshipping-text');
 
       if (forDeliverySubtotalPriceValue > freeDeliveryAmount) {
-        const freeShippingText = deliveryPrice.attr('data-freeshipping-text');
         deliveryPriceValue = 0;
-        // deliveryPrice.text(freeShippingText);
+        deliveryPrice.text(freeShippingText);
 
       } else {
         const deliveryCostText = deliveryPrice.attr('data-shipping-price');
-        deliveryPriceValue = window.obj.strToPrice(deliveryCostText);
-        // deliveryPrice.text(deliveryCostText);
+
+        if (parseFloat(deliveryCostText) > 0) {
+          deliveryPriceValue = window.obj.strToPrice(deliveryCostText);
+          deliveryPrice.text(freeShippingText);
+        
+        } else {
+          deliveryPrice.text(freeShippingText);
+        }
       }
       /* /Delivery price */
 
