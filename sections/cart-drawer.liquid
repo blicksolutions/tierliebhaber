@@ -174,7 +174,7 @@
             {% comment %}Set free delivery if a product in the "0% Steuer" collection{% endcomment %}
             {%- for line_item in cart.items -%}
               {%- for line_item_product_collection in line_item.product.collections -%}
-                {%- if line_item_product_collection.title == '0% Steuer' -%} 
+                {%- if line_item_product_collection.title == '0% Steuer' and cart.items.size == 1 -%} 
                   {%- assign delivery_cost = 0 -%}
                   {%- assign delivery_cost_price = 0 | money -%}
                 {%- endif -%}
