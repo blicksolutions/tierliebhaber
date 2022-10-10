@@ -103,13 +103,14 @@
 
       } else {
         const deliveryCostText = deliveryPrice.attr('data-shipping-price');
+        deliveryPriceValue = window.obj.strToPrice(deliveryCostText);
 
         if (parseFloat(deliveryCostText) > 0) {
-          deliveryPriceValue = window.obj.strToPrice(deliveryCostText);
-          deliveryPrice.text(freeShippingText);
+          // deliveryPrice.text(deliveryCostText);
         
         } else {
-          deliveryPrice.text(freeShippingText);
+          deliveryPriceValue = 0;
+          // deliveryPrice.text(freeShippingText);
         }
       }
       /* /Delivery price */
