@@ -19,6 +19,9 @@
   };
 
   window.obj.cartSidebarRefresh = function() {
+
+    if (1 === 3) {
+      
       // donation product shipping removal - probably delete soon when a better solution is found
       const donationProductIDDe = 7973987385612;
       const donationProductIDEn = 8068154949900;
@@ -40,8 +43,9 @@
           priceTotalTag.textContent = '€' + ((priceTotalTag.textContent.replace('€', '').replace(',', '.') - 4.90).toFixed(2)).replace('.', ',');
       }
       // /donation product shipping removal
+    }
 
-      console.log('cartSidebarRefresh');
+    console.log('cartSidebarRefresh');
 
     const cartSidebar = $('#sidebar-cart');
     cartSidebar.removeClass('Drawer__Footer-loading');
