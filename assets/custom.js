@@ -99,19 +99,19 @@
 
       if (forDeliverySubtotalPriceValue > freeDeliveryAmount) {
         deliveryPriceValue = 0;
-        deliveryPrice.text('upd: ' + freeShippingText);
+        // deliveryPrice.text('upd: ' + freeShippingText);
 
       } else {
         const deliveryCostText = deliveryPrice.attr('data-shipping-price');
         deliveryPriceValue = window.obj.strToPrice(deliveryCostText);
 
-        if (parseFloat(deliveryCostText) > 0) {
+        // if (parseFloat(deliveryCostText) > 0) {
           // deliveryPrice.text(deliveryCostText);
         
-        } else {
-          deliveryPriceValue = 0;
+        // } else {
+          // deliveryPriceValue = 0;
           // deliveryPrice.text(freeShippingText);
-        }
+        // }
       }
       /* /Delivery price */
 
