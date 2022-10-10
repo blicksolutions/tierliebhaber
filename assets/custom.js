@@ -99,12 +99,12 @@
       if (forDeliverySubtotalPriceValue > freeDeliveryAmount) {
         const freeShippingText = deliveryPrice.attr('data-freeshipping-text');
         deliveryPriceValue = 0;
-        deliveryPrice.text(freeShippingText);
+        // deliveryPrice.text(freeShippingText);
 
       } else {
         const deliveryCostText = deliveryPrice.attr('data-shipping-price');
         deliveryPriceValue = window.obj.strToPrice(deliveryCostText);
-        deliveryPrice.text(deliveryCostText);
+        // deliveryPrice.text(deliveryCostText);
       }
       /* /Delivery price */
 
