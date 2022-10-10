@@ -169,14 +169,15 @@
           {%- else -%}
             {%- assign delivery_cost = threshold_in_cents | divided_by: 10 -%}
 
+            {% comment %}Set free delivery if a product in the "0% Steuer" collection{% endcomment %}
             {%- for line_item in cart.items -%}
-              
               {%- for line_item_product_collection in line_item.product.collections -%}
                 {%- if line_item_product_collection.title == '0% Steuer' -%} 
-                <div style="border: 1px solid red;">{{ line_item_product_collection | json }}</div>
+                  {%- assign delivery_cost = 0 -%}
                 {%- endif -%}
               {%- endfor -%}
             {%- endfor -%}
+            {% comment %}End: Set free delivery if a product in the "0% Steuer" collection{% endcomment %}
             
           {%- endif -%}
 
