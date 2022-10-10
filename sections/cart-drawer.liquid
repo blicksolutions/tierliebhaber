@@ -198,7 +198,8 @@
           <div class="Drawer__Footer__Delivery">
             <small>{{ 'cart.general.delivery' | t }}</small> 
             <span data-freeshipping-text="{{ 'cart.sidebar.free_shipping' | t }}"
-                  data-shipping-price="{{ delivery_cost_price }}">
+                  data-shipping-price="{{ delivery_cost_price }}"
+                  data-text="{%- if delivery_cost > 0 -%}{{ delivery_cost | money }}{%- else -%}{{ 'cart.sidebar.free_shipping' | t }}{%- endif -%}">
               {%- if delivery_cost > 0 -%}
                 {{ delivery_cost | money }}
               {%- else -%}
