@@ -99,7 +99,7 @@
 
       if (forDeliverySubtotalPriceValue > freeDeliveryAmount) {
         deliveryPriceValue = 0;
-        deliveryPrice.text(freeShippingText);
+        deliveryPrice.text('upd: ' + freeShippingText);
 
       } else {
         const deliveryCostText = deliveryPrice.attr('data-shipping-price');
