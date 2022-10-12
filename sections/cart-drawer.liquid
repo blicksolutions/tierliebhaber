@@ -166,8 +166,32 @@
           
           {%- if contains_free_shipping_variant or cart.total_price >= free_delivery_amount -%}
             {%- assign delivery_cost = 0 -%}
+            {%- assign delivery_cost_price = 0 | money -%}
           {%- else -%}
             {%- assign delivery_cost = threshold_in_cents | divided_by: 10 -%}
+            {%- assign delivery_cost_price = threshold_in_cents | divided_by: 10 | money -%}
+
+            {% comment %}Set free delivery if a product in the "0% Steuer" collection{% endcomment %}
+            {%- assign only_0_tax_items = true -%}
+            
+            {%- for line_item in cart.items -%}
+              {%- for line_item_product_collection in line_item.product.collections -%}
+                {%- unless line_item_product_collection.title == '0% Steuer' -%} 
+                  {%- assign only_0_tax_items = false -%}
+                {%- endunless -%}
+              {%- endfor -%}
+            {%- endfor -%}
+            
+            {%- for line_item in cart.items -%}
+              {%- for line_item_product_collection in line_item.product.collections -%}
+                {%- if line_item_product_collection.title == '0% Steuer' and only_0_tax_items == true -%} 
+                  {%- assign delivery_cost = 0 -%}
+                  {%- assign delivery_cost_price = 0 | money -%}
+                {%- endif -%}
+              {%- endfor -%}
+            {%- endfor -%}
+            {% comment %}End: Set free delivery if a product in the "0% Steuer" collection{% endcomment %}
+            
           {%- endif -%}
 
           <!-- Subtotal -->
@@ -184,7 +208,8 @@
           <div class="Drawer__Footer__Delivery">
             <small>{{ 'cart.general.delivery' | t }}</small> 
             <span data-freeshipping-text="{{ 'cart.sidebar.free_shipping' | t }}"
-                  data-shipping-price="{{ threshold_in_cents | divided_by: 10 | money }}">
+                  data-shipping-price="{{ delivery_cost_price }}"
+                  data-text="{%- if delivery_cost > 0 -%}{{ delivery_cost | money }}{%- else -%}{{ 'cart.sidebar.free_shipping' | t }}{%- endif -%}">
               {%- if delivery_cost > 0 -%}
                 {{ delivery_cost | money }}
               {%- else -%}

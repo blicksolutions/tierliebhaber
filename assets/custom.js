@@ -19,6 +19,9 @@
   };
 
   window.obj.cartSidebarRefresh = function() {
+
+    if (1 === 3) {
+      
       // donation product shipping removal - probably delete soon when a better solution is found
       const donationProductIDDe = 7973987385612;
       const donationProductIDEn = 8068154949900;
@@ -40,8 +43,9 @@
           priceTotalTag.textContent = '€' + ((priceTotalTag.textContent.replace('€', '').replace(',', '.') - 4.90).toFixed(2)).replace('.', ',');
       }
       // /donation product shipping removal
+    }
 
-      console.log('cartSidebarRefresh');
+    console.log('cartSidebarRefresh');
 
     const cartSidebar = $('#sidebar-cart');
     cartSidebar.removeClass('Drawer__Footer-loading');
@@ -91,16 +95,23 @@
       let deliveryPriceValue;
 
       const freeDeliveryAmount = parseFloat(cartSidebar.find('.CartMessage__StepsLines__Active').attr('data-free-delivery-amount'));
+      const freeShippingText = deliveryPrice.attr('data-freeshipping-text');
 
       if (forDeliverySubtotalPriceValue > freeDeliveryAmount) {
-        const freeShippingText = deliveryPrice.attr('data-freeshipping-text');
         deliveryPriceValue = 0;
-        deliveryPrice.text(freeShippingText);
+        // deliveryPrice.text('upd: ' + freeShippingText);
 
       } else {
         const deliveryCostText = deliveryPrice.attr('data-shipping-price');
         deliveryPriceValue = window.obj.strToPrice(deliveryCostText);
-        deliveryPrice.text(deliveryCostText);
+
+        // if (parseFloat(deliveryCostText) > 0) {
+          // deliveryPrice.text(deliveryCostText);
+        
+        // } else {
+          // deliveryPriceValue = 0;
+          // deliveryPrice.text(freeShippingText);
+        // }
       }
       /* /Delivery price */
 
