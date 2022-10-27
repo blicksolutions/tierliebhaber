@@ -898,6 +898,14 @@
               "limited": false,
               "image": "shopify:\/\/shop_images\/icon-hundefutter.png"
             }
+          },
+          "c78385cd-6e9a-4a63-bfd9-127c16d13879": {
+            "type": "link",
+            "settings": {
+              "url": "",
+              "title": "Gelenke",
+              "limited": false
+            }
           }
         },
         "block_order": [
@@ -906,7 +914,8 @@
           "5e642c2d-5f0f-47e1-a40e-c619d4d25457",
           "4530082d-54d6-4f71-8956-6a66a0d4fe53",
           "863a849c-20ff-43f6-9cd9-94073d6fd04d",
-          "01824073-761e-438c-8aa0-a0ad004d0ea9"
+          "01824073-761e-438c-8aa0-a0ad004d0ea9",
+          "c78385cd-6e9a-4a63-bfd9-127c16d13879"
         ],
         "settings": {
           "background": "primary"
