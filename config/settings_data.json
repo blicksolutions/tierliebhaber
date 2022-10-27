@@ -854,6 +854,15 @@
               "image": "shopify:\/\/shop_images\/icon-funktionssnacks.png"
             }
           },
+          "863a849c-20ff-43f6-9cd9-94073d6fd04d": {
+            "type": "link",
+            "settings": {
+              "url": "shopify:\/\/collections\/erganzungen",
+              "title": "Ergänzung&shy;en",
+              "limited": false,
+              "image": "shopify:\/\/shop_images\/icon-belohnung.png"
+            }
+          },
           "a430d2ff-cdbf-4f9c-84e1-9663c871ea7e": {
             "type": "link",
             "settings": {
@@ -863,13 +872,13 @@
               "image": "shopify:\/\/shop_images\/icon-zahnpflege.png"
             }
           },
-          "5e642c2d-5f0f-47e1-a40e-c619d4d25457": {
+          "c78385cd-6e9a-4a63-bfd9-127c16d13879": {
             "type": "link",
             "settings": {
-              "url": "shopify:\/\/collections\/angebote",
-              "title": "Angebote",
+              "url": "shopify:\/\/collections\/gelenke",
+              "title": "Gelenke",
               "limited": false,
-              "image": "shopify:\/\/shop_images\/icon-angebote_35699035-d8a7-44de-a3b1-020a092a3624.png"
+              "image": "shopify:\/\/shop_images\/gelenksymbol.png"
             }
           },
           "4530082d-54d6-4f71-8956-6a66a0d4fe53": {
@@ -881,15 +890,6 @@
               "image": "shopify:\/\/shop_images\/icon-pflege.png"
             }
           },
-          "863a849c-20ff-43f6-9cd9-94073d6fd04d": {
-            "type": "link",
-            "settings": {
-              "url": "shopify:\/\/collections\/erganzungen",
-              "title": "Ergänzung&shy;en",
-              "limited": false,
-              "image": "shopify:\/\/shop_images\/icon-belohnung.png"
-            }
-          },
           "01824073-761e-438c-8aa0-a0ad004d0ea9": {
             "type": "link",
             "settings": {
@@ -899,23 +899,24 @@
               "image": "shopify:\/\/shop_images\/icon-hundefutter.png"
             }
           },
-          "c78385cd-6e9a-4a63-bfd9-127c16d13879": {
+          "5e642c2d-5f0f-47e1-a40e-c619d4d25457": {
             "type": "link",
             "settings": {
-              "url": "",
-              "title": "Gelenke",
-              "limited": false
+              "url": "shopify:\/\/collections\/angebote",
+              "title": "Angebote",
+              "limited": false,
+              "image": "shopify:\/\/shop_images\/icon-angebote_35699035-d8a7-44de-a3b1-020a092a3624.png"
             }
           }
         },
         "block_order": [
           "ab316d36-4c17-4afc-83ea-1d5816e1f122",
-          "a430d2ff-cdbf-4f9c-84e1-9663c871ea7e",
-          "5e642c2d-5f0f-47e1-a40e-c619d4d25457",
-          "4530082d-54d6-4f71-8956-6a66a0d4fe53",
           "863a849c-20ff-43f6-9cd9-94073d6fd04d",
+          "a430d2ff-cdbf-4f9c-84e1-9663c871ea7e",
+          "c78385cd-6e9a-4a63-bfd9-127c16d13879",
+          "4530082d-54d6-4f71-8956-6a66a0d4fe53",
           "01824073-761e-438c-8aa0-a0ad004d0ea9",
-          "c78385cd-6e9a-4a63-bfd9-127c16d13879"
+          "5e642c2d-5f0f-47e1-a40e-c619d4d25457"
         ],
         "settings": {
           "background": "primary"
