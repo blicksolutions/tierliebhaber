@@ -3,7 +3,7 @@
     "main": {
       "type": "collection-template",
       "settings": {
-        "show_collection_info": true,
+        "show_collection_info": false,
         "show_collection_image": false,
         "apply_overlay": true,
         "show_color_swatch": false,
