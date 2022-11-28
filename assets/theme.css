@@ -11811,3 +11811,6 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 }
 
 /* /Buy in Bundle */
+.Heading.Link.Link--secondary.u-h7 {
+  display: none;
+}
