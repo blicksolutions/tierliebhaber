@@ -11814,4 +11814,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 .PageLayout.PageLayout--breakLap .PageLayout__Section:first-child .Heading.Link.Link--secondary.u-h7, .PageLayout.PageLayout--breakLap .PageLayout__Section:first-child .Heading.Text--subdued.u-h7 {
   display: none !important;
 }
+.PageLayout.PageLayout--breakLap .PageLayout__Section:first-child {
+  height:30.8px;
+}
 
