@@ -44,7 +44,7 @@
 									</div>
 									<div class="price">
 										<div class="main">
-											{%- if upsell_product.selected_or_first_available_variant.compare_at_price != upsell_product.selected_or_first_available_variant.price -%}
+											{%- if upsell_product.selected_or_first_available_variant.compare_at_price != upsell_product.selected_or_first_available_variant.price and upsell_product.selected_or_first_available_variant.compare_at_price != none -%}
 												{%- assign upsell_price = upsell_product.selected_or_first_available_variant.compare_at_price -%}
 											{%- else -%}
 												{%- assign upsell_price = upsell_product.selected_or_first_available_variant.price -%}
