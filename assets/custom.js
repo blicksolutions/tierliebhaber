@@ -83,11 +83,16 @@ window.shippingrates = {
       console.log("HIER BINNICH")
       /** Delivery after ip +*/
 
+      
       // elements
       setTimeout(() => {
           const subtotalPriceEl = document.querySelector('.Drawer__Footer__SubtotalPrice span');
           const deliveryCostEl = document.querySelector('.Drawer__Footer__Delivery span');
           const totalPriceEl = document.querySelector('.Drawer__Footer__Total span');
+          const deliveryBarValueEl = document.querySelector('.js-cart-drawer-delivery-left-value');
+          const deliveryBarLeftTextEl = document.querySelector('.CartMessage__Steps__Text-left');
+          const deliveryBarFinalTextEl = document.querySelector('.CartMessage__Steps__Text-final');
+          const deliveryBarStepLineEl = document.querySelector('.CartMessage__StepsLines__Active');
 
           // vars
           let deliveryPriceValue = window.shippingrates.otherLocations.priceValue;
@@ -95,39 +100,52 @@ window.shippingrates = {
 
           switch (window.currentCountry) {
               case 'DE':
-
-
                   if (window.shippingrates.de.minSubtotalPriceValue >= subtotalPriceValue) {
                       deliveryCostEl.textContent = '€' + window.shippingrates.de.priceValue.replace('.', ',');
                       deliveryPriceValue = parseFloat(window.shippingrates.de.priceValue);
+                      deliveryBarFinalTextEl.style.opacity = 0;
+                      deliveryBarLeftTextEl.style.opacity = 1;
+                      deliveryBarValueEl.textContent =  '€' + (parseFloat(window.shippingrates.de.minSubtotalPriceValue) - parseFloat(subtotalPriceValue)).toFixed(2).replace('.', ',');
+                      deliveryBarStepLineEl.style.width = (subtotalPriceValue / window.shippingrates.de.minSubtotalPriceValue * 100).toFixed(2) + '%';
+
                   } else {
-                      console.log("KOSTENLOSER VERSAND")
+                      deliveryBarFinalTextEl.style.opacity = 1;
+                      deliveryBarLeftTextEl.style.opacity = 0;
                       deliveryPriceValue = 0;
                       deliveryCostEl.textContent = deliveryCostEl.getAttribute('data-freeshipping-text');
+                      deliveryBarStepLineEl.style.width = '100%';
                   }
-
                   break;
               case 'AT':
-
                   if (window.shippingrates.at.minSubtotalPriceValue >= subtotalPriceValue) {
                       deliveryCostEl.textContent = '€' + window.shippingrates.at.priceValue.replace('.', ',');
                       deliveryPriceValue = parseFloat(window.shippingrates.at.priceValue);
+                      deliveryBarFinalTextEl.style.opacity = 0;
+                      deliveryBarLeftTextEl.style.opacity = 1;
+                      deliveryBarValueEl.textContent =  '€' + (parseFloat(window.shippingrates.at.minSubtotalPriceValue) - parseFloat(subtotalPriceValue)).toFixed(2).replace('.', ',');
+                      deliveryBarStepLineEl.style.width = (subtotalPriceValue / window.shippingrates.at.minSubtotalPriceValue * 100).toFixed(2) + '%';
                   } else {
-                      console.log("KOSTENLOSER VERSAND")
+                      deliveryBarFinalTextEl.style.opacity = 1;
+                      deliveryBarLeftTextEl.style.opacity = 0;
                       deliveryPriceValue = 0;
                       deliveryCostEl.textContent = deliveryCostEl.getAttribute('data-freeshipping-text');
+                      deliveryBarStepLineEl.style.width = '100%';
                   }
-
-
                   break;
               case 'CH':
                   if (window.shippingrates.ch.minSubtotalPriceValue >= subtotalPriceValue) {
                       deliveryCostEl.textContent = '€' + window.shippingrates.ch.priceValue.replace('.', ',');
                       deliveryPriceValue = parseFloat(window.shippingrates.ch.priceValue);
+                      deliveryBarFinalTextEl.style.opacity = 0;
+                      deliveryBarLeftTextEl.style.opacity = 1;
+                      deliveryBarValueEl.textContent =  '€' + (parseFloat(window.shippingrates.ch.minSubtotalPriceValue) - parseFloat(subtotalPriceValue)).toFixed(2).replace('.', ',');
+                      deliveryBarStepLineEl.style.width = (subtotalPriceValue / window.shippingrates.ch.minSubtotalPriceValue * 100).toFixed(2) + '%';
                   } else {
-                      console.log("KOSTENLOSER VERSAND")
+                      deliveryBarFinalTextEl.style.opacity = 1;
+                      deliveryBarLeftTextEl.style.opacity = 0;
                       deliveryPriceValue = 0;
                       deliveryCostEl.textContent = deliveryCostEl.getAttribute('data-freeshipping-text');
+                      deliveryBarStepLineEl.style.width = '100%';
                   }
                   break;
               default:
@@ -195,18 +213,18 @@ window.shippingrates = {
 
 
 
-              const giftItem = cartSidebar.find('.CartItemWrapper[data-free-gift="true"]');
+              // const giftItem = cartSidebar.find('.CartItemWrapper[data-free-gift="true"]');
 
-              console.log('giftItem', giftItem.length);
-              /* If the gift item is added */
-              if (giftItem.length) {
-                  const giftItemPriceValue = window.obj.strToPrice(giftItem.find('.CartItem__OriginalPrice').text());
-                  subtotalOldPriceValue -= giftItemPriceValue;
-
-                  setTimeout(function () {
-                      subtotalOldPrice.text(window.obj.priceToStr(subtotalOldPriceValue));
-                  }, 1500);
-              }
+              // console.log('giftItem', giftItem.length);
+              // /* If the gift item is added */
+              // if (giftItem.length) {
+              //     const giftItemPriceValue = window.obj.strToPrice(giftItem.find('.CartItem__OriginalPrice').text());
+              //     subtotalOldPriceValue -= giftItemPriceValue;
+              //
+              //     setTimeout(function () {
+              //         subtotalOldPrice.text(window.obj.priceToStr(subtotalOldPriceValue));
+              //     }, 1500);
+              // }
 
               /* Total price */
               const totalPrice = cartSidebar.find('.Drawer__Footer__Total > span');
@@ -218,7 +236,7 @@ window.shippingrates = {
           } else {
               cartSidebar.removeAttr('data-dcart-code');
           }
-      }, 150);
+      }, 10);
 
 
       /* Error */

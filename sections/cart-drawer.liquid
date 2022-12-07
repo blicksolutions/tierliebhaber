@@ -58,7 +58,7 @@
 
 
               <div class="CartMessage__Steps__Text-left">
-                  {{ message_delivery_text-first }} <div class="js-cart-drawer-delivery-left-value"></div> {{ message_delivery_text-last }}
+                  {{ section.settings.message_delivery_text-first }} <span class="js-cart-drawer-delivery-left-value"></span> {{ section.settings.message_delivery_text-last }}
               </div>
 
               <div class="CartMessage__Steps__Text-final" style="opacity: 0; pointer-events: none;">
@@ -73,13 +73,11 @@
             <div class="CartMessage__StepsLines">
               {%- assign message_line_percentage = cart.total_price | divided_by: 71.48934 | times: 100 -%}
               <span class="CartMessage__StepsLines__Active"
-                    data-free-delivery-amount="{{ section.settings.free_delivery_amount }}"
-                    style="width: {%- if message_line_percentage > 100 -%}100{%- else -%}{{ message_line_percentage }}{%- endif -%}%;"></span>
+                    data-free-delivery-amount="{{ section.settings.free_delivery_amount }}"></span>
             </div>
 
-            {%- assign free_delivery_percentage = section.settings.free_delivery_amount | divided_by: 71.48934 | times: 100 -%}
             <span class="CartMessage__StepsLines__Delivery"
-                  style="left: {{ free_delivery_percentage }}%;">
+                  style="right:0;">
               <img src="{{ section.settings.message_delivery_icon | img_url: '32x32' }}" 
                    alt="{{ section.settings.message_delivery_icon.alt | escape }}">
             </span>
