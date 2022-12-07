@@ -2187,6 +2187,11 @@ function _classCallCheck(e, t) {
 
                     console.log('_rerenderCart');
 
+                    const deliveryBarValueEl = document.querySelector('.js-cart-drawer-delivery-left-value');
+                    const deliveryBarStepLineEl = document.querySelector('.CartMessage__StepsLines__Active');
+                    deliveryBarValueEl.textContent = window.cartBarValue;
+                    deliveryBarStepLineEl.style.width = window.cartBarWidth;
+
                     const cartSidebar = $('#sidebar-cart');
 
                     if (cartSidebar.hasClass('Drawer__Footer__DCart-inited') && parseInt(cartSidebar.attr("data-dcart-calculated")) > 1) {
@@ -2446,7 +2451,8 @@ function _classCallCheck(e, t) {
                             }
                         }
 
-                        window.obj.cartSidebarRefresh();
+                        console.log("IM THEMEJS")
+                        window.obj.cartSidebarRefresh(true);
                     }
                 }
             }]), e

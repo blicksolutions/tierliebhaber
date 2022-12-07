@@ -11829,6 +11829,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
     flex-direction: row;
     justify-content: center;
     width: 100%;
+    transition: opacity 0.2s ease-out;
 }
 
 .js-cart-drawer-delivery-left-value {

@@ -45,9 +45,8 @@ window.shippingrates = {
     return price;
   };
 
-  window.obj.cartSidebarRefresh = function() {
-
-    if (1 === 3) {
+  window.obj.cartSidebarRefresh = function(replaceDelivery) {
+      if (1 === 3) {
 
       // donation product shipping removal - probably delete soon when a better solution is found
       const donationProductIDDe = 7973987385612;
@@ -80,10 +79,8 @@ window.shippingrates = {
 
       const scData = JSON.parse(sessionStorage.getItem("scDiscountData"));
 
-      console.log("HIER BINNICH")
       /** Delivery after ip +*/
 
-      
       // elements
       setTimeout(() => {
           const subtotalPriceEl = document.querySelector('.Drawer__Footer__SubtotalPrice span');
@@ -98,66 +95,72 @@ window.shippingrates = {
           let deliveryPriceValue = window.shippingrates.otherLocations.priceValue;
           const subtotalPriceValue = parseFloat(subtotalPriceEl.textContent.replace('€', '').replace(',', '.'));
 
-          switch (window.currentCountry) {
-              case 'DE':
-                  if (window.shippingrates.de.minSubtotalPriceValue >= subtotalPriceValue) {
-                      deliveryCostEl.textContent = '€' + window.shippingrates.de.priceValue.replace('.', ',');
-                      deliveryPriceValue = parseFloat(window.shippingrates.de.priceValue);
-                      deliveryBarFinalTextEl.style.opacity = 0;
-                      deliveryBarLeftTextEl.style.opacity = 1;
-                      deliveryBarValueEl.textContent =  '€' + (parseFloat(window.shippingrates.de.minSubtotalPriceValue) - parseFloat(subtotalPriceValue)).toFixed(2).replace('.', ',');
-                      deliveryBarStepLineEl.style.width = (subtotalPriceValue / window.shippingrates.de.minSubtotalPriceValue * 100).toFixed(2) + '%';
+          if (replaceDelivery) {
+              switch (window.currentCountry) {
+                  case 'DE':
+                      if (window.shippingrates.de.minSubtotalPriceValue >= subtotalPriceValue) {
+                          deliveryCostEl.textContent = '€' + window.shippingrates.de.priceValue.replace('.', ',');
+                          deliveryPriceValue = parseFloat(window.shippingrates.de.priceValue);
+                          deliveryBarFinalTextEl.style.opacity = 0;
+                          deliveryBarLeftTextEl.style.opacity = 1;
+                          deliveryBarValueEl.textContent =  '€' + (parseFloat(window.shippingrates.de.minSubtotalPriceValue) - parseFloat(subtotalPriceValue)).toFixed(2).replace('.', ',');
+                          deliveryBarStepLineEl.style.width = (subtotalPriceValue / window.shippingrates.de.minSubtotalPriceValue * 100).toFixed(2) + '%';
+                          window.cartBarWidth = (subtotalPriceValue / window.shippingrates.de.minSubtotalPriceValue * 100).toFixed(2) + '%';
+                          window.cartBarValue = '€' + (parseFloat(window.shippingrates.de.minSubtotalPriceValue) - parseFloat(subtotalPriceValue)).toFixed(2).replace('.', ',');
+                      } else {
+                          deliveryBarFinalTextEl.style.opacity = 1;
+                          deliveryBarLeftTextEl.style.opacity = 0;
+                          deliveryPriceValue = 0;
+                          deliveryCostEl.textContent = deliveryCostEl.getAttribute('data-freeshipping-text');
+                          deliveryBarStepLineEl.style.width = '100%';
+                      }
+                      break;
+                  case 'AT':
+                      if (window.shippingrates.at.minSubtotalPriceValue >= subtotalPriceValue) {
+                          deliveryCostEl.textContent = '€' + window.shippingrates.at.priceValue.replace('.', ',');
+                          deliveryPriceValue = parseFloat(window.shippingrates.at.priceValue);
+                          deliveryBarFinalTextEl.style.opacity = 0;
+                          deliveryBarLeftTextEl.style.opacity = 1;
+                          deliveryBarValueEl.textContent =  '€' + (parseFloat(window.shippingrates.at.minSubtotalPriceValue) - parseFloat(subtotalPriceValue)).toFixed(2).replace('.', ',');
+                          deliveryBarStepLineEl.style.width = (subtotalPriceValue / window.shippingrates.at.minSubtotalPriceValue * 100).toFixed(2) + '%';
+                          window.cartBarWidth = (subtotalPriceValue / window.shippingrates.at.minSubtotalPriceValue * 100).toFixed(2) + '%';
+                          window.cartBarValue = '€' + (parseFloat(window.shippingrates.at.minSubtotalPriceValue) - parseFloat(subtotalPriceValue)).toFixed(2).replace('.', ',');
+                      } else {
+                          deliveryBarFinalTextEl.style.opacity = 1;
+                          deliveryBarLeftTextEl.style.opacity = 0;
+                          deliveryPriceValue = 0;
+                          deliveryCostEl.textContent = deliveryCostEl.getAttribute('data-freeshipping-text');
+                          deliveryBarStepLineEl.style.width = '100%';
+                      }
+                      break;
+                  case 'CH':
+                      if (window.shippingrates.ch.minSubtotalPriceValue >= subtotalPriceValue) {
+                          deliveryCostEl.textContent = '€' + window.shippingrates.ch.priceValue.replace('.', ',');
+                          deliveryPriceValue = parseFloat(window.shippingrates.ch.priceValue);
+                          deliveryBarFinalTextEl.style.opacity = 0;
+                          deliveryBarLeftTextEl.style.opacity = 1;
+                          deliveryBarValueEl.textContent =  '€' + (parseFloat(window.shippingrates.ch.minSubtotalPriceValue) - parseFloat(subtotalPriceValue)).toFixed(2).replace('.', ',');
+                          deliveryBarStepLineEl.style.width = (subtotalPriceValue / window.shippingrates.ch.minSubtotalPriceValue * 100).toFixed(2) + '%';
+                          window.cartBarWidth = (subtotalPriceValue / window.shippingrates.ch.minSubtotalPriceValue * 100).toFixed(2) + '%';
+                          window.cartBarValue = '€' + (parseFloat(window.shippingrates.ch.minSubtotalPriceValue) - parseFloat(subtotalPriceValue)).toFixed(2).replace('.', ',');
+                      } else {
+                          deliveryBarFinalTextEl.style.opacity = 1;
+                          deliveryBarLeftTextEl.style.opacity = 0;
+                          deliveryPriceValue = 0;
+                          deliveryCostEl.textContent = deliveryCostEl.getAttribute('data-freeshipping-text');
+                          deliveryBarStepLineEl.style.width = '100%';
+                      }
+                      break;
+                  default:
+                      console.log("DEFAULT CASE .. MOST LIKELY UNDEFINED it is: " + window.currentCountry);
+              }
 
-                  } else {
-                      deliveryBarFinalTextEl.style.opacity = 1;
-                      deliveryBarLeftTextEl.style.opacity = 0;
-                      deliveryPriceValue = 0;
-                      deliveryCostEl.textContent = deliveryCostEl.getAttribute('data-freeshipping-text');
-                      deliveryBarStepLineEl.style.width = '100%';
-                  }
-                  break;
-              case 'AT':
-                  if (window.shippingrates.at.minSubtotalPriceValue >= subtotalPriceValue) {
-                      deliveryCostEl.textContent = '€' + window.shippingrates.at.priceValue.replace('.', ',');
-                      deliveryPriceValue = parseFloat(window.shippingrates.at.priceValue);
-                      deliveryBarFinalTextEl.style.opacity = 0;
-                      deliveryBarLeftTextEl.style.opacity = 1;
-                      deliveryBarValueEl.textContent =  '€' + (parseFloat(window.shippingrates.at.minSubtotalPriceValue) - parseFloat(subtotalPriceValue)).toFixed(2).replace('.', ',');
-                      deliveryBarStepLineEl.style.width = (subtotalPriceValue / window.shippingrates.at.minSubtotalPriceValue * 100).toFixed(2) + '%';
-                  } else {
-                      deliveryBarFinalTextEl.style.opacity = 1;
-                      deliveryBarLeftTextEl.style.opacity = 0;
-                      deliveryPriceValue = 0;
-                      deliveryCostEl.textContent = deliveryCostEl.getAttribute('data-freeshipping-text');
-                      deliveryBarStepLineEl.style.width = '100%';
-                  }
-                  break;
-              case 'CH':
-                  if (window.shippingrates.ch.minSubtotalPriceValue >= subtotalPriceValue) {
-                      deliveryCostEl.textContent = '€' + window.shippingrates.ch.priceValue.replace('.', ',');
-                      deliveryPriceValue = parseFloat(window.shippingrates.ch.priceValue);
-                      deliveryBarFinalTextEl.style.opacity = 0;
-                      deliveryBarLeftTextEl.style.opacity = 1;
-                      deliveryBarValueEl.textContent =  '€' + (parseFloat(window.shippingrates.ch.minSubtotalPriceValue) - parseFloat(subtotalPriceValue)).toFixed(2).replace('.', ',');
-                      deliveryBarStepLineEl.style.width = (subtotalPriceValue / window.shippingrates.ch.minSubtotalPriceValue * 100).toFixed(2) + '%';
-                  } else {
-                      deliveryBarFinalTextEl.style.opacity = 1;
-                      deliveryBarLeftTextEl.style.opacity = 0;
-                      deliveryPriceValue = 0;
-                      deliveryCostEl.textContent = deliveryCostEl.getAttribute('data-freeshipping-text');
-                      deliveryBarStepLineEl.style.width = '100%';
-                  }
-                  break;
-              default:
-                  console.log("DEFAULT CASE .. MOST LIKELY UNDEFINED it is: " + window.currentCountry);
+              // set price with location based shipping costs
+              const priceWithoutShipping = parseFloat(subtotalPriceEl.textContent.replace('€', '').replace(',', '.'));
+              totalPriceEl.textContent = '€' + (priceWithoutShipping + deliveryPriceValue).toFixed(2);
+
+              console.log("replaced delivery")
           }
-
-          // set price with location based shipping costs
-          const priceWithoutShipping = parseFloat(subtotalPriceEl.textContent.replace('€', '').replace(',', '.'));
-          totalPriceEl.textContent = '€' + (priceWithoutShipping + deliveryPriceValue).toFixed(2);
-
-          console.log("replaced delivery")
-
           /** /Delivery after ip +*/
 
           if (scData.stage == 'complete') {
@@ -236,7 +239,7 @@ window.shippingrates = {
           } else {
               cartSidebar.removeAttr('data-dcart-code');
           }
-      }, 10);
+      }, 550);
 
 
       /* Error */
@@ -309,12 +312,12 @@ window.shippingrates = {
       cartSidebar.attr("data-dcart-calculated", 0);
       cartSidebar.addClass('Drawer__Footer__DCart-inited').removeClass('Drawer__Footer-loading');
 
-      window.obj.cartSidebarRefresh();
+      window.obj.cartSidebarRefresh(true);
     });
 
     window.addEventListener('sc:discount.calculated', function() {
       console.log('dcart calculated');
-
+      window.obj.cartSidebarRefresh(false);
     });
 
     window.addEventListener('sc:discount.remove', function() {
@@ -343,7 +346,7 @@ window.shippingrates = {
       const percentage = $('.Drawer__Footer__Coupon-percentage');
       percentage.text('');
 
-      window.obj.cartSidebarRefresh();
+      window.obj.cartSidebarRefresh(true);
 
     });
   };
