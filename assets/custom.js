@@ -317,7 +317,7 @@ window.shippingrates = {
 
     window.addEventListener('sc:discount.calculated', function() {
       console.log('dcart calculated');
-      window.obj.cartSidebarRefresh(false);
+      window.obj.cartSidebarRefresh(true);
     });
 
     window.addEventListener('sc:discount.remove', function() {
