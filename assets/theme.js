@@ -2446,7 +2446,7 @@ function _classCallCheck(e, t) {
                             }
                         }
 
-                        window.obj.cartSidebarRefresh();
+                        // window.obj.cartSidebarRefresh();
                     }
                 }
             }]), e
