@@ -11822,7 +11822,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 
 .CartMessage__Steps__Text-left, .CartMessage__Steps__Text-final {
     position: absolute;
-    top: 0;
+    top: 10px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -11835,6 +11835,6 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
     padding: 0 3px;
 }
 
-.CartMessage__StepsLines__Active {
-
+.CartMessage__StepsLines__Container {
+    margin: 35px 34px 5px;
 }
