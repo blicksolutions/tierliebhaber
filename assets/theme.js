@@ -2410,7 +2410,7 @@ function _classCallCheck(e, t) {
 
                     const cartSidebar = $('#sidebar-cart');
                     const cartSidebarItems = cartSidebar.find('.Cart__ItemList');
-
+// HIER
                     if (cartSidebarItems.length) {
                         const cartSidebarTotalPrice = cartSidebar.find('.Drawer__Footer__SubtotalPrice');
                         let cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.attr('data-price').replace(/\,/, '.').replace(/[^0-9\.]+/, ''));

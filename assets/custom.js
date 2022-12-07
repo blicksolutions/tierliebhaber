@@ -1,5 +1,32 @@
 /* Cart sidebar coupon */
 
+// define shippingrates
+window.shippingrates = {
+    de: {
+        minSubtotalPriceValue: 49,
+        priceValue: '4.90'
+    },
+    at: {
+        minSubtotalPriceValue: 69,
+        priceValue: '6.90'
+    },
+
+    ch: {
+        minSubtotalPriceValue: 129,
+        priceValue: '12.90'
+    },
+    otherLocations: {
+        country: null,
+        minSubtotalPriceValue: 170,
+        priceValue: 15.90,
+        price: null,
+        freeShipping: false,
+        message: null
+    }
+}
+
+ window.currentCountry = undefined;
+
   window.obj = function(){};
 
   window.obj.priceToStr = function(price) {
@@ -21,7 +48,7 @@
   window.obj.cartSidebarRefresh = function() {
 
     if (1 === 3) {
-      
+
       // donation product shipping removal - probably delete soon when a better solution is found
       const donationProductIDDe = 7973987385612;
       const donationProductIDEn = 8068154949900;
@@ -49,84 +76,152 @@
 
     const cartSidebar = $('#sidebar-cart');
     cartSidebar.removeClass('Drawer__Footer-loading');
-    cartSidebar.attr("data-dcart-calculated", (parseInt(cartSidebar.attr("data-dcart-calculated")) + 1));
+      cartSidebar.attr("data-dcart-calculated", (parseInt(cartSidebar.attr("data-dcart-calculated")) + 1));
 
-    const scData = JSON.parse(sessionStorage.getItem("scDiscountData"));
+      const scData = JSON.parse(sessionStorage.getItem("scDiscountData"));
 
-    if (scData.stage == 'complete') {
-      cartSidebar.attr('data-dcart-code', scData.code);
+      console.log("HIER BINNICH")
+      /** Delivery after ip +*/
 
-      /* Percentage */
-      const couponPercentage = cartSidebar.find('.Drawer__Footer__Coupon-percentage');
+      // elements
+      setTimeout(() => {
+          const subtotalPriceEl = document.querySelector('.Drawer__Footer__SubtotalPrice span');
+          const deliveryCostEl = document.querySelector('.Drawer__Footer__Delivery span');
+          const totalPriceEl = document.querySelector('.Drawer__Footer__Total span');
 
-      if (scData.discount.value > 0) {
-        couponPercentage.text('-' + parseInt(scData.discount.value) + '%');
+          // vars
+          let deliveryPriceValue = window.shippingrates.otherLocations.priceValue;
+          const subtotalPriceValue = parseFloat(subtotalPriceEl.textContent.replace('€', '').replace(',', '.'));
 
-      } else {
-        couponPercentage.text('');
-      }
-      /* /Percentage */
+          switch (window.currentCountry) {
+              case 'DE':
 
-      /* Subtotal price */
-      const subtotalOldPrice = cartSidebar.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > s > span.money');
-      let subtotalOldPriceValue = parseFloat(scData.total);
 
-      const subtotalNewPrice = cartSidebar.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
-      let subtotalNewPriceValue = parseFloat(scData.subtotal);
-      /* /Subtotal price */
+                  if (window.shippingrates.de.minSubtotalPriceValue >= subtotalPriceValue) {
+                      deliveryCostEl.textContent = '€' + window.shippingrates.de.priceValue.replace('.', ',');
+                      deliveryPriceValue = parseFloat(window.shippingrates.de.priceValue);
+                  } else {
+                      console.log("KOSTENLOSER VERSAND")
+                      deliveryPriceValue = 0;
+                      deliveryCostEl.textContent = deliveryCostEl.getAttribute('data-freeshipping-text');
+                  }
 
-    /* Delivery price */
-      let forDeliverySubtotalPriceValue = scData.total;
+                  break;
+              case 'AT':
 
-      const giftItem = cartSidebar.find('.CartItemWrapper[data-free-gift="true"]');
+                  if (window.shippingrates.at.minSubtotalPriceValue >= subtotalPriceValue) {
+                      deliveryCostEl.textContent = '€' + window.shippingrates.at.priceValue.replace('.', ',');
+                      deliveryPriceValue = parseFloat(window.shippingrates.at.priceValue);
+                  } else {
+                      console.log("KOSTENLOSER VERSAND")
+                      deliveryPriceValue = 0;
+                      deliveryCostEl.textContent = deliveryCostEl.getAttribute('data-freeshipping-text');
+                  }
 
-      console.log('giftItem', giftItem.length);
-      /* If the gift item is added */
-      if (giftItem.length) {
-        const giftItemPriceValue = window.obj.strToPrice(giftItem.find('.CartItem__OriginalPrice').text());
-        subtotalOldPriceValue -= giftItemPriceValue;
 
-        setTimeout(function() {
-          subtotalOldPrice.text(window.obj.priceToStr(subtotalOldPriceValue));
-        }, 1500);
-      }
+                  break;
+              case 'CH':
+                  if (window.shippingrates.ch.minSubtotalPriceValue >= subtotalPriceValue) {
+                      deliveryCostEl.textContent = '€' + window.shippingrates.ch.priceValue.replace('.', ',');
+                      deliveryPriceValue = parseFloat(window.shippingrates.ch.priceValue);
+                  } else {
+                      console.log("KOSTENLOSER VERSAND")
+                      deliveryPriceValue = 0;
+                      deliveryCostEl.textContent = deliveryCostEl.getAttribute('data-freeshipping-text');
+                  }
+                  break;
+              default:
+                  console.log("DEFAULT CASE .. MOST LIKELY UNDEFINED it is: " + window.currentCountry);
+          }
 
-      const deliveryPrice = $('.Drawer__Footer__Delivery > span');
-      let deliveryPriceValue;
+          // set price with location based shipping costs
+          const priceWithoutShipping = parseFloat(subtotalPriceEl.textContent.replace('€', '').replace(',', '.'));
+          totalPriceEl.textContent = '€' + (priceWithoutShipping + deliveryPriceValue).toFixed(2);
 
-      const freeDeliveryAmount = parseFloat(cartSidebar.find('.CartMessage__StepsLines__Active').attr('data-free-delivery-amount'));
-      const freeShippingText = deliveryPrice.attr('data-freeshipping-text');
+          console.log("replaced delivery")
 
-      if (forDeliverySubtotalPriceValue > freeDeliveryAmount) {
-        deliveryPriceValue = 0;
-        // deliveryPrice.text('upd: ' + freeShippingText);
+          /** /Delivery after ip +*/
 
-      } else {
-        const deliveryCostText = deliveryPrice.attr('data-shipping-price');
-        deliveryPriceValue = window.obj.strToPrice(deliveryCostText);
+          if (scData.stage == 'complete') {
+              cartSidebar.attr('data-dcart-code', scData.code);
 
-        // if (parseFloat(deliveryCostText) > 0) {
-          // deliveryPrice.text(deliveryCostText);
-        
-        // } else {
-          // deliveryPriceValue = 0;
-          // deliveryPrice.text(freeShippingText);
-        // }
-      }
-      /* /Delivery price */
+              /* Percentage */
+              const couponPercentage = cartSidebar.find('.Drawer__Footer__Coupon-percentage');
 
-      /* Total price */
-      const totalPrice = cartSidebar.find('.Drawer__Footer__Total > span');
-      const totalPriceValue = parseFloat(subtotalNewPriceValue + deliveryPriceValue);
+              if (scData.discount.value > 0) {
+                  couponPercentage.text('-' + parseInt(scData.discount.value) + '%');
 
-      totalPrice.text(window.obj.priceToStr(totalPriceValue));
-      /* /Total price */
+              } else {
+                  couponPercentage.text('');
+              }
+              /* /Percentage */
 
-    } else {
-      cartSidebar.removeAttr('data-dcart-code');
-    }
+              /* Subtotal price */
+              const subtotalOldPrice = cartSidebar.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > s > span.money');
+              let subtotalOldPriceValue = parseFloat(scData.total);
 
-    /* Error */
+              const subtotalNewPrice = cartSidebar.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
+              let subtotalNewPriceValue = parseFloat(scData.subtotal);
+              /* /Subtotal price */
+
+
+
+
+              // old deliveryprice
+              // const deliveryPrice = $('.Drawer__Footer__Delivery > span');
+              // let deliveryPriceValue;
+              //
+              // const freeDeliveryAmount = parseFloat(cartSidebar.find('.CartMessage__StepsLines__Active').attr('data-free-delivery-amount'));
+              // const freeShippingText = deliveryPrice.attr('data-freeshipping-text');
+              //
+              //
+              //   if (forDeliverySubtotalPriceValue > freeDeliveryAmount) {
+              //   deliveryPriceValue = 0;
+              //   // deliveryPrice.text('upd: ' + freeShippingText);
+              //
+              // } else {
+              //   const deliveryCostText = deliveryPrice.attr('data-shipping-price');
+              //   deliveryPriceValue = window.obj.strToPrice(deliveryCostText);
+              //
+              //   // if (parseFloat(deliveryCostText) > 0) {
+              //     // deliveryPrice.text(deliveryCostText);
+              //
+              //   // } else {
+              //     // deliveryPriceValue = 0;
+              //     // deliveryPrice.text(freeShippingText);
+              //   // }
+              // }
+              // /* /Delivery price */
+
+
+
+              const giftItem = cartSidebar.find('.CartItemWrapper[data-free-gift="true"]');
+
+              console.log('giftItem', giftItem.length);
+              /* If the gift item is added */
+              if (giftItem.length) {
+                  const giftItemPriceValue = window.obj.strToPrice(giftItem.find('.CartItem__OriginalPrice').text());
+                  subtotalOldPriceValue -= giftItemPriceValue;
+
+                  setTimeout(function () {
+                      subtotalOldPrice.text(window.obj.priceToStr(subtotalOldPriceValue));
+                  }, 1500);
+              }
+
+              /* Total price */
+              const totalPrice = cartSidebar.find('.Drawer__Footer__Total > span');
+              const totalPriceValue = parseFloat(subtotalNewPriceValue + deliveryPriceValue);
+
+              totalPrice.text(window.obj.priceToStr(totalPriceValue));
+              /* /Total price */
+
+          } else {
+              cartSidebar.removeAttr('data-dcart-code');
+          }
+      }, 150);
+
+
+      /* Error */
     const couponError = cartSidebar.find('.scDiscount__container .scError');
 
     if (couponError.length && !couponError.hasClass('Hidden')) {
@@ -230,11 +325,21 @@
 
       const percentage = $('.Drawer__Footer__Coupon-percentage');
       percentage.text('');
+
+      window.obj.cartSidebarRefresh();
+
     });
   };
 
 
 $(document).ready(function () {
   window.obj.cartSidebar();
+
+    fetch('/browsing_context_suggestions.json')
+        .then(response => response.json())
+        .then(json => {
+            window.currentCountry = json.detected_values.country.handle;
+            console.log("window.currentCountry: " + window.currentCountry);
+        });
 });
 /* /Cart sidebar coupon */
