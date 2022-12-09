@@ -25,7 +25,6 @@ window.shippingrates = {
     }
 }
 
- const deliveryBarTextEl = document.querySelector('.CartMessage__Steps__Text');
  window.currentCountry = undefined;
 
   window.obj = function(){};
@@ -91,6 +90,7 @@ window.shippingrates = {
           const deliveryBarLeftTextEl = document.querySelector('.CartMessage__Steps__Text-left');
           const deliveryBarFinalTextEl = document.querySelector('.CartMessage__Steps__Text-final');
           const deliveryBarStepLineEl = document.querySelector('.CartMessage__StepsLines__Active');
+          const deliveryBarTextEl = document.querySelector('.CartMessage__Steps__Text');
 
           // vars
           let deliveryPriceValue = window.shippingrates.otherLocations.priceValue;
@@ -237,13 +237,8 @@ window.shippingrates = {
           } else {
               cartSidebar.removeAttr('data-dcart-code');
           }
-      }, 550);
-
-      setTimeout(() => {
-          console.log(deliveryBarTextEl)
           deliveryBarTextEl.style.filter = 'blur(0)';
-          console.log("AFTER 3 SECONDS")
-      }, 2500);
+      }, 550);
 
 
       /* Error */
