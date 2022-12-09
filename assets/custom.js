@@ -72,7 +72,7 @@ window.shippingrates = {
       // /donation product shipping removal
     }
 
-    console.log('cartSidebarRefresh');
+    // console.log('cartSidebarRefresh');
 
     const cartSidebar = $('#sidebar-cart');
     cartSidebar.removeClass('Drawer__Footer-loading');
@@ -153,7 +153,7 @@ window.shippingrates = {
                       }
                       break;
                   default:
-                      console.log("DEFAULT CASE .. MOST LIKELY UNDEFINED it is: " + window.currentCountry);
+                      // console.log("DEFAULT CASE .. MOST LIKELY UNDEFINED it is: " + window.currentCountry);
               }
 
 
@@ -162,7 +162,7 @@ window.shippingrates = {
               const priceWithoutShipping = parseFloat(subtotalPriceEl.textContent.replace('€', '').replace(',', '.'));
               totalPriceEl.textContent = '€' + (priceWithoutShipping + deliveryPriceValue).toFixed(2);
 
-              console.log("replaced delivery")
+              // console.log("replaced delivery")
           }
           /** /Delivery after ip +*/
 
@@ -187,9 +187,6 @@ window.shippingrates = {
               const subtotalNewPrice = cartSidebar.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
               let subtotalNewPriceValue = parseFloat(scData.subtotal);
               /* /Subtotal price */
-
-
-
 
               // old deliveryprice
               // const deliveryPrice = $('.Drawer__Footer__Delivery > span');
@@ -216,8 +213,6 @@ window.shippingrates = {
               //   // }
               // }
               // /* /Delivery price */
-
-
 
               // const giftItem = cartSidebar.find('.CartItemWrapper[data-free-gift="true"]');
 
@@ -313,7 +308,7 @@ window.shippingrates = {
     });
 
     window.addEventListener('sc:discount.init', function() {
-      console.log('dcart init');
+      // console.log('dcart init');
 
       const cartSidebar = $('#sidebar-cart');
       cartSidebar.attr("data-dcart-calculated", 0);
@@ -323,12 +318,12 @@ window.shippingrates = {
     });
 
     window.addEventListener('sc:discount.calculated', function() {
-      console.log('dcart calculated');
+      // console.log('dcart calculated');
       window.obj.cartSidebarRefresh(true);
     });
 
     window.addEventListener('sc:discount.remove', function() {
-      console.log('dcart remove');
+      // console.log('dcart remove');
 
       const cartSidebar = $('#sidebar-cart');
       cartSidebar.removeAttr('data-dcart-code');
@@ -366,7 +361,6 @@ $(document).ready(function () {
         .then(response => response.json())
         .then(json => {
             window.currentCountry = json.detected_values.country.handle;
-            console.log("window.currentCountry: " + window.currentCountry);
         });
 });
 /* /Cart sidebar coupon */
