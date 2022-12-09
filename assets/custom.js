@@ -241,6 +241,7 @@ window.shippingrates = {
 
       setTimeout(() => {
           deliveryBarTextEl.style.filter = 'blur(0)';
+          console.log("AFTER 3 SECONDS")
       }, 3000);
 
 
