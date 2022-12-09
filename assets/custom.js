@@ -241,7 +241,7 @@ window.shippingrates = {
 
       setTimeout(() => {
           deliveryBarTextEl.style.filter = 'blur(0)';
-      }, 1000)
+      }, 3000);
 
 
       /* Error */
