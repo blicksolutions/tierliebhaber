@@ -2187,6 +2187,14 @@ function _classCallCheck(e, t) {
 
                     console.log('_rerenderCart');
 
+
+                    const deliveryBarTextEl = document.querySelector('.CartMessage__Steps__Text');
+                    const deliveryBarValueEl = document.querySelector('.js-cart-drawer-delivery-left-value');
+                    const deliveryBarStepLineEl = document.querySelector('.CartMessage__StepsLines__Active');
+                    deliveryBarValueEl.textContent = window.cartBarValue;
+                    deliveryBarStepLineEl.style.width = window.cartBarWidth;
+                    deliveryBarTextEl.style.filter = 'blur(5px)';
+
                     const cartSidebar = $('#sidebar-cart');
 
                     if (cartSidebar.hasClass('Drawer__Footer__DCart-inited') && parseInt(cartSidebar.attr("data-dcart-calculated")) > 1) {
@@ -2445,20 +2453,7 @@ function _classCallCheck(e, t) {
                                 }
                             }
                         }
-
-                        window.obj.cartSidebarRefresh();
-
-                        let cartSidebarPercentage = cartSidebarTotalPriceValue / maxPriceValue * 100;
-
-                        if (cartSidebarPercentage > 100) {
-                            cartSidebarPercentage = 100;
-                        }
-
-                        const cartSidebarLine = document.querySelector('.CartMessage__StepsLines__Active');
-
-                        if (cartSidebarLine) {
-                            cartSidebarLine.style.width = cartSidebarPercentage + '%';
-                        }
+                        window.obj.cartSidebarRefresh(true);
                     }
                 }
             }]), e
