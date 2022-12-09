@@ -2187,10 +2187,13 @@ function _classCallCheck(e, t) {
 
                     console.log('_rerenderCart');
 
+
+                    const deliveryBarTextEl = document.querySelector('.CartMessage__Steps__Text');
                     const deliveryBarValueEl = document.querySelector('.js-cart-drawer-delivery-left-value');
                     const deliveryBarStepLineEl = document.querySelector('.CartMessage__StepsLines__Active');
                     deliveryBarValueEl.textContent = window.cartBarValue;
                     deliveryBarStepLineEl.style.width = window.cartBarWidth;
+                    deliveryBarTextEl.style.filter = 'blur(8px)';
 
                     const cartSidebar = $('#sidebar-cart');
 

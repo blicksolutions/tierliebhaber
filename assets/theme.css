@@ -11831,3 +11831,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
     padding: 0 3px;
 }
 
+.CartMessage__Steps__Text {
+    transition: filter 0.1s linear;
+}
+

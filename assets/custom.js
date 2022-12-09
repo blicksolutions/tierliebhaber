@@ -90,6 +90,7 @@ window.shippingrates = {
           const deliveryBarLeftTextEl = document.querySelector('.CartMessage__Steps__Text-left');
           const deliveryBarFinalTextEl = document.querySelector('.CartMessage__Steps__Text-final');
           const deliveryBarStepLineEl = document.querySelector('.CartMessage__StepsLines__Active');
+          const deliveryBarTextEl = document.querySelector('.CartMessage__Steps__Text');
 
           // vars
           let deliveryPriceValue = window.shippingrates.otherLocations.priceValue;
@@ -154,6 +155,9 @@ window.shippingrates = {
                   default:
                       console.log("DEFAULT CASE .. MOST LIKELY UNDEFINED it is: " + window.currentCountry);
               }
+
+
+              deliveryBarTextEl.style.filter = 'blur(0)';
 
               // set price with location based shipping costs
               const priceWithoutShipping = parseFloat(subtotalPriceEl.textContent.replace('€', '').replace(',', '.'));
