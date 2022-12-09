@@ -157,7 +157,6 @@ window.shippingrates = {
               }
 
 
-              deliveryBarTextEl.style.filter = 'blur(0)';
 
               // set price with location based shipping costs
               const priceWithoutShipping = parseFloat(subtotalPriceEl.textContent.replace('€', '').replace(',', '.'));
@@ -243,6 +242,7 @@ window.shippingrates = {
           } else {
               cartSidebar.removeAttr('data-dcart-code');
           }
+          deliveryBarTextEl.style.filter = 'blur(0)';
       }, 550);
 
 

@@ -2193,7 +2193,7 @@ function _classCallCheck(e, t) {
                     const deliveryBarStepLineEl = document.querySelector('.CartMessage__StepsLines__Active');
                     deliveryBarValueEl.textContent = window.cartBarValue;
                     deliveryBarStepLineEl.style.width = window.cartBarWidth;
-                    deliveryBarTextEl.style.filter = 'blur(8px)';
+                    deliveryBarTextEl.style.filter = 'blur(5px)';
 
                     const cartSidebar = $('#sidebar-cart');
 
