@@ -2453,8 +2453,6 @@ function _classCallCheck(e, t) {
                                 }
                             }
                         }
-
-                        console.log("IM THEMEJS")
                         window.obj.cartSidebarRefresh(true);
                     }
                 }
