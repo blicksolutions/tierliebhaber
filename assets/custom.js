@@ -240,9 +240,10 @@ window.shippingrates = {
       }, 550);
 
       setTimeout(() => {
+          console.log(deliveryBarTextEl)
           deliveryBarTextEl.style.filter = 'blur(0)';
           console.log("AFTER 3 SECONDS")
-      }, 3000);
+      }, 2500);
 
 
       /* Error */
