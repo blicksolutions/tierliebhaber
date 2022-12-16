@@ -94,9 +94,9 @@ window.shippingrates = {
 
           // vars
           let deliveryPriceValue = window.shippingrates.otherLocations.priceValue;
-          const subtotalPriceValue = parseFloat(subtotalPriceEl.textContent.replace('€', '').replace(',', '.'));
+          const subtotalPriceValue = parseFloat(subtotalPriceEl?.textContent.replace('€', '').replace(',', '.'));
 
-          if (replaceDelivery) {
+          if (replaceDelivery && subtotalPriceEl && deliveryCostEl && totalPriceEl && deliveryBarValueEl && deliveryBarLeftTextEl && deliveryBarFinalTextEl && deliveryBarStepLineEl && deliveryBarTextEl) {
               switch (window.currentCountry) {
                   case 'DE':
                       if (window.shippingrates.de.minSubtotalPriceValue >= subtotalPriceValue) {
@@ -155,8 +155,6 @@ window.shippingrates = {
                   default:
                       // console.log("DEFAULT CASE .. MOST LIKELY UNDEFINED it is: " + window.currentCountry);
               }
-
-
 
               // set price with location based shipping costs
               const priceWithoutShipping = parseFloat(subtotalPriceEl.textContent.replace('€', '').replace(',', '.'));
@@ -237,7 +235,10 @@ window.shippingrates = {
           } else {
               cartSidebar.removeAttr('data-dcart-code');
           }
-          deliveryBarTextEl.style.filter = 'blur(0)';
+
+          if (deliveryBarTextEl) {
+              deliveryBarTextEl.style.filter = 'blur(0)';
+          }
       }, 550);
 
 
@@ -358,7 +359,7 @@ $(document).ready(function () {
         .then(response => response.json())
         .then(json => {
             window.currentCountry = json.detected_values.country.handle;
-            console.log("window.currentCountry: " + window.currentCountry);
+            // console.log("window.currentCountry: " + window.currentCountry);
         });
 });
 /* /Cart sidebar coupon */

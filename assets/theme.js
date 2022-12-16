@@ -2185,15 +2185,21 @@ function _classCallCheck(e, t) {
                 value: function(e) {
                     var t = this;
 
-                    console.log('_rerenderCart');
-
+                    // console.log('_rerenderCart');
 
                     const deliveryBarTextEl = document.querySelector('.CartMessage__Steps__Text');
                     const deliveryBarValueEl = document.querySelector('.js-cart-drawer-delivery-left-value');
                     const deliveryBarStepLineEl = document.querySelector('.CartMessage__StepsLines__Active');
-                    deliveryBarValueEl.textContent = window.cartBarValue;
-                    deliveryBarStepLineEl.style.width = window.cartBarWidth;
-                    deliveryBarTextEl.style.filter = 'blur(5px)';
+
+                    if (deliveryBarTextEl && deliveryBarValueEl && deliveryBarStepLineEl) {
+                        if (window.cartBarValue) {
+                            deliveryBarValueEl.textContent = window.cartBarValue;
+                        }
+                        if (window.cartBarWidth) {
+                            deliveryBarStepLineEl.style.width = window.cartBarWidth;
+                        }
+                        deliveryBarTextEl.style.filter = 'blur(5px)';
+                    }
 
                     const cartSidebar = $('#sidebar-cart');
 
@@ -2239,7 +2245,7 @@ function _classCallCheck(e, t) {
                     var i = this;
 
                     const cartSidebar = $('#sidebar-cart');
-                    console.log('_addBgItem');
+                    // console.log('_addBgItem');
 
                     const giftItemId = cartSidebar.attr('data-gift-item-id');
                     const giftItemVariantId = cartSidebar.attr('data-gift-variant-id');
@@ -2254,8 +2260,8 @@ function _classCallCheck(e, t) {
                             giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"]:first');
                         }
 
-                        console.log('giftItem', giftItem.length);
-                        console.log('giftItemVariantId', giftItemVariantId);
+                        // console.log('giftItem', giftItem.length);
+                        // console.log('giftItemVariantId', giftItemVariantId);
 
                         if (!giftItem.length) {
 
@@ -2394,7 +2400,7 @@ function _classCallCheck(e, t) {
                 key: "_replaceContent",
                 value: function(e) {
 
-                    console.log('_replaceContent');
+                    // console.log('_replaceContent');
 
                     var t = this,
                         i = document.createElement("div");
