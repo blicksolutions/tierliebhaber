@@ -756,6 +756,7 @@ function _classCallCheck(e, t) {
                     var t = this.element.querySelector(".ProductForm__AddToCart"),
                         i = this.element.querySelector(".shopify-payment-button");
                     t.classList.remove("Button--secondary"), t.classList.remove("Button--primary"), e ? e.available ? (t.removeAttribute("disabled"), t.classList.add("true" === t.getAttribute("data-use-primary-button") ? "Button--primary" : "Button--secondary"), t.setAttribute("data-action", "add-to-cart"), void 0 === this.options.showPriceInButton || this.options.showPriceInButton ? t.innerHTML = "\n            <span>" + window.languages.productFormAddToCart + '</span>\n            <span class="Button__SeparatorDot"></span>\n            <span data-money-convertible>' + r.default.formatMoney(e.price, window.theme.moneyFormat) + "</span>\n          " : t.innerHTML = "<span>" + window.languages.productFormAddToCart + "</span>") : (t.setAttribute("disabled", "disabled"), t.classList.add("Button--secondary"), t.removeAttribute("data-action"), t.innerHTML = window.languages.productFormSoldOut) : (t.setAttribute("disabled", "disabled"), t.removeAttribute("data-action"), t.classList.add("Button--secondary"), t.innerHTML = window.languages.productFormUnavailable), this.options.showPaymentButton && i && (e && e.available ? i.style.display = "block" : i.style.display = "none")
+                    console.log("IN _updateAddToCartButton")
                 }
             }, {
                 key: "_onOptionChanged",
@@ -798,6 +799,7 @@ function _classCallCheck(e, t) {
                         e.preventDefault();
                         var i = this.element.querySelector(".ProductForm__AddToCart");
                         i.setAttribute("disabled", "disabled"), document.dispatchEvent(new CustomEvent("theme:loading:start"));
+                        console.log("in _addToCart")
                         var n = this.element.querySelector('form[action*="/cart/add"]');
                         fetch(window.routes.cartAddUrl + ".js", {
                             body: JSON.stringify(a.default.serialize(n)),
@@ -2191,9 +2193,16 @@ function _classCallCheck(e, t) {
                     const deliveryBarTextEl = document.querySelector('.CartMessage__Steps__Text');
                     const deliveryBarValueEl = document.querySelector('.js-cart-drawer-delivery-left-value');
                     const deliveryBarStepLineEl = document.querySelector('.CartMessage__StepsLines__Active');
-                    deliveryBarValueEl.textContent = window.cartBarValue;
-                    deliveryBarStepLineEl.style.width = window.cartBarWidth;
-                    deliveryBarTextEl.style.filter = 'blur(5px)';
+
+                    if (deliveryBarTextEl && deliveryBarValueEl && deliveryBarStepLineEl) {
+                        if (window.cartBarValue) {
+                            deliveryBarValueEl.textContent = window.cartBarValue;
+                        }
+                        if (window.cartBarWidth) {
+                            deliveryBarStepLineEl.style.width = window.cartBarWidth;
+                        }
+                        deliveryBarTextEl.style.filter = 'blur(5px)';
+                    }
 
                     const cartSidebar = $('#sidebar-cart');
 
