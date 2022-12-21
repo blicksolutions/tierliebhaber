@@ -699,7 +699,7 @@ function _classCallCheck(e, t) {
                 value: function(e, t) {
                     var i = this.element.querySelector(".ProductMeta__PriceList");
                     if (e) {
-                        if (t && t.price === e.price && t.compare_at_price === e.compare_at_price) return;
+                        if (i === null || (t && t.price === e.price && t.compare_at_price === e.compare_at_price)) return;
                         i.innerHTML = "", e.compare_at_price > e.price ? (i.innerHTML += '<span class="ProductMeta__Price Price Price--highlight Text--subdued u-h4" data-money-convertible>' + r.default.formatMoney(e.price, window.theme.moneyFormat) + "</span>", i.innerHTML += '<span class="ProductMeta__Price Price Price--compareAt Text--subdued u-h4" data-money-convertible>' + r.default.formatMoney(e.compare_at_price, window.theme.moneyFormat) + "</span>") : i.innerHTML += '<span class="ProductMeta__Price Price Text--subdued u-h4" data-money-convertible>' + r.default.formatMoney(e.price, window.theme.moneyFormat) + "</span>", i.style.display = ""
                     } else i.style.display = "none"
                 }
@@ -731,6 +731,7 @@ function _classCallCheck(e, t) {
                                                   }) => t === e.title))
                         }
                         var i = this.element.querySelector(".ProductMeta__UnitPriceMeasurement");
+                        if(i === null) return;
                         if (e.hasOwnProperty("unit_price")) {
                             i.style.display = "block", i.querySelector(".UnitPriceMeasurement__Price").innerHTML = r.default.formatMoney(e.unit_price, window.theme.moneyFormat), i.querySelector(".UnitPriceMeasurement__ReferenceUnit").textContent = e.unit_price_measurement.reference_unit;
                             var n = i.querySelector(".UnitPriceMeasurement__ReferenceValue");
