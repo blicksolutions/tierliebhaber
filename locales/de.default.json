@@ -304,7 +304,7 @@
     },
     "shipping_estimator": {
       "title": "Versandkosten Schätzung",
-      "country": "Landd",
+      "country": "Land",
       "province": "Bundesland",
       "zip_code": "Postleitzahl",
       "estimate": "Schätzung",
@@ -360,7 +360,7 @@
       "view_info": "Mehr Informationen",
       "view_images": "Bilder ansehen",
       "shipping_eta": {
-        "available": "Auf Lager! In ca. 2-4 Werktagen bei dir",
+        "available": "Auf Lager! In ca. 2-3 Werktagen bei dir",
         "sold_out": "Leider ist das Produkt aktuell vergriffen",
         "instantly_available": "Sofort verfügbar"
       }
