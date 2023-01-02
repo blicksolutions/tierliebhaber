@@ -1,9 +1,9 @@
 {
   "current": {
     "donations_amount": 0,
-    "donation_goal": 518.8,
+    "donation_goal": 177.7,
     "total_text": "Dadurch gerettete Hunde:",
-    "total_number": "4",
+    "total_number": "1",
     "heading_color": "#1c1b1b",
     "text_color": "#1c1b1b",
     "text_light_color": "#6a6a6a",
@@ -110,7 +110,7 @@
             "type": "text",
             "settings": {
               "title": "Erreichbarkeit",
-              "content": "<p>Unser Team ist Montag - Freitag<br\/>von 11:00 - 13:00 Uhr für dich erreichbar<\/p><p>Tel.: +49 34149980019<\/p><p>E-Mail: <a href=\"mailto:info@tierliebhaber.de\">info@tierliebhaber.de<\/a><\/p>",
+              "content": "<p>Unser Team ist Montag - Freitag<br\/>von 11:00 - 15:00 Uhr für dich erreichbar<\/p><p><a href=\"mailto:info@tierliebhaber.de\">info@tierliebhaber.de<\/a><\/p>",
               "show_social_media": true
             }
           },
@@ -138,8 +138,8 @@
           "slide-0": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/20221206_jb_advent_chillout_banner_desktop.jpg",
-              "mobile_image": "shopify:\/\/shop_images\/20221206_jb_advent_chillout_banner_mobile.jpg",
+              "image": "shopify:\/\/shop_images\/02_Gelenk-Ads_1800pxX600px-1.jpg",
+              "mobile_image": "shopify:\/\/shop_images\/02_Gelenk-Ads_750pxX1100px-1.jpg",
               "apply_overlay": false,
               "content_offset_mobile_left": 50,
               "content_offset_mobile_top": 21,
@@ -149,7 +149,7 @@
               "subheading": "",
               "title": "",
               "button_1_text": "",
-              "button_1_link": "shopify:\/\/collections\/beruhigung",
+              "button_1_link": "shopify:\/\/collections\/gelenke",
               "button_2_text": "",
               "button_2_link": "",
               "button_font": "Sweet Purple",
@@ -490,7 +490,7 @@
           "16282318717ce7acd5-0": {
             "type": "collection",
             "settings": {
-              "collection": "kundenliebling",
+              "collection": "kundenlieblinge",
               "title": "Kundenlieblinge",
               "grid_items_count": 8,
               "button_text": "Alle Produkte entdecken"
@@ -1041,7 +1041,7 @@
           "heading_suffix": "gespendet seit dem Aufbau der Tierklinik",
           "description_heading": "Spende Tierliebe! ❤️🌏",
           "description_text": "Beim Kauf eines Produkts hast du die Möglichkeit, deinem Einkauf eine Spende hinzuzufügen (an der Kasse). Die Spenden werden wöchentlich an BAWA (Bali Animal Welfare Association) übermittelt und 100% transparent auf Instagram dokumentiert.",
-          "description_disclaimer": "Mit euren Spenden konnten wir in den letzten Monaten schon so vielen Straßenhunden auf Bali helfen. Ob es groß angesetzte Futter- & Sterilisationskampagnen waren oder die Rettung der Hunde von der Straße, mit euren Spenden habt ihr vielen Hunden eine zweite Chance im Leben geschenkt.\n\nNun möchten wir in Zusammenarbeit mit BAWA und Connect for Cause das nächste große Ziel angehen. Mit euren wöchentlichen Spenden werden wir mitten auf Bali die Tierliebhaber Tierklinik für BAWA aufbauen 😍 \n\nUnser erstes Ziel haben wir schon erreicht: 3.165€ für den Aufbau der Klinik. Jetzt geht es darum, die laufenden Kosten für Mitarbeiter, Medizin, Miete usw. zu decken."
+          "description_disclaimer": "Mit euren Spenden konnten wir in den letzten Monaten schon so vielen Straßenhunden auf Bali helfen. Ob es groß angesetzte Futter- & Sterilisationskampagnen waren oder die Rettung der Hunde von der Straße, mit euren Spenden habt ihr vielen Hunden eine zweite Chance im Leben geschenkt.\n\nNun möchten wir in Zusammenarbeit mit BAWA und Connect for Cause das nächste große Ziel angehen. Mit euren wöchentlichen Spenden werden wir mitten auf Bali die Tierliebhaber Tierklinik für BAWA aufbauen 😍 Unser erstes Ziel haben wir schon erreicht: 3.165€ für den Aufbau der Klinik. Jetzt geht es darum, die laufenden Kosten für Mitarbeiter, Medizin, Miete usw. zu decken."
         }
       },
       "list-collections-template": {
@@ -1178,8 +1178,6 @@
           "message_gift_text": "Noch %price% bis zum Geschenk",
           "gift_item": "gelenk-sticks-probe",
           "message_delivery_icon": "shopify:\/\/shop_images\/image_8.png",
-          "message_delivery_text-first": "Noch",
-          "message_delivery_text-last": "bis zum kostenlosen Versand",
           "message_final_text": "Glückwunsch: der Versand ist kostenlos!",
           "message_final_gift_text": "Glückwunsch: du erhältst ein Geschenk!",
           "upsell_title": "Probier´s doch mal:",
@@ -1189,24 +1187,12 @@
           ],
           "payment_image": "shopify:\/\/shop_images\/Bildschirmfoto_2022-05-14_um_19.25_1_1.png"
         }
-      },
-      "b94622a9-dfd5-4703-963d-0b90d3126168": {
-        "type": "text-with-image",
-        "settings": {
-          "subheading": "",
-          "title": "Unterstütze uns mit deiner Spende",
-          "image_position": "right",
-          "content": "<p>Gemeinsam können wir noch viel mehr Hunden helfen, doch dafür brauchen wir deine Unterstüzung!<\/p>",
-          "link_text": "JETZT SPENDEN",
-          "link_url": "https:\/\/tierliebhaber.de\/products\/spende?_pos=1&_sid=bc571c26c&_ss=r"
-        }
       }
     },
     "content_for_index": [
       "slideshow",
       "1628785723a639a63d",
       "164847561630f9cc4a",
-      "b94622a9-dfd5-4703-963d-0b90d3126168",
       "1652440853255ce756",
       "16282318717ce7acd5",
       "1630563614cd6684d8",
