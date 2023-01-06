@@ -11667,7 +11667,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 #sidebar-cart.Drawer__Footer-loading .Drawer__Footer__SubtotalPrice,
 #sidebar-cart.Drawer__Footer-loading .Drawer__Footer .Drawer__Footer__Delivery > span,
 #sidebar-cart.Drawer__Footer-loading .Drawer__Footer .Drawer__Footer__Total > span {
-  filter: blur(3px);
+  filter: blur(5px);
 }
 
 /* Buy in Bundle */

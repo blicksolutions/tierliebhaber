@@ -43,7 +43,8 @@
       <div class="CartItemWrapper"
            {% if line_item_free_gift %}data-free-gift="true"{% endif %}
            data-price="{{ line_item.final_line_price }}"
-           data-index="{{ forloop.index }}" 
+           data-index="{{ forloop.index }}"
+           data-req-shipping="{{ line_item.requires_shipping }}"
            data-variant-id="{{ line_item.id }}" 
            data-product-id="{{ line_item.product.id }}">
     {%- endif -%}
