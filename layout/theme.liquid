@@ -10,6 +10,15 @@
     <meta name="theme-color" content="{{ settings.accent_color }}">
     <meta name="google-site-verification" content="QZiR1WxDnZAKrxARkf6DQjhHzK1Y3t4Oo5I1TMO2Sgo">
 
+    <!-- NoIndex on pages with vendors not known to the shop -->
+    {%- if request.path == '/collections/vendors' -%}
+      {%- assign lowercase_vendors = shop.vendors | join: ',' | downcase | split: ',' -%}
+      {%- assign lowercase_input = collection.title | downcase -%}
+      {%- unless lowercase_vendors contains lowercase_input -%}
+        <meta name="robots" content="noindex">
+      {%- endunless -%}
+    {%- endif -%}
+
     <title>
       {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
     </title>
