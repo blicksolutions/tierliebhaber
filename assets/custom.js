@@ -170,7 +170,7 @@ window.shippingrates = {
                           }
                           break;
                       default:
-                      // console.log("DEFAULT CASE .. MOST LIKELY UNDEFINED it is: " + window.currentCountry);
+                      console.log("DEFAULT CASE .. MOST LIKELY UNDEFINED it is: " + window.currentCountry);
                   }
               } else {
                   deliveryPriceValue = 0;
