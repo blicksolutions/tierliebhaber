@@ -170,6 +170,7 @@ window.shippingrates = {
                           }
                           break;
                       default:
+                          // use de
                           if (window.shippingrates.de.minSubtotalPriceValue >= subtotalPriceWithoutNoShippingItems) {
                               deliveryCostEl.textContent = '€' + window.shippingrates.de.priceValue.replace('.', ',');
                               deliveryPriceValue = parseFloat(window.shippingrates.de.priceValue);
