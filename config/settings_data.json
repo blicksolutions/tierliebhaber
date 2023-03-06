@@ -1173,10 +1173,8 @@
       "cart-drawer": {
         "type": "cart-drawer",
         "settings": {
-          "message_gift_enabled": true,
           "message_gift_icon": "shopify:\/\/shop_images\/image_7.png",
-          "message_gift_text": "Noch %price% bis zum Geschenk",
-          "gift_item": "",
+          "message_gift_text": "Noch %price% bis zum Gesenk",
           "message_delivery_icon": "shopify:\/\/shop_images\/image_8.png",
           "message_delivery_text-first": "Noch",
           "message_delivery_text-last": "bis zum kostenlosen Versand",
