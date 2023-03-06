@@ -11836,3 +11836,14 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
     filter: blur(5px);
 }
 
+.js-giftItemATC {
+    display: none;
+}
+
+.cartGiftItem .CartItem__Actions {
+    display: none;
+}
+
+.cartGiftItem .CartItem__UnitPriceMeasurement {
+    display: none;
+}
