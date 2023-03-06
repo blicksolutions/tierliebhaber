@@ -83,7 +83,7 @@
             </span>
 
               <span class="CartMessage__StepsLines__Gift"
-                    style="right: 0;">
+                    style="right: 0; display: none">
                 <img src="{{ section.settings.message_gift_icon | img_url: '32x32' }}"
                      alt="{{ section.settings.message_gift_icon.alt | escape }}">
               </span>
@@ -329,11 +329,6 @@
       "content": "Free gift"
     },
     {
-      "type": "checkbox",
-      "id": "message_gift_enabled",
-      "label": "Enabled"
-    },
-    {
       "type": "image_picker",
       "id": "message_gift_icon",
       "label": "Icon"
@@ -343,11 +338,6 @@
       "id": "message_gift_text",
       "label": "Message",
       "default": "Noch %price% bis zum Geschenk"
-    },
-    {
-      "type": "product",
-      "id": "gift_item",
-      "label": "Item"
     },
     {
       "type": "header",

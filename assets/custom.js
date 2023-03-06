@@ -110,6 +110,10 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
         let giftItemAtc = document.querySelector('.js-giftItemATC');
         let noDeliveryItemsTotalPrice = 0;
         let hasItemWithDeliveryRequired = false;
+        const giftIcon = document.querySelector('.CartMessage__StepsLines__Gift')
+        const deliveryIcon = document.querySelector('.CartMessage__StepsLines__Delivery')
+
+
         const addtemplate = `
             <div class="CartItem">           
                 <div class="CartItem__Actions Heading Text--subdued" style="text-align: center">
@@ -160,6 +164,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
             if (hasItemWithDeliveryRequired) {
                 switch (window.currentCountry) {
                     case 'DE':
+                        giftIcon.style.display = 'block';
                         if (window.shippingrates.de.minSubtotalPriceValue >= subtotalPriceWithoutNoShippingItems) {
                             deliveryCostEl.textContent = '€' + window.shippingrates.de.priceValue.replace('.', ',');
                             deliveryPriceValue = parseFloat(window.shippingrates.de.priceValue);
@@ -208,6 +213,9 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                         }
                         break;
                     case 'AT':
+                        giftIcon.style.display = 'none';
+                        deliveryIcon.style.right = '0';
+
                         if (window.shippingrates.at.minSubtotalPriceValue >= subtotalPriceWithoutNoShippingItems) {
                             deliveryCostEl.textContent = '€' + window.shippingrates.at.priceValue.replace('.', ',');
                             deliveryPriceValue = parseFloat(window.shippingrates.at.priceValue);
