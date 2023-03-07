@@ -2445,7 +2445,7 @@ function _classCallCheck(e, t) {
 
                                 if (giftItemToRemove.length) {
                                     cartSidebarTotalPriceValue -= parseInt(giftItemToRemove.attr('data-price') / 100);
-                                    this._removeBgItem();
+                                    // this._removeBgItem();
 
                                 } else {
                                     const giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
@@ -2454,7 +2454,7 @@ function _classCallCheck(e, t) {
                                         cartSidebar.attr('data-free-gift', true);
 
                                         if (!giftItem.length) {
-                                            this._addBgItem();
+                                            // this._addBgItem();
                                         }
                                     }
                                 }
