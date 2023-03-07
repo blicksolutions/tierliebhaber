@@ -7,7 +7,7 @@
 }
 {%- endcapture -%}
 
-<div id="sidebar-cart" class="Drawer Drawer--fromRight" aria-hidden="true" data-gift-item-id="{{ section.settings.gift_item.id }}" data-gift-variant-id="{{ section.settings.gift_item.selected_or_first_available_variant.id }}" selected_variant data-section-id="cart" data-section-type="cart" data-section-settings='{{ section_settings }}'>
+<div id="sidebar-cart" class="Drawer Drawer--fromRight" aria-hidden="true" data-gift-item-id="8129601700108" data-gift-variant-id="43855770747148" selected_variant data-section-id="cart" data-section-type="cart" data-section-settings='{{ section_settings }}'>
   <div class="Drawer__Header Drawer__Header--bordered Drawer__Container">
       <span class="Drawer__Title Heading u-h4">{{ 'cart.general.title' | t }}</span>
 
@@ -327,6 +327,11 @@
     {
       "type": "header",
       "content": "Free gift"
+    },
+    {
+      "type": "checkbox",
+      "id": "message_gift_enabled",
+      "label": "Enabled"
     },
     {
       "type": "image_picker",
