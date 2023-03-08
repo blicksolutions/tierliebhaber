@@ -78,7 +78,7 @@
                 <span class="Image__Loader"></span>
 
                 <noscript>
-                  <img src="{{ media | img_url: '800x' }}" alt="{{ media.alt | escape }}">
+                  <img src="{{ media | img_url: '800x' }}" alt="{{ media.alt | escape }}" loading="lazy">
                 </noscript>
               </div>
             </div>
@@ -147,12 +147,12 @@
 
                     {%- if section.settings.stack_images -%}
                       <a href="#Media{{ media.id }}" data-offset="-25" data-focus-on-click data-media-id="{{ media.id }}" class="Product__SlideshowNavImage AspectRatio {% if forloop.first %}is-selected{% endif %}" style="--aspect-ratio: {{ media.preview_image.aspect_ratio }}">
-                        <img src="{{ media | img_url: '160x' }}" alt="{{ media.alt | escape }}">
+                        <img src="{{ media | img_url: '160x' }}" alt="{{ media.alt | escape }}" loading="lazy">
                         {{- nav_item_badge -}}
                       </a>
                     {%- else -%}
                       <a href="{{ media | img_url: '1024x' }}" data-media-id="{{ media.id }}" class="Product__SlideshowNavImage AspectRatio {% if forloop.first %}is-selected{% endif %}" style="--aspect-ratio: {{ media.preview_image.aspect_ratio }}">
-                        <img src="{{ media | img_url: '160x' }}" alt="{{ media.alt | escape }}">
+                        <img src="{{ media | img_url: '160x' }}" alt="{{ media.alt | escape }}" loading="lazy">
                         {{- nav_item_badge -}}
                       </a>
                     {%- endif -%}

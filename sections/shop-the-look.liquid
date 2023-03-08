@@ -73,10 +73,11 @@
                        data-src="{{ image_url }}"
                        data-widths="[{{ supported_sizes }}]"
                        data-sizes="auto"
-                       alt="{{ block.settings.image.alt | escape }}">
+                       alt="{{ block.settings.image.alt | escape }}"
+                       loading="lazy">
 
                   <noscript>
-                    <img class="ShopTheLook__Image" src="{{ block.settings.image | img_url: '600x' }}" alt="{{ block.settings.image.alt | escape }}">
+                    <img class="ShopTheLook__Image" src="{{ block.settings.image | img_url: '600x' }}" alt="{{ block.settings.image.alt | escape }}" loading="lazy">
                   </noscript>
                 {%- else -%}
                   {%- capture placeholder -%}{% cycle 'collection-1', 'collection-2', 'collection-3', 'collection-4' %}{%- endcapture -%}

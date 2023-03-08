@@ -14,6 +14,7 @@
             class="Image__Image Image--lazyLoad Image--fadeIn"
             src="{{ section.settings.image | img_url: 'master' }}"
             alt="{{ section.settings.image_alt | escape }}"
+            loading="lazy"
           >
         </div>
         <div class="Contact__Content">
@@ -29,6 +30,7 @@
                   class="Button__Image Image--lazyLoad Image--fadeIn"
                   src="{{ block.settings.image | img_url: 'master' }}"
                   alt="{{ block.settings.image_alt | escape }}"
+                  loading="lazy"
                 >
                 <span class="Button__Text">{{ block.settings.text }}</span>
               </a>
