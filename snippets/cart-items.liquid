@@ -40,6 +40,8 @@
         {%- assign line_item_free_gift = true -%}
       {%- endif -%}
 
+        {%- assign line_item_free_gift = false -%}
+
         <div class="CartItemWrapper"
            {% if line_item_free_gift %}data-free-gift="true"{% endif %}
            data-price="{{ line_item.final_line_price }}"

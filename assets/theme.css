@@ -11382,16 +11382,16 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 }
 
 @media screen and (min-width: 3900px) {
-  
+
   #sidebar-cart .Drawer__Footer .scDiscount .scError:before,
   #sidebar-cart .Drawer__Footer .scDiscount .scError:after {
     display: none !important;
   }
-  
+
   #sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon-title {
     padding-left: 24px !important;
   }
-  
+
   #sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon-title:before {
     background-position: left 4px center !important;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAA9UlEQVRoge3YOw6CQBRG4RM3gGBL4cZdhZ2JhZ1vKysLl4IFTCCEx4ijXMz/JZNQkOGeZkgGREREbNsBp7GHCCEr1lfNvv2BX1GINQqxRiHWKMQahVijEGsUYo1CrFGINUNDVsAVSAPOkgJ3YBtwz15r8guFB/0xPpcPabFXBmw+nu4NEbAvPvwElh3v9oVUIy5AHGhGb74xXSH1iCTwjN58YtpCzEQ4fTFNIeYinAg40BxTD6lGXDEU4bTFVEPMRzhNMS5kMhFODJwp/zNZ7fnMCEfsUHPgSBnh1g1YjDjXIPWYSUY4CfnxauqIHWpeLBER+T8vFihWmLGXByoAAAAASUVORK5CYII=) !important;
@@ -11612,7 +11612,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 }
 
 @media screen and (min-width: 641px) {
-  
+
   .CartUpsells__ScrollBtn {
     display: none !important;
   }
@@ -11818,7 +11818,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 }
 .PageLayout.PageLayout--breakLap .PageLayout__Section:first-child .Segment__Title.Segment__Title--flexed {
   height: 30.8px;
-} 
+}
 
 .CartMessage__Steps__Text-left, .CartMessage__Steps__Text-final {
     display: flex;
@@ -11844,9 +11844,30 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
     display: block !important;
 }
 
-.cartGiftItem .UnitPriceMeasurement {
+.cartGiftItem .UnitPriceMeasurement, .cartGiftItem .CartItem__UnitPriceMeasurement {
     display: none;
 }
+
 .cartGiftItem .QuantitySelector__Button {
-    display: none;
+    display: block !important;
+}
+/*.cartGiftItem .CartItem__Title {*/
+/*    margin-top: 5px;*/
+/*}*/
+
+/*.cartGiftItem .QuantitySelector {*/
+/*    padding: 5px 0;*/
+/*}*/
+
+#sidebar-cart .QuantitySelector {
+    min-width: 100px;
+    justify-content: center;
+}
+
+#sidebar-cart .CartItem__Variant {
+   display: none;
+}
+
+#sidebar-cart .CartItem__Discount {
+   margin-bottom: 5px;
 }

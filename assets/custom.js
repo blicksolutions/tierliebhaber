@@ -54,13 +54,6 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
     // update giftitemstate
     sessionStorage.setItem('giftItemAdded', sessionStorage.getItem('giftItemAdded'));
 
-    window.cartItems.forEach((item) => {
-        if (item.dataset.variantId == window.giftItemId) {
-            sessionStorage.setItem('giftItemAdded', 'true');
-        }
-    });
-
-
     const cartSidebar = $('#sidebar-cart');
     setTimeout(() => {
         cartSidebar.removeClass('Drawer__Footer-loading');
@@ -73,6 +66,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
 
     // elements
     setTimeout(() => {
+        // console.log("----------- new refresh ---------------")
         const subtotalPriceEl = document.querySelector('.Drawer__Footer__SubtotalPrice span');
         const deliveryCostEl = document.querySelector('.Drawer__Footer__Delivery span');
         const totalPriceEl = document.querySelector('.Drawer__Footer__Total span');
@@ -89,7 +83,6 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
         const deliveryIcon = document.querySelector('.CartMessage__StepsLines__Delivery');
         let giftItem = document.querySelector('.cartGiftItem');
 
-        console.log(giftItem)
         const addtemplate = `
             <div class="CartItem">           
                 <div class="CartItem__Actions Heading Text--subdued" style="text-align: center">
@@ -106,17 +99,16 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
             if (cartDrawerMain) {
                 cartDrawerMain.insertAdjacentHTML('beforeend', addtemplate);
             }
+
             giftItemAtc = document.querySelector('.js-giftItemATC');
 
             const giftItemInCart = document.querySelector('.CartItemWrapper[data-variant-id="43855770747148"]');
-            if (giftItemInCart) {
+            if (giftItemInCart && sessionStorage.getItem('giftItemAdded') == 'true') {
                 giftItemInCart.classList.add('cartGiftItem')
-                giftItemInCart.querySelector('.CartItem__Meta').insertAdjacentHTML('beforeend', '<span>-€34,90 geschenkt!</span>')
+                giftItemInCart.querySelector('.CartItem__Discount svg')?.insertAdjacentHTML('afterend', '<span>1 geschenkt</span>');
                 giftItemInCart.querySelector('.CartItem__Remove')?.addEventListener('click', () => {
                     sessionStorage.setItem('giftItemAdded', 'false');
                     sessionStorage.setItem('noGiftItemWanted', 'true');
-                    // console.log("REMOVED MANUALLY, GIFTITEMADDED: FALSE")
-                    console.log("REMOVED MANUALLY, GIFTITEMADDED: FALSE - noGiftItemWanted: TRUE: WONT SET GIFTITEM ANYMORE")
                 });
             }
         }
@@ -165,45 +157,39 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                             deliveryCostEl.textContent = deliveryCostEl.getAttribute('data-freeshipping-text');
 
                             if (subtotalPriceWithoutNoShippingItems >= 75) {
-                                deliveryBarStepLineEl.style.width =  '100%';
+                                deliveryBarStepLineEl.style.width = '100%';
                                 deliveryBarFinalTextEl.innerHTML = 'Kostenloser Versand & Geschenk!';
                             } else {
-                                deliveryBarStepLineEl.style.width =  85 + (subtotalPriceWithoutNoShippingItems / 15) +  '%';
+                                deliveryBarStepLineEl.style.width = 85 + (subtotalPriceWithoutNoShippingItems / 15) + '%';
                             }
                         }
 
                         let subtotalReal;
-                        if (sessionStorage.getItem('giftItemAdded') == 'true') {
-                            subtotalReal = subtotalPriceValue - 34.90;
-                            // subtotalReal = subtotalPriceValue;
-
+                        if (document.querySelector('.CartItemWrapper[data-variant-id="43855770747148"]')) {
+                            subtotalReal = (window.cartData.original_total_price / 100) - 34.90;
                         } else {
-                            subtotalReal = subtotalPriceValue;
+                            subtotalReal = window.cartData.original_total_price / 100;
                         }
 
                         // add free gift if subtotal >= 75
                         if (subtotalReal >= 75) {
                             if (sessionStorage.getItem('giftItemAdded') != 'true' && sessionStorage.getItem('noGiftItemWanted') != 'true') {
-                                giftItemAtc.click();
-                                sessionStorage.setItem('giftItemAdded', 'true');
-                                console.log("ADD GIFT ITEM")
+                                const giftItemNotGiftedInCart = document.querySelector('.CartItemWrapper[data-variant-id="43855770747148"]');
+
+                                if (giftItemNotGiftedInCart != null) {
+                                    giftItemNotGiftedInCart.classList.add('cartGiftItem')
+                                    sessionStorage.setItem('giftItemAdded', 'true');
+                                } else {
+                                    sessionStorage.setItem('giftItemAdded', 'true');
+                                    giftItemAtc.click();
+                                }
                             }
                         } else {
                             giftItem = document.querySelector('.cartGiftItem')
 
                             if (giftItem != null) {
-                                console.log("WEG MIT DEM DING")
-
                                 giftItem.classList.remove('cartGiftItem');
-                                console.log("GIFT ITEM ENTGIFTET")
-
-
                                 sessionStorage.setItem('giftItemAdded', 'false');
-
-
-
-
-
                             }
                         }
 
