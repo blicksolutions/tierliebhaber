@@ -154,11 +154,16 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                             deliveryBarFinalTextEl.style.display = 'block';
                             deliveryBarLeftTextEl.style.display = 'none';
                             deliveryPriceValue = 0;
+
+
+
                             deliveryCostEl.textContent = deliveryCostEl.getAttribute('data-freeshipping-text');
 
                             if (subtotalPriceWithoutNoShippingItems >= 75) {
                                 deliveryBarStepLineEl.style.width = '100%';
                                 deliveryBarFinalTextEl.innerHTML = 'Kostenloser Versand & Geschenk!';
+
+
                             } else {
                                 deliveryBarStepLineEl.style.width = 85 + (subtotalPriceWithoutNoShippingItems / 15) + '%';
                             }
@@ -309,7 +314,6 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
             deliveryBarTextEl.style.filter = 'blur(0)';
         }
     }, 550);
-
 
     /* Error */
     const couponError = cartSidebar.find('.scDiscount__container .scError');

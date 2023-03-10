@@ -11844,6 +11844,10 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
     display: block !important;
 }
 
+.sc_simple-container.sc_simple-container--complete {
+    display: none !important;
+}
+
 .cartGiftItem .UnitPriceMeasurement, .cartGiftItem .CartItem__UnitPriceMeasurement {
     display: none;
 }
