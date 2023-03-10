@@ -27,6 +27,7 @@ window.shippingrates = {
 
 window.currentCountry = undefined;
 
+
 window.obj = function () {
 };
 
@@ -105,17 +106,19 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
             const giftItemInCart = document.querySelector('.CartItemWrapper[data-variant-id="43855770747148"]');
             if (giftItemInCart && sessionStorage.getItem('giftItemAdded') == 'true') {
                 giftItemInCart.classList.add('cartGiftItem')
-                giftItemInCart.querySelector('.CartItem__Discount svg')?.insertAdjacentHTML('afterend', '<span>1 geschenkt</span>');
                 giftItemInCart.querySelector('.CartItem__Remove')?.addEventListener('click', () => {
                     sessionStorage.setItem('giftItemAdded', 'false');
                     sessionStorage.setItem('noGiftItemWanted', 'true');
                 });
+
+                setTimeout(() => {
+                    giftItemInCart.querySelector('.CartItem__Discount svg')?.insertAdjacentHTML('afterend', '<span>1 geschenkt</span>');
+                }, 250);
             }
         }
 
         // vars
         let deliveryPriceValue = window.shippingrates.otherLocations.priceValue;
-        let subtotalPriceValue = (window.cartData.items_subtotal_price / 100);
 
         // exclude items with no shipping requirement from shipping calculation
         cartItems.forEach((cartItem) => {
@@ -132,44 +135,32 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
             if (hasItemWithDeliveryRequired) {
                 switch (window.currentCountry) {
                     case 'DE':
+                        const percentPerEuro = 100 / 75 // 1.33333
+                        deliveryBarStepLineEl.style.width = (subtotalPriceWithoutNoShippingItems * percentPerEuro) + '%'
                         giftIcon.style.display = 'block';
+
                         if (window.shippingrates.de.minSubtotalPriceValue >= subtotalPriceWithoutNoShippingItems) {
                             deliveryCostEl.textContent = '€' + window.shippingrates.de.priceValue.replace('.', ',');
                             deliveryPriceValue = parseFloat(window.shippingrates.de.priceValue);
                             deliveryBarFinalTextEl.style.display = 'none';
                             deliveryBarLeftTextEl.style.display = 'block';
-
-                            if (sessionStorage.getItem('giftItemAdded') === 'true') {
-                                // deliveryBarValueEl.textContent = '€' + (parseFloat(window.shippingrates.de.minSubtotalPriceValue) - parseFloat(subtotalPriceWithoutNoShippingItems) - 34.90).toFixed(2).replace('.', ',');
-                                deliveryBarValueEl.textContent = '€' + (parseFloat(window.shippingrates.de.minSubtotalPriceValue) - parseFloat(subtotalPriceWithoutNoShippingItems)).toFixed(2).replace('.', ',');
-
-                            } else {
-                                deliveryBarValueEl.textContent = '€' + (parseFloat(window.shippingrates.de.minSubtotalPriceValue) - parseFloat(subtotalPriceWithoutNoShippingItems)).toFixed(2).replace('.', ',');
-                            }
-
-                            deliveryBarStepLineEl.style.width = ((subtotalPriceWithoutNoShippingItems / window.shippingrates.de.minSubtotalPriceValue * 100) - 15).toFixed(2) + '%';
+                            deliveryBarValueEl.textContent = '€' + (parseFloat(window.shippingrates.de.minSubtotalPriceValue) - parseFloat(subtotalPriceWithoutNoShippingItems)).toFixed(2).replace('.', ',');
                             window.cartBarWidth = ((subtotalPriceWithoutNoShippingItems / window.shippingrates.de.minSubtotalPriceValue * 100) - 15).toFixed(2) + '%';
                             window.cartBarValue = '€' + (parseFloat(window.shippingrates.de.minSubtotalPriceValue) - parseFloat(subtotalPriceWithoutNoShippingItems)).toFixed(2).replace('.', ',');
                         } else {
                             deliveryBarFinalTextEl.style.display = 'block';
                             deliveryBarLeftTextEl.style.display = 'none';
                             deliveryPriceValue = 0;
-
-
-
                             deliveryCostEl.textContent = deliveryCostEl.getAttribute('data-freeshipping-text');
+                            deliveryBarFinalTextEl.textContent = 'Noch ' + '€' + (75 - subtotalPriceWithoutNoShippingItems).toFixed(2) + ' bis zum Geschenk';
 
                             if (subtotalPriceWithoutNoShippingItems >= 75) {
-                                deliveryBarStepLineEl.style.width = '100%';
                                 deliveryBarFinalTextEl.innerHTML = 'Kostenloser Versand & Geschenk!';
-
-
-                            } else {
-                                deliveryBarStepLineEl.style.width = 85 + (subtotalPriceWithoutNoShippingItems / 15) + '%';
                             }
                         }
 
                         let subtotalReal;
+
                         if (document.querySelector('.CartItemWrapper[data-variant-id="43855770747148"]')) {
                             subtotalReal = (window.cartData.original_total_price / 100) - 34.90;
                         } else {
@@ -184,6 +175,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                                 if (giftItemNotGiftedInCart != null) {
                                     giftItemNotGiftedInCart.classList.add('cartGiftItem')
                                     sessionStorage.setItem('giftItemAdded', 'true');
+                                    giftItemNotGiftedInCart.querySelector('.CartItem__Discount svg')?.insertAdjacentHTML('afterend', '<span>1 geschenkt</span>');
                                 } else {
                                     sessionStorage.setItem('giftItemAdded', 'true');
                                     giftItemAtc.click();
@@ -202,7 +194,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                             const totalPrice = document.querySelector('.Drawer__Footer__Total span')
                             const couponCodeSet = document.querySelector('#sidebar-cart[data-dcart-code]')
 
-                            if (totalPrice && couponCodeSet == null) {
+                            if (totalPrice && couponCodeSet == null && window.shippingrates.de.minSubtotalPriceValue <= subtotalPriceWithoutNoShippingItems) {
                                 totalPrice.textContent = totalPrice?.dataset?.price
                             }
                         }, 500);
