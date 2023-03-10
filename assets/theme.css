@@ -11840,10 +11840,13 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
     display: none;
 }
 
-.cartGiftItem .CartItem__Actions {
-    display: none;
+#sidebar-cart .Drawer__Footer .scDiscount.scActive form {
+    display: block !important;
 }
 
-.cartGiftItem .CartItem__UnitPriceMeasurement {
+.cartGiftItem .UnitPriceMeasurement {
+    display: none;
+}
+.cartGiftItem .QuantitySelector__Button {
     display: none;
 }

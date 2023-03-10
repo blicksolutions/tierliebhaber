@@ -85,9 +85,11 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
         let giftItemAtc = document.querySelector('.js-giftItemATC');
         let noDeliveryItemsTotalPrice = 0;
         let hasItemWithDeliveryRequired = false;
-        const giftIcon = document.querySelector('.CartMessage__StepsLines__Gift')
-        const deliveryIcon = document.querySelector('.CartMessage__StepsLines__Delivery')
+        const giftIcon = document.querySelector('.CartMessage__StepsLines__Gift');
+        const deliveryIcon = document.querySelector('.CartMessage__StepsLines__Delivery');
+        let giftItem = document.querySelector('.cartGiftItem');
 
+        console.log(giftItem)
         const addtemplate = `
             <div class="CartItem">           
                 <div class="CartItem__Actions Heading Text--subdued" style="text-align: center">
@@ -109,7 +111,13 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
             const giftItemInCart = document.querySelector('.CartItemWrapper[data-variant-id="43855770747148"]');
             if (giftItemInCart) {
                 giftItemInCart.classList.add('cartGiftItem')
-                giftItemInCart.querySelector('.CartItem__Info').insertAdjacentHTML('beforeend', '<span>-€34,90 Geschenkt!</span>')
+                giftItemInCart.querySelector('.CartItem__Meta').insertAdjacentHTML('beforeend', '<span>-€34,90 geschenkt!</span>')
+                giftItemInCart.querySelector('.CartItem__Remove')?.addEventListener('click', () => {
+                    sessionStorage.setItem('giftItemAdded', 'false');
+                    sessionStorage.setItem('noGiftItemWanted', 'true');
+                    // console.log("REMOVED MANUALLY, GIFTITEMADDED: FALSE")
+                    console.log("REMOVED MANUALLY, GIFTITEMADDED: FALSE - noGiftItemWanted: TRUE: WONT SET GIFTITEM ANYMORE")
+                });
             }
         }
 
@@ -167,30 +175,46 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                         let subtotalReal;
                         if (sessionStorage.getItem('giftItemAdded') == 'true') {
                             subtotalReal = subtotalPriceValue - 34.90;
+                            // subtotalReal = subtotalPriceValue;
+
                         } else {
                             subtotalReal = subtotalPriceValue;
                         }
 
-                        // add free gift if subtotal >= 100
+                        // add free gift if subtotal >= 75
                         if (subtotalReal >= 75) {
-                            if (sessionStorage.getItem('giftItemAdded') != 'true') {
+                            if (sessionStorage.getItem('giftItemAdded') != 'true' && sessionStorage.getItem('noGiftItemWanted') != 'true') {
                                 giftItemAtc.click();
                                 sessionStorage.setItem('giftItemAdded', 'true');
-                                // console.log("ADDED GIFT ITEM")
+                                console.log("ADD GIFT ITEM")
                             }
                         } else {
-                            const giftItemToRemove = document.querySelector('.cartGiftItem')
-                            sessionStorage.setItem('giftItemAdded', 'false');
+                            giftItem = document.querySelector('.cartGiftItem')
 
-                            if (giftItemToRemove != null) {
-                                giftItemToRemove.querySelector('.CartItem__Remove')?.click();
+                            if (giftItem != null) {
+                                console.log("WEG MIT DEM DING")
+
+                                giftItem.classList.remove('cartGiftItem');
+                                console.log("GIFT ITEM ENTGIFTET")
+
+
+                                sessionStorage.setItem('giftItemAdded', 'false');
+
+
+
+
+
                             }
                         }
 
                         setTimeout(() => {
                             const totalPrice = document.querySelector('.Drawer__Footer__Total span')
-                            totalPrice.textContent = totalPrice.dataset.price
-                        }, 500)
+                            const couponCodeSet = document.querySelector('#sidebar-cart[data-dcart-code]')
+
+                            if (totalPrice && couponCodeSet == null) {
+                                totalPrice.textContent = totalPrice?.dataset?.price
+                            }
+                        }, 500);
                         break;
                     case 'AT':
                         giftIcon.style.display = 'none';
@@ -374,18 +398,22 @@ window.obj.cartSidebar = function () {
 
         setTimeout(() => {
             const totalPrice = document.querySelector('.Drawer__Footer__Total span')
+            const couponCodeSet = document.querySelector('#sidebar-cart[data-dcart-code]')
 
-            if (totalPrice) {
+            if (totalPrice && couponCodeSet == null) {
                 totalPrice.textContent = totalPrice?.dataset?.price
             }
-
-        }, 1000)
+        }, 1000);
     });
 
     window.addEventListener('sc:discount.calculated', function () {
         setTimeout(() => {
             const totalPrice = document.querySelector('.Drawer__Footer__Total span')
-            totalPrice.textContent = totalPrice.dataset.price
+            const couponCodeSet = document.querySelector('#sidebar-cart[data-dcart-code]')
+
+            if (totalPrice && couponCodeSet == null) {
+                totalPrice.textContent = totalPrice?.dataset?.price
+            }
         }, 1000);
         window.obj.cartSidebarRefresh(true);
     });
@@ -416,6 +444,12 @@ window.obj.cartSidebar = function () {
 
         window.obj.cartSidebarRefresh(true);
 
+        const totalPrice = document.querySelector('.Drawer__Footer__Total span')
+        const couponCodeSet = document.querySelector('#sidebar-cart[data-dcart-code]')
+
+        if (totalPrice && couponCodeSet == null) {
+            totalPrice.textContent = totalPrice?.dataset?.price
+        }
     });
 };
 
