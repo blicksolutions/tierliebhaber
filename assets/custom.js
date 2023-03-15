@@ -125,7 +125,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
             }
 
             setTimeout(() => {
-                const item = giftItemInCart.querySelector('.CartItem__Discount svg');
+                const item = giftItemInCart?.querySelector('.CartItem__Discount svg');
                 const textAlreadySet = item?.parentElement.querySelector('.discount__text');
 
                 if (textAlreadySet == null) {
