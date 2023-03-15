@@ -110,11 +110,16 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                     sessionStorage.setItem('giftItemAdded', 'false');
                     sessionStorage.setItem('noGiftItemWanted', 'true');
                 });
-
-                setTimeout(() => {
-                    giftItemInCart.querySelector('.CartItem__Discount svg')?.insertAdjacentHTML('afterend', '<span>1 geschenkt</span>');
-                }, 250);
             }
+
+            setTimeout(() => {
+                const item = giftItemInCart.querySelector('.CartItem__Discount svg');
+                const textAlreadySet = item?.parentElement.querySelector('.discount__text');
+
+                if (textAlreadySet == null) {
+                    item?.insertAdjacentHTML('afterend', '<span class="discount__text">1 geschenkt</span>');
+                }
+            }, 250);
         }
 
         // vars
@@ -175,7 +180,12 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                                 if (giftItemNotGiftedInCart != null) {
                                     giftItemNotGiftedInCart.classList.add('cartGiftItem')
                                     sessionStorage.setItem('giftItemAdded', 'true');
-                                    giftItemNotGiftedInCart.querySelector('.CartItem__Discount svg')?.insertAdjacentHTML('afterend', '<span>1 geschenkt</span>');
+                                    const item = giftItemNotGiftedInCart.querySelector('.CartItem__Discount svg');
+                                    const textAlreadySet = item?.parentElement.querySelector('.discount__text');
+
+                                    if (textAlreadySet == null) {
+                                        item?.insertAdjacentHTML('afterend', '<span class="discount__text">1 geschenkt</span>');
+                                    }
                                 } else {
                                     sessionStorage.setItem('giftItemAdded', 'true');
                                     giftItemAtc.click();

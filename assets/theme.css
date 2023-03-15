@@ -11852,26 +11852,31 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
     display: none;
 }
 
-.cartGiftItem .QuantitySelector__Button {
-    display: block !important;
-}
-/*.cartGiftItem .CartItem__Title {*/
-/*    margin-top: 5px;*/
-/*}*/
-
-/*.cartGiftItem .QuantitySelector {*/
-/*    padding: 5px 0;*/
-/*}*/
-
 #sidebar-cart .QuantitySelector {
     min-width: 100px;
     justify-content: center;
 }
 
 #sidebar-cart .CartItem__Variant {
-   display: none;
+    display: none;
 }
 
 #sidebar-cart .CartItem__Discount {
-   margin-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.CartItemWrapper[data-price="0"] .CartItem__UnitPriceMeasurement {
+    display: none;
+}
+
+.CartItemWrapper[data-price="0"] .CartItem__Title {
+    margin-top: 5px;
+}
+
+.CartItemWrapper[data-price="0"] .QuantitySelector {
+    height: 44px;
+}
+
+.CartItemWrapper[data-price="0"] .QuantitySelector__Button {
+    display: none;
 }
