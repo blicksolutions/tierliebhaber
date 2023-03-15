@@ -2238,6 +2238,7 @@ function _classCallCheck(e, t) {
                             "exp.event.type": "cart:updated",
                             "exp.cart.itemCount": t.itemCount
                         })
+                        document.dispatchEvent(new CustomEvent('rerenderCart'));
                     }))
                 }
             }, {

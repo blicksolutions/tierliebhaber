@@ -47,26 +47,26 @@ window.obj.strToPrice = function (str) {
     return price;
 };
 
-window.lockCartDrawer = () => {
-    const cartDrawerContent = document.querySelector('.Cart.Drawer__Content');
-    cartDrawerContent.style.pointerEvents = 'none';
-}
-
-window.releaseCartDrawer = () => {
-    const cartDrawerContent = document.querySelector('.Cart.Drawer__Content');
-    cartDrawerContent.style.pointerEvents = 'auto';
-}
 
 document.addEventListener('DOMContentLoaded', () => {
-   const cartQuantitySelectors = document.querySelectorAll('.CartItem__QuantitySelector');
-    cartQuantitySelectors.forEach((selector) => {
-       selector.addEventListener('click', () => {
-           window.lockCartDrawer();
+    const handleQuantitySelectors = (cartQuantitySelectors) => {
+        const cartDrawerContent = document.querySelector('.Cart.Drawer__Content');
+        cartQuantitySelectors.forEach((selector) => {
+            selector.addEventListener('click', () => {
+                cartDrawerContent.classList.add('quantityLock');
+                console.log("LOCK")
+                setTimeout(() => {
+                    cartDrawerContent.classList.remove('quantityLock');
+                    console.log("REALEASE")
+                }, 2000);
+            });
+        });
+    };
 
-           setTimeout(() => {
-               window.releaseCartDrawer();
-           }, 2000)
-       })
+    document.addEventListener('rerenderCart', () => {
+        setTimeout(() => {
+            handleQuantitySelectors(document.querySelectorAll('.Cart__ItemList .QuantitySelector__Button'));
+        }, 1000)
     });
 });
 
