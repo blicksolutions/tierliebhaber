@@ -47,7 +47,18 @@ window.obj.strToPrice = function (str) {
     return price;
 };
 
+window.lockCartDrawer = () => {
+    const cartDrawerContent = document.querySelector('.Cart.Drawer__Content');
+    cartDrawerContent.style.pointerEvents = 'none';
+}
+
+window.releaseCartDrawer = () => {
+    const cartDrawerContent = document.querySelector('.Cart.Drawer__Content');
+    cartDrawerContent.style.pointerEvents = 'auto';
+}
+
 window.obj.cartSidebarRefresh = function (replaceDelivery) {
+    lockCartDrawer();
     window.giftItemId = 43855770747148;
     window.cartItems = document.querySelectorAll('.Drawer__Container .CartItemWrapper[data-price]');
     window.cartData = JSON.parse(sessionStorage.getItem('scCartData'))
@@ -58,6 +69,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
     const cartSidebar = $('#sidebar-cart');
     setTimeout(() => {
         cartSidebar.removeClass('Drawer__Footer-loading');
+        releaseCartDrawer();
     }, 1000);
     cartSidebar.attr("data-dcart-calculated", (parseInt(cartSidebar.attr("data-dcart-calculated")) + 1));
 
