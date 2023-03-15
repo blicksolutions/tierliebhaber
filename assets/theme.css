@@ -11875,6 +11875,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 
 .CartItemWrapper[data-price="0"] .QuantitySelector {
     height: 44px;
+    pointer-events: none;
 }
 
 .CartItemWrapper[data-price="0"] .QuantitySelector__Button {
