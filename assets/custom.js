@@ -57,8 +57,21 @@ window.releaseCartDrawer = () => {
     cartDrawerContent.style.pointerEvents = 'auto';
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+   const cartQuantitySelectors = document.querySelectorAll('.CartItem__QuantitySelector');
+    cartQuantitySelectors.forEach((selector) => {
+       selector.addEventListener('click', () => {
+           window.lockCartDrawer();
+
+           setTimeout(() => {
+               window.releaseCartDrawer();
+           }, 2000)
+       })
+    });
+});
+
+
 window.obj.cartSidebarRefresh = function (replaceDelivery) {
-    lockCartDrawer();
     window.giftItemId = 43855770747148;
     window.cartItems = document.querySelectorAll('.Drawer__Container .CartItemWrapper[data-price]');
     window.cartData = JSON.parse(sessionStorage.getItem('scCartData'))
@@ -69,8 +82,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
     const cartSidebar = $('#sidebar-cart');
     setTimeout(() => {
         cartSidebar.removeClass('Drawer__Footer-loading');
-        releaseCartDrawer();
-    }, 1000);
+    }, 2000);
     cartSidebar.attr("data-dcart-calculated", (parseInt(cartSidebar.attr("data-dcart-calculated")) + 1));
 
     const scData = JSON.parse(sessionStorage.getItem("scDiscountData"));
