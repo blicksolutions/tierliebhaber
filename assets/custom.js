@@ -153,13 +153,19 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
             }
         });
 
-        const subtotalPriceWithoutNoShippingItems = (window.cartData.items_subtotal_price / 100) - noDeliveryItemsTotalPrice;
-
+        let subtotalPriceWithoutNoShippingItems = (window.cartData.items_subtotal_price / 100) - noDeliveryItemsTotalPrice;
+        // console.log("----- new refresh ----")
         if (replaceDelivery && subtotalPriceEl && deliveryCostEl && totalPriceEl && deliveryBarValueEl && deliveryBarLeftTextEl && deliveryBarFinalTextEl && deliveryBarStepLineEl && deliveryBarTextEl) {
             if (hasItemWithDeliveryRequired) {
                 switch (window.currentCountry) {
                     case 'DE':
                         const percentPerEuro = 100 / 75 // 1.33333
+                        const giftItemInCart = document.querySelector('.CartItemWrapper[data-variant-id="43855770747148"]');
+
+                        if (giftItemInCart && sessionStorage.getItem('giftItemAdded') != 'true') {
+                            subtotalPriceWithoutNoShippingItems -= 34.90;
+                        }
+
                         deliveryBarStepLineEl.style.width = (subtotalPriceWithoutNoShippingItems * percentPerEuro) + '%'
                         giftIcon.style.display = 'block';
 
@@ -199,6 +205,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                                 if (giftItemNotGiftedInCart != null) {
                                     giftItemNotGiftedInCart.classList.add('cartGiftItem')
                                     sessionStorage.setItem('giftItemAdded', 'true');
+                                    window.obj.cartSidebarRefresh(true);
                                     const item = giftItemNotGiftedInCart.querySelector('.CartItem__Discount svg');
                                     const textAlreadySet = item?.parentElement.querySelector('.discount__text');
 
@@ -208,6 +215,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                                 } else {
                                     sessionStorage.setItem('giftItemAdded', 'true');
                                     giftItemAtc.click();
+                                    window.obj.cartSidebarRefresh(true);
                                 }
                             }
                         } else {
@@ -216,6 +224,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                             if (giftItem != null) {
                                 giftItem.classList.remove('cartGiftItem');
                                 sessionStorage.setItem('giftItemAdded', 'false');
+                                window.obj.cartSidebarRefresh(true);
                             }
                         }
 
