@@ -12139,7 +12139,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 }
 
 .sc_simple-container.sc_simple-container--complete {
-    display: none !important;
+    /*display: none !important;*/
 }
 
 .cartGiftItem .UnitPriceMeasurement, .cartGiftItem .CartItem__UnitPriceMeasurement {
