@@ -260,7 +260,8 @@ HEADER CONTENT
                                 <div class="MegaMenu__PushImageWrapper AspectRatio" style="background: url({{ block.settings.push_1_image | img_url: '1x1', format: 'jpg' }}); max-width: {{ max_width }}px; --aspect-ratio: {{ block.settings.push_1_image.aspect_ratio }}">
                                   <img class="Image--lazyLoad Image--fadeIn"
                                        data-src="{{ block.settings.push_1_image | img_url: '370x230', scale: 2 }}"
-                                       alt="{{ block.settings.push_1_image.alt | escape }}">
+                                       alt="{{ block.settings.push_1_image.alt | escape }}"
+                                       loading="lazy">
 
                                   <span class="Image__Loader"></span>
                                 </div>
@@ -290,7 +291,8 @@ HEADER CONTENT
                                 <div class="MegaMenu__PushImageWrapper AspectRatio" style="background: url({{ block.settings.push_2_image | img_url: '1x1', format: 'jpg' }}); max-width: {{ max_width }}px; --aspect-ratio: {{ block.settings.push_2_image.aspect_ratio }}">
                                   <img class="Image--lazyLoad Image--fadeIn"
                                        data-src="{{ block.settings.push_2_image | img_url: '370x230', scale: 2 }}"
-                                       alt="{{ block.settings.push_2_image.alt | escape }}">
+                                       alt="{{ block.settings.push_2_image.alt | escape }}"
+                                       loading="lazy">
 
                                   <span class="Image__Loader"></span>
                                 </div>
@@ -366,14 +368,16 @@ HEADER CONTENT
                src="{{ section.settings.logo | img_url: image_size }}"
                srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
                width="{{ section.settings.logo_max_width }}"
-               alt="{{ section.settings.logo.alt | default: shop.name | escape }}">
+               alt="{{ section.settings.logo.alt | default: shop.name | escape }}"
+               loading="lazy">
 
           {%- if use_transparent_header and section.settings.transparent_logo != blank -%}
             <img class="Header__LogoImage Header__LogoImage--transparent"
                  src="{{ section.settings.transparent_logo | img_url: image_size }}"
                  srcset="{{ section.settings.transparent_logo | img_url: image_size }} 1x, {{ section.settings.transparent_logo | img_url: image_size, scale: 2 }} 2x"
                  width="{{ section.settings.logo_max_width }}"
-                 alt="{{ section.settings.transparent_logo.alt | default: shop.name | escape }}">
+                 alt="{{ section.settings.transparent_logo.alt | default: shop.name | escape }}"
+                 loading="lazy">
           {%- endif -%}
         {%- else -%}
           <span class="Heading u-h4">{{ shop.name }}</span>

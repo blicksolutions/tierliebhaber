@@ -154,7 +154,7 @@ for size, we use it to display a size chart (if applicable)
                               {%- capture supported_sizes -%}{%- render 'image-size', sizes: '200,400,600,800', image: variant_image -%}{%- endcapture -%}
                               {%- assign image_url = variant_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 
-                              <img class="VariantSelector__Image Image--lazyLoad Image--fadeIn" data-src="{{ image_url }}" data-widths="[{{ supported_sizes }}]" data-sizes="auto" alt="{{ variant_image.alt | escape }}">
+                              <img class="VariantSelector__Image Image--lazyLoad Image--fadeIn" data-src="{{ image_url }}" data-widths="[{{ supported_sizes }}]" data-sizes="auto" alt="{{ variant_image.alt | escape }}" loading="lazy">
                               <span class="Image__Loader"></span>
                             </div>
                           {%- endif -%}

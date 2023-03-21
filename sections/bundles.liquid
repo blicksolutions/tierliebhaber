@@ -26,7 +26,7 @@
 			<div class="content">
 				{%- if upsell_product_count > 1 -%}
 					<div class="swiper-navigation prev">
-						<img src="{{ section.settings.swiper_nav_icon_prev | img_url: "128x128" }}" />
+						<img src="{{ section.settings.swiper_nav_icon_prev | img_url: "128x128" }}" loading="lazy" />
 					</div>
 				{%- endif -%}
 				<div class="swiper">
@@ -35,7 +35,7 @@
 							<div class="swiper-slide">
 								<div class="image">
 									<a href="{{ upsell_product.url }}">
-										<img src="{{ upsell_product.featured_image | img_url: "400x400" }}" alt="{{upsell_product.title }}" />
+										<img src="{{ upsell_product.featured_image | img_url: "400x400" }}" alt="{{upsell_product.title }}" loading="lazy" />
 									</a>
 								</div>
 								<div class="meta">
@@ -76,7 +76,7 @@
 				</div>
 				{%- if upsell_product_count > 1 -%}
 					<div class="swiper-navigation next">
-						<img src="{{ section.settings.swiper_nav_icon_next | img_url: "128x128" }}" />
+						<img src="{{ section.settings.swiper_nav_icon_next | img_url: "128x128" }}" loading="lazy" />
 					</div>
 				{%- endif -%}
 			</div>

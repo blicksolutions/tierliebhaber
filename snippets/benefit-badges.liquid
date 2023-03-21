@@ -13,7 +13,8 @@
         alt="{{ section.settings[image_key].alt | escape }}"
         data-src="{{ image_url }}" 
         data-widths="[{{ supported_sizes }}]" 
-        data-sizes="auto" 
+        data-sizes="auto"
+        loading="lazy" 
       >
       <p class="BenefitBadge__Title">
         {{ section.settings[title_key] }}

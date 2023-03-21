@@ -35,6 +35,7 @@
             class="LikeBadge__Image Image--lazyLoad Image--fadeIn"
             data-src="{{ pet_image.filename | file_url }}"
             alt="{{ pet_image.alt | escape }}"
+            loading="lazy"
           >
         {%- endfor -%}
       {%- else -%}
@@ -43,6 +44,7 @@
             class="LikeBadge__Image Image--lazyLoad Image--fadeIn"
             data-src="{{ images[dog.image.filename] | img_url: 'master' }}"
             alt="{{ dog.image.alt | escape }}"
+            loading="lazy"
           >
         {%- endfor -%}
       {%- endif -%}

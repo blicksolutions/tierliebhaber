@@ -79,14 +79,16 @@
             <span class="CartMessage__StepsLines__Delivery"
                   style="right:0;">
               <img src="{{ section.settings.message_delivery_icon | img_url: '32x32' }}" 
-                   alt="{{ section.settings.message_delivery_icon.alt | escape }}">
+                   alt="{{ section.settings.message_delivery_icon.alt | escape }}"
+                   loading="lazy">
             </span>
 
             {%- if section.settings.message_gift_enabled != blank -%}
               <span class="CartMessage__StepsLines__Gift"
                     style="right: 16%;">
                 <img src="{{ section.settings.message_gift_icon | img_url: '32x32' }}" 
-                     alt="{{ section.settings.message_gift_icon.alt | escape }}">
+                     alt="{{ section.settings.message_gift_icon.alt | escape }}"
+                     loading="lazy">
               </span>
             {%- endif -%}
           </div>
@@ -241,7 +243,8 @@
           <!-- Scroll button -->
           <span class="CartUpsells__ScrollBtn">
           <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAh0lEQVRIie2TQQqAIBBFn13M47TsKOWqTpttRhhE0TIhwg8DguN//y+EoZflZao1dQoyAAPwB4AB7A0fK2+qZAAHnMAS3aV+8iy7RwqSa+BleU1AYvM9ZVySATYB6Sa6QUjuyaR/AgmAZnMNcQrio7NrMdeQ0ERPU/IS5FXzGNLFXEO6mX9TFwuTLBH05pO4AAAAAElFTkSuQmCC" 
-               alt="">
+               alt=""
+               loading="lazy">
           </span>
           <!-- /Scroll button -->
           
@@ -312,7 +315,8 @@
                  data-src="{{ image_url }}" 
                  data-widths="[{{ supported_sizes }}]" 
                  data-sizes="auto" 
-                 alt="{{ image.alt | escape }}">
+                 alt="{{ image.alt | escape }}"
+                 loading="lazy">
           </div>
           <!-- /Payment image -->
         {%- endif -%}

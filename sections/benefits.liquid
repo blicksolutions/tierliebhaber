@@ -19,6 +19,7 @@
                     class="Image Image--lazyLoad Image--fadeIn"
                     src="{{ images[item.image.filename] | img_url: 'master' }}"
                     alt="{{ item.image.alt | escape }}"
+                    loading="lazy"
                   >
                 </div>
                 <h2 class="BenefitItem__Title Heading u-h3">{{ item.title }}</h2>
