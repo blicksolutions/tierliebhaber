@@ -12138,7 +12138,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
     display: block !important;
 }
 
-.sc_simple-container.sc_simple-container--complete {
+#sidebar-cart[data-dcart-code] .sc_simple-container {
     /*display: none !important;*/
 }
 
