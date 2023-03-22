@@ -2238,6 +2238,7 @@ function _classCallCheck(e, t) {
                             "exp.event.type": "cart:updated",
                             "exp.cart.itemCount": t.itemCount
                         })
+                        document.dispatchEvent(new CustomEvent('rerenderCart'));
                     }))
                 }
             }, {
@@ -2431,7 +2432,7 @@ function _classCallCheck(e, t) {
                         let cartSidebarTotalPriceValue = parseFloat(cartSidebarTotalPrice.attr('data-price').replace(/\,/, '.').replace(/[^0-9\.]+/, ''));
 
                         const giftItemId = cartSidebar.attr('data-gift-item-id');
-                        const giftItemVariantId = cartSidebar.attr('data-gift-variant-id');
+                        const giftItemVariantId = null;
 
                         const freeGiftIcon = cartSidebar.find('.CartMessage__StepsLines__Gift');
 
@@ -2445,16 +2446,16 @@ function _classCallCheck(e, t) {
 
                                 if (giftItemToRemove.length) {
                                     cartSidebarTotalPriceValue -= parseInt(giftItemToRemove.attr('data-price') / 100);
-                                    this._removeBgItem();
+                                    // this._removeBgItem();
 
                                 } else {
                                     const giftItem = cartSidebar.find('.CartItemWrapper[data-variant-id="' + giftItemVariantId + '"][data-free-gift]');
 
                                     if (cartSidebarTotalPriceValue >= 60) {
-                                        cartSidebar.attr('data-free-gift', true);
+                                        // cartSidebar.attr('data-free-gift', true);
 
                                         if (!giftItem.length) {
-                                            this._addBgItem();
+                                            // this._addBgItem();
                                         }
                                     }
                                 }

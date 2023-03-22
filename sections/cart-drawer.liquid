@@ -7,7 +7,7 @@
 }
 {%- endcapture -%}
 
-<div id="sidebar-cart" class="Drawer Drawer--fromRight" aria-hidden="true" data-gift-item-id="{{ section.settings.gift_item.id }}" data-gift-variant-id="{{ section.settings.gift_item.selected_or_first_available_variant.id }}" selected_variant data-section-id="cart" data-section-type="cart" data-section-settings='{{ section_settings }}'>
+<div id="sidebar-cart" class="Drawer Drawer--fromRight" aria-hidden="true" selected_variant data-section-id="cart" data-section-type="cart" data-section-settings='{{ section_settings }}'>
   <div class="Drawer__Header Drawer__Header--bordered Drawer__Container">
       <span class="Drawer__Title Heading u-h4">{{ 'cart.general.title' | t }}</span>
 
@@ -77,20 +77,16 @@
             </div>
 
             <span class="CartMessage__StepsLines__Delivery"
-                  style="right:0;">
+                  style="right:34.67%;">
               <img src="{{ section.settings.message_delivery_icon | img_url: '32x32' }}" 
-                   alt="{{ section.settings.message_delivery_icon.alt | escape }}"
-                   loading="lazy">
+                   alt="{{ section.settings.message_delivery_icon.alt | escape }}">
             </span>
 
-            {%- if section.settings.message_gift_enabled != blank -%}
               <span class="CartMessage__StepsLines__Gift"
-                    style="right: 16%;">
-                <img src="{{ section.settings.message_gift_icon | img_url: '32x32' }}" 
-                     alt="{{ section.settings.message_gift_icon.alt | escape }}"
-                     loading="lazy">
+                    style="right: 0; display: none">
+                <img src="{{ section.settings.message_gift_icon | img_url: '32x32' }}"
+                     alt="{{ section.settings.message_gift_icon.alt | escape }}">
               </span>
-            {%- endif -%}
           </div>
         </div>
         <!-- /Steps message -->
@@ -243,8 +239,7 @@
           <!-- Scroll button -->
           <span class="CartUpsells__ScrollBtn">
           <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAh0lEQVRIie2TQQqAIBBFn13M47TsKOWqTpttRhhE0TIhwg8DguN//y+EoZflZao1dQoyAAPwB4AB7A0fK2+qZAAHnMAS3aV+8iy7RwqSa+BleU1AYvM9ZVySATYB6Sa6QUjuyaR/AgmAZnMNcQrio7NrMdeQ0ERPU/IS5FXzGNLFXEO6mX9TFwuTLBH05pO4AAAAAElFTkSuQmCC" 
-               alt=""
-               loading="lazy">
+               alt="">
           </span>
           <!-- /Scroll button -->
           
@@ -315,8 +310,7 @@
                  data-src="{{ image_url }}" 
                  data-widths="[{{ supported_sizes }}]" 
                  data-sizes="auto" 
-                 alt="{{ image.alt | escape }}"
-                 loading="lazy">
+                 alt="{{ image.alt | escape }}">
           </div>
           <!-- /Payment image -->
         {%- endif -%}
@@ -335,25 +329,9 @@
       "content": "Free gift"
     },
     {
-      "type": "checkbox",
-      "id": "message_gift_enabled",
-      "label": "Enabled"
-    },
-    {
       "type": "image_picker",
       "id": "message_gift_icon",
       "label": "Icon"
-    },
-    {
-      "type": "text",
-      "id": "message_gift_text",
-      "label": "Message",
-      "default": "Noch %price% bis zum Geschenk"
-    },
-    {
-      "type": "product",
-      "id": "gift_item",
-      "label": "Item"
     },
     {
       "type": "header",
@@ -385,12 +363,6 @@
       "id": "message_final_text",
       "label": "Message",
       "default": "Glückwunsch: sie erhalten kostenlosen Versand!"
-    },
-    {
-      "type": "text",
-      "id": "message_final_gift_text",
-      "label": "Message (free gift is enabled)",
-      "default": "Glückwunsch: du erhältst ein Geschenk!"
     },
     {
       "type": "header",

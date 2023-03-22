@@ -1175,13 +1175,10 @@
         "settings": {
           "message_gift_enabled": false,
           "message_gift_icon": "shopify:\/\/shop_images\/image_7.png",
-          "message_gift_text": "Noch %price% bis zum Geschenk",
-          "gift_item": "",
           "message_delivery_icon": "shopify:\/\/shop_images\/image_8.png",
           "message_delivery_text-first": "Noch",
           "message_delivery_text-last": "bis zum kostenlosen Versand",
           "message_final_text": "Glückwunsch: der Versand ist kostenlos!",
-          "message_final_gift_text": "Glückwunsch: du erhältst ein Geschenk!",
           "upsell_title": "Probier´s doch mal:",
           "upsell_items": [
             "darmpflege-drops"

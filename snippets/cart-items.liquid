@@ -39,8 +39,10 @@
       {%- if line_item.line_level_discount_allocations != blank -%}
         {%- assign line_item_free_gift = true -%}
       {%- endif -%}
-  
-      <div class="CartItemWrapper"
+
+        {%- assign line_item_free_gift = false -%}
+
+        <div class="CartItemWrapper"
            {% if line_item_free_gift %}data-free-gift="true"{% endif %}
            data-price="{{ line_item.final_line_price }}"
            data-index="{{ forloop.index }}"
@@ -147,6 +149,7 @@
                    id="updates_{{ line_item.key }}"
                    class="QuantitySelector__CurrentQuantity"
                    pattern="[0-9]*"
+                   min="0" max="1"
                    data-line="{{ forloop.index }}"
                    value="{% if line_item.variant.metafields.limit.quantity %}{{ line_item.variant.metafields.limit.quantity | prepend: 'max. ' }}{% else %}{{ line_item.quantity }}{% endif %}"
                    >
@@ -169,9 +172,7 @@
               </div>
             </div>
 
-            {% unless line_item_free_gift %}
               <a href="{{ routes.cart_change_url }}?quantity=0&line={{ forloop.index }}" class="CartItem__Remove Link Link--underline Link--underlineShort" data-quantity="0" data-line="{{ forloop.index }}" data-action="remove-item">{{ 'cart.items.remove' | t }}</a>
-            {% endunless %}
           </div>
         {%- endcapture -%}
 
