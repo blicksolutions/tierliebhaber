@@ -1,7 +1,7 @@
 {
   "current": {
     "donations_amount": 0,
-    "donation_goal": 16534.9,
+    "donation_goal": 18169.4,
     "total_text": "",
     "total_number": "",
     "heading_color": "#1c1b1b",
@@ -138,8 +138,8 @@
           "slide-0": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/20230221_jb_z-season_desktop.jpg",
-              "mobile_image": "shopify:\/\/shop_images\/20230221_jb_z-season_mobile.jpg",
+              "image": "shopify:\/\/shop_images\/20230317_jb_z-banner_desktop.jpg",
+              "mobile_image": "shopify:\/\/shop_images\/20230317_jb_z-banner_mobile.jpg",
               "apply_overlay": false,
               "content_offset_mobile_left": 50,
               "content_offset_mobile_top": 21,
@@ -596,11 +596,10 @@
           },
           "143db82c-8dbd-4241-8805-62b2a626ca51": {
             "type": "image",
-            "disabled": true,
             "settings": {
-              "image": "shopify:\/\/shop_images\/icon-angebote_35699035-d8a7-44de-a3b1-020a092a3624.png",
+              "image": "shopify:\/\/shop_images\/pets_logo.png",
               "image_alt": "",
-              "max_width": 160
+              "max_width": 136
             }
           }
         },
@@ -902,8 +901,8 @@
           "5e642c2d-5f0f-47e1-a40e-c619d4d25457": {
             "type": "link",
             "settings": {
-              "url": "shopify:\/\/collections\/angebote",
-              "title": "Angebote",
+              "url": "shopify:\/\/collections\/bundles",
+              "title": "Bundles",
               "limited": false,
               "image": "shopify:\/\/shop_images\/icon-angebote_35699035-d8a7-44de-a3b1-020a092a3624.png"
             }
@@ -1144,6 +1143,7 @@
           },
           "011087d7-c3b7-4f9c-89c1-814eda2200e1": {
             "type": "item",
+            "disabled": true,
             "settings": {
               "image": "shopify:\/\/shop_images\/4.png",
               "item-headline": "durch Tiere meine Welt zu einem besseren Ort wird.",
@@ -1181,8 +1181,7 @@
           "message_final_text": "Glückwunsch: der Versand ist kostenlos!",
           "upsell_title": "Probier´s doch mal:",
           "upsell_items": [
-            "funktionssticks-probe-bundle",
-            "goodie-drops"
+            "darmpflege-drops"
           ],
           "payment_image": "shopify:\/\/shop_images\/Bildschirmfoto_2022-05-14_um_19.25_1_1.png"
         }

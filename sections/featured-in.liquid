@@ -12,6 +12,7 @@
               class="Image"
               src="{{ block.settings.image | img_url: 'master' }}"
               alt="{{ block.settings.image_alt | escape }}"
+              loading="lazy"
             >
           {%- else -%}
             {{ block.settings.html }}

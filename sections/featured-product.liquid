@@ -48,7 +48,7 @@
               <span class="Image__Loader"></span>
 
               <noscript>
-                <img src="{{ product.featured_media | img_url: '600x' }}" alt="{{ product.featured_media.alt | escape }}">
+                <img src="{{ product.featured_media | img_url: '600x' }}" alt="{{ product.featured_media.alt | escape }}" loading="lazy">
               </noscript>
             </div>
           </a>
