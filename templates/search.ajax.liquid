@@ -32,8 +32,8 @@
 
         <div class="Grid Grid--xl">
           {% for result in search.results  %}
-              {% comment %} prevent free wundspray gift from being shown in search {% endcomment %}
-              {% unless result.id == 8129601700108 %}
+              {% comment %} prevent free gift from being shown in search {% endcomment %}
+              {% unless result.id == 8129603961100 %}
                   {%if result.tags  contains  "main_product" %}
                       {%- comment -%}The inline onclick is a bit hacky, but it's easier on mobile to have the full line clickable{%- endcomment -%}
                       <div class="Grid__Cell 1/{{ results_count }}--tablet-and-up" onclick="window.location.href = '{{ result.url }}'">

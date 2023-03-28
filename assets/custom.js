@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 window.obj.cartSidebarRefresh = function (replaceDelivery) {
-    window.giftItemId = 43855770747148;
+    window.giftItemId = 43855783297292;
     window.cartItems = document.querySelectorAll('.Drawer__Container .CartItemWrapper[data-price]');
     window.cartData = JSON.parse(sessionStorage.getItem('scCartData'))
 
@@ -106,7 +106,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
         const addtemplate = `
             <div class="CartItem">           
                 <div class="CartItem__Actions Heading Text--subdued" style="text-align: center">
-                    <button type="button" class="Button Button--secondary CartItem__Actions__UpsellBtn js-giftItemATC" data-product-id="8129601700108" data-variant-id="43855770747148">
+                    <button type="button" class="Button Button--secondary CartItem__Actions__UpsellBtn js-giftItemATC" data-product-id="8129603961100" data-variant-id="43855783297292">
                         Hinzufügen
                     </button>
                 </div>    
@@ -122,7 +122,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
 
             giftItemAtc = document.querySelector('.js-giftItemATC');
 
-            const giftItemInCart = document.querySelector('.CartItemWrapper[data-variant-id="43855770747148"]');
+            const giftItemInCart = document.querySelector('.CartItemWrapper[data-variant-id="43855783297292"]');
             if (giftItemInCart && sessionStorage.getItem('giftItemAdded') == 'true') {
                 giftItemInCart.classList.add('cartGiftItem')
                 giftItemInCart.querySelector('.CartItem__Remove')?.addEventListener('click', () => {
@@ -160,7 +160,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                 switch (window.currentCountry) {
                     case 'DE':
                         const percentPerEuro = 100 / 75 // 1.33333
-                        const giftItemInCart = document.querySelector('.CartItemWrapper[data-variant-id="43855770747148"]');
+                        const giftItemInCart = document.querySelector('.CartItemWrapper[data-variant-id="43855783297292"]');
 
                         if (giftItemInCart && sessionStorage.getItem('giftItemAdded') != 'true') {
                             subtotalPriceWithoutNoShippingItems -= 34.90;
@@ -191,7 +191,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
 
                         let subtotalReal;
 
-                        if (document.querySelector('.CartItemWrapper[data-variant-id="43855770747148"]')) {
+                        if (document.querySelector('.CartItemWrapper[data-variant-id="43855783297292"]')) {
                             subtotalReal = (window.cartData.original_total_price / 100) - 34.90;
                         } else {
                             subtotalReal = window.cartData.original_total_price / 100;
@@ -200,7 +200,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                         // add free gift if subtotal >= 75
                         if (subtotalReal >= 75) {
                             if (sessionStorage.getItem('giftItemAdded') != 'true' && sessionStorage.getItem('noGiftItemWanted') != 'true') {
-                                const giftItemNotGiftedInCart = document.querySelector('.CartItemWrapper[data-variant-id="43855770747148"]');
+                                const giftItemNotGiftedInCart = document.querySelector('.CartItemWrapper[data-variant-id="43855783297292"]');
 
                                 if (giftItemNotGiftedInCart != null) {
                                     giftItemNotGiftedInCart.classList.add('cartGiftItem')
