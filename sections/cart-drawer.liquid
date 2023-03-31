@@ -7,6 +7,10 @@
 }
 {%- endcapture -%}
 
+<script>
+    window.cartDrawerEnableGift = {{ section.settings.enable_gift }};
+</script>
+
 <div id="sidebar-cart" class="Drawer Drawer--fromRight" aria-hidden="true" selected_variant data-section-id="cart" data-section-type="cart" data-section-settings='{{ section_settings }}'>
   <div class="Drawer__Header Drawer__Header--bordered Drawer__Container">
       <span class="Drawer__Title Heading u-h4">{{ 'cart.general.title' | t }}</span>
@@ -49,14 +53,9 @@
         <p class="Cart__Empty Heading u-h5">{{ 'cart.general.empty' | t }}</p>
       {%- else -%}
 
-
-
-
         <!-- Steps message -->
         <div class="CartMessage__Steps">
           <div class="CartMessage__Steps__Text">
-
-
               <div class="CartMessage__Steps__Text-left">
                   {{ section.settings.message_delivery_text-first }} <span class="js-cart-drawer-delivery-left-value"></span> {{ section.settings.message_delivery_text-last }}
               </div>
@@ -64,10 +63,6 @@
               <div class="CartMessage__Steps__Text-final" style="display: none">
                   {{ section.settings.message_final_text }}
               </div>
-
-
-
-
           </div>
           <div class="CartMessage__StepsLines__Container">
             <div class="CartMessage__StepsLines">
@@ -90,19 +85,6 @@
           </div>
         </div>
         <!-- /Steps message -->
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         <div class="Drawer__Container">
           <div class="Cheering">
@@ -205,10 +187,6 @@
           </div>
           <!-- /Subtotal -->
 
-
-
-
-
           <!-- Delivery -->
           <div class="Drawer__Footer__Delivery">
             <small>{{ 'cart.general.delivery' | t }}</small> 
@@ -230,11 +208,6 @@
             <span data-price="{{ cart.total_price | plus: delivery_cost | money }}">{{ cart.total_price | plus: delivery_cost | money }}</span>
           </div>
           <!-- /Total -->
-
-
-
-
-
 
           <!-- Scroll button -->
           <span class="CartUpsells__ScrollBtn">
@@ -327,6 +300,12 @@
     {
       "type": "header",
       "content": "Free gift"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_gift",
+      "label": "Enable gift item (don't forget to toggle discounting ruby script)",
+      "default": false
     },
     {
       "type": "image_picker",
