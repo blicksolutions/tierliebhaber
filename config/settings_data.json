@@ -1,7 +1,7 @@
 {
   "current": {
     "donations_amount": 0,
-    "donation_goal": 18781.3,
+    "donation_goal": 19708,
     "total_text": "",
     "total_number": "",
     "heading_color": "#1c1b1b",
@@ -1173,6 +1173,7 @@
       "cart-drawer": {
         "type": "cart-drawer",
         "settings": {
+          "enable_gift": false,
           "message_gift_icon": "shopify:\/\/shop_images\/image_7.png",
           "message_delivery_icon": "shopify:\/\/shop_images\/image_8.png",
           "message_delivery_text-first": "Noch",
