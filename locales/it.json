@@ -417,5 +417,11 @@
     "month_day_year": "%B %d, %Y",
     "month_day_year_short": "%m\/%d\/%Y",
     "month_day_year_time": "%B %d, %Y at %I:%M%p"
+  },
+  "locksmith": {
+    "forms": {
+      "submit_button_text": "Continue",
+      "loading_text": "One moment..."
+    }
   }
 }

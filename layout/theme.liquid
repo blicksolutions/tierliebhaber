@@ -1,7 +1,12 @@
+{%- comment %}<locksmith:4843>{% endcomment -%}
+  {%- include 'locksmith' -%}
+{%- comment %}</locksmith:4843>{% endcomment -%}
+
 <!doctype html>
 
 <html class="no-js" lang="{{ shop.locale }}">
   <head>
+    {{ locksmith_initializations }}
     <script>window.SLIDECART_DISABLE = true</script>
 
     <meta charset="utf-8"> 
@@ -37,7 +42,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.1.4/swiper-bundle.min.css" integrity="sha512-M0U3q0gtzBgpMf++hqHvaLWyFPubXtEVzk/OO2UEE7Rtvo7wDLh8ClrpWIoUgfGebHxQrPNXmdfYPlrEIZU0Rg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     {%- if page_description -%}
-      <meta name="description" content="{{ page_description | escape }}">
+      {%- comment %}<locksmith:4556>{% endcomment -%}
+        {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
+        {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
+      {%- comment %}</locksmith:4556>{% endcomment -%}
     {%- endif -%}
 
     <link rel="canonical" href="{{ canonical_url }}">
@@ -252,7 +260,7 @@
       {% section 'header' %}
 
       <main id="main" role="main">
-        {{ content_for_layout }}
+        {{ content_for_layout }}{{ locksmith_content_for_layout_addenda }}
       </main>
       {% section 'footer' %}
     </div>
