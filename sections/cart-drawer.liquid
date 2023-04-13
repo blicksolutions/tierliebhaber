@@ -9,6 +9,7 @@
 
 <script>
     window.cartDrawerEnableGift = {{ section.settings.enable_gift }};
+    window.cartDrawerMinPriceForGift = {{ section.settings.gift_min_price }};
 </script>
 
 <div id="sidebar-cart" class="Drawer Drawer--fromRight" aria-hidden="true" selected_variant data-section-id="cart" data-section-type="cart" data-section-settings='{{ section_settings }}'>
@@ -306,6 +307,12 @@
       "id": "enable_gift",
       "label": "Enable gift item (don't forget to toggle discounting ruby script)",
       "default": false
+    },
+    {
+      "type": "number",
+      "id": "gift_min_price",
+      "label": "Mindestbestellwert um ein Geschenk zu bekommen",
+      "default": 75
     },
     {
       "type": "image_picker",

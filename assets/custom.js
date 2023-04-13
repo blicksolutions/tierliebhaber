@@ -162,7 +162,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                 switch (window.currentCountry) {
                     case 'DE':
                         if (window.cartDrawerEnableGift) {
-                            const percentPerEuro = 100 / 75 // 1.33333
+                            const percentPerEuro = 100 / parseInt(window.cartDrawerMinPriceForGift); // 1.33333
                             const giftItemInCart = document.querySelector('.CartItemWrapper[data-variant-id="43855783297292"]');
 
                             if (giftItemInCart && sessionStorage.getItem('giftItemAdded') != 'true') {
@@ -185,9 +185,9 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                                 deliveryBarLeftTextEl.style.display = 'none';
                                 deliveryPriceValue = 0;
                                 deliveryCostEl.textContent = deliveryCostEl.getAttribute('data-freeshipping-text');
-                                deliveryBarFinalTextEl.textContent = 'Noch ' + '€' + (75 - subtotalPriceWithoutNoShippingItems).toFixed(2) + ' bis zum Geschenk';
+                                deliveryBarFinalTextEl.textContent = 'Noch ' + '€' + (parseInt(window.cartDrawerMinPriceForGift) - subtotalPriceWithoutNoShippingItems).toFixed(2) + ' bis zum Geschenk';
 
-                                if (subtotalPriceWithoutNoShippingItems >= 75) {
+                                if (subtotalPriceWithoutNoShippingItems >= parseInt(window.cartDrawerMinPriceForGift)) {
                                     deliveryBarFinalTextEl.innerHTML = 'Kostenloser Versand & Geschenk!';
                                 }
                             }
@@ -200,8 +200,8 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                                 subtotalReal = window.cartData.original_total_price / 100;
                             }
 
-                            // add free gift if subtotal >= 75
-                            if (subtotalReal >= 75) {
+                            // add free gift if subtotal >= window.cartDrawerMinPriceForGift
+                            if (subtotalReal >= parseInt(window.cartDrawerMinPriceForGift)) {
                                 if (sessionStorage.getItem('giftItemAdded') != 'true' && sessionStorage.getItem('noGiftItemWanted') != 'true') {
                                     const giftItemNotGiftedInCart = document.querySelector('.CartItemWrapper[data-variant-id="43855783297292"]');
 
