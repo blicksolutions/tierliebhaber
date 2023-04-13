@@ -349,7 +349,6 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                     } else {
                         // subtotalPrice.text(subtotalPrice.attr('data-price'));
                         subtotalPrice.text("yobro");
-
                     }
 
                     const totalPrice = cartSidebar.find('.Drawer__Footer__Total > span');
@@ -381,18 +380,15 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
             const subtotalOldPrice = cartSidebar.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > s > span.money');
             let subtotalOldPriceValue = parseFloat(scData.total);
 
-
-
             const subtotalNewPrice = cartSidebar.find('.Drawer__Footer .Drawer__Footer__SubtotalPrice > span.money');
             let subtotalNewPriceValue = parseFloat(scData.subtotal);
-
 
             /* /Subtotal price */
 
             /* Total price */
             const totalPrice = cartSidebar.find('.Drawer__Footer__Total > span');
 
-            subtotalNewPrice.text(subtotalNewPriceValue)
+            subtotalNewPrice.text('€' + subtotalNewPriceValue)
 
             const totalPriceValue = parseFloat(subtotalNewPriceValue + deliveryPriceValue);
 
