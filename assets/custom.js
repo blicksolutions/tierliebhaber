@@ -26,8 +26,6 @@ window.shippingrates = {
 }
 
 window.currentCountry = undefined;
-
-
 window.obj = function () {
 };
 
@@ -69,7 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
 window.obj.cartSidebarRefresh = function (replaceDelivery) {
     if (window.cartDrawerEnableGift) {
         window.giftItemId = 43855783297292;
-        // update giftitemstate
         sessionStorage.setItem('giftItemAdded', sessionStorage.getItem('giftItemAdded'));
     }
 
@@ -106,12 +103,12 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
         let giftItem = document.querySelector('.cartGiftItem');
 
         const addtemplate = `
-            <div class="CartItem">           
+            <div class="CartItem">
                 <div class="CartItem__Actions Heading Text--subdued" style="text-align: center">
                     <button type="button" class="Button Button--secondary CartItem__Actions__UpsellBtn js-giftItemATC" data-product-id="8129603961100" data-variant-id="43855783297292">
                         Hinzufügen
                     </button>
-                </div>    
+                </div>
             </div>
         `;
 
