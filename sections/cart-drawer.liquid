@@ -10,6 +10,12 @@
 <script>
     window.cartDrawerEnableGift = {{ section.settings.enable_gift }};
     window.cartDrawerMinPriceForGift = {{ section.settings.gift_min_price }};
+    window.cartDrawerGiftProduct = {{ section.settings.gift_product | json }};
+    console.log("min price:")
+    console.log(window.cartDrawerMinPriceForGift)
+    console.log("product:")
+    console.log(window.cartDrawerGiftProduct)
+
 </script>
 
 <div id="sidebar-cart" class="Drawer Drawer--fromRight" aria-hidden="true" selected_variant data-section-id="cart" data-section-type="cart" data-section-settings='{{ section_settings }}'>
