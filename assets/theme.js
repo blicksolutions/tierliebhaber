@@ -420,45 +420,45 @@ function _classCallCheck(e, t) {
                         let drawerButtonId = this.element.getAttribute('id');
                         $('body').attr('data-drawer-id-opened', drawerButtonId);
 
-                        if (drawerButtonId == 'sidebar-cart') {
-                            const cartSidebar = $('#sidebar-cart');
-
-                            /* Scroll button */
-                            const drawerContent = cartSidebar.find('.Drawer__Main');
-
-                            if (drawerContent.prop('scrollHeight') > drawerContent.prop('clientHeight') + 60) {
-
-                                setTimeout(function() {
-                                    const scrollBtn = cartSidebar.find('.CartUpsells__ScrollBtn');
-                                    scrollBtn.addClass('Visible');
-
-                                    setTimeout(function() {
-                                        scrollBtn.removeClass('Visible');
-                                    }, 3000);
-
-                                }, 500);
-                            }
-                            /* /Scroll button */
-
-                            const couponCode = cartSidebar.find('.scDiscount__container .sc_simple-info__tag > .sc-tag > .code > .code-name');
-                            const couponTitle = cartSidebar.find('.Drawer__Footer__Coupon-title');
-
-                            if (couponCode.length) {
-                                const couponCodeText = couponCode.text().trim();
-                                cartSidebar.addClass('Drawer__Footer__CouponActive');
-                            }
-
-                            /* Field label */
-                            const dcartField = cartSidebar.find('.scDiscount input[type="text"]');
-
-                            if (!dcartField.next('label').length) {
-                                dcartField.after(
-                                    '<label>' + dcartField.attr('placeholder') + '</label>'
-                                );
-                            }
-                            /* /Field label */
-                        }
-                        /* /Cart sidebar coupon */
+                        // if (drawerButtonId == 'sidebar-cart') {
+                        //     const cartSidebar = $('#sidebar-cart');
+                        //
+                        //     /* Scroll button */
+                        //     const drawerContent = cartSidebar.find('.Drawer__Main');
+                        //
+                        //     if (drawerContent.prop('scrollHeight') > drawerContent.prop('clientHeight') + 60) {
+                        //
+                        //         setTimeout(function() {
+                        //             const scrollBtn = cartSidebar.find('.CartUpsells__ScrollBtn');
+                        //             scrollBtn.addClass('Visible');
+                        //
+                        //             setTimeout(function() {
+                        //                 scrollBtn.removeClass('Visible');
+                        //             }, 3000);
+                        //
+                        //         }, 500);
+                        //     }
+                        //     /* /Scroll button */
+                        //
+                        //     const couponCode = cartSidebar.find('.scDiscount__container .sc_simple-info__tag > .sc-tag > .code > .code-name');
+                        //     const couponTitle = cartSidebar.find('.Drawer__Footer__Coupon-title');
+                        //
+                        //     if (couponCode.length) {
+                        //         const couponCodeText = couponCode.text().trim();
+                        //         cartSidebar.addClass('Drawer__Footer__CouponActive');
+                        //     }
+                        //
+                        //     /* Field label */
+                        //     const dcartField = cartSidebar.find('.scDiscount input[type="text"]');
+                        //
+                        //     if (!dcartField.next('label').length) {
+                        //         dcartField.after(
+                        //             '<label>' + dcartField.attr('placeholder') + '</label>'
+                        //         );
+                        //     }
+                        //     /* /Field label */
+                        // }
+                        // /* /Cart sidebar coupon */
 
                         this.element.dispatchEvent(new CustomEvent("search:close", {
                             bubbles: !0
