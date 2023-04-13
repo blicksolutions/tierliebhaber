@@ -10,12 +10,9 @@
 <script>
     window.cartDrawerEnableGift = {{ section.settings.enable_gift }};
     window.cartDrawerMinPriceForGift = {{ section.settings.gift_min_price }};
-    window.cartDrawerGiftProduct = {{ section.settings.gift_product | json }};
-    console.log("min price:")
-    console.log(window.cartDrawerMinPriceForGift)
-    console.log("product:")
-    console.log(window.cartDrawerGiftProduct)
-
+    window.cartDrawerGiftProductId = {{ section.settings.gift_product.id }};
+    window.cartDrawerGiftVariantId = {{ section.settings.gift_product.selected_or_first_available_variant.id }};
+    window.cartDrawerGiftPrice = parseInt({{ section.settings.gift_product.selected_or_first_available_variant.price }}) / 100;
 </script>
 
 <div id="sidebar-cart" class="Drawer Drawer--fromRight" aria-hidden="true" selected_variant data-section-id="cart" data-section-type="cart" data-section-settings='{{ section_settings }}'>

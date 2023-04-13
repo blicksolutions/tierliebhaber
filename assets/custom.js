@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 window.obj.cartSidebarRefresh = function (replaceDelivery) {
     if (window.cartDrawerEnableGift) {
-        window.giftItemId = 43855783297292;
+        window.giftItemId = window.cartDrawerGiftVariantId;
         sessionStorage.setItem('giftItemAdded', sessionStorage.getItem('giftItemAdded'));
     }
 
@@ -105,7 +105,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
         const addtemplate = `
             <div class="CartItem">
                 <div class="CartItem__Actions Heading Text--subdued" style="text-align: center">
-                    <button type="button" class="Button Button--secondary CartItem__Actions__UpsellBtn js-giftItemATC" data-product-id="8129603961100" data-variant-id="43855783297292">
+                    <button type="button" class="Button Button--secondary CartItem__Actions__UpsellBtn js-giftItemATC" data-product-id="${window.cartDrawerGiftProductId}" data-variant-id="${window.cartDrawerGiftVariantId}">
                         Hinzufügen
                     </button>
                 </div>
@@ -121,7 +121,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
 
             giftItemAtc = document.querySelector('.js-giftItemATC');
 
-            const giftItemInCart = document.querySelector('.CartItemWrapper[data-variant-id="43855783297292"]');
+            const giftItemInCart = document.querySelector('.CartItemWrapper[data-variant-id="' + window.cartDrawerGiftVariantId + '"]');
             if (giftItemInCart && sessionStorage.getItem('giftItemAdded') == 'true') {
                 giftItemInCart.classList.add('cartGiftItem')
                 giftItemInCart.querySelector('.CartItem__Remove')?.addEventListener('click', () => {
@@ -160,10 +160,10 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                     case 'DE':
                         if (window.cartDrawerEnableGift) {
                             const percentPerEuro = 100 / parseInt(window.cartDrawerMinPriceForGift); // 1.33333
-                            const giftItemInCart = document.querySelector('.CartItemWrapper[data-variant-id="43855783297292"]');
+                            const giftItemInCart = document.querySelector('.CartItemWrapper[data-variant-id="' + window.cartDrawerGiftVariantId + '"]');
 
                             if (giftItemInCart && sessionStorage.getItem('giftItemAdded') != 'true') {
-                                subtotalPriceWithoutNoShippingItems -= 34.90;
+                                subtotalPriceWithoutNoShippingItems -= window.cartDrawerGiftPrice;
                             }
 
                             deliveryBarStepLineEl.style.width = (subtotalPriceWithoutNoShippingItems * percentPerEuro) + '%'
@@ -182,7 +182,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                                 deliveryBarLeftTextEl.style.display = 'none';
                                 deliveryPriceValue = 0;
                                 deliveryCostEl.textContent = deliveryCostEl.getAttribute('data-freeshipping-text');
-                                deliveryBarFinalTextEl.textContent = 'Noch ' + '€' + (parseInt(window.cartDrawerMinPriceForGift) - subtotalPriceWithoutNoShippingItems).toFixed(2) + ' bis zum Geschenk';
+                                deliveryBarFinalTextEl.textContent = 'Noch ' + '€' + (parseInt(window.cartDrawerMinPriceForGift) - subtotalPriceWithoutNoShippingItems).toFixed(2).replace('.', ',') + ' bis zum Geschenk (Wert €' + window.cartDrawerGiftPrice.toFixed(2).replace('.', ',') + ')';
 
                                 if (subtotalPriceWithoutNoShippingItems >= parseInt(window.cartDrawerMinPriceForGift)) {
                                     deliveryBarFinalTextEl.innerHTML = 'Kostenloser Versand & Geschenk!';
@@ -191,8 +191,8 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
 
                             let subtotalReal;
 
-                            if (document.querySelector('.CartItemWrapper[data-variant-id="43855783297292"]')) {
-                                subtotalReal = (window.cartData.original_total_price / 100) - 34.90;
+                            if (document.querySelector('.CartItemWrapper[data-variant-id="' + window.cartDrawerGiftVariantId + '"]')) {
+                                subtotalReal = (window.cartData.original_total_price / 100) - window.cartDrawerGiftPrice;
                             } else {
                                 subtotalReal = window.cartData.original_total_price / 100;
                             }
@@ -200,7 +200,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                             // add free gift if subtotal >= window.cartDrawerMinPriceForGift
                             if (subtotalReal >= parseInt(window.cartDrawerMinPriceForGift)) {
                                 if (sessionStorage.getItem('giftItemAdded') != 'true' && sessionStorage.getItem('noGiftItemWanted') != 'true') {
-                                    const giftItemNotGiftedInCart = document.querySelector('.CartItemWrapper[data-variant-id="43855783297292"]');
+                                    const giftItemNotGiftedInCart = document.querySelector('.CartItemWrapper[data-variant-id="' + window.cartDrawerGiftVariantId + '"]');
 
                                     if (giftItemNotGiftedInCart != null) {
                                         giftItemNotGiftedInCart.classList.add('cartGiftItem')
