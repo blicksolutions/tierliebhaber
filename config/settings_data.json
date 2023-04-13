@@ -1173,7 +1173,7 @@
       "cart-drawer": {
         "type": "cart-drawer",
         "settings": {
-          "enable_gift": false,
+          "enable_gift": true,
           "message_gift_icon": "shopify:\/\/shop_images\/image_7.png",
           "message_delivery_icon": "shopify:\/\/shop_images\/image_8.png",
           "message_delivery_text-first": "Noch",
