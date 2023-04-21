@@ -927,7 +927,7 @@
           "738c91bf-23c2-4f02-8766-8439e1996678": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Zahnpflege.png",
+              "image": "shopify:\/\/shop_images\/zahnpflege.png",
               "image_alt": "",
               "max_width": 48
             }
@@ -1175,7 +1175,7 @@
         "settings": {
           "enable_gift": true,
           "gift_min_price": 100,
-          "gift_product": "z-snack-u2",
+          "gift_product": "gelenk-sticks",
           "message_gift_icon": "shopify:\/\/shop_images\/image_7.png",
           "message_delivery_icon": "shopify:\/\/shop_images\/image_8.png",
           "message_delivery_text-first": "Noch",
