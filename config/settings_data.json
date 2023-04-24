@@ -1181,7 +1181,9 @@
       "cart-drawer": {
         "type": "cart-drawer",
         "settings": {
-          "enable_gift": false,
+          "enable_gift": true,
+          "gift_min_price": 100,
+          "gift_product": "gelenk-sticks-2",
           "message_gift_icon": "shopify:\/\/shop_images\/image_7.png",
           "message_delivery_icon": "shopify:\/\/shop_images\/image_8.png",
           "message_delivery_text-first": "Noch",

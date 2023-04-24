@@ -9,6 +9,10 @@
 
 <script>
     window.cartDrawerEnableGift = {{ section.settings.enable_gift }};
+    window.cartDrawerMinPriceForGift = {{ section.settings.gift_min_price }};
+    window.cartDrawerGiftProductId = {{ section.settings.gift_product.id }};
+    window.cartDrawerGiftVariantId = {{ section.settings.gift_product.selected_or_first_available_variant.id }};
+    window.cartDrawerGiftPrice = parseInt({{ section.settings.gift_product.selected_or_first_available_variant.price }}) / 100;
 </script>
 
 <div id="sidebar-cart" class="Drawer Drawer--fromRight" aria-hidden="true" selected_variant data-section-id="cart" data-section-type="cart" data-section-settings='{{ section_settings }}'>
@@ -306,6 +310,17 @@
       "id": "enable_gift",
       "label": "Enable gift item (don't forget to toggle discounting ruby script)",
       "default": false
+    },
+    {
+      "type": "number",
+      "id": "gift_min_price",
+      "label": "Min pricevalue to get a gift in €",
+      "default": 75
+    },
+    {
+      "type": "product",
+      "id": "gift_product",
+      "label": "Gift product"
     },
     {
       "type": "image_picker",
