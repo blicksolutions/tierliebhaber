@@ -572,6 +572,14 @@
               "max_width": 160
             }
           },
+          "143db82c-8dbd-4241-8805-62b2a626ca51": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/kununu_TopCompanyBadge_2023.png",
+              "image_alt": "",
+              "max_width": 136
+            }
+          },
           "fb93a848-0723-4d67-a948-992c854e0b5f": {
             "type": "html",
             "settings": {
@@ -593,23 +601,15 @@
               "image_alt": "",
               "max_width": 160
             }
-          },
-          "143db82c-8dbd-4241-8805-62b2a626ca51": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/pets_logo.png",
-              "image_alt": "",
-              "max_width": 136
-            }
           }
         },
         "block_order": [
           "bd5374af-d99b-4192-b2f9-c0f3123ac0f3",
           "51a4e0a4-5035-4f15-81ea-400c105bea3d",
+          "143db82c-8dbd-4241-8805-62b2a626ca51",
           "fb93a848-0723-4d67-a948-992c854e0b5f",
           "f6452686-be98-4be8-8ad1-8cd81d013eb7",
-          "db8fd44d-cc21-46fc-ab84-efde41ab3e9c",
-          "143db82c-8dbd-4241-8805-62b2a626ca51"
+          "db8fd44d-cc21-46fc-ab84-efde41ab3e9c"
         ],
         "settings": {
           "title": "Bekannt aus"
