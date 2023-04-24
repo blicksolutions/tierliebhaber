@@ -1,13 +1,17 @@
-{%- comment %}<locksmith:7314>{% endcomment -%}
-  {%- include 'locksmith' -%}
-{%- comment %}</locksmith:7314>{% endcomment -%}
-
 <!doctype html>
 
 <html class="no-js" lang="{{ shop.locale }}">
   <head>
-    {{ locksmith_initializations }}
     <script>window.SLIDECART_DISABLE = true</script>
+
+    <!--HYROS -->
+    <script>
+      var head = document.head;
+      var script = document.createElement(‘script’);
+      script.type = ‘text/javascript’;
+      script.src = “https://t.tierliebhaber.de/v1/lst/universal-script?ph=c0c3ea6be250a0a3cfb45f6840a85c4afb26c43413b4d3fa71c57e1e03aaf233&tag=!clicked&ref_url=" + encodeURI(document.URL) ;
+      head.appendChild(script);
+    </script>
 
     <meta charset="utf-8"> 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -42,10 +46,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.1.4/swiper-bundle.min.css" integrity="sha512-M0U3q0gtzBgpMf++hqHvaLWyFPubXtEVzk/OO2UEE7Rtvo7wDLh8ClrpWIoUgfGebHxQrPNXmdfYPlrEIZU0Rg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     {%- if page_description -%}
-      {%- comment %}<locksmith:7f59>{% endcomment -%}
-        {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
-        {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
-      {%- comment %}</locksmith:7f59>{% endcomment -%}
+      <meta name="description" content="{{ page_description | escape }}">
     {%- endif -%}
 
     <link rel="canonical" href="{{ canonical_url }}">
@@ -260,7 +261,7 @@
       {% section 'header' %}
 
       <main id="main" role="main">
-        {{ content_for_layout }}{{ locksmith_content_for_layout_addenda }}
+        {{ content_for_layout }}
       </main>
       {% section 'footer' %}
     </div>

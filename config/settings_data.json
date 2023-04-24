@@ -1,9 +1,9 @@
 {
   "current": {
-    "donations_amount": 0,
-    "donation_goal": 19706.9,
+    "donations_amount": 21147,
+    "donation_goal": 30000,
     "total_text": "",
-    "total_number": "",
+    "total_number": "Bisher gespendet seit 2022: €21.147",
     "heading_color": "#1c1b1b",
     "text_color": "#1c1b1b",
     "text_light_color": "#6a6a6a",
@@ -75,8 +75,8 @@
           "trustpilot_html": "<div class=\"trustpilot-widget\" data-locale=\"de-DE\" data-template-id=\"5419b6ffb0d04a076446a9af\" data-businessunit-id=\"60d5db8ab6c75b0001a3a5e3\" data-style-height=\"20px\" data-style-width=\"100%\" data-theme=\"light\">\n  <a href=\"https:\/\/de.trustpilot.com\/review\/tierliebhaber.de\" target=\"_blank\" rel=\"noopener\">Trustpilot<\/a>\n<\/div>",
           "background": "#f2f8f5",
           "text_color": "#6a6a6a",
-          "content": "Bis zu 30% Rabatt auf Hunde OP & Krankenversicherung 🐶",
-          "link": "https:\/\/aktion.tierliebhaber.de\/tlh-versicherung53166224"
+          "content": "30 Tage Geld-zurück-Garantie auf alle Tierliebhaber-Produkte 🐶",
+          "link": "shopify:\/\/collections\/alle-produkte"
         }
       },
       "header": {
@@ -138,8 +138,8 @@
           "slide-0": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/20230317_jb_z-banner_desktop.jpg",
-              "mobile_image": "shopify:\/\/shop_images\/20230317_jb_z-banner_mobile.jpg",
+              "image": "shopify:\/\/shop_images\/20230419_jb_w-snack_banner_desktop.jpg",
+              "mobile_image": "shopify:\/\/shop_images\/20230419_jb_w-snack_banner_mobile.jpg",
               "apply_overlay": false,
               "content_offset_mobile_left": 50,
               "content_offset_mobile_top": 21,
@@ -149,7 +149,7 @@
               "subheading": "",
               "title": "",
               "button_1_text": "",
-              "button_1_link": "shopify:\/\/collections\/z-produkte",
+              "button_1_link": "shopify:\/\/products\/w-snack",
               "button_2_text": "",
               "button_2_link": "",
               "button_font": "Sweet Purple",
@@ -572,6 +572,14 @@
               "max_width": 160
             }
           },
+          "143db82c-8dbd-4241-8805-62b2a626ca51": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/kununu_TopCompanyBadge_2023.png",
+              "image_alt": "",
+              "max_width": 136
+            }
+          },
           "fb93a848-0723-4d67-a948-992c854e0b5f": {
             "type": "html",
             "settings": {
@@ -593,23 +601,15 @@
               "image_alt": "",
               "max_width": 160
             }
-          },
-          "143db82c-8dbd-4241-8805-62b2a626ca51": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/pets_logo.png",
-              "image_alt": "",
-              "max_width": 136
-            }
           }
         },
         "block_order": [
           "bd5374af-d99b-4192-b2f9-c0f3123ac0f3",
           "51a4e0a4-5035-4f15-81ea-400c105bea3d",
+          "143db82c-8dbd-4241-8805-62b2a626ca51",
           "fb93a848-0723-4d67-a948-992c854e0b5f",
           "f6452686-be98-4be8-8ad1-8cd81d013eb7",
-          "db8fd44d-cc21-46fc-ab84-efde41ab3e9c",
-          "143db82c-8dbd-4241-8805-62b2a626ca51"
+          "db8fd44d-cc21-46fc-ab84-efde41ab3e9c"
         ],
         "settings": {
           "title": "Bekannt aus"
@@ -927,7 +927,7 @@
           "738c91bf-23c2-4f02-8766-8439e1996678": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Zahnpflege.png",
+              "image": "shopify:\/\/shop_images\/zahnpflege.png",
               "image_alt": "",
               "max_width": 48
             }
@@ -1036,8 +1036,8 @@
         "type": "charity",
         "settings": {
           "title": "",
-          "heading_prefix": "",
-          "heading_suffix": "an BAWA gespendet seit 2022",
+          "heading_prefix": "Uns fehlen noch",
+          "heading_suffix": "für BAWA",
           "description_heading": "Spende Tierliebe! ❤️🌏",
           "description_text": "Beim Kauf eines Produkts hast du die Möglichkeit, deinem Einkauf eine Spende hinzuzufügen (an der Kasse). Die Spenden werden wöchentlich an BAWA (Bali Animal Welfare Association) übermittelt und 100% transparent auf Instagram dokumentiert.",
           "description_disclaimer": "Mit euren Spenden konnten wir in den letzten Monaten schon so vielen Straßenhunden auf Bali helfen. Ob es groß angesetzte Futter- & Sterilisationskampagnen waren oder die Rettung der Hunde von der Straße, mit euren Spenden habt ihr vielen Hunden eine zweite Chance im Leben geschenkt.\n\nNun möchten wir in Zusammenarbeit mit BAWA und Connect for Cause das nächste große Ziel angehen. Mit euren wöchentlichen Spenden werden wir mitten auf Bali die Tierliebhaber Tierklinik für BAWA aufbauen 😍 \n\nUnser erstes Ziel haben wir schon erreicht: 3.165€ für den Aufbau der Klinik. Jetzt geht es darum, die laufenden Kosten für Mitarbeiter, Medizin, Miete usw. zu decken."
@@ -1143,11 +1143,18 @@
           },
           "011087d7-c3b7-4f9c-89c1-814eda2200e1": {
             "type": "item",
-            "disabled": true,
             "settings": {
-              "image": "shopify:\/\/shop_images\/4.png",
-              "item-headline": "durch Tiere meine Welt zu einem besseren Ort wird.",
-              "item-subline": "Ottilie"
+              "image": "shopify:\/\/shop_images\/Luise.png",
+              "item-headline": "Von den Tieren können wir noch so viel lernen.",
+              "item-subline": "Luise"
+            }
+          },
+          "8c5e510e-1173-4b3d-86f9-42d6ca1c0d3c": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Oli.png",
+              "item-headline": "Meine Hunde mich zu einem besseren Menschen machen.",
+              "item-subline": "Oliver"
             }
           }
         },
@@ -1162,7 +1169,8 @@
           "907d64bb-7ed5-4221-819c-5ba7bad02c9a",
           "fbc8d66f-53c5-48bf-97bc-18660c2decc3",
           "7fc1f111-fcf6-44c4-8333-2d6d0965c18b",
-          "011087d7-c3b7-4f9c-89c1-814eda2200e1"
+          "011087d7-c3b7-4f9c-89c1-814eda2200e1",
+          "8c5e510e-1173-4b3d-86f9-42d6ca1c0d3c"
         ],
         "settings": {
           "background-color": "#f2f8f5",
@@ -1198,6 +1206,30 @@
           "link_text": ">>> JETZT SPENDEN <<<",
           "link_url": "https:\/\/tierliebhaber.de\/products\/spende?_pos=1&_sid=bc571c26c&_ss=r"
         }
+      },
+      "3559dc62-d83b-4292-b2e6-247d79d33780": {
+        "type": "slideshow",
+        "settings": {
+          "show_fullscreen": false,
+          "show_arrow": false,
+          "autoplay": true,
+          "cycle_speed": 5,
+          "text_color": "#ffffff",
+          "button_color": "#363636",
+          "button_background": "#ffffff"
+        }
+      },
+      "356a1b79-1388-4224-ad0f-10ec20c026f0": {
+        "type": "text-with-image",
+        "settings": {
+          "subheading": "",
+          "title": "30 Tage Geld-zurück-Garantie",
+          "image": "shopify:\/\/shop_images\/Untitled_design_5.png",
+          "image_position": "left",
+          "content": "<h4>100% Wirksamkeits-Garantie: Teste unsere Produkte komplett ohne Risiko. Wir sind so von der Wirksamkeit unserer Produkte überzeugt, dass wir dir das Geld zurückerstatten, falls du nicht zufrieden bist. Wende das Produkt entsprechend der Empfehlung mind. 30 - 90 Tage an. Danach hast du 30 Tage lang Zeit, das Produkt an uns zurückzuschicken.* Wir erstatten dir daraufhin den vollen Kaufpreis. Bitte sei dir jedoch bewusst, dass die Produkte keine Zaubermittel sind :)<\/h4><h6>*Die Kosten der Rücksendung trägst du selbst. <\/h6>",
+          "link_text": "",
+          "link_url": ""
+        }
       }
     },
     "content_for_index": [
@@ -1206,6 +1238,7 @@
       "16282318717ce7acd5",
       "16288779949bca7a14",
       "1630563614cd6684d8",
+      "356a1b79-1388-4224-ad0f-10ec20c026f0",
       "164847561630f9cc4a",
       "b94622a9-dfd5-4703-963d-0b90d3126168",
       "1652440853255ce756",
@@ -1219,7 +1252,8 @@
       "1630396737d0d511a7",
       "16282363208edc1fef",
       "162878573798fbf9f0",
-      "1629465395882c28f0"
+      "1629465395882c28f0",
+      "3559dc62-d83b-4292-b2e6-247d79d33780"
     ],
     "blocks": {
       "162859120942cad3d6": {
