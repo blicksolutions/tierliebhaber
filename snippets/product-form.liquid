@@ -327,7 +327,7 @@ for size, we use it to display a size chart (if applicable)
     {%- assign use_primary_button = false -%}
   {%- endif -%}
 
-  <button type="submit" data-use-primary-button="{% if use_primary_button %}true{% else %}false{% endif %}" class="ProductForm__AddToCart Button {% if selected_variant.available and use_primary_button %}Button--primary{% else %}Button--secondary{% endif %} Button--full" {% if selected_variant.available %}data-action="add-to-cart"{% else %}disabled="disabled"{% endif %}>
+  <button type="submit" onclick="_tfa.push({notify: 'event', name: 'add_to_cart', id: 1338323});" data-use-primary-button="{% if use_primary_button %}true{% else %}false{% endif %}" class="ProductForm__AddToCart Button {% if selected_variant.available and use_primary_button %}Button--primary{% else %}Button--secondary{% endif %} Button--full" {% if selected_variant.available %}data-action="add-to-cart"{% else %}disabled="disabled"{% endif %}>
     {%- if selected_variant.available -%}
       <span>{% if product.template_suffix == 'pre-order' %}{{ 'product.form.pre_order' | t }}{% else %}{{atc_text}}{% endif %}</span>
 
