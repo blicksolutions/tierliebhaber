@@ -1,22 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{ locale }}" dir="{{ direction }}" class="{{ checkout_html_classes }}">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, user-scalable=0">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, user-scalable=0"
+    >
     <meta name="referrer" content="origin">
-    
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M2508Q9BXM"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-    gtag('config', 'G-M2508Q9BXM');
+      gtag('config', 'G-M2508Q9BXM');
     </script>
 
-    <!--HYROS -->
+    <!-- HYROS -->
     <script>
       var head = document.head;
       var script = document.createElement("script");
@@ -43,6 +46,11 @@
         'exp.cart.itemCount': {{ checkout.line_items.size }},
       });
     </script>
+    <!-- Taboola Pixel Code -->
+    <script>
+      _tfa.push({notify: 'event', name: 'start_checkout', id: 1338323});
+    </script>
+    <!-- End of Taboola Pixel Code -->
 
     {{ content_for_header }}
 
@@ -75,7 +83,7 @@
         }
       };
     </script>
-    
+
     <style>
       .breadcrumb {
         margin: 0px;
@@ -88,7 +96,7 @@
         position: relative;
         margin-bottom: 20px;
       }
-      
+
       .breadcrumb:before {
         position: absolute;
         top: 12px;
@@ -97,7 +105,7 @@
         height: 2px;
         background: black;
       }
-      
+
       .breadcrumb .breadcrumb__item {
         float: left;
         padding-top: 40px;
@@ -105,7 +113,7 @@
         text-align: center;
         position: relative;
       }
-      
+
       .breadcrumb .breadcrumb__item:after {
         counter-increment: breadcrumb;
         content: counter(breadcrumb);
@@ -120,7 +128,7 @@
         background: #000000;
         color: white;
       }
-      
+
       .breadcrumb .breadcrumb__item--completed:after{
         cursor: pointer;
       }
@@ -137,7 +145,7 @@
         width: 100%;
         height: 2px;
         background: #5CAB68;
-        
+
       }
 
       .breadcrumb .breadcrumb__item--current::after {
@@ -214,6 +222,7 @@
 
     {{ tracking_code }}
     <script>
+      
       document.querySelector('.breadcrumb').innerHTML += `<li class="breadcrumb__item">
         <a class="breadcrumb__text">Fertig</a>
       </li>`;
@@ -222,6 +231,7 @@
           elem.querySelector(".breadcrumb__link").click();
         });
       });
+
     </script>
   </body>
 </html>
