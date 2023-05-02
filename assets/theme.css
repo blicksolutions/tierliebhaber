@@ -11863,7 +11863,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
     font-size: 12px;
     color: #6A6B6A;
     letter-spacing: normal;
-    min-width: 177px;
+    min-width: 160px;
     padding-top: 13px;
     margin-top: 5px;
 }
