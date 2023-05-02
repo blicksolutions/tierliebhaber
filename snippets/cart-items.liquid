@@ -68,7 +68,7 @@
         <div class="CartItem__Meta Heading Text--subdued">
           {%- unless line_item.product.has_only_default_variant or line_item.product.type == "Donation" -%}
             <div class="CartItem__Variant-Wrapper">
-              <span class="CartItem__Variant-label">Inhalt:</span><p class="CartItem__Variant">{{ line_item.variant.title }}</p>
+              <span class="CartItem__Variant-label">Variante:</span><p class="CartItem__Variant">{{ line_item.variant.title }}</p>
             </div>
           {%- endunless -%}
 
