@@ -67,7 +67,9 @@
 
         <div class="CartItem__Meta Heading Text--subdued">
           {%- unless line_item.product.has_only_default_variant or line_item.product.type == "Donation" -%}
-            <p class="CartItem__Variant">{{ line_item.variant.title }}</p>
+            <div class="CartItem__Variant-Wrapper">
+              <span class="CartItem__Variant-label">Variante:</span><p class="CartItem__Variant">{{ line_item.variant.title }}</p>
+            </div>
           {%- endunless -%}
 
           {%- if line_item.selling_plan_allocation -%}
@@ -90,6 +92,23 @@
             {%- endif -%}
           {%- endunless -%}
 
+          <div class="CartItem__Price__Wrapper">
+            {%- for variant in line_item.product.variants -%}
+              {%- if line_item.id == variant.id -%}
+                {%- if line_item.selling_plan_allocation -%}
+                  <span class="CartItem__Price Price">{{ line_item.selling_plan_allocation.price | money_without_trailing_zeros }}</span>
+                {% endif %}
+          
+                {%- unless line_item.selling_plan_allocation -%}
+                  {%- if variant.compare_at_price > variant.price -%}
+                    <span class="CartItem__OriginalPrice Price Price--compareAt">{{ variant.compare_at_price | money_without_trailing_zeros }}</span>
+                  {% endif %}
+                  <span class="CartItem__Price Price">{{ variant.price | money_without_trailing_zeros }}</span>
+                {% endunless %}
+              {% endif %}
+            {%- endfor -%}
+          </div>
+            
           {%- if line_item.unit_price_measurement -%}
             <div class="CartItem__UnitPriceMeasurement">
               <div class="UnitPriceMeasurement Heading Text--subdued">

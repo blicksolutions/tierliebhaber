@@ -1,0 +1,37 @@
+.CartItem__Title.Heading {
+    margin-top: 0;
+}
+
+#sidebar-cart .CartItem__Variant {
+    display: inline-block;
+}
+
+#sidebar-cart .CartUpsells__Container .CartItem__Variant {
+    display: none;
+}
+
+.CartItem__Variant {
+    margin-left: 5px;
+}
+
+.CartItem__Variant-label,
+.CartItem__Variant {
+    font-size: 14px;
+}
+
+.CartItem__Price__Wrapper {
+    display: inline-block;
+}
+
+.CartItem__Price {
+    font-size: 16px;
+    color: #6A6B6A;
+}
+
+#sidebar-cart .Price.Price--compareAt {
+    font-size: 10px;
+}
+
+.cartGiftItem .CartItem__Price__Wrapper {
+    display: none;
+}
