@@ -1,17 +1,17 @@
 
-<!-- Begin ReCharge code -->
-<p id="rc_link_container">
-  <a href="/tools/recurring/login">Manage Subscriptions</a>
-</p>
-<!-- End ReCharge code -->
-
 <div class="Container Container--narrow">
   <header class="PageHeader">
     <a href="{{ routes.account_logout_url }}" class="PageHeader__Back Heading Text--subdued Link Link--primary u-h7">{{ 'customer.account.logout' | t }}</a>
 
     <div class="SectionHeader">
+      <div></div>
       <h1 class="SectionHeader__Heading Heading u-h1">{{ 'customer.account.title' | t }}</h1>
-      <p class="SectionHeader__Description">{{ 'customer.account.welcome' | t: first_name: customer.first_name }}</p>
+      <!-- Begin ReCharge code -->
+      <span id="rc_link_container">
+        <a href="/tools/recurring/login">Manage Subscriptions</a>
+      </span>
+      <!-- End ReCharge code -->
+      <span class="SectionHeader__Description">{{ 'customer.account.welcome' | t: first_name: customer.first_name }}</span>
     </div>
   </header>
 
