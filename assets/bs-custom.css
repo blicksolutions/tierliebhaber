@@ -46,3 +46,10 @@
         display: inline-block;
     }
 }
+
+@media (min-width: 960px){
+    .rc_layout__container #customer_tab_content .col-md-6 {
+        flex: initial;
+        max-width: initial;
+    }
+}
