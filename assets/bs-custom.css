@@ -37,6 +37,12 @@
 }
 
 .PageHeader .SectionHeader #rc_link_container {
-    margin-left: 40px;
     font-weight: bold;
+}
+
+@media screen and (min-width: 641px){
+    .PageHeader .SectionHeader #rc_link_container {
+        margin-left: 40px;
+        display: inline-block;
+    }
 }
