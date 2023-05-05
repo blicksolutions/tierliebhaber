@@ -35,3 +35,25 @@
 .cartGiftItem .CartItem__Price__Wrapper {
     display: none;
 }
+
+.PageHeader .SectionHeader #rc_link_container {
+    font-weight: bold;
+}
+
+@media screen and (min-width: 641px){
+    .PageHeader .SectionHeader #rc_link_container {
+        margin-left: 40px;
+        display: inline-block;
+    }
+}
+
+.rc_layout__container{
+    margin-top: 20px;
+}
+
+@media (min-width: 960px){
+    .rc_layout__container #customer_tab_content .col-md-6 {
+        flex: initial;
+        max-width: initial;
+    }
+}
