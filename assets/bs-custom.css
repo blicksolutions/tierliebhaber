@@ -57,3 +57,7 @@
         max-width: initial;
     }
 }
+
+#sidebar-cart .Price--compareAt + .CartItem__Price {
+    color: var(--product-sale-price-color);
+}
