@@ -490,15 +490,26 @@
           "16282318717ce7acd5-0": {
             "type": "collection",
             "settings": {
-              "collection": "bundles",
-              "title": "Bundles",
-              "grid_items_count": 8,
+              "collection": "kundenlieblinge",
+              "title": "Kundenlieblinge",
+              "grid_items_count": 4,
               "button_text": "Alle Produkte entdecken"
+            }
+          },
+          "df7c1a71-e5c0-49cb-a845-24cfbb2ffa62": {
+            "type": "collection",
+            "disabled": true,
+            "settings": {
+              "collection": "",
+              "title": "",
+              "grid_items_count": 8,
+              "button_text": "View all products"
             }
           }
         },
         "block_order": [
-          "16282318717ce7acd5-0"
+          "16282318717ce7acd5-0",
+          "df7c1a71-e5c0-49cb-a845-24cfbb2ffa62"
         ],
         "settings": {
           "title": "",
@@ -1230,14 +1241,41 @@
           "link_text": "",
           "link_url": ""
         }
+      },
+      "b4edff6c-2010-46ec-a9c1-d1678e7808e8": {
+        "type": "featured-collections",
+        "blocks": {
+          "b4edff6c-2010-46ec-a9c1-d1678e7808e8-1683533670b5617a3b-0": {
+            "type": "collection",
+            "settings": {
+              "collection": "bundles",
+              "title": "Spar-Pakete",
+              "grid_items_count": 4,
+              "button_text": "Alle Produkte entdecken"
+            }
+          }
+        },
+        "block_order": [
+          "b4edff6c-2010-46ec-a9c1-d1678e7808e8-1683533670b5617a3b-0"
+        ],
+        "settings": {
+          "title": "",
+          "layout_mode": "carousel",
+          "show_product_info": true,
+          "show_vendor": false,
+          "show_color_swatch": false,
+          "grid_mobile_items_per_row": "2",
+          "grid_desktop_items_per_row": 4
+        }
       }
     },
     "content_for_index": [
       "slideshow",
       "1628785723a639a63d",
-      "16282318717ce7acd5",
-      "16288779949bca7a14",
       "1630563614cd6684d8",
+      "16288779949bca7a14",
+      "16282318717ce7acd5",
+      "b4edff6c-2010-46ec-a9c1-d1678e7808e8",
       "356a1b79-1388-4224-ad0f-10ec20c026f0",
       "164847561630f9cc4a",
       "b94622a9-dfd5-4703-963d-0b90d3126168",
