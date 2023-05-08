@@ -858,59 +858,60 @@
           "ab316d36-4c17-4afc-83ea-1d5816e1f122": {
             "type": "link",
             "settings": {
-              "url": "shopify:\/\/collections\/funktionssnacks",
-              "title": "Funktions&shy;snacks",
+              "url": "shopify:\/\/collections\/darmpflege",
+              "title": "DARMPFLEGE",
               "limited": false,
-              "image": "shopify:\/\/shop_images\/icon-funktionssnacks.png"
+              "image": "shopify:\/\/shop_images\/shop_icons_Darm.png"
             }
           },
           "863a849c-20ff-43f6-9cd9-94073d6fd04d": {
             "type": "link",
             "settings": {
-              "url": "shopify:\/\/collections\/erganzungen",
-              "title": "Ergänzung&shy;en",
+              "url": "shopify:\/\/collections\/z-produkte",
+              "title": "Z-PRODUKTE",
               "limited": false,
-              "image": "shopify:\/\/shop_images\/icon-belohnung.png"
+              "image": "shopify:\/\/shop_images\/shop_icons_Z-Produkte.png"
             }
           },
           "a430d2ff-cdbf-4f9c-84e1-9663c871ea7e": {
             "type": "link",
             "settings": {
-              "url": "shopify:\/\/collections\/zahnpflege",
-              "title": "Zahnpflege",
+              "url": "shopify:\/\/collections\/gelenke",
+              "title": "GELENKE",
               "limited": false,
-              "image": "shopify:\/\/shop_images\/icon-zahnpflege.png"
+              "image": "shopify:\/\/shop_images\/shop_icons_Gelenke.png"
             }
           },
           "c78385cd-6e9a-4a63-bfd9-127c16d13879": {
             "type": "link",
             "settings": {
-              "url": "shopify:\/\/collections\/gelenke",
-              "title": "Gelenke",
+              "url": "shopify:\/\/collections\/beruhigung",
+              "title": "BERUHIGUNG",
               "limited": false,
-              "image": "shopify:\/\/shop_images\/gelenksymbol.png"
+              "image": "shopify:\/\/shop_images\/shop_icons_Beruhigung.png"
             }
           },
           "4530082d-54d6-4f71-8956-6a66a0d4fe53": {
             "type": "link",
             "settings": {
-              "url": "shopify:\/\/collections\/pflege",
-              "title": "Pflege",
+              "url": "shopify:\/\/collections\/zahnpflege",
+              "title": "ZAHNPFLEGE",
               "limited": false,
-              "image": "shopify:\/\/shop_images\/icon-pflege.png"
+              "image": "shopify:\/\/shop_images\/shop_icons_Zahnpflege.png"
             }
           },
           "01824073-761e-438c-8aa0-a0ad004d0ea9": {
             "type": "link",
             "settings": {
-              "url": "shopify:\/\/collections\/futter",
-              "title": "Futter",
+              "url": "shopify:\/\/collections\/kundenlieblinge",
+              "title": "KUNDENLIEBLINGE",
               "limited": false,
-              "image": "shopify:\/\/shop_images\/icon-hundefutter.png"
+              "image": "shopify:\/\/shop_images\/shop_icons_Kundenlieblinge.png"
             }
           },
           "5e642c2d-5f0f-47e1-a40e-c619d4d25457": {
             "type": "link",
+            "disabled": true,
             "settings": {
               "url": "shopify:\/\/collections\/bundles",
               "title": "Bundles",
