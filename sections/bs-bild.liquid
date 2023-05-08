@@ -2,8 +2,13 @@
 
 <style>
     .Bild__image {
-        height: auto;
-        width: {{ section.settings.bild_image_width }}%;
+        width: {{ section.settings.bild_image_size_mobile }}%;
+    }
+
+    @media (min-width: 768px) {
+        .Bild__image {
+            width: {{ section.settings.bild_image_size_desktop }}%;
+        }    
     }
 </style>
 
@@ -42,8 +47,18 @@
             },
             {
                 "type": "range",
-                "id": "bild_image_width",
-                "label": "Image width",
+                "id": "bild_image_size_mobile",
+                "label": "Image size mobile",
+                "min": 10,
+                "max": 100,
+                "step": 10,
+                "unit": "%",
+                "default": 50
+            },
+            {
+                "type": "range",
+                "id": "bild_image_size_desktop",
+                "label": "Image size desktop",
                 "min": 10,
                 "max": 100,
                 "step": 10,
