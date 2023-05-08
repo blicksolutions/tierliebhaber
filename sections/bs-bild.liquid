@@ -3,7 +3,43 @@
 {% schema %}
     {
         "name": "Bild",
-        "settings": [],
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "bild_image",
+                "label": "Image"
+            },
+            {
+                "type": "select",
+                "id": "horizontal_alignment",
+                "label": "Horizontal alignment",
+                "options": [
+                        {
+                        "value": "left",
+                        "label": "Left"
+                        },
+                        {
+                        "value": "middle",
+                        "label": "Middle"
+                        },
+                        {
+                        "value": "right",
+                        "label": "Right"
+                        }
+                    ],
+                "default": "middle"
+            },
+            {
+                "type": "range",
+                "id": "bild_image_width",
+                "label": "Image width",
+                "min": 10,
+                "max": 100,
+                "step": 10,
+                "unit": "%",
+                "default": 50
+            }
+        ],
         "presets": [
             {
             "name": "Bild"
