@@ -1,0 +1,17 @@
+.Bild {
+    width: 100%;
+    display: flex;
+}
+
+.Bild--left {
+    justify-content: flex-start;
+}
+
+.Bild--middle {
+    justify-content: center;
+}
+
+.Bild--right {
+    justify-content: flex-end;
+}
+

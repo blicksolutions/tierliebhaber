@@ -1,5 +1,16 @@
 {{ "bs-bild.css" | asset_url | stylesheet_tag }}
 
+<style>
+    .Bild__image {
+        height: auto;
+        width: {{ section.settings.bild_image_width }}%;
+    }
+</style>
+
+<div class="Bild {% if section.settings.horizontal_alignment %}Bild--{{ section.settings.horizontal_alignment }}{% endif %}">
+    {{ section.settings.bild_image | image_url: width: 4000 | image_tag: class: "Bild__image" }}
+</div>
+
 {% schema %}
     {
         "name": "Bild",
