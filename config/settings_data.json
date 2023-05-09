@@ -70,6 +70,7 @@
         "type": "announcement",
         "settings": {
           "enable_bar": true,
+          "sticky_bar": true,
           "home_page_only": false,
           "enable_trustpilot_widget": true,
           "trustpilot_html": "<div class=\"trustpilot-widget\" data-locale=\"de-DE\" data-template-id=\"5419b6ffb0d04a076446a9af\" data-businessunit-id=\"60d5db8ab6c75b0001a3a5e3\" data-style-height=\"20px\" data-style-width=\"100%\" data-theme=\"light\">\n  <a href=\"https:\/\/de.trustpilot.com\/review\/tierliebhaber.de\" target=\"_blank\" rel=\"noopener\">Trustpilot<\/a>\n<\/div>",
@@ -83,6 +84,7 @@
         "type": "header",
         "settings": {
           "use_sticky_header": true,
+          "use_sticky_announcement": true,
           "logo": "shopify:\/\/shop_images\/schriftzug-closeup_1.png",
           "logo_max_width": 200,
           "mobile_logo_max_width": 120,

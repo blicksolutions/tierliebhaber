@@ -448,6 +448,13 @@ HEADER CONTENT
 </header>
 
 <style>
+  {% if section.settings.use_sticky_announcement %}
+  .shopify-section--header {
+    position: sticky;
+    top: 68px;
+  }
+  {% endif %}
+  
   {%- if section.settings.use_sticky_header -%}
     :root {
       --use-sticky-header: 1;
@@ -513,6 +520,12 @@ HEADER CONTENT
       "type": "checkbox",
       "id": "use_sticky_header",
       "label": "Use sticky header",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "use_sticky_announcement",
+      "label": "Use sticky Announcement",
       "default": true
     },
     {
