@@ -1271,6 +1271,69 @@
           "grid_mobile_items_per_row": "2",
           "grid_desktop_items_per_row": 4
         }
+      },
+      "0d3e0768-b47f-4fc4-9c3b-050019c533ac": {
+        "type": "bs-usp",
+        "blocks": {
+          "31fd2d01-4e21-4637-a803-df9aadcfb80f": {
+            "type": "usp_block",
+            "settings": {
+              "usp_url": "shopify:\/\/collections\/0-steuer",
+              "usp_title": "Darmpflege",
+              "usp_image": "shopify:\/\/shop_images\/shop_icons_Darm.png"
+            }
+          },
+          "ec31c985-ca4e-4a27-83ef-14f9fe8f5399": {
+            "type": "usp_block",
+            "settings": {
+              "usp_url": "shopify:\/\/products\/allergietest-hund",
+              "usp_title": "Pflegeleicht",
+              "usp_image": "shopify:\/\/shop_images\/shop_icons_Z-Produkte.png"
+            }
+          },
+          "fd5d41be-5e6e-4efd-845d-a83af6ad23f6": {
+            "type": "usp_block",
+            "settings": {
+              "usp_url": "shopify:\/\/pages\/dein-hund-hat-zahnstein-mit-diesen-5-einfachen-tipps-kannst-du-es-verhindern",
+              "usp_title": "Pflege",
+              "usp_image": "shopify:\/\/shop_images\/shop_icons_Gelenke.png"
+            }
+          },
+          "ccd5dff3-ce93-409b-8d7c-e39225383799": {
+            "type": "usp_block",
+            "settings": {
+              "usp_url": "shopify:\/\/pages\/fastbundles",
+              "usp_title": "Pflege",
+              "usp_image": "shopify:\/\/shop_images\/shop_icons_Zahnpflege.png"
+            }
+          },
+          "8e6c7708-4823-4698-b3bc-787004b2c1f5": {
+            "type": "usp_block",
+            "settings": {
+              "usp_url": "shopify:\/\/blogs\/news\/fellpflege-beim-hund-darauf-kommt-es-an",
+              "usp_title": "Pflege",
+              "usp_image": "shopify:\/\/shop_images\/shop_icons_Beruhigung.png"
+            }
+          },
+          "53f9ee0b-e908-446f-bd1e-49b6dd0b9c56": {
+            "type": "usp_block",
+            "settings": {
+              "usp_url": "shopify:\/\/products\/allergietest-pferd",
+              "usp_title": "Pflege",
+              "usp_image": "shopify:\/\/shop_images\/shop_icons_Kundenlieblinge.png"
+            }
+          }
+        },
+        "block_order": [
+          "31fd2d01-4e21-4637-a803-df9aadcfb80f",
+          "ec31c985-ca4e-4a27-83ef-14f9fe8f5399",
+          "fd5d41be-5e6e-4efd-845d-a83af6ad23f6",
+          "ccd5dff3-ce93-409b-8d7c-e39225383799",
+          "8e6c7708-4823-4698-b3bc-787004b2c1f5",
+          "53f9ee0b-e908-446f-bd1e-49b6dd0b9c56"
+        ],
+        "settings": {
+        }
       }
     },
     "content_for_index": [
@@ -1295,7 +1358,8 @@
       "16282363208edc1fef",
       "162878573798fbf9f0",
       "1629465395882c28f0",
-      "3559dc62-d83b-4292-b2e6-247d79d33780"
+      "3559dc62-d83b-4292-b2e6-247d79d33780",
+      "0d3e0768-b47f-4fc4-9c3b-050019c533ac"
     ],
     "blocks": {
       "162859120942cad3d6": {
