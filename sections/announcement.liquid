@@ -21,6 +21,14 @@
     </section>
 
     <style>
+      {% if section.settings.sticky_bar %}
+        #shopify-section-announcement {
+          position: sticky;
+          z-index: 5;
+          top: 0;
+        }
+      {% endif %}
+
       #section-{{ section.id }} {
         background: {{ section.settings.background }};
         color: {{ section.settings.text_color }};
@@ -42,6 +50,12 @@
       "id": "enable_bar",
       "label": "Enable bar",
       "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky_bar",
+      "label": "Sticky bar",
+      "default": false
     },
     {
       "type": "checkbox",
