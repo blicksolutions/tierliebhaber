@@ -817,6 +817,7 @@
         "blocks": {
           "1630396737d0d511a7-0": {
             "type": "image",
+            "disabled": true,
             "settings": {
               "image": "shopify:\/\/shop_images\/Design_ohne_Titel_5.jpg",
               "mobile_image": "shopify:\/\/shop_images\/versicherung_mobile-01.png",
@@ -1281,6 +1282,15 @@
           "bild_image_size_mobile": 100,
           "bild_image_size_desktop": 20
         }
+      },
+      "c70d9080-5204-4295-b3c1-995b0876cb83": {
+        "type": "bs-bild",
+        "settings": {
+          "bild_image": "shopify:\/\/shop_images\/versicherung_nele_1.png",
+          "horizontal_alignment": "middle",
+          "bild_image_size_mobile": 100,
+          "bild_image_size_desktop": 60
+        }
       }
     },
     "content_for_index": [
@@ -1302,6 +1312,7 @@
       "1634649035d2406c63",
       "16346490400a4b1df7",
       "1629450062a372f406",
+      "c70d9080-5204-4295-b3c1-995b0876cb83",
       "1630396737d0d511a7",
       "16282363208edc1fef",
       "162878573798fbf9f0",
