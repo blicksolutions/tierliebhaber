@@ -1289,12 +1289,12 @@
       "b19906e5-1981-4bbf-8ce1-d0a2d3727570": {
         "type": "bs-usp",
         "blocks": {
-          "cbb517a9-229d-4c66-afb8-69530f46741b": {
+          "5c96523e-491f-4649-84a3-aeac405024d6": {
             "type": "usp_block",
             "settings": {
-              "usp_url": "shopify:\/\/collections\/darmpflege",
-              "usp_title": "DARMPFLEGE",
-              "usp_image": "shopify:\/\/shop_images\/shop_icons_Darm.png"
+              "usp_url": "shopify:\/\/collections\/zahnpflege",
+              "usp_title": "ZAHNPFLEGE",
+              "usp_image": "shopify:\/\/shop_images\/shop_icons_Zahnpflege.png"
             }
           },
           "07d970b9-4f37-4c66-a836-b41f2fe0019f": {
@@ -1303,6 +1303,14 @@
               "usp_url": "shopify:\/\/collections\/z-produkte",
               "usp_title": "Z-Produkte",
               "usp_image": "shopify:\/\/shop_images\/shop_icons_Z-Produkte.png"
+            }
+          },
+          "cbb517a9-229d-4c66-afb8-69530f46741b": {
+            "type": "usp_block",
+            "settings": {
+              "usp_url": "shopify:\/\/collections\/darmpflege",
+              "usp_title": "DARMPFLEGE",
+              "usp_image": "shopify:\/\/shop_images\/shop_icons_Darm.png"
             }
           },
           "3bb5f842-a8c4-42aa-9a62-a626dce6fab9": {
@@ -1321,14 +1329,6 @@
               "usp_image": "shopify:\/\/shop_images\/shop_icons_Beruhigung.png"
             }
           },
-          "5c96523e-491f-4649-84a3-aeac405024d6": {
-            "type": "usp_block",
-            "settings": {
-              "usp_url": "shopify:\/\/collections\/zahnpflege",
-              "usp_title": "ZAHNPFLEGE",
-              "usp_image": "shopify:\/\/shop_images\/shop_icons_Zahnpflege.png"
-            }
-          },
           "ee8ad1bd-62c9-4911-8f09-2de25b44253f": {
             "type": "usp_block",
             "settings": {
@@ -1339,11 +1339,11 @@
           }
         },
         "block_order": [
-          "cbb517a9-229d-4c66-afb8-69530f46741b",
+          "5c96523e-491f-4649-84a3-aeac405024d6",
           "07d970b9-4f37-4c66-a836-b41f2fe0019f",
+          "cbb517a9-229d-4c66-afb8-69530f46741b",
           "3bb5f842-a8c4-42aa-9a62-a626dce6fab9",
           "671c09b6-b3af-45dd-a8f0-223c8cd21809",
-          "5c96523e-491f-4649-84a3-aeac405024d6",
           "ee8ad1bd-62c9-4911-8f09-2de25b44253f"
         ],
         "settings": {
