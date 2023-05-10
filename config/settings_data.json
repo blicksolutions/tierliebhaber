@@ -70,6 +70,7 @@
         "type": "announcement",
         "settings": {
           "enable_bar": true,
+          "sticky_bar": true,
           "home_page_only": false,
           "enable_trustpilot_widget": true,
           "trustpilot_html": "<div class=\"trustpilot-widget\" data-locale=\"de-DE\" data-template-id=\"5419b6ffb0d04a076446a9af\" data-businessunit-id=\"60d5db8ab6c75b0001a3a5e3\" data-style-height=\"20px\" data-style-width=\"100%\" data-theme=\"light\">\n  <a href=\"https:\/\/de.trustpilot.com\/review\/tierliebhaber.de\" target=\"_blank\" rel=\"noopener\">Trustpilot<\/a>\n<\/div>",
@@ -83,6 +84,7 @@
         "type": "header",
         "settings": {
           "use_sticky_header": true,
+          "use_sticky_announcement": true,
           "logo": "shopify:\/\/shop_images\/schriftzug-closeup_1.png",
           "logo_max_width": 200,
           "mobile_logo_max_width": 120,
@@ -110,7 +112,7 @@
             "type": "text",
             "settings": {
               "title": "Erreichbarkeit",
-              "content": "<p>Unser Team ist Montag - Freitag<br\/>von 11:00 - 13:00 Uhr für dich erreichbar<\/p><p>Tel.: +49 34149980019<\/p><p>E-Mail: <a href=\"mailto:info@tierliebhaber.de\">info@tierliebhaber.de<\/a><\/p>",
+              "content": "<p>Unser Team ist jederzeit<br\/>über WhatsApp oder per Mail für dich erreichbar.<\/p><p>+49 176 48097026<\/p><p>E-Mail: <a href=\"mailto:info@tierliebhaber.de\">info@tierliebhaber.de<\/a><\/p>",
               "show_social_media": true
             }
           },
@@ -668,11 +670,11 @@
         ],
         "settings": {
           "title": "Bei Fragen sind wir immer da!",
-          "subtitle": "<p>Bei Fragen zu einer bestehenden Bestellung, schreib uns einfach eine Nachricht per<br\/>WhatsApp oder per E-Mail - bitte schicke uns dazu auch deine Bestellnummer.<\/p><p><strong>Hast du Fragen zu unseren Produkten oder kommst bei einer Bestellung nicht weiter?<\/strong> <br\/><br\/>Evi und Mona sind Montag - Freitag von 11:00 - 13:00 Uhr telefonisch erreichbar<br\/>unter: <br\/><\/p><p><strong>+49 34149980019<\/strong><\/p><p><strong>Du wünschst dir eine Produktberatung oder einen individuellen Rückruf?<\/strong><\/p><p>Schreib uns einfach eine Nachricht per<br\/>WhatsApp oder per E-Mail mit deiner Telefonnummer und wann es für dich zeitlich<br\/>passt, dann melden wir uns sehr gerne bei dir!<\/p>",
+          "subtitle": "<p>Bei Fragen zu einer bestehenden Bestellung, schreib uns einfach eine Nachricht per<br\/>WhatsApp oder per E-Mail - bitte schicke uns dazu auch deine Bestellnummer.<\/p><p><strong>Hast du Fragen zu unseren Produkten oder kommst bei einer Bestellung nicht weiter?<\/strong> <br\/><br\/>Evi und Mona sind jederzeit für dich auf WhatsApp erreichbar.<\/p><p><strong>Du wünschst dir eine Produktberatung oder einen individuellen Rückruf?<\/strong><\/p><p>Schreib uns einfach eine Nachricht per<br\/>WhatsApp oder per E-Mail mit deiner Telefonnummer und wann es für dich zeitlich<br\/>passt, dann melden wir uns sehr gerne bei dir!<\/p>",
           "image": "shopify:\/\/shop_images\/kundenservice_bild_002.png",
           "image_alt": "",
           "cta_title": "Schnell & einfach",
-          "microcopy": "<p><em>Wir melden uns in der Regel <\/em><\/p><p><em>innerhalb eines Tages mit einer Antwort bei dir!<\/em><\/p>"
+          "microcopy": "<p><em>Wir melden uns in der Regel <\/em><\/p><p><em>innerhalb von 3 Werktagen mit einer Antwort bei dir!<\/em><\/p>"
         }
       },
       "1628812121ed1d8117": {
@@ -1053,9 +1055,10 @@
           "title": "",
           "heading_prefix": "Uns fehlen noch",
           "heading_suffix": "für BAWA",
-          "description_heading": "Spende Tierliebe! ❤️🌏",
-          "description_text": "Beim Kauf eines Produkts hast du die Möglichkeit, deinem Einkauf eine Spende hinzuzufügen (an der Kasse). Die Spenden werden wöchentlich an BAWA (Bali Animal Welfare Association) übermittelt und 100% transparent auf Instagram dokumentiert.",
-          "description_disclaimer": "Mit euren Spenden konnten wir in den letzten Monaten schon so vielen Straßenhunden auf Bali helfen. Ob es groß angesetzte Futter- & Sterilisationskampagnen waren oder die Rettung der Hunde von der Straße, mit euren Spenden habt ihr vielen Hunden eine zweite Chance im Leben geschenkt.\n\nNun möchten wir in Zusammenarbeit mit BAWA und Connect for Cause das nächste große Ziel angehen. Mit euren wöchentlichen Spenden werden wir mitten auf Bali die Tierliebhaber Tierklinik für BAWA aufbauen 😍 \n\nUnser erstes Ziel haben wir schon erreicht: 3.165€ für den Aufbau der Klinik. Jetzt geht es darum, die laufenden Kosten für Mitarbeiter, Medizin, Miete usw. zu decken."
+          "description_heading": "Tierliebe spenden - Gutes tun! ❤️🌏",
+          "description_text": "Eure Spenden helfen uns, Straßenhunde auf Bali zu retten und unsere Tierklinik mitten auf Bali weiter aufzubauen.\n\nDu kannst ein wichtiger Teil dieses Hilfsprojekts sein! Dafür danken wir dir!\n\nAuf Instagram & Facebook zeigen wir euch ganz transparent, was mit jedem einzelnen Euro von euch, den ihr liebevoll spendet, alles erreicht wird!",
+          "description_disclaimer": "",
+          "image": "shopify:\/\/shop_images\/spendetl2022.jpg"
         }
       },
       "list-collections-template": {
@@ -1215,8 +1218,8 @@
         "type": "text-with-image",
         "settings": {
           "subheading": "",
-          "title": "Unterstütze uns mit deiner Spende",
-          "image_position": "right",
+          "title": "Hier kannst du spenden",
+          "image_position": "left",
           "content": "<p>Gemeinsam können wir noch viel mehr Hunden helfen, doch dafür brauchen wir deine Unterstüzung!<\/p>",
           "link_text": ">>> JETZT SPENDEN <<<",
           "link_url": "https:\/\/tierliebhaber.de\/products\/spende?_pos=1&_sid=bc571c26c&_ss=r"
@@ -1236,6 +1239,7 @@
       },
       "356a1b79-1388-4224-ad0f-10ec20c026f0": {
         "type": "text-with-image",
+        "disabled": true,
         "settings": {
           "subheading": "",
           "title": "30 Tage Geld-zurück-Garantie",
@@ -1272,67 +1276,13 @@
           "grid_desktop_items_per_row": 4
         }
       },
-      "0d3e0768-b47f-4fc4-9c3b-050019c533ac": {
-        "type": "bs-usp",
-        "blocks": {
-          "31fd2d01-4e21-4637-a803-df9aadcfb80f": {
-            "type": "usp_block",
-            "settings": {
-              "usp_url": "shopify:\/\/collections\/0-steuer",
-              "usp_title": "Darmpflege",
-              "usp_image": "shopify:\/\/shop_images\/shop_icons_Darm.png"
-            }
-          },
-          "ec31c985-ca4e-4a27-83ef-14f9fe8f5399": {
-            "type": "usp_block",
-            "settings": {
-              "usp_url": "shopify:\/\/products\/allergietest-hund",
-              "usp_title": "Pflegeleicht",
-              "usp_image": "shopify:\/\/shop_images\/shop_icons_Z-Produkte.png"
-            }
-          },
-          "fd5d41be-5e6e-4efd-845d-a83af6ad23f6": {
-            "type": "usp_block",
-            "settings": {
-              "usp_url": "shopify:\/\/pages\/dein-hund-hat-zahnstein-mit-diesen-5-einfachen-tipps-kannst-du-es-verhindern",
-              "usp_title": "Pflege",
-              "usp_image": "shopify:\/\/shop_images\/shop_icons_Gelenke.png"
-            }
-          },
-          "ccd5dff3-ce93-409b-8d7c-e39225383799": {
-            "type": "usp_block",
-            "settings": {
-              "usp_url": "shopify:\/\/pages\/fastbundles",
-              "usp_title": "Pflege",
-              "usp_image": "shopify:\/\/shop_images\/shop_icons_Zahnpflege.png"
-            }
-          },
-          "8e6c7708-4823-4698-b3bc-787004b2c1f5": {
-            "type": "usp_block",
-            "settings": {
-              "usp_url": "shopify:\/\/blogs\/news\/fellpflege-beim-hund-darauf-kommt-es-an",
-              "usp_title": "Pflege",
-              "usp_image": "shopify:\/\/shop_images\/shop_icons_Beruhigung.png"
-            }
-          },
-          "53f9ee0b-e908-446f-bd1e-49b6dd0b9c56": {
-            "type": "usp_block",
-            "settings": {
-              "usp_url": "shopify:\/\/products\/allergietest-pferd",
-              "usp_title": "Pflege",
-              "usp_image": "shopify:\/\/shop_images\/shop_icons_Kundenlieblinge.png"
-            }
-          }
-        },
-        "block_order": [
-          "31fd2d01-4e21-4637-a803-df9aadcfb80f",
-          "ec31c985-ca4e-4a27-83ef-14f9fe8f5399",
-          "fd5d41be-5e6e-4efd-845d-a83af6ad23f6",
-          "ccd5dff3-ce93-409b-8d7c-e39225383799",
-          "8e6c7708-4823-4698-b3bc-787004b2c1f5",
-          "53f9ee0b-e908-446f-bd1e-49b6dd0b9c56"
-        ],
+      "cfc032c1-c00f-4d3f-827c-a8fdb86b7458": {
+        "type": "bs-bild",
         "settings": {
+          "bild_image": "shopify:\/\/shop_images\/Untitled_design_5.png",
+          "horizontal_alignment": "middle",
+          "bild_image_size_mobile": 100,
+          "bild_image_size_desktop": 20
         }
       }
     },
@@ -1344,6 +1294,7 @@
       "16288779949bca7a14",
       "16282318717ce7acd5",
       "b4edff6c-2010-46ec-a9c1-d1678e7808e8",
+      "cfc032c1-c00f-4d3f-827c-a8fdb86b7458",
       "356a1b79-1388-4224-ad0f-10ec20c026f0",
       "164847561630f9cc4a",
       "b94622a9-dfd5-4703-963d-0b90d3126168",
