@@ -153,6 +153,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
         });
 
         let subtotalPriceWithoutNoShippingItems = (window.cartData.items_subtotal_price / 100) - noDeliveryItemsTotalPrice;
+
         // console.log("----- new refresh ----")
         if (replaceDelivery && subtotalPriceEl && deliveryCostEl && totalPriceEl && deliveryBarValueEl && deliveryBarLeftTextEl && deliveryBarFinalTextEl && deliveryBarStepLineEl && deliveryBarTextEl) {
             if (hasItemWithDeliveryRequired) {
@@ -169,7 +170,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                             deliveryBarStepLineEl.style.width = (subtotalPriceWithoutNoShippingItems * percentPerEuro) + '%'
                             giftIcon.style.display = 'block';
 
-                            if (window.shippingrates.de.minSubtotalPriceValue >= subtotalPriceWithoutNoShippingItems) {
+                            if (window.shippingrates.de.minSubtotalPriceValue > subtotalPriceWithoutNoShippingItems) {
                                 deliveryCostEl.textContent = '€' + window.shippingrates.de.priceValue.replace('.', ',');
                                 deliveryPriceValue = parseFloat(window.shippingrates.de.priceValue);
                                 deliveryBarFinalTextEl.style.display = 'none';
@@ -240,7 +241,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                             giftIcon.style.display = 'none';
                             deliveryIcon.style.right = '0';
 
-                            if (window.shippingrates.de.minSubtotalPriceValue >= subtotalPriceWithoutNoShippingItems) {
+                            if (window.shippingrates.de.minSubtotalPriceValue > subtotalPriceWithoutNoShippingItems) {
                                 deliveryCostEl.textContent = '€' + window.shippingrates.de.priceValue.replace('.', ',');
                                 deliveryPriceValue = parseFloat(window.shippingrates.de.priceValue);
                                 deliveryBarFinalTextEl.style.display = 'none';
@@ -257,13 +258,12 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                                 deliveryBarStepLineEl.style.width = '100%';
                             }
                         }
-
                         break;
                     case 'AT':
                         giftIcon.style.display = 'none';
                         deliveryIcon.style.right = '0';
 
-                        if (window.shippingrates.at.minSubtotalPriceValue >= subtotalPriceWithoutNoShippingItems) {
+                        if (window.shippingrates.at.minSubtotalPriceValue > subtotalPriceWithoutNoShippingItems) {
                             deliveryCostEl.textContent = '€' + window.shippingrates.at.priceValue.replace('.', ',');
                             deliveryPriceValue = parseFloat(window.shippingrates.at.priceValue);
                             deliveryBarFinalTextEl.style.display = 'none';
@@ -281,7 +281,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                         }
                         break;
                     case 'CH':
-                        if (window.shippingrates.ch.minSubtotalPriceValue >= subtotalPriceWithoutNoShippingItems) {
+                        if (window.shippingrates.ch.minSubtotalPriceValue > subtotalPriceWithoutNoShippingItems) {
                             deliveryCostEl.textContent = '€' + window.shippingrates.ch.priceValue.replace('.', ',');
                             deliveryPriceValue = parseFloat(window.shippingrates.ch.priceValue);
                             deliveryBarFinalTextEl.style.display = 'none';
@@ -300,7 +300,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                         break;
                     default:
                         // use de
-                        if (window.shippingrates.de.minSubtotalPriceValue >= subtotalPriceWithoutNoShippingItems) {
+                        if (window.shippingrates.de.minSubtotalPriceValue > subtotalPriceWithoutNoShippingItems) {
                             deliveryCostEl.textContent = '€' + window.shippingrates.de.priceValue.replace('.', ',');
                             deliveryPriceValue = parseFloat(window.shippingrates.de.priceValue);
                             deliveryBarFinalTextEl.style.display = 'none';
