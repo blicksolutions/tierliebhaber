@@ -36,6 +36,12 @@ for size, we use it to display a size chart (if applicable)
     <!-- Begin ReCharge code --> 
     <div class="rc-widget-injection-parent"></div>
     <!-- End ReCharge code -->
+  {%- else -%}
+  <style>
+    .rc-container-wrapper{
+      display: none;
+    }
+  </style>
   {%- endif -%}
 
   <div class="ProductForm__Variants">
