@@ -1,0 +1,323 @@
+{
+  "sections": {
+    "main": {
+      "type": "product-template",
+      "settings": {
+        "show_share_buttons": false,
+        "show_vendor": false,
+        "show_sku": false,
+        "show_taxes_included": true,
+        "selector_mode": "block",
+        "show_color_swatch": false,
+        "show_color_carousel": false,
+        "show_quantity_selector": false,
+        "show_inventory_quantity": false,
+        "inventory_quantity_threshold": 0,
+        "show_price_in_button": false,
+        "show_payment_button": false,
+        "payment_providers": "paypal, klarna, master, visa, sofort, apple_pay",
+        "show_pickup_availability": false,
+        "image_size": "medium",
+        "stack_images": false,
+        "show_thumbnails": true,
+        "enable_image_zoom": false,
+        "enable_video_looping": false,
+        "tab_page_1_handle": "",
+        "tab_page_2_handle": "",
+        "reviews_enabled": false,
+        "featured_image_size": "large",
+        "benefit_item_1_image": "shopify:\/\/shop_images\/icons8-benutzergruppe-mann-frau-80.png",
+        "benefit_item_1_title": "Über 165.000 glückliche Kunden",
+        "benefit_item_2_image": "shopify:\/\/shop_images\/image_8.png",
+        "benefit_item_2_title": "Versandkostenfrei ab 49€ in DE"
+      }
+    },
+    "bundles": {
+      "type": "bundles",
+      "settings": {
+        "heading_text": "Passt perfekt dazu:",
+        "banner_text": "im Bundle",
+        "atc_text": "Im Bundle kaufen!",
+        "tile_background_color": "#f7f5f2",
+        "banner_bg_color": "#fef3ef",
+        "banner_font_color": "#e6b2a1",
+        "banner_border_color": "#e6b2a1",
+        "offer_price_font_color": "#027c09",
+        "ppu_font_color": "#8e8e8e",
+        "swiper_nav_icon_prev": "shopify:\/\/shop_images\/icon_2.png",
+        "swiper_nav_icon_next": "shopify:\/\/shop_images\/icon.png"
+      }
+    },
+    "1628804794af0431f7": {
+      "type": "benefits",
+      "settings": {
+        "title": "Vorteile"
+      }
+    },
+    "16288047979ee0ca29": {
+      "type": "content-accordion",
+      "settings": {
+      }
+    },
+    "16288473445aa6c049": {
+      "type": "image-with-text",
+      "settings": {
+      }
+    },
+    "1652874593f2ea11e0": {
+      "type": "polaroid-slider",
+      "blocks": {
+        "5431d682-ffc0-4388-a307-b5b313d167cb": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1.png",
+            "item-headline": "Tierliebhaber zu sein verbindet.",
+            "item-subline": "Marcel"
+          }
+        },
+        "6c5e3c34-c10d-4537-b368-bb17dce45a0f": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2.png",
+            "item-headline": "diese Liebe für mich bedingungslos ist.",
+            "item-subline": "Mona"
+          }
+        },
+        "1bca3c10-3277-4ee6-94b0-07eb9688229c": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/7.png",
+            "item-headline": "Tieren egal ist, wer du bist und was du hast. Bist du gut zu ihnen, sind sie gut zu dir!",
+            "item-subline": "Tom"
+          }
+        },
+        "aa6287a9-7958-40c0-9ab4-7576b9d68445": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/5.png",
+            "item-headline": "die Liebe eines Tieres unvergleichbar bedingungslos ist.",
+            "item-subline": "Artur"
+          }
+        },
+        "c9fde5be-c56a-492d-9528-3c600992cc46": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/9.png",
+            "item-headline": "Tiere die ehrlichste Form des Lebens zeigen!",
+            "item-subline": "Tim"
+          }
+        },
+        "26d1a347-5bc1-4516-bd1b-39399a14a5de": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/6_5a799019-89f6-42a9-8f05-7c06d39d6f15.png",
+            "item-headline": "Luna mich zum besseren Menschen macht.",
+            "item-subline": "Celine"
+          }
+        },
+        "3773d6e3-28c8-421d-ba50-bdbc8c8dd1d7": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/11.png",
+            "item-headline": "Tiere einfach unheimlich viel Wärme zurückgeben!",
+            "item-subline": "Thomas"
+          }
+        },
+        "7b367471-f160-49c4-8ea9-092c54d181aa": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/8.png",
+            "item-headline": "Tierliebe verbindet und meine Sprotte mich immer zum Lächeln bringt.",
+            "item-subline": "Katharina"
+          }
+        },
+        "a22cd147-6aa3-4be7-9e45-caeeb8f09135": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/10.png",
+            "item-headline": "meine Hunde für jeden Spaß zu haben sind.",
+            "item-subline": "Evelyn"
+          }
+        },
+        "9b447129-de8b-437e-9ff8-cb4d1480e6d4": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Oli.png",
+            "item-headline": "Meine Hunde mich zu einem besseren Menschen machen.",
+            "item-subline": "Oliver"
+          }
+        },
+        "03931279-b774-4f46-85d3-4ab9b5cc60a3": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/3.png",
+            "item-headline": "jedes Tier Inspiration birgt.",
+            "item-subline": "Jonas"
+          }
+        },
+        "419089b6-7656-4b0f-9666-86eeabacd780": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Luise.png",
+            "item-headline": "Von den Tieren können wir noch so viel lernen.",
+            "item-subline": "Luise"
+          }
+        },
+        "cb1c90d6-9720-4f2f-8c46-04ff25052d36": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Dagmar.jpg",
+            "item-headline": "Weil mir Tiere das geben, was so mancher Mensch nicht vermag.",
+            "item-subline": "DAGMAR"
+          }
+        },
+        "f947fbb9-61ed-455b-9221-cfa2d6aa76b2": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Leila.jpg",
+            "item-headline": "Tiere einfach herzensgut sind.",
+            "item-subline": "LEILA"
+          }
+        },
+        "d0e09e61-6965-49ef-b293-ee583ff60dfa": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/WhatsApp_Image_2023-05-22_at_13.10.34.jpg",
+            "item-headline": "Es mir wichtig ist, dass es allen Tieren unserer Kunden gut geht.",
+            "item-subline": "ALMUTH"
+          }
+        }
+      },
+      "block_order": [
+        "5431d682-ffc0-4388-a307-b5b313d167cb",
+        "6c5e3c34-c10d-4537-b368-bb17dce45a0f",
+        "1bca3c10-3277-4ee6-94b0-07eb9688229c",
+        "aa6287a9-7958-40c0-9ab4-7576b9d68445",
+        "c9fde5be-c56a-492d-9528-3c600992cc46",
+        "26d1a347-5bc1-4516-bd1b-39399a14a5de",
+        "3773d6e3-28c8-421d-ba50-bdbc8c8dd1d7",
+        "7b367471-f160-49c4-8ea9-092c54d181aa",
+        "a22cd147-6aa3-4be7-9e45-caeeb8f09135",
+        "9b447129-de8b-437e-9ff8-cb4d1480e6d4",
+        "03931279-b774-4f46-85d3-4ab9b5cc60a3",
+        "419089b6-7656-4b0f-9666-86eeabacd780",
+        "cb1c90d6-9720-4f2f-8c46-04ff25052d36",
+        "f947fbb9-61ed-455b-9221-cfa2d6aa76b2",
+        "d0e09e61-6965-49ef-b293-ee583ff60dfa"
+      ],
+      "settings": {
+        "background-color": "#ffffff",
+        "slider-headline": "Wir sind Tierliebhaber",
+        "slider-subline": "Vom Versand bis zum Kundenservice steckt jede menge ❤️ drin!"
+      }
+    },
+    "16288048826c658212": {
+      "type": "product-reviews",
+      "settings": {
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "show_product_recommendations": true,
+        "heading": "Das könnte dir auch gefallen",
+        "show_product_info": true,
+        "show_vendor": false,
+        "show_color_swatch": false
+      }
+    },
+    "1635243951ca87a38d": {
+      "type": "custom-html",
+      "disabled": true,
+      "settings": {
+        "subheading": "Auf Trustpilot",
+        "title": "Meinungen anderer Kunden",
+        "html": "<!-- TrustBox widget - Quote -->\n<div class=\"trustpilot-widget\" data-locale=\"de-DE\" data-template-id=\"54d0e1d8764ea9078c79e6ee\" data-businessunit-id=\"60d5db8ab6c75b0001a3a5e3\" data-style-height=\"300px\" data-style-width=\"100%\" data-theme=\"light\" data-stars=\"4,5\" data-review-languages=\"de\">\n  <a href=\"https:\/\/de.trustpilot.com\/review\/tierliebhaber.de\" target=\"_blank\" rel=\"noopener\">Trustpilot<\/a>\n<\/div>\n<!-- End TrustBox widget -->"
+      }
+    },
+    "recently-viewed-products": {
+      "type": "recently-viewed-products",
+      "disabled": true,
+      "settings": {
+        "show_section": true,
+        "title": "Recently viewed",
+        "show_product_info": true,
+        "show_vendor": false,
+        "show_color_swatch": false
+      }
+    },
+    "162880489936c4738f": {
+      "type": "seo-content",
+      "settings": {
+        "seo_content": "{{ product.metafields.content.seo.value }}"
+      }
+    },
+    "16288049026c8dd7d1": {
+      "type": "contact",
+      "blocks": {
+        "6019ae12-5366-4bb0-b0fb-d5360dbf448b": {
+          "type": "button",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/whatsapp.png",
+            "image_alt": "",
+            "text": "Per WhatsApp",
+            "color": "#43c253",
+            "url": "https:\/\/api.whatsapp.com\/send\/?phone=4917648097026&text=Hey,%20ich%20habe%20eine%20Frage,%20auf%20die%20ich%20keine%20Antworte%20finde%20auf%20eurer%20Seite.%20%E2%98%BA%EF%B8%8F"
+          }
+        },
+        "7e85fc1c-a467-4500-83c7-3f55b878b381": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/anruf.png",
+            "image_alt": "",
+            "text": "Ruf uns an",
+            "color": "#f1af9e",
+            "url": "tel:034149980019"
+          }
+        },
+        "cd707ae6-291b-4929-8937-dbe7654b243d": {
+          "type": "button",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/email.png",
+            "image_alt": "",
+            "text": "Per Email",
+            "color": "#dddddd",
+            "url": "mailto:info@tierliebhaber.de"
+          }
+        }
+      },
+      "block_order": [
+        "6019ae12-5366-4bb0-b0fb-d5360dbf448b",
+        "7e85fc1c-a467-4500-83c7-3f55b878b381",
+        "cd707ae6-291b-4929-8937-dbe7654b243d"
+      ],
+      "settings": {
+        "title": "Fragen? Wir sind für dich da...",
+        "subtitle": "<p>Bei Fragen zu einer bestehenden Bestellung, schreib uns einfach eine Nachricht per<br\/>WhatsApp oder per E-Mail - bitte schicke uns dazu auch deine Bestellnummer.<\/p><p><strong>Hast du Fragen zu unseren Produkten oder kommst bei einer Bestellung nicht weiter?<\/strong> <br\/><br\/>Evi und Mona sind jederzeit für dich auf WhatsApp erreichbar.<\/p><p><strong>Du wünschst dir eine Produktberatung oder einen individuellen Rückruf?<\/strong><\/p><p>Schreib uns einfach eine Nachricht per WhatsApp oder per E-Mail mit deiner Telefonnummer und wann es für dich zeitlich passt, dann melden wir uns sehr gerne bei dir!<\/p>",
+        "image": "shopify:\/\/shop_images\/kundenservice_bild_002.png",
+        "image_alt": "",
+        "cta_title": "Schnell & einfach",
+        "microcopy": "<p><em>Wir melden uns innerhalb von 3 Werktagen mit einer Antwort bei dir zurück!<\/em><\/p>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "bundles",
+    "1628804794af0431f7",
+    "16288047979ee0ca29",
+    "16288473445aa6c049",
+    "1652874593f2ea11e0",
+    "16288048826c658212",
+    "recommendations",
+    "1635243951ca87a38d",
+    "recently-viewed-products",
+    "162880489936c4738f",
+    "16288049026c8dd7d1"
+  ]
+}
