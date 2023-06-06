@@ -2998,6 +2998,13 @@ select::-ms-expand {
     }
 }
 
+@media screen and (min-width: 1140px) and (max-width: 1360px) {
+    .Header__MainNav .HorizontalList--spacingExtraLoose .HorizontalList__Item {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+}
+
 /**
  * ----------------------------------------------------------------------------
  * Image overlay
