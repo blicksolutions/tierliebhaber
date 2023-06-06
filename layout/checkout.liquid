@@ -1,6 +1,50 @@
 <!doctype html>
 <html lang="{{ locale }}" dir="{{ direction }}" class="{{ checkout_html_classes }}">
   <head>
+    <script type="text/javascript">
+    // Duration in milliseconds to wait while the Kameleoon application file is loaded
+    var kameleoonLoadingTimeout = 1000;
+
+    window.kameleoonQueue = window.kameleoonQueue || [];
+    window.kameleoonStartLoadTime = new Date().getTime();
+    if (! document.getElementById("kameleoonLoadingStyleSheet") && ! window.kameleoonDisplayPageTimeOut)
+    {
+        var kameleoonS = document.getElementsByTagName("script")[0];
+        var kameleoonCc = "* { visibility: hidden !important; background-image: none !important; }";
+        var kameleoonStn = document.createElement("style");
+        kameleoonStn.type = "text/css";
+        kameleoonStn.id = "kameleoonLoadingStyleSheet";
+        if (kameleoonStn.styleSheet)
+        {
+            kameleoonStn.styleSheet.cssText = kameleoonCc;
+        }
+        else
+        {
+            kameleoonStn.appendChild(document.createTextNode(kameleoonCc));
+        }
+        kameleoonS.parentNode.insertBefore(kameleoonStn, kameleoonS);
+        window.kameleoonDisplayPage = function(fromEngine)
+        {
+            if (!fromEngine)
+            {
+                window.kameleoonTimeout = true;
+            }
+            if (kameleoonStn.parentNode)
+            {
+                kameleoonStn.parentNode.removeChild(kameleoonStn);
+            }
+        };
+        window.kameleoonDisplayPageTimeOut = window.setTimeout(window.kameleoonDisplayPage, kameleoonLoadingTimeout);
+    }
+</script>
+<script type="text/javascript" src="//kd8kkhspyu.kameleoon.eu/kameleoon.js" async="true"></script>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NB2JQCG');</script>
+<!-- End Google Tag Manager -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta
@@ -200,7 +244,10 @@
   </head>
   <body>
     {{ skip_to_content_link }}
-
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NB2JQCG"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
     <header class="banner" data-header role="banner">
       <div class="wrap">
         {{ content_for_logo }}
