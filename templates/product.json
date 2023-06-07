@@ -190,6 +190,14 @@
             "item-headline": "Es mir wichtig ist, dass es allen Tieren unserer Kunden gut geht.",
             "item-subline": "ALMUTH"
           }
+        },
+        "aa787ddd-1736-408b-ac8a-ab45102c86a8": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/WhatsApp_Image_2023-06-07_at_11.54.06.jpg",
+            "item-headline": "Weil der Sabber meines Hundes besser ist als jede Gesichtsmaske dieser Welt.",
+            "item-subline": "CLARISSA"
+          }
         }
       },
       "block_order": [
@@ -207,7 +215,8 @@
         "419089b6-7656-4b0f-9666-86eeabacd780",
         "cb1c90d6-9720-4f2f-8c46-04ff25052d36",
         "f947fbb9-61ed-455b-9221-cfa2d6aa76b2",
-        "d0e09e61-6965-49ef-b293-ee583ff60dfa"
+        "d0e09e61-6965-49ef-b293-ee583ff60dfa",
+        "aa787ddd-1736-408b-ac8a-ab45102c86a8"
       ],
       "settings": {
         "background-color": "#ffffff",
@@ -308,7 +317,7 @@
     "c7c87d8f-88cc-46cd-abd3-120e8779b1bc": {
       "type": "custom-html",
       "custom_css": [
-        ".Section--spacingNormal{display: none;}"
+        ".Section--spacingNormal {display: none;}"
       ],
       "settings": {
         "subheading": "",
