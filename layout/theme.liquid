@@ -255,7 +255,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       'tb_tfa_script');
     </script>
     <!-- End of Taboola Pixel Code -->
-
+    {% include 'dataLayer-allPages' %}
   </head>
 
   {%- capture classes -%}features--heading-{{ settings.heading_size }}{%- endcapture -%}
