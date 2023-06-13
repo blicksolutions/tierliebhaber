@@ -241,6 +241,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {%- render 'head-scripts', layout: 'checkout' -%}
 
     {{ 'dropp-checkout.js' | asset_url | script_tag }}
+    {% include 'dataLayer-allPages' %}
   </head>
   <body>
     {{ skip_to_content_link }}
