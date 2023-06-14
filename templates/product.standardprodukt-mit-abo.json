@@ -230,6 +230,21 @@
             "item-headline": "Weil meine Liebe zu Tieren nie endet❤️",
             "item-subline": "LUISE"
           }
+        },
+        "f4120345-ec63-443d-879f-9c3871154b3d": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Melanie.jpg",
+            "item-headline": "Weil Tiere nichts verlangen, sondern nur geben.",
+            "item-subline": "MELANIE"
+          }
+        },
+        "86c00792-2897-46f3-b502-bdf97f2b2fc0": {
+          "type": "item",
+          "settings": {
+            "item-headline": "Headline",
+            "item-subline": "Subline"
+          }
         }
       },
       "block_order": [
@@ -252,7 +267,9 @@
         "f971d6d7-ce54-4b94-a8a0-a75edd60dac3",
         "920fb008-9afb-4b13-94b7-a7dcc4c8f087",
         "fbd94b72-d768-4aee-9ee8-2500e7c4cfd0",
-        "5ae7f7c9-2072-47cb-a01d-7b5c268f378e"
+        "5ae7f7c9-2072-47cb-a01d-7b5c268f378e",
+        "f4120345-ec63-443d-879f-9c3871154b3d",
+        "86c00792-2897-46f3-b502-bdf97f2b2fc0"
       ],
       "settings": {
         "background-color": "#ffffff",
