@@ -242,8 +242,17 @@
         "86c00792-2897-46f3-b502-bdf97f2b2fc0": {
           "type": "item",
           "settings": {
+            "image": "shopify:\/\/shop_images\/Micha.png",
             "item-headline": "Weil es zum Menschsein dazugehört.",
             "item-subline": "MICHA"
+          }
+        },
+        "daf7b65b-a278-4962-96cd-645674ce9d57": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Tina.png",
+            "item-headline": "Tiere so feinfühlig sind, dass sie bereits am Morgen wissen, wie es mir geht.",
+            "item-subline": "TINA"
           }
         }
       },
@@ -269,7 +278,8 @@
         "fbd94b72-d768-4aee-9ee8-2500e7c4cfd0",
         "5ae7f7c9-2072-47cb-a01d-7b5c268f378e",
         "f4120345-ec63-443d-879f-9c3871154b3d",
-        "86c00792-2897-46f3-b502-bdf97f2b2fc0"
+        "86c00792-2897-46f3-b502-bdf97f2b2fc0",
+        "daf7b65b-a278-4962-96cd-645674ce9d57"
       ],
       "settings": {
         "background-color": "#ffffff",
