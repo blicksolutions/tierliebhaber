@@ -1,9 +1,9 @@
 {
   "current": {
-    "donations_amount": 31082,
+    "donations_amount": 31504,
     "donation_goal": 40000,
     "total_text": "",
-    "total_number": "Bisher gespendet seit 2022: €31.082",
+    "total_number": "Bisher gespendet seit 2022: €31.504",
     "heading_color": "#1c1b1b",
     "text_color": "#1c1b1b",
     "text_light_color": "#6a6a6a",
@@ -679,7 +679,6 @@
       },
       "1628812121ed1d8117": {
         "type": "collection-list",
-        "disabled": true,
         "blocks": {
           "1628812121ed1d8117-0": {
             "type": "collection",
@@ -770,6 +769,7 @@
           "22949072-cddf-4819-9df9-cccbcea00e45",
           "245b2951-bb4a-4202-984d-b2d688fd3102"
         ],
+        "disabled": true,
         "settings": {
           "image_size": "small",
           "add_spacing": true,
@@ -857,7 +857,6 @@
       },
       "1630563614cd6684d8": {
         "type": "story-navigation",
-        "disabled": true,
         "blocks": {
           "ab316d36-4c17-4afc-83ea-1d5816e1f122": {
             "type": "link",
@@ -933,13 +932,13 @@
           "01824073-761e-438c-8aa0-a0ad004d0ea9",
           "5e642c2d-5f0f-47e1-a40e-c619d4d25457"
         ],
+        "disabled": true,
         "settings": {
           "background": "primary"
         }
       },
       "16340327713a2fcd1d": {
         "type": "featured-in",
-        "disabled": true,
         "blocks": {
           "738c91bf-23c2-4f02-8766-8439e1996678": {
             "type": "image",
@@ -998,6 +997,7 @@
           "99172d79-97a7-443d-a146-2210419a2c8f",
           "b5c404e8-6ef7-4a80-8d6e-10be0b92ba4f"
         ],
+        "disabled": true,
         "settings": {
           "title": "Andere tierliebe Marken"
         }
@@ -1025,7 +1025,6 @@
       },
       "1638199591498b0b13": {
         "type": "featured-collections",
-        "disabled": true,
         "blocks": {
           "1638199591498b0b13-0": {
             "type": "collection",
@@ -1040,6 +1039,7 @@
         "block_order": [
           "1638199591498b0b13-0"
         ],
+        "disabled": true,
         "settings": {
           "title": "",
           "layout_mode": "grid",
