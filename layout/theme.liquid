@@ -249,7 +249,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- End of Taboola Pixel Code -->
 
     <!-- Outbrain Pixel-->
-    <script src="{{ 'outbrain-pixel.js' | shopify_asset_url }}" defer></script>
+    {{ 'outbrain-pixel.js' | shopify_asset_url }}
     <!-- End Outbrain Pixel -->
 
     {% include 'dataLayer-allPages' %}
