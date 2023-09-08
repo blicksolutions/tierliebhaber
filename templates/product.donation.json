@@ -45,7 +45,6 @@
     },
     "165445344587f2e456": {
       "type": "tabs",
-      "disabled": true,
       "blocks": {
         "46e1a9d8-4725-4436-ada9-3b73c8c17466": {
           "type": "tab",
@@ -66,6 +65,7 @@
         "46e1a9d8-4725-4436-ada9-3b73c8c17466",
         "aac6c56a-31bd-41a1-b469-8927cbbaa547"
       ],
+      "disabled": true,
       "settings": {
       }
     },
@@ -138,7 +138,7 @@
       "settings": {
         "title": "Fragen? Wir sind für dich da...",
         "subtitle": "<p>Bei Fragen zu einer bestehenden Bestellung, schreib uns einfach eine Nachricht per WhatsApp oder per E-Mail - bitte schicke uns dazu auch deine Bestellnummer.<br\/><\/p>",
-        "image": "shopify:\/\/shop_images\/kundenservice_bild_002.png",
+        "image": "shopify:\/\/shop_images\/CS_2.png",
         "image_alt": "",
         "cta_title": "Schnell & einfach",
         "microcopy": "<p><em>Wir melden uns innerhalb eines<\/em><\/p><p><em>Tages mit einer Antwort bei dir zurück!<\/em><\/p>"
