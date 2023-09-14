@@ -31,8 +31,8 @@
     {%- endif -%}
 
     {%- liquid
-      assign recommendation_content = product.metafields.data.recommendations.value
-      assign recommendation_items = recommendation_content.items  
+      assign recommendation_content = product.metafields.custom.product_recommendations.value
+      assign recommendation_items = recommendation_content.products  
     -%}
 
     <div class="ProductRecommendations">
@@ -46,7 +46,7 @@
 
             {%- if recommendation_items.size > 0 -%}
               {%- for item in recommendation_items -%}
-                {%- assign related_product = all_products[item] -%}
+                {%- assign related_product = item -%}
 
                 {%- unless related_product.empty? -%}
                   <div class="Carousel__Cell">
