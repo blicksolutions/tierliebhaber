@@ -46,12 +46,19 @@
       "settings": {
         "seo_content": ""
       }
+    },
+    "543f9979-e09d-49cf-a562-3d88828c1600": {
+      "type": "klaviyo-form",
+      "settings": {
+        "id": "XEs6zR"
+      }
     }
   },
   "order": [
     "main",
     "recently-viewed-products",
     "collection-footer",
-    "1629784067fb0cc2d7"
+    "1629784067fb0cc2d7",
+    "543f9979-e09d-49cf-a562-3d88828c1600"
   ]
 }
