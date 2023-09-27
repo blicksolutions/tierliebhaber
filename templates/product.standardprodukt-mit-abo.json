@@ -176,7 +176,7 @@
         "f947fbb9-61ed-455b-9221-cfa2d6aa76b2": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Leila.jpg",
+            "image": "shopify:\/\/shop_images\/Bildschirmfoto_2023-09-27_um_11.07.09.png",
             "item-headline": "Tiere einfach herzensgut sind.",
             "item-subline": "LEILA"
           }
@@ -342,6 +342,7 @@
         },
         "7e85fc1c-a467-4500-83c7-3f55b878b381": {
           "type": "button",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/anruf.png",
             "image_alt": "",
