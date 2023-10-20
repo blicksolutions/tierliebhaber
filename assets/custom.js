@@ -158,7 +158,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
         if (replaceDelivery && subtotalPriceEl && deliveryCostEl && totalPriceEl && deliveryBarValueEl && deliveryBarLeftTextEl && deliveryBarFinalTextEl && deliveryBarStepLineEl && deliveryBarTextEl) {
             if (hasItemWithDeliveryRequired) {
                 switch (window.currentCountry) {
-                    case 'DE':
+                    case 'ID':
                         if (window.cartDrawerEnableGift) {
                             const percentPerEuro = 100 / parseInt(window.cartDrawerMinPriceForGift); // 1.33333
                             const giftItemInCart = document.querySelector('.CartItemWrapper[data-variant-id="' + window.cartDrawerGiftVariantId + '"]');
