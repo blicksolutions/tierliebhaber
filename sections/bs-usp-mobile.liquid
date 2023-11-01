@@ -1,0 +1,67 @@
+{% comment %} {{ "bs-usp.css" | asset_url | stylesheet_tag }} {% endcomment %}
+
+<style>
+    @media only screen and (min-width: 768px){
+      #usp-mobile{
+        display: none;
+      }
+    }
+  #usp-mobile .Usp__items-container1{display: flex;overflow-x: auto;margin: 12px;}
+  #usp-mobile .UspItem1 .UspItem__Link1{margin-right: 20px;flex-shrink: 0;width: 78px;display: flex;flex-direction: column;align-items: center;
+  padding: 0 3px;gap: 0.5rem;}
+  #usp-mobile img.UspItem__Image{width: 60px;}
+  #usp-mobile p.UspItem__Title1{font-family: 'Work Sans',sans-serif;font-weight: 400;font-size: 10px;line-height: 12px;
+  text-transform: uppercase;color: #1c1b1b;max-width: 88px;text-align: center;}
+  #usp-mobile .Usp__items-container1::-webkit-scrollbar {width: 0;height: 0;}
+  </style>
+  
+  <div id="usp-mobile">
+    <div class="Usp1">
+        <div class="Usp__items-container1">
+            {%- for block in section.blocks -%}
+                <div class="UspItem1">
+                    <a class="UspItem__Link1" href="{{ block.settings.usp_url }}">
+                        {{ block.settings.usp_image | image_url: width: 400 | image_tag: class: "UspItem__Image" }}
+                        <p class="UspItem__Title1">{{ block.settings.usp_title }}</p>
+                    </a>          
+                </div>
+            {%- endfor -%}
+        </div>
+    </div>
+  </div>
+  
+  {% schema %}
+      {
+          "name": "Usp mobile",
+          "settings": [],
+          "max_blocks": 6,
+          "blocks": [
+              {
+                  "type": "usp_block",
+                  "name": "Usp item",
+                  "settings":[
+                      {
+                          "type": "url",
+                          "id": "usp_url",
+                          "label": "Collection"
+                      },
+                      {
+                          "type": "text",
+                          "id": "usp_title",
+                          "label": "Title"
+                      },
+                      {
+                          "type": "image_picker",
+                          "id": "usp_image",
+                          "label": "Bild"
+                      }
+                  ]                
+              }
+          ],
+          "presets": [
+              {
+                  "name": "Usp mobile"
+              }
+          ]
+      }
+  {% endschema %}
