@@ -643,6 +643,7 @@
           },
           "40e2fcb1-8917-457f-b8f7-347c740d00d7": {
             "type": "button",
+            "disabled": true,
             "settings": {
               "image": "shopify:\/\/shop_images\/anruf.png",
               "image_alt": "",
@@ -669,8 +670,8 @@
         ],
         "settings": {
           "title": "Bei Fragen sind wir immer da!",
-          "subtitle": "<p>Bei Fragen zu einer bestehenden Bestellung, schreib uns einfach eine Nachricht per<br\/>WhatsApp oder per E-Mail.<\/p><p><strong>Hast du Fragen zu unseren Produkten oder kommst bei einer Bestellung nicht weiter?<\/strong> <br\/><br\/>Luise und Tina sind jederzeit für dich auf WhatsApp erreichbar.<\/p><p><strong>Du wünschst dir eine Produktberatung oder einen individuellen Rückruf?<\/strong><\/p><p>Schreib uns einfach eine Nachricht per<br\/>WhatsApp oder per E-Mail mit deiner Telefonnummer und wann es für dich zeitlich<br\/>passt, dann melden wir uns sehr gerne bei dir!<\/p>",
-          "image": "shopify:\/\/shop_images\/CS_2.png",
+          "subtitle": "<p>Bei Fragen zu einer bestehenden Bestellung, schreib uns einfach eine Nachricht per<br\/>WhatsApp oder per E-Mail.<\/p><p><strong>Hast du Fragen zu unseren Produkten oder kommst bei einer Bestellung nicht weiter?<\/strong> <br\/><br\/>Wir sind jederzeit für dich auf WhatsApp erreichbar.<\/p><p><strong>Du wünschst dir eine Produktberatung oder einen individuellen Rückruf?<\/strong><\/p><p>Schreib uns einfach eine Nachricht per<br\/>WhatsApp oder per E-Mail mit deiner Telefonnummer und wann es für dich zeitlich<br\/>passt, dann melden wir uns sehr gerne bei dir!<\/p>",
+          "image": "shopify:\/\/shop_images\/Design_ohne_Titel_1.png",
           "image_alt": "",
           "cta_title": "Schnell & einfach",
           "microcopy": "<p><em>Wir melden uns in der Regel <\/em><\/p><p><em>innerhalb von 1 Werktag mit einer Antwort bei dir!<\/em><\/p>"
