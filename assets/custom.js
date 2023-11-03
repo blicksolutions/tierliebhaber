@@ -10,10 +10,9 @@ window.shippingrates = {
         minSubtotalPriceValue: 69,
         priceValue: '6.90'
     },
-
     ch: {
-        minSubtotalPriceValue: 129,
-        priceValue: '12.90'
+        minSubtotalPriceValue: 169,
+        priceValue: '16.90'
     },
     otherLocations: {
         country: null,
