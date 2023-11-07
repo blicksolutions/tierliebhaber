@@ -61,7 +61,9 @@
           "primary_menu": "main-menu",
           "secondary_menu": "",
           "show_social_media": true,
-          "cart_sidebar_upsell_products": []
+          "cart_sidebar_upsell_products": [
+
+          ]
         }
       },
       "announcement": {
@@ -1414,7 +1416,8 @@
           "671c09b6-b3af-45dd-a8f0-223c8cd21809",
           "ee8ad1bd-62c9-4911-8f09-2de25b44253f"
         ],
-        "settings": {}
+        "settings": {
+        }
       },
       "c0d23bbc-c67c-4e82-9d9e-4a774ffc3918": {
         "type": "text-with-image",
@@ -1488,7 +1491,8 @@
           "b624e985-eac4-4705-9cab-016c84cbde42",
           "381adaa1-791a-4b86-bd77-e0a432f1ffa3"
         ],
-        "settings": {}
+        "settings": {
+        }
       }
     },
     "content_for_index": [
@@ -1522,7 +1526,8 @@
       "162859120942cad3d6": {
         "type": "shopify:\/\/apps\/judge-me-product-reviews\/blocks\/judgeme_core\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
         "disabled": false,
-        "settings": {}
+        "settings": {
+        }
       },
       "162859120960fa81b2": {
         "type": "shopify:\/\/apps\/judge-me-product-reviews\/blocks\/reviews_tab\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
@@ -1534,12 +1539,14 @@
       "33229646823806756": {
         "type": "shopify:\/\/apps\/dcart-discount-on-cart\/blocks\/app-embed\/731e2611-8bdf-4514-b5e4-f64f1cae3fb7",
         "disabled": false,
-        "settings": {}
+        "settings": {
+        }
       },
       "855628211100114053": {
         "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
         "disabled": false,
-        "settings": {}
+        "settings": {
+        }
       }
     }
   },
