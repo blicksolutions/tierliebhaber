@@ -61,9 +61,7 @@
           "primary_menu": "main-menu",
           "secondary_menu": "",
           "show_social_media": true,
-          "cart_sidebar_upsell_products": [
-
-          ]
+          "cart_sidebar_upsell_products": []
         }
       },
       "announcement": {
@@ -1023,33 +1021,6 @@
           "html": "<script src=\"https:\/\/fast.wistia.com\/embed\/medias\/15pe7zcjtb.jsonp\" async=\"\"><\/script><script src=\"https:\/\/fast.wistia.com\/assets\/external\/E-v1.js\" async=\"\"><\/script><div class=\"wistia_responsive_padding\" style=\"padding:125.0% 0 0 0;position:relative;\"><div class=\"wistia_responsive_wrapper\" style=\"height:100%;left:0;position:absolute;top:0;width:100%;\"><span class=\"wistia_embed wistia_async_15pe7zcjtb popover=true popoverAnimateThumbnail=true videoFoam=true\" style=\"display:inline-block;height:100%;position:relative;width:100%\"> <\/span><\/div><\/div>"
         }
       },
-      "1638199591498b0b13": {
-        "type": "featured-collections",
-        "blocks": {
-          "1638199591498b0b13-0": {
-            "type": "collection",
-            "settings": {
-              "collection": "neuheiten",
-              "title": "NEU",
-              "grid_items_count": 8,
-              "button_text": ""
-            }
-          }
-        },
-        "block_order": [
-          "1638199591498b0b13-0"
-        ],
-        "disabled": true,
-        "settings": {
-          "title": "",
-          "layout_mode": "grid",
-          "show_product_info": true,
-          "show_vendor": false,
-          "show_color_swatch": false,
-          "grid_mobile_items_per_row": "2",
-          "grid_desktop_items_per_row": 4
-        }
-      },
       "164847561630f9cc4a": {
         "type": "charity",
         "settings": {
@@ -1443,8 +1414,7 @@
           "671c09b6-b3af-45dd-a8f0-223c8cd21809",
           "ee8ad1bd-62c9-4911-8f09-2de25b44253f"
         ],
-        "settings": {
-        }
+        "settings": {}
       },
       "c0d23bbc-c67c-4e82-9d9e-4a774ffc3918": {
         "type": "text-with-image",
@@ -1457,9 +1427,72 @@
           "link_text": "Los geht's!",
           "link_url": "https:\/\/tierliebhaber.de\/#quiz-7jH9Qj"
         }
+      },
+      "ddee7e2a-800b-4859-be96-f251a0f829b6": {
+        "type": "bs-usp-mobile",
+        "blocks": {
+          "1ee10129-1ca3-4b79-9135-63f22c191b4c": {
+            "type": "usp_block",
+            "settings": {
+              "usp_url": "shopify:\/\/collections\/zahnpflege",
+              "usp_title": "ZAHNPFLEGE",
+              "usp_image": "shopify:\/\/shop_images\/shop_icons_Zahnpflege.png"
+            }
+          },
+          "22dd8802-a4c2-4765-9f88-62e9f9db73fc": {
+            "type": "usp_block",
+            "settings": {
+              "usp_url": "shopify:\/\/collections\/z-produkte",
+              "usp_title": "Z-Produkte",
+              "usp_image": "shopify:\/\/shop_images\/shop_icons_Z-Produkte.png"
+            }
+          },
+          "f0a03260-bba5-4fc9-b77e-c1c8a80825ba": {
+            "type": "usp_block",
+            "settings": {
+              "usp_url": "shopify:\/\/collections\/darmpflege",
+              "usp_title": "DARMPFLEGE",
+              "usp_image": "shopify:\/\/shop_images\/shop_icons_Darm.png"
+            }
+          },
+          "39a2132d-4551-46b4-bf64-c563a5d0c3c1": {
+            "type": "usp_block",
+            "settings": {
+              "usp_url": "shopify:\/\/collections\/gelenke",
+              "usp_title": "GELENKE",
+              "usp_image": "shopify:\/\/shop_images\/shop_icons_Gelenke.png"
+            }
+          },
+          "b624e985-eac4-4705-9cab-016c84cbde42": {
+            "type": "usp_block",
+            "settings": {
+              "usp_url": "shopify:\/\/collections\/beruhigung",
+              "usp_title": "BERUHIGUNG",
+              "usp_image": "shopify:\/\/shop_images\/shop_icons_Beruhigung.png"
+            }
+          },
+          "381adaa1-791a-4b86-bd77-e0a432f1ffa3": {
+            "type": "usp_block",
+            "settings": {
+              "usp_url": "shopify:\/\/collections\/kundenlieblinge",
+              "usp_title": "KUNDENLIEBLINGE",
+              "usp_image": "shopify:\/\/shop_images\/shop_icons_Kundenlieblinge.png"
+            }
+          }
+        },
+        "block_order": [
+          "1ee10129-1ca3-4b79-9135-63f22c191b4c",
+          "22dd8802-a4c2-4765-9f88-62e9f9db73fc",
+          "f0a03260-bba5-4fc9-b77e-c1c8a80825ba",
+          "39a2132d-4551-46b4-bf64-c563a5d0c3c1",
+          "b624e985-eac4-4705-9cab-016c84cbde42",
+          "381adaa1-791a-4b86-bd77-e0a432f1ffa3"
+        ],
+        "settings": {}
       }
     },
     "content_for_index": [
+      "ddee7e2a-800b-4859-be96-f251a0f829b6",
       "slideshow",
       "1628785723a639a63d",
       "b19906e5-1981-4bbf-8ce1-d0a2d3727570",
@@ -1476,7 +1509,6 @@
       "16294491755c400817",
       "1628812121ed1d8117",
       "16340327713a2fcd1d",
-      "1638199591498b0b13",
       "1634649035d2406c63",
       "16346490400a4b1df7",
       "1629450062a372f406",
@@ -1490,8 +1522,7 @@
       "162859120942cad3d6": {
         "type": "shopify:\/\/apps\/judge-me-product-reviews\/blocks\/judgeme_core\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
         "disabled": false,
-        "settings": {
-        }
+        "settings": {}
       },
       "162859120960fa81b2": {
         "type": "shopify:\/\/apps\/judge-me-product-reviews\/blocks\/reviews_tab\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
@@ -1503,14 +1534,12 @@
       "33229646823806756": {
         "type": "shopify:\/\/apps\/dcart-discount-on-cart\/blocks\/app-embed\/731e2611-8bdf-4514-b5e4-f64f1cae3fb7",
         "disabled": false,
-        "settings": {
-        }
+        "settings": {}
       },
       "855628211100114053": {
         "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
         "disabled": false,
-        "settings": {
-        }
+        "settings": {}
       }
     }
   },
