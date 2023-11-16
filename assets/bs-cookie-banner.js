@@ -86,7 +86,7 @@ const setCookie = () => {
     cookieBannerAcceptAllButton.addEventListener('click', () => {
         setCookie();
         closeModal(cookieModal, pageOverlay, htmlElement, cookieBanner);
-        cookieBanner.classList.add('cookie-banner--hidden');
+        cookieBannerSection.classList.add('cookie-banner--hidden');
     });
     modalSaveButton.addEventListener('click', () => {
         setCookie();
