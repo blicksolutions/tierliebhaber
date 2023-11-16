@@ -1,0 +1,343 @@
+/********************************************************/
+/* BANNER                                               */
+/********************************************************/
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10001;
+    background-color: #F5F5F5;
+    margin: 0 auto;
+    color: #000;
+    border-radius: 15px 15px 0px 0px;
+}
+
+@media (min-width: 768px) {
+    .cookie-banner {
+        background-color: #FFF;
+        border-radius: 0px;
+    }
+}
+
+.cookie-banner--hidden,
+.cookie-banner__container.cookie-banner--hidden {
+    display: none;
+}
+
+.cookie-banner__container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    height: 100%;
+    padding: 15px 0;
+}
+
+@media (min-width: 768px) {
+    .cookie-banner__container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        padding: 9px 32px;
+    }
+}
+
+.cookie-banner__text {
+    padding: 14px 14px 0;
+    margin: 0;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.cookie-banner__link {
+    display: inline;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration-line: underline;
+}
+
+.cookie-banner__button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 9px 0;
+}
+
+.cookie-banner__container .Button.Button--primary.cookie-banner__button {
+    padding: 15px 50px;
+    height: 49px;
+    width: 228px;
+    color: #FFF;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: normal;
+    border: 1px solid #E6B2A1;
+    border-radius: 8px;
+    text-transform: none;
+}
+
+@media (min-width: 768px) {
+    .cookie-banner__container .Button.Button--primary.cookie-banner__button {
+        height: 39px;
+        padding: 10px;
+        width: 248px;
+        height: 49px;
+        font-size: 16px;
+    }
+}
+
+.cookie-banner__container .Button.Button--secondary.cookie-banner__button {
+    padding: 15px 10px;
+    height: 49px;
+    width: 128px;
+    color: #E6B2A1;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: normal;
+    border: 1px solid #E6B2A1;
+    border-radius: 8px;
+    text-transform: none;
+}
+
+@media (min-width: 768px) {
+    .cookie-banner__container .Button.Button--secondary.cookie-banner__button {
+        height: 39px;
+        padding: 10px;
+    }
+}
+
+/********************************************************/
+/* MODAL                                                */
+/********************************************************/
+.cookie-banner .cookie-banner__modal--hidden {
+    display: none;
+}
+
+.cookie-banner__modal {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    padding: 30px;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #F5F5F5;
+    border-radius: 20px 20px 0px 0px;
+}
+
+@media (min-width: 768px) {
+    .cookie-banner__modal {
+        bottom: unset;
+        left: 50%;
+        right: unset;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 15px;
+        max-width: 677px;
+        background-color: #FFF;
+    }
+}
+
+.cookie-banner__heading-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0 0 23px 0;
+    padding: 0;
+}
+
+.cookie-banner__heading {
+    color: #000;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: normal;
+    margin: 0;
+    padding: 0;
+}
+
+.cookie-banner__close-button {
+    cursor: pointer;
+}
+
+.cookie-banner__settings-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 23px;
+    margin: 0 0 23px 0;
+    padding: 0;
+}
+
+.cookie-banner__setting {
+    list-style-type: none;
+}
+
+.cookie-banner__setting-input {
+    margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+    .cookie-banner__setting-input {
+        margin-bottom: 20px;
+    }
+}
+
+.cookie-banner__label {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 7px;
+}
+
+/* Hide the browser's default radio button */
+.cookie-banner__label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom radio button */
+.cookie-banner__checkmark {
+    position: relative;
+    height: 20px;
+    width: 20px;
+    border-radius: 2px;
+    border: 1px solid #E6B2A1;
+    background: #FFF;
+}
+
+/* When the radio button is checked, add a blue background */
+.cookie-banner__label input:checked ~ .cookie-banner__checkmark {
+    background-color: #FFF;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.cookie-banner__label .cookie-banner__checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.cookie-banner__label input:checked ~ .cookie-banner__checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.cookie-banner__label .cookie-banner__checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 6px;
+    height: 10px;
+    border: solid #E6B2A1;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.cookie-banner__setting-description {
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.cookie-banner__modal-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 9px 0;
+    margin: 0 0 5px 0;
+    width: 100%;
+}
+
+.cookie-banner__modal-button-container .Button.Button--secondary.cookie-banner__button {
+    padding: 15px 10px;
+    height: 49px;
+    width: 99px;
+    color: #E6B2A1;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: normal;
+    border: 1px solid #E6B2A1;
+    border-radius: 8px;
+    text-transform: none;
+}
+
+@media (min-width: 768px) {
+    .cookie-banner__modal-button-container .Button.Button--secondary.cookie-banner__button {
+        height: 39px;
+        width: 206px;
+        padding: 10px;
+        font-size: 16px;
+    }
+}
+
+.cookie-banner__modal-button-container .Button.Button--primary.cookie-banner__button {
+    padding: 15px 50px;
+    height: 49px;
+    width: 257px;
+    color: #FFF;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: normal;
+    border: 1px solid #E6B2A1;
+    border-radius: 8px;
+    text-transform: none;
+}
+
+@media (min-width: 768px) {
+    .cookie-banner__modal-button-container .Button.Button--primary.cookie-banner__button {
+        height: 39px;
+        padding: 10px;
+        width: 399px;
+        font-size: 16px;
+    }
+}
+
+.cookie-banner__disclaimer {
+    color: #686868;
+    text-align: center;
+    font-size: 9px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: normal;
+}
