@@ -1296,18 +1296,6 @@
           "link_url": "https:\/\/tierliebhaber.de\/products\/spende?_pos=1&_sid=bc571c26c&_ss=r"
         }
       },
-      "3559dc62-d83b-4292-b2e6-247d79d33780": {
-        "type": "slideshow",
-        "settings": {
-          "show_fullscreen": false,
-          "show_arrow": false,
-          "autoplay": true,
-          "cycle_speed": 5,
-          "text_color": "#ffffff",
-          "button_color": "#363636",
-          "button_background": "#ffffff"
-        }
-      },
       "356a1b79-1388-4224-ad0f-10ec20c026f0": {
         "type": "text-with-image",
         "disabled": true,
@@ -1493,6 +1481,40 @@
         ],
         "settings": {
         }
+      },
+      "575d4b30-2093-422e-9032-89b177f98cd9": {
+        "type": "bs-cookier-banner",
+        "blocks": {
+          "2b382b55-253d-4020-9d79-96a3be1c3359": {
+            "type": "setting",
+            "settings": {
+              "name": "Essentiell",
+              "description": "Essenzielle Cookies ermöglichen grundlegende Funktionen und sind für die einwandfreie Funktion der Website erforderlich."
+            }
+          },
+          "a96ee6f8-c377-42b2-a2f4-7d8a58c20552": {
+            "type": "setting",
+            "settings": {
+              "name": "Statistik",
+              "description": "Statistik-Cookies helfen Webseiten-Besitzern zu verstehen, wie Besucher mit Webseiten interagieren, indem Informationen anonym gesammelt und gemeldet werden."
+            }
+          }
+        },
+        "block_order": [
+          "2b382b55-253d-4020-9d79-96a3be1c3359",
+          "a96ee6f8-c377-42b2-a2f4-7d8a58c20552"
+        ],
+        "settings": {
+          "banner_settings_button_text": "Einstellungen",
+          "banner_accept_all_button_text": "Alle akzeotieren",
+          "banner_text": "This website uses cookes to ensure you get the best experience on our website.",
+          "link": "shopify:\/\/policies\/privacy-policy",
+          "link_text": "Privacy Policy",
+          "modal_heading": "Cookie Einstellungen",
+          "modal_save_button_text": "Speihern",
+          "modal_accept_all_button_text": "Alle akzeptieren",
+          "disclaimer": "*Indem du auf “Alle akzeptieren” klickst, erklärst du dich damit einverstanden, dass deine IP-Adresse und deine E-Mail-Adresse (falls registriert) erfasst werden."
+        }
       }
     },
     "content_for_index": [
@@ -1520,7 +1542,7 @@
       "16282363208edc1fef",
       "162878573798fbf9f0",
       "1629465395882c28f0",
-      "3559dc62-d83b-4292-b2e6-247d79d33780"
+      "575d4b30-2093-422e-9032-89b177f98cd9"
     ],
     "blocks": {
       "162859120942cad3d6": {
