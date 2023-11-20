@@ -1482,17 +1482,17 @@
         "settings": {
         }
       },
-      "575d4b30-2093-422e-9032-89b177f98cd9": {
-        "type": "bs-cookier-banner",
+      "bs-cookie-banner": {
+        "type": "bs-cookie-banner",
         "blocks": {
-          "2b382b55-253d-4020-9d79-96a3be1c3359": {
+          "cc64eee5-2a84-437e-9e70-9cb4492d854c": {
             "type": "setting",
             "settings": {
               "name": "Essentiell",
               "description": "Essenzielle Cookies ermöglichen grundlegende Funktionen und sind für die einwandfreie Funktion der Website erforderlich."
             }
           },
-          "a96ee6f8-c377-42b2-a2f4-7d8a58c20552": {
+          "9d46ea7f-d630-470d-8587-c5f5f662154f": {
             "type": "setting",
             "settings": {
               "name": "Statistik",
@@ -1501,15 +1501,15 @@
           }
         },
         "block_order": [
-          "2b382b55-253d-4020-9d79-96a3be1c3359",
-          "a96ee6f8-c377-42b2-a2f4-7d8a58c20552"
+          "cc64eee5-2a84-437e-9e70-9cb4492d854c",
+          "9d46ea7f-d630-470d-8587-c5f5f662154f"
         ],
         "settings": {
           "banner_settings_button_text": "Einstellungen",
-          "banner_accept_all_button_text": "Alle akzeptieren",
-          "banner_text": "Diese Webseite nutzt Cookies, um sicherzustellen, dass du das beste Nutzererlebnis auf unserer Webseite hast.",
+          "banner_accept_all_button_text": "Alle akzeotieren",
+          "banner_text": "This website uses cookes to ensure you get the best experience on our website.",
           "link": "shopify:\/\/policies\/privacy-policy",
-          "link_text": "Datenschutzerklärung",
+          "link_text": "Privacy Policy",
           "modal_heading": "Cookie Einstellungen",
           "modal_save_button_text": "Speichern",
           "modal_accept_all_button_text": "Alle akzeptieren",
@@ -1541,8 +1541,7 @@
       "1630396737d0d511a7",
       "16282363208edc1fef",
       "162878573798fbf9f0",
-      "1629465395882c28f0",
-      "575d4b30-2093-422e-9032-89b177f98cd9"
+      "1629465395882c28f0"
     ],
     "blocks": {
       "162859120942cad3d6": {
