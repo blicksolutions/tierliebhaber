@@ -39,8 +39,8 @@
                         <input 
                             type="checkbox" 
                             class="cookie-banner__checkbox" 
-                            checked
                             {% if forloop.first %}
+                                checked
                                 disabled
                             {% endif %}
                         >
@@ -73,6 +73,7 @@
 {% schema %}
     {
         "name": "BS Cookie Banner",
+        "tag": "section",
         "settings": [
             {
                 "type": "text",
@@ -113,7 +114,7 @@
             },
             {
                 "type": "text",
-                "default": "Speihern",
+                "default": "Speichern",
                 "id": "modal_save_button_text",
                 "label": "Save Button Text"
             },

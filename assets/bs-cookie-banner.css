@@ -70,14 +70,15 @@
     justify-content: center;
     align-items: center;
     gap: 12px;
-    padding: 9px 0;
+    padding: 9px 14px;
 }
 
 .cookie-banner__container .Button.Button--primary.cookie-banner__button {
-    padding: 15px 50px;
+    padding: 15px 20px;
     height: 49px;
-    width: 228px;
+    width: 70%;
     color: #FFF;
+    font-size: 16px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -100,9 +101,8 @@
 .cookie-banner__container .Button.Button--secondary.cookie-banner__button {
     padding: 15px 10px;
     height: 49px;
-    width: 128px;
     color: #E6B2A1;
-    font-size: 13px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -289,9 +289,9 @@
 .cookie-banner__modal-button-container .Button.Button--secondary.cookie-banner__button {
     padding: 15px 10px;
     height: 49px;
-    width: 99px;
+    width: 30%;
     color: #E6B2A1;
-    font-size: 13px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -311,10 +311,11 @@
 }
 
 .cookie-banner__modal-button-container .Button.Button--primary.cookie-banner__button {
-    padding: 15px 50px;
+    padding: 15px 40px;
     height: 49px;
-    width: 257px;
+    width: 70%;
     color: #FFF;
+    font-size: 16px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
