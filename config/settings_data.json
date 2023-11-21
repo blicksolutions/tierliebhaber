@@ -1296,18 +1296,6 @@
           "link_url": "https:\/\/tierliebhaber.de\/products\/spende?_pos=1&_sid=bc571c26c&_ss=r"
         }
       },
-      "3559dc62-d83b-4292-b2e6-247d79d33780": {
-        "type": "slideshow",
-        "settings": {
-          "show_fullscreen": false,
-          "show_arrow": false,
-          "autoplay": true,
-          "cycle_speed": 5,
-          "text_color": "#ffffff",
-          "button_color": "#363636",
-          "button_background": "#ffffff"
-        }
-      },
       "356a1b79-1388-4224-ad0f-10ec20c026f0": {
         "type": "text-with-image",
         "disabled": true,
@@ -1493,6 +1481,40 @@
         ],
         "settings": {
         }
+      },
+      "bs-cookie-banner": {
+        "type": "bs-cookie-banner",
+        "blocks": {
+          "cc64eee5-2a84-437e-9e70-9cb4492d854c": {
+            "type": "setting",
+            "settings": {
+              "name": "Essentiell",
+              "description": "Essenzielle Cookies ermöglichen grundlegende Funktionen und sind für die einwandfreie Funktion der Website erforderlich."
+            }
+          },
+          "9d46ea7f-d630-470d-8587-c5f5f662154f": {
+            "type": "setting",
+            "settings": {
+              "name": "Statistik",
+              "description": "Statistik-Cookies helfen Webseiten-Besitzern zu verstehen, wie Besucher mit Webseiten interagieren, indem Informationen anonym gesammelt und gemeldet werden."
+            }
+          }
+        },
+        "block_order": [
+          "cc64eee5-2a84-437e-9e70-9cb4492d854c",
+          "9d46ea7f-d630-470d-8587-c5f5f662154f"
+        ],
+        "settings": {
+          "banner_settings_button_text": "Einstellungen",
+          "banner_accept_all_button_text": "Alle akzeptieren",
+          "banner_text": "Die Webseite nutzt Cookies, um sicherzustellen, dass du das beste Nutzererlebnis in unserem Store hast.",
+          "link": "shopify:\/\/policies\/privacy-policy",
+          "link_text": "Datenschutzerklärung",
+          "modal_heading": "Cookie Einstellungen",
+          "modal_save_button_text": "Speichern",
+          "modal_accept_all_button_text": "Alle akzeptieren",
+          "disclaimer": "*Indem du auf “Alle akzeptieren” klickst, erklärst du dich damit einverstanden, dass deine IP-Adresse und deine E-Mail-Adresse (falls registriert) erfasst werden."
+        }
       }
     },
     "content_for_index": [
@@ -1519,8 +1541,7 @@
       "1630396737d0d511a7",
       "16282363208edc1fef",
       "162878573798fbf9f0",
-      "1629465395882c28f0",
-      "3559dc62-d83b-4292-b2e6-247d79d33780"
+      "1629465395882c28f0"
     ],
     "blocks": {
       "162859120942cad3d6": {
