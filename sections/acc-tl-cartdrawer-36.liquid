@@ -1,12 +1,36 @@
+{% comment %} calculating sum of old prices {% endcomment %}
+{% assign totaloldprice = 0 %}
+{% for item in cart.items %}
+  {% if item.variant.compare_at_price > item.variant.price %}
+    {% assign oldprice = item.variant.compare_at_price | times: item.quantity %}
+  {% else %}
+    {% assign oldprice = item.variant.price | times: item.quantity %}
+  {% endif %}
+
+  {% assign totaloldprice = totaloldprice | plus: oldprice %}
+{% endfor %}
+
+{% assign totaloldpricemoney = totaloldprice | money %}
+
+<!-- calculating sum of current prices -->
+{% assign totalnewprice = 0 %}
+{% for item in cart.items %}
+  {% assign newprice = item.variant.price | times: item.quantity %}
+  {% assign totalnewprice = totalnewprice | plus: newprice %}
+{% endfor %}
+
+{% assign totalnewpricemoney = totalnewprice | money %}
+
+<div class="acc-tl-cartdrawer-36-total-old-price">{{ totaloldpricemoney }}</div>
+<div class="acc-tl-cartdrawer-36-total-new-price">{{ totalnewpricemoney }}</div>
+
+{% assign subtractedprices = totaloldprice | minus: totalnewprice %}
+<div class="acc-tl-cartdrawer-36-subtracted-prices">{{ subtractedprices | money }}</div>
+
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "ACC_TL_Cartdrawer_36 ",
+  "tag": "section",
+  "class": "ACC_TL_Cartdrawer_36_cart"
+}
 {% endschema %}
-
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}
