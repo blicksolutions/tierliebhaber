@@ -1,0 +1,31 @@
+==DELIMITER==
+<style id="acc-tl-cartdrawer-52-css">
+  {% for item in cart.items %}
+  .CartItemWrapper[data-variant-id="{{ item.variant_id }}"] {
+    --acc-product-rating-stars: {% liquid
+       if item.product.metafields.reviews.rating.value
+        echo item.product.metafields.reviews.rating.value
+       else
+        echo 5
+       endif
+  %};
+  --acc-product-rating-reviews: "{% liquid
+    if item.product.metafields.reviews.rating_count
+      echo '('
+        echo item.product.metafields.reviews.rating_count
+      echo ')'
+    else
+     echo ""
+    endif
+  %}";
+  }
+  {%  endfor %}
+</style>
+==DELIMITER==
+{% schema %}
+{
+  "name": "acc-tl-cartdrawer-52-css",
+  "tag": "div",
+  "class": "ACC_TL_CartDrawer_52_styles"
+}
+{% endschema %}
