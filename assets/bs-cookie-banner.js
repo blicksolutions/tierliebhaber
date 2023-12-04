@@ -2,13 +2,14 @@ const getCookie = (name) => {
     let documentCookies = document.cookie;
     let prefix = name + '=';
     let begin = documentCookies.indexOf('; ' + prefix);
+    let end;
 
     if (begin == -1) {
         begin = documentCookies.indexOf(prefix);
         if (begin != 0) return null;
     } else {
         begin += 2;
-        let end = document.cookie.indexOf(';', begin);
+        end = document.cookie.indexOf(';', begin);
         if (end == -1) {
             end = documentCookies.length;
         }
