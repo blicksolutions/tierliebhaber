@@ -9,7 +9,7 @@ const getCookie = (name) => {
         if (begin != 0) return null;
     } else {
         begin += 2;
-        let end = document.cookie.indexOf(';', begin);
+        end = document.cookie.indexOf(';', begin);
         if (end == -1) {
             end = documentCookies.length;
         }
