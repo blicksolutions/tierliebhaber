@@ -2,6 +2,7 @@ const getCookie = (name) => {
     let documentCookies = document.cookie;
     let prefix = name + '=';
     let begin = documentCookies.indexOf('; ' + prefix);
+    let end;
 
     if (begin == -1) {
         begin = documentCookies.indexOf(prefix);
