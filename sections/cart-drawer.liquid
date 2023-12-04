@@ -75,8 +75,8 @@
                     data-free-delivery-amount="{{ section.settings.free_delivery_amount }}"></span>
             </div>
 
-            <span class="CartMessage__StepsLines__Delivery"
-                  style="left: 49%;">
+            <span class="CartMessage__StepsLines__Delivery {{ section.settings.enable_gift }}"
+                  style="{%- if section.settings.enable_gift -%}left: 65.3333%;{%- else -%}left: 100%;{%- endif -%}">
               <img src="{{ section.settings.message_delivery_icon | img_url: '32x32' }}" 
                    alt="{{ section.settings.message_delivery_icon.alt | escape }}">
             </span>
