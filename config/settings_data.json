@@ -1270,7 +1270,7 @@
       "cart-drawer": {
         "type": "cart-drawer",
         "settings": {
-          "enable_gift": true,
+          "enable_gift": false,
           "gift_min_price": 75,
           "gift_product": "schmeckolatius-1",
           "message_gift_icon": "shopify:\/\/shop_images\/image_7.png",
