@@ -301,6 +301,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                         }
                         break;
                     default:
+                        deliveryIcon.style.left = "100%"
                         // use de
                         if (window.shippingrates.de.minSubtotalPriceValue > subtotalPriceWithoutNoShippingItems) {
                             deliveryCostEl.textContent = '€' + window.shippingrates.de.priceValue.replace('.', ',');
@@ -320,6 +321,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                         }
                 }
             } else {
+                deliveryIcon.style.left = "100%"
                 deliveryPriceValue = 0;
                 deliveryCostEl.textContent = deliveryCostEl.getAttribute('data-freeshipping-text');
             }
