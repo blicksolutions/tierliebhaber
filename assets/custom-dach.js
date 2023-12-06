@@ -367,38 +367,101 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                         break;
                     case 'CH':
                         if (window.cartDrawerEnableGift) {
-                            const percentPerEuro = 100 / parseInt(window.cartDrawerMinPriceForGift); // 1.33333
+                            const giftIcon = document.querySelector('.CartMessage__StepsLines__Gift');
+                            let giftIconPosition;
+                            let percentPerEuro = 100 / parseInt(window.cartDrawerMinPriceForGift); // 1.33333
                             const giftItemInCart = document.querySelector('.CartItemWrapper[data-variant-id="' + window.cartDrawerGiftVariantId + '"]');
 
                             if (giftItemInCart && sessionStorage.getItem('giftItemAdded') != 'true') {
                                 subtotalPriceWithoutNoShippingItems -= window.cartDrawerGiftPrice;
                             }
 
-                            deliveryBarStepLineEl.style.width = (subtotalPriceWithoutNoShippingItems * percentPerEuro) + '%'
                             giftIcon.style.display = 'block';
 
-                            deliveryIconPosition = (window.shippingrates.ch.minSubtotalPriceValue * 100) / parseInt(window.cartDrawerMinPriceForGift) ;
-                            deliveryIcon.style.left = deliveryIconPosition + "%";
+                            if (window.shippingrates.ch.minSubtotalPriceValue > window.cartDrawerMinPriceForGift) {
+                                // shipping kostet mehr als min für geschenk
 
-                            if (window.shippingrates.ch.minSubtotalPriceValue > subtotalPriceWithoutNoShippingItems) {
-                                deliveryCostEl.textContent = '€' + window.shippingrates.ch.priceValue.replace('.', ',');
-                                deliveryPriceValue = parseFloat(window.shippingrates.ch.priceValue);
-                                deliveryBarFinalTextEl.style.display = 'none';
-                                deliveryBarLeftTextEl.style.display = 'block';
-                                deliveryBarValueEl.textContent = '€' + (parseFloat(window.shippingrates.ch.minSubtotalPriceValue) - parseFloat(subtotalPriceWithoutNoShippingItems)).toFixed(2).replace('.', ',');
-                                window.cartBarWidth = ((subtotalPriceWithoutNoShippingItems / window.shippingrates.ch.minSubtotalPriceValue * 100) - 15).toFixed(2) + '%';
-                                window.cartBarValue = '€' + (parseFloat(window.shippingrates.ch.minSubtotalPriceValue) - parseFloat(subtotalPriceWithoutNoShippingItems)).toFixed(2).replace('.', ',');
-                            } else {
-                                deliveryBarFinalTextEl.style.display = 'block';
-                                deliveryBarLeftTextEl.style.display = 'none';
-                                deliveryPriceValue = 0;
-                                deliveryCostEl.textContent = deliveryCostEl.getAttribute('data-freeshipping-text');
-                                deliveryBarFinalTextEl.textContent = 'Noch ' + '€' + (parseInt(window.cartDrawerMinPriceForGift) - subtotalPriceWithoutNoShippingItems).toFixed(2).replace('.', ',') + ' bis zum Geschenk (Wert €' + window.cartDrawerGiftPrice.toFixed(2).replace('.', ',') + ')';
+                                percentPerEuro = 100 / parseInt(window.shippingrates.ch.minSubtotalPriceValue); // 1.33333
+                                deliveryIcon.style.left = "100%";
+                                giftIconPosition = (parseInt(window.cartDrawerMinPriceForGift) * percentPerEuro);
+                                giftIcon.style.left = giftIconPosition + "%";
+                                giftIcon.style.right = 'auto';
 
-                                if (subtotalPriceWithoutNoShippingItems >= parseInt(window.cartDrawerMinPriceForGift)) {
-                                    deliveryBarFinalTextEl.innerHTML = 'Kostenloser Versand & Geschenk!';
+
+                                console.log(window.shippingrates.ch.minSubtotalPriceValue)
+                                console.log(subtotalPriceWithoutNoShippingItems)
+
+                                if (subtotalPriceWithoutNoShippingItems < window.cartDrawerMinPriceForGift) {
+                                    // noch kein gift
+
+
+                                    console.log("ne hier")
+                                    deliveryBarFinalTextEl.style.display = 'block';
+                                    deliveryBarLeftTextEl.style.display = 'none';
+                                    deliveryPriceValue = 0;
+                                    deliveryCostEl.textContent = deliveryCostEl.getAttribute('data-freeshipping-text');
+                                    deliveryBarFinalTextEl.textContent = 'Noch ' + '€' + (parseInt(window.cartDrawerMinPriceForGift) - subtotalPriceWithoutNoShippingItems).toFixed(2).replace('.', ',') + ' bis zum Geschenk (Wert €' + window.cartDrawerGiftPrice.toFixed(2).replace('.', ',') + ')';
+
+                                } else {
+                                    // gift, wieviel bis free shipping?
+
+                                    console.log("hier")
+                                    deliveryCostEl.textContent = '€' + window.shippingrates.ch.priceValue.replace('.', ',');
+                                    deliveryPriceValue = parseFloat(window.shippingrates.ch.priceValue);
+                                    deliveryBarFinalTextEl.style.display = 'none';
+                                    deliveryBarLeftTextEl.style.display = 'block';
+                                    deliveryBarValueEl.textContent = '€' + (parseFloat(window.shippingrates.ch.minSubtotalPriceValue) - parseFloat(subtotalPriceWithoutNoShippingItems)).toFixed(2).replace('.', ',');
+                                    window.cartBarWidth = ((subtotalPriceWithoutNoShippingItems / window.shippingrates.ch.minSubtotalPriceValue * 100) - 15).toFixed(2) + '%';
+                                    window.cartBarValue = '€' + (parseFloat(window.shippingrates.ch.minSubtotalPriceValue) - parseFloat(subtotalPriceWithoutNoShippingItems)).toFixed(2).replace('.', ',');
+
+                                    if (subtotalPriceWithoutNoShippingItems >= window.shippingrates.ch.minSubtotalPriceValue) {
+                                        console.log("NICHTS????")
+                                        deliveryBarLeftTextEl.innerHTML = 'Kostenloser Versand & Geschenk!';
+                                    }
                                 }
+
+
+
+
+                            } else {
+
+                                deliveryIconPosition = (window.shippingrates.ch.minSubtotalPriceValue * 100) / parseInt(window.cartDrawerMinPriceForGift) ;
+                                deliveryIcon.style.left = deliveryIconPosition + "%";
+
+
+
+                                if (window.shippingrates.ch.minSubtotalPriceValue > subtotalPriceWithoutNoShippingItems) {
+
+                                    console.log("hier")
+                                    deliveryCostEl.textContent = '€' + window.shippingrates.ch.priceValue.replace('.', ',');
+                                    deliveryPriceValue = parseFloat(window.shippingrates.ch.priceValue);
+                                    deliveryBarFinalTextEl.style.display = 'none';
+                                    deliveryBarLeftTextEl.style.display = 'block';
+                                    deliveryBarValueEl.textContent = '€' + (parseFloat(window.shippingrates.ch.minSubtotalPriceValue) - parseFloat(subtotalPriceWithoutNoShippingItems)).toFixed(2).replace('.', ',');
+                                    window.cartBarWidth = ((subtotalPriceWithoutNoShippingItems / window.shippingrates.ch.minSubtotalPriceValue * 100) - 15).toFixed(2) + '%';
+                                    window.cartBarValue = '€' + (parseFloat(window.shippingrates.ch.minSubtotalPriceValue) - parseFloat(subtotalPriceWithoutNoShippingItems)).toFixed(2).replace('.', ',');
+
+                                } else {
+                                    console.log("ne hier")
+                                    deliveryBarFinalTextEl.style.display = 'block';
+                                    deliveryBarLeftTextEl.style.display = 'none';
+                                    deliveryPriceValue = 0;
+                                    deliveryCostEl.textContent = deliveryCostEl.getAttribute('data-freeshipping-text');
+                                    deliveryBarFinalTextEl.textContent = 'Noch ' + '€' + (parseInt(window.cartDrawerMinPriceForGift) - subtotalPriceWithoutNoShippingItems).toFixed(2).replace('.', ',') + ' bis zum Geschenk (Wert €' + window.cartDrawerGiftPrice.toFixed(2).replace('.', ',') + ')';
+
+                                    if (subtotalPriceWithoutNoShippingItems >= parseInt(window.cartDrawerMinPriceForGift)) {
+                                        deliveryBarFinalTextEl.innerHTML = 'Kostenloser Versand & Geschenk!';
+                                    }
+                                }
+
+
+
+
+
                             }
+
+                            deliveryBarStepLineEl.style.width = (subtotalPriceWithoutNoShippingItems * percentPerEuro) + '%'
+
 
                             let subtotalReal;
 
@@ -447,6 +510,9 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                                     totalPrice.textContent = totalPrice?.dataset?.price
                                 }
                             }, 500);
+
+
+
                         } else {
                             giftIcon.style.display = 'none';
 
