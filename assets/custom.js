@@ -284,6 +284,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                         }
                         break;
                     case 'CH':
+                        giftIcon.style.display = 'none';
                         deliveryIcon.style.left = "100%"
 
                         if (window.shippingrates.ch.minSubtotalPriceValue > subtotalPriceWithoutNoShippingItems) {
