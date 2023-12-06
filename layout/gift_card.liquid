@@ -29,8 +29,9 @@
     <script src="https://cdn.polyfill.io/v3/polyfill.min.js?unknown=polyfill&features=fetch,Element.prototype.closest,Element.prototype.remove,Element.prototype.classList,Array.prototype.includes,Array.prototype.fill,Object.assign,CustomEvent,IntersectionObserver,IntersectionObserverEntry,URL" defer></script>
     <script src="{{ 'libs.min.js' | asset_url }}" defer></script>
     <script src="{{ 'theme.min.js' | asset_url }}" defer></script>
-    <script src="{{ 'custom.js' | asset_url }}" defer></script>
     <script src="{{ 'vendor/qrcode.js' | shopify_asset_url }}"></script>
+    {% comment %}<script src="{{ 'custom.js' | asset_url }}" defer></script>{% endcomment %}
+    <script src="{{ 'custom-dach.js' | asset_url }}" defer></script>
 
     <script>
       // This allows to expose several variables to the global scope, to be used in scripts
