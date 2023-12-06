@@ -422,7 +422,6 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                                     deliveryBarFinalTextEl.style.display = 'block';
                                     deliveryBarLeftTextEl.style.display = 'none';
                                     deliveryPriceValue = 0;
-                                    console.log("ICH MACH DAS ECHT HIER!?")
                                     deliveryCostEl.textContent = deliveryCostEl.getAttribute('data-freeshipping-text');
                                     deliveryBarFinalTextEl.textContent = 'Noch ' + '€' + (parseInt(window.cartDrawerMinPriceForGift) - subtotalPriceWithoutNoShippingItems).toFixed(2).replace('.', ',') + ' bis zum Geschenk (Wert €' + window.cartDrawerGiftPrice.toFixed(2).replace('.', ',') + ')';
 
@@ -494,7 +493,6 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                                 window.cartBarWidth = (subtotalPriceWithoutNoShippingItems / window.shippingrates.ch.minSubtotalPriceValue * 100).toFixed(2) + '%';
                                 window.cartBarValue = '€' + (parseFloat(window.shippingrates.ch.minSubtotalPriceValue) - parseFloat(subtotalPriceWithoutNoShippingItems)).toFixed(2).replace('.', ',');
                             } else {
-                                console.log("ASD")
                                 deliveryBarFinalTextEl.style.display = 'block';
                                 deliveryBarLeftTextEl.style.display = 'none';
                                 deliveryPriceValue = 0;
