@@ -264,6 +264,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                         break;
                     case 'AT':
                         giftIcon.style.display = 'none';
+                        deliveryIcon.style.left = "100%"
 
                         if (window.shippingrates.at.minSubtotalPriceValue > subtotalPriceWithoutNoShippingItems) {
                             deliveryCostEl.textContent = '€' + window.shippingrates.at.priceValue.replace('.', ',');
@@ -283,6 +284,9 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                         }
                         break;
                     case 'CH':
+                        giftIcon.style.display = 'none';
+                        deliveryIcon.style.left = "100%"
+
                         if (window.shippingrates.ch.minSubtotalPriceValue > subtotalPriceWithoutNoShippingItems) {
                             deliveryCostEl.textContent = '€' + window.shippingrates.ch.priceValue.replace('.', ',');
                             deliveryPriceValue = parseFloat(window.shippingrates.ch.priceValue);
