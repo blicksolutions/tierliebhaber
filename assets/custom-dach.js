@@ -710,6 +710,7 @@ $(document).ready(function () {
         .then(response => response.json())
         .then(json => {
             window.currentCountry = json.detected_values.country.handle;
+            console.log("BIN IN " + window.currentCountry)
             // console.log("window.currentCountry: " + window.currentCountry);
         });
 });
