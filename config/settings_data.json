@@ -1235,6 +1235,14 @@
               "item-headline": "Tiere so feinfühlig sind, dass sie bereits am Morgen wissen, wie es mir geht.",
               "item-subline": "TINA"
             }
+          },
+          "item_bijYcH": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Felix.jpg",
+              "item-headline": "FELIX",
+              "item-subline": "Wir sind Tierliebhaber, weil Tiere die eigene Lebensqualität ins Unermessliche steigern."
+            }
           }
         },
         "block_order": [
@@ -1260,7 +1268,8 @@
           "6535227e-8a36-4c9e-81fd-0c1a664c38bc",
           "6eeef131-19cd-4d2a-9483-5ce788407e88",
           "e8479bc0-b685-401c-b55f-1f6a9e2815f1",
-          "863848eb-68b1-4240-a33d-beaa47145f7b"
+          "863848eb-68b1-4240-a33d-beaa47145f7b",
+          "item_bijYcH"
         ],
         "settings": {
           "background-color": "#f2f8f5",
