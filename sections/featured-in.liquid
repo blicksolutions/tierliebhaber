@@ -1,3 +1,5 @@
+{{ "bs-featured-in.css" | asset_url | stylesheet_tag }}
+
 <div class="FeaturedIn{% if section.blocks.size > 3 %} -Scroller{% endif %}">
   <div class="FeaturedIn__Container">
     <h2 class="FeaturedIn__Title Heading u-h6">{{ section.settings.title }}</h2>
@@ -17,6 +19,9 @@
           {%- else -%}
             {{ block.settings.html }}
           {%- endif -%}
+          {% if block.settings.image_url %}
+            <a href="{{ block.settings.image_url }}" class="FeaturedIn__ItemUrl"></a>
+          {% endif %}
         </div>
       {%- endfor -%}
     </div>
@@ -49,6 +54,11 @@
           "type": "text",
           "id": "image_alt",
           "label": "Image alternate Text"
+        },
+        {
+          "type": "url",
+          "id": "image_url",
+          "label": "Image url"
         },
         {
           "type": "range",

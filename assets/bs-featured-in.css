@@ -1,0 +1,15 @@
+.FeaturedIn__Item {
+    position: relative;
+}
+
+.FeaturedIn__ItemUrl {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.FeaturedIn__ItemUrl:hover {
+    cursor: pointer;
+}
