@@ -261,6 +261,14 @@
             "item-headline": "Wir sind Tierliebhaber, weil Tiere die eigene Lebensqualität ins Unermessliche steigern.",
             "item-subline": "FELIX"
           }
+        },
+        "item_wTCFte": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Kai.png",
+            "item-headline": "Weil sie mir täglich ein Lächeln aufs Gesicht zaubern können.",
+            "item-subline": "KAI"
+          }
         }
       },
       "block_order": [
@@ -287,7 +295,8 @@
         "385bcca8-8cec-49b0-ab5f-4e87b918c8c0",
         "a75900a6-d4e3-4003-ab66-f88f96f1e519",
         "e4b4030f-dfd4-480a-9b22-99923054c7b7",
-        "item_4Wc7hB"
+        "item_4Wc7hB",
+        "item_wTCFte"
       ],
       "settings": {
         "background-color": "#ffffff",
