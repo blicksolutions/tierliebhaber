@@ -1545,6 +1545,24 @@
           "modal_accept_all_button_text": "Alle akzeptieren",
           "disclaimer": "*Indem du auf “Alle akzeptieren” klickst, erklärst du dich damit einverstanden, dass deine IP-Adresse und deine E-Mail-Adresse (falls registriert) erfasst werden."
         }
+      },
+      "page-contact-template": {
+        "type": "page-contact-template",
+        "blocks": {
+          "page-contact-template-0": {
+            "type": "text",
+            "settings": {
+              "title": "Deine Telefonnummer",
+              "use_long_text": false,
+              "is_required": false
+            }
+          }
+        },
+        "block_order": [
+          "page-contact-template-0"
+        ],
+        "settings": {
+        }
       }
     },
     "content_for_index": [
