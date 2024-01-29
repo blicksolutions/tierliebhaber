@@ -1,6 +1,7 @@
-{% assign productName = all_products['dentalspray'].title%}
+{% assign productName = all_products['dentalspray'].title %}
 <div class="acc-tl-blog-page-7-title">{{ productName }}</div>
-
+{% assign variantOneID = all_products['dentalspray'].variants[0].id %}
+<div class="acc-tl-blog-page-7-variant-one-id">{{ variantOneID }}</div>
 
 {% schema %}
   {
