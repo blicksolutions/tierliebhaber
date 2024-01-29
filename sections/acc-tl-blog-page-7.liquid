@@ -4,7 +4,10 @@
 <div class="acc-tl-blog-page-7-variant-one-id">{{ variantOneID }}</div>
 {% assign variantTwoID = all_products['dentalspray'].variants[0].id %}
 <div class="acc-tl-blog-page-7-variant-two-id">{{ variantTwoID }}</div>
-
+{% assign variantOnePrice = all_products['dentalspray'].variants[0].price %}
+<div class="acc-tl-blog-page-7-variant-one-id">{{ variantOnePrice }}</div>
+{% assign variantTwoPrice = all_products['dentalspray'].variants[0].price %}
+<div class="acc-tl-blog-page-7-variant-two-id">{{ variantTwoPrice }}</div>
 {% schema %}
   {
     "name": "ACC_TL_BlogPage_7",
