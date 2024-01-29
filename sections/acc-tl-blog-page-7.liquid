@@ -4,7 +4,7 @@
 {% capture productData %}
 {
   "productName": "{{ productName }}",
-  "numberOfReviews" : {{ product.product.metafields.reviews.rating_count }}
+  "numberOfReviews" : "{{ product.product.metafields.reviews.rating_count }}",
   "variants": [
     {% for variant in variants %}
       {
