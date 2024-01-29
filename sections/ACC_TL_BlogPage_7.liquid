@@ -1,3 +1,20 @@
+{% comment %} {% assign productPrice = all_products['dentalspray'].price}
+<div class="acc-tl-blog-page-7-price">{{ productPrice }}</div>
+
+{% schema %}
+  {
+    "name": "ACC_TL_BlogPage_7",
+    "settings": [],
+    "class": "ACC_TL_BlogPage_7_blog"
+  }
+{% endschema %}
+
+ {% endcomment %}
+
+
+ {% assign productPrice = all_products['dentalspray'].price %}
+<div class="acc-tl-blog-page-7-price">{{ productPrice }}</div>
+
 {% schema %}
   {
     "name": "ACC_TL_BlogPage_7",
