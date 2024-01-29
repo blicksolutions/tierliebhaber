@@ -5,7 +5,7 @@
 {
   "productName": "{{ productName }}",
   "numberOfReviews" : "{{ product.metafields.reviews.rating_count }}",
-  "imageUrl": "{{ product.featured_image }}",
+  "imageUrl": "{{ product.images[0] }}",
   "variants": [
     {% for variant in variants %}
       {
