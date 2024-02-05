@@ -9,52 +9,63 @@
     <div class="Cart__Head hidden-phone">
       <span class="Cart__HeadItem Heading Text--subdued u-h7">{{ 'cart.items.product' | t }}</span>
       <span class="Cart__HeadItem"></span>
-      <span class="Cart__HeadItem Heading Text--subdued u-h7" style="text-align: center">{{ 'cart.items.quantity' | t }}</span>
-      <span class="Cart__HeadItem Heading Text--subdued u-h7" style="text-align: right">{{ 'cart.items.total' | t }}</span>
+      <span class="Cart__HeadItem Heading Text--subdued u-h7" style="text-align: center">
+        {{- 'cart.items.quantity' | t -}}
+      </span>
+      <span class="Cart__HeadItem Heading Text--subdued u-h7" style="text-align: right">
+        {{- 'cart.items.total' | t -}}
+      </span>
     </div>
   {%- endunless -%}
 
   {%- for line_item in cart.items -%}
-  
     {%- if for_drawer -%}
-  
       {%- assign line_item_free_gift = false -%}
-  
+
       {% comment %}
-      {%- if line_item.product.id == 7139832463519 -%}
-        {%- if line_item.properties != empty -%}
-          {%- for property in line_item.properties -%}
-            {%- assign first_character_in_key = property.first | truncate: 1, '' -%}
-            {%- if property.last == blank or first_character_in_key == '_' -%}
-              {%- continue -%}
-            {%- endif -%}
-            {%- if property.first == 'Price' and property.last == 'Free Gift!' -%}
-      		  {%- assign line_item_free_gift = true -%}
-            {%- endif -%}
-          {%- endfor -%}
+        {%- if line_item.product.id == 7139832463519 -%}
+          {%- if line_item.properties != empty -%}
+            {%- for property in line_item.properties -%}
+              {%- assign first_character_in_key = property.first | truncate: 1, '' -%}
+              {%- if property.last == blank or first_character_in_key == '_' -%}
+                {%- continue -%}
+              {%- endif -%}
+              {%- if property.first == 'Price' and property.last == 'Free Gift!' -%}
+        		  {%- assign line_item_free_gift = true -%}
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endif -%}
         {%- endif -%}
-      {%- endif -%}
       {% endcomment %}
 
       {%- if line_item.line_level_discount_allocations != blank -%}
         {%- assign line_item_free_gift = true -%}
       {%- endif -%}
 
-        {%- assign line_item_free_gift = false -%}
+      {%- assign line_item_free_gift = false -%}
 
-        <div class="CartItemWrapper"
-           {% if line_item_free_gift %}data-free-gift="true"{% endif %}
-           data-price="{{ line_item.final_line_price }}"
-           data-index="{{ forloop.index }}"
-           data-req-shipping="{{ line_item.requires_shipping }}"
-           data-variant-id="{{ line_item.id }}" 
-           data-product-id="{{ line_item.product.id }}">
+      <div
+        class="CartItemWrapper"
+        {% if line_item_free_gift %}
+          data-free-gift="true"
+        {% endif %}
+        data-price="{{ line_item.final_line_price }}"
+        data-index="{{ forloop.index }}"
+        data-req-shipping="{{ line_item.requires_shipping }}"
+        data-variant-id="{{ line_item.id }}"
+        data-product-id="{{ line_item.product.id }}"
+      >
     {%- endif -%}
 
     <div class="CartItem">
       <div class="CartItem__ImageWrapper AspectRatio">
         <div class="AspectRatio" style="--aspect-ratio: {{ line_item.image.aspect_ratio }}">
-          <img class="CartItem__Image" src="{{ line_item.image | img_url: '240x' }}" alt="{{ line_item.image.alt | escape }}" loading="lazy">
+          <img
+            class="CartItem__Image"
+            src="{{ line_item.image | img_url: '240x' }}"
+            alt="{{ line_item.image.alt | escape }}"
+            loading="lazy"
+          >
         </div>
       </div>
 
@@ -66,9 +77,10 @@
         </h2>
 
         <div class="CartItem__Meta Heading Text--subdued">
-          {%- unless line_item.product.has_only_default_variant or line_item.product.type == "Donation" -%}
+          {%- unless line_item.product.has_only_default_variant or line_item.product.type == 'Donation' -%}
             <div class="CartItem__Variant-Wrapper">
-              <span class="CartItem__Variant-label">Variante:</span><p class="CartItem__Variant">{{ line_item.variant.title }}</p>
+              <span class="CartItem__Variant-label">Variante:</span>
+              <p class="CartItem__Variant">{{ line_item.variant.title }}</p>
             </div>
           {%- endunless -%}
 
@@ -96,30 +108,40 @@
             {%- for variant in line_item.product.variants -%}
               {%- if line_item.id == variant.id -%}
                 {%- if line_item.selling_plan_allocation -%}
-                  <span class="CartItem__Price Price">{{ line_item.selling_plan_allocation.price | money_without_trailing_zeros }}</span>
+                  <span class="CartItem__Price Price">
+                    {{- line_item.selling_plan_allocation.price | money_without_trailing_zeros -}}
+                  </span>
                 {% endif %}
-          
+
                 {%- unless line_item.selling_plan_allocation -%}
                   {%- if variant.compare_at_price > variant.price -%}
-                    <span class="CartItem__OriginalPrice Price Price--compareAt">{{ variant.compare_at_price | money_without_trailing_zeros }}</span>
+                    <span class="CartItem__OriginalPrice Price Price--compareAt">
+                      {{- variant.compare_at_price | money_without_trailing_zeros -}}
+                    </span>
                   {% endif %}
                   <span class="CartItem__Price Price">{{ variant.price | money_without_trailing_zeros }}</span>
                 {% endunless %}
               {% endif %}
             {%- endfor -%}
           </div>
-            
+
           {%- if line_item.unit_price_measurement -%}
             <div class="CartItem__UnitPriceMeasurement">
               <div class="UnitPriceMeasurement Heading Text--subdued">
-                <span class="UnitPriceMeasurement__Price">{{ line_item.unit_price | money_without_trailing_zeros }}</span>
+                <span class="UnitPriceMeasurement__Price">
+                  {{- line_item.unit_price | money_without_trailing_zeros -}}
+                </span>
                 <span class="UnitPriceMeasurement__Separator">/ </span>
 
                 {%- if line_item.unit_price_measurement.reference_value != 1 -%}
-                  <span class="UnitPriceMeasurement__ReferenceValue">{{ line_item.unit_price_measurement.reference_value }}</span>
+                  <span class="UnitPriceMeasurement__ReferenceValue">
+                    {{- line_item.unit_price_measurement.reference_value -}}
+                  </span>
                 {%- endif -%}
 
-                <span class="UnitPriceMeasurement__ReferenceUnit">{{ line_item.unit_price_measurement.reference_unit }}</span>
+                <span class="UnitPriceMeasurement__ReferenceUnit">
+                  {{- line_item.unit_price_measurement.reference_unit -}}
+                </span>
               </div>
             </div>
           {%- endif -%}
@@ -129,7 +151,7 @@
               <ul class="CartItem__DiscountList">
                 {%- for discount_allocation in line_item.line_level_discount_allocations -%}
                   <li class="CartItem__Discount">
-                      {%- render 'icon' with 'sale' -%}
+                    {%- render 'icon' with 'sale' -%}
                     {{ discount_allocation.discount_application.title }}: -{{ discount_allocation.amount | money }}
                   </li>
                 {%- endfor -%}
@@ -139,9 +161,13 @@
         </div>
 
         {%- capture item_actions -%}
+          {% assign upsellVariantId = 44630754984204 %}
           <div class="CartItem__Actions Heading Text--subdued" style="text-align: center">
             <div class="CartItem__QuantitySelector">               
-              <div class="QuantitySelector{% if line_item.variant.metafields.limit.quantity %} QuantitySelector--Disabled{% endif %}">
+                  <div class="QuantitySelector
+         {% if line_item.variant.metafields.limit.quantity or line_item.variant.id == upsellVariantId %}
+         QuantitySelector--Disabled
+         {% endif %}">
                 {%- assign quantity_minus_one = line_item.quantity | minus: 1 -%}
 
                 {% unless line_item_free_gift %}
@@ -205,8 +231,12 @@
 
         <div class="CartItem__LinePriceList Heading Text--subdued" style="text-align: right">
           {%- if line_item.original_line_price != line_item.final_line_price -%}
-            <span class="CartItem__Price Price Price--highlight">{{ line_item.final_line_price | money_without_trailing_zeros }}</span>
-            <span class="CartItem__Price Price Price--compareAt">{{ line_item.original_line_price | money_without_trailing_zeros }}</span>
+            <span class="CartItem__Price Price Price--highlight">
+              {{- line_item.final_line_price | money_without_trailing_zeros -}}
+            </span>
+            <span class="CartItem__Price Price Price--compareAt">
+              {{- line_item.original_line_price | money_without_trailing_zeros -}}
+            </span>
           {%- else -%}
             <span class="CartItem__Price Price">{{ line_item.final_line_price | money_without_trailing_zeros }}</span>
           {%- endif -%}
