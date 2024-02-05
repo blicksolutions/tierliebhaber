@@ -73,6 +73,176 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <title>{{ page_title }}</title>
 
     <script src="https://www.googleoptimize.com/optimize.js?id=OPT-TPGZ46W"></script>
+    <script
+      type="text/javascript"
+    >
+  document.addEventListener("DOMContentLoaded", function() {
+    'use strict';
+
+    // Check if screen size is 641px or above
+    if (window.innerWidth < 641) {
+      console.log("Screen size is less than 641px, script will not execute.");
+      return; // Stop the script execution
+    }
+
+    var upsellVariantId = "44630754984204";
+    console.log("Script initialized with upsellVariantId:", upsellVariantId);
+
+    function handleCartItemChange(isChecked) {
+      console.log("Handling cart item change. Checked:", isChecked);
+
+      fetch('/cart.js')
+        .then(response => response.json())
+        .then(cart => {
+          console.log("Cart fetched successfully.", cart);
+          var lineItemIndex = cart.items.findIndex(item => item.id.toString() === upsellVariantId);
+          if (lineItemIndex !== -1) {
+            console.log("Line item found at index:", lineItemIndex);
+            if (!isChecked) {
+              changeCartItem(lineItemIndex + 1, 0); // Remove item if checkbox is unchecked
+            }
+          } else if (isChecked) {
+            console.log("Line item not found in cart, adding item.");
+            addCartItem(upsellVariantId, 1); // Add item if checkbox is checked
+          }
+        })
+        .catch(error => console.error("Error fetching cart:", error));
+    }
+
+    function changeCartItem(line, quantity) {
+      console.log("Changing cart item. Line:", line, "Quantity:", quantity);
+      var formData = {
+        'line': line,
+        'quantity': quantity,
+      };
+
+      fetch('/cart/change.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      })
+      .then(response => {
+        if (!response.ok) throw new Error(`Failed to update the cart`);
+        return response.json();
+      })
+      .then(data => {
+        console.log("Cart change successful. Data:", data);
+        location.reload();
+      })
+      .catch(error => console.error("Error changing cart item:", error));
+    }
+
+    function addCartItem(variantId, quantity) {
+      console.log("Adding item to cart. VariantId:", variantId, "Quantity:", quantity);
+      var formData = {
+        'items': [{
+          'id': variantId,
+          'quantity': quantity,
+        }]
+      };
+
+      fetch('/cart/add.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      })
+      .then(response => {
+        if (!response.ok) throw new Error(`Failed to add item to the cart`);
+        return response.json();
+      })
+      .then(data => {
+        console.log("Cart addition successful. Data:", data);
+        location.reload();
+      })
+      .catch(error => console.error("Error adding cart item:", error));
+    }
+
+    function setupCheckbox() {
+      var elementToMove = document.getElementById('sidebar-upsell');
+      var targetLocation = document.querySelector('.order-summary__section--product-list');
+      if (elementToMove && targetLocation) {
+        targetLocation.insertAdjacentElement('afterend', elementToMove);
+        console.log("Element moved to target location.");
+      } else {
+        console.log("Element to move or target location not found.");
+      }
+
+      var protectionCheckbox = document.getElementById('protectionCheckbox');
+      if (protectionCheckbox) {
+        console.log("Checkbox found. Setting initial state and attaching event listener.");
+
+        fetch('/cart.js')
+          .then(response => response.json())
+          .then(cart => {
+            var itemInCart = cart.items.some(item => item.id.toString() === upsellVariantId);
+            protectionCheckbox.checked = itemInCart; // Set the checkbox state based on cart contents
+
+            protectionCheckbox.addEventListener('click', function() {
+              handleCartItemChange(this.checked);
+            });
+          })
+          .catch(error => console.error("Error fetching cart:", error));
+      } else {
+        console.log("Checkbox not found.");
+      }
+    }
+
+    var observer = new MutationObserver(function(mutations, obs) {
+      if (document.getElementById('protectionCheckbox')) {
+        setupCheckbox();
+        obs.disconnect();
+      }
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+  });
+    </script>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  var targetElementDesktop = document.querySelector('.order-summary__sections');
+  var targetElementMobile = document.querySelector('.main__content');
+  var elementToMoveDesktop = document.querySelector('#why-buy-this__desktop');
+  var elementToMoveMobile = document.querySelector('#why-buy-this__mobile');
+  var alternativePaymentSeparator = document.querySelector('.alternative-payment-separator');
+
+  // Function to apply display none with !important
+  function applyDisplayNoneImportant(element) {
+    if (element) {
+      element.style.display = 'none';
+      element.setAttribute('style', 'display: none !important');
+    }
+  }
+
+  // Check if alternative payment separator exists
+  if (!alternativePaymentSeparator) {
+    console.log('No alternative-payment-separator class found, applying display none.');
+    applyDisplayNoneImportant(elementToMoveDesktop);
+    applyDisplayNoneImportant(elementToMoveMobile);
+    return;
+  }
+
+  // Moving and applying styles to desktop element
+  if (targetElementDesktop && elementToMoveDesktop) {
+    console.log('Moving desktop element');
+    targetElementDesktop.insertAdjacentElement('afterend', elementToMoveDesktop);
+  } else {
+    console.log('Desktop elements not found');
+  }
+
+  // Moving and applying styles to mobile element
+  if (targetElementMobile && elementToMoveMobile) {
+    console.log('Moving mobile element');
+    targetElementMobile.insertAdjacentElement('afterend', elementToMoveMobile);
+  } else {
+    console.log('Mobile elements not found');
+  }
+});
+</script>
     <script>
       var checkout = {
         {%- if content_for_layout contains 'data-step="contact_information"' -%}
@@ -141,100 +311,100 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </script>
 
     <style>
-      .breadcrumb {
-        margin: 0px;
-        padding: 0px;
-        list-style-type: none;
-        width: 100%;
-        max-width: 100%;
-        height: fit-content;
-        counter-reset: breadcrumb;
-        position: relative;
-        margin-bottom: 20px;
-      }
+            .breadcrumb {
+              margin: 0px;
+              padding: 0px;
+              list-style-type: none;
+              width: 100%;
+              max-width: 100%;
+              height: fit-content;
+              counter-reset: breadcrumb;
+              position: relative;
+              margin-bottom: 20px;
+            }
 
-      .breadcrumb:before {
-        position: absolute;
-        top: 12px;
-        content: '';
-        width: 100%;
-        height: 2px;
-        background: black;
-      }
+            .breadcrumb:before {
+              position: absolute;
+              top: 12px;
+              content: '';
+              width: 100%;
+              height: 2px;
+              background: black;
+            }
 
-      .breadcrumb .breadcrumb__item {
-        float: left;
-        padding-top: 40px;
-        width: 20%;
-        text-align: center;
-        position: relative;
-      }
+            .breadcrumb .breadcrumb__item {
+              float: left;
+              padding-top: 40px;
+              width: 20%;
+              text-align: center;
+              position: relative;
+            }
 
-      .breadcrumb .breadcrumb__item:after {
-        counter-increment: breadcrumb;
-        content: counter(breadcrumb);
-        position: absolute;
-        top: 0px;
-        left: calc(50% - 12px);
-        width: 24px;
-        height: 24px;
-        text-align: center;
-        border-radius: 50%;
-        line-height: 24px;
-        background: #000000;
-        color: white;
-      }
+            .breadcrumb .breadcrumb__item:after {
+              counter-increment: breadcrumb;
+              content: counter(breadcrumb);
+              position: absolute;
+              top: 0px;
+              left: calc(50% - 12px);
+              width: 24px;
+              height: 24px;
+              text-align: center;
+              border-radius: 50%;
+              line-height: 24px;
+              background: #000000;
+              color: white;
+            }
 
-      .breadcrumb .breadcrumb__item--completed:after{
-        cursor: pointer;
-      }
+            .breadcrumb .breadcrumb__item--completed:after{
+              cursor: pointer;
+            }
 
-      .breadcrumb .breadcrumb__item--completed:after,  .breadcrumb .breadcrumb__item--current:after {
-        background: #5CAB68;
-        color: white;
-      }
+            .breadcrumb .breadcrumb__item--completed:after,  .breadcrumb .breadcrumb__item--current:after {
+              background: #5CAB68;
+              color: white;
+            }
 
-      .breadcrumb .breadcrumb__item--completed:before, .breadcrumb .breadcrumb__item--current:before {
-        position: absolute;
-        top: 12px;
-        content: '';
-        width: 100%;
-        height: 2px;
-        background: #5CAB68;
+            .breadcrumb .breadcrumb__item--completed:before, .breadcrumb .breadcrumb__item--current:before {
+              position: absolute;
+              top: 12px;
+              content: '';
+              width: 100%;
+              height: 2px;
+              background: #5CAB68;
 
-      }
+            }
 
-      .breadcrumb .breadcrumb__item--current::after {
-        background-image: url('data:image/svg+xml;charset=UTF-8,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.5598 3.80362L10.7036 0.89072C10.5661 0.675277 10.3832 0.498554 10.1702 0.375194C9.95724 0.251834 9.72026 0.185389 9.47893 0.181366L5.95637 0.126465H5.9491C4.13048 0.126465 2.73513 0.456934 1.83644 2.06975C0.999761 3.57102 0.642853 6.12833 0.642853 10.6206V11.1696H1.7975L1.05421 15.2872H2.08419L2.82748 11.1696H3.16964C3.995 11.1776 4.79015 10.8326 5.38336 10.2091C5.91963 9.65167 6.30645 8.88903 6.50206 8.00368L6.50383 7.99572L7.37061 3.48348H6.3381L5.51756 7.75505C5.26766 8.8764 4.5204 10.0716 3.16964 10.0716H1.65546C1.68291 6.18509 2.00864 3.88086 2.70108 2.63822C3.28224 1.5951 4.13171 1.22483 5.9456 1.22431L9.4644 1.27921C9.54484 1.28054 9.62384 1.30269 9.69484 1.34381C9.76583 1.38493 9.82678 1.44384 9.87263 1.51566L11.9723 4.81037L14.7929 5.32109V5.903L14.3225 8.62818C14.1837 9.43251 13.9464 9.83768 12.9733 9.96467L8.9839 10.7061L8.95753 15.2872H9.96824L9.98931 11.6331L13.1067 11.0532C13.813 10.9589 14.334 10.7116 14.6994 10.2975C15.0118 9.94347 15.2019 9.49115 15.3159 8.83056L15.8036 6.00505V4.39093L12.5598 3.80362Z" fill="white"/></svg>');
-        content: "";
-        background-repeat: no-repeat;
-        background-position: center;
-      }
+            .breadcrumb .breadcrumb__item--current::after {
+              background-image: url('data:image/svg+xml;charset=UTF-8,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.5598 3.80362L10.7036 0.89072C10.5661 0.675277 10.3832 0.498554 10.1702 0.375194C9.95724 0.251834 9.72026 0.185389 9.47893 0.181366L5.95637 0.126465H5.9491C4.13048 0.126465 2.73513 0.456934 1.83644 2.06975C0.999761 3.57102 0.642853 6.12833 0.642853 10.6206V11.1696H1.7975L1.05421 15.2872H2.08419L2.82748 11.1696H3.16964C3.995 11.1776 4.79015 10.8326 5.38336 10.2091C5.91963 9.65167 6.30645 8.88903 6.50206 8.00368L6.50383 7.99572L7.37061 3.48348H6.3381L5.51756 7.75505C5.26766 8.8764 4.5204 10.0716 3.16964 10.0716H1.65546C1.68291 6.18509 2.00864 3.88086 2.70108 2.63822C3.28224 1.5951 4.13171 1.22483 5.9456 1.22431L9.4644 1.27921C9.54484 1.28054 9.62384 1.30269 9.69484 1.34381C9.76583 1.38493 9.82678 1.44384 9.87263 1.51566L11.9723 4.81037L14.7929 5.32109V5.903L14.3225 8.62818C14.1837 9.43251 13.9464 9.83768 12.9733 9.96467L8.9839 10.7061L8.95753 15.2872H9.96824L9.98931 11.6331L13.1067 11.0532C13.813 10.9589 14.334 10.7116 14.6994 10.2975C15.0118 9.94347 15.2019 9.49115 15.3159 8.83056L15.8036 6.00505V4.39093L12.5598 3.80362Z" fill="white"/></svg>');
+              content: "";
+              background-repeat: no-repeat;
+              background-position: center;
+            }
 
-      .breadcrumb .breadcrumb__chevron-icon{
-        display: none;
-      }
+            .breadcrumb .breadcrumb__chevron-icon{
+              display: none;
+            }
 
-      .breadcrumb .breadcrumb__link, .breadcrumb .breadcrumb__text{
-        width: 100%;
-        display: inline-block;
-        font-size: 14px;
-        text-transform: uppercase;
-        font-weight: 500;
-      }
+            .breadcrumb .breadcrumb__link, .breadcrumb .breadcrumb__text{
+              width: 100%;
+              display: inline-block;
+              font-size: 14px;
+              text-transform: uppercase;
+              font-weight: 500;
+            }
 
-      @media only screen and (max-width: 500px) and (min-width: 351px){
-        .breadcrumb .breadcrumb__link, .breadcrumb .breadcrumb__text{
-          font-size: 10px;
-        }
-      }
+            @media only screen and (max-width: 500px) and (min-width: 351px){
+              .breadcrumb .breadcrumb__link, .breadcrumb .breadcrumb__text{
+                font-size: 10px;
+              }
+            }
 
-      @media only screen and (max-width: 350px){
-        .breadcrumb .breadcrumb__link, .breadcrumb .breadcrumb__text{
-          font-size: 8px;
-        }
-      }
-    </style>
+            @media only screen and (max-width: 350px){
+              .breadcrumb .breadcrumb__link, .breadcrumb .breadcrumb__text{
+                font-size: 8px;
+              }
+            }
+        </style>
 
     {%- render 'head-scripts', layout: 'checkout' -%}
 
@@ -243,9 +413,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <body>
     {{ skip_to_content_link }}
     <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NB2JQCG"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-NB2JQCG"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <header class="banner" data-header role="banner">
       <div class="wrap">
         {{ content_for_logo }}
@@ -275,14 +451,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="sidebar__content">
             {{ content_for_order_summary }}
           </div>
+           {%- render 'checkout-upsell' -%}
+           {%- render 'checkout-benefits' -%}
         </aside>
       </div>
     </div>
-
     {{ tracking_code }}
-    <script>
-      
-      
+    <script>    
       document.querySelector('.breadcrumb').innerHTML += `<li class="breadcrumb__item">
         <a class="breadcrumb__text">Fertig</a>
       </li>`;
@@ -291,8 +466,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           elem.querySelector(".breadcrumb__link").click();
         });
       });
-
-
     </script>
   </body>
 </html>
