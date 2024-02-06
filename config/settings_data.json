@@ -1437,18 +1437,6 @@
         "settings": {
         }
       },
-      "c0d23bbc-c67c-4e82-9d9e-4a774ffc3918": {
-        "type": "text-with-image",
-        "settings": {
-          "subheading": "",
-          "title": "PRODUKTBERATER",
-          "image": "shopify:\/\/shop_images\/21.-25.8._52e11062-a72d-4c70-9964-bb8f0f25e27c.png",
-          "image_position": "right",
-          "content": "",
-          "link_text": "Los geht's!",
-          "link_url": "https:\/\/tierliebhaber.de\/#quiz-7jH9Qj"
-        }
-      },
       "ddee7e2a-800b-4859-be96-f251a0f829b6": {
         "type": "bs-usp-mobile",
         "blocks": {
@@ -1563,6 +1551,70 @@
         ],
         "settings": {
         }
+      },
+      "slideshow_dKUeWg": {
+        "type": "slideshow",
+        "blocks": {
+          "image_VTUwhx": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/produktberater_neu.jpg",
+              "mobile_image": "shopify:\/\/shop_images\/PHOTO-2024-02-06-18-23-35.jpg",
+              "apply_overlay": true,
+              "content_offset_mobile_left": 50,
+              "content_offset_mobile_top": 50,
+              "content_offset_desktop_left": 50,
+              "content_offset_desktop_top": 50,
+              "content_position": "middleCenter",
+              "subheading": "",
+              "title": "",
+              "button_1_text": "",
+              "button_1_link": "",
+              "button_2_text": "",
+              "button_2_link": "",
+              "button_font": "Poppins",
+              "button_font_size": 35,
+              "button_font_weight": 400,
+              "button_text_color": "#000",
+              "button_background": "#fff"
+            }
+          },
+          "image_meTiMr": {
+            "type": "image",
+            "settings": {
+              "apply_overlay": true,
+              "content_offset_mobile_left": 50,
+              "content_offset_mobile_top": 50,
+              "content_offset_desktop_left": 50,
+              "content_offset_desktop_top": 50,
+              "content_position": "middleCenter",
+              "subheading": "Slide title",
+              "title": "Tell your story",
+              "button_1_text": "",
+              "button_1_link": "",
+              "button_2_text": "",
+              "button_2_link": "",
+              "button_font": "Poppins",
+              "button_font_size": 35,
+              "button_font_weight": 400,
+              "button_text_color": "#000",
+              "button_background": "#fff"
+            }
+          }
+        },
+        "block_order": [
+          "image_VTUwhx",
+          "image_meTiMr"
+        ],
+        "settings": {
+          "show_fullscreen": false,
+          "show_arrow": false,
+          "autoplay": true,
+          "cycle_speed": 5,
+          "text_color": "#ffffff",
+          "button_color": "#363636",
+          "button_background": "#ffffff"
+        }
       }
     },
     "content_for_index": [
@@ -1578,7 +1630,7 @@
       "356a1b79-1388-4224-ad0f-10ec20c026f0",
       "164847561630f9cc4a",
       "b94622a9-dfd5-4703-963d-0b90d3126168",
-      "c0d23bbc-c67c-4e82-9d9e-4a774ffc3918",
+      "slideshow_dKUeWg",
       "1652440853255ce756",
       "16294491755c400817",
       "1628812121ed1d8117",
