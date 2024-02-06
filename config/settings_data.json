@@ -1609,8 +1609,8 @@
         "settings": {
           "show_fullscreen": false,
           "show_arrow": false,
-          "autoplay": true,
-          "cycle_speed": 5,
+          "autoplay": false,
+          "cycle_speed": 3,
           "text_color": "#ffffff",
           "button_color": "#363636",
           "button_background": "#ffffff"
