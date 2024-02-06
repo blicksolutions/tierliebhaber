@@ -1560,7 +1560,7 @@
             "settings": {
               "image": "shopify:\/\/shop_images\/produktberater_neu.jpg",
               "mobile_image": "shopify:\/\/shop_images\/PHOTO-2024-02-06-18-23-35.jpg",
-              "apply_overlay": true,
+              "apply_overlay": false,
               "content_offset_mobile_left": 100,
               "content_offset_mobile_top": 100,
               "content_offset_desktop_left": 100,
@@ -1575,8 +1575,8 @@
               "button_font": "Poppins",
               "button_font_size": 12,
               "button_font_weight": 100,
-              "button_text_color": "#000",
-              "button_background": "#fff"
+              "button_text_color": "#000000",
+              "button_background": "#ffffff"
             }
           },
           "image_meTiMr": {
@@ -1597,8 +1597,8 @@
               "button_font": "Poppins",
               "button_font_size": 35,
               "button_font_weight": 400,
-              "button_text_color": "#000",
-              "button_background": "#fff"
+              "button_text_color": "#000000",
+              "button_background": "#ffffff"
             }
           }
         },
