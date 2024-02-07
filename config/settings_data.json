@@ -1578,33 +1578,10 @@
               "button_text_color": "#000000",
               "button_background": "#ffffff"
             }
-          },
-          "image_meTiMr": {
-            "type": "image",
-            "settings": {
-              "apply_overlay": true,
-              "content_offset_mobile_left": 50,
-              "content_offset_mobile_top": 50,
-              "content_offset_desktop_left": 50,
-              "content_offset_desktop_top": 50,
-              "content_position": "middleCenter",
-              "subheading": "Slide title",
-              "title": "Tell your story",
-              "button_1_text": "",
-              "button_1_link": "",
-              "button_2_text": "",
-              "button_2_link": "",
-              "button_font": "Poppins",
-              "button_font_size": 35,
-              "button_font_weight": 400,
-              "button_text_color": "#000000",
-              "button_background": "#ffffff"
-            }
           }
         },
         "block_order": [
-          "image_VTUwhx",
-          "image_meTiMr"
+          "image_VTUwhx"
         ],
         "settings": {
           "show_fullscreen": false,
