@@ -36,3 +36,50 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 </script>
+
+<script>
+  window.addEventListener("load", async function() {
+    let discountElmnt;
+    while (!(discountElmnt = document.querySelector("#shopify-section-{{ section.id }} .rc_widget .rc_widget__option__discount"))) {
+      await new Promise((resolve, reject) => {
+        window.setTimeout(resolve, 50);
+      });
+    }
+
+    let discount = parseFloat(discountElmnt.innerHTML.replace("%", "")) / 100;
+    let factor = 1 - discount;
+    let unitpriceElmnt = document.querySelector("#shopify-section-{{ section.id }} .UnitPriceMeasurement__Price");
+    let price = parseFloat(unitpriceElmnt.getAttribute("data-alt-price")) * factor;
+    let formattedPrice = "€" + price.toFixed(2).replace(".", ",");
+    unitpriceElmnt.setAttribute("data-alt-price", formattedPrice);
+    unitpriceElmnt.innerHTML = formattedPrice;
+
+    let status;
+    function type(item) {
+      return item.classList.contains("rc-option__subsave") ? "subsave" : "onetime";
+    }
+
+    function updatePriceDifference() {
+      setTimeout(() => {
+        let originalPrice = parseFloat(document.querySelector('.ProductMeta__Price.Price--compareAt').textContent.replace("€", "").replace(",", "."));
+        let currentPrice = parseFloat(document.querySelector('.ProductMeta__Price.Price--highlight').textContent.replace("€", "").replace(",", "."));
+        let priceDifference = originalPrice - currentPrice;
+        document.querySelector('.price-difference').textContent = 'Du sparst €' + priceDifference.toFixed(2).replace(".", ",");
+      }, 100); // Wait for 100ms before updating the price difference
+    }
+
+    document.querySelectorAll("#shopify-section-{{ section.id }} .rc-radio-group__options .rc_widget__option ").forEach(function(item) {
+      if (item.querySelector("input.rc-radio__input").checked) {
+        status = type(item);
+      }
+      item.addEventListener("click", function() {
+        if (status !== type(item)) {
+          updatePriceDifference(); // Update price difference when option changes
+        }
+        status = type(item);
+      }, false);
+    });
+
+    updatePriceDifference(); // Initial update on page load
+  });
+</script>
