@@ -28,6 +28,13 @@
     text-transform: uppercase;
 }
 
+    .UspItem__Image.Desktop {
+      display:none;
+    }
+    .UspItem__Image.Mobile {
+      display:block; 
+    }
+
 @media (min-width: 768px) {
     .Usp {
         padding: 1.5rem 2.5rem;
@@ -43,5 +50,14 @@
     .UspItem__Title {
         font-size: 14px;
         max-width: 96px;
+        font-weight: 500;
+        line-height: 16px;
+        color: #3d3d3d;
+    }
+    .UspItem__Image.Desktop {
+      display:block !important;
+    }
+    .UspItem__Image.Mobile {
+      display:none !important;
     }
 }

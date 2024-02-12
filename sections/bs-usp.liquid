@@ -1,50 +1,61 @@
-{{ "bs-usp.css" | asset_url | stylesheet_tag }}
+{{ 'bs-usp.css' | asset_url | stylesheet_tag }}
 
 <div class="Usp">
-    <div class="Usp__items-container">
-        {%- for block in section.blocks -%}
-            <div class="UspItem">
-                <a class="UspItem__Link" href="{{ block.settings.usp_url }}">
-                    {{ block.settings.usp_image | image_url: width: 400 | image_tag: class: "UspItem__Image" }}
-                    <p class="UspItem__Title">{{ block.settings.usp_title }}</p>
-                </a>          
-            </div>
-        {%- endfor -%}
-    </div>
+  <div class="Usp__items-container">
+    {%- for block in section.blocks -%}
+      <div class="UspItem">
+        <a class="UspItem__Link" href="{{ block.settings.usp_url }}">
+          {% if block.settings.usp_image %}
+            {{ block.settings.usp_image | image_url: width: 400 | image_tag: class: 'UspItem__Image Mobile' }}
+          {% endif %}
+
+          {% if block.settings.usp_image_desktop %}
+            {{ block.settings.usp_image_desktop | image_url: width: 400 | image_tag: class: 'UspItem__Image Desktop' }}
+          {% endif %}
+          <p class="UspItem__Title">{{ block.settings.usp_title }}</p>
+        </a>
+      </div>
+    {%- endfor -%}
+  </div>
 </div>
 
 {% schema %}
-    {
-        "name": "Usp",
-        "settings": [],
-        "max_blocks": 6,
-        "blocks": [
-            {
-                "type": "usp_block",
-                "name": "Usp item",
-                "settings":[
-                    {
-                        "type": "url",
-                        "id": "usp_url",
-                        "label": "Collection"
-                    },
-                    {
-                        "type": "text",
-                        "id": "usp_title",
-                        "label": "Title"
-                    },
-                    {
-                        "type": "image_picker",
-                        "id": "usp_image",
-                        "label": "Bild"
-                    }
-                ]                
-            }
-        ],
-        "presets": [
-            {
-                "name": "Usp"
-            }
-        ]
-    }
+{
+    "name": "Usp",
+    "settings": [],
+    "max_blocks": 6,
+    "blocks": [
+        {
+            "type": "usp_block",
+            "name": "Usp item",
+            "settings":[
+                {
+                    "type": "url",
+                    "id": "usp_url",
+                    "label": "Collection"
+                },
+                {
+                    "type": "text",
+                    "id": "usp_title",
+                    "label": "Title"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "usp_image",
+                    "label": "Bild Mobile"
+                },
+               {
+                    "type": "image_picker",
+                    "id": "usp_image_desktop",
+                    "label": "Bild Desktop"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Usp"
+        }
+    ]
+}
 {% endschema %}
