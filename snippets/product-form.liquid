@@ -3,6 +3,21 @@ Those are the option names for which we automatically detect swatch. For the col
 for size, we use it to display a size chart (if applicable)
 {%- endcomment -%}
 
+<script>
+$(document).ready(function(){
+    var currentUrl = window.location.href.toLowerCase(); // Convert URL to lowercase
+    if(currentUrl.indexOf('dental') !== -1 || currentUrl.indexOf('zahn') !== -1) {
+        $('.acc_tl_upsell_24').hide();
+        $('#sidebar-cart').hide();
+        $('.ProductForm__AddToCart').on('click', function(){
+            setTimeout(function(){
+                $('#sidebar-cart').show();
+            }, 2000);
+        });
+    }
+});
+</script>
+
 {%- assign color_label = 'color,colour,couleur,colore,farbe,색,色,färg,farve' | split: ',' -%}
 {%- assign size_label = 'size,taille,größe,tamanho,tamaño,koko,サイズ' | split: ',' -%}
 
