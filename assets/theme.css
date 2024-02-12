@@ -12266,7 +12266,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
     justify-content: center;
     align-items: center;
     padding: 8px 12px;
-    width: 400px;
+    max-width:400px;
     border-radius: 100px;
     border: 1px dashed #7ad3ff;
     background: linear-gradient(90deg,#fff4fe 2.16%,#e4f6ff 100%);
