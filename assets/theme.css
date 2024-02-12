@@ -12186,3 +12186,121 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 .Cart.Drawer__Content.quantityLock .QuantitySelector__Button {
     pointer-events: none;
 }
+
+/* Pricing Communication for returning Users */
+ .pricing-retvisitor .price-difference {
+ padding: 3px 16px;
+ border-radius: 100px;
+ background: linear-gradient(90deg,#caebf4 0,#e1d7ff 100%);
+ color: #343f44;
+ font-family: 'Work Sans',sans-serif;
+ font-size: 13px;
+ font-style: normal;
+ font-weight: 500;
+ line-height: normal;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ margin-left: 16px;
+}
+
+.pricing-retvisitor {
+  display: flex;
+}
+
+@media(max-width:1007px) {
+    .pricing-retvisitor {
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .ProductMeta__TaxNotice {
+        margin-top: 15px;
+    } 
+
+    .pricing-retvisitor .price-difference {
+    padding: 2px 12px;
+    }
+}
+
+.pricing-retvisitor .Price--compareAt {
+    margin-left: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Quantity Display on Product Page */
+.acc-tl-pr39-msg {
+    color: #CF2F2F;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    margin-top: 7px;
+    display: flex;
+    align-items: center;
+}
+
+.acc-tl-pr39-msg .acc-pr39-svg {
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='17' viewBox='0 0 16 17' fill='none'%3E%3Cpath d='M16 0.5H0V16.5H16V0.5Z' fill='white' fill-opacity='0.01'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M14.6693 5.16674L8.0026 1.8334L1.33594 5.16674V11.8334L8.0026 15.1667L14.6693 11.8334V5.16674Z' stroke='%235B5B5B' stroke-linejoin='round'/%3E%3Cpath d='M1.33594 5.1666L8.0026 8.49993' stroke='%235B5B5B' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M8 15.1667V8.5' stroke='%235B5B5B' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M14.6667 5.1666L8 8.49993' stroke='%235B5B5B' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M11.3307 3.5L4.66406 6.83333' stroke='%235B5B5B' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+.ProductMeta__PriceList {
+    margin-top: 7px !important;
+}
+
+.acc-num {
+    padding: 0 4px;
+}
+
+.acc-tl-pr39-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 12px;
+    width: 400px;
+    border-radius: 100px;
+    border: 1px dashed #7ad3ff;
+    background: linear-gradient(90deg,#fff4fe 2.16%,#e4f6ff 100%);
+    margin-top: 12px;
+}
+
+@media (max-width: 1007px) {
+    .acc-tl-pr39-msg {
+        justify-content: center;
+    }
+}
+
+.acc-pr39-percentage {
+    color: #3578b5;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: normal;
+    margin-right: 4px;
+}
+
+.acc-pr39-percentage-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    width: 100%; /* Full width */
+    padding: 0 10px; /* Add padding if needed */
+}
+
+.acc-pr39-title {
+    color: #272727;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    margin-bottom: 4px;
+}
