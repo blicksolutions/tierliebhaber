@@ -64,96 +64,13 @@
 {% comment %}Start automatically added Judge.me widget{% endcomment %}
   {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', concierge_install: true, product: product %}
 {% comment %}End automatically added Judge.me widget{% endcomment %}
-
-      <script>
-document.addEventListener('DOMContentLoaded', function() {
-    function generateRandom(min = 20, max = 50) {
-        let difference = max - min;
-        let rand = Math.random();
-        rand = Math.floor(rand * difference);
-        rand = rand + min;
-        return rand;
-    }
-
-    function updateProgressBar(productId) {
-        let stockValue = localStorage.getItem(`product-${productId}-stock-value`);
-
-        if (!stockValue) {
-            stockValue = generateRandom(); // Generating random stock value
-            localStorage.setItem(`product-${productId}-stock-value`, stockValue);
-        }
-
-        document.querySelector('.acc-pr39-percentage').textContent = `${stockValue}%`;
-        document.querySelector('.acc-pr39-progress-bar').style.setProperty('--progress-width', `${stockValue}%`);
-    }
-
-    let productForm = document.querySelector('.ProductForm');
-    if (productForm) {
-        let productId = productForm.getAttribute('data-productid');
-        if (productId) {
-            updateProgressBar(productId);
-        }
-    }
-});
-</script>
-      
-  <style>
-.acc-pr39-progress-bar {
-    flex-grow: 1; /* Take up all available space */
-    height: 6px;
-    border: 1px solid #3578b5;
-    border-radius: 30px;
-    position: relative;
-    background-color: #fff;
-    margin-left: 10px; /* Add space between the percentage and the progress bar */
-    max-width: 253px;
-}
-
-.acc-pr39-progress-bar::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    background-color: #3578b5;
-    height: 100%;
-    border-radius: 30px;
-    width: var(--progress-width, 0%); /* Use the custom property */
-}
-  </style>
-      
-  <div class="acc-tl-pr39-wrapper">
-    <div class="acc-pr39-title">Nur solange der Vorrat reicht!</div>
-    <div class="acc-pr39-percentage-wrapper">
-      <span class="acc-pr39-percentage"></span>
-      <div class="acc-pr39-progress-bar"></div>
-    </div>
-  </div>
-      
-  {%- if product.template_suffix != 'coming-soon' and show_price -%}
+{%- if product.template_suffix != 'coming-soon' and show_price -%}
     <div class="ProductMeta__PriceList Heading">
       {%- if selected_variant.compare_at_price > selected_variant.price -%}
-        {% assign price_difference = selected_variant.compare_at_price | minus: selected_variant.price %}
-        <div class="pricing-newvisitor">
-          <span class="ProductMeta__Price Price Price--highlight Text--subdued u-h4">
-            {{- selected_variant.price | money_without_trailing_zeros -}}
-          </span>
-          <span class="ProductMeta__Price Price Price--compareAt Text--subdued u-h4">
-            {{- selected_variant.compare_at_price | money_without_trailing_zeros -}}
-          </span>
-        </div>
-        <div class="pricing-retvisitor" style="display:none">
-          <span class="ProductMeta__Price Price Price--highlight Text--subdued u-h4">
-            {{- selected_variant.price | money_without_trailing_zeros -}}
-          </span>
-          <span class="ProductMeta__Price Price Price--compareAt Text--subdued u-h4">
-            {{- selected_variant.compare_at_price | money_without_trailing_zeros -}}
-          </span>
-          <span class="price-difference">Du sparst {{ price_difference | money_without_trailing_zeros }}</span>
-        </div>
+        <span class="ProductMeta__Price Price Price--highlight Text--subdued u-h4">{{ selected_variant.price | money_without_trailing_zeros }}</span>
+        <span class="ProductMeta__Price Price Price--compareAt Text--subdued u-h4">{{ selected_variant.compare_at_price | money_without_trailing_zeros }}</span>
       {%- else -%}
-        <span class="ProductMeta__Price Price Text--subdued u-h4">
-          {{- selected_variant.price | money_without_trailing_zeros -}}
-        </span>
+        <span class="ProductMeta__Price Price Text--subdued u-h4">{{ selected_variant.price | money_without_trailing_zeros }}</span>
       {%- endif -%}
     </div>
 
@@ -175,52 +92,49 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
     </div>
 
-<script>
-  window.addEventListener("load", async function() {
-    let discountElmnt;
-    while (!(discountElmnt = document.querySelector("#shopify-section-{{ section.id }} .rc_widget .rc_widget__option__discount"))) {
-      await new Promise((resolve, reject) => {
-        window.setTimeout(resolve, 50);
-      });
-    }
-
-    let discount = parseFloat(discountElmnt.innerHTML.replace("%", "")) / 100;
-    let factor = 1 - discount;
-    let unitpriceElmnt = document.querySelector("#shopify-section-{{ section.id }} .UnitPriceMeasurement__Price");
-    let price = parseFloat(unitpriceElmnt.getAttribute("data-alt-price")) * factor;
-    let formattedPrice = "€" + price.toFixed(2).replace(".", ",");
-    unitpriceElmnt.setAttribute("data-alt-price", formattedPrice);
-    unitpriceElmnt.innerHTML = formattedPrice;
-
-    let status;
-    function type(item) {
-      return item.classList.contains("rc-option__subsave") ? "subsave" : "onetime";
-    }
-
-    function updatePriceDifference() {
-      setTimeout(() => {
-        let originalPrice = parseFloat(document.querySelector('.ProductMeta__Price.Price--compareAt').textContent.replace("€", "").replace(",", "."));
-        let currentPrice = parseFloat(document.querySelector('.ProductMeta__Price.Price--highlight').textContent.replace("€", "").replace(",", "."));
-        let priceDifference = originalPrice - currentPrice;
-        document.querySelector('.price-difference').textContent = 'Du sparst €' + priceDifference.toFixed(2).replace(".", ",");
-      }, 100); // Wait for 100ms before updating the price difference
-    }
-
-    document.querySelectorAll("#shopify-section-{{ section.id }} .rc-radio-group__options .rc_widget__option ").forEach(function(item) {
-      if (item.querySelector("input.rc-radio__input").checked) {
-        status = type(item);
+    <script>
+    /* update unit price when user switches from normal buy to abonnement via "Recharge" App */
+    window.addEventListener("load" , async function() {
+      let discountElmnt;
+      while (!(discountElmnt = document.querySelector("#shopify-section-{{ section.id }} .rc_widget .rc_widget__option__discount"))) {
+        await new Promise((resolve , reject) => {
+          window.setTimeout(resolve , 50);
+        });
       }
-      item.addEventListener("click", function() {
-        if (status !== type(item)) {
-          updatePriceDifference(); // Update price difference when option changes
+      discount = discountElmnt.innerHTML;
+      discount = discount.replace("%" , "");
+      discount/= 100;
+      factor = 1 - discount;
+      let unitpriceElmnt = document.querySelector("#shopify-section-{{ section.id }} .UnitPriceMeasurement__Price");
+      let price = unitpriceElmnt.getAttribute("data-alt-price");
+      price*= factor;
+      price = Math.round(price);
+      price/= 100;
+      price = "€" + price.toString().replace("." , ",");
+      unitpriceElmnt.setAttribute("data-alt-price" , price);
+      let status;
+      function type(item) {
+        if (item.classList.contains("rc-option__subsave")) {
+          return "subsave";
+        } else {
+          return "onetime";
         }
-        status = type(item);
-      }, false);
+      }
+      document.querySelectorAll("#shopify-section-{{ section.id }} .rc-radio-group__options .rc_widget__option ").forEach(async function(item) {
+        if (item.querySelector("input.rc-radio__input").checked) {
+          status = type(item);
+        }
+        item.addEventListener("click" , function() {
+          if (status !== type(item)) {
+            let price = unitpriceElmnt.getAttribute("data-alt-price");
+            unitpriceElmnt.setAttribute("data-alt-price" , unitpriceElmnt.innerHTML);
+            unitpriceElmnt.innerHTML = price;
+          }
+          status = type(item);
+        } , false);
+      });
     });
-
-    updatePriceDifference(); // Initial update on page load
-  });
-</script>
+    </script>
   {%- endif -%}
 
   {%- if section.settings.show_taxes_included -%}
