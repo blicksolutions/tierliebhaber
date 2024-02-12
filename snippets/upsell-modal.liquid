@@ -1,0 +1,740 @@
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize quantity picker functionality
+    function updateQuantity(action, inputField) {
+        var currentQty = parseInt(inputField.value);
+        if (action === 'minus') {
+            if (currentQty > 1) { // Prevents quantity from going below 1
+                inputField.value = currentQty - 1;
+            }
+        } else if (action === 'plus') {
+            inputField.value = currentQty + 1;
+        }
+    }
+
+    // Attach click event listeners to quantity update buttons
+    document.querySelectorAll('.acc-cart-item__quantity--count-handler').forEach(function(handler) {
+        handler.addEventListener('click', function() {
+            var inputField = this.parentElement.querySelector('input[type="number"]');
+            if (this.classList.contains('acc-count-minus')) {
+                updateQuantity('minus', inputField);
+            } else if (this.classList.contains('acc-count-plus')) {
+                updateQuantity('plus', inputField);
+            }
+        });
+    });
+
+    // AJAX call to add product to cart
+$(document).ready(function() {
+    $('.acc-upsell__product--btn').click(function(event) {
+        event.preventDefault();
+
+        var form = $(this).closest('.upsell-form');
+        var productId = form.find('[name="id"]').val();
+        // Get the current quantity from the quantity picker input, not from the hidden input
+        var quantity = parseInt(document.querySelector('.acc-cart-item__quantity--count input[type="number"]').value, 10);
+
+        // Ensure the data sent via AJAX includes the dynamically obtained quantity
+        $.ajax({
+            type: 'POST',
+            url: '/cart/add.js',
+            data: {
+                id: productId,
+                quantity: quantity
+            },
+            dataType: 'json',
+            success: function(data) {
+                $(".acc-upsell-close-icon").trigger("click");
+                document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', {bubbles: true}));
+                console.log('Product added to cart successfully. Quantity:', quantity);
+            },
+            error: function(xhr, status, error) {
+                console.error('Error adding product to cart:', error);
+            }
+        });
+    });
+});
+});
+</script>
+
+<style>
+  @media screen and (max-width:999px) {
+  .acc_tl_upsell_24 {
+    display:none !important;
+  }
+  }
+</style>
+
+<div class="acc_tl_upsell_24">
+  <div class="acc-modal" style="visibility:hidden; display:flex;">
+    <div class="acc-modal__content">
+      <div class="acc-upsell">
+        <div class="acc-upsell__alert">
+          <img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/checkmark.svg" alt="check">
+          <p>Dein Artikel wurde dem Warenkorb hinzugefügt</p>
+        </div>
+
+        <div class="acc-upsell__heading">
+          <h2 class="acc-upsell__heading--title">Rundum Pflege für deinen liebling</h2>
+          <p class="acc-upsell__heading--countdown">Verbliebene Zeit: <span id="acc-upsell-countdown"></span></p>
+        </div>
+
+        <div class="acc-upsell__product zahnpflege-upsell";>
+          <div class="acc-upsell__product--img">
+            <img
+              src="https://tierliebhaber.de/cdn/shop/files/DesignohneTitel_2_84235a11-7467-4c70-86a4-68c2668ee8f1_1200x.png?v=1705171375"
+              alt="Upsell"
+            >
+          </div>
+          <div class="acc-upsell__product--meta">
+            <h4 class="acc-upsell__product--meta-title">Zahnpflege Bundle</h4>
+            <div class="acc-upsell__product--priceQty">
+              <div class="acc-upsell__product--price">
+                <span class="acc-upsell__product--price-new">€55,08</span>
+                <span class="acc-upsell__product--price-old">€64,80</span>
+              </div>
+              <div class="acc-upsell__product-qty">
+                <div class="acc-cart-item__quantity" id="acc-upsell__product-qty">
+                  <div class="acc-cart-item__quantity--count-handler acc-count-minus">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      focusable="false"
+                      role="presentation"
+                      class="icon icon-minus"
+                      fill="none"
+                      viewBox="0 0 10 2"
+                    >
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M.5 1C.5.7.7.5 1 .5h8a.5.5 0 110 1H1A.5.5 0 01.5 1z" fill="currentColor"></path>
+                    </svg>
+                  </div>
+
+                  <div class="acc-cart-item__quantity--count">
+                    <input type="number" id="acc-qty-1" value="1" min="0">
+                  </div>
+
+                  <div class="acc-cart-item__quantity--count-handler acc-count-plus">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      focusable="false"
+                      role="presentation"
+                      class="icon icon-plus"
+                      fill="none"
+                      viewBox="0 0 10 10"
+                    >
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M1 4.51a.5.5 0 000 1h3.5l.01 3.5a.5.5 0 001-.01V5.5l3.5-.01a.5.5 0 00-.01-1H5.5L5.49.99a.5.5 0 00-1 .01v3.5l-3.5.01H1z" fill="currentColor"></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <form method="post" class="upsell-form" action="/cart/add" id="product_form_6994214617247" accept-charset="UTF-8" enctype="multipart/form-data" data-productid="6994214617247">
+    <input type="hidden" name="form_type" value="product">
+    <input type="hidden" name="utf8" value="✓">
+        <input type="hidden" name="id" data-productid="6994214617247" data-sku="TL0023" value="40731548188831">
+        <input type="hidden" name="quantity" value="1">
+    <button class="acc-upsell__product--btn">IN DEN WARENKORB</button>
+</form>
+          </div>
+        </div>
+
+      <div class="acc-upsell__product darmpflege-upsell" style="display:none;">
+          <div class="acc-upsell__product--img">
+            <img
+              src="https://tierliebhaber.de/cdn/shop/products/darmpflege_1000x.png?v=1681378293"
+              alt="Upsell"
+            >
+          </div>
+          <div class="acc-upsell__product--meta">
+            <h4 class="acc-upsell__product--meta-title">Darmpflege Bundle</h4>
+            <div class="acc-upsell__product--priceQty">
+              <div class="acc-upsell__product--price">
+                <span class="acc-upsell__product--price-new">€44,90</span>
+                <span class="acc-upsell__product--price-old">€54,80</span>
+              </div>
+              <div class="acc-upsell__product-qty">
+                <div class="acc-cart-item__quantity" id="acc-upsell__product-qty">
+                  <div class="acc-cart-item__quantity--count-handler acc-count-minus">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      focusable="false"
+                      role="presentation"
+                      class="icon icon-minus"
+                      fill="none"
+                      viewBox="0 0 10 2"
+                    >
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M.5 1C.5.7.7.5 1 .5h8a.5.5 0 110 1H1A.5.5 0 01.5 1z" fill="currentColor"></path>
+                    </svg>
+                  </div>
+
+                  <div class="acc-cart-item__quantity--count">
+                    <input type="number" id="acc-qty-2" value="1" min="0">
+                  </div>
+
+                  <div class="acc-cart-item__quantity--count-handler acc-count-plus">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      focusable="false"
+                      role="presentation"
+                      class="icon icon-plus"
+                      fill="none"
+                      viewBox="0 0 10 10"
+                    >
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M1 4.51a.5.5 0 000 1h3.5l.01 3.5a.5.5 0 001-.01V5.5l3.5-.01a.5.5 0 00-.01-1H5.5L5.49.99a.5.5 0 00-1 .01v3.5l-3.5.01H1z" fill="currentColor"></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <form method="post" class="upsell-form" action="/cart/add" id="product_form_7070952882335" accept-charset="UTF-8" enctype="multipart/form-data" data-productid="7070952882335">
+    <input type="hidden" name="form_type" value="product">
+    <input type="hidden" name="utf8" value="✓">
+         <input type="hidden" name="id" data-productid="7070952882335" data-sku="TL0087" value="41058234269855">
+        <input type="hidden" name="quantity" value="1">
+    <button class="acc-upsell__product--btn">IN DEN WARENKORB</button>
+</form>
+          </div>
+        </div>
+
+        <div class="acc-upsell-trustPilot">
+          <div class="acc-upsell-trustpilot-reviews">
+            <div class="acc-upsell-trustPilot-review">
+              <h3 class="acc-upsell-trustPilot-review-title">Die Produkte wirken</h3>
+              <img
+                class="acc-upsell-trustPilot-review-rating"
+                src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/trustpilot.svg"
+                alt="trust pilot rating"
+              >
+              <p class="acc-upsell-trustPilot-review-body">
+                Die Produkte wirken, ich habe für unseren Kater das Dentalspray und das Zeckenspray gekauft. Versand und
+                Mailverlauf über die Bestellung hat gut geklappt.Gern wieder.
+              </p>
+              <p class="acc-upsell-trustPilot-review-author">- Kunde</p>
+            </div>
+          <div class="acc-upsell-trustPilot-review">
+            <h3 class="acc-upsell-trustPilot-review-title">Schnelle Lieferung, gut verpack!</h3>
+            <img
+              class="acc-upsell-trustPilot-review-rating"
+              src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/trustpilot.svg"
+              alt="trust pilot rating"
+            >
+            <p class="acc-upsell-trustPilot-review-body">
+              Das Dentalspray brauchte eine kurze Gewöhnung hinterher, aber mit einem Stück vom Dähtälstick hinterher
+              als Belohnung wurde es schnell akzeptiert!
+            </p>
+            <p class="acc-upsell-trustPilot-review-author">- Cordula</p>
+          </div>
+          <div class="acc-upsell-trustPilot-review">
+            <h3 class="acc-upsell-trustPilot-review-title">Schnelle Lieferung und super Erfolg mit...</h3>
+            <img
+              class="acc-upsell-trustPilot-review-rating"
+              src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/trustpilot.svg"
+              alt="trust pilot rating"
+            >
+            <p class="acc-upsell-trustPilot-review-body">
+              Schnelle Lieferung und super Erfolg mit diesen Produkten. Der Dehlälspray hilft wirklich dass mein
+              Yorkshire Terrier keinen Zahnstein mehr hat und auch meineTierärztin ist sehr zufrieden.
+            </p>
+            <p class="acc-upsell-trustPilot-review-author">- Marlies Broadbent</p>
+          </div>
+        </div>
+          </div>
+
+        <a href="/checkout" class="acc-upsell-cta">
+          <p>Weiter zum Checkout</p>
+          <img
+            src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/chevron-right.svg"
+            class="acc-upsell-cta-icon"
+            alt="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/chevron-right.svg"
+          >
+        </a>
+
+        <img
+          src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/close-icon.svg"
+          class="acc-upsell-close-icon"
+          alt="close"
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .acc_tl_upsell_24 .acc-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(0,0,0,.2);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      color: #70706e;
+      z-index: 99999999999999;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content {
+      width: 612px;
+      min-height: 30vh;
+      max-width: 90%;
+      background: #fff;
+      padding: 28px;
+      border-radius: 6px;
+      position: relative;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell .acc-upsell__alert {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 31px;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell .acc-upsell__alert img {
+      width: 28px;
+      margin-right: 10px;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell .acc-upsell__alert p {
+      color: #3d3d3d;
+      font-family: var(--acc-upsell-font-family);
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 21.6px;
+      margin: 0;
+      text-align: center;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell .acc-upsell__heading {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell .acc-upsell__heading--title {
+      color: #414141;
+      font-family: var(--acc-upsell-font-family);
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 120%;
+      text-transform: uppercase;
+      margin: 0;
+      text-align: center;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell .acc-upsell__heading--countdown {
+      color: #c69587;
+      font-family: var(--acc-upsell-font-family);
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 120%;
+      margin: 0;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell .acc-upsell__product {
+      display: flex;
+      padding: 12px;
+      background-color: #fff;
+      border-radius: 16px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.25);
+      max-width: 470px;
+      margin: auto;
+      margin-bottom: 30px;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell .acc-upsell__product--img {
+      width: 151px;
+      margin-right: 12px;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell .acc-upsell__product--img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell .acc-upsell__product--meta {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell .acc-upsell__product--meta-title {
+      color: #000;
+      font-family: var(--acc-upsell-font-family);
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      margin: 0;
+      margin-bottom: 16px;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell .acc-upsell__product--priceQty {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 21px;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell .acc-upsell__product--price {
+      display: flex;
+      align-items: center;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell [class*='acc-upsell__product--price-'] {
+      display: inline-block;
+      font-family: var(--acc-upsell-font-family);
+      margin-right: 4px;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell .acc-upsell__product--price-new {
+      color: #000;
+      margin-right: 4px;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell .acc-upsell__product--price-old {
+      color: #939393;
+      text-decoration: line-through;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell .acc-upsell__product--btn {
+      background: #f1af9e;
+      padding: 16px;
+      color: #fff;
+      text-align: center;
+      font-family: var(--acc-upsell-font-family);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 20px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s ease-in-out;
+      width: 100%;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell .acc-upsell__product--btn:hover {
+      background: #ca9081;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell .acc-upsell__product--btn:active {
+      background: #f1af9e;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell-trustPilot {
+      max-width: 470px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 16px 40px;
+      margin: auto;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell-trustPilot .slick-track {
+      padding: 0;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell-trustPilot .slick-prev,
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell-trustPilot .slick-next {
+      width: 24px;
+      height: 24px;
+      opacity: 0.4;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell-trustPilot .slick-prev {
+      left: -40px;
+  }
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell-trustPilot .slick-next {
+      right: -40px;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell-trustPilot .slick-initialized .slick-slider {
+      display: block;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell-trustPilot .slick-slide {
+      display: none;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell-trustPilot .slick-initialized .slick-slide {
+      display: flex !important;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell-trustPilot .slick-list {
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell-trustPilot .slick-track {
+      position: relative;
+      top: 0;
+      left: 0;
+      display: block;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell-trustPilot .slick-track:before,
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell-trustPilot .slick-track:after {
+      display: table;
+      content: '';
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell-trustPilot .slick-track:after {
+      clear: both;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell-trustPilot .slick-slide {
+      display: none;
+      float: left;
+      height: 100%;
+      min-height: 1px;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell-trustPilot .slick-initialized .slick-slide {
+      display: block;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell-trustPilot .slick-vertical .slick-slide {
+      display: block;
+      height: auto;
+      border: 1px solid transparent;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell-trustPilot .slick-arrow.slick-hidden {
+      display: none;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell-trustPilot-review {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell-trustPilot-review-title {
+      color: #565656;
+      text-align: center;
+      font-family: var(--acc-upsell-font-family);
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 150%;
+      margin: 0;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell-trustPilot-review-rating {
+      display: inline-block;
+      margin: 10px 0;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell-trustPilot-review-body {
+      color: #565656;
+      text-align: center;
+      font-family: var(--acc-upsell-font-family);
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%;
+      margin: 0;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell-trustPilot-review-author {
+      color: #393939;
+      text-align: center;
+      font-family: var(--acc-upsell-font-family);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      margin: 0;
+      margin-top: 10px;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell-cta {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 24px;
+      color: inherit;
+      text-decoration: none;
+      transition: all 0.2s ease-out;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell-cta:hover {
+      text-decoration: underline;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell-cta p {
+      color: #cf7b65;
+      font-family: Roboto, var(--acc-upsell-font-family);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 21px;
+      text-transform: uppercase;
+      margin: 0;
+      margin-right: 9px;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell-close-icon {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-cart-item__quantity {
+      width: 99px;
+      border: 0.8px solid #c8c8c8;
+      display: flex;
+      color: #e6e6e6;
+      overflow: hidden;
+      padding: 8px;
+      height: 39px;
+      box-sizing: border-box;
+      font-family: var(--acc-upsell-font-family);
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-cart-item__quantity--count-handler {
+      height: 100%;
+      width: 128px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.4rem;
+      font-weight: 700;
+      cursor: pointer;
+      opacity: 0.85;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-cart-item__quantity--count-handler:hover {
+      opacity: 1;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-cart-item__quantity--count-handler:active {
+      opacity: 0.85;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-cart-item__quantity--count-handler svg {
+      width: 12px;
+      color: #000;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-cart-item__quantity--count {
+      flex: 1;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: inherit;
+      color: #444444;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-cart-item__quantity--count input {
+      border: none;
+      -webkit-appearance: none;
+      appearance: none;
+      -moz-appearance: textfield;
+      outline: none;
+      width: 30px;
+      height: 100%;
+      text-align: center;
+      margin: 0;
+      color: #000;
+      font-size: 16px;
+      font-weight: 400;
+      color: #000000;
+      font-family: inherit;
+  }
+
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-cart-item__quantity--count input::-webkit-outer-spin-button,
+  .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-cart-item__quantity--count input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+  }
+
+  @media (max-width: 590px) {
+      .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell__alert {
+          flex-direction: column;
+          margin-bottom: 30px;
+      }
+
+      .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell__alert img {
+          margin-right: 0;
+          margin-bottom: 11px;
+      }
+
+      .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell__heading--title {
+          font-size: 24px;
+          font-weight: 600;
+          line-height: 110%;
+          margin-bottom: 8px;
+      }
+
+      .acc_tl_upsell_24 .acc-modal {
+          flex-direction: column;
+          justify-content: flex-end;
+      }
+
+      .acc_tl_upsell_24 .acc-modal__content {
+          padding: 24px 16px;
+          max-width: 100%;
+          border-radius: 16px;
+          max-height: 95vh;
+          overflow-y: scroll;
+      }
+
+      .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell__product--priceQty {
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          margin-bottom: 8px;
+      }
+
+      .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell__product--price {
+          margin-bottom: 6px;
+      }
+
+      .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell__product--img {
+          width: 99px;
+      }
+
+      .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell__product--img img {
+          height: auto;
+      }
+
+      .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell__product--btn {
+          letter-spacing: normal;
+      }
+
+      .acc_tl_upsell_24 .acc-modal .acc-modal__content .acc-upsell__product--meta-title {
+          margin-bottom: 8px;
+      }
+  }
+
+  .acc_tl_upsell_24 .smile-ui-lite-container {
+      z-index: 9999 !important;
+  }
+
+  .acc-upsell__product--meta .upsell-form .rc-container-wrapper {
+    display:none !important;
+  }
+</style>
