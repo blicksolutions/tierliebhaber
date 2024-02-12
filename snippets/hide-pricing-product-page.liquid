@@ -1,0 +1,38 @@
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var timestamp = localStorage.getItem("timestamp");
+    var currentTimestamp = new Date().getTime() / 1000; // Current time in seconds
+
+    function setupPricingForReturningVisitors() {
+        var retVisitorDiv = document.querySelector('.pricing-retvisitor');
+        var newVisitorDiv = document.querySelector('.pricing-newvisitor');
+        if (retVisitorDiv) retVisitorDiv.style.display = 'flex';
+        if (newVisitorDiv) newVisitorDiv.style.display = 'none';
+    }
+
+    function setupPricingForFirstTimeVisitors() {
+        var retVisitorDiv = document.querySelector('.pricing-retvisitor');
+        var newVisitorDiv = document.querySelector('.pricing-newvisitor');
+        if (retVisitorDiv) retVisitorDiv.style.display = 'none';
+        if (newVisitorDiv) newVisitorDiv.style.display = 'block';
+    }
+
+    if (timestamp !== null) {
+        var epochGap = 900; // 15 minutes gap in seconds
+        var jsTimestamp = new Date(parseInt(timestamp)).getTime() / 1000;
+        var timeDifference = currentTimestamp - jsTimestamp;
+
+        if (timeDifference > epochGap) {
+            console.log("Returning visitor detected, visiting after the specified gap");
+            setupPricingForReturningVisitors();
+        } else {
+            console.log("Visitor is returning but within the specified gap");
+            // No changes for visitors returning within the gap
+        }
+    } else {
+        console.log("First-time visitor detected");
+        setupPricingForFirstTimeVisitors();
+        localStorage.setItem("timestamp", new Date().getTime());
+    }
+});
+</script>
