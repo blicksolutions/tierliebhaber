@@ -1,0 +1,48 @@
+ <style>
+.ProductItem__Info .ProductItem__PriceList,
+.ProductItem__Info .ProductItem__Price,
+.ProductItem .ProductItem__PriceList,
+.ProductItem .ProductItem__UnitPriceMeasurement {
+    opacity: 0 !important;
+}
+</style>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    var timestamp = localStorage.getItem("timestamp");
+    var currentTimestamp = new Date().getTime() / 1000; // Current time in seconds
+
+    if (timestamp !== null) {
+        var epochGap = 1800; // 15 minutes gap
+        var jsTimestamp = new Date(parseInt(timestamp)).getTime() / 1000;
+
+        var timeDifference = currentTimestamp - jsTimestamp;
+        if (timeDifference > epochGap) {
+            console.log("Returning visitor detected, visiting after the specified gap");
+            removeHideStyle();
+        } else {
+            console.log("Visitor is returning but within the specified gap");
+        }
+    } else {
+        console.log("First-time visitor detected");
+        localStorage.setItem("timestamp", new Date().getTime());
+    }
+});
+
+function removeHideStyle() {
+    var css = `.ProductItem__Info .ProductItem__PriceList,
+               .ProductItem__Info .ProductItem__Price,
+               .ProductItem .ProductItem__PriceList,
+               .ProductItem .ProductItem__UnitPriceMeasurement {
+                   opacity: 1 !important;
+               }`;
+    var style = document.createElement('style');
+
+    if (style.styleSheet) {
+        style.styleSheet.cssText = css;
+    } else {
+        style.appendChild(document.createTextNode(css));
+    }
+
+    document.getElementsByTagName('head')[0].appendChild(style);
+}
+</script>
