@@ -12309,3 +12309,22 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
     line-height: 21px;
     margin-bottom: 4px;
 }
+
+.compare-ajax {
+    margin-left: 15px  !important;
+}
+span.price-difference.ajax {
+    padding: 6px 16px;
+    border-radius: 100px;
+    background: linear-gradient(90deg,#caebf4 0,#e1d7ff);
+    color: #343f44;
+    font-family: Work Sans,sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    margin-left: 16px;
+}
