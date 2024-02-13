@@ -134,7 +134,6 @@ document.addEventListener('DOMContentLoaded', function() {
 <script>
 /* Function to calculate and update price difference */
 function updatePriceDifference() {
-  console.log("Updating price difference...");
   setTimeout(() => {
     let originalPrice = parseFloat(document.querySelector('.ProductMeta__Price.Price--compareAt').textContent.replace("€", "").replace(",", "."));
     let currentPrice = parseFloat(document.querySelector('.ProductMeta__Price.Price--highlight').textContent.replace("€", "").replace(",", "."));
@@ -146,23 +145,18 @@ function updatePriceDifference() {
 
 /* Function to wait for Recharge widget options to load */
 function waitForRechargeWidget() {
-  console.log("Waiting for Recharge widget to load...");
   setTimeout(waitForPriceChange, 2000); // Wait for 2000ms (2 seconds) for the Recharge widget to load
 }
 
 /* Function to wait for changes in the specified class */
 function waitForPriceChange() {
-  console.log("Waiting for price change...");
   let radioOptions = document.querySelectorAll(".rc_widget__option");
   if (radioOptions.length === 0) {
-    console.log("Recharge widget options not found. Retrying...");
     waitForRechargeWidget(); // Retry if Recharge widget options are not found
     return;
   }
-  console.log("Recharge widget options found. Attaching event listener...");
   radioOptions.forEach(function(option) {
     option.addEventListener("click", function() {
-      console.log("Option clicked. Updating price difference...");
       updatePriceDifference();
     });
   });
