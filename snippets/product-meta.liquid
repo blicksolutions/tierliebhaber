@@ -178,50 +178,60 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 
 <script>
-  window.addEventListener("load", async function() {
+/* Update unit price when user switches from normal buy to abonnement via "Recharge" App */
+window.addEventListener("load", async function() {
     let discountElmnt;
     while (!(discountElmnt = document.querySelector("#shopify-section-{{ section.id }} .rc_widget .rc_widget__option__discount"))) {
-      await new Promise((resolve, reject) => {
-        window.setTimeout(resolve, 50);
-      });
+        await new Promise((resolve, reject) => {
+            window.setTimeout(resolve, 50);
+        });
     }
 
     let discount = parseFloat(discountElmnt.innerHTML.replace("%", "")) / 100;
     let factor = 1 - discount;
+
+    // Select the unit price element
     let unitpriceElmnt = document.querySelector("#shopify-section-{{ section.id }} .UnitPriceMeasurement__Price");
-    let price = parseFloat(unitpriceElmnt.getAttribute("data-alt-price")) * factor;
-    let formattedPrice = "€" + price.toFixed(2).replace(".", ",");
-    unitpriceElmnt.setAttribute("data-alt-price", formattedPrice);
-    unitpriceElmnt.innerHTML = formattedPrice;
 
-    let status;
-    function type(item) {
-      return item.classList.contains("rc-option__subsave") ? "subsave" : "onetime";
-    }
+    // Retrieve the original unit price from the data attribute
+    let originalPrice = parseFloat(unitpriceElmnt.getAttribute("data-alt-price"));
 
+    // Calculate the discounted price
+    let discountedPrice = originalPrice * factor;
+
+    // Format the discounted price
+    let formattedPrice = "€" + discountedPrice.toFixed(2).replace(".", ",");
+    
+    // Update the data attribute and displayed price
+    unitpriceElmnt.setAttribute("data-alt-price", discountedPrice);
+    unitpriceElmnt.textContent = formattedPrice;
+
+    // Function to update the price difference
     function updatePriceDifference() {
-      setTimeout(() => {
-        let originalPrice = parseFloat(document.querySelector('.ProductMeta__Price.Price--compareAt').textContent.replace("€", "").replace(",", "."));
-        let currentPrice = parseFloat(document.querySelector('.ProductMeta__Price.Price--highlight').textContent.replace("€", "").replace(",", "."));
-        let priceDifference = originalPrice - currentPrice;
-        document.querySelector('.price-difference').textContent = 'Du sparst €' + priceDifference.toFixed(2).replace(".", ",");
-      }, 100); // Wait for 100ms before updating the price difference
+        setTimeout(() => {
+            let originalPrice = parseFloat(document.querySelector('.ProductMeta__Price.Price--compareAt').textContent.replace("€", "").replace(",", "."));
+            let currentPrice = parseFloat(document.querySelector('.ProductMeta__Price.Price--highlight').textContent.replace("€", "").replace(",", "."));
+            let priceDifference = originalPrice - currentPrice;
+            document.querySelector('.price-difference').textContent = 'Du sparst €' + priceDifference.toFixed(2).replace(".", ",");
+        }, 100); // Wait for 100ms before updating the price difference
     }
 
+    // Select all options in the recharge widget and add event listeners
     document.querySelectorAll("#shopify-section-{{ section.id }} .rc-radio-group__options .rc_widget__option ").forEach(function(item) {
-      if (item.querySelector("input.rc-radio__input").checked) {
-        status = type(item);
-      }
-      item.addEventListener("click", function() {
-        if (status !== type(item)) {
-          updatePriceDifference();
+        if (item.querySelector("input.rc-radio__input").checked) {
+            status = type(item);
         }
-        status = type(item);
-      }, false);
+        item.addEventListener("click", function() {
+            if (status !== type(item)) {
+                updatePriceDifference();
+            }
+            status = type(item);
+        }, false);
     });
 
-    updatePriceDifference(); 
-  });
+    // Call the updatePriceDifference function to initialize the price difference
+    updatePriceDifference();
+});
 </script>
   {%- endif -%}
 
