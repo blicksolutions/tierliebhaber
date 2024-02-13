@@ -694,50 +694,15 @@ function _classCallCheck(e, t) {
                         }
                     }))
                 }
-            }, // Function to update the product prices and layout based on visitor status
-function _updateProductPrices(e, t) {
-    var i = this.element.querySelector(".ProductMeta__PriceList");
-    if (e) {
-        if (i === null || (t && t.price === e.price && t.compare_at_price === e.compare_at_price)) return;
-        i.innerHTML = "", e.compare_at_price > e.price ? (i.innerHTML += '<div class="pricing-newvisitor"><span class="ProductMeta__Price Price Price--highlight Text--subdued u-h4" data-money-convertible>' + r.default.formatMoney(e.price, window.theme.moneyFormat) + "</span>", i.innerHTML += '<span class="ProductMeta__Price Price Price--compareAt Text--subdued u-h4" data-money-convertible>' + r.default.formatMoney(e.compare_at_price, window.theme.moneyFormat) + "</span></div>') : i.innerHTML += '<span class="ProductMeta__Price Price Text--subdued u-h4" data-money-convertible>' + r.default.formatMoney(e.price, window.theme.moneyFormat) + "</span>", i.style.display = "";
-
-        // Check if the user is a returning visitor and update the layout accordingly
-        var timestamp = localStorage.getItem("timestamp");
-        var currentTimestamp = new Date().getTime() / 1000; // Current time in seconds
-        if (timestamp !== null) {
-            var epochGap = 900; // 15 minutes gap in seconds
-            var jsTimestamp = new Date(parseInt(timestamp)).getTime() / 1000;
-            var timeDifference = currentTimestamp - jsTimestamp;
-
-            if (timeDifference > epochGap) {
-                console.log("Returning visitor detected, visiting after the specified gap");
-                setupPricingForReturningVisitors();
-            } else {
-                console.log("Visitor is returning but within the specified gap");
-                // For visitors returning within the gap, no changes are made here
-            }
-        } else {
-            console.log("First-time visitor detected");
-            setupPricingForFirstTimeVisitors();
-            localStorage.setItem("timestamp", new Date().getTime());
-        }
-    } else i.style.display = "none"
-}
-
-// Ensure these functions are defined outside and accessible by _updateProductPrices
-function setupPricingForReturningVisitors() {
-    var retVisitorDiv = document.querySelector('.pricing-retvisitor');
-    var newVisitorDiv = document.querySelector('.pricing-newvisitor');
-    if (retVisitorDiv) retVisitorDiv.style.display = 'flex';
-    if (newVisitorDiv) newVisitorDiv.style.display = 'none';
-}
-
-function setupPricingForFirstTimeVisitors() {
-    var retVisitorDiv = document.querySelector('.pricing-retvisitor');
-    var newVisitorDiv = document.querySelector('.pricing-newvisitor');
-    if (retVisitorDiv) retVisitorDiv.style.display = 'none';
-    if (newVisitorDiv) newVisitorDiv.style.display = 'block';
-}
+            }, {
+                key: "_updateProductPrices",
+                value: function(e, t) {
+                    var i = this.element.querySelector(".ProductMeta__PriceList");
+                    if (e) {
+                        if (i === null || (t && t.price === e.price && t.compare_at_price === e.compare_at_price)) return;
+                        i.innerHTML = "", e.compare_at_price > e.price ? (i.innerHTML += '<span class="ProductMeta__Price Price Price--highlight Text--subdued u-h4" data-money-convertible>' + r.default.formatMoney(e.price, window.theme.moneyFormat) + "</span>", i.innerHTML += '<span class="ProductMeta__Price Price Price--compareAt Text--subdued u-h4" data-money-convertible>' + r.default.formatMoney(e.compare_at_price, window.theme.moneyFormat) + "</span>") : i.innerHTML += '<span class="ProductMeta__Price Price Text--subdued u-h4" data-money-convertible>' + r.default.formatMoney(e.price, window.theme.moneyFormat) + "</span>", i.style.display = ""
+                    } else i.style.display = "none"
+                }
             }, {
                 key: "_updateInventory",
                 value: function(e) {
