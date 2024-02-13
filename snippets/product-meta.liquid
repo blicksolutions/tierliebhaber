@@ -147,10 +147,10 @@ function updatePriceDifference() {
 /* Function to wait for changes in the specified class */
 function waitForPriceChange() {
   console.log("Waiting for price change...");
-  let radioInputs = document.querySelectorAll(".rc_widget__option__input");
-  radioInputs.forEach(function(input) {
-    input.addEventListener("click", function() {
-      console.log("Price change detected.");
+  let radioOptions = document.querySelectorAll(".rc_widget__option");
+  radioOptions.forEach(function(option) {
+    option.addEventListener("click", function() {
+      console.log("Option clicked. Updating price difference...");
       updatePriceDifference();
     });
   });
