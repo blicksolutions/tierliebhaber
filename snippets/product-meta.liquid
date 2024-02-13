@@ -130,6 +130,34 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   </div>
     </div>
+
+      <script>
+function updatePriceDifference() {
+  let unitpriceElmnt = document.querySelector("#shopify-section-{{ section.id }} .UnitPriceMeasurement__Price");
+  let originalPrice = parseFloat(unitpriceElmnt.getAttribute("data-alt-price"));
+  let discountedPrice = parseFloat(unitpriceElmnt.innerHTML.replace("€", "").replace(",", "."));
+  let priceDifference = Math.round((originalPrice - discountedPrice) * 100) / 100;
+  priceDifference = "€" + priceDifference.toFixed(2).replace(".", ",");
+  let priceDifferenceElmnt = document.querySelector(".price-difference");
+  if (priceDifferenceElmnt) {
+    priceDifferenceElmnt.innerHTML = "Du sparst " + priceDifference;
+  }
+}
+
+function waitForPriceChange() {
+  let radioInputs = document.querySelectorAll(".rc-radio__input.rc_widget__option__input.rc_widget__option__input--subsave");
+  radioInputs.forEach(function(input) {
+    input.addEventListener("click", function() {
+      updatePriceDifference();
+    });
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  waitForPriceChange();
+});
+</script>
+
       
   {%- if product.template_suffix != 'coming-soon' and show_price -%}
     <div class="ProductMeta__PriceList Heading">
