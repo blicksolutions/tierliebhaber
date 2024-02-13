@@ -695,15 +695,36 @@ function _classCallCheck(e, t) {
                     }))
                 }
             }, {
-                key: "_updateProductPrices",
-                value: function(e, t) {
-                    var i = this.element.querySelector(".ProductMeta__PriceList");
-                    if (e) {
-                        if (i === null || (t && t.price === e.price && t.compare_at_price === e.compare_at_price)) return;
-                        i.innerHTML = "", e.compare_at_price > e.price ? (i.innerHTML += '<span class="ProductMeta__Price Price Price--highlight Text--subdued u-h4" data-money-convertible>' + r.default.formatMoney(e.price, window.theme.moneyFormat) + "</span>", i.innerHTML += '<span class="ProductMeta__Price Price Price--compareAt Text--subdued u-h4" data-money-convertible>' + r.default.formatMoney(e.compare_at_price, window.theme.moneyFormat) + "</span>") : i.innerHTML += '<span class="ProductMeta__Price Price Text--subdued u-h4" data-money-convertible>' + r.default.formatMoney(e.price, window.theme.moneyFormat) + "</span>", i.style.display = ""
-                    } else i.style.display = "none"
+    key: "_updateProductPrices",
+    value: function(e, t) {
+        var i = this.element.querySelector(".ProductMeta__PriceList");
+        if (e) {
+            if (i === null || (t && t.price === e.price && t.compare_at_price === e.compare_at_price)) return;
+            i.innerHTML = "";
+
+            if (e.compare_at_price > e.price) {
+                var priceDifference = e.compare_at_price - e.price;
+                var defaultMoneyFormat = window.theme.moneyFormat;
+
+                i.innerHTML += '<span class="ProductMeta__Price Price Price--highlight Text--subdued u-h4" data-money-convertible>' + r.default.formatMoney(e.price, defaultMoneyFormat) + "</span>";
+                i.innerHTML += '<span class="compare-ajax ProductMeta__Price Price Price--compareAt Text--subdued u-h4" data-money-convertible>' + r.default.formatMoney(e.compare_at_price, defaultMoneyFormat) + "</span>";
+
+                if (priceDifference > 0) {
+                    var priceDifferenceSpan = document.createElement('span');
+                    priceDifferenceSpan.className = 'price-difference ajax';
+                    priceDifferenceSpan.textContent = "Du sparst "+r.default.formatMoney(priceDifference, defaultMoneyFormat);
+                    i.appendChild(priceDifferenceSpan);
                 }
-            }, {
+            } else {
+                i.innerHTML += '<span class="ProductMeta__Price Price Text--subdued u-h4" data-money-convertible>' + r.default.formatMoney(e.price, window.theme.moneyFormat) + "</span>";
+            }
+            i.style.display = "";
+        } else {
+            i.style.display = "none";
+        }
+    }
+},
+                                    {
                 key: "_updateInventory",
                 value: function(e) {
                     if (this.options.showInventoryQuantity) {
