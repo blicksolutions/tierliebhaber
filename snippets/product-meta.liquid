@@ -131,8 +131,10 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
     </div>
 
-      <script>
+<script>
+/* Function to calculate and update price difference */
 function updatePriceDifference() {
+  console.log("Updating price difference...");
   let unitpriceElmnt = document.querySelector("#shopify-section-{{ section.id }} .UnitPriceMeasurement__Price");
   let originalPrice = parseFloat(unitpriceElmnt.getAttribute("data-alt-price"));
   let discountedPrice = parseFloat(unitpriceElmnt.innerHTML.replace("€", "").replace(",", "."));
@@ -142,23 +144,27 @@ function updatePriceDifference() {
   if (priceDifferenceElmnt) {
     priceDifferenceElmnt.innerHTML = "Du sparst " + priceDifference;
   }
+  console.log("Price difference updated:", priceDifference);
 }
 
+/* Function to wait for changes in the specified class */
 function waitForPriceChange() {
+  console.log("Waiting for price change...");
   let radioInputs = document.querySelectorAll(".rc-radio__input.rc_widget__option__input.rc_widget__option__input--subsave");
   radioInputs.forEach(function(input) {
     input.addEventListener("click", function() {
+      console.log("Price change detected.");
       updatePriceDifference();
     });
   });
 }
 
+/* Wait for the DOM to load before executing */
 document.addEventListener("DOMContentLoaded", function() {
   waitForPriceChange();
 });
 </script>
-
-      
+ 
   {%- if product.template_suffix != 'coming-soon' and show_price -%}
     <div class="ProductMeta__PriceList Heading">
       {%- if selected_variant.compare_at_price > selected_variant.price -%}
