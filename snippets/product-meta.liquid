@@ -177,49 +177,51 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
     </div>
 
-    <script>
-    /* update unit price when user switches from normal buy to abonnement via "Recharge" App */
-    window.addEventListener("load" , async function() {
-      let discountElmnt;
-      while (!(discountElmnt = document.querySelector("#shopify-section-{{ section.id }} .rc_widget .rc_widget__option__discount"))) {
-        await new Promise((resolve , reject) => {
-          window.setTimeout(resolve , 50);
-        });
-      }
-      discount = discountElmnt.innerHTML;
-      discount = discount.replace("%" , "");
-      discount/= 100;
-      factor = 1 - discount;
-      let unitpriceElmnt = document.querySelector("#shopify-section-{{ section.id }} .UnitPriceMeasurement__Price");
-      let price = unitpriceElmnt.getAttribute("data-alt-price");
-      price*= factor;
-      price = Math.round(price);
-      price/= 100;
-      price = "€" + price.toString().replace("." , ",");
-      unitpriceElmnt.setAttribute("data-alt-price" , price);
-      let status;
-      function type(item) {
-        if (item.classList.contains("rc-option__subsave")) {
-          return "subsave";
-        } else {
-          return "onetime";
-        }
-      }
-      document.querySelectorAll("#shopify-section-{{ section.id }} .rc-radio-group__options .rc_widget__option ").forEach(async function(item) {
-        if (item.querySelector("input.rc-radio__input").checked) {
-          status = type(item);
-        }
-        item.addEventListener("click" , function() {
-          if (status !== type(item)) {
-            let price = unitpriceElmnt.getAttribute("data-alt-price");
-            unitpriceElmnt.setAttribute("data-alt-price" , unitpriceElmnt.innerHTML);
-            unitpriceElmnt.innerHTML = price;
-          }
-          status = type(item);
-        } , false);
-      });
+<script>
+/* update unit price when user switches from normal buy to abonnement via "Recharge" App */
+window.addEventListener("load", async function() {
+  let discountElmnt;
+  while (!(discountElmnt = document.querySelector("#shopify-section-{{ section.id }} .rc_widget .rc_widget__option__discount"))) {
+    await new Promise((resolve, reject) => {
+      window.setTimeout(resolve, 50);
     });
-    </script>
+  }
+  let discount = parseFloat(discountElmnt.innerHTML.replace("%", "")) / 100;
+  let factor = 1 - discount;
+  let unitpriceElmnt = document.querySelector("#shopify-section-{{ section.id }} .UnitPriceMeasurement__Price");
+  let originalPrice = parseFloat(unitpriceElmnt.getAttribute("data-alt-price"));
+  let discountedPrice = Math.round(originalPrice * factor * 100) / 100;
+  unitpriceElmnt.setAttribute("data-alt-price", discountedPrice.toFixed(2));
+  let priceDifference = Math.round((originalPrice - discountedPrice) * 100) / 100;
+  priceDifference = "€" + priceDifference.toFixed(2).replace(".", ",");
+  let priceDifferenceElmnt = document.querySelector(".price-difference");
+  if (priceDifferenceElmnt) {
+    priceDifferenceElmnt.innerHTML = "Du sparst " + priceDifference;
+  }
+  
+  let status;
+  function type(item) {
+    if (item.classList.contains("rc-option__subsave")) {
+      return "subsave";
+    } else {
+      return "onetime";
+    }
+  }
+  document.querySelectorAll("#shopify-section-{{ section.id }} .rc-radio-group__options .rc_widget__option ").forEach(async function(item) {
+    if (item.querySelector("input.rc-radio__input").checked) {
+      status = type(item);
+    }
+    item.addEventListener("click", function() {
+      if (status !== type(item)) {
+        let price = unitpriceElmnt.getAttribute("data-alt-price");
+        unitpriceElmnt.setAttribute("data-alt-price", unitpriceElmnt.innerHTML);
+        unitpriceElmnt.innerHTML = price;
+      }
+      status = type(item);
+    }, false);
+  });
+});
+</script>
   {%- endif -%}
 
   {%- if section.settings.show_taxes_included -%}
