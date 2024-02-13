@@ -135,22 +135,18 @@ document.addEventListener('DOMContentLoaded', function() {
 /* Function to calculate and update price difference */
 function updatePriceDifference() {
   console.log("Updating price difference...");
-  let unitpriceElmnt = document.querySelector("#shopify-section-{{ section.id }} .UnitPriceMeasurement__Price");
-  let originalPrice = parseFloat(unitpriceElmnt.getAttribute("data-alt-price"));
-  let discountedPrice = parseFloat(unitpriceElmnt.innerHTML.replace("€", "").replace(",", "."));
-  let priceDifference = Math.round((originalPrice - discountedPrice) * 100) / 100;
-  priceDifference = "€" + priceDifference.toFixed(2).replace(".", ",");
-  let priceDifferenceElmnt = document.querySelector(".price-difference");
-  if (priceDifferenceElmnt) {
-    priceDifferenceElmnt.innerHTML = "Du sparst " + priceDifference;
-  }
-  console.log("Price difference updated:", priceDifference);
+  setTimeout(() => {
+    let originalPrice = parseFloat(document.querySelector('.ProductMeta__Price.Price--compareAt').textContent.replace("€", "").replace(",", "."));
+    let currentPrice = parseFloat(document.querySelector('.ProductMeta__Price.Price--highlight').textContent.replace("€", "").replace(",", "."));
+    let priceDifference = originalPrice - currentPrice;
+    document.querySelector('.price-difference').textContent = 'Du sparst €' + priceDifference.toFixed(2).replace(".", ",");
+  }, 100); // Wait for 100ms before updating the price difference
 }
 
 /* Function to wait for changes in the specified class */
 function waitForPriceChange() {
   console.log("Waiting for price change...");
-  let radioInputs = document.querySelectorAll(".rc-radio__input.rc_widget__option__input.rc_widget__option__input--subsave");
+  let radioInputs = document.querySelectorAll(".rc_widget__option__input");
   radioInputs.forEach(function(input) {
     input.addEventListener("click", function() {
       console.log("Price change detected.");
