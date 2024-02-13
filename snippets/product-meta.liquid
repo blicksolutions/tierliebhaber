@@ -189,24 +189,14 @@ document.addEventListener('DOMContentLoaded', function() {
     let discount = parseFloat(discountElmnt.innerHTML.replace("%", "")) / 100;
     let factor = 1 - discount;
     let unitpriceElmnt = document.querySelector("#shopify-section-{{ section.id }} .UnitPriceMeasurement__Price");
-    let originalPrice = parseFloat(unitpriceElmnt.getAttribute("data-alt-price"));
-    let updatedPrice = calculateUpdatedPrice(originalPrice, factor);
-    updateUnitPrice(unitpriceElmnt, updatedPrice);
+    let price = parseFloat(unitpriceElmnt.getAttribute("data-alt-price")) * factor;
+    let formattedPrice = "€" + price.toFixed(2).replace(".", ",");
+    unitpriceElmnt.setAttribute("data-alt-price", formattedPrice);
+    unitpriceElmnt.innerHTML = formattedPrice;
 
     let status;
     function type(item) {
       return item.classList.contains("rc-option__subsave") ? "subsave" : "onetime";
-    }
-
-    function calculateUpdatedPrice(originalPrice, discountFactor) {
-      let price = originalPrice * discountFactor;
-      return price.toFixed(2); // Ensure the price has two decimal places
-    }
-
-    function updateUnitPrice(unitpriceElement, price) {
-      let formattedPrice = "€" + price.replace(".", ",");
-      unitpriceElement.setAttribute("data-alt-price", price);
-      unitpriceElement.innerHTML = formattedPrice;
     }
 
     function updatePriceDifference() {
