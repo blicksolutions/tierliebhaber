@@ -6,7 +6,6 @@
   {% else %}
     {% assign oldprice = item.variant.price | times: item.quantity %}
   {% endif %}
-
   {% assign totaloldprice = totaloldprice | plus: oldprice %}
 {% endfor %}
 
