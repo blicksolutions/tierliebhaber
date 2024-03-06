@@ -326,22 +326,30 @@ $(document).ready(function(){
     {%- endif -%}
   </div>
   {%- if show_shipping -%}
-    {%- liquid
-      assign shipping_eta_class = 'ProductForm__ShippingEta'
+      {%- liquid
+          assign shipping_eta_class = 'ProductForm__ShippingEta'
 
-    if selected_variant.available
-      if selected_variant.requires_shipping
-        assign shipping_eta_translation_key = 'product.form.shipping_eta.available' 
-      else 
-        assign shipping_eta_translation_key = 'product.form.shipping_eta.instantly_available'
-      endif
-    else
-      assign shipping_eta_translation_key = 'product.form.shipping_eta.sold_out'
-      assign shipping_eta_class = shipping_eta_class | append: ' -Unavailable'
-    endif
-  -%}
+          if product.metafields.custom.lieferzeit != blank
+              assign shipping_eta_translation_key = product.metafields.custom.lieferzeit
+          else
+              if selected_variant.available
+                  if selected_variant.requires_shipping
+                      assign shipping_eta_translation_key = 'product.form.shipping_eta.available'
+                  else
+                      assign shipping_eta_translation_key = 'product.form.shipping_eta.instantly_available'
+                  endif
+              else
+                  assign shipping_eta_translation_key = 'product.form.shipping_eta.sold_out'
+                  assign shipping_eta_class = shipping_eta_class | append: ' -Unavailable'
+              endif
+          endif
+      -%}
 
-    <p class="{{ shipping_eta_class }}">{{ shipping_eta_translation_key | t }}</p>
+      {% if product.metafields.custom.lieferzeit != blank %}
+          <p class="{{ shipping_eta_class }}">{{ shipping_eta_translation_key }}</p>
+      {% else %}
+          <p class="{{ shipping_eta_class }}">{{ shipping_eta_translation_key | t }}</p>
+      {% endif %}
   {%- endif -%}
   {%- comment -%}
   --------------------------------------------------------------------------------------------------------------------
