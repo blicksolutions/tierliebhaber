@@ -269,6 +269,14 @@
             "item-headline": "Weil sie mir täglich ein Lächeln aufs Gesicht zaubern können.",
             "item-subline": "KAI"
           }
+        },
+        "item_FmGaTN": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Lysann.jpg",
+            "item-headline": "Weil Tiere wie beste Freunde sind.",
+            "item-subline": "Lysann"
+          }
         }
       },
       "block_order": [
@@ -296,7 +304,8 @@
         "a75900a6-d4e3-4003-ab66-f88f96f1e519",
         "e4b4030f-dfd4-480a-9b22-99923054c7b7",
         "item_4Wc7hB",
-        "item_wTCFte"
+        "item_wTCFte",
+        "item_FmGaTN"
       ],
       "settings": {
         "background-color": "#ffffff",
