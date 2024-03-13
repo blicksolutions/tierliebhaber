@@ -96,6 +96,9 @@
     width: 100%;
     padding: 0 !important;
   }
+  .topbar_inner {
+  max-width: 107px;
+  }
 }
 
 @media only screen and (max-width:400px) {
