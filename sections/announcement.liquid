@@ -1,21 +1,37 @@
+{%- if section.settings.enable_three_col_content -%}
+  {{ 'new-topbar.css' | asset_url | stylesheet_tag }}
+{% endif %}
+
 {%- if section.settings.enable_bar -%}
   {%- unless section.settings.home_page_only and template != 'index' -%}
     <section id="section-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="announcement-bar">
       <div class="AnnouncementBar">
-        <div class="AnnouncementBar__Wrapper">
+        <div class="{%- if section.settings.enable_three_col_content -%} remove-padding {% endif %} AnnouncementBar__Wrapper">
           {%- if section.settings.enable_trustpilot_widget -%}
             <div class="Trustpilot">
               {{ section.settings.trustpilot_html }}
             </div>
           {%- endif -%}
 
-          <p class="AnnouncementBar__Content Heading">
-            {%- if section.settings.link -%}
-              <a href="{{ section.settings.link }}">{{ section.settings.content | escape }}</a>
-            {%- else -%}
-              {{ section.settings.content | escape }}
-            {%- endif -%}
-          </p>
+          {%- if section.settings.enable_text_content -%}
+            <p class="AnnouncementBar__Content Heading">
+              {%- if section.settings.link -%}
+                <a href="{{ section.settings.link }}">{{ section.settings.content | escape }}</a>
+              {%- else -%}
+                {{ section.settings.content | escape }}
+              {%- endif -%}
+            </p>
+          {% endif %}
+          {%- if section.settings.enable_three_col_content -%}
+            <div id="new_topbar">
+              {% for block in section.blocks %}
+                <div class="topbar_inner">
+                  {{ block.settings.top_svg }}
+                  <span> {{ block.settings.title }} </span>
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
         </div>
       </div>
     </section>
@@ -70,6 +86,18 @@
       "default": false
     },
     {
+      "type": "checkbox",
+      "id": "enable_text_content",
+      "label": "Show Text Content",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_three_col_content",
+      "label": "Show Three Column Content",
+      "default": true
+    },
+    {
       "type": "html",
       "id": "trustpilot_html",
       "label": "Trustpilot Widget HTML Code"
@@ -96,6 +124,24 @@
       "type": "url",
       "id": "link",
       "label": "Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "Top_Bar",
+      "name": "Top Bar",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "top_svg",
+          "label": "Give the svg code"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Give top bar text"
+        }
+      ]
     }
   ]
 }
