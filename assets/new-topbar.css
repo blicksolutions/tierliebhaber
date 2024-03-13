@@ -93,9 +93,13 @@
 @media only screen and (max-width: 491px){
   #new_topbar .topbar_inner:not(:nth-child(2)){
     max-width: 107px;
+    width: 100%;
     padding: 0 !important;
   }
-  .topbar_inner {
+}
+
+@media screen and (max-width:400px;) {
+    .topbar_inner {
     width:33% !important;
   }
 }
