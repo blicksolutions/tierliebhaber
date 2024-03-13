@@ -96,6 +96,9 @@
     width: 100%;
     padding: 0 !important;
   }
+  .topbar_inner {
+    width:33% !important;
+  }
 }
 
 /* header sticky css start */
