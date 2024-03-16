@@ -369,11 +369,10 @@
         },
         "7e85fc1c-a467-4500-83c7-3f55b878b381": {
           "type": "button",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/anruf.png",
             "image_alt": "",
-            "text": "Ruf uns an (Mo-Fr 11-15 Uhr)",
+            "text": "Ruf uns an (Mo-Fr 11-13 Uhr)",
             "color": "#f1af9e",
             "url": "tel:034149980019"
           }
@@ -396,7 +395,7 @@
       ],
       "settings": {
         "title": "Fragen? Wir sind für dich da...",
-        "subtitle": "<p>Bei Fragen zu einer bestehenden Bestellung, schreib uns einfach eine Nachricht per<br\/>WhatsApp oder per E-Mail.<\/p><p><strong>Hast du Fragen zu unseren Produkten oder kommst bei einer Bestellung nicht weiter?<\/strong> <br\/><br\/>Wir sind jederzeit für dich auf WhatsApp erreichbar.<\/p><p><strong>Du wünschst dir eine Produktberatung oder einen individuellen Rückruf?<\/strong><\/p><p>Schreib uns einfach eine Nachricht per WhatsApp oder per E-Mail mit deiner Telefonnummer und wann es für dich zeitlich passt, dann melden wir uns sehr gerne bei dir!<\/p>",
+        "subtitle": "<p>Bei Fragen zu einer bestehenden Bestellung, schreib uns einfach eine Nachricht per<br\/>WhatsApp oder per E-Mail oder kontaktiere uns telefonisch.<\/p><p><strong>Hast du Fragen zu unseren Produkten oder kommst bei einer Bestellung nicht weiter?<\/strong> <br\/><br\/>Wir sind jederzeit für dich auf WhatsApp erreichbar.<\/p><p><strong>Du wünschst dir eine Produktberatung oder einen individuellen Rückruf?<\/strong><\/p><p>Schreib uns einfach eine Nachricht per WhatsApp oder per E-Mail mit deiner Telefonnummer und wann es für dich zeitlich passt, dann melden wir uns sehr gerne bei dir!<\/p>",
         "image": "shopify:\/\/shop_images\/CS.png",
         "image_alt": "",
         "image_min_width": 340,
