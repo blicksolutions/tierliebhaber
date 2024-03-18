@@ -3030,7 +3030,8 @@
             o = e.detail;
         (t = o.variant),
             (i = document.querySelector(".ProductForm__ShippingEta")),
-            (n = (r = window.translations.product.form.shippingEta).available),
+            (r = window.translations.product.form.shippingEta),
+            (n = i.dataset.translationKey),
             (s = r.soldOut),
             (a = r.instantlyAvailable),
             i ? (t.available ? (i.classList.remove("-Unavailable"), (i.textContent = t.requires_shipping ? n : a)) : (i.classList.add("-Unavailable"), (i.textContent = s))) : null,

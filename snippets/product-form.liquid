@@ -346,9 +346,9 @@ $(document).ready(function(){
       -%}
 
       {% if product.metafields.custom.lieferzeit != blank %}
-          <p class="{{ shipping_eta_class }}">{{ shipping_eta_translation_key }}</p>
+          <p class="{{ shipping_eta_class }}" data-translation-key="{{ shipping_eta_translation_key }}">{{ shipping_eta_translation_key }}</p>
       {% else %}
-          <p class="{{ shipping_eta_class }}">{{ shipping_eta_translation_key | t }}</p>
+          <p class="{{ shipping_eta_class }}" data-translation-key="{{ shipping_eta_translation_key | t }}">{{ shipping_eta_translation_key | t }}</p>
       {% endif %}
   {%- endif -%}
   {%- comment -%}
