@@ -403,6 +403,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 setTimeout(function() {
   console.log('works')
 window._tfa.push({notify: 'event', name: 'page_view', id: 1653559})
+
+
+  document.addEventListener("DOMContentLoaded", function() {
+  // Find the button element
+  var button = document.querySelector(".ProductForm__AddToCart");
+
+  // Add click event listener
+  button.addEventListener("click", function() {
+    _tfa.push({notify: 'event', name: 'add_to_cart', id: 1653559});
+  });
+});
 }, 2000);
     </script>
 </body>
