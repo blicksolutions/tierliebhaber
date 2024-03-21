@@ -1300,6 +1300,14 @@
               "item-headline": "Weil Tiere wie beste Freunde sind.",
               "item-subline": "Lysann"
             }
+          },
+          "item_PCrRF8": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Sophia.jpg",
+              "item-headline": "SOPHIA",
+              "item-subline": "test"
+            }
           }
         },
         "block_order": [
@@ -1328,7 +1336,8 @@
           "863848eb-68b1-4240-a33d-beaa47145f7b",
           "item_bijYcH",
           "item_DhWxmW",
-          "item_hhDRtj"
+          "item_hhDRtj",
+          "item_PCrRF8"
         ],
         "settings": {
           "background-color": "#f2f8f5",
