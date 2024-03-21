@@ -278,6 +278,14 @@
             "item-headline": "Weil Tiere wie beste Freunde sind.",
             "item-subline": "Lysann"
           }
+        },
+        "item_WBDUWX": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Sophia.jpg",
+            "item-headline": "SOPHIA",
+            "item-subline": "Weil Tiere einfach wunderbare Seelen sind."
+          }
         }
       },
       "block_order": [
@@ -306,7 +314,8 @@
         "daf7b65b-a278-4962-96cd-645674ce9d57",
         "item_XQm9Dm",
         "item_MXmXTh",
-        "item_WyXEgK"
+        "item_WyXEgK",
+        "item_WBDUWX"
       ],
       "settings": {
         "background-color": "#ffffff",
