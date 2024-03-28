@@ -155,7 +155,13 @@
     margin: 15px 0 0;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
+}
+
+@media (min-width: 768px) {
+    [tlh001-variant="b"] .rc-plans__usps {
+        gap: 15px;
+    }
 }
 
 [tlh001-variant="b"] .rc-plans__usps .rc-plans__usp {
