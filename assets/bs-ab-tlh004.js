@@ -7,7 +7,7 @@ window.activateAbTlh004 = () => {
         if (!shippingMethodLabel) return
 
 
-        shippingMethodListTitle.innerText = 'Versicherter Premium Versand + DHL green Logo'
+        shippingMethodListTitle.innerText = 'DHL Blitzversand'
 
         shippingMethodLabel.innerHTML = shippingMethodLabel.innerHTML.replace('Standard','Versicherter Premium Versand + DHL green Logo')
 
