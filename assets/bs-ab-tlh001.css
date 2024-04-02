@@ -63,28 +63,30 @@
     align-items: center;
 }
 
-[tlh001-variant="b"] .rc-template__radio-group .rc-radio .rc-radio__label .rc-option__price {
+[tlh001-variant="b"] .rc-template__radio-group .rc-radio .rc-radio__label .rc-option__price,
+[tlh001-variant="b"] .rc-option__discount.rc_widget__option__discount {
     display: none;
 }
 
-[tlh001-variant="b"] .rc-widget .rc-option__text,
-[tlh001-variant="b"] .rc-widget .rc-option__discount {
+[tlh001-variant="b"] .rc-widget .rc-option__text {
     padding: 0;
     color: #1C1B1B
 }
 
-[tlh001-variant="b"] .rc-option__discount.rc_widget__option__discount {
+[tlh001-variant="b"] .rc-discount__percent {
     padding: 5px 10px;
     border-radius: 100px;
-    border: 1px dashed var(--Special-Badge, #79D3FF);
+    border: 1px dashed #79D3FF;
     background: linear-gradient(270deg, #FBF4FC 0%, #EAF5FD 100%);
     line-height: 12px;
     font-size: 10px;
     width: 49px;
+    order: 3;
+    color: #1C1B1B
 }
 
 @media (min-width: 768px) {
-    [tlh001-variant="b"] .rc-option__discount.rc_widget__option__discount {
+    [tlh001-variant="b"] .rc-discount__percent {
         width: 55px;
         font-size: 12px;
         line-height: 15px;

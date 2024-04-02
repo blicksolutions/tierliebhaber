@@ -1,6 +1,4 @@
 window.activateAbTlh001 = () => {
-console.log('activateAbTlh001')
-
 
     const variantBMarkup = () => {
         return `
@@ -33,6 +31,14 @@ console.log('activateAbTlh001')
 
 		`;
     }
+    const discountMarkup = (text) => {
+        return `
+            <span class="rc-discount__percent">
+                - ${text}
+            </span>
+
+		`;
+    }
 
     const insertNewMarkup = () => {
        
@@ -57,24 +63,26 @@ console.log('activateAbTlh001')
 
                 const subscribeText = entry.target.querySelector('.Product__Info [data-label-text-subsave]')
                 subscribeText.innerText = 'Abonnieren'
-                const discountText = entry.target.querySelector('.Product__Info [data-label-discount]')
-                discountText.innerText = '- ' + discountText.innerText
+                const subscritionContainer = entry.target.querySelector('.Product__Info [data-label-subsave]')
+                const discountText = entry.target.querySelector('.Product__Info [data-label-discount]').innerText
+                subscritionContainer.insertAdjacentHTML('beforeend', discountMarkup(discountText));
+
 
 
 
             }
 
-            console.log('entry.target.classList', entry.target.classList.contains('rc-template__radio-group'))
             if (entry.target.classList.contains('rc-template__radio-group')) {
                 insertNewMarkup()
                 const planOptions = entry.target.querySelectorAll('.Product__Info [data-plan-option]')
-
+                
                 planOptions.forEach((option)=>{
                     if ( option.getAttribute('data-js-variant-b') == 'true') return                    
                     option.innerText = 'Lieferung ' + option.innerText.replace('Alle','alle')
                     option.setAttribute('data-js-variant-b','true')
 
                 })
+                
             }
 
             if (entry.target.classList.contains('rc-selling-plans')) {
@@ -102,7 +110,6 @@ console.log('activateAbTlh001')
         subtree: true,
         attributes: true
     });
-
 };
 
 window.activateAbTlh001()
