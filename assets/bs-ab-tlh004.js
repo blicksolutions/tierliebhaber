@@ -11,5 +11,4 @@ window.activateAbTlh004 = () => {
         shippingMethodLabel.innerHTML = shippingMethodLabel.innerHTML.replace('Standard','Versicherter Premium Versand + DHL green Logo')
 
     } else return
-
 }
