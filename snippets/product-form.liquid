@@ -363,7 +363,7 @@ $(document).ready(function(){
     {%- assign use_primary_button = false -%}
   {%- endif -%}
 
-  <button type="submit" onclick="_tfa.push({notify: 'event', name: 'add_to_cart', id: 1338323});" data-use-primary-button="{% if use_primary_button %}true{% else %}false{% endif %}" class="ProductForm__AddToCart Button {% if selected_variant.available and use_primary_button %}Button--primary{% else %}Button--secondary{% endif %} Button--full" {% if selected_variant.available %}data-action="add-to-cart"{% else %}disabled="disabled"{% endif %}>
+  <button type="submit" onclick="_tfa.push({notify: 'event', name: 'add_to_cart', id: 1338323});" data-use-primary-button="{% if use_primary_button %}true{% else %}false{% endif %}" class="ProductForm__AddToCart Button {% if selected_variant.available and use_primary_button %}Button--primary{% else %}Button--secondary{% endif %} Button--full" {% if selected_variant.available %}data-action="add-to-cart"{% else %}disabled="disabled"{% endif %} data-js-atc-button>
     {%- if selected_variant.available -%}
       <span>{% if product.template_suffix == 'pre-order' %}{{ 'product.form.pre_order' | t }}{% else %}{{atc_text}}{% endif %}</span>
 
@@ -375,6 +375,24 @@ $(document).ready(function(){
       {{- 'product.form.sold_out' | t -}}
     {%- endif -%}
   </button>
+
+    {% if sticky_atc == true %}
+        <link rel="stylesheet" href="{{ 'bs-ab-tlh-002.css' | asset_url }}">
+        <script src="{{ 'bs-ab-tlh-002.js' | asset_url }}" defer></script>
+
+        <button type="submit" onclick="_tfa.push({notify: 'event', name: 'add_to_cart', id: 1338323});" data-use-primary-button="{% if use_primary_button %}true{% else %}false{% endif %}" class="ProductForm__AddToCart ProductForm__StickyATC Button {% if selected_variant.available and use_primary_button %}Button--primary{% else %}Button--secondary{% endif %} Button--full" {% if selected_variant.available %}data-action="add-to-cart"{% else %}disabled="disabled"{% endif %} tlh-002>
+            {%- if selected_variant.available -%}
+            <span>{% if product.template_suffix == 'pre-order' %}{{ 'product.form.pre_order' | t }}{% else %}{{atc_text}}{% endif %}</span>
+
+            {%- if section.settings.show_price_in_button -%}
+                <span class="Button__SeparatorDot"></span>
+                <span>{{ selected_variant.price | money_without_trailing_zeros }}</span>
+            {%- endif -%}
+            {%- else -%}
+            {{- 'product.form.sold_out' | t -}}
+            {%- endif -%}
+        </button>
+    {% endif %}
 
   {%- comment -%} Anchor for Klaviyo Back in Stock Script {%- endcomment -%}
   <div id="BackInStockAnchor"></div>
