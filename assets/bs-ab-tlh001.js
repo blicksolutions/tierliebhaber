@@ -111,5 +111,3 @@ window.activateAbTlh001 = () => {
         attributes: true
     });
 };
-
-window.activateAbTlh001()
