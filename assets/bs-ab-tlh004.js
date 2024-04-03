@@ -25,5 +25,3 @@ window.activateAbTlh004 = () => {
 
     } else return;
 }
-
-window.activateAbTlh004()
