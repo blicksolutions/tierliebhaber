@@ -27,7 +27,6 @@ window.activateAbTlh001 = () => {
                     </p>
                 </li>
             </ul>
-
 		`;
     };
 
@@ -36,7 +35,6 @@ window.activateAbTlh001 = () => {
             <span class="rc-discount__percent">
                 - ${text}
             </span>
-
 		`;
     };
 
