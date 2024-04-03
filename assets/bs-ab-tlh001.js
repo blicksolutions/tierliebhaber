@@ -1,5 +1,4 @@
 window.activateAbTlh001 = () => {
-
     const variantBMarkup = () => {
         return `
             <ul class="rc-plans__usps">
@@ -30,7 +29,8 @@ window.activateAbTlh001 = () => {
             </ul>
 
 		`;
-    }
+    };
+
     const discountMarkup = (text) => {
         return `
             <span class="rc-discount__percent">
@@ -38,72 +38,56 @@ window.activateAbTlh001 = () => {
             </span>
 
 		`;
-    }
+    };
 
     const insertNewMarkup = () => {
-       
-        const plansContainer = document.querySelector('.Product__Info [data-plans-container]')
-        if ( plansContainer.getAttribute('data-js-variant-b') == 'true') return
+        const plansContainer = document.querySelector('.Product__Info [data-plans-container]');
+
+        if ( plansContainer.getAttribute('data-js-variant-b') == 'true') return;
 
         // prevent markup from being inserted twice
-        plansContainer.setAttribute('data-js-variant-b','true')
-
+        plansContainer.setAttribute('data-js-variant-b','true');
         plansContainer.insertAdjacentHTML('beforeend', variantBMarkup());
     }
 
-
-
     const mutationObserver = new MutationObserver(entries => {
-
         entries.forEach(entry => {
             if (entry.target.classList.contains('rc-widget-injection-parent')) {
-                const rechargeWrapper = entry.target.querySelector('.Product__Info [data-widget-container-wrapper]')
-                rechargeWrapper.setAttribute('tlh001-variant','b')
+                const rechargeWrapper = entry.target.querySelector('.Product__Info [data-widget-container-wrapper]');
+                rechargeWrapper.setAttribute('tlh001-variant','b');
                 
+                const subscribeText = entry.target.querySelector('.Product__Info [data-label-text-subsave]');
+                subscribeText.innerText = 'Abonnieren';
 
-                const subscribeText = entry.target.querySelector('.Product__Info [data-label-text-subsave]')
-                subscribeText.innerText = 'Abonnieren'
-                const subscritionContainer = entry.target.querySelector('.Product__Info [data-label-subsave]')
-                const discountText = entry.target.querySelector('.Product__Info [data-label-discount]').innerText
+                const subscritionContainer = entry.target.querySelector('.Product__Info [data-label-subsave]');
+                const discountText = entry.target.querySelector('.Product__Info [data-label-discount]').innerText;
                 subscritionContainer.insertAdjacentHTML('beforeend', discountMarkup(discountText));
-
-
-
-
             }
 
             if (entry.target.classList.contains('rc-template__radio-group')) {
-                insertNewMarkup()
-                const planOptions = entry.target.querySelectorAll('.Product__Info [data-plan-option]')
+                insertNewMarkup();
+                const planOptions = entry.target.querySelectorAll('.Product__Info [data-plan-option]');
                 
                 planOptions.forEach((option)=>{
-                    if ( option.getAttribute('data-js-variant-b') == 'true') return                    
-                    option.innerText = 'Lieferung ' + option.innerText.replace('Alle','alle')
-                    option.setAttribute('data-js-variant-b','true')
+                    if ( option.getAttribute('data-js-variant-b') == 'true') return;         
+                    option.innerText = 'Lieferung ' + option.innerText.replace('Alle','alle');
+                    option.setAttribute('data-js-variant-b','true');
+                });
+            };
 
-                })
-                
-            }
-
-            if (entry.target.classList.contains('rc-selling-plans')) {
-                const radioOptionsContainer = document.querySelector('.Product__Info [data-radio-group-options]')
+            if (entry.target.classList.contains('rc-selling-plans')) {;
+                const radioOptionsContainer = document.querySelector('.Product__Info [data-radio-group-options]');
 
                 if (entry.target.getAttribute('style') == 'display: none;') {
-                    radioOptionsContainer.classList.remove('sub-plan--active')
+                    radioOptionsContainer.classList.remove('sub-plan--active');
                 } else {
-                    radioOptionsContainer.classList.add('sub-plan--active')
-                }
-
-            }
-
-
-        })
-
-
-        // mutationObserver.disconnect();
+                    radioOptionsContainer.classList.add('sub-plan--active');
+                };
+            };
+        });
     });
 
-    const rechargeInjectionElement = document.querySelector('.rc-widget-injection-parent')
+    const rechargeInjectionElement = document.querySelector('.rc-widget-injection-parent');
 
     mutationObserver.observe(rechargeInjectionElement, {
         childList: true,
