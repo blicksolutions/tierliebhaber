@@ -11,14 +11,19 @@ window.activateAbTlh004 = () => {
 
         const shippingMethodListTitle = document.querySelector('.section--shipping-method #main-header');
         if (!shippingMethodListTitle) return;
+        const shippingMethodContainer = document.querySelector('[data-shipping-methods]')
+        if (!shippingMethodContainer) return;
+
         const shippingMethodLabel = document.querySelector('.section--shipping-method [data-shipping-methods] [data-shipping-method-label-title]');
         if (!shippingMethodLabel) return;
 
         shippingMethodListTitle.innerText = 'DHL Blitzversand';
 
-        shippingMethodLabel.innerHTML = shippingMethodLabel.innerHTML.replace('Standard','Versicherter Premium Versand + DHL green Logo');
+        shippingMethodLabel.innerHTML = shippingMethodLabel.innerHTML.replace('Standard','Versicherter Premium Versand');
         
-        shippingMethodLabel.insertAdjacentHTML('afterbegin', shippingLogoMarkup());
+        shippingMethodContainer.insertAdjacentHTML('beforeend', shippingLogoMarkup());
 
     } else return;
 }
+
+window.activateAbTlh004()
