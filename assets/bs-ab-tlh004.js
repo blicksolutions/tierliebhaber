@@ -8,7 +8,7 @@ window.activateAbTlh004 = () => {
     if (window.Shopify.Checkout.step == 'shipping_method') {
         const shippingMethodListTitle = document.querySelector('.section--shipping-method #main-header');
         if (!shippingMethodListTitle) return;
-        
+
         const shippingMethodContainer = document.querySelector('[data-shipping-methods]');
         if (!shippingMethodContainer) return;
 
@@ -20,6 +20,5 @@ window.activateAbTlh004 = () => {
         shippingMethodLabel.innerHTML = shippingMethodLabel.innerHTML.replace('Standard','Versicherter Premium Versand');
         
         shippingMethodContainer.insertAdjacentHTML('beforeend', shippingLogoMarkup());
-
-    } else return;
+    };
 };
