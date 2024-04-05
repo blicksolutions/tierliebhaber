@@ -1,4 +1,5 @@
 window.activateAbTlh001 = () => {
+
     const variantBMarkup = () => {
         return `
             <ul class="rc-plans__usps">
@@ -93,3 +94,4 @@ window.activateAbTlh001 = () => {
         attributes: true
     });
 };
+
