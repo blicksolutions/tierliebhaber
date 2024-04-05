@@ -88,10 +88,12 @@ window.activateAbTlh001 = () => {
 
     const rechargeInjectionElement = document.querySelector('.rc-widget-injection-parent');
 
-    mutationObserver.observe(rechargeInjectionElement, {
-        childList: true,
-        subtree: true,
-        attributes: true
-    });
+    if (rechargeInjectionElement != undefined) {
+        mutationObserver.observe(rechargeInjectionElement, {
+            childList: true,
+            subtree: true,
+            attributes: true
+        });
+    }
 };
 
