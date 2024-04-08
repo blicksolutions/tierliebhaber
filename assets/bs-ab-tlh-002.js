@@ -40,5 +40,3 @@ window.activateAbTlh002 = () => {
         });
     }
 }
-
-window.activateAbTlh002()
