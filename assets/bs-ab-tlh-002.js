@@ -5,7 +5,11 @@ window.activateAbTlh002 = () => {
     console.log("tlh002 activated")
 
     window.addEventListener('scroll', () => {
+        console.log("noch HIER")
+
         if (!atcButton) return;
+
+        console.log("HIER")
         const atcButtonPosition = atcButton.getBoundingClientRect();
 
         if (atcButtonPosition.top < 0) {
@@ -36,6 +40,7 @@ window.activateAbTlh002 = () => {
     });
 
     if (stickyATC) {
+        console.log("SICKTY IS DA")
         stickyATC.addEventListener('click', () => {
             stickyATC.dispatchEvent(stickyAtcClickEvent)
         });
