@@ -1,13 +1,10 @@
 window.activateAbTlh002 = () => {
     const stickyATC = document.querySelector('[tlh-002]');
     const atcButton = document.querySelector('[data-js-atc-button]');
-
-
     const stickyAtcClickEvent = new Event('click_on_sticky_atc')
 
     window.addEventListener('scroll', () => {
         if (!atcButton) return;
-
         const atcButtonPosition = atcButton.getBoundingClientRect();
 
         if (atcButtonPosition.top < 0) {
