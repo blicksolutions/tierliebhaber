@@ -284,7 +284,7 @@
           {%- render 'product-meta', product: product, show_description: true -%}
 
           {%- if product.template_suffix != 'coming-soon' -%}
-            {%- render 'product-form', product: product -%}
+            {%- render 'product-form', product: product, sticky_atc: true -%}
           {%- endif -%}
 
           {%- if section.settings.stack_images and product_aside != blank and media_count > 0 -%}
