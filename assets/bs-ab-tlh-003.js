@@ -7,4 +7,6 @@ window.activateAbTlh003 = () => {
     }
 }
 
-window.activateAbTlh003();
+document.addEventListener('DOMContentLoaded', () => {
+    window.activateAbTlh003();
+})
