@@ -378,7 +378,6 @@ $(document).ready(function(){
 
     {% if sticky_atc == true %}
         <link rel="stylesheet" href="{{ 'bs-ab-tlh-002.css' | asset_url }}">
-        <script src="{{ 'bs-ab-tlh-002.js' | asset_url }}" defer></script>
 
         <button type="submit" onclick="_tfa.push({notify: 'event', name: 'add_to_cart', id: 1338323});" data-use-primary-button="{% if use_primary_button %}true{% else %}false{% endif %}" class="ProductForm__AddToCart ProductForm__StickyATC Button {% if selected_variant.available and use_primary_button %}Button--primary{% else %}Button--secondary{% endif %} Button--full" {% if selected_variant.available %}data-action="add-to-cart"{% else %}disabled="disabled"{% endif %} tlh-002>
             {%- if selected_variant.available -%}
