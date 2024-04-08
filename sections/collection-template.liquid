@@ -400,6 +400,24 @@
           {{- collection_toolbar -}}
         {%- endif -%}
 
+        <div class="subscriptionReminderCallout">
+          <span class="subscriptionReminderCallout__head">Abonnieren und 15% sparen</span>
+          <div class="subscriptionReminderCallout__bubbles">
+            <div class="subscriptionReminderCallout__bubble">
+              <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.16355 9.89535L3.45264 7.18444L3.84209 6.79553L6.16355 9.11698L11.1577 4.1228L11.5466 4.51171L6.16355 9.89535Z" fill="black"/>
+              </svg>
+              Kostenloser Versand
+            </div>
+            <div class="subscriptionReminderCallout__bubble">
+              <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.16355 9.89535L3.45264 7.18444L3.84209 6.79553L6.16355 9.11698L11.1577 4.1228L11.5466 4.51171L6.16355 9.89535Z" fill="black"/>
+              </svg>
+              Jederzeit kündigen
+            </div>
+          </div>
+        </div>
+
         <div class="CollectionInner">
           {%- if show_filters and section.settings.filter_position == 'sidebar' -%}
             <div class="CollectionInner__Sidebar {% if collection_toolbar != blank and section.settings.toolbar_position == 'top' %}CollectionInner__Sidebar--withTopToolbar{% endif %} hidden-pocket">
