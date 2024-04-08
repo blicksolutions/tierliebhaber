@@ -34,9 +34,11 @@ window.activateAbTlh002 = () => {
         }
     });
 
-    stickyATC.addEventListener('click', () => {
-        stickyATC.dispatchEvent(stickyAtcClickEvent)
-    })
+    if (stickyATC) {
+        stickyATC.addEventListener('click', () => {
+            stickyATC.dispatchEvent(stickyAtcClickEvent)
+        });
+    }
 }
 
 window.activateAbTlh002()
