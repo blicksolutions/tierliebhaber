@@ -6,7 +6,3 @@ window.activateAbTlh003 = () => {
         targetCallout.classList.add('active');
     }
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    window.activateAbTlh003();
-})
