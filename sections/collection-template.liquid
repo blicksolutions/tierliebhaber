@@ -396,10 +396,6 @@
       {%- endcomment -%}
 
       <div class="CollectionMain">
-        {%- if section.settings.toolbar_position == 'top' -%}
-          {{- collection_toolbar -}}
-        {%- endif -%}
-
         <div class="subscriptionReminderCallout">
           <span class="subscriptionReminderCallout__head">Abonnieren und 15% sparen</span>
           <div class="subscriptionReminderCallout__bubbles">
@@ -417,6 +413,10 @@
             </div>
           </div>
         </div>
+
+        {%- if section.settings.toolbar_position == 'top' -%}
+          {{- collection_toolbar -}}
+        {%- endif -%}
 
         <div class="CollectionInner">
           {%- if show_filters and section.settings.filter_position == 'sidebar' -%}
