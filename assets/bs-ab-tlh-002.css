@@ -12,6 +12,7 @@
     text-transform: uppercase;
     display: none;
     letter-spacing: normal;
+    pointer-events: none;
 }
 
 .ProductForm__StickyATC::after {
@@ -27,6 +28,7 @@
 
 .ProductForm__StickyATC.active {
     display: block;
+    pointer-events: auto;
 }
 
 @media (min-width: 768px) {
