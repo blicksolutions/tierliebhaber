@@ -27,7 +27,13 @@
             </div>
           </div>
           <div class="ContentBlock__TextContainer">
-            <h2 class="ContentBlock__Title Heading u-h1 heading__{{ section.id }}">{{ item.title }}</h2>
+
+            <script>
+
+                console.log({{ product | json }})
+            </script>
+
+            <h2 class="ContentBlock__Title Heading u-h1 heading__{{ product.id }}">{{ item.title }}</h2>
             <p class="ContentBlock__Text">{{ item.text_html }}</p>
           </div>
         </div> 
