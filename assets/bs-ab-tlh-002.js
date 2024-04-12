@@ -2,7 +2,6 @@ window.activateAbTlh002 = () => {
     const stickyATC = document.querySelector('[tlh-002]');
     const atcButton = document.querySelector('[data-js-atc-button]');
     const stickyAtcClickEvent = new Event('click_on_sticky_atc')
-    console.log("tlh002 activated")
 
     window.addEventListener('scroll', () => {
         if (!atcButton) return;
