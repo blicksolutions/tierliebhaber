@@ -84,10 +84,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         console.log("______________________")
-        stockValue = generateRandom();
+        const test  = generateRandom();
         console.log(window.progressBarMin)
         console.log(window.progressBarMax)
-        console.log(stockValue)
+        console.log(test)
 
         document.querySelector('.acc-pr39-percentage').textContent = `${stockValue}%`;
         document.querySelector('.acc-pr39-progress-bar').style.setProperty('--progress-width', `${stockValue}%`);
