@@ -139,7 +139,7 @@ function initializeCountdown(element) {
     if (!endTime || new Date(endTime) <= new Date()) {
         endTime = new Date(new Date().getTime() + 8 * 60 * 1000 + 35 * 1000);
         localStorage.setItem('countdownEndTime', endTime);
-        console.log("Countdown initialized with new endTime:", endTime);
+        // console.log("Countdown initialized with new endTime:", endTime);
     }
 
     setInterval(function() {
