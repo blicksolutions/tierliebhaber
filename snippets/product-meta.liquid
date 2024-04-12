@@ -67,7 +67,7 @@
 
       <script>
 document.addEventListener('DOMContentLoaded', function() {
-    function generateRandom(min = 20, max = 50) {
+    function generateRandom(min = window.progressBarMin || 20, max = window.progressBarMax || 50) {
         let difference = max - min;
         let rand = Math.random();
         rand = Math.floor(rand * difference);
@@ -82,6 +82,10 @@ document.addEventListener('DOMContentLoaded', function() {
             stockValue = generateRandom(); // Generating random stock value
             localStorage.setItem(`product-${productId}-stock-value`, stockValue);
         }
+
+        console.log("______________________")
+        stockValue = generateRandom();
+        console.log(stockValue)
 
         document.querySelector('.acc-pr39-percentage').textContent = `${stockValue}%`;
         document.querySelector('.acc-pr39-progress-bar').style.setProperty('--progress-width', `${stockValue}%`);
