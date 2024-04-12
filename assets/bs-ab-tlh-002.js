@@ -38,11 +38,11 @@ window.activateAbTlh002 = () => {
     if (stickyATC) {
         stickyATC.addEventListener('click', () => {
             stickyATC.dispatchEvent(stickyAtcClickEvent)
+
+            gtag('event', 'bs_click_sticky_atc', {
+                'bs_click_sticky_atc': '1'
+            });
         });
 
-        gtag('event', 'bs_click_sticky_atc', {
-            'bs_click_sticky_atc': '1'
-        });
-        console.log("send gtag")
     }
 }
