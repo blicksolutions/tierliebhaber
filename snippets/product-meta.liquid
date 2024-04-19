@@ -83,13 +83,12 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem(`product-${productId}-stock-value`, stockValue);
         }
 
-        let percentageEl = document.querySelector('.acc-pr39-percentage')
+        let percentageEl = document.querySelector('.acc-pr39-percentage');
+        let progressBar = document.querySelector('.acc-pr39-progress-bar');
 
         if (percentageEl) {
             percentageEl.textContent = `${stockValue}%`;
         }
-
-        let progressBar = document.querySelector('.acc-pr39-progress-bar');
 
         if (progressBar) {
             progressBar.style.setProperty('--progress-width', `${stockValue}%`);
