@@ -60,7 +60,12 @@ window.activateAbTlh001 = () => {
 
                 const subscritionContainer = entry.target.querySelector('.Product__Info [data-label-subsave]');
                 const discountText = entry.target.querySelector('.Product__Info [data-label-discount]').innerText;
-                subscritionContainer.insertAdjacentHTML('beforeend', discountMarkup(discountText));
+
+                const discountInserted = document.querySelector('.rc-discount__percent');
+
+                if (!discountInserted) {
+                    subscritionContainer.insertAdjacentHTML('beforeend', discountMarkup(discountText));
+                }
             }
 
             if (entry.target.classList.contains('rc-template__radio-group')) {
