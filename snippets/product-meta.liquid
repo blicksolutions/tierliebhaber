@@ -83,8 +83,16 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem(`product-${productId}-stock-value`, stockValue);
         }
 
-        document.querySelector('.acc-pr39-percentage').textContent = `${stockValue}%`;
-        document.querySelector('.acc-pr39-progress-bar').style.setProperty('--progress-width', `${stockValue}%`);
+        let percentageEl = document.querySelector('.acc-pr39-percentage');
+        let progressBar = document.querySelector('.acc-pr39-progress-bar');
+
+        if (percentageEl) {
+            percentageEl.textContent = `${stockValue}%`;
+        }
+
+        if (progressBar) {
+            progressBar.style.setProperty('--progress-width', `${stockValue}%`);
+        }
     }
 
     let productForm = document.querySelector('.ProductForm');
@@ -94,9 +102,29 @@ document.addEventListener('DOMContentLoaded', function() {
             updateProgressBar(productId);
         }
     }
+
+    let productId = productForm.getAttribute('data-productid');
+
+    // stock bar handling
+    const sizeSwatches = document.querySelectorAll('.SizeSwatch__Radio');
+    const pdpStockBar = document.querySelector('.pdp-stock-bar');
+
+    sizeSwatches.forEach((sizeSwatch) => {
+        sizeSwatch.addEventListener('click', () => {
+            setTimeout(() => {
+                fetch(location.href)
+                    .then(response => response.text())
+                    .then(newPdp => {
+                        const newhtml = new DOMParser().parseFromString(newPdp, 'text/html');
+                        pdpStockBar.innerHTML = newhtml.querySelector('.pdp-stock-bar').innerHTML;
+                        updateProgressBar(productId);
+                    });
+            }, 250);
+        });
+    });
 });
 </script>
-      
+
   <style>
 .acc-pr39-progress-bar {
     flex-grow: 1; /* Take up all available space */
@@ -120,16 +148,18 @@ document.addEventListener('DOMContentLoaded', function() {
     width: var(--progress-width, 0%); /* Use the custom property */
 }
   </style>
-      
-   <div class="wrapper-center-align">
-  <div class="acc-tl-pr39-wrapper">
-    <div class="acc-pr39-title">Nur solange der Vorrat reicht!</div>
-    <div class="acc-pr39-percentage-wrapper">
-      <span class="acc-pr39-percentage"></span>
-      <div class="acc-pr39-progress-bar"></div>
-    </div>
+
+  <div class="pdp-stock-bar wrapper-center-align">
+    {% if selected_variant.available %}
+      <div class="acc-tl-pr39-wrapper">
+        <div class="acc-pr39-title">Nur solange der Vorrat reicht!</div>
+        <div class="acc-pr39-percentage-wrapper">
+          <span class="acc-pr39-percentage"></span>
+          <div class="acc-pr39-progress-bar"></div>
+        </div>
+      </div>
+    {% endif %}
   </div>
-    </div>
 
 <script>
 /* Function to calculate and update price difference */
@@ -167,7 +197,7 @@ document.addEventListener("DOMContentLoaded", function() {
   waitForRechargeWidget();
 });
 </script>
- 
+
   {%- if product.template_suffix != 'coming-soon' and show_price -%}
     <div class="ProductMeta__PriceList Heading">
       {%- if selected_variant.compare_at_price > selected_variant.price -%}
@@ -268,7 +298,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         {%- if shop.shipping_policy.body != blank  -%}
           {%- assign has_free_shipping = selected_variant.metafields.shipping.has_free_shipping.value -%}
-         
+
           <span class="js-ProductMeta__ShippingInfo{% if has_free_shipping %} u-Hidden{% endif %}">
             {{ 'product.general.shipping_policy_html' | t: link: shop.shipping_policy.url }}
           </span>
