@@ -111,7 +111,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     sizeSwatches.forEach((sizeSwatch) => {
         sizeSwatch.addEventListener('click', () => {
-            console.log("CLIKCKK")
             setTimeout(() => {
                 fetch(location.href)
                     .then(response => response.text())
