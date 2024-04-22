@@ -1316,6 +1316,14 @@
               "item-headline": "Weil mir meine Hündin Hopey jeden Tag aufs Neue in die Seele schaut und mir neue Erkenntnisse über mich selbst beibringt.",
               "item-subline": "CONNY"
             }
+          },
+          "item_R43Phc": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Artjom.png",
+              "item-headline": "Weil Tiere uns zu besseren Menschen machen.",
+              "item-subline": "ARTJOM"
+            }
           }
         },
         "block_order": [
@@ -1346,7 +1354,8 @@
           "item_DhWxmW",
           "item_hhDRtj",
           "item_PCrRF8",
-          "item_nFaVHA"
+          "item_nFaVHA",
+          "item_R43Phc"
         ],
         "settings": {
           "background-color": "#f2f8f5",
