@@ -301,6 +301,14 @@
             "item-headline": "Weil Tiere uns zu besseren Menschen machen.",
             "item-subline": "ARTJOM"
           }
+        },
+        "item_6p4ncr": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Bianka.png",
+            "item-headline": "Weil Tiere einfach liebenswert sind.",
+            "item-subline": "BIANCA"
+          }
         }
       },
       "block_order": [
@@ -332,7 +340,8 @@
         "item_FmGaTN",
         "item_yEfwMP",
         "item_gbyaT6",
-        "item_dQXWJH"
+        "item_dQXWJH",
+        "item_6p4ncr"
       ],
       "settings": {
         "background-color": "#ffffff",
