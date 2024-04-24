@@ -149,17 +149,19 @@ document.addEventListener('DOMContentLoaded', function() {
 }
   </style>
 
-  <div class="pdp-stock-bar wrapper-center-align">
-    {% if selected_variant.available %}
-      <div class="acc-tl-pr39-wrapper">
-        <div class="acc-pr39-title">Nur solange der Vorrat reicht!</div>
-        <div class="acc-pr39-percentage-wrapper">
-          <span class="acc-pr39-percentage"></span>
-          <div class="acc-pr39-progress-bar"></div>
+  {% unless product.id == 8068154949900 or product.id == 7181458014367  or product.id == 7973987385612 %}
+    <div class="pdp-stock-bar wrapper-center-align">
+      {% if selected_variant.available %}
+        <div class="acc-tl-pr39-wrapper">
+          <div class="acc-pr39-title">Nur solange der Vorrat reicht!</div>
+          <div class="acc-pr39-percentage-wrapper">
+            <span class="acc-pr39-percentage"></span>
+            <div class="acc-pr39-progress-bar"></div>
+          </div>
         </div>
-      </div>
-    {% endif %}
-  </div>
+      {% endif %}
+    </div>
+  {% endunless %}
 
 <script>
 /* Function to calculate and update price difference */
