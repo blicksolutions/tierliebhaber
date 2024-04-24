@@ -4,7 +4,7 @@ window.activateAbTlh002 = () => {
     const stickyAtcClickEvent = new Event('click_on_sticky_atc')
 
     window.addEventListener('scroll', () => {
-        if (!atcButton) return;
+        if (!atcButton || !stickyATC) return;
         const atcButtonPosition = atcButton.getBoundingClientRect();
 
         if (atcButtonPosition.top < 0) {
