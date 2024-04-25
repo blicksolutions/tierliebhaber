@@ -142,7 +142,7 @@
             "type": "text",
             "settings": {
               "title": "Erreichbarkeit",
-              "content": "<p>Unser Team ist jederzeit <\/p><p>über WhatsApp: +49 176 48097026<\/p><p>per Mail: <a href=\"mailto:info@tierliebhaber.de\">info@tierliebhaber.de<\/a> <\/p><p>(Wir melden uns in der Regel innerhalb von 2-3 Werktagen mit einer Antwort bei dir)<\/p>",
+              "content": "<p>Unser Team ist jederzeit <\/p><p>über WhatsApp: +49 176 48097026<\/p><p>per Mail: <a href=\"mailto:info@tierliebhaber.de\">info@tierliebhaber.de<\/a> <\/p><p>(Wir melden uns in der Regel innerhalb von 2-3 Werktagen mit einer Antwort bei dir)<\/p><p>oder telefonisch von Mo - Fr von 11-13 Uhr für dich erreichbar.<\/p><p>Tel.: +49 34149980019<\/p>",
               "show_social_media": true
             }
           },
@@ -678,7 +678,6 @@
           },
           "40e2fcb1-8917-457f-b8f7-347c740d00d7": {
             "type": "button",
-            "disabled": true,
             "settings": {
               "image": "shopify:\/\/shop_images\/anruf.png",
               "image_alt": "",
