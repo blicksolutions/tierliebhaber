@@ -29,11 +29,12 @@
     border-radius: 10px;
     border: 1px solid #CCC;
     padding: 10px;
-    transition: border 300ms ease-out;
+    transition: border 300ms ease-out, transform 300ms ease-out;
 }
 
 .Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem:hover {
     border: 1px solid #7e7e7e;
+    transform: translateY(-10px);
 }
 
 .Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem .ProductItem__ImageWrapper {
