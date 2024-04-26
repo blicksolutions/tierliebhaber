@@ -34,7 +34,7 @@
 
 .Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem:hover {
     border: 1px solid #7e7e7e;
-    transform: translateY(-10px);
+    transform: translateY(-5px);
 }
 
 .Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem .ProductItem__ImageWrapper {
@@ -45,8 +45,12 @@
 .Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem .ProductItem__Vendor,
 .Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem .ProductItem__Title,
 .Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem .jdgm-widget,
-.Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem__Info .ProductItem__PriceList {
+.Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem .ProductItem__Info .ProductItem__PriceList {
     margin-bottom: 10px;
+}
+
+.Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem .ProductItem__Info {
+    margin-top: 10px;
 }
 
 .Header__MainNav[data-js-tlh-010] .collection-dropdown .collection-dropdown__link {
@@ -58,12 +62,20 @@
     text-decoration-line: underline;
 }
 
+.Header__MainNav[data-js-tlh-010] .collection-dropdown .collection-dropdown__link:hover {
+    color: #6a6a6a;
+}
+
 .Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem .ProductItem__Title.Heading {
     color: #1C1B1B;
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
     line-height: 22.5px;
+}
+
+.Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem .jdgm-widget {
+    height: 16px;
 }
 
 .Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem .jdgm-widget .jdgm-prev-badge__stars {
@@ -107,7 +119,11 @@
     content: none;
 }
 
-.UnitPriceMeasurement.Heading.Text--subdued {
+.Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem .ProductItem__UnitPriceMeasurement {
+    margin-top: 0;
+}
+
+.Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem .UnitPriceMeasurement.Heading.Text--subdued {
     color: #525252;
     font-size: 12px;
     font-style: normal;
