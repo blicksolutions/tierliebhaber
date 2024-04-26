@@ -337,6 +337,8 @@ HEADER CONTENT
                       {%- endfor -%}
                     </ul>
                   </div>
+                {%- elsif link.type == 'collection_link' and link.links == blank -%}
+                    {%- render 'bs-collection-dropdown', collection: link.object -%}
                 {%- endif -%}
               {%- endcapture -%}
 
@@ -344,7 +346,7 @@ HEADER CONTENT
                 <a href="{{ link.url }}" class="Heading u-h6">
                   {{- link.title | escape -}}
 
-                  {%- if use_mega_menu or menu_item_dropdown == blank -%}
+                  {%- if use_mega_menu or menu_item_dropdown == blank or link.type == 'collection_link' and link.links == blank -%}
                     <span class="Header__LinkSpacer">{{ link.title | escape }}</span>
                   {%- endif -%}
                 </a>
