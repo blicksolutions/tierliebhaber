@@ -21,7 +21,20 @@
 
   <div class="Segment__Content">
     {%- if search.results_count == 0 -%}
-      <p>{{ 'search.general.no_results' | t }}</p>
+      <p class="ab-a">{{ 'search.general.no_results' | t }}</p>
+      <p class="ab-b">Hier unserer Bestseller bro</p>
+
+      {% comment %} HIER MANU {% endcomment %}
+      <div class="ab-b">
+        <foreach>
+          produkte
+          tarralala
+
+          coll
+
+        </foreach>
+      </div>
+
     {%- else -%}
       {%- if search.types contains 'product' -%}
         {%- if settings.search_mode == 'product' -%}
