@@ -15,7 +15,15 @@
   #usp-mobile .Usp__items-container1::-webkit-scrollbar {width: 0;height: 0;}
   </style>
   
-  <div id="usp-mobile">
+    {% comment %}
+        ToDo: remove inline style after ab-test TLH-015 has endded
+    {% endcomment %}
+  <div 
+    id="usp-mobile"
+    {% if template.name == 'collection' %}
+        style="display: none;"
+    {% endif %}
+    >
     <div class="Usp1">
         <div class="Usp__items-container1">
             {%- for block in section.blocks -%}
