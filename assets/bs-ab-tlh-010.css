@@ -1,0 +1,142 @@
+.Header__MainNav[data-js-tlh-010] .collection-dropdown {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    background: white;
+    padding: 50px 150px;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+    z-index: -1;
+    left: 0;
+    right: 0;
+    top: 41px;
+    border-bottom: 1px solid #CCC;
+    box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.15);
+    pointer-events: none;
+}
+
+.Header__MainNav[data-js-tlh-010] .HorizontalList__Item.is-expanded .collection-dropdown {
+    opacity: 1;
+    z-index: 15;
+    pointer-events: all;
+}
+
+.Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem {
+    align-self: stretch;
+    border-radius: 10px;
+    border: 1px solid #CCC;
+    padding: 10px;
+    transition: border 300ms ease-out, transform 300ms ease-out;
+}
+
+.Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem:hover {
+    border: 1px solid #7e7e7e;
+    transform: translateY(-5px);
+}
+
+.Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem .ProductItem__ImageWrapper {
+    height: 250px;
+    width: 250px;
+}
+
+.Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem .ProductItem__Vendor,
+.Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem .ProductItem__Title,
+.Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem .jdgm-widget,
+.Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem .ProductItem__Info .ProductItem__PriceList {
+    margin-bottom: 10px;
+}
+
+.Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem .ProductItem__Info {
+    margin-top: 10px;
+}
+
+.Header__MainNav[data-js-tlh-010] .collection-dropdown .collection-dropdown__link {
+    color: #000;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22.5px;
+    text-decoration-line: underline;
+}
+
+.Header__MainNav[data-js-tlh-010] .collection-dropdown .collection-dropdown__link:hover {
+    color: #6a6a6a;
+}
+
+.Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem .ProductItem__Title.Heading {
+    color: #1C1B1B;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22.5px;
+}
+
+.Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem .jdgm-widget {
+    height: 16px;
+}
+
+.Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem .jdgm-widget .jdgm-prev-badge__stars {
+    margin: 0 5px 0 0;
+}
+
+.Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem .jdgm-widget .jdgm-prev-badge__text {
+    color: #1C1B1B;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 15px;
+}
+
+.Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem__Info .ProductItem__PriceList {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem .ProductItem__Price.Price {
+    color: #525252;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 25px;
+}
+
+.Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem .ProductItem__Price.Price.Price--compareAt.Text--subdued {
+    color: #525252;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22.5px;
+    text-decoration: line-through;
+}
+
+.Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem .ProductItem__Price.Price.Price--compareAt.Text--subdued::before {
+    content: none;
+}
+
+.Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem .ProductItem__UnitPriceMeasurement {
+    margin-top: 0;
+}
+
+.Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem .UnitPriceMeasurement.Heading.Text--subdued {
+    color: #525252;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 15px;
+}
+
+.Header__MainNav .collection-dropdown {
+    display: none;
+}
+
+@media screen and (max-width: 640px) {
+    .Header__MainNav[data-js-tlh-010] .collection-dropdown {
+        display: none;
+    }
+}

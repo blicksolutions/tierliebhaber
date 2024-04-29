@@ -1,0 +1,23 @@
+<div class="collection-dropdown">
+    {% for product in collection.products %}
+        {%- render 'product-item', 
+            product: product, 
+            show_product_info: true, 
+            show_vendor: false, 
+            show_color_swatch: false, 
+            show_labels: false, 
+            show_badges: false 
+        -%}
+
+        {% if forloop.index == 3 %}
+            {% break %}
+        {% endif %}
+    {% endfor %}
+    <a href="{{ collection.url }}" class="collection-dropdown__link">
+        {% if collection.metafields.custom.link_text != blank %}            
+            {{ collection.metafields.custom.link_text }}
+        {% else %}
+            {{ collection.title }}
+        {% endif %}
+    </a>
+</div>
