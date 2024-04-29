@@ -32,7 +32,8 @@
                     onclick="
                         gtag('event', 'bs_click_usp_slider', {
                             'bs_click_usp_slider': '1'
-                        });"
+                        });
+                        console.log('gtag test')"
                     >
                     <a class="UspItem__Link1" href="{{ block.settings.usp_url }}">
                         {{ block.settings.usp_image | image_url: width: 400 | image_tag: class: "UspItem__Image" }}
