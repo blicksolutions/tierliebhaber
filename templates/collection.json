@@ -1,64 +1,127 @@
 {
-  "sections": {
-    "main": {
-      "type": "collection-template",
-      "settings": {
-        "show_collection_info": false,
-        "show_collection_image": false,
-        "apply_overlay": true,
-        "show_color_swatch": false,
-        "show_vendor": false,
-        "collection_image_size": "normal",
-        "show_sort_by": true,
-        "show_layout_switch": false,
-        "toolbar_position": "top",
-        "filter_position": "sidebar",
-        "filter_mode": "hidden",
-        "show_filter_color_swatch": true,
-        "filter_menu": "",
-        "grid_items_per_page": 16,
-        "grid_mobile_items_per_row": "2",
-        "grid_desktop_items_per_row": 4
-      }
+    "sections": {
+        "ddee7e2a-800b-4859-be96-f251a0f829b6": {
+            "type": "bs-usp-mobile",
+            "blocks": {
+                "1ee10129-1ca3-4b79-9135-63f22c191b4c": {
+                    "type": "usp_block",
+                    "settings": {
+                        "usp_url": "shopify:\/\/collections\/zahnpflege",
+                        "usp_title": "ZAHNPFLEGE",
+                        "usp_image": "shopify:\/\/shop_images\/shop_icons_Zahnpflege.png"
+                    }
+                },
+                "22dd8802-a4c2-4765-9f88-62e9f9db73fc": {
+                    "type": "usp_block",
+                    "settings": {
+                        "usp_url": "shopify:\/\/collections\/z-produkte",
+                        "usp_title": "Z-Produkte",
+                        "usp_image": "shopify:\/\/shop_images\/shop_icons_Z-Produkte.png"
+                    }
+                },
+                "f0a03260-bba5-4fc9-b77e-c1c8a80825ba": {
+                    "type": "usp_block",
+                    "settings": {
+                        "usp_url": "shopify:\/\/collections\/darmpflege",
+                        "usp_title": "DARMPFLEGE",
+                        "usp_image": "shopify:\/\/shop_images\/shop_icons_Darm.png"
+                    }
+                },
+                "39a2132d-4551-46b4-bf64-c563a5d0c3c1": {
+                    "type": "usp_block",
+                    "settings": {
+                        "usp_url": "shopify:\/\/collections\/gelenke",
+                        "usp_title": "GELENKE",
+                        "usp_image": "shopify:\/\/shop_images\/shop_icons_Gelenke.png"
+                    }
+                },
+                "b624e985-eac4-4705-9cab-016c84cbde42": {
+                    "type": "usp_block",
+                    "settings": {
+                        "usp_url": "shopify:\/\/collections\/beruhigung",
+                        "usp_title": "BERUHIGUNG",
+                        "usp_image": "shopify:\/\/shop_images\/shop_icons_Beruhigung.png"
+                    }
+                },
+                "381adaa1-791a-4b86-bd77-e0a432f1ffa3": {
+                    "type": "usp_block",
+                    "settings": {
+                        "usp_url": "shopify:\/\/collections\/kundenlieblinge",
+                        "usp_title": "KUNDENLIEBLINGE",
+                        "usp_image": "shopify:\/\/shop_images\/shop_icons_Kundenlieblinge.png"
+                    }
+                }
+            },
+            "block_order": [
+                "1ee10129-1ca3-4b79-9135-63f22c191b4c",
+                "22dd8802-a4c2-4765-9f88-62e9f9db73fc",
+                "f0a03260-bba5-4fc9-b77e-c1c8a80825ba",
+                "39a2132d-4551-46b4-bf64-c563a5d0c3c1",
+                "b624e985-eac4-4705-9cab-016c84cbde42",
+                "381adaa1-791a-4b86-bd77-e0a432f1ffa3"
+            ],
+            "settings": {}
+        },
+        "main": {
+            "type": "collection-template",
+            "settings": {
+                "show_collection_info": false,
+                "show_collection_image": false,
+                "apply_overlay": true,
+                "show_color_swatch": false,
+                "show_vendor": false,
+                "collection_image_size": "normal",
+                "show_sort_by": true,
+                "show_layout_switch": false,
+                "toolbar_position": "top",
+                "filter_position": "sidebar",
+                "filter_mode": "hidden",
+                "show_filter_color_swatch": true,
+                "filter_menu": "",
+                "grid_items_per_page": 16,
+                "grid_mobile_items_per_row": "2",
+                "grid_desktop_items_per_row": 4
+            }
+        },
+        "recently-viewed-products": {
+            "type": "recently-viewed-products",
+            "settings": {
+                "show_section": true,
+                "title": "Recently viewed",
+                "show_product_info": true,
+                "show_vendor": false,
+                "show_color_swatch": false
+            }
+        },
+        "collection-footer": {
+            "type": "collection-footer",
+            "settings": {
+                "show_section": false,
+                "text_color": "#ffffff",
+                "apply_overlay": true,
+                "title": "Our story",
+                "content": "<p>Add your own custom content to explain your processes...<\/p>"
+            }
+        },
+        "1629784067fb0cc2d7": {
+            "type": "seo-content",
+            "settings": {
+                "seo_content": ""
+            }
+        },
+        "543f9979-e09d-49cf-a562-3d88828c1600": {
+            "type": "klaviyo-form",
+            "settings": {
+                "id": "XEs6zR"
+            }
+        }
     },
-    "recently-viewed-products": {
-      "type": "recently-viewed-products",
-      "settings": {
-        "show_section": true,
-        "title": "Recently viewed",
-        "show_product_info": true,
-        "show_vendor": false,
-        "show_color_swatch": false
-      }
-    },
-    "collection-footer": {
-      "type": "collection-footer",
-      "settings": {
-        "show_section": false,
-        "text_color": "#ffffff",
-        "apply_overlay": true,
-        "title": "Our story",
-        "content": "<p>Add your own custom content to explain your processes...<\/p>"
-      }
-    },
-    "1629784067fb0cc2d7": {
-      "type": "seo-content",
-      "settings": {
-        "seo_content": ""
-      }
-    },
-    "543f9979-e09d-49cf-a562-3d88828c1600": {
-      "type": "klaviyo-form",
-      "settings": {
-        "id": "XEs6zR"
-      }
-    }
-  },
-  "order": [
-    "main",
-    "recently-viewed-products",
-    "collection-footer",
-    "1629784067fb0cc2d7",
-    "543f9979-e09d-49cf-a562-3d88828c1600"
-  ]
+    "order": [
+        "ddee7e2a-800b-4859-be96-f251a0f829b6",
+        "main",
+        "recently-viewed-products",
+        "collection-footer",
+        "1629784067fb0cc2d7",
+        "543f9979-e09d-49cf-a562-3d88828c1600"
+    ]
 }
