@@ -16,7 +16,7 @@
   </style>
   
     {% comment %}
-        ToDo: remove inline style after ab-test TLH-015 has endded
+        ToDo: remove inline style and onclick after ab-test TLH-015 has endded
     {% endcomment %}
   <div 
     id="usp-mobile"
@@ -27,7 +27,13 @@
     <div class="Usp1">
         <div class="Usp__items-container1">
             {%- for block in section.blocks -%}
-                <div class="UspItem1">
+                <div 
+                    class="UspItem1" 
+                    onclick="
+                        gtag('event', 'bs_click_usp_slider', {
+                            'bs_click_usp_slider': '1'
+                        });"
+                    >
                     <a class="UspItem__Link1" href="{{ block.settings.usp_url }}">
                         {{ block.settings.usp_image | image_url: width: 400 | image_tag: class: "UspItem__Image" }}
                         <p class="UspItem__Title1">{{ block.settings.usp_title }}</p>
