@@ -401,7 +401,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 {% endif %}
     <script>
       
+setTimeout(function() {
+  console.log('works')
+window._tfa.push({notify: 'event', name: 'page_view', id: 1653559})
 
+
+ 
+
+}, 2000);
+
+
+ // Find the button element
+  var button = document.querySelector(".ProductForm__AddToCart");
+console.log(button)
+  // Add click event listener
+  button.addEventListener("click", function() {
+    _tfa.push({notify: 'event', name: 'add_to_cart', id: 1653559});
+  });
+var buttonckt = document.querySelector(".Cart__Checkout");
+
+  // Add click event listener
+  buttonckt.addEventListener("click", function() {
+    // Your code here
+     _tfa.push({notify: 'event', name: 'start_checkout', id: 1653559});
+    console.log("Button clicked!");
+    // You can add more functionality here
+  });
 
 
 
