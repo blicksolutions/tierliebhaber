@@ -14,7 +14,3 @@ window.activateAbTlh010 = () => {
         });
     });
 };
-
-document.addEventListener('DOMContentLoaded', ()=>{
-    window.activateAbTlh010()
-})
