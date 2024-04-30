@@ -19,6 +19,7 @@
     background: #FFF;
     padding: 10px;
     align-self: stretch;
+    transition: border 300ms ease-out;
 }
 
 @media screen and (min-width: 640px) {
