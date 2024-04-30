@@ -22,7 +22,9 @@
 }
 
 @media screen and (min-width: 640px) {
-    .Search[data-js-tlh-017] .search-result__bestseller-container .search-result__bestseller-products .ProductItem {}
+    .Search[data-js-tlh-017] .search-result__bestseller-container .search-result__bestseller-products .ProductItem:hover {
+        border: 1px solid #7e7e7e;
+    }
 }
 
 .Search[data-js-tlh-017] .search-result__bestseller-container .search-result__bestseller-products .ProductItem .ProductItem__ImageWrapper {
