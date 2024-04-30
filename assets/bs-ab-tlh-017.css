@@ -64,6 +64,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: 20px;
+    margin: 0 0 5px 0;
 }
 
 @media screen and (min-width: 640px) {
@@ -72,6 +73,10 @@
         font-size: 18px;
         line-height: 22.5px;
     }
+}
+
+.Search[data-js-tlh-017] .search-result__bestseller-container .search-result__bestseller-products .ProductItem .jdgm-widget.jdgm-preview-badge {
+    margin: 0 0 5px 0;
 }
 
 @media screen and (min-width: 640px) {
@@ -127,6 +132,16 @@
 
 .Search[data-js-tlh-017] .search-result__bestseller-container .search-result__bestseller-products .ProductItem .ProductItem__Price.Price.Price--compareAt.Text--subdued::before {
     content: none;
+}
+
+.Search[data-js-tlh-017] .search-result__bestseller-container .search-result__bestseller-products .ProductItem .ProductItem__UnitPriceMeasurement {
+    margin-top: 5px;
+}
+
+@media screen and (min-width: 640px) {
+    .Search[data-js-tlh-017] .search-result__bestseller-container .search-result__bestseller-products .ProductItem .ProductItem__UnitPriceMeasurement {
+        margin-top: 10px;
+    }
 }
 
 .Search[data-js-tlh-017] .search-result__bestseller-container .search-result__bestseller-products .ProductItem .UnitPriceMeasurement.Heading.Text--subdued {
