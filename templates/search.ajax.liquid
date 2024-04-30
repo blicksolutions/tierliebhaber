@@ -21,19 +21,31 @@
 
   <div class="Segment__Content">
     {%- if search.results_count == 0 -%}
-      <p class="ab-a">{{ 'search.general.no_results' | t }}</p>
-      <p class="ab-b">Hier unserer Bestseller bro</p>
+        <p {% if search.types contains 'product' %}class="search-result__no-results"{% endif %}>{{ 'search.general.no_results' | t }}</p>
 
-      {% comment %} HIER MANU {% endcomment %}
-      <div class="ab-b">
-        <foreach>
-          produkte
-          tarralala
+        {%- if search.types contains 'product' -%}
+            <div class="search-result__bestseller-container" data-js-tlh-01-bestseller-container>
+                <p class="search-result__bestseller-text">Hier unserer Bestseller</p>
+                
+                <div class="search-result__bestseller-products">
+                    {% for product in collections['Kundenlieblinge'].products %}
+                        {%- render 'product-item', 
+                            product: product, 
+                            show_product_info: true, 
+                            show_vendor: false, 
+                            show_color_swatch: false, 
+                            show_labels: false, 
+                            show_badges: false 
+                        -%}
+                
+                        {% if forloop.index == 3 %}
+                            {% break %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {%- endif -%}
 
-          coll
-
-        </foreach>
-      </div>
 
     {%- else -%}
       {%- if search.types contains 'product' -%}
