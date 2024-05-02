@@ -9,7 +9,3 @@ window.activateAbTlh014 = () => {
 
     productInfoDesktop.setAttribute('data-js-tlh-014', 'true');
 };
-
-document.addEventListener('DOMContentLoaded',()=>{
-    window.activateAbTlh014();
-});
