@@ -23,7 +23,7 @@ window.activateAbTlh011 = () => {
     }
 
     /** Dentalspray **/
-    if (location.pathname === '/products/dentalspray' || location.pathname === '/products/dentalspray-tl0010-fb-d4') {
+    if (location.pathname.includes('/products/dentalspray') || location.pathname.includes('/products/dentalspray-tl0010-fb-d4')) {
         const newImages = [
             'https://cdn.shopify.com/s/files/1/0587/2746/5119/files/Dental-Spray-1.jpg',
             'https://cdn.shopify.com/s/files/1/0587/2746/5119/files/Dental-Spray-2.jpg',
