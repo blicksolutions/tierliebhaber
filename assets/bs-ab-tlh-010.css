@@ -135,6 +135,12 @@
     display: none;
 }
 
+.Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem .ProductItem__Price.Price.Text--subdued,
+.Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem .ProductItem__PriceList.Heading,
+.Header__MainNav[data-js-tlh-010] .collection-dropdown .ProductItem .ProductItem__UnitPriceMeasurement {
+    opacity: 1 !important;
+}
+
 @media screen and (max-width: 640px) {
     .Header__MainNav[data-js-tlh-010] .collection-dropdown {
         display: none;

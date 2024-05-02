@@ -6,6 +6,7 @@
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-003.css' | asset_url }}">
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-007.css' | asset_url }}">
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}">
+      <link rel="stylesheet" href="{{ 'bs-ab-tlh-017.css' | asset_url }}">
 
       <script src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-002.js' | asset_url }}"></script>
@@ -14,6 +15,7 @@
       <script src="{{ 'bs-ab-tlh-005.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-007.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-010.js' | asset_url }}"></script>
+      <script src="{{ 'bs-ab-tlh-017.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-011.js' | asset_url }}"></script>
       <!-- END BS: AB Scripts -->
 
@@ -292,6 +294,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {% render 'hide-pricing-new-visitors' %}
      {% render 'hide-pricing-product-page' %}
     {% include 'dataLayer-allPages' %}
+
   </head>
 
   {%- capture classes -%}features--heading-{{ settings.heading_size }}{%- endcapture -%}
@@ -400,7 +403,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 {% if content_for_header contains 'fastbundle.co' %}
     {% render 'fast_bundle_service' %}
 {% endif %}
-    <script>
+    <!-- <script>
       
 setTimeout(function() {
   console.log('works')
@@ -435,6 +438,6 @@ var buttonckt = document.querySelector(".Cart__Checkout");
 
 
       
-    </script>
+    </script> -->
 </body>
 </html>
