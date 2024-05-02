@@ -68,3 +68,7 @@
         max-width: 110px;
     }
 }
+
+.known-from__container {
+    display: none !important;
+}
