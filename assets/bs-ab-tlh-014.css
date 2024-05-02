@@ -69,6 +69,7 @@
     }
 }
 
-.known-from__container {
-    display: none !important;
+.Product__Wrapper .known-from__container,
+.Product__InfoWrapper .known-from__container {
+    display: none;
 }
