@@ -92,7 +92,3 @@ window.activateAbTlh011 = () => {
         replaceImages(newImages);
     }
 };
-
-document.addEventListener('DOMContentLoaded', () => {
-    window.activateAbTlh011();
-});
