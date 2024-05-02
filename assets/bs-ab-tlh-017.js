@@ -4,7 +4,3 @@ window.activateAbTlh017 = () => {
 
     searchElement.setAttribute('data-js-tlh-017', true);
 };
-
-document.addEventListener('DOMContentLoaded', ()=>{
-    window.activateAbTlh017()
-});
