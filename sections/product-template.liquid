@@ -238,7 +238,8 @@
         {%- unless section.settings.stack_images -%}
           {{- slideshow_nav -}}
         {%- endunless -%}
-      </div>
+        {% render 'bs-ab-tlh-014', class_suffix: 'known-from__container--desktop' %}
+        </div>
     {%- endif -%}
 
     {%- capture product_aside -%}
@@ -297,6 +298,7 @@
           {%- endif -%}
         </div>
       </div>
+      {% render 'bs-ab-tlh-014', class_suffix: 'known-from__container--mobile' %}
     </div>
 
     {%- if product_aside != blank -%}
