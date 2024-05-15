@@ -1,4 +1,5 @@
 window.activateAbTlh013 = () => {
+    console.log('TLH-013 start')
     const atcButton = document.querySelector('[data-js-atc-button]');
     const stickyAtcContainer = document.querySelector('[data-js-sticky-atc-container]');
     if(!stickyAtcContainer) return
