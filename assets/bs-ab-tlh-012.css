@@ -270,8 +270,10 @@
 
 @media (min-width: 768px) {
     [tlh012-variant="b"] .VariantSelector__List[data-js-tlh-012-variant-selector-list]:before {
-        top: 15px;
-        height: 90px;
+        top: 18px;
+        height: 75px;
+        left: 9px;
+        right: 9px;
     }
 }
 
@@ -297,15 +299,15 @@
 
 @media (min-width: 768px) {
     [tlh012-variant="b"] .VariantSelector__ListItem {
-        padding: 20px 25px;
+        padding: 15px 40px;
     }
 
     [tlh012-variant="b"] .VariantSelector__ListItem:first-child {
-        margin-left: 10px;
+        margin-left: 5px;
     }
 
     [tlh012-variant="b"] .VariantSelector__ListItem:last-child {
-        margin-right: 10px;
+        margin-right: 5px;
     }
 }
 
