@@ -185,9 +185,15 @@ window.activateAbTlh012 = () => {
     }
 
 
+   
+    const originalVariantSelectorWrapper = document.querySelector('.Product__Info .ProductForm__Variants')
+    if (!originalVariantSelectorWrapper) return
+
+    originalVariantSelectorWrapper.style.display = 'none'
+
+    const originalVariantSelector = originalVariantSelectorWrapper.querySelector('.ProductForm__Option .SizeSwatchList')
+     
     // Handle variant change
-    const originalVariantSelector = document.querySelector('.ProductForm__Variants .ProductForm__Option .SizeSwatchList')
-    
     if (originalVariantSelector != undefined) {
         const variantSelectorInputElements = originalVariantSelector.querySelectorAll('input[value]')
 
