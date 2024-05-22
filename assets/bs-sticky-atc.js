@@ -1,6 +1,5 @@
 (()=>{
     const stickyATC = document.querySelector('[data-js-sticky-atc]');
-    console.log('stickyATC', stickyATC)
     const atcButton = document.querySelector('[data-js-atc-button]');
 
     window.addEventListener('scroll', () => {
