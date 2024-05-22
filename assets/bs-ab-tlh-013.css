@@ -14,6 +14,24 @@
     pointer-events: none;
 }
 
+.ProductMeta__StickyATCOverlay {
+    position: fixed;
+    top: -100vh;
+    left: -100vw;
+    height: 200vh;
+    width: 200vw;
+    z-index: 2;
+    visibility: hidden;
+    opacity: 0;
+    background: #363636;
+    transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
+}
+
+.ProductMeta__StickyATCOverlay.is-visible {
+    opacity: .5;
+    visibility: visible;
+}
+
 @media (min-width: 768px) {
     .ProductMeta__StickyATC {
         left: 50%;
@@ -69,7 +87,7 @@
     gap: 20px;
     align-items: center;
     transition: bottom 150ms ease-in-out;
-    z-index: 1;
+    z-index: 3;
 }
 
 @media (min-width: 768px) {
@@ -187,6 +205,6 @@
 /* Preventing overlap on desktop */
 @media screen and (min-width: 1008px) {
     .Product__Info {
-        z-index: 10;
+        z-index: 3;
     }
 }

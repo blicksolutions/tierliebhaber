@@ -1,14 +1,17 @@
 window.activateAbTlh013 = () => {
     console.log('TLH-013 start')
     const atcButton = document.querySelector('[data-js-atc-button]');
+    if (atcButton.getAttribute('disabled') == 'disabled') return
+
     const stickyAtcContainer = document.querySelector('[data-js-sticky-atc-container]');
-    if(!stickyAtcContainer) return
+    if (!stickyAtcContainer) return
+
     const stickyAtcButton = document.querySelector('[data-js-sticky-atc-button]');
     const stickyVariantSelector = document.querySelector('[data-js-sticky-atc-variant-selector]');
     const stickyVariantSelectorList = document.querySelector('[data-js-sticky-atc-variant-selector-list]');
     const stickyVariantSelectorItems = stickyVariantSelectorList.querySelectorAll('[data-js-sticky-atc-variant-selector-item]');
     const variantSelectorItems = document.querySelectorAll('.SizeSwatchList .HorizontalList__Item .SizeSwatch__Radio[name]');
-    const pageOverlay = document.querySelector('.PageOverlay');
+    const pageOverlay = document.querySelector('[data-js-sticky-atc-overlay]');
 
     const closeStickyAtcModal = () => {
         stickyVariantSelector.classList.remove('open');
@@ -45,13 +48,39 @@ window.activateAbTlh013 = () => {
         });
     };
 
-    stickyVariantSelectorItems.forEach((item) => {
-        item.addEventListener('click', () => {
-            clickOnVariant(item.getAttribute('data-js-option-value'));
-        });
-    });
+    if (variantSelectorItems.length > 1) {
 
-    stickyAtcButton.addEventListener('click', openStickyAtcModal);
+        variantSelectorItems.forEach((item) => {
+            item.addEventListener('click', () => {
+                const selectedOptionName = item.getAttribute('value');
+                console.log('selectedOptionName', selectedOptionName)
+    
+                stickyVariantSelectorItems.forEach((item) => {
+                    const optionName = item.getAttribute('data-js-option-value');
+        
+                    if (optionName === selectedOptionName) {
+                        item.classList.add('VariantSelector__ListItem--selected');
+                    } else {
+                        item.classList.remove('VariantSelector__ListItem--selected');
+                    };
+                });
+            });
+        });
+    
+
+        stickyVariantSelectorItems.forEach((item) => {
+            item.addEventListener('click', () => {
+                clickOnVariant(item.getAttribute('data-js-option-value'));
+            });
+        });
+
+        stickyAtcButton.addEventListener('click', openStickyAtcModal);
+    } else {
+        stickyAtcButton.addEventListener('click', () => {
+            atcButton.click()
+        })
+    }
+
 
     window.addEventListener('scroll', () => {
         if (!atcButton || !stickyAtcContainer) return;
