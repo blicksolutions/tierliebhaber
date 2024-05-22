@@ -120,4 +120,4 @@ window.activateAbTlh013 = () => {
     }*/
 };
 
-setTimeout(window.activateAbTlh013, 300);
+setTimeout(window.activateAbTlh013, 600);
