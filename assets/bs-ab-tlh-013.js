@@ -120,4 +120,6 @@ window.activateAbTlh013 = () => {
     }*/
 };
 
-setTimeout(window.activateAbTlh013, 600);
+document.addEventListener('DOMContentLoaded',() => {
+    window.activateAbTlh013();
+})
