@@ -40,18 +40,18 @@
     font-weight: bold;
 }
 
-@media screen and (min-width: 641px){
+@media screen and (min-width: 641px) {
     .PageHeader .SectionHeader #rc_link_container {
         margin-left: 40px;
         display: inline-block;
     }
 }
 
-.rc_layout__container{
+.rc_layout__container {
     margin-top: 20px;
 }
 
-@media (min-width: 960px){
+@media (min-width: 960px) {
     .rc_layout__container #customer_tab_content .col-md-6 {
         flex: initial;
         max-width: initial;
@@ -64,7 +64,77 @@
 
 /* By Accelerated - Fixed Desktop bug menu */
 @media (min-width: 1140px) and (max-width: 1345px) {
-	.Header--center .Header__FlexItem {
-		margin-bottom: 60px !important;
-	}
+    .Header--center .Header__FlexItem {
+        margin-bottom: 60px !important;
+    }
+}
+
+.subscriptionReminderCallout {
+    /*display: flex;*/
+    background-color: #F3D2C9;
+    padding: 10px 15px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    display: none;
+}
+
+.subscriptionReminderCallout__head {
+    color: #1C1B1B;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 27px;
+}
+
+.subscriptionReminderCallout__bubble {
+    border-radius: 100px;
+    background: #F2F8F5;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #1C1B1B;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12px;
+    gap: 5px;
+}
+
+.subscriptionReminderCallout__bubble svg {
+    width: 16px;
+    height: 16px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.subscriptionReminderCallout__bubbles {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.subscriptionReminderCallout.active {
+    display: flex;
+}
+
+@media (min-width: 768px) {
+    .subscriptionReminderCallout {
+        padding: 20px 150px;
+    }
+
+    .subscriptionReminderCallout__bubble {
+        padding: 8px;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 15px;
+    }
+
+    .subscriptionReminderCallout__head {
+        font-size: 28px;
+        line-height: 35px;
+    }
 }
