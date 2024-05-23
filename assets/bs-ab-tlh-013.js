@@ -108,18 +108,14 @@ window.activateAbTlh013 = () => {
             smileUiContainer.style.display = 'block';
         };
     });
-    /*
-    if (stickyAtcContainer) {
-        stickyAtcContainer.addEventListener('click', () => {
+    
+    if (stickyAtcButton) {
+        stickyAtcButton.addEventListener('click', () => {
 
             gtag('event', 'bs_click_sticky_atc', {
                 'bs_click_sticky_atc': '1'
             });
         });
 
-    }*/
+    }
 };
-
-document.addEventListener('DOMContentLoaded',() => {
-    window.activateAbTlh013();
-})
