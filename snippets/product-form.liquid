@@ -377,9 +377,8 @@ $(document).ready(function(){
   </button>
 
     {% if sticky_atc == true %}
-        <link rel="stylesheet" href="{{ 'bs-ab-tlh-002.css' | asset_url }}">
 
-        <button type="submit" data-use-primary-button="{% if use_primary_button %}true{% else %}false{% endif %}" class="ProductForm__AddToCart ProductForm__StickyATC Button {% if selected_variant.available and use_primary_button %}Button--primary{% else %}Button--secondary{% endif %} Button--full" {% if selected_variant.available %}data-action="add-to-cart"{% else %}disabled="disabled"{% endif %} tlh-002>
+        <button type="submit" data-use-primary-button="{% if use_primary_button %}true{% else %}false{% endif %}" class="ProductForm__AddToCart ProductForm__StickyATC Button {% if selected_variant.available and use_primary_button %}Button--primary{% else %}Button--secondary{% endif %} Button--full" {% if selected_variant.available %}data-action="add-to-cart"{% else %}disabled="disabled"{% endif %} data-js-sticky-atc>
             {%- if selected_variant.available -%}
             <span>{% if product.template_suffix == 'pre-order' %}{{ 'product.form.pre_order' | t }}{% else %}{{atc_text}}{% endif %}</span>
 
