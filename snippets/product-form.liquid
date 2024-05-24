@@ -514,14 +514,37 @@ $(document).ready(function(){
         {%- for option in product.options_with_values -%}
             {%- for value in option.values -%}
                 {% for variant in product.variants %}
+                    {% assign variant_savings = '' %}
                     {% if variant.option1 == value %}
-                        {% if variant.compare_at_price != variant.price %}
+                        {% if variant.compare_at_price != variant.price and forloop.first == false %}
                             {% assign variant_savings = variant.compare_at_price |  minus: variant.price %}
                         {% endif %}
+
+                        {% case request.locale.iso_code %}
+                            {% when 'de' %}                                                            
+                                {% if variant.price > 4900 %}
+                                    {% assign free_shipping = true %}
+                                {% endif %}
+
+                            {% when 'at' %}                                                            
+                                {% if variant.price > 6900 %}
+                                    {% assign free_shipping = true %}
+                                {% endif %}
+
+                            {% when 'ch' %}                                                            
+                                {% if variant.price > 12900 %}
+                                    {% assign free_shipping = true %}
+                                {% endif %}
+                        {% endcase %}
                     {% endif %}
                 {% endfor %}
 
-            <li class="VariantSelector__ListItem {% if value == option.selected_value %}VariantSelector__ListItem--selected{% endif %}" data-js-tlh-012-variant-selector-item data-js-option-value="{{ value | escape }}" {% if variant_savings != blank %} data-js-savings="{{ variant_savings | money }}" {% endif %}>
+            <li 
+                class="VariantSelector__ListItem {% if value == option.selected_value %}VariantSelector__ListItem--selected{% endif %}" 
+                data-js-tlh-012-variant-selector-item data-js-option-value="{{ value | escape }}" 
+                {% if variant_savings != blank %} data-js-savings="{{ variant_savings | money }}" {% endif %}
+                {% if free_shipping != blank %} data-js-free-shipping="{{ free_shipping }}" {% endif %}
+                >
                     <p class="VariantSelector__Option">
                         {{ value }}
                     </p>

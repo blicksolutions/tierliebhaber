@@ -228,6 +228,14 @@
     }
 }
 
+[tlh012-variant="b"] [data-js-usp-free-shipping].rc-plans__usp {
+    display: none;
+}
+
+[tlh012-variant="b"] [data-js-usp-free-shipping].rc-plans__usp--active {
+    display: flex;
+}
+
 .VariantSelector__List[data-js-tlh-012-variant-selector-list] {
     display: none;
 }
@@ -295,6 +303,14 @@
     border-radius: 10px;
     transition: border-color 100ms ease-out;
     cursor: pointer;
+}
+
+[tlh012-variant="b"] .VariantSelector__ListItem:first-child {
+    width: 30%;
+}
+
+[tlh012-variant="b"] .VariantSelector__ListItem:last-child {
+    width: 60%;
 }
 
 @media (min-width: 768px) {
