@@ -11429,6 +11429,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 
 #sidebar-cart {
     z-index: 999999;
+    display: block !important;
 }
 
 #sidebar-cart .CartItemWrapper[data-free-gift="true"] .QuantitySelector {

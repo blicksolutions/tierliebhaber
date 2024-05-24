@@ -1,0 +1,7 @@
+{
+    "name": "tierliebhaber",
+    "version": "1.0.0",
+    "scripts": {
+        "serve": "shopify theme dev --store=https://tierliebhaber-animagus.myshopify.com/"
+    }
+}

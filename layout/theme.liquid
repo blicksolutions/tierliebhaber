@@ -3,7 +3,6 @@
 <html class="no-js" lang="{{ shop.locale }}">
   <head>
       <!-- BS: AB Scripts -->
-      <link rel="stylesheet" href="{{ 'bs-ab-tlh-003.css' | asset_url }}">
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-007.css' | asset_url }}">
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}">
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-017.css' | asset_url }}">
@@ -11,9 +10,6 @@
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-013.css' | asset_url }}">
 
       <script src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
-      <script src="{{ 'bs-ab-tlh-003.js' | asset_url }}"></script>
-      <script src="{{ 'bs-ab-tlh-006.js' | asset_url }}"></script>
-      <script src="{{ 'bs-ab-tlh-005.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-007.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-010.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-017.js' | asset_url }}"></script>
@@ -21,9 +17,6 @@
       <script src="{{ 'bs-ab-tlh-011.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-013.js' | asset_url }}"></script>
       <!-- END BS: AB Scripts -->
-
-<script src="https://7esk2.rdtk.io/uniclick.js?attribution=lastpaid&cookiedomain=tierliebhaber.de&cookieduration=90&defaultcampaignid=66339f12a238600001a0b9ef&regviewonce=false"></script>
-<script src="https://7esk2.rdtk.io/events.js"></script>
 
       <!-- Varify.io® code for Animagus GmbH-->
       <script>
@@ -33,6 +26,10 @@
       <script src="https://app.varify.io/varify.js"></script>
 
       {% render 'replo-head' %}
+
+      <script src="{{ 'bs-subscription-callout.js' | asset_url }}" defer></script>
+      <script src="{{ 'bs-sticky-atc.js' | asset_url }}" defer></script>
+
     <script type="text/javascript">
     // Duration in milliseconds to wait while the Kameleoon application file is loaded
     var kameleoonLoadingTimeout = 1000;
@@ -300,6 +297,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {% render 'hide-pricing-new-visitors' %}
      {% render 'hide-pricing-product-page' %}
     {% include 'dataLayer-allPages' %}
+
+
+<script src="https://track.tierliebhaber.de/uniclick.js?attribution=lastpaid&cookiedomain=tierliebhaber.de&cookieduration=90&defaultcampaignid=66339f12a238600001a0b9ef&regviewonce=false"></script>
+<script src="https://track.tierliebhaber.de/events.js"></script>
 
   </head>
 
