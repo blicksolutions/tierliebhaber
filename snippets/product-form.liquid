@@ -391,9 +391,9 @@ $(document).ready(function(){
         </button>
     {% endif %}
 
-    <div class="ProductMeta__StickyATC" data-js-sticky-atc-container>
+    <div class="ProductMeta__NewStickyATC" data-js-sticky-atc-container>
         <div class="ProductMeta__StickyATCOverlay" data-js-sticky-atc-overlay></div>
-        <div class="StickyATC__ATC ProductForm__AddToCart Button {% if selected_variant.available and use_primary_button %}Button--primary{% else %}Button--secondary{% endif %} Button--full" data-js-sticky-atc-button>
+        <div class="StickyATC__ATC Button {% if selected_variant.available and use_primary_button %}Button--primary{% else %}Button--secondary{% endif %} Button--full" data-js-sticky-atc-button>
             {%- if selected_variant.available -%}
                 <span>{% if product.template_suffix == 'pre-order' %}{{ 'product.form.pre_order' | t }}{% else %}{{atc_text}}{% endif %}</span>
         

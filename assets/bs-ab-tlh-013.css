@@ -1,9 +1,9 @@
-.ProductMeta__StickyATC[data-js-sticky-atc-container],
-[data-js-tlh-013="true"] .ProductMeta__StickyATC[data-js-mobile-sticky-atc] {
+.ProductMeta__NewStickyATC[data-js-sticky-atc-container],
+[data-js-tlh-013="true"] .ProductMeta__NewStickyATC[data-js-mobile-sticky-atc] {
     display: none;
 }
 
-[data-js-tlh-013="true"] .ProductMeta__StickyATC {
+[data-js-tlh-013="true"] .ProductMeta__NewStickyATC {
     position: fixed;
     bottom: 0;
     left: 24px;
@@ -38,7 +38,7 @@
 }
 
 @media (min-width: 768px) {
-    [data-js-tlh-013="true"] .ProductMeta__StickyATC {
+    [data-js-tlh-013="true"] .ProductMeta__NewStickyATC {
         left: 50%;
         transform: translateX(-50%);
         right: 0;
@@ -73,7 +73,7 @@
     }
 }
 
-[data-js-tlh-013="true"] .ProductMeta__StickyATC.active {
+[data-js-tlh-013="true"] .ProductMeta__NewStickyATC.active {
     display: block;
     pointer-events: auto;
 }
