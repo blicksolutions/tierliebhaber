@@ -17,6 +17,7 @@
     display: none;
     letter-spacing: normal;
     pointer-events: none;
+    padding: 10px;
 }
 
 [data-js-tlh-013="true"] .ProductMeta__StickyATCOverlay {
@@ -39,6 +40,7 @@
 
 @media (min-width: 768px) {
     [data-js-tlh-013="true"] .ProductMeta__NewStickyATC {
+        padding: 0;
         left: 50%;
         transform: translateX(-50%);
         right: 0;
@@ -104,7 +106,7 @@
 }
 
 [data-js-tlh-013="true"] .StickyATC__VariantSelector.open {
-    bottom: 0;
+    bottom: -1px;
 }
 
 [data-js-tlh-013="true"] .VariantSelector__Heading {
