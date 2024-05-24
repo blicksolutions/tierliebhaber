@@ -73,7 +73,7 @@
     }
 }
 
-[data-js-tlh-013="true"].ProductMeta__StickyATC.active {
+[data-js-tlh-013="true"] .ProductMeta__StickyATC.active {
     display: block;
     pointer-events: auto;
 }
