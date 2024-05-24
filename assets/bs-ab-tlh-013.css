@@ -3,7 +3,7 @@
     display: none;
 }
 
-[data-js-tlh-013="true"].ProductMeta__StickyATC {
+[data-js-tlh-013="true"] .ProductMeta__StickyATC {
     position: fixed;
     bottom: 0;
     left: 24px;
@@ -38,7 +38,7 @@
 }
 
 @media (min-width: 768px) {
-    [data-js-tlh-013="true"].ProductMeta__StickyATC {
+    [data-js-tlh-013="true"] .ProductMeta__StickyATC {
         left: 50%;
         transform: translateX(-50%);
         right: 0;
