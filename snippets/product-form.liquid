@@ -377,8 +377,7 @@ $(document).ready(function(){
   </button>
 
     {% if sticky_atc == true %}
-
-        <button type="submit" data-use-primary-button="{% if use_primary_button %}true{% else %}false{% endif %}" class="ProductForm__AddToCart ProductForm__StickyATC Button {% if selected_variant.available and use_primary_button %}Button--primary{% else %}Button--secondary{% endif %} Button--full" {% if selected_variant.available %}data-action="add-to-cart"{% else %}disabled="disabled"{% endif %} data-js-sticky-atc>
+        <button type="submit" data-use-primary-button="{% if use_primary_button %}true{% else %}false{% endif %}" class="ProductForm__AddToCart ProductForm__StickyATC Button {% if selected_variant.available and use_primary_button %}Button--primary{% else %}Button--secondary{% endif %} Button--full" {% if selected_variant.available %}data-action="add-to-cart"{% else %}disabled="disabled"{% endif %} data-js-mobile-sticky-atc>
             {%- if selected_variant.available -%}
             <span>{% if product.template_suffix == 'pre-order' %}{{ 'product.form.pre_order' | t }}{% else %}{{atc_text}}{% endif %}</span>
 
@@ -391,6 +390,51 @@ $(document).ready(function(){
             {%- endif -%}
         </button>
     {% endif %}
+
+    <div class="ProductMeta__NewStickyATC" data-js-sticky-atc-container>
+        <div class="ProductMeta__StickyATCOverlay" data-js-sticky-atc-overlay></div>
+        <div class="StickyATC__ATC Button {% if selected_variant.available and use_primary_button %}Button--primary{% else %}Button--secondary{% endif %} Button--full" data-js-sticky-atc-button>
+            {%- if selected_variant.available -%}
+                <span>{% if product.template_suffix == 'pre-order' %}{{ 'product.form.pre_order' | t }}{% else %}{{atc_text}}{% endif %}</span>
+        
+                {%- if section.settings.show_price_in_button -%}
+                    <span class="Button__SeparatorDot"></span>
+                    <span>{{ selected_variant.price | money_without_trailing_zeros }}</span>
+                {%- endif -%}
+            {%- else -%}
+                {{- 'product.form.sold_out' | t -}}
+          {%- endif -%}
+        </div>
+        <div class="StickyATC__VariantSelector" data-js-sticky-atc-variant-selector>
+            <h3 class="VariantSelector__Heading">
+                Anzahl auswählen
+            </h3>
+            <ul class="VariantSelector__List" data-js-sticky-atc-variant-selector-list>
+                {%- for option in product.options_with_values -%}
+                    {%- for value in option.values -%}
+                        {% for variant in product.variants %}
+                            {% if variant.option1 == value %}
+                                {% if variant.compare_at_price != variant.price %}
+                                    {% assign variant_savings = variant.compare_at_price |  minus: variant.price %}
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+        
+                    <li class="VariantSelector__ListItem {% if value == option.selected_value %}VariantSelector__ListItem--selected{% endif %}" data-js-sticky-atc-variant-selector-item data-js-option-value="{{ value | escape }}">
+                            <p class="VariantSelector__Option">
+                                {{ value }}
+                            </p>
+                            {% if variant_savings != blank %}
+                                <p class="VariantSelector__OptionSavings">
+                                 {{ variant_savings | money }} Rabatt
+                                </p>
+                            {% endif %}
+                        </li>
+                    {%- endfor -%}
+                {%- endfor -%}
+            </ul>
+        </div>
+      </div>
 
   {%- comment -%} Anchor for Klaviyo Back in Stock Script {%- endcomment -%}
   <div id="BackInStockAnchor"></div>
