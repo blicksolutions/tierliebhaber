@@ -1,6 +1,6 @@
 .ProductMeta__NewStickyATC[data-js-sticky-atc-container],
-[data-js-tlh-013="true"] .ProductMeta__NewStickyATC[data-js-mobile-sticky-atc] {
-    display: none !important;
+[data-js-tlh-013="true"] .ProductMeta__StickyATC[data-js-mobile-sticky-atc] {
+    display: none;
 }
 
 [data-js-tlh-013="true"] .ProductMeta__NewStickyATC {
