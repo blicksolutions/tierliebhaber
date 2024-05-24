@@ -1,13 +1,13 @@
 window.activateAbTlh013 = () => {
     const productInfo = document.querySelector('.Product__Info');
-    if (!productInfo) return
-    productInfo.setAttribute('data-js-tlh-013', 'true')
+    if (!productInfo) return;
+    productInfo.setAttribute('data-js-tlh-013', 'true');
 
     const atcButton = document.querySelector('[data-js-atc-button]');
-    if (atcButton.getAttribute('disabled') == 'disabled') return
+    if (atcButton.getAttribute('disabled') == 'disabled') return;
 
     const stickyAtcContainer = document.querySelector('[data-js-sticky-atc-container]');
-    if (!stickyAtcContainer) return
+    if (!stickyAtcContainer) return;
 
     const stickyAtcButton = document.querySelector('[data-js-sticky-atc-button]');
     const stickyVariantSelector = document.querySelector('[data-js-sticky-atc-variant-selector]');
@@ -52,11 +52,9 @@ window.activateAbTlh013 = () => {
     };
 
     if (variantSelectorItems.length > 1) {
-
         variantSelectorItems.forEach((item) => {
             item.addEventListener('click', () => {
                 const selectedOptionName = item.getAttribute('value');
-                console.log('selectedOptionName', selectedOptionName)
     
                 stickyVariantSelectorItems.forEach((item) => {
                     const optionName = item.getAttribute('data-js-option-value');
@@ -70,7 +68,6 @@ window.activateAbTlh013 = () => {
             });
         });
     
-
         stickyVariantSelectorItems.forEach((item) => {
             item.addEventListener('click', () => {
                 clickOnVariant(item.getAttribute('data-js-option-value'));
@@ -80,10 +77,9 @@ window.activateAbTlh013 = () => {
         stickyAtcButton.addEventListener('click', openStickyAtcModal);
     } else {
         stickyAtcButton.addEventListener('click', () => {
-            atcButton.click()
-        })
-    }
-
+            atcButton.click();
+        });
+    };
 
     window.addEventListener('scroll', () => {
         if (!atcButton || !stickyAtcContainer) return;
