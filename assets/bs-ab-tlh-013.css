@@ -1,6 +1,6 @@
 .ProductMeta__NewStickyATC[data-js-sticky-atc-container],
 [data-js-tlh-013="true"] button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Button--full.active[data-js-mobile-sticky-atc] {
-    display: none !important;
+    display: none;
 }
 
 [data-js-tlh-013="true"] .ProductMeta__NewStickyATC {
