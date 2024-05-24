@@ -1,5 +1,4 @@
 window.activateAbTlh013 = () => {
-    
     const productInfo = document.querySelector('.Product__Info');
     productInfo.setAttribute('data-js-tlh-013', 'true')
 
