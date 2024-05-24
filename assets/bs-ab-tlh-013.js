@@ -1,7 +1,6 @@
 window.activateAbTlh013 = () => {
-    console.log('TLH-013 start')
-    
     const productInfo = document.querySelector('.Product__Info');
+    if (!productInfo) return
     productInfo.setAttribute('data-js-tlh-013', 'true')
 
     const atcButton = document.querySelector('[data-js-atc-button]');
