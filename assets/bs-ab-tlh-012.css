@@ -111,7 +111,7 @@
 }
 
 [tlh012-variant="b"] .rc-selling-plans {
-    padding: 15px;
+    padding: 0 15px 15px;
     border-radius: 0px 0px 20px 20px;
     border-right: 1px solid #CCC;
     border-bottom: 1px solid #CCC;
@@ -226,7 +226,7 @@
 
 [tlh012-variant="b"] .VariantSelector__List[data-js-tlh-012-variant-selector-list] {
     display: flex;
-    padding: 25px 10px 0;
+    padding: 25px 10px 15px;
     flex-direction: row;
     gap: 10px;
     border-radius: 0px 0px 20px 20px;
@@ -354,7 +354,7 @@
 
 [tlh012-variant="b"] .variant-savings__list {
     margin: 0;
-    padding: 15px;
+    padding: 0 15px 15px;
     border-radius: 0px 0px 20px 20px;
     border-right: 1px solid #CCC;
     border-bottom: 1px solid #CCC;
