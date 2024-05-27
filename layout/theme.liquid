@@ -16,6 +16,7 @@
       <script src="{{ 'bs-ab-tlh-014.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-011.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-013.js' | asset_url }}"></script>
+      <script src="{{ 'bs-ab-tlh-009.js' | asset_url }}"></script>
       <!-- END BS: AB Scripts -->
 
       <!-- Varify.io® code for Animagus GmbH-->
@@ -197,6 +198,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         loadingClass: 'Image--lazyLoading',
         loadedClass: 'Image--lazyLoaded'
       };
+      
+      {% if customer %}
+        window.Shopify.isUserLoggedIn = true;
+      {% else %}
+        window.Shopify.isUserLoggedIn = false;
+      {% endif %}
+      console.log('window.Shopify.isUserLoggedIn', window.Shopify.isUserLoggedIn)
 
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
       document.documentElement.style.setProperty('--window-height', window.innerHeight + 'px');
