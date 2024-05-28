@@ -24,7 +24,7 @@ window.shippingrates = {
     }
 }
 
-deliveryPriceValue = 0;
+let deliveryPriceValue = 0;
 
 window.currentCountry = undefined;
 window.obj = function () {
@@ -591,13 +591,10 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
            
             let subTotalPrice = scData?.subtotalCents / 100;
             let subtotalNewPriceValue = parseFloat(subTotalPrice);
-
-            console.log(scData)
-
-            document.querySelector("#sidebar-cart .Drawer__Footer__SubtotalPrice").dataset.price = scData?.subtotalFormatted;
-
-           
+            // console.log(scData)
+  
             /* /Subtotal price */
+            document.querySelector("#sidebar-cart .Drawer__Footer__SubtotalPrice").dataset.price = scData?.subtotalFormatted;
 
             /* Total price */
             const totalPrice = cartSidebar.find('.Drawer__Footer__Total > span');
