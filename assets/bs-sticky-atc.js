@@ -1,7 +1,6 @@
-window.activateAbTlh002 = () => {
-    const stickyATC = document.querySelector('[tlh-002]');
+(()=>{
+    const stickyATC = document.querySelector('[data-js-mobile-sticky-atc]');
     const atcButton = document.querySelector('[data-js-atc-button]');
-    const stickyAtcClickEvent = new Event('click_on_sticky_atc')
 
     window.addEventListener('scroll', () => {
         if (!atcButton || !stickyATC) return;
@@ -33,15 +32,4 @@ window.activateAbTlh002 = () => {
             }
         }
     });
-
-    if (stickyATC) {
-        stickyATC.addEventListener('click', () => {
-            stickyATC.dispatchEvent(stickyAtcClickEvent)
-
-            gtag('event', 'bs_click_sticky_atc', {
-                'bs_click_sticky_atc': '1'
-            });
-        });
-
-    }
-}
+})()
