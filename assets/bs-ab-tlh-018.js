@@ -3,14 +3,11 @@ window.activateAbTlh018 = () => {
 	if (!productItems) return;
 
 	const animateSwiper = (swiper) => {
-		console.log('swiper', swiper);
 		setTimeout(() => {
 			swiper.slideNext(300);
-			console.log('300', 300);
 			setTimeout(() => {
 				swiper.slideTo(1, 300);
 			}, 200);
-			console.log('200', 200);
 		}, 150);
 	};
 
