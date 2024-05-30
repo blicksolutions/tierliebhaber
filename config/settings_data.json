@@ -1181,6 +1181,7 @@
           },
           "8c5e510e-1173-4b3d-86f9-42d6ca1c0d3c": {
             "type": "item",
+            "disabled": true,
             "settings": {
               "image": "shopify:\/\/shop_images\/Oli.png",
               "item-headline": "Meine Hunde mich zu einem besseren Menschen machen.",
@@ -1748,6 +1749,18 @@
       },
       "17676059084223943535": {
         "type": "shopify:\/\/apps\/triplewhale\/blocks\/triple_pixel_snippet\/483d496b-3f1a-4609-aea7-8eee3b6b7a2a",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "6305591592379254261": {
+        "type": "shopify:\/\/apps\/pixoo-taboola-pixel\/blocks\/pixoo_embed\/d4575259-9a7f-46b5-bb21-03a4fc3b4b59",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "6757137876795001004": {
+        "type": "shopify:\/\/apps\/pixoo-outbrain-pixel\/blocks\/star_rating\/7eb7f1da-dc3d-4f59-af0d-5d4efc849789",
         "disabled": false,
         "settings": {
         }
