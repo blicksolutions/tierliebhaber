@@ -1,6 +1,4 @@
 window.activateAbTlh018 = () => {
-	console.log('activateAbTlh018');
-
 	const productItems = document.querySelectorAll('.CollectionInner__Products .ProductItem[data-js-product-item]');
 	if (!productItems) return;
 
@@ -18,7 +16,6 @@ window.activateAbTlh018 = () => {
 
 	const triggerFirstSlider = () => {
 		const firstCollectionSlider = document.querySelectorAll('.CollectionInner__Products .ProductItem__Swiper .swiper-wrapper')[0];
-		console.log('firstCollectionSlider', firstCollectionSlider);
 		firstCollectionSlider.style.transform = 'translate3d(-35%, 0px, 0px)';
 
 		setTimeout(() => {
@@ -53,7 +50,3 @@ window.activateAbTlh018 = () => {
 		}
 	});
 };
-
-document.addEventListener('DOMContentLoaded', () => {
-	window.activateAbTlh018();
-});
