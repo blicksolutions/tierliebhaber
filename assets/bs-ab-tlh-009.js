@@ -1,9 +1,7 @@
 window.activateAbTlh009 = () => {
-	console.log('activateAbTlh009');
 	const mutationObserver = new MutationObserver((entries) => {
 		entries.forEach((entry) => {
 			if (entry.target.classList.contains('rc-widget-injection-parent')) {
-				console.log('widget');
 				const subscroptionOption = document.querySelector('.rc-option__subsave[data-option-subsave]');
 				if (!subscroptionOption) return;
 
@@ -27,7 +25,3 @@ window.activateAbTlh009 = () => {
 		});
 	}
 };
-
-document.addEventListener('DOMContentLoaded', () => {
-	window.activateAbTlh009();
-});
