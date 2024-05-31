@@ -9,7 +9,6 @@ window.activateAbTlh009 = () => {
 					setTimeout(() => {
 						subscroptionOption.click();
 					}, 100);
-					console.log('subscroptionOption');
 				}
 			}
 		});
