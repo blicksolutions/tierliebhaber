@@ -83,7 +83,6 @@ window.activateAbTlh012 = () => {
 		// prevent markup from being inserted twice
 		plansContainer.setAttribute('data-js-variant-b', 'true');
 		plansContainer.insertAdjacentHTML('beforeend', uspsMarkup());
-
 		variantSelectorElementClone.setAttribute('data-js-injected', true);
 		radioButtonsContainer.after(variantSelectorElementClone);
 
