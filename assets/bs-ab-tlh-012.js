@@ -144,7 +144,6 @@ window.activateAbTlh012 = () => {
 
 		if (subscriptionElement.classList.contains('rc_widget__option--active')) {
 			const freeShippingCheck = document.querySelector('.VariantSelector__ListItem--selected[data-js-tlh-012-variant-selector-item]').getAttribute('data-js-free-shipping');
-			console.log('freeShippingCheck', freeShippingCheck);
 
 			const freeShippingUsp = document.querySelector('[data-js-usp-free-shipping]');
 
@@ -202,6 +201,12 @@ window.activateAbTlh012 = () => {
 
 	const rechargeInjectionElement = document.querySelector('.rc-widget-injection-parent');
 
+	const originalVariantSelectorWrapper = document.querySelector('.Product__Info .ProductForm__Variants');
+	if (!originalVariantSelectorWrapper) return;
+
+	const originalVariantSelector = originalVariantSelectorWrapper.querySelector('.ProductForm__Option .SizeSwatchList');
+	if (!originalVariantSelector) return;
+
 	if (rechargeInjectionElement != undefined) {
 		mutationObserver.observe(rechargeInjectionElement, {
 			childList: true,
@@ -210,12 +215,7 @@ window.activateAbTlh012 = () => {
 		});
 	}
 
-	const originalVariantSelectorWrapper = document.querySelector('.Product__Info .ProductForm__Variants');
-	if (!originalVariantSelectorWrapper) return;
-
 	originalVariantSelectorWrapper.style.display = 'none';
-
-	const originalVariantSelector = originalVariantSelectorWrapper.querySelector('.ProductForm__Option .SizeSwatchList');
 
 	// Handle variant change
 	if (originalVariantSelector != undefined) {
@@ -249,3 +249,5 @@ window.activateAbTlh012 = () => {
 		});
 	}
 };
+
+document.addEventListener('DOMContentLoaded', window.activateAbTlh012);

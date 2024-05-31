@@ -510,6 +510,8 @@ $(document).ready(function(){
     esthetic-ignore
     AB-Test code
 {%- endcomment -%}
+<script>console.log('product.has_only_default_variant', {{ product.has_only_default_variant | json }})</script>
+{% if product.has_only_default_variant != true %}
     <ul class="VariantSelector__List" data-js-tlh-012-variant-selector-list>
         {%- for option in product.options_with_values -%}
             {%- for value in option.values -%}
@@ -557,6 +559,7 @@ $(document).ready(function(){
             {%- endfor -%}
         {%- endfor -%}
     </ul>
+{% endif %}
 {%- comment -%}
     esthetic-ignore
     AB-Test code
