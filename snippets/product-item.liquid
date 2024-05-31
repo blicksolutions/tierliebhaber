@@ -1,4 +1,4 @@
-<div class="ProductItem {% if use_horizontal %}ProductItem--horizontal{% endif %}">
+<div class="ProductItem {% if use_horizontal %}ProductItem--horizontal{% endif %}" data-js-product-item>
   <div class="ProductItem__Wrapper">
     {%- comment -%}
     We are using LazySizes to efficiently choose the most appropriate image in the set. However, because internally LazySizes uses srcset, we need to make
@@ -17,7 +17,7 @@
       {%- assign has_alternate_image = false -%}
     {%- endif -%}
 
-    <a href="{{ product.url | within: collection }}" class="ProductItem__ImageWrapper {% if has_alternate_image %}ProductItem__ImageWrapper--withAlternateImage{% endif %}">
+    <a href="{{ product.url | within: collection }}" class="ProductItem__ImageWrapper {% if has_alternate_image %}ProductItem__ImageWrapper--withAlternateImage{% endif %}" tlh-018="false">
       {%- if use_horizontal -%}
         {%- assign max_width = 125 -%}
       {%- else -%}
@@ -26,7 +26,7 @@
 
       {%- assign media_aspect_ratio = product.featured_media.aspect_ratio | default: product.featured_media.preview_image.aspect_ratio -%}
 
-      <div class="AspectRatio AspectRatio--{% if use_natural_size %}withFallback{% else %}{{ settings.product_image_size }}{% endif %}" style="max-width: {{ max_width }}px; {% if use_natural_size %}padding-bottom: {{ 100.0 | divided_by: media_aspect_ratio }}%;{% endif %} --aspect-ratio: {{ media_aspect_ratio }}">
+      <div class="AspectRatio AspectRatio--{% if use_natural_size %}withFallback{% else %}{{ settings.product_image_size }}{% endif %}" style="max-width: {{ max_width }}px; {% if use_natural_size %}padding-bottom: {{ 100.0 | divided_by: media_aspect_ratio }}%;{% endif %} --aspect-ratio: {{ media_aspect_ratio }}" data-js-original>
         {%- comment -%}
         IMPLEMENTATION NOTE: The alternate image (not visible by default) should be the first in the DOM, as the spinner (Image__Loader element) is
         displayed based on the immediately previously shown image.
@@ -50,6 +50,26 @@
           <img class="ProductItem__Image ProductItem__Image--alternate" src="{{ product.media[1] | img_url: '600x' }}" alt="{{ product.media[1].alt | escape }}" loading="lazy">
           <img class="ProductItem__Image" src="{{ product.featured_media| img_url: '600x' }}" alt="{{ product.featured_media.alt | escape }}" loading="lazy">
         </noscript>
+      </div>
+
+      <div class="ProductItem__Swiper swiper" data-js-product-item-swiper>
+            <div class="ProductItem__SwiperWrapper swiper-wrapper">
+                {% for image in product.images %}
+                    <div class="ProductItem__SwiperSlide swiper-slide AspectRatio AspectRatio--{% if use_natural_size %}withFallback{% else %}{{ settings.product_image_size }}{% endif %}" style="max-width: {{ max_width }}px; {% if use_natural_size %}padding-bottom: {{ 100.0 | divided_by: media_aspect_ratio }}%;{% endif %} --aspect-ratio: {{ media_aspect_ratio }}">               
+                        {%- capture supported_sizes -%}{%- render 'image-size', sizes: '200,400,600,700,800,900,1000,1200', image: image -%}{%- endcapture -%}
+                        {%- assign image_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                
+                        <img class="ProductItem__Image Image--lazyLoad Image--fadeIn" data-src="{{ image_url }}" data-widths="[{{ supported_sizes }}]" data-sizes="auto" alt="{{ image.alt | escape }}" data-media-id="{{ image.id }}" loading="lazy">
+                        <span class="Image__Loader"></span>
+                
+                        <noscript>
+                        <img class="ProductItem__Image ProductItem__Image--alternate" src="{{ image | img_url: '600x' }}" alt="{{ product.media[1].alt | escape }}" loading="lazy">
+                        <img class="ProductItem__Image" src="{{ image| img_url: '600x' }}" alt="{{ image.alt | escape }}" loading="lazy">
+                        </noscript>
+                    </div>
+                {% endfor %}
+                </div>
+
       </div>
     </a>
 

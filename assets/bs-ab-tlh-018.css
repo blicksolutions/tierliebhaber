@@ -1,0 +1,16 @@
+.ProductItem .ProductItem__ImageWrapper[tlh-018="true"] .AspectRatio[data-js-original] {
+    display: none;
+}
+
+.ProductItem .ProductItem__ImageWrapper[tlh-018="false"] .ProductItem__Swiper.swiper[data-js-product-item-swiper] {
+    display: none;
+}
+
+.ProductItem .ProductItem__ImageWrapper[tlh-018="true"] .ProductItem__Swiper.swiper[data-js-product-item-swiper] {
+    display: block;
+    max-width: 280px;
+    max-height: 280px;
+    aspect-ratio: 1;
+}
+
+.ProductItem .ProductItem__ImageWrapper[tlh-018="true"] .ProductItem__Swiper.swiper[data-js-product-item-swiper] .ProductItem__SwiperSlide .ProductItem__SwiperImage {}
