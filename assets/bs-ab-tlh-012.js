@@ -225,7 +225,6 @@ window.activateAbTlh012 = () => {
 		variantSelectorInputElements.forEach((inputElement) => {
 			inputElement.addEventListener('change', (event) => {
 				const selectedValue = event.target.getAttribute('value');
-
 				const clonedVariantInputs = document.querySelectorAll('.VariantSelector__List[data-js-tlh-012-variant-selector-list=""][data-js-injected="true"] [data-js-tlh-012-variant-selector-item]');
 
 				clonedVariantInputs.forEach((input) => {
