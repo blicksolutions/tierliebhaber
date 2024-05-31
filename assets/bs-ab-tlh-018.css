@@ -8,9 +8,10 @@
 
 .ProductItem .ProductItem__ImageWrapper[tlh-018="true"] .ProductItem__Swiper.swiper[data-js-product-item-swiper] {
     display: block;
-    max-width: 280px;
-    max-height: 280px;
+    max-width: 322px;
+    max-height: 322px;
     aspect-ratio: 1;
+    z-index: 0;
 }
 
 .ProductItem .ProductItem__ImageWrapper[tlh-018="true"] .ProductItem__Swiper.swiper[data-js-product-item-swiper] .ProductItem__SwiperSlide .ProductItem__SwiperImage {}
