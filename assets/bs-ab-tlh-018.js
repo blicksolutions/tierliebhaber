@@ -2,24 +2,6 @@ window.activateAbTlh018 = () => {
 	const productItems = document.querySelectorAll('.CollectionInner__Products .ProductItem[data-js-product-item]');
 	if (!productItems) return;
 
-	const animateSwiper = (swiper) => {
-		setTimeout(() => {
-			swiper.slideNext(300);
-			setTimeout(() => {
-				swiper.slideTo(1, 300);
-			}, 200);
-		}, 150);
-	};
-
-	const triggerFirstSlider = () => {
-		const firstCollectionSlider = document.querySelectorAll('.CollectionInner__Products .ProductItem__Swiper .swiper-wrapper')[0];
-		firstCollectionSlider.style.transform = 'translate3d(-35%, 0px, 0px)';
-
-		setTimeout(() => {
-			firstCollectionSlider.style.transform = 'translate3d(0px, 0px, 0px)';
-		}, 500);
-	};
-
 	productItems.forEach((productItem, index) => {
 		const imageWrapper = productItem.querySelector('.ProductItem__ImageWrapper[tlh-018]');
 		if (!imageWrapper) return;
