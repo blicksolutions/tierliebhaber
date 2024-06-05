@@ -50,7 +50,3 @@ window.activateAbTlh025 = () => {
         replaceImages(newImages);
     }
 };
-
-document.addEventListener('DOMContentLoaded',()=>{
-    window.activateAbTlh025()
-})
