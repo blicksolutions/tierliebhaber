@@ -19,6 +19,8 @@ const replaceImagesTLH25 = (newImages) => {
             sliderImage.classList.remove('Image--fadeIn');
         }
     });
+
+    console.log("IMAGES REPLACED")
 }
 
 window.activateAbTlh025DS = () => {
