@@ -23,7 +23,7 @@ const replaceImagesTLH25 = (newImages) => {
 
 window.activateAbTlh025DS = () => {
     /** Dentalspray **/
-    if (location.pathname.includes('/products/dentalspray')) {
+    if (location.pathname.includes('/zahnpflege/products/dentalspray')) {
         const newImages = [
             'https://cdn.shopify.com/s/files/1/0587/2746/5119/files/ds1_99c3c653-f4f4-4b1f-809e-db047c26456c.jpg?v=1717161832',
             'https://cdn.shopify.com/s/files/1/0587/2746/5119/files/ds2_af497c49-626b-418e-9788-787b7d535c58.jpg?v=1717161833',
