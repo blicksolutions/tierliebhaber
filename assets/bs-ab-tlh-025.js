@@ -35,7 +35,9 @@ window.activateAbTlh025DS = () => {
             'https://cdn.shopify.com/s/files/1/0587/2746/5119/files/ds6_62db5dff-00be-4a4b-8ba9-cf0bda1b9203.jpg?v=1717161833'
         ];
 
-        replaceImagesTLH25(newImages);
+        setTimeout(() => {
+            replaceImagesTLH25(newImages);
+        }, 5000)
     }
 };
 
