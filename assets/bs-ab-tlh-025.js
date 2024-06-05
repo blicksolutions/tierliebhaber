@@ -19,8 +19,6 @@ const replaceImagesTLH25 = (newImages) => {
             sliderImage.classList.remove('Image--fadeIn');
         }
     });
-
-    console.log("IMAGES REPLACED")
 }
 
 window.activateAbTlh025DS = () => {
@@ -35,9 +33,7 @@ window.activateAbTlh025DS = () => {
             'https://cdn.shopify.com/s/files/1/0587/2746/5119/files/ds6_62db5dff-00be-4a4b-8ba9-cf0bda1b9203.jpg?v=1717161833'
         ];
 
-        setTimeout(() => {
-            replaceImagesTLH25(newImages);
-        }, 5000)
+        replaceImagesTLH25(newImages);
     }
 };
 
