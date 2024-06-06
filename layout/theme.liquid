@@ -313,10 +313,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {% include 'dataLayer-allPages' %}
 
 
-{% comment %}
-<script src="https://track.tierliebhaber.de/uniclick.js?attribution=lastpaid&cookiedomain=tierliebhaber.de&cookieduration=90&defaultcampaignid=66339f12a238600001a0b9ef&regviewonce=false"></script>
-<script src="https://track.tierliebhaber.de/events.js"></script>
-{% endcomment %}
+<script src="https://track.tierliebhaber.de/uniclick.js?attribution=lastpaid&cookiedomain=tierliebhaber.de&cookieduration=90&defaultcampaignid=66339f12a238600001a0b9ef&regviewonce=false" async></script>
+<script src="https://track.tierliebhaber.de/events.js" async></script>
+
   </head>
 
   {%- capture classes -%}features--heading-{{ settings.heading_size }}{%- endcapture -%}
