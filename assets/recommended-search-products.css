@@ -1,0 +1,164 @@
+.Search .search-result__bestseller-products {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+@media screen and (min-width: 640px) {
+    .Search .search-result__bestseller-products {
+        gap: 25px;
+        flex-direction: row;
+    }
+}
+
+.Search .search-result__bestseller-container .search-result__bestseller-products .ProductItem {
+    border-radius: 10px;
+    border: 1px solid #CCC;
+    background: #FFF;
+    padding: 10px;
+    align-self: stretch;
+    transition: border 300ms ease-out;
+}
+
+@media screen and (min-width: 640px) {
+    .Search .search-result__bestseller-container .search-result__bestseller-products .ProductItem:hover {
+        border: 1px solid #7e7e7e;
+    }
+}
+
+.Search .search-result__bestseller-container .search-result__bestseller-products .ProductItem .ProductItem__ImageWrapper {
+    width: 112px;
+    min-width: 112px;
+    margin-right: 10px;
+}
+
+@media screen and (min-width: 640px) {
+    .Search .search-result__bestseller-container .search-result__bestseller-products .ProductItem .ProductItem__ImageWrapper {
+        width: 250px;
+        min-width: 250px;
+        margin-right: 0;
+    }
+}
+
+.Search .search-result__bestseller-container .search-result__bestseller-products .ProductItem .ProductItem__Info {
+    margin-top: 0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: stretch;
+}
+
+@media screen and (min-width: 640px) {
+    .Search .search-result__bestseller-container .search-result__bestseller-products .ProductItem .ProductItem__Info {
+        margin-top: 10px;
+        align-items: center;
+    }
+}
+
+.Search .search-result__bestseller-container .search-result__bestseller-products .ProductItem .ProductItem__Title.Heading {
+    color: #1C1B1B;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 0 0 5px 0;
+}
+
+@media screen and (min-width: 640px) {
+    .Search .search-result__bestseller-container .search-result__bestseller-products .ProductItem .ProductItem__Title.Heading {
+        margin: 0 0 10px 0;
+        font-size: 18px;
+        line-height: 22.5px;
+    }
+}
+
+.Search .search-result__bestseller-container .search-result__bestseller-products .ProductItem .jdgm-widget.jdgm-preview-badge {
+    margin: 0 0 5px 0;
+}
+
+@media screen and (min-width: 640px) {
+    .Search .search-result__bestseller-container .search-result__bestseller-products .ProductItem .jdgm-widget.jdgm-preview-badge {
+        margin: 0 0 10px 0;
+    }
+}
+
+.Search .search-result__bestseller-container .search-result__bestseller-products .ProductItem .jdgm-prev-badge__text {
+    color: #1C1B1B;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 12.5px;
+}
+
+@media screen and (min-width: 640px) {
+    .Search .search-result__bestseller-container .search-result__bestseller-products .ProductItem .jdgm-prev-badge__text {
+        font-size: 12px;
+        line-height: 15px;
+    }
+}
+
+.Search .search-result__bestseller-container .search-result__bestseller-products .ProductItem .ProductItem__PriceList.Heading {
+    color: #525252;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22.5px;
+}
+
+@media screen and (min-width: 640px) {
+    .Search .search-result__bestseller-container .search-result__bestseller-products .ProductItem .ProductItem__PriceList.Heading {
+        font-size: 20px;
+        line-height: 25px;
+    }
+}
+
+.Search .search-result__bestseller-container .search-result__bestseller-products .ProductItem .ProductItem__Price.Price.Price--compareAt.Text--subdued {
+    color: #525252;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22.5px;
+    text-decoration: line-through;
+}
+
+@media screen and (min-width: 640px) {
+    .Search .search-result__bestseller-container .search-result__bestseller-products .ProductItem .ProductItem__Price.Price.Price--compareAt.Text--subdued {
+        font-size: 18px;
+    }
+}
+
+.Search .search-result__bestseller-container .search-result__bestseller-products .ProductItem .ProductItem__Price.Price.Price--compareAt.Text--subdued::before {
+    content: none;
+}
+
+.Search .search-result__bestseller-container .search-result__bestseller-products .ProductItem .ProductItem__UnitPriceMeasurement {
+    margin-top: 5px;
+}
+
+@media screen and (min-width: 640px) {
+    .Search .search-result__bestseller-container .search-result__bestseller-products .ProductItem .ProductItem__UnitPriceMeasurement {
+        margin-top: 10px;
+    }
+}
+
+.Search .search-result__bestseller-container .search-result__bestseller-products .ProductItem .UnitPriceMeasurement.Heading.Text--subdued {
+    color: #525252;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 12.5px;
+}
+
+@media screen and (min-width: 640px) {
+    .Search .search-result__bestseller-container .search-result__bestseller-products .ProductItem .UnitPriceMeasurement.Heading.Text--subdued {
+        font-size: 12px;
+        line-height: 15px;
+    }
+}
+
+.Search .search-result__no-results {
+    display: none;
+}
