@@ -39,6 +39,7 @@
       <script src="{{ 'bs-subscription-callout.js' | asset_url }}" defer></script>
       <script src="{{ 'bs-sticky-atc.js' | asset_url }}" defer></script>
 
+
     <script type="text/javascript">
     // Duration in milliseconds to wait while the Kameleoon application file is loaded
     var kameleoonLoadingTimeout = 1000;
@@ -88,7 +89,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-NB2JQCG');</script>
 <!-- End Google Tag Manager -->
-
     <!--HYROS -->
     <script>
       var head = document.head;
@@ -97,7 +97,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       script.src = "https://t.tierliebhaber.de/v1/lst/universal-script?ph=c0c3ea6be250a0a3cfb45f6840a85c4afb26c43413b4d3fa71c57e1e03aaf233&tag=!clicked&ref_url=" + encodeURI(document.URL) ;
       head.appendChild(script);
     </script>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.0">
@@ -314,9 +313,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {% include 'dataLayer-allPages' %}
 
 
+{% comment %}
 <script src="https://track.tierliebhaber.de/uniclick.js?attribution=lastpaid&cookiedomain=tierliebhaber.de&cookieduration=90&defaultcampaignid=66339f12a238600001a0b9ef&regviewonce=false"></script>
 <script src="https://track.tierliebhaber.de/events.js"></script>
-
+{% endcomment %}
   </head>
 
   {%- capture classes -%}features--heading-{{ settings.heading_size }}{%- endcapture -%}
