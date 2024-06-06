@@ -8,10 +8,16 @@
 
 .ProductItem .ProductItem__ImageWrapper[tlh-018="true"] .ProductItem__Swiper.swiper[data-js-product-item-swiper] {
     display: block;
-    max-width: 322px;
-    max-height: 322px;
+    max-width: 1000px;
+    max-height: 1000px;
     aspect-ratio: 1;
     z-index: 0;
 }
 
-.ProductItem .ProductItem__ImageWrapper[tlh-018="true"] .ProductItem__Swiper.swiper[data-js-product-item-swiper] .ProductItem__SwiperSlide .ProductItem__SwiperImage {}
+.ProductItem .ProductItem__ImageWrapper[tlh-018="true"]:active {
+    cursor: grabbing;
+}
+
+.ProductItem .ProductItem__ImageWrapper[tlh-018="true"]+.ProductItem__LabelList {
+    pointer-events: none;
+}
