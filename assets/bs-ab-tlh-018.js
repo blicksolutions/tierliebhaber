@@ -30,4 +30,4 @@ window.activateAbTlh018 = () => {
 	});
 };
 
-document.addEventListener('DOMContentLoaded', window.activateAbTlh018);
+// document.addEventListener('DOMContentLoaded', window.activateAbTlh018);
