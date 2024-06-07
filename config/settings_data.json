@@ -1376,7 +1376,7 @@
       "cart-drawer": {
         "type": "cart-drawer",
         "settings": {
-          "enable_gift": true,
+          "enable_gift": false,
           "gift_min_price": 85,
           "gift_product": "barf-booster-pulver",
           "message_gift_icon": "shopify:\/\/shop_images\/image_7.png",
