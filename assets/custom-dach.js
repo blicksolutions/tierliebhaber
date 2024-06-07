@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     window.lockCheckoutButton = () => {
+        console.log("LOCK BUTTON")
         cartDrawer.querySelector('.Cart__Checkout').disabled = true;
     };
 
@@ -78,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const giftContained = cartDrawer.querySelector('.cartGiftItem') != null;
 
         if (subtotalPrice < window.cartDrawerMinPriceForGift && giftContained) {
-            // console.log("REMOVE GIFT")
+            console.log("REMOVE GIFT")
             const cartUpdates = {
                 updates: {
                     [window.cartDrawerGiftVariantId]: 0
@@ -117,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         });
                 });
         } else if (!giftContained && subtotalPrice >= window.cartDrawerMinPriceForGift){
-            // console.log("ADDE GIFT")
+            console.log("ADDE GIFT")
             const cartUpdates = {
                 updates: {
                     [window.cartDrawerGiftVariantId]: 1
@@ -156,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         });
                 });
         } else {
-            // console.log("DONE NOTHIN!")
+            console.log("DONE NOTHIN!")
             window.unlockCheckoutButton();
         }
     }
@@ -286,6 +287,8 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                                 deliveryCostEl.textContent = deliveryCostEl.getAttribute('data-freeshipping-text');
                                 deliveryBarStepLineEl.style.width = '100%';
                             }
+
+                            window.unlockCheckoutButton();
                         }
                         break;
                     case 'AT':
@@ -361,6 +364,8 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                                 deliveryCostEl.textContent = deliveryCostEl.getAttribute('data-freeshipping-text');
                                 deliveryBarStepLineEl.style.width = '100%';
                             }
+
+                            window.unlockCheckoutButton();
                         }
                         break;
                     case 'CH':
@@ -427,6 +432,8 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                                         deliveryBarFinalTextEl.innerHTML = 'Kostenloser Versand & Geschenk!';
                                     }
                                 }
+
+                                window.unlockCheckoutButton();
                             }
 
                             deliveryBarStepLineEl.style.width = (subtotalPriceWithoutNoShippingItems * percentPerEuro) + '%'

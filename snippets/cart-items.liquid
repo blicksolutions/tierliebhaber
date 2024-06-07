@@ -172,9 +172,9 @@
           <div class="CartItem__Actions Heading Text--subdued" style="text-align: center">
             <div class="CartItem__QuantitySelector">               
                   <div class="QuantitySelector
-         {% if line_item.variant.metafields.limit.quantity or line_item.variant.id == upsellVariantId %}
-         QuantitySelector--Disabled
-         {% endif %}">
+                 {% if line_item.variant.metafields.limit.quantity or line_item.variant.id == upsellVariantId %}
+                 QuantitySelector--Disabled
+                 {% endif %}">
                 {%- assign quantity_minus_one = line_item.quantity | minus: 1 -%}
 
                 {% unless line_item_free_gift %}
@@ -185,6 +185,7 @@
                      data-quantity="{{ quantity_minus_one }}"
                      data-line="{{ forloop.index }}"
                      data-action="update-item-quantity"
+                     onclick="window.lockCheckoutButton()"
                      >
                     {%- render 'icon' with 'minus' -%}
                   </a>
@@ -218,6 +219,7 @@
                      data-quantity="{{ quantity_plus_one }}"
                      data-line="{{ forloop.index }}"
                      data-action="update-item-quantity"
+                     onclick="window.lockCheckoutButton()"
                      >
                     {%- render 'icon' with 'plus' -%}
                   </a>
