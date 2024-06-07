@@ -187,3 +187,9 @@
         display: none;
     }
 }
+
+.gift__text {
+    color: #82b6aa;
+    font-weight: 600;
+    font-size: 16px;
+}

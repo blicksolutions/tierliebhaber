@@ -76,6 +76,7 @@
           </a>
         </h2>
 
+      {% unless line_item.product.tags contains 'free-gift' %}
         <div class="CartItem__Meta Heading Text--subdued">
           {%- unless line_item.product.has_only_default_variant or line_item.product.type == 'Donation' -%}
             <div class="CartItem__Variant-Wrapper">
@@ -159,11 +160,11 @@
             {%- endif -%}
           {%- endunless -%}
         </div>
+          {% endunless %}
 
           {% if line_item.product.tags contains 'free-gift' %}
-              1 Geschenkt
+              <span class="gift__text">Dein Geschenk</span>
           {% endif %}
-
 
         {%- capture item_actions -%}
         {% unless line_item.product.tags contains 'free-gift' %}

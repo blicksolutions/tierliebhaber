@@ -75,15 +75,10 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     window.handleGift = (subtotalPrice) => {
-        // console.log("subtotalPrice")
-        // console.log(subtotalPrice)
-        // console.log("window.cartDrawerMinPriceForGift")
-        // console.log(window.cartDrawerMinPriceForGift)
-
         const giftContained = cartDrawer.querySelector('.cartGiftItem') != null;
 
         if (subtotalPrice < window.cartDrawerMinPriceForGift && giftContained) {
-            console.log("REMOVE GIFT")
+            // console.log("REMOVE GIFT")
             const cartUpdates = {
                 updates: {
                     [window.cartDrawerGiftVariantId]: 0
@@ -122,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         });
                 });
         } else if (!giftContained && subtotalPrice >= window.cartDrawerMinPriceForGift){
-            console.log("ADDE GIFT")
+            // console.log("ADDE GIFT")
             const cartUpdates = {
                 updates: {
                     [window.cartDrawerGiftVariantId]: 1
@@ -161,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         });
                 });
         } else {
-            console.log("DONE NOTHIN!")
+            // console.log("DONE NOTHIN!")
             window.unlockCheckoutButton();
         }
     }
@@ -224,8 +219,6 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
             if (hasItemWithDeliveryRequired) {
                 switch (window.currentCountry) {
                     case 'DE':
-
-
                         if (window.cartDrawerEnableGift) {
                             const percentPerEuro = 100 / parseInt(window.cartDrawerMinPriceForGift); // 1.33333
 
@@ -507,8 +500,6 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
             // set price with location based shipping costs
             const priceWithoutShipping = parseFloat(subtotalPriceEl.textContent.replace('€', '').replace(',', '.'));
             totalPriceEl.textContent = '€' + (priceWithoutShipping + deliveryPriceValue).toFixed(2);
-
-            console.log("UNLOCKKKKK")
         }
         /** /Delivery after ip +*/
 
