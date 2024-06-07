@@ -1,13 +1,15 @@
 <div class="collection-dropdown">
     {% for product in collection.products %}
-        {%- render 'product-item', 
-            product: product, 
-            show_product_info: true, 
-            show_vendor: false, 
-            show_color_swatch: false, 
-            show_labels: false, 
-            show_badges: false 
-        -%}
+        {% unless product.tags contains 'free-gift' %}
+            {%- render 'product-item',
+                product: product,
+                show_product_info: true,
+                show_vendor: false,
+                show_color_swatch: false,
+                show_labels: false,
+                show_badges: false
+            -%}
+        {% endunless %}
 
         {% if forloop.index == 3 %}
             {% break %}

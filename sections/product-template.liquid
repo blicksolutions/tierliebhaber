@@ -275,8 +275,9 @@
               <header class="SectionHeader SectionHeader--center">
                 <h3 class="SectionHeader__Heading Heading u-h4">{{ 'product.buy_it_with.title' | t }}</h3>
               </header>
-
-              {% render 'product-item', product: associated_product, use_horizontal: true, show_labels: false, show_product_info: true, show_vendor: false, show_price_on_hover: false %}
+                {% unless product.tags contains 'free-gift' %}
+                  {% render 'product-item', product: associated_product, use_horizontal: true, show_labels: false, show_product_info: true, show_vendor: false, show_price_on_hover: false %}
+                {% endunless %}
             </div>
 
             {%- break -%}

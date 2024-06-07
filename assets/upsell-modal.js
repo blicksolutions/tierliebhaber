@@ -51,16 +51,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function checkUrlAndAdjustUpsellDisplay() {
     var currentUrl = window.location.href;
-    console.log("Current URL:", currentUrl);
+    // console.log("Current URL:", currentUrl);
     if (currentUrl.includes('zahn') || currentUrl.includes('dental')) {
-        console.log("URL contains 'zahn' or 'dental'. Hiding .zahnpflege-upsell element.");
+        // console.log("URL contains 'zahn' or 'dental'. Hiding .zahnpflege-upsell element.");
         
         var zahnpflegeUpsell = document.querySelector('.zahnpflege-upsell');
         if (zahnpflegeUpsell) {
             zahnpflegeUpsell.style.display = 'none';
         }
     } else {
-        console.log("URL does not contain 'zahn' or 'dental'.");
+        // console.log("URL does not contain 'zahn' or 'dental'.");
     }
 }
 
@@ -73,14 +73,14 @@ function updateUpsellDisplay(zahnpflegeInCart, darmpflegeInCart, zahnpflegeUpsel
     } else if (darmpflegeInCart && darmpflegeUpsell) {
         darmpflegeUpsell.style.display = 'none';
     }
-    console.log("Upsell display updated");
+    // console.log("Upsell display updated");
 }
 
 function checkProductAvailability(productHandle) {
     return fetch(`https://tierliebhaber.de/products/${productHandle}.json`)
         .then(response => response.json())
         .then(data => {
-            console.log(`${productHandle} data:`, data);
+            // console.log(`${productHandle} data:`, data);
             return data.product.variants.some(variant => variant.inventory_management === 'shopify' && variant.available);
         })
         .catch(error => {
@@ -93,7 +93,7 @@ function checkProductsInCartAndToggleModal(upsellModal, isDarmpflegeAvailable, i
     fetch('/cart.js')
         .then(response => response.json())
         .then(cart => {
-            console.log("Cart items in checkProductsInCartAndToggleModal:", cart.items);
+            // console.log("Cart items in checkProductsInCartAndToggleModal:", cart.items);
 
             const zahnpflegeBundleInCart = cart.items.some(item => item.handle === 'zahnpflege-bundle');
             const darmpflegeBundleInCart = cart.items.some(item => item.handle === 'darmpflege-bundle');
@@ -127,9 +127,9 @@ function initializeSlider() {
             prevArrow: '<button class="slick-prev" aria-label="Previous" type="button">Previous</button>',
             nextArrow: '<button class="slick-next" aria-label="Next" type="button">Next</button>'
         });
-        console.log("Slider initialized");
+        // console.log("Slider initialized");
     } else {
-        console.log("Slider already initialized or not present");
+        // console.log("Slider already initialized or not present");
     }
 }
 
@@ -163,7 +163,7 @@ function formatTime(number) {
 function showModal(upsellModal) {
     if (upsellModal) {
         upsellModal.style.visibility = 'visible';
-        console.log("Show modal");
+        // console.log("Show modal");
     }
 }
 
@@ -171,15 +171,15 @@ function checkIfUpsellProductInCartAndUpdateCartDisplay(cartDrawer, upsellProduc
     fetch('/cart.js')
         .then(response => response.json())
         .then(cart => {
-            console.log("Cart items in checkIfUpsellProductInCartAndUpdateCartDisplay:", cart.items);
+            // console.log("Cart items in checkIfUpsellProductInCartAndUpdateCartDisplay:", cart.items);
             const isUpsellProductInCart = cart.items.some(item => upsellProducts.includes(item.handle));
-            console.log("Is upsell product in cart:", isUpsellProductInCart);
+            // console.log("Is upsell product in cart:", isUpsellProductInCart);
             if (isUpsellProductInCart) {
                 cartDrawer.style.display = 'block';
-                console.log("Displaying cart drawer");
+                // console.log("Displaying cart drawer");
             } else {
                 cartDrawer.style.display = 'none';
-                console.log("Hiding cart drawer");
+                // console.log("Hiding cart drawer");
             }
         })
         .catch(error => console.error('Error fetching cart:', error));
@@ -189,9 +189,9 @@ function checkAllProductHandlesInCart() {
     fetch('/cart.js')
         .then(response => response.json())
         .then(cart => {
-            console.log("All product handles in cart:");
+            // console.log("All product handles in cart:");
             cart.items.forEach(item => {
-                console.log(item.handle);
+                // console.log(item.handle);
             });
         })
         .catch(error => console.error('Error fetching cart:', error));
@@ -201,7 +201,7 @@ function fetchProductHandle(productId) {
   fetch(`/products/${productId}.js`)
     .then(response => response.json())
     .then(product => {
-      console.log("Product handle:", product.handle);
+      // console.log("Product handle:", product.handle);
       // Use the product handle as needed
     })
     .catch(error => console.error("Fetching product data failed", error));

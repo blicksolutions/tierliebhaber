@@ -36,6 +36,10 @@
     display: none;
 }
 
+.cartGiftItem .CartItem__Actions {
+    display: none;
+}
+
 .PageHeader .SectionHeader #rc_link_container {
     font-weight: bold;
 }

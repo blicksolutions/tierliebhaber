@@ -45,7 +45,7 @@
       {%- assign line_item_free_gift = false -%}
 
       <div
-        class="CartItemWrapper"
+        class="CartItemWrapper {% if line_item.product.tags contains 'free-gift'%}cartGiftItem{% endif %}"
         {% if line_item_free_gift %}
           data-free-gift="true"
         {% endif %}
@@ -160,7 +160,13 @@
           {%- endunless -%}
         </div>
 
+          {% if line_item.product.tags contains 'free-gift' %}
+              1 Geschenkt
+          {% endif %}
+
+
         {%- capture item_actions -%}
+        {% unless line_item.product.tags contains 'free-gift' %}
           {% assign upsellVariantId = 44630754984204 %}
           <div class="CartItem__Actions Heading Text--subdued" style="text-align: center">
             <div class="CartItem__QuantitySelector">               
@@ -193,6 +199,7 @@
                    name="updates[]"
                    id="updates_{{ line_item.key }}"
                    class="QuantitySelector__CurrentQuantity"
+                   onchange="window.lockCheckoutButton()"
                    pattern="[0-9]*"
                    min="0" max="1"
                    data-line="{{ forloop.index }}"
@@ -219,6 +226,8 @@
 
               <a href="{{ routes.cart_change_url }}?quantity=0&line={{ forloop.index }}" class="CartItem__Remove Link Link--underline Link--underlineShort" data-quantity="0" data-line="{{ forloop.index }}" data-action="remove-item">{{ 'cart.items.remove' | t }}</a>
           </div>
+        {% endunless %}
+
         {%- endcapture -%}
 
         {{ item_actions }}
