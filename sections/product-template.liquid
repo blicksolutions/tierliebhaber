@@ -1,5 +1,12 @@
-<link rel="stylesheet" href="{{ 'bs-ab-tlh001.css' | asset_url }}">
+{% comment %} redirection script for free-gift pages which souldnt be accessible {% endcomment %}
+<script>
+    // redirect to home page if product is a free gift
+    if ("{{ product.tags }}".includes('free-gift')) {
+        window.location = '/collections/all-products';
+    }
+</script>
 
+<link rel="stylesheet" href="{{ 'bs-ab-tlh001.css' | asset_url }}">
 
 {%- capture section_settings -%}
 {
