@@ -477,6 +477,8 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                                 deliveryCostEl.textContent = deliveryCostEl.getAttribute('data-freeshipping-text');
                                 deliveryBarStepLineEl.style.width = '100%';
                             }
+                            window.unlockCheckoutButton();
+
                         }
                         break;
                     default:
@@ -498,11 +500,14 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                             deliveryCostEl.textContent = deliveryCostEl.getAttribute('data-freeshipping-text');
                             deliveryBarStepLineEl.style.width = '100%';
                         }
+                        window.unlockCheckoutButton();
+
                 }
             } else {
                 deliveryIcon.style.left = "100%"
                 deliveryPriceValue = 0;
                 deliveryCostEl.textContent = deliveryCostEl.getAttribute('data-freeshipping-text');
+                window.unlockCheckoutButton();
             }
 
             // set price with location based shipping costs
