@@ -1,0 +1,7 @@
+.paylater-snippet {
+    display: none;
+}
+
+.paylater-snippet[test-active] {
+    display: block;
+}

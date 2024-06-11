@@ -7,6 +7,7 @@
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-013.css' | asset_url }}">
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-018.css' | asset_url }}">
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-012.css' | asset_url }}">
+      <link rel="stylesheet" href="{{ 'bs-ab-tlh-020.css' | asset_url }}">
 
       <script src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
@@ -16,6 +17,7 @@
       <script src="{{ 'bs-ab-tlh-012.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-013.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-018.js' | asset_url }}"></script>
+      <script src="{{ 'bs-ab-tlh-020.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-025.js' | asset_url }}"></script>
       <!-- END BS: AB Scripts -->
 
@@ -34,9 +36,11 @@
 
       {% render 'replo-head' %}
 
+      <script src="https://www.paypal.com/sdk/js?client-id=Abiqm38tNrToYa_7p2yJ1BTEiSxfAu9pgJItfY_0-xBqGo2USzKmwjD4yCiMaWyezaxKWYSfNlQTQI8M&components=messages" data-namespace="PayPalSDK"></script>
+      {% comment %}<script src="https://www.paypal.com/sdk/js?client-id=AdG9JKYzCkgP1GakY1ZzpJCv0rNJEjaAL4vgIG5sIbMlbjdsXtwMJFvgoBwWOCnld92O6UaOJdCbuF6Z&components=messages" data-namespace="PayPalSDK"></script>{% endcomment %}
+
       <script src="{{ 'bs-subscription-callout.js' | asset_url }}" defer></script>
       <script src="{{ 'bs-sticky-atc.js' | asset_url }}" defer></script>
-
 
     <script type="text/javascript">
     // Duration in milliseconds to wait while the Kameleoon application file is loaded
