@@ -1,7 +1,7 @@
-/*.paylater-snippet {*/
+/*[data-pp-message] {*/
 /*    display: none;*/
 /*}*/
 
-.paylater-snippet[test-active] {
+[data-pp-message][test-active] {
     display: block;
 }

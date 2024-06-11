@@ -1,5 +1,5 @@
 window.activateAbTlh020 = () => {
-    const payLaterSnippet = document.querySelector('.paylater-snippet');
+    const payLaterSnippet = document.querySelector('[data-pp-message]');
 
     if (payLaterSnippet != undefined) {
         // payLaterSnippet.setAttribute('ab-test-active', 'true');
