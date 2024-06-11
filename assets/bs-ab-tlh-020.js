@@ -2,7 +2,7 @@ window.activateAbTlh020 = () => {
     const payLaterSnippet = document.querySelector('.paylater-snippet');
 
     if (payLaterSnippet != undefined) {
-        payLaterSnippet.setAttribute('test-active', 'true');
+        // payLaterSnippet.setAttribute('ab-test-active', 'true');
 
         const mutationObserver = new MutationObserver((entries) => {
             entries.forEach((entry) => {
