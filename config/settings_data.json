@@ -1753,17 +1753,17 @@
         "settings": {
         }
       },
-      "6305591592379254261": {
-        "type": "shopify:\/\/apps\/pixoo-taboola-pixel\/blocks\/pixoo_embed\/d4575259-9a7f-46b5-bb21-03a4fc3b4b59",
-        "disabled": false,
-        "settings": {
-        }
-      },
       "3667842014806057753": {
         "type": "shopify:\/\/apps\/one-click-upsell-zipify-ocu\/blocks\/app-embed\/bfe6e378-b73a-4871-b8d3-7d6ede22678e",
         "disabled": false,
         "settings": {
           "allowed_templates": ""
+        }
+      },
+      "17398511487517060589": {
+        "type": "shopify:\/\/apps\/admetrics-data-studio\/blocks\/conversion\/95b54974-e3ea-4514-839b-d0c971e19c1c",
+        "disabled": false,
+        "settings": {
         }
       }
     }
