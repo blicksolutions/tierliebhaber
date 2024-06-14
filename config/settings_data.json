@@ -1,9 +1,9 @@
 {
   "current": {
-    "donations_amount": 66805,
+    "donations_amount": 68966,
     "donation_goal": 100000,
     "total_text": "",
-    "total_number": "Bisher gespendet seit 2022: €66.806",
+    "total_number": "Bisher gespendet seit 2022: €68.966",
     "heading_color": "#1c1b1b",
     "text_color": "#1c1b1b",
     "text_light_color": "#6a6a6a",
@@ -635,9 +635,9 @@
           "f6452686-be98-4be8-8ad1-8cd81d013eb7": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/logo_hw_schwarz.png",
+              "image": "shopify:\/\/shop_images\/Design_ohne_Titel_3_86beb792-b4d2-42d8-8e31-b6ac94b24db3.png",
               "image_alt": "HundeWelt",
-              "image_url": "",
+              "image_url": "https:\/\/aktion.tierliebhaber.de\/ehorses-testbericht61958504",
               "max_width": 160
             }
           },
@@ -1753,17 +1753,17 @@
         "settings": {
         }
       },
-      "6305591592379254261": {
-        "type": "shopify:\/\/apps\/pixoo-taboola-pixel\/blocks\/pixoo_embed\/d4575259-9a7f-46b5-bb21-03a4fc3b4b59",
-        "disabled": false,
-        "settings": {
-        }
-      },
       "3667842014806057753": {
         "type": "shopify:\/\/apps\/one-click-upsell-zipify-ocu\/blocks\/app-embed\/bfe6e378-b73a-4871-b8d3-7d6ede22678e",
         "disabled": false,
         "settings": {
           "allowed_templates": ""
+        }
+      },
+      "17398511487517060589": {
+        "type": "shopify:\/\/apps\/admetrics-data-studio\/blocks\/conversion\/95b54974-e3ea-4514-839b-d0c971e19c1c",
+        "disabled": false,
+        "settings": {
         }
       }
     }
