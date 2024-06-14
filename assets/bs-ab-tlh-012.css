@@ -242,6 +242,10 @@
     z-index: 2;
 }
 
+[tlh012-variant="b"] .rc-selling-plans {
+    padding-top: 10px;
+}
+
 @media (min-width: 768px) {
     [tlh012-variant="b"] .VariantSelector__List[data-js-tlh-012-variant-selector-list] {
         justify-content: space-between;

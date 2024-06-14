@@ -205,7 +205,7 @@ window.activateAbTlh012 = () => {
 	if (!originalVariantSelectorWrapper) return;
 
 	const originalVariantSelector = originalVariantSelectorWrapper.querySelector('.ProductForm__Option .SizeSwatchList');
-	if (!originalVariantSelector) return;
+	// if (!originalVariantSelector) return;
 
 	if (rechargeInjectionElement != undefined) {
 		mutationObserver.observe(rechargeInjectionElement, {
