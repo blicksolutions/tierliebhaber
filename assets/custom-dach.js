@@ -189,7 +189,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                                 deliveryBarLeftTextEl.style.display = 'none';
                                 deliveryPriceValue = 0;
                                 deliveryCostEl.textContent = deliveryCostEl.getAttribute('data-freeshipping-text');
-                                deliveryBarFinalTextEl.textContent = 'Noch ' + '€' + (parseInt(window.cartDrawerMinPriceForGift) - subtotalPriceWithoutNoShippingItems).toFixed(2).replace('.', ',') + ' bis zum Geschenk (Wert €' + window.cartDrawerGiftPrice.toFixed(2).replace('.', ',') + ')';
+                                deliveryBarFinalTextEl.textContent = 'Noch ' + '€' + (parseInt(window.cartDrawerMinPriceForGift) - subtotalPriceWithoutNoShippingItems).toFixed(2).replace('.', ',') + ' bis zum Geschenk';
 
                                 if (subtotalPriceWithoutNoShippingItems >= parseInt(window.cartDrawerMinPriceForGift)) {
                                     deliveryBarFinalTextEl.innerHTML = 'Kostenloser Versand & Geschenk!';
@@ -292,7 +292,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                                 deliveryBarLeftTextEl.style.display = 'none';
                                 deliveryPriceValue = 0;
                                 deliveryCostEl.textContent = deliveryCostEl.getAttribute('data-freeshipping-text');
-                                deliveryBarFinalTextEl.textContent = 'Noch ' + '€' + (parseInt(window.cartDrawerMinPriceForGift) - subtotalPriceWithoutNoShippingItems).toFixed(2).replace('.', ',') + ' bis zum Geschenk (Wert €' + window.cartDrawerGiftPrice.toFixed(2).replace('.', ',') + ')';
+                                deliveryBarFinalTextEl.textContent = 'Noch ' + '€' + (parseInt(window.cartDrawerMinPriceForGift) - subtotalPriceWithoutNoShippingItems).toFixed(2).replace('.', ',') + ' bis zum Geschenk';
 
                                 if (subtotalPriceWithoutNoShippingItems >= parseInt(window.cartDrawerMinPriceForGift)) {
                                     deliveryBarFinalTextEl.innerHTML = 'Kostenloser Versand & Geschenk!';
@@ -391,7 +391,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                                     deliveryBarFinalTextEl.style.display = 'block';
                                     deliveryBarLeftTextEl.style.display = 'none';
                                     deliveryCostEl.textContent = '€' + window.shippingrates.ch.priceValue.replace('.', ',');
-                                    deliveryBarFinalTextEl.textContent = 'Noch ' + '€' + (parseInt(window.cartDrawerMinPriceForGift) - subtotalPriceWithoutNoShippingItems).toFixed(2).replace('.', ',') + ' bis zum Geschenk (Wert €' + window.cartDrawerGiftPrice.toFixed(2).replace('.', ',') + ')';
+                                    deliveryBarFinalTextEl.textContent = 'Noch ' + '€' + (parseInt(window.cartDrawerMinPriceForGift) - subtotalPriceWithoutNoShippingItems).toFixed(2).replace('.', ',') + ' bis zum Geschenk';
                                 } else {
                                     deliveryCostEl.textContent = '€' + window.shippingrates.ch.priceValue.replace('.', ',');
                                     deliveryPriceValue = parseFloat(window.shippingrates.ch.priceValue);
@@ -425,7 +425,7 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                                     deliveryBarLeftTextEl.style.display = 'none';
                                     deliveryPriceValue = 0;
                                     deliveryCostEl.textContent = deliveryCostEl.getAttribute('data-freeshipping-text');
-                                    deliveryBarFinalTextEl.textContent = 'Noch ' + '€' + (parseInt(window.cartDrawerMinPriceForGift) - subtotalPriceWithoutNoShippingItems).toFixed(2).replace('.', ',') + ' bis zum Geschenk (Wert €' + window.cartDrawerGiftPrice.toFixed(2).replace('.', ',') + ')';
+                                    deliveryBarFinalTextEl.textContent = 'Noch ' + '€' + (parseInt(window.cartDrawerMinPriceForGift) - subtotalPriceWithoutNoShippingItems).toFixed(2).replace('.', ',') + ' bis zum Geschenk';
 
                                     if (subtotalPriceWithoutNoShippingItems >= parseInt(window.cartDrawerMinPriceForGift)) {
                                         deliveryBarFinalTextEl.innerHTML = 'Kostenloser Versand & Geschenk!';
