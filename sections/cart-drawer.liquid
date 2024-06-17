@@ -8,7 +8,9 @@
 {%- endcapture -%}
 
 <script>
-    window.cartDrawerEnableGift = {{ section.settings.enable_gift }};
+    // TODO: REVERT AFTER ABTEST
+    // window.cartDrawerEnableGift = {{ section.settings.enable_gift }};
+    window.cartDrawerEnableGift = false;
     window.cartDrawerMinPriceForGift = {{ section.settings.gift_min_price }};
     window.cartDrawerGiftProductId = {{ section.settings.gift_product.id }};
     window.cartDrawerGiftVariantId = {{ section.settings.gift_product.selected_or_first_available_variant.id }};
@@ -269,7 +271,7 @@
           {%- endif -%}
         {%- endif -%}
 
-        <button type="submit" name="checkout" class="Cart__Checkout Button Button--primary Button--full">
+        <button type="submit" name="checkout" class="Cart__Checkout Button Button--primary Button--full" disabled>
           <span>{{- 'cart.general.checkout' | t -}}</span>
         </button>
 
@@ -320,14 +322,14 @@
     {
       "type": "checkbox",
       "id": "enable_gift",
-      "label": "Enable gift item (don't forget to toggle discounting ruby script)",
+      "label": "Enable gift item",
       "default": false
     },
     {
       "type": "number",
       "id": "gift_min_price",
       "label": "Min pricevalue to get a gift in €",
-      "default": 75
+      "default": 85
     },
     {
       "type": "product",

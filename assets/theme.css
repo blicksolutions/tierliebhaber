@@ -6471,6 +6471,10 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
     justify-content: center;
 }
 
+.Cart__Checkout[disabled] {
+    filter: grayscale(1);
+}
+
 .Cart__OffscreenNoteContainer {
     position: absolute;
     width: 100%;
@@ -11939,7 +11943,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 
 #sidebar-cart:not([data-dcart-code]) .Drawer__Footer__SubtotalPrice > span,
 #sidebar-cart:not([data-dcart-code]) .Drawer__Footer__SubtotalPrice:after {
-    display: none;
+    /*display: none;*/
 }
 
 #sidebar-cart:not([data-dcart-code]) .Drawer__Footer__Subtotal > .Drawer__Footer__SubtotalPrice:before,
@@ -11951,6 +11955,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
     content: attr(data-price);
     font-size: 16px;
     order: 2;
+    display: none;
 }
 
 #sidebar-cart[data-dcart-code][data-free-gift] .Drawer__Footer__Subtotal > .Drawer__Footer__SubtotalPrice:before {
@@ -11959,6 +11964,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
     color: #737373;
     opacity: .5;
     text-decoration: line-through;
+    display: none;
 }
 
 #sidebar-cart[data-dcart-code][data-free-gift] .Drawer__Footer__Subtotal > .Drawer__Footer__SubtotalPrice > s {
