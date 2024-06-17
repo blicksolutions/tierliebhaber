@@ -145,9 +145,11 @@
 
                 {%- assign products_count = products_count | plus: 1 -%}
 
-                <div class="ShopTheLook__ProductItem {% unless section.settings.show_mobile_product_info %}ShopTheLook__ProductItem--withHiddenInfo{% endunless %} Carousel__Cell {% if forloop.first %}is-selected{% endif %}" data-product-url="{{ product.url | escape }}">
-                  {% render 'product-item', product: product, show_product_info: true, show_vendor: false, show_price_on_hover: false, show_color_swatch: false, show_labels: false %}
-                </div>
+                  {% unless product.tags contains 'free-gift' %}
+                    <div class="ShopTheLook__ProductItem {% unless section.settings.show_mobile_product_info %}ShopTheLook__ProductItem--withHiddenInfo{% endunless %} Carousel__Cell {% if forloop.first %}is-selected{% endif %}" data-product-url="{{ product.url | escape }}">
+                      {% render 'product-item', product: product, show_product_info: true, show_vendor: false, show_price_on_hover: false, show_color_swatch: false, show_labels: false %}
+                    </div>
+                  {% endunless %}
               {%- endfor -%}
             {%- endif -%}
           {%- endcapture -%}

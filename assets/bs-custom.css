@@ -36,6 +36,10 @@
     display: none;
 }
 
+.cartGiftItem .CartItem__Actions {
+    display: none;
+}
+
 .PageHeader .SectionHeader #rc_link_container {
     font-weight: bold;
 }
@@ -182,4 +186,10 @@
     .ProductForm__StickyATC.active {
         display: none;
     }
+}
+
+.gift__text {
+    color: #82b6aa;
+    font-weight: 600;
+    font-size: 16px;
 }

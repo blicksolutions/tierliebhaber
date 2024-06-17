@@ -68,17 +68,22 @@
           {%- if section.settings.layout_mode == 'grid' -%}
             <div class="ProductList ProductList--grid ProductList--removeMargin Grid" data-mobile-count="{{ section.settings.grid_mobile_items_per_row }}" data-desktop-count="{{ section.settings.grid_desktop_items_per_row }}">
               {%- for product in collection.products limit: block.settings.grid_items_count -%}
-                <div class="Grid__Cell 1/{{ section.settings.grid_mobile_items_per_row }}--phone 1/2--tablet 1/{{ section.settings.grid_desktop_items_per_row }}--lap-and-up">
-                  {%- render 'product-item', product: product, show_product_info: section.settings.show_product_info, show_vendor: section.settings.show_vendor, show_color_swatch: section.settings.show_color_swatch, show_labels: true -%}
-                </div>
+                  {% unless product.tags contains 'free-gift' %}
+                    <div class="Grid__Cell 1/{{ section.settings.grid_mobile_items_per_row }}--phone 1/2--tablet 1/{{ section.settings.grid_desktop_items_per_row }}--lap-and-up">
+                      {%- render 'product-item', product: product, show_product_info: section.settings.show_product_info, show_vendor: section.settings.show_vendor, show_color_swatch: section.settings.show_color_swatch, show_labels: true -%}
+                    </div>
+                  {% endunless %}
+
               {%- endfor -%}
             </div>
           {%- else -%}
             <div class="ProductList ProductList--carousel Carousel" data-flickity-config='{{ flickity_options }}'>
               {%- for product in collection.products limit: block.settings.grid_items_count -%}
-                <div class="Carousel__Cell">
-                  {%- render 'product-item', product: product, show_product_info: section.settings.show_product_info, show_vendor: section.settings.show_vendor, show_color_swatch: section.settings.show_color_swatch, show_labels: true -%}
-                </div>
+                  {% unless product.tags contains 'free-gift' %}
+                    <div class="Carousel__Cell">
+                      {%- render 'product-item', product: product, show_product_info: section.settings.show_product_info, show_vendor: section.settings.show_vendor, show_color_swatch: section.settings.show_color_swatch, show_labels: true -%}
+                    </div>
+                  {% endunless %}
               {%- endfor -%}
             </div>
           {%- endif -%}
