@@ -4,7 +4,3 @@ window.activateAbTlh008 = () => {
 
 	pageContainer.setAttribute('data-js-tlh-008', 'true');
 };
-
-document.addEventListener('DOMContentLoaded', () => {
-	window.activateAbTlh008();
-});
