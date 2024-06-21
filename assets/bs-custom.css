@@ -218,6 +218,7 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
     .StickyATC__ATC {
         padding: 20px 16px;
         margin: 0 auto 8px;
+        max-width: 499px;
     }
 
     .StickyATC__ATC span {
