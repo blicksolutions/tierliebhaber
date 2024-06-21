@@ -129,6 +129,11 @@
     z-index: 2;
 }
 
+[tlh012-variant=b] .rc-selling-plans.rc-selling-plans--spacedTop::after {
+    top: 30px;
+}
+
+
 [tlh012-variant="b"] .rc-template__radio-group .rc-radio-group__options + .rc-selling-plans {
     margin-top: 0;
 }

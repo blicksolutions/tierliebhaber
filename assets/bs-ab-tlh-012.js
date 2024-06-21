@@ -74,17 +74,28 @@ window.activateAbTlh012 = () => {
 		const variantSelectorElementClone = variantSelectorElement.cloneNode(true);
 		const variantSelectorCloneInputElements = variantSelectorElementClone.querySelectorAll('[data-js-tlh-012-variant-selector-item]');
 
-		variantSelectorCloneInputElements.forEach((element) => {
-			element.addEventListener('click', handleVariantChange);
-		});
+        if (variantSelectorCloneInputElements.length > 1) {
+            variantSelectorCloneInputElements.forEach((element) => {
+                element.addEventListener('click', handleVariantChange);
+            });
+        }
 
 		if (plansContainer.getAttribute('data-js-variant-b') == 'true') return;
 
 		// prevent markup from being inserted twice
 		plansContainer.setAttribute('data-js-variant-b', 'true');
 		plansContainer.insertAdjacentHTML('beforeend', uspsMarkup());
-		variantSelectorElementClone.setAttribute('data-js-injected', true);
-		radioButtonsContainer.after(variantSelectorElementClone);
+        variantSelectorElementClone.setAttribute('data-js-injected', true);
+
+        // only insert variant buttons if there are more than 1 variants
+        if (variantSelectorCloneInputElements.length > 1) {
+            radioButtonsContainer.after(variantSelectorElementClone);
+        } else {
+            const sellingPlans = document.querySelector('.rc-selling-plans');
+            sellingPlans.style.paddingTop = '15px';
+            sellingPlans.classList.add('rc-selling-plans--spacedTop')
+
+        }
 
 		const variantWithSavings = document.querySelector('[data-js-savings]');
 
@@ -124,14 +135,16 @@ window.activateAbTlh012 = () => {
 
 		subscriptionElement.addEventListener('click', () => {
 			const savingsList = document.querySelector('[data-js-variant-savings-container]');
-			savingsList.classList.remove('active');
+            if (savingsList) {
+                savingsList.classList.remove('active');
+            }
 		});
 
 		const oneTimeElement = document.querySelector('[data-option-onetime]');
 
 		oneTimeElement.addEventListener('click', () => {
 			const variantWithSavings = document.querySelector('[data-js-savings]');
-			if (variantWithSavings.classList.contains('VariantSelector__ListItem--selected')) {
+			if (variantWithSavings && variantWithSavings.classList.contains('VariantSelector__ListItem--selected')) {
 				const savingsList = document.querySelector('[data-js-variant-savings-container]');
 				savingsList.classList.add('active');
 			}
@@ -144,7 +157,6 @@ window.activateAbTlh012 = () => {
 
 		if (subscriptionElement.classList.contains('rc_widget__option--active')) {
 			const freeShippingCheck = document.querySelector('.VariantSelector__ListItem--selected[data-js-tlh-012-variant-selector-item]').getAttribute('data-js-free-shipping');
-
 			const freeShippingUsp = document.querySelector('[data-js-usp-free-shipping]');
 
 			if (freeShippingCheck == 'true' && subscriptionElement.classList.contains('rc-option--active')) {
@@ -200,12 +212,6 @@ window.activateAbTlh012 = () => {
 	});
 
 	const rechargeInjectionElement = document.querySelector('.rc-widget-injection-parent');
-
-	const originalVariantSelectorWrapper = document.querySelector('.Product__Info .ProductForm__Variants');
-	if (!originalVariantSelectorWrapper) return;
-
-	const originalVariantSelector = originalVariantSelectorWrapper.querySelector('.ProductForm__Option .SizeSwatchList');
-	// if (!originalVariantSelector) return;
 
 	if (rechargeInjectionElement != undefined) {
 		mutationObserver.observe(rechargeInjectionElement, {
