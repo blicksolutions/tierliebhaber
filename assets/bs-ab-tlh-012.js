@@ -91,10 +91,7 @@ window.activateAbTlh012 = () => {
         if (variantSelectorCloneInputElements.length > 1) {
             radioButtonsContainer.after(variantSelectorElementClone);
         } else {
-            const sellingPlans = document.querySelector('.rc-selling-plans');
-            sellingPlans.style.paddingTop = '15px';
-            sellingPlans.classList.add('rc-selling-plans--spacedTop')
-
+            document.querySelector('.rc-selling-plans__dropdown').style.marginTop = '15px';
         }
 
 		const variantWithSavings = document.querySelector('[data-js-savings]');
@@ -187,7 +184,11 @@ window.activateAbTlh012 = () => {
 			}
 
 			if (entry.target.classList.contains('rc-template__radio-group')) {
-				insertNewMarkup();
+
+
+                insertNewMarkup();
+
+
 				const planOptions = entry.target.querySelectorAll('.Product__Info [data-plan-option]');
 
 				planOptions.forEach((option) => {
@@ -221,7 +222,12 @@ window.activateAbTlh012 = () => {
 		});
 	}
 
+	const originalVariantSelectorWrapper = document.querySelector('.Product__Info .ProductForm__Variants');
+	if (!originalVariantSelectorWrapper) return;
+
 	originalVariantSelectorWrapper.style.display = 'none';
+
+	const originalVariantSelector = originalVariantSelectorWrapper.querySelector('.ProductForm__Option .SizeSwatchList');
 
 	// Handle variant change
 	if (originalVariantSelector != undefined) {
