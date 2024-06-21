@@ -87,12 +87,14 @@
 		if (atcButtonPosition.top < 0) {
 			stickyAtcContainer.classList.add('active');
 
-			// Hiding other app overlays
-			const superchatWidget = document.querySelector('#superchat-widget');
-			const smileUiContainer = document.querySelector('#smile-ui-lite-container');
+			if (window.innerWidth < 768) {
+				// Hiding other app overlays
+				const superchatWidget = document.querySelector('#superchat-widget');
+				const smileUiContainer = document.querySelector('#smile-ui-lite-container');
 
-			superchatWidget.style.display = 'none';
-			smileUiContainer.style.display = 'none';
+				superchatWidget.style.display = 'none';
+				smileUiContainer.style.display = 'none';
+			}
 		}
 
 		if (atcButtonPosition.top > 0) {
