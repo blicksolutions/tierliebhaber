@@ -239,7 +239,9 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 }
 
 .ProductMeta__StickyATC.active {
-    display: block;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     pointer-events: auto;
 }
 
