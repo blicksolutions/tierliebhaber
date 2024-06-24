@@ -169,6 +169,17 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
     letter-spacing: normal;
     pointer-events: none;
     padding: 10px;
+    transition: bottom 150ms ease-out;
+}
+
+.ProductMeta__StickyATC.ProductMeta__StickyATC--HigherPosition {
+    bottom: 205px;
+}
+
+@media (min-width: 768px) {
+    .ProductMeta__StickyATC.ProductMeta__StickyATC--HigherPosition {
+        bottom: 95px;
+    }
 }
 
 .ProductMeta__StickyATCOverlay {
