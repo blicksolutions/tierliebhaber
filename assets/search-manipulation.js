@@ -13,8 +13,14 @@
         'newsletter'
     ];
 
-    let wait = false;
+    // check if newsSearch redirect has been happened
+    if (sessionStorage.getItem('newsSearch') == 'true' && newsletterEl) {
+        sessionStorage.setItem('newsSearch', 'false');
+        newsletterEl.scrollIntoView({block: 'center'});
+    }
 
+    /** news search manipulation **/
+    let wait = false;
     searchInput.addEventListener('input', () => {
         if (validNewsSearchStrings.includes(searchInput.value.toLowerCase())) {
             if (!wait) {
@@ -28,14 +34,19 @@
                     toggleSearchButton.click()
 
                     // scroll to newsletter signup
-                    newsletterEl.scrollIntoView({block: 'center'});
+                    if (newsletterEl) {
+                        newsletterEl.scrollIntoView({block: 'center'});
+                    } else {
+                        sessionStorage.setItem('newsSearch', 'true');
+                        window.location = '/';
+                    }
                 }, 1000);
             }
         }
     });
 
-    // open search
-    setTimeout(() => {
-        toggleSearchButton.click()
-    }, 2000);
+    // testing: open search
+    // setTimeout(() => {
+        // toggleSearchButton.click()
+    // }, 2000);
 })();
