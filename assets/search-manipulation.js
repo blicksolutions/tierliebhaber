@@ -27,7 +27,6 @@
                 wait = true;
 
                 setTimeout(() => {
-                    console.log("BIN EIN NEWS SEARCH")
                     wait = false;
 
                     // close search
