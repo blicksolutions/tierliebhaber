@@ -279,6 +279,12 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
     ;
 }
 
+@media (min-width: 768px) {
+    .ProductMeta__StickyATC.ProductMeta__StickyATC--HigherPosition .StickyATC__VariantSelector.open {
+        bottom: -1px;
+    }
+}
+
 .VariantSelector__Heading {
     color: #1C1B1B;
     font-size: 22px;
