@@ -8,7 +8,9 @@
 {%- endcapture -%}
 
 <script>
-    window.cartDrawerEnableGift = {{ section.settings.enable_gift }};
+    // TODO: REVERT AFTER ABTEST
+    // window.cartDrawerEnableGift = {{ section.settings.enable_gift }};
+    window.cartDrawerEnableGift = false;
     window.cartDrawerMinPriceForGift = {{ section.settings.gift_min_price }};
     window.cartDrawerGiftProductId = {{ section.settings.gift_product.id }};
     window.cartDrawerGiftVariantId = {{ section.settings.gift_product.selected_or_first_available_variant.id }};
@@ -89,7 +91,7 @@
         </div>
         <!-- /Steps message -->
 
-        <div class="Drawer__Container">
+        <div class="Drawer__Container cartDrawer__cheering--a">
           <div class="Cheering">
             <p class="Cheering__Title">
               {{ 'cart.cheering.title' | t }}
@@ -99,6 +101,17 @@
             </p>
           </div>
         </div>
+
+          <div class="Drawer__Container cartDrawer__cheering cartDrawer__cheering--b">
+              <div class="cartDrawer__cheering__top">
+                  <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="8.90283" cy="8" r="8" fill="#ABCDBE"/>
+                      <path d="M7.56638 10.8953L4.85547 8.18444L5.24492 7.79553L7.56638 10.117L12.5606 5.1228L12.9495 5.51171L7.56638 10.8953Z" fill="black"/>
+                  </svg>
+                  <span class="cartDrawer__cheering__title">30 Tage Geld-zurück-Garantie</span>
+              </div>
+              <span class="cartDrawer__cheering__subtitle">Komplett ohne Risiko bestellen</span>
+          </div>
 
         <div class="Drawer__Container">
           <input type="hidden" name="attributes[collection_mobile_items_per_row]" value="">
@@ -258,7 +271,7 @@
           {%- endif -%}
         {%- endif -%}
 
-        <button type="submit" name="checkout" class="Cart__Checkout Button Button--primary Button--full">
+        <button type="submit" name="checkout" class="Cart__Checkout Button Button--primary Button--full" disabled>
           <span>{{- 'cart.general.checkout' | t -}}</span>
         </button>
 
@@ -309,14 +322,14 @@
     {
       "type": "checkbox",
       "id": "enable_gift",
-      "label": "Enable gift item (don't forget to toggle discounting ruby script)",
+      "label": "Enable gift item",
       "default": false
     },
     {
       "type": "number",
       "id": "gift_min_price",
       "label": "Min pricevalue to get a gift in €",
-      "default": 75
+      "default": 85
     },
     {
       "type": "product",

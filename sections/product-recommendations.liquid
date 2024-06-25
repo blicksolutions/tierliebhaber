@@ -49,16 +49,21 @@
                 {%- assign related_product = all_products[item] -%}
 
                 {%- unless related_product.empty? -%}
-                  <div class="Carousel__Cell">
-                    {% render 'product-item', product: related_product, show_product_info: section.settings.show_product_info, show_vendor: section.settings.show_vendor, show_color_swatch: section.settings.show_color_swatch, show_labels: true %}
-                  </div>
+                    {% unless product.tags contains 'free-gift' %}
+                      <div class="Carousel__Cell">
+                        {% render 'product-item', product: related_product, show_product_info: section.settings.show_product_info, show_vendor: section.settings.show_vendor, show_color_swatch: section.settings.show_color_swatch, show_labels: true %}
+                      </div>
+                    {% endunless %}
                 {%- endunless -%}
               {%- endfor -%}
             {%- else -%}
               {%- for product in recommendations.products -%}
-                <div class="Carousel__Cell">
-                  {% render 'product-item', product: product, show_product_info: section.settings.show_product_info, show_vendor: section.settings.show_vendor, show_color_swatch: section.settings.show_color_swatch, show_labels: true %}
-                </div>
+                  {% unless product.tags contains 'free-gift' %}
+                      <div class="Carousel__Cell">
+                          {% render 'product-item', product: product, show_product_info: section.settings.show_product_info, show_vendor: section.settings.show_vendor, show_color_swatch: section.settings.show_color_swatch, show_labels: true %}
+                      </div>
+                  {% endunless %}
+
               {%- else -%}
                 {%- comment -%}Hide the section if there is no recommendations to show{%- endcomment -%}
                 <style>

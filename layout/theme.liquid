@@ -7,6 +7,8 @@
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-013.css' | asset_url }}">
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-018.css' | asset_url }}">
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-012.css' | asset_url }}">
+      <link rel="stylesheet" href="{{ 'bs-ab-tlh-024.css' | asset_url }}">
+      <link rel="stylesheet" href="{{ 'bs-ab-tlh-008.css' | asset_url }}">
 
       <script src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
@@ -16,7 +18,11 @@
       <script src="{{ 'bs-ab-tlh-012.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-013.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-018.js' | asset_url }}"></script>
+      <script src="{{ 'bs-ab-tlh-023.js' | asset_url }}"></script>
+      <script src="{{ 'bs-ab-tlh-024.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-025.js' | asset_url }}"></script>
+      <script src="{{ 'bs-ab-tlh-027.js' | asset_url }}"></script>
+      <script src="{{ 'bs-ab-tlh-008.js' | asset_url }}"></script>
       <!-- END BS: AB Scripts -->
 
       <!-- ABlyft Snippet -->
@@ -237,6 +243,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <script src="{{ 'theme.js' | asset_url }}" defer></script>
     {% comment %}<script src="{{ 'custom.js' | asset_url }}" defer></script>{% endcomment %}
     <script src="{{ 'custom-dach.js' | asset_url }}" defer></script>
+    <script src="{{ 'search-manipulation.js' | asset_url }}" defer></script>
 
     <!-- Global site tag (gtag.js) - Google Ads: 843531169 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-843531169"></script>
@@ -313,8 +320,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {% include 'dataLayer-allPages' %}
 
 
-<script src="https://track.tierliebhaber.de/uniclick.js?attribution=lastpaid&cookiedomain=tierliebhaber.de&cookieduration=90&defaultcampaignid=66339f12a238600001a0b9ef&regviewonce=false" async></script>
-<script src="https://track.tierliebhaber.de/events.js" async></script>
+    <!-- Taboola Pixel Code -->
+<script type='text/javascript'>
+  window._tfa = window._tfa || [];
+  window._tfa.push({notify: 'event', name: 'page_view', id: 1338323});
+  !function (t, f, a, x) {
+         if (!document.getElementById(x)) {
+            t.async = 1;t.src = a;t.id=x;f.parentNode.insertBefore(t, f);
+         }
+  }(document.createElement('script'),
+  document.getElementsByTagName('script')[0],
+  '//cdn.taboola.com/libtrc/unip/1338323/tfa.js',
+  'tb_tfa_script');
+</script>
+<!-- End of Taboola Pixel Code -->
 
   </head>
 
