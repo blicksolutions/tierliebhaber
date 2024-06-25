@@ -74,17 +74,25 @@ window.activateAbTlh012 = () => {
 		const variantSelectorElementClone = variantSelectorElement.cloneNode(true);
 		const variantSelectorCloneInputElements = variantSelectorElementClone.querySelectorAll('[data-js-tlh-012-variant-selector-item]');
 
-		variantSelectorCloneInputElements.forEach((element) => {
-			element.addEventListener('click', handleVariantChange);
-		});
+        if (variantSelectorCloneInputElements.length > 1) {
+            variantSelectorCloneInputElements.forEach((element) => {
+                element.addEventListener('click', handleVariantChange);
+            });
+        }
 
 		if (plansContainer.getAttribute('data-js-variant-b') == 'true') return;
 
 		// prevent markup from being inserted twice
 		plansContainer.setAttribute('data-js-variant-b', 'true');
 		plansContainer.insertAdjacentHTML('beforeend', uspsMarkup());
-		variantSelectorElementClone.setAttribute('data-js-injected', true);
-		radioButtonsContainer.after(variantSelectorElementClone);
+        variantSelectorElementClone.setAttribute('data-js-injected', true);
+
+        // only insert variant buttons if there is more than 1 variant
+        if (variantSelectorCloneInputElements.length > 1) {
+            radioButtonsContainer.after(variantSelectorElementClone);
+        } else {
+            document.querySelector('.rc-selling-plans__dropdown').style.marginTop = '15px';
+        }
 
 		const variantWithSavings = document.querySelector('[data-js-savings]');
 
@@ -124,14 +132,16 @@ window.activateAbTlh012 = () => {
 
 		subscriptionElement.addEventListener('click', () => {
 			const savingsList = document.querySelector('[data-js-variant-savings-container]');
-			savingsList.classList.remove('active');
+            if (savingsList) {
+                savingsList.classList.remove('active');
+            }
 		});
 
 		const oneTimeElement = document.querySelector('[data-option-onetime]');
 
 		oneTimeElement.addEventListener('click', () => {
 			const variantWithSavings = document.querySelector('[data-js-savings]');
-			if (variantWithSavings.classList.contains('VariantSelector__ListItem--selected')) {
+			if (variantWithSavings && variantWithSavings.classList.contains('VariantSelector__ListItem--selected')) {
 				const savingsList = document.querySelector('[data-js-variant-savings-container]');
 				savingsList.classList.add('active');
 			}
@@ -144,8 +154,6 @@ window.activateAbTlh012 = () => {
 
 		if (subscriptionElement.classList.contains('rc_widget__option--active')) {
 			const freeShippingCheck = document.querySelector('.VariantSelector__ListItem--selected[data-js-tlh-012-variant-selector-item]').getAttribute('data-js-free-shipping');
-			console.log('freeShippingCheck', freeShippingCheck);
-
 			const freeShippingUsp = document.querySelector('[data-js-usp-free-shipping]');
 
 			if (freeShippingCheck == 'true' && subscriptionElement.classList.contains('rc-option--active')) {
@@ -176,7 +184,8 @@ window.activateAbTlh012 = () => {
 			}
 
 			if (entry.target.classList.contains('rc-template__radio-group')) {
-				insertNewMarkup();
+                insertNewMarkup();
+
 				const planOptions = entry.target.querySelectorAll('.Product__Info [data-plan-option]');
 
 				planOptions.forEach((option) => {
@@ -249,3 +258,5 @@ window.activateAbTlh012 = () => {
 		});
 	}
 };
+
+document.addEventListener('DOMContentLoaded', window.activateAbTlh012);
