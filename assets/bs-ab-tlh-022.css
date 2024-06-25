@@ -28,6 +28,15 @@
     border-right: none;
 }
 
+[tlh022-variant="b"] .rc-template__radio-group .rc-radio-group__options.tlh22--round-corners {
+    border-radius: 20px;
+}
+
+[tlh022-variant="b"] .rc-template__radio-group .rc-radio-group__options.tlh22--round-corners.sub-plan--active {
+    border-radius: 20px 20px 0 0;
+    margin-bottom: 15px;
+}
+
 [tlh022-variant="b"] .rc-radio-group__options .rc-option--active .rc_widget__option__label.rc-radio__label {
     font-weight: 600;
     color: #1C1B1B
