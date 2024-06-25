@@ -90,8 +90,38 @@ window.activateAbTlh022 = () => {
 
 			if (variantWithSavings != undefined) {
 				const savings = variantWithSavings.getAttribute('data-js-savings');
-				const freeShippingCheck = variantWithSavings.getAttribute('data-js-free-shipping');
 				let freeShipping = '';
+
+				let freeShippingCheck;
+
+				const price = document.querySelector('.ProductMeta__Price.Price').innerText;
+				if (!price) return;
+
+				const priceFloat = Number.parseFloat(price.replace('€', '').replace(',', '.'));
+
+				switch (window.Shopify.locale) {
+					case 'de':
+						if (priceFloat > 49.0) {
+							freeShippingCheck = 'true';
+						}
+						break;
+
+					case 'at':
+						if (priceFloat > 69.0) {
+							freeShippingCheck = 'true';
+						}
+						break;
+
+					case 'ch':
+						if (priceFloat > 129.0) {
+							freeShippingCheck = 'true';
+						}
+						break;
+
+					default:
+						freeShippingCheck = 'false';
+						break;
+				}
 
 				if (freeShippingCheck == 'true') {
 					freeShipping = `
@@ -156,11 +186,33 @@ window.activateAbTlh022 = () => {
 		if (subscriptionElement.classList.contains('rc_widget__option--active')) {
 			let freeShippingCheck;
 
-			const variantElement = document.querySelector('.VariantSelector__ListItem--selected[data-js-tlh-022-variant-selector-item]');
-			if (!variantElement) {
-				freeShippingCheck = 'true';
-			} else {
-				freeShippingCheck = variantElement.getAttribute('data-js-free-shipping');
+			const price = document.querySelector('.ProductMeta__Price.Price').innerText;
+			if (!price) return;
+
+			const priceFloat = Number.parseFloat(price.replace('€', '').replace(',', '.'));
+
+			switch (window.Shopify.locale) {
+				case 'de':
+					if (priceFloat > 49.0) {
+						freeShippingCheck = 'true';
+					}
+					break;
+
+				case 'at':
+					if (priceFloat > 69.0) {
+						freeShippingCheck = 'true';
+					}
+					break;
+
+				case 'ch':
+					if (priceFloat > 129.0) {
+						freeShippingCheck = 'true';
+					}
+					break;
+
+				default:
+					freeShippingCheck = 'false';
+					break;
 			}
 
 			const freeShippingUsp = document.querySelector('[data-js-usp-free-shipping]');
@@ -194,7 +246,8 @@ window.activateAbTlh022 = () => {
 			}
 
 			if (entry.target.classList.contains('rc-template__radio-group')) {
-				insertNewMarkup();
+				setTimeout(insertNewMarkup, 50);
+
 				const planOptions = entry.target.querySelectorAll('.Product__Info [data-plan-option]');
 
 				planOptions.forEach((option) => {
@@ -208,10 +261,10 @@ window.activateAbTlh022 = () => {
 				const radioOptionsContainer = document.querySelector('.Product__Info [data-radio-group-options]');
 
 				if (entry.target.getAttribute('style') == 'display: none;') {
-					manageSubscriptionFreeShipping();
+					setTimeout(manageSubscriptionFreeShipping, 50);
 					radioOptionsContainer.classList.remove('sub-plan--active');
 				} else {
-					manageSubscriptionFreeShipping();
+					setTimeout(manageSubscriptionFreeShipping, 50);
 					radioOptionsContainer.classList.add('sub-plan--active');
 				}
 			}
@@ -252,7 +305,7 @@ window.activateAbTlh022 = () => {
 						const savings = input.getAttribute('data-js-savings');
 						const savingsListElement = document.querySelector('[data-js-variant-savings-container]');
 						const subscriptionElement = document.querySelector('[data-option-subsave]');
-						manageSubscriptionFreeShipping();
+						setTimeout(manageSubscriptionFreeShipping, 50);
 
 						if (savings != undefined && !subscriptionElement.classList.contains('rc-option--active')) {
 							savingsListElement.classList.add('active');
