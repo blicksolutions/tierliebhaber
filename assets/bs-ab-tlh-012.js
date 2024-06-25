@@ -87,7 +87,7 @@ window.activateAbTlh012 = () => {
 		plansContainer.insertAdjacentHTML('beforeend', uspsMarkup());
         variantSelectorElementClone.setAttribute('data-js-injected', true);
 
-        // only insert variant buttons if there are more than 1 variants
+        // only insert variant buttons if there is more than 1 variant
         if (variantSelectorCloneInputElements.length > 1) {
             radioButtonsContainer.after(variantSelectorElementClone);
         } else {
