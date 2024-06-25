@@ -184,10 +184,7 @@ window.activateAbTlh012 = () => {
 			}
 
 			if (entry.target.classList.contains('rc-template__radio-group')) {
-
-
                 insertNewMarkup();
-
 
 				const planOptions = entry.target.querySelectorAll('.Product__Info [data-plan-option]');
 
