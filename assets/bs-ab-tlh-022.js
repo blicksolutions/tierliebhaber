@@ -1,4 +1,68 @@
 window.activateAbTlh022 = () => {
+	// only execute script in predifened PDPs
+	const productHandle = window.location.pathname.split('/').slice(-1).toString();
+	let bestseller;
+
+	switch (productHandle) {
+		case 'dentalspray':
+			bestseller = true;
+			break;
+
+		case 'z-snack':
+			bestseller = true;
+			break;
+
+		case 'z-bundle-zb':
+			bestseller = true;
+			break;
+
+		case 'gras-kotfresser-drops-2':
+			bestseller = true;
+			break;
+
+		case 'darmwohl-sticks':
+			bestseller = true;
+			break;
+
+		case 'darmpflege-drops':
+			bestseller = true;
+			break;
+
+		case 'gelenk-drops':
+			bestseller = true;
+			break;
+
+		case 'chillout-sticks':
+			bestseller = true;
+			break;
+
+		case 'dentalspray-tl0010-fb-d4':
+			bestseller = true;
+			break;
+
+		case 'gras-kotfresser-drops-3':
+			bestseller = true;
+			break;
+
+		case 'z-bundle-r20':
+			bestseller = true;
+			break;
+
+		case 'darmwohl-sticks-5':
+			bestseller = true;
+			break;
+
+		case 'tl0036-fb-z2':
+			bestseller = true;
+			break;
+
+		default:
+			bestseller = false;
+			break;
+	}
+
+	if (bestseller == false) return;
+
 	const uspsMarkup = () => {
 		return `
             <ul class="rc-plans__usps" data-js-tlh022-usps>
