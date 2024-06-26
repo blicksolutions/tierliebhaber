@@ -3,16 +3,18 @@
 <html class="no-js" lang="{{ shop.locale }}">
   <head>
       <!-- BS: AB Scripts -->
+      <link rel="stylesheet" href="{{ 'bs-ab-tlh-008.css' | asset_url }}">
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}">
+      <link rel="stylesheet" href="{{ 'bs-ab-tlh-012.css' | asset_url }}">
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-013.css' | asset_url }}">
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-018.css' | asset_url }}">
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-012.css' | asset_url }}">
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-022.css' | asset_url }}">
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-024.css' | asset_url }}">
-      <link rel="stylesheet" href="{{ 'bs-ab-tlh-008.css' | asset_url }}">
 
       <script src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
+      <script src="{{ 'bs-ab-tlh-008.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-009.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-010.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-011.js' | asset_url }}"></script>
@@ -24,7 +26,6 @@
       <script src="{{ 'bs-ab-tlh-024.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-025.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-027.js' | asset_url }}"></script>
-      <script src="{{ 'bs-ab-tlh-008.js' | asset_url }}"></script>
       <!-- END BS: AB Scripts -->
 
       <!-- ABlyft Snippet -->
@@ -337,7 +338,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 <!-- End of Taboola Pixel Code -->
 
-  </head>
+    {% render 'rapid-search-settings' %}
+</head>
 
   {%- capture classes -%}features--heading-{{ settings.heading_size }}{%- endcapture -%}
 
