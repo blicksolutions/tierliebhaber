@@ -154,38 +154,8 @@ window.activateAbTlh022 = () => {
 
 			if (variantWithSavings != undefined) {
 				const savings = variantWithSavings.getAttribute('data-js-savings');
+				const freeShippingCheck = variantWithSavings.getAttribute('data-js-free-shipping');
 				let freeShipping = '';
-
-				let freeShippingCheck;
-
-				const price = document.querySelector('.ProductMeta__Price.Price').innerText;
-				if (!price) return;
-
-				const priceFloat = Number.parseFloat(price.replace('€', '').replace(',', '.'));
-
-				switch (window.Shopify.locale) {
-					case 'de':
-						if (priceFloat > 49.0) {
-							freeShippingCheck = 'true';
-						}
-						break;
-
-					case 'at':
-						if (priceFloat > 69.0) {
-							freeShippingCheck = 'true';
-						}
-						break;
-
-					case 'ch':
-						if (priceFloat > 129.0) {
-							freeShippingCheck = 'true';
-						}
-						break;
-
-					default:
-						freeShippingCheck = 'false';
-						break;
-				}
 
 				if (freeShippingCheck == 'true') {
 					freeShipping = `
