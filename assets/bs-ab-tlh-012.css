@@ -19,6 +19,14 @@
     border: 1px solid #CCC;
 }
 
+[tlh012-variant="b"] .rc-template__radio-group .rc-radio-group__options.tlh22--round-corners {
+    border-radius: 20px;
+}
+
+[tlh012-variant="b"] .rc-template__radio-group .rc-radio-group__options.tlh22--round-corners.sub-plan--active {
+    border-radius: 20px 20px 0 0;
+}
+
 [tlh012-variant="b"] .rc-radio-group__options .rc-option--active .rc_widget__option__label.rc-radio__label {
     font-weight: 600;
     color: #1C1B1B
@@ -132,7 +140,6 @@
 [tlh012-variant=b] .rc-selling-plans.rc-selling-plans--spacedTop [tlh012-variant=b] .rc-selling-plans::after {
     top: 30px;
 }
-
 
 [tlh012-variant="b"] .rc-template__radio-group .rc-radio-group__options + .rc-selling-plans {
     margin-top: 0;
@@ -364,7 +371,6 @@
 [tlh012-variant="b"] .rc-template__radio-group .VariantSelector__List ~ .rc-selling-plans::after {
     top: 15px;
 }
-
 
 [tlh012-variant="b"] .variant-savings__list {
     margin: 0;
