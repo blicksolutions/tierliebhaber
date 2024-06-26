@@ -351,12 +351,12 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                     const subtotalPrice = cartSidebar.find('.Drawer__Footer__Subtotal > span');
 
                     if (subtotalPrice.children('span.money').length) {
-                        // subtotalPrice.children('span.money').text(subtotalPrice.attr('data-price'));
-                        subtotalPrice.children('span.money').text("yobro");
+                        subtotalPrice.children('span.money').text(subtotalPrice.attr('data-price'));
+                        // subtotalPrice.children('span.money').text("yobro");
 
                     } else {
-                        // subtotalPrice.text(subtotalPrice.attr('data-price'));
-                        subtotalPrice.text("yobro");
+                        subtotalPrice.text(subtotalPrice.attr('data-price'));
+                        // subtotalPrice.text("yobro");
                     }
 
                     const totalPrice = cartSidebar.find('.Drawer__Footer__Total > span');
