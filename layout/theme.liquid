@@ -335,7 +335,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 <!-- End of Taboola Pixel Code -->
 
-  </head>
+    {% render 'rapid-search-settings' %}
+</head>
 
   {%- capture classes -%}features--heading-{{ settings.heading_size }}{%- endcapture -%}
 
