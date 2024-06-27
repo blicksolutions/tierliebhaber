@@ -1,7 +1,4 @@
 window.activateAbTlh022 = () => {
-
-    console.log("activated 022 @Manu")
-
 	// only execute script in predifened PDPs
 	const productHandle = window.location.pathname.split('/').slice(-1).toString();
 	let bestseller;
