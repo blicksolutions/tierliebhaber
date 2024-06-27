@@ -1,4 +1,7 @@
 window.activateAbTlh012 = () => {
+
+    console.log("tjaaa .. wohl doch 012 @Manu")
+
 	const uspsMarkup = () => {
 		return `
             <ul class="rc-plans__usps" data-js-tlh012-usps>
