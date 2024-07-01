@@ -16,14 +16,6 @@
   {%- assign tablet_items_per_row = 2 -%}
 {%- endif -%}
 
-<script data-js-tlh-029-script>
-    {% if collection.metafields.custom.bestseller_product_highlight != blank %}
-        window.Shopify.collectionBestsellerProductId = {{ collection.metafields.custom.bestseller_product_highlight.value.id }}
-    {% else %}
-        window.Shopify.collectionBestsellerProductId = false
-    {% endif %}
-</script>
-
 {%- capture collection_inner -%}
   {%- comment -%}This is the common part to both template{%- endcomment -%}
 

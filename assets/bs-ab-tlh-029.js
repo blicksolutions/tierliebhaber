@@ -1,13 +1,12 @@
 window.activateAbTlh029 = () => {
-	const bestsellerProductItemId = window.Shopify.collectionBestsellerProductId;
-	if (!bestsellerProductItemId) return;
+	const bestSellerProductCards = document.querySelectorAll(`.CollectionInner__Products .ProductItem[data-js-bestseller]`);
+	if (bestSellerProductCards.length < 1) return;
 
-	const bestSellerProductCard = document.querySelector(`.CollectionInner__Products .ProductItem[data-js-product-item="${bestsellerProductItemId}"]`);
-	if (!bestSellerProductCard) return;
+	bestSellerProductCards.forEach((bestSellerProductCard) => {
+		const bestSellerItem = bestSellerProductCard.querySelector('.ProductItem__Wrapper.ProductBadge__Bestseller');
 
-	const bestSellerItem = bestSellerProductCard.querySelector('.ProductItem__Wrapper.ProductBadge__Bestseller');
-
-	bestSellerItem.setAttribute('data-js-tlh-029', 'true');
+		bestSellerItem.setAttribute('data-js-tlh-029', 'true');
+	});
 };
 
 document.addEventListener('DOMContentLoaded', () => {
