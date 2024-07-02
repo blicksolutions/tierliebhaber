@@ -17,7 +17,6 @@
                 document.head.appendChild(thirdPartyScript);
             });
 
-            console.log("thirdPartyScriptAdded = true;")
             thirdPartyScriptAdded = true;
             window.removeEventListener("click", addThirdPartyScripts);
             window.removeEventListener("mousemove", addThirdPartyScripts);
