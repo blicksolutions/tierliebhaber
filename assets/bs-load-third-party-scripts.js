@@ -17,12 +17,21 @@
                 document.head.appendChild(thirdPartyScript);
             });
 
+            console.log("thirdPartyScriptAdded = true;")
             thirdPartyScriptAdded = true;
+            window.removeEventListener("click", addThirdPartyScripts);
+            window.removeEventListener("mousemove", addThirdPartyScripts);
+            window.removeEventListener("scroll", addThirdPartyScripts);
+            window.removeEventListener("touchstart", addThirdPartyScripts);
         }
     };
 
-    window.addEventListener("click", addThirdPartyScripts);
-    window.addEventListener("mousemove", addThirdPartyScripts);
-    window.addEventListener("scroll", addThirdPartyScripts);
-    window.addEventListener("touchstart", addThirdPartyScripts);
+    window.addEventListener("DOMContentLoaded", () => {
+        setTimeout(() => {
+            window.addEventListener("click", addThirdPartyScripts);
+            window.addEventListener("mousemove", addThirdPartyScripts);
+            window.addEventListener("scroll", addThirdPartyScripts);
+            window.addEventListener("touchstart", addThirdPartyScripts);
+        }, 1000);
+    });
 })();
