@@ -1,9 +1,18 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "current": {
-    "donations_amount": 68966,
+    "donations_amount": 70961,
     "donation_goal": 100000,
     "total_text": "",
-    "total_number": "Bisher gespendet seit 2022: €68.966",
+    "total_number": "Bisher gespendet seit 2022: €70.961",
     "heading_color": "#1c1b1b",
     "text_color": "#1c1b1b",
     "text_light_color": "#6a6a6a",
@@ -634,6 +643,7 @@
           },
           "f6452686-be98-4be8-8ad1-8cd81d013eb7": {
             "type": "image",
+            "disabled": true,
             "settings": {
               "image": "shopify:\/\/shop_images\/Design_ohne_Titel_3_86beb792-b4d2-42d8-8e31-b6ac94b24db3.png",
               "image_alt": "HundeWelt",
@@ -643,6 +653,7 @@
           },
           "db8fd44d-cc21-46fc-ab84-efde41ab3e9c": {
             "type": "image",
+            "disabled": true,
             "settings": {
               "image": "shopify:\/\/shop_images\/edogs-test-award.png",
               "image_alt": "",
@@ -1125,10 +1136,10 @@
           },
           "e7da5d0b-e6f2-4dc8-bb17-43e7d2427a0a": {
             "type": "item",
-            "disabled": true,
             "settings": {
-              "item-headline": "Tieren egal ist, wer du bist und was du hast. Bist du gut zu ihnen, sind sie gut zu dir.",
-              "item-subline": "Tom"
+              "image": "shopify:\/\/shop_images\/CINDY.png",
+              "item-headline": "Weil Tiere die treuesten Seelen sind und Liebe statt Leid verdienen.",
+              "item-subline": "CINDY"
             }
           },
           "7bbe8948-4bae-40bb-8b62-2707d411df05": {
@@ -1174,18 +1185,17 @@
           "011087d7-c3b7-4f9c-89c1-814eda2200e1": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Luise.png",
+              "image": "shopify:\/\/shop_images\/Luise_cfe1d698-bc16-4dda-84bd-667a681abb53.png",
               "item-headline": "Von den Tieren können wir noch so viel lernen.",
               "item-subline": "Luise"
             }
           },
           "8c5e510e-1173-4b3d-86f9-42d6ca1c0d3c": {
             "type": "item",
-            "disabled": true,
             "settings": {
-              "image": "shopify:\/\/shop_images\/Oli.png",
-              "item-headline": "Meine Hunde mich zu einem besseren Menschen machen.",
-              "item-subline": "Oliver"
+              "image": "shopify:\/\/shop_images\/Franzi.jpg",
+              "item-headline": "Weil die Liebe eines Tieres bedingungslos und einzigartig ist.",
+              "item-subline": "FRANZI"
             }
           },
           "9739a031-bd3f-4d3d-812d-bdaec6753ffe": {
@@ -1762,6 +1772,12 @@
       },
       "17398511487517060589": {
         "type": "shopify:\/\/apps\/admetrics-data-studio\/blocks\/conversion\/95b54974-e3ea-4514-839b-d0c971e19c1c",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "11724500921838622758": {
+        "type": "shopify:\/\/apps\/frequently-bought\/blocks\/app-embed-block\/b1a8cbea-c844-4842-9529-7c62dbab1b1f",
         "disabled": false,
         "settings": {
         }

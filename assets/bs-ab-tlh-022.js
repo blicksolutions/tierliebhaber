@@ -1,7 +1,71 @@
-window.activateAbTlh012 = () => {
+window.activateAbTlh022 = () => {
+	// only execute script in predifened PDPs
+	const productHandle = window.location.pathname.split('/').slice(-1).toString();
+	let bestseller;
+
+	switch (productHandle) {
+		case 'dentalspray':
+			bestseller = true;
+			break;
+
+		case 'z-snack':
+			bestseller = true;
+			break;
+
+		case 'z-bundle-zb':
+			bestseller = true;
+			break;
+
+		case 'gras-kotfresser-drops-2':
+			bestseller = true;
+			break;
+
+		case 'darmwohl-sticks':
+			bestseller = true;
+			break;
+
+		case 'darmpflege-drops':
+			bestseller = true;
+			break;
+
+		case 'gelenk-drops':
+			bestseller = true;
+			break;
+
+		case 'chillout-sticks':
+			bestseller = true;
+			break;
+
+		case 'dentalspray-tl0010-fb-d4':
+			bestseller = true;
+			break;
+
+		case 'gras-kotfresser-drops-3':
+			bestseller = true;
+			break;
+
+		case 'z-bundle-r20':
+			bestseller = true;
+			break;
+
+		case 'darmwohl-sticks-5':
+			bestseller = true;
+			break;
+
+		case 'tl0036-fb-z2':
+			bestseller = true;
+			break;
+
+		default:
+			bestseller = false;
+			break;
+	}
+
+	if (bestseller == false) return;
+
 	const uspsMarkup = () => {
 		return `
-            <ul class="rc-plans__usps" data-js-tlh012-usps>
+            <ul class="rc-plans__usps" data-js-tlh022-usps>
                 <li class="rc-plans__usp">
                     <svg class="rc-plans__usp-icon" width="21" height="21" viewBox="0 0 21 21" fill="none">
                         <path d="M8.41206 15.0238L4.17627 10.788L4.78479 10.1803L8.41206 13.8076L16.2155 6.00421L16.8231 6.61188L8.41206 15.0238Z" fill="black"/>
@@ -71,11 +135,11 @@ window.activateAbTlh012 = () => {
 		const plansContainer = document.querySelector('.Product__Info [data-plans-container]');
 		const radioButtonsContainer = document.querySelector('.rc-radio-group__options');
 
-		const variantSelectorElement = document.querySelector('.VariantSelector__List[data-js-tlh-012-variant-selector-list]');
+		const variantSelectorElement = document.querySelector('.VariantSelector__List[data-js-tlh-022-variant-selector-list]');
 
 		if (plansContainer.getAttribute('data-js-variant-b') != 'true' && !variantSelectorElement == false) {
 			const variantSelectorElementClone = variantSelectorElement.cloneNode(true);
-			const variantSelectorCloneInputElements = variantSelectorElementClone.querySelectorAll('[data-js-tlh-012-variant-selector-item]');
+			const variantSelectorCloneInputElements = variantSelectorElementClone.querySelectorAll('[data-js-tlh-022-variant-selector-item]');
 
 			variantSelectorCloneInputElements.forEach((element) => {
 				element.addEventListener('click', handleVariantChange);
@@ -90,38 +154,8 @@ window.activateAbTlh012 = () => {
 
 			if (variantWithSavings != undefined) {
 				const savings = variantWithSavings.getAttribute('data-js-savings');
+				const freeShippingCheck = variantWithSavings.getAttribute('data-js-free-shipping');
 				let freeShipping = '';
-
-				let freeShippingCheck;
-
-				const price = document.querySelector('.ProductMeta__Price.Price').innerText;
-				if (!price) return;
-
-				const priceFloat = Number.parseFloat(price.replace('€', '').replace(',', '.'));
-
-				switch (window.Shopify.locale) {
-					case 'de':
-						if (priceFloat > 49.0) {
-							freeShippingCheck = 'true';
-						}
-						break;
-
-					case 'at':
-						if (priceFloat > 69.0) {
-							freeShippingCheck = 'true';
-						}
-						break;
-
-					case 'ch':
-						if (priceFloat > 129.0) {
-							freeShippingCheck = 'true';
-						}
-						break;
-
-					default:
-						freeShippingCheck = 'false';
-						break;
-				}
 
 				if (freeShippingCheck == 'true') {
 					freeShipping = `
@@ -230,7 +264,7 @@ window.activateAbTlh012 = () => {
 		entries.forEach((entry) => {
 			if (entry.target.classList.contains('rc-widget-injection-parent')) {
 				const rechargeWrapper = entry.target.querySelector('.Product__Info [data-widget-container-wrapper]');
-				rechargeWrapper.setAttribute('tlh012-variant', 'b');
+				rechargeWrapper.setAttribute('tlh022-variant', 'b');
 
 				const subscribeText = entry.target.querySelector('.Product__Info [data-label-text-subsave]');
 				subscribeText.innerText = 'Abonnieren';
@@ -295,7 +329,7 @@ window.activateAbTlh012 = () => {
 		variantSelectorInputElements.forEach((inputElement) => {
 			inputElement.addEventListener('change', (event) => {
 				const selectedValue = event.target.getAttribute('value');
-				const clonedVariantInputs = document.querySelectorAll('.VariantSelector__List[data-js-tlh-012-variant-selector-list=""][data-js-injected="true"] [data-js-tlh-012-variant-selector-item]');
+				const clonedVariantInputs = document.querySelectorAll('.VariantSelector__List[data-js-tlh-022-variant-selector-list=""][data-js-injected="true"] [data-js-tlh-022-variant-selector-item]');
 
 				clonedVariantInputs.forEach((input) => {
 					const value = input.getAttribute('data-js-option-value');
@@ -320,4 +354,3 @@ window.activateAbTlh012 = () => {
 		});
 	}
 };
-
