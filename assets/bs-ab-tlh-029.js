@@ -1,5 +1,8 @@
 window.activateAbTlh029 = () => {
-	const bestSellerProductCards = document.querySelectorAll(`.CollectionInner__Products .ProductItem[data-js-bestseller]`);
+	const collectionGrid = document.querySelector('.CollectionInner__Products');
+	if (!collectionGrid) return;
+
+	const bestSellerProductCards = collectionGrid.querySelectorAll(`.ProductItem[data-js-bestseller]`);
 	if (bestSellerProductCards.length < 1) return;
 
 	bestSellerProductCards.forEach((bestSellerProductCard) => {
