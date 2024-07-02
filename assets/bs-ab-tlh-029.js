@@ -11,7 +11,3 @@ window.activateAbTlh029 = () => {
 		bestSellerItem.setAttribute('data-js-tlh-029', 'true');
 	});
 };
-
-document.addEventListener('DOMContentLoaded', () => {
-	window.activateAbTlh029();
-});
