@@ -254,6 +254,7 @@
     z-index: 2;
     background: #FFF;
     margin: 15px 10px;
+    width: calc(100% - 20px);
 }
 
 @media (min-width: 768px) {
