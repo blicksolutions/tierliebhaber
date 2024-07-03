@@ -263,6 +263,45 @@ window.activateAbTlh022 = () => {
 	const mutationObserver = new MutationObserver((entries) => {
 		entries.forEach((entry) => {
 			if (entry.target.classList.contains('rc-widget-injection-parent')) {
+				const originalVariantSelectorWrapper = document.querySelector('.Product__Info .ProductForm__Variants');
+				if (!originalVariantSelectorWrapper) return;
+
+				originalVariantSelectorWrapper.style.display = 'none';
+
+				const originalVariantSelector = originalVariantSelectorWrapper.querySelector('.ProductForm__Option .SizeSwatchList');
+
+				// Handle variant change
+				if (originalVariantSelector != undefined) {
+					const variantSelectorInputElements = originalVariantSelector.querySelectorAll('input[value]');
+
+					variantSelectorInputElements.forEach((inputElement) => {
+						inputElement.addEventListener('change', (event) => {
+							const selectedValue = event.target.getAttribute('value');
+							const clonedVariantInputs = document.querySelectorAll('.VariantSelector__List[data-js-tlh-022-variant-selector-list=""][data-js-injected="true"] [data-js-tlh-022-variant-selector-item]');
+
+							clonedVariantInputs.forEach((input) => {
+								const value = input.getAttribute('data-js-option-value');
+
+								if (value === selectedValue) {
+									input.classList.add('VariantSelector__ListItem--selected');
+									const savings = input.getAttribute('data-js-savings');
+									const savingsListElement = document.querySelector('[data-js-variant-savings-container]');
+									const subscriptionElement = document.querySelector('[data-option-subsave]');
+									setTimeout(manageSubscriptionFreeShipping, 50);
+
+									if (savings != undefined && !subscriptionElement.classList.contains('rc-option--active')) {
+										savingsListElement.classList.add('active');
+									} else {
+										savingsListElement.classList.remove('active');
+									}
+								} else {
+									input.classList.remove('VariantSelector__ListItem--selected');
+								}
+							});
+						});
+					});
+				}
+
 				const rechargeWrapper = entry.target.querySelector('.Product__Info [data-widget-container-wrapper]');
 				rechargeWrapper.setAttribute('tlh022-variant', 'b');
 
@@ -312,45 +351,6 @@ window.activateAbTlh022 = () => {
 			childList: true,
 			subtree: true,
 			attributes: true,
-		});
-	}
-
-	const originalVariantSelectorWrapper = document.querySelector('.Product__Info .ProductForm__Variants');
-	if (!originalVariantSelectorWrapper) return;
-
-	originalVariantSelectorWrapper.style.display = 'none';
-
-	const originalVariantSelector = originalVariantSelectorWrapper.querySelector('.ProductForm__Option .SizeSwatchList');
-
-	// Handle variant change
-	if (originalVariantSelector != undefined) {
-		const variantSelectorInputElements = originalVariantSelector.querySelectorAll('input[value]');
-
-		variantSelectorInputElements.forEach((inputElement) => {
-			inputElement.addEventListener('change', (event) => {
-				const selectedValue = event.target.getAttribute('value');
-				const clonedVariantInputs = document.querySelectorAll('.VariantSelector__List[data-js-tlh-022-variant-selector-list=""][data-js-injected="true"] [data-js-tlh-022-variant-selector-item]');
-
-				clonedVariantInputs.forEach((input) => {
-					const value = input.getAttribute('data-js-option-value');
-
-					if (value === selectedValue) {
-						input.classList.add('VariantSelector__ListItem--selected');
-						const savings = input.getAttribute('data-js-savings');
-						const savingsListElement = document.querySelector('[data-js-variant-savings-container]');
-						const subscriptionElement = document.querySelector('[data-option-subsave]');
-						setTimeout(manageSubscriptionFreeShipping, 50);
-
-						if (savings != undefined && !subscriptionElement.classList.contains('rc-option--active')) {
-							savingsListElement.classList.add('active');
-						} else {
-							savingsListElement.classList.remove('active');
-						}
-					} else {
-						input.classList.remove('VariantSelector__ListItem--selected');
-					}
-				});
-			});
 		});
 	}
 };
