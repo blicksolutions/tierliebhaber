@@ -74,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.unlockCheckoutButton = () => {
         // console.log("UNLOCK BUTTON")
         cartDrawer.querySelector('.Cart__Checkout').disabled = false;
+        document.dispatchEvent(new CustomEvent("rerenderingFinished"));
     };
 
     window.handleGift = (subtotalPrice) => {
