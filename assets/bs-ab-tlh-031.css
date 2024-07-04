@@ -1,0 +1,67 @@
+.image-banner-popup {
+    position: absolute;
+    background: #F5F5F5;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 16px;
+    color: #1C1B1B;
+    align-items: center;
+}
+
+.image-banner-popup__benefit {
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 600;
+}
+
+.image-banner-popup__info {
+    position: relative;
+}
+
+.image-banner-popup__info__button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.image-banner-popup__info__button:active + .image-banner-popup__info__popup {
+    display: block;
+}
+
+.image-banner-popup__info__button span {
+    font-size: 12px;
+    line-height: 15px;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.image-banner-popup__info__popup {
+    display: none;
+    position: absolute;
+    top: -13px;
+    right: 0;
+    transform: translateY(-100%);
+    background: #fff;
+    padding: 10px;
+    width: 300px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px #0000001A;
+}
+
+.image-banner-popup__info__popup p {
+    font-size: 16px;
+    line-height: 20px;
+    color: #525252;
+    margin: 0;
+}
+
+.image-banner-popup__info__popup svg {
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+    transform: translateY(100%);
+}
+
