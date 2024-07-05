@@ -92,5 +92,9 @@
     .image-banner-popup__info__button span {
         font-size: 14px;
     }
+
+    .image-banner-popup__info__popup p {
+        font-size: 18px;
+    }
 }
 
