@@ -53,9 +53,6 @@ window.activateAbTlh031 = () => {
             if(index > 0){
                 slideInner.insertAdjacentHTML("beforeend",`
                     <div class="image-banner-popup">
-                        <span class="image-banner-popup__benefit">
-                            ${ productInfosData[(index - 1)]?.label }
-                        </span>
                         <div class="image-banner-popup__info">
                             <button class="image-banner-popup__info__button">
                                 <span>
@@ -73,7 +70,10 @@ window.activateAbTlh031 = () => {
                                 <path d="M5.5 7.5L0 0H11L5.5 7.5Z" fill="white"/>
                                 </svg>
                             </div>
-                        </div>    
+                        </div>   
+                        <span class="image-banner-popup__benefit">
+                            ${ productInfosData[(index - 1)]?.label }
+                        </span> 
                     </div>
                 `);
             }
