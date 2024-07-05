@@ -50,7 +50,7 @@ window.activateAbTlh031 = () => {
         const productInfosData = currentPageUrl.includes("products/dentalspray") ? productInfosDS : productInfosGK;
 
         SliderSlidesInner.forEach((slideInner, index) => {
-            if(index > 0){
+            if(index > 0 && productInfosData[(index - 1)]){
                 slideInner.insertAdjacentHTML("beforeend",`
                     <div class="image-banner-popup">
                         <div class="image-banner-popup__info">
@@ -64,7 +64,7 @@ window.activateAbTlh031 = () => {
                             </button>
                             <div class="image-banner-popup__info__popup">
                                 <p>
-                                    ${ productInfosData[(index - 1)]?.description }
+                                    ${ productInfosData[(index - 1)].description }
                                 </p>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="11" height="8" viewBox="0 0 11 8" fill="none">
                                 <path d="M5.5 7.5L0 0H11L5.5 7.5Z" fill="white"/>
@@ -72,10 +72,14 @@ window.activateAbTlh031 = () => {
                             </div>
                         </div>   
                         <span class="image-banner-popup__benefit">
-                            ${ productInfosData[(index - 1)]?.label }
+                            ${ productInfosData[(index - 1)].label }
                         </span> 
                     </div>
                 `);
+
+                slideInner.querySelector(".image-banner-popup__info__button").addEventListener("click", (e) => {
+                    e.currentTarget.parentElement.parentElement.classList.toggle("active");
+                })
             }
         })
     }
