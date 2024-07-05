@@ -25,6 +25,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
+    min-width: max-content;
 }
 
 .image-banner-popup__info__button:active + .image-banner-popup__info__popup {
