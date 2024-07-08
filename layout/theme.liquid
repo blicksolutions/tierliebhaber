@@ -3,26 +3,24 @@
 <html class="no-js" lang="{{ shop.locale }}">
   <head>
       <!-- BS: AB Scripts -->
+      <link rel="stylesheet" href="{{ 'bs-ab-tlh-008.css' | asset_url }}">
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}">
-      <link rel="stylesheet" href="{{ 'bs-ab-tlh-013.css' | asset_url }}">
-      <link rel="stylesheet" href="{{ 'bs-ab-tlh-018.css' | asset_url }}">
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-012.css' | asset_url }}">
-      <link rel="stylesheet" href="{{ 'bs-ab-tlh-024.css' | asset_url }}">
-      <link rel="stylesheet" href="{{ 'bs-ab-tlh-026.css' | asset_url }}">
+      <link rel="stylesheet" href="{{ 'bs-ab-tlh-012.css' | asset_url }}">
+      <link rel="stylesheet" href="{{ 'bs-ab-tlh-022.css' | asset_url }}">
+      <link rel="stylesheet" href="{{ 'bs-ab-tlh-029.css' | asset_url }}">
 
       <script src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
+      <script src="{{ 'bs-ab-tlh-008.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-009.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-010.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-011.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-012.js' | asset_url }}"></script>
-      <script src="{{ 'bs-ab-tlh-013.js' | asset_url }}"></script>
-      <script src="{{ 'bs-ab-tlh-018.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-023.js' | asset_url }}"></script>
-      <script src="{{ 'bs-ab-tlh-024.js' | asset_url }}"></script>
+      <script src="{{ 'bs-ab-tlh-022.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-025.js' | asset_url }}"></script>
-      <script src="{{ 'bs-ab-tlh-027.js' | asset_url }}"></script>
-      <script src="{{ 'bs-ab-tlh-026.js' | asset_url }}"></script>
+      <script src="{{ 'bs-ab-tlh-029.js' | asset_url }}"></script>
       <!-- END BS: AB Scripts -->
 
       <!-- ABlyft Snippet -->
@@ -243,6 +241,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <script src="{{ 'theme.js' | asset_url }}" defer></script>
     {% comment %}<script src="{{ 'custom.js' | asset_url }}" defer></script>{% endcomment %}
     <script src="{{ 'custom-dach.js' | asset_url }}" defer></script>
+    <script src="{{ 'search-manipulation.js' | asset_url }}" defer></script>
 
     <!-- Global site tag (gtag.js) - Google Ads: 843531169 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-843531169"></script>
@@ -334,7 +333,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 <!-- End of Taboola Pixel Code -->
 
-  </head>
+{% if template.name == "index" %} 
+    <!-- Amazon Ad Tag -->
+        <script>
+            !function(w,d,s,t,a){if(w.amzn)return;w.amzn=a=function(){w.amzn.q.push([arguments,(new Date).getTime()])};a.q=[];a.version="0.0";s=d.createElement("script");s.src="https://c.amazon-adsystem.com/aat/amzn.js";s.id="amzn-pixel";s.async=true;t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t)}(window,document);
+            amzn("setRegion", "EU");
+            amzn("addTag", "9ed9779f-1bce-49a3-a8de-4434d6a6c0be");
+            amzn("trackEvent", "PageView");
+        </script>
+    <!-- END: Amazon Ad Tag -->
+{% endif %}
+
+    {% render 'rapid-search-settings' %}
+</head>
 
   {%- capture classes -%}features--heading-{{ settings.heading_size }}{%- endcapture -%}
 
