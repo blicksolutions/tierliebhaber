@@ -31,6 +31,18 @@
           window['ablyft'] = window['ablyft'] || [];
       </script>
 
+      <!-- TLH-026 custom goal snippet -->
+       <script>
+        document.querySelector('.Search__Inner').addEventListener('click',() =>  {
+            window['ablyft'].push({
+                eventType: 'custom',
+                eventName: 'tlh-026-clicks-on-searchbar',
+                eventValue: 0 //optional
+            });
+        })
+       </script>
+      <!-- END: TLH-026 custom goal snippet -->
+
       <!-- Varify.io® code for Animagus GmbH-->
       <script>
           window.varify = window.varify || {};
