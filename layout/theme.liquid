@@ -8,6 +8,7 @@
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-012.css' | asset_url }}">
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-012.css' | asset_url }}">
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-022.css' | asset_url }}">
+      <link rel="stylesheet" href="{{ 'bs-ab-tlh-026.css' | asset_url }}">
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-029.css' | asset_url }}">
 
       <script src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
@@ -20,6 +21,7 @@
       <script src="{{ 'bs-ab-tlh-023.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-022.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-025.js' | asset_url }}"></script>
+      <script src="{{ 'bs-ab-tlh-026.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-029.js' | asset_url }}"></script>
       <!-- END BS: AB Scripts -->
 
@@ -28,6 +30,18 @@
       <script>
           window['ablyft'] = window['ablyft'] || [];
       </script>
+
+      <!-- TLH-026 custom goal snippet -->
+       <script>
+        document.querySelector('.Search__Inner').addEventListener('click',() =>  {
+            window['ablyft'].push({
+                eventType: 'custom',
+                eventName: 'tlh-026-clicks-on-searchbar',
+                eventValue: 0 //optional
+            });
+        })
+       </script>
+      <!-- END: TLH-026 custom goal snippet -->
 
       <!-- Varify.io® code for Animagus GmbH-->
       <script>
