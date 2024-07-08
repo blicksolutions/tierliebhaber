@@ -40,7 +40,3 @@ window.activateAbTlh026 = () => {
 		});
 	}
 };
-
-document.addEventListener('DOMContentLoaded', () => {
-	window.activateAbTlh026();
-});
