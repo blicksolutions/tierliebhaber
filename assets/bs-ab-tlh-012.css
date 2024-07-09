@@ -281,18 +281,12 @@
     cursor: pointer;
 }
 
-[tlh012-variant="b"] .VariantSelector__ListItem:first-child {
+[tlh012-variant="b"] .VariantSelector__ListItem:nth-child(odd) {
     width: 30%;
 }
 
-[tlh012-variant="b"] .VariantSelector__ListItem:last-child {
+[tlh012-variant="b"] .VariantSelector__ListItem:nth-child(even) {
     width: 60%;
-}
-
-[tlh012-variant="b"] .VariantSelector__ListItem--full-width:first-child,
-[tlh012-variant="b"] .VariantSelector__ListItem--full-width:last-child,
-[tlh012-variant="b"] .VariantSelector__ListItem--full-width {
-    width: 100%;
 }
 
 @media (min-width: 768px) {
