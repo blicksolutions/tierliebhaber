@@ -6,7 +6,3 @@ window.activateAbTlh034 = () => {
         document.querySelector(".Cart__Checkout")?.classList.add("BS-Button--yellow");  
     })
 };
-
-window.addEventListener("DOMContentLoaded", () => {
-    window.activateAbTlh034();
-})
