@@ -476,6 +476,9 @@ function _classCallCheck(e, t) {
                 key: "close",
                 value: function(e) {
                     this.isOpen && (e && e.preventDefault(), this.element.setAttribute("aria-hidden", "true"), document.documentElement.classList.remove("no-scroll"), n.default.removeTrapFocus(this.element, "drawer"), this.pageOverlayElement.classList.remove("is-visible"), this.pageOverlayElement.removeEventListener("click", this._closeListener), this.isOpen = !1, this.onClose())
+                    setTimeout(()=>{
+                        $('body').removeAttr('data-drawer-id-opened')
+                    },300)
                 }
             }, {
                 key: "_attachListeners",
