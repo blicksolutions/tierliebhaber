@@ -240,6 +240,7 @@
     display: flex;
     padding: 15px 10px 15px;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 10px;
     border-radius: 0px 0px 20px 20px;
     border-right: 1px solid #CCC;
@@ -286,6 +287,12 @@
 
 [tlh012-variant="b"] .VariantSelector__ListItem:last-child {
     width: 60%;
+}
+
+[tlh012-variant="b"] .VariantSelector__ListItem--full-width:first-child,
+[tlh012-variant="b"] .VariantSelector__ListItem--full-width:last-child,
+[tlh012-variant="b"] .VariantSelector__ListItem--full-width {
+    width: 100%;
 }
 
 @media (min-width: 768px) {
