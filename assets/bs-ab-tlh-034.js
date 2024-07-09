@@ -4,5 +4,5 @@ window.activateAbTlh034 = () => {
 
     document.addEventListener('rerenderingFinished',() => {
         document.querySelector(".Cart__Checkout")?.classList.add("BS-Button--yellow");  
-    })
+    });
 };
