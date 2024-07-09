@@ -295,7 +295,7 @@
     }
 
     [tlh012-variant="b"] .VariantSelector__ListItem:nth-child(odd) {
-        margin-left: 10px;
+        margin-left: 5px;
     }
 
     [tlh012-variant="b"] .VariantSelector__ListItem:nth-child(even) {
