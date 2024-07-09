@@ -369,7 +369,7 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
     font-style: normal;
     font-weight: 400;
     line-height: 12.15px;
-    display: flex;
+    display: none;
     padding: 5px 10px;
     justify-content: center;
     align-items: center;
@@ -383,6 +383,10 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
         font-size: 12px;
         line-height: 15px;
     }
+}
+
+.VariantSelector__ListItem:last-child .VariantSelector__OptionSavings {
+    display: flex;
 }
 
 /* Preventing overlap on desktop */
