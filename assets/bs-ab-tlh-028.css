@@ -45,7 +45,8 @@
 }
 
 @media (min-width: 768px) {
-    .ingredients-highlights {
+    .ingredients-highlights,
+    .ingredients-highlights.Gras-Kotfresser {
         padding: 50px;
         background: none;
     }
