@@ -9,10 +9,20 @@
     text-align: center;
 }
 
+.ingredients-highlights.Gras-Kotfresser {
+    padding: 10px 36px 30px;
+}
+
 .ingredients-highlights > * {
-    max-width: 790px;
     margin-right: auto;
     margin-left: auto;
+}
+
+.ingredients-highlights.Dentalspray > * {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .ingredients-highlights__title {
@@ -23,16 +33,32 @@
 }
 
 .ingredients-highlights__description {
+    max-width: 790px;
     font-size: 16px;
     line-height: 22px;
     font-weight: 400;
     margin: 0;
 }
 
+.ingredients-highlights.Dentalspray .ingredients-highlights__description {
+    max-width: 996px;
+}
+
 @media (min-width: 768px) {
     .ingredients-highlights {
         padding: 50px;
         background: none;
+    }
+
+    .ingredients-highlights > * {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .ingredients-highlights.Dentalspray > * {
+        gap: 20px;
     }
 
     .ingredients-highlights__description {
