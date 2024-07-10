@@ -6,12 +6,13 @@
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-008.css' | asset_url }}">
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}">
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-012.css' | asset_url }}">
-      <link rel="stylesheet" href="{{ 'bs-ab-tlh-018.css' | asset_url }}">
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-012.css' | asset_url }}">
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-022.css' | asset_url }}">
-      <link rel="stylesheet" href="{{ 'bs-ab-tlh-024.css' | asset_url }}">
+      <link rel="stylesheet" href="{{ 'bs-ab-tlh-026.css' | asset_url }}">
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-028.css' | asset_url }}">
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-029.css' | asset_url }}">
+      <link rel="stylesheet" href="{{ 'bs-ab-tlh-031.css' | asset_url }}">
+      <link rel="stylesheet" href="{{ 'bs-ab-tlh-034.css' | asset_url }}">
 
       <script src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
@@ -20,14 +21,14 @@
       <script src="{{ 'bs-ab-tlh-010.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-011.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-012.js' | asset_url }}"></script>
-      <script src="{{ 'bs-ab-tlh-018.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-023.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-022.js' | asset_url }}"></script>
-      <script src="{{ 'bs-ab-tlh-024.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-025.js' | asset_url }}"></script>
-      <script src="{{ 'bs-ab-tlh-027.js' | asset_url }}"></script>
+      <script src="{{ 'bs-ab-tlh-026.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-028.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-029.js' | asset_url }}"></script>
+      <script src="{{ 'bs-ab-tlh-031.js' | asset_url }}"></script>
+      <script src="{{ 'bs-ab-tlh-034.js' | asset_url }}"></script>
       <!-- END BS: AB Scripts -->
 
       <!-- ABlyft Snippet -->
@@ -35,6 +36,20 @@
       <script>
           window['ablyft'] = window['ablyft'] || [];
       </script>
+
+      <!-- TLH-026 custom goal snippet -->
+       <script>
+        document.addEventListener('DOMContentLoaded',() => {
+            document.querySelector('.Search__Inner').addEventListener('click',() =>  {
+                window['ablyft'].push({
+                    eventType: 'custom',
+                    eventName: 'tlh-026-clicks-on-searchbar',
+                    eventValue: 1 //optional
+                });
+            });
+        });
+       </script>
+      <!-- END: TLH-026 custom goal snippet -->
 
       <!-- Varify.io® code for Animagus GmbH-->
       <script>
@@ -339,6 +354,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'tb_tfa_script');
 </script>
 <!-- End of Taboola Pixel Code -->
+
+{% if template.name == "index" %}
+    <!-- Amazon Ad Tag -->
+        <script>
+            !function(w,d,s,t,a){if(w.amzn)return;w.amzn=a=function(){w.amzn.q.push([arguments,(new Date).getTime()])};a.q=[];a.version="0.0";s=d.createElement("script");s.src="https://c.amazon-adsystem.com/aat/amzn.js";s.id="amzn-pixel";s.async=true;t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t)}(window,document);
+            amzn("setRegion", "EU");
+            amzn("addTag", "9ed9779f-1bce-49a3-a8de-4434d6a6c0be");
+            amzn("trackEvent", "PageView");
+        </script>
+    <!-- END: Amazon Ad Tag -->
+{% endif %}
 
     {% render 'rapid-search-settings' %}
 </head>
