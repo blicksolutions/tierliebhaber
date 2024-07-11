@@ -240,6 +240,7 @@
     display: flex;
     padding: 15px 10px 15px;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 10px;
     border-radius: 0px 0px 20px 20px;
     border-right: 1px solid #CCC;
@@ -278,6 +279,13 @@
     border-radius: 10px;
     transition: border-color 100ms ease-out;
     cursor: pointer;
+}
+
+[tlh012-variant="b"] .VariantSelector__ListItem.VariantSelector__ListItem--full-width:first-child,
+[tlh012-variant="b"] .VariantSelector__ListItem.VariantSelector__ListItem--full-width:last-child,
+[tlh012-variant="b"] .VariantSelector__ListItem.VariantSelector__ListItem--full-width {
+    width: 100%;
+    margin: 0;
 }
 
 [tlh012-variant="b"] .VariantSelector__ListItem:first-child {
