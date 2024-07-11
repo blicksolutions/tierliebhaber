@@ -397,3 +397,8 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
     font-weight: 600;
     font-size: 16px;
 }
+
+/* fix slideshow image slidein */
+#Slideslide-0, #Slideslide-0 .Slideshow__Image  {
+    opacity: 1 !important;
+}
