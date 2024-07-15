@@ -1,0 +1,15 @@
+.announcement-bar--variation-b {
+    background: #92BAA8 !important;
+}
+
+.announcement-bar--variation-b .topbar_inner span {
+    color: #FFFFFF !important;
+}
+
+.announcement-bar--variation-b .topbar_inner path {
+    stroke: #FFFFFF;
+}
+
+.announcement-bar--variation-b .topbar_inner path:nth-of-type(2) {
+    fill: #FFFFFF;
+}
