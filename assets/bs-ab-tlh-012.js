@@ -320,3 +320,4 @@ window.activateAbTlh012 = () => {
 		});
 	}
 };
+document.addEventListener('DOMContentLoaded', window.activateAbTlh012);

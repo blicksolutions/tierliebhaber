@@ -39,7 +39,36 @@ const addBannersTlh031 = (productInfos, matchingUrl) => {
 };
 
 window.activateAbTlh031DS = () => {
-    const productInfosDS = [
+    if(window.location.pathname.endsWith("products/dentalspray")) {
+        const productInfosDS = [
+            {
+                "label": "Entfernt Zahnbelag & Maulgeruch.",
+                "description": "Durch die probiotischen Mikroorganismen wird brauner Zahnbelag aufgeweicht, entfernt und unangenehmer Maulgeruch neutralisiert."
+            },
+            {
+                "label": "100% natürliche Formel.",
+                "description": "Die mit deutschen Tierärzten entwickelte Formel sorgt dank fermentierten Kräutern, probiotischen Mikroorganismen, Minze und Kalzium für gesunde Hunde & Katzenzähne."
+            },
+            {
+                "label": "Einfach aufs Futter sprühen.",
+                "description": "Einfach morgens und abends auf das Futter, auf ein Leckerli oder direkt ins Maul deines Vierbeiners sprühen - Kinderleicht!"
+            },
+            {
+                "label": "Ohne nervige Zahnbürste.",
+                "description": "Endlich eine Zahnpflege Methode die Spaß macht. Ganz ohne nervige Zahnbürste, Zahnkratzer oder Fingerlinge."
+            },
+            {
+                "label": "Beugt Neubildung vor.",
+                "description": "Wende es dauerhaft an und beuge der Neubildung von Zahnbelag und Maulgeruch 100% natürlich vor."
+            }
+        ];
+    
+        addBannersTlh031(productInfosDS, "products/dentalspray");
+    }
+};
+
+window.activateAbTlh031DS2 = () => {
+    const productInfosDS2 = [
         {
             "label": "Entfernt Zahnbelag & Maulgeruch.",
             "description": "Durch die probiotischen Mikroorganismen wird brauner Zahnbelag aufgeweicht, entfernt und unangenehmer Maulgeruch neutralisiert."
@@ -62,7 +91,7 @@ window.activateAbTlh031DS = () => {
         }
     ];
 
-    addBannersTlh031(productInfosDS, "products/dentalspray");
+    addBannersTlh031(productInfosDS2, "products/dentalspray-tl0010-fb-d4");
 };
 
 window.activateAbTlh031GK = () => {
@@ -89,5 +118,32 @@ window.activateAbTlh031GK = () => {
         }
     ];   
 
-    addBannersTlh031(productInfosGK, "products/gras-kotfresser-drops");
+    addBannersTlh031(productInfosGK, "products/gras-kotfresser-drops-2");
+};
+
+window.activateAbTlh031GK2 = () => {
+    const productInfosGK2 = [
+        {
+            "label": "Gegen Sodbrennen & Grasfressen.",
+            "description": "Überschüssige Magensäure wird gebunden, sodass sie nicht mehr aufsteigt. Sodbrennen und ständiges Grasfressen kann so endlich gelindert werden."
+        },
+        {
+            "label": "100% natürliche Formel.",
+            "description": "Die mit Tierärzten entwickelte Formel aus Ulmenrinde, Moor und Kräutern hilft bei Übersäuerung und beruhigt die empfindliche Magen-Darm-Schleimhaut deines Hundes."
+        },
+        {
+            "label": "Einfach als Leckerli geben.",
+            "description": "Gib deinem Hund pro 5kg Körpergewicht 2 Drops, wenn er an Sodbrennen, ständigem Grasfressen oder Kotfressen leidet."
+        },
+        {
+            "label": "Beruhigt den Magen.",
+            "description": "Dank Karotte, Ulmenrinde, Melisse, Fenchel, Kamille & Co beruhigt sich der gereizte Magen schnell."
+        },
+        {
+            "label": "Gesunde Drops.",
+            "description": "Die weichen Drops werden ohne Hitze mit möglichst regionalen Rohstoffen in Deutschland hergestellt."
+        }
+    ];   
+
+    addBannersTlh031(productInfosGK2, "products/gras-kotfresser-drops-3");
 };

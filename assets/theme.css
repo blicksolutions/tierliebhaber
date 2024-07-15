@@ -10857,7 +10857,7 @@ shopify-payment-terms {
 
 @supports ((-o-object-fit: cover) or (object-fit: cover)) {
     .js .Slideshow__Image {
-        opacity: 0;
+        /*opacity: 0;*/
     }
 }
 

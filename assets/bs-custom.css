@@ -264,7 +264,7 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 
 @media (min-width: 768px) {
     .StickyATC__VariantSelector {
-        bottom: -550%;
+        bottom: -100vh;
         border-radius: 20px;
         padding: 30px 15px;
     }
@@ -396,4 +396,9 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
     color: #82b6aa;
     font-weight: 600;
     font-size: 16px;
+}
+
+/* fix slideshow image slidein */
+#Slideslide-0, #Slideslide-0 .Slideshow__Image  {
+    opacity: 1 !important;
 }
