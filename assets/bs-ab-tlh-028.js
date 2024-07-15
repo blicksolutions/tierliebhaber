@@ -133,12 +133,3 @@ window.activateAbTlh028GK2 = () => {
         injectIngredientsSectionTLH28(imageElements, description, productName)
     }
 };
-
-window.addEventListener('DOMContentLoaded', () => {
-    window.activateAbTlh028DS();
-    window.activateAbTlh028DS2();
-    window.activateAbTlh028ZS();
-    window.activateAbTlh028ZS2();
-    window.activateAbTlh028GK();
-    window.activateAbTlh028GK2();
-})
