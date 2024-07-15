@@ -30,6 +30,10 @@
         flex-direction: column;
         gap: 10px;
     }
+    
+    .announcement-bar--variation-b .topbar_inner:not(:nth-child(2)) {
+        padding: 0 !important;
+    }
    
     .announcement-bar--variation-b #new_topbar {
         align-items: flex-start;
