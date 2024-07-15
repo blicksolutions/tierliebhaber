@@ -1,5 +1,5 @@
 const injectIngredientsSectionTLH28 = (imageElements, description, productName) => {
-    const targetElement = document.querySelector('.shopify-section:has(.Benefits)')
+    const targetElement = document.querySelector('.shopify-section:has(.Benefits)');
 
     targetElement?.insertAdjacentHTML('afterend', `
         <div class="ingredients-highlights ${productName}">
@@ -14,7 +14,7 @@ const injectIngredientsSectionTLH28 = (imageElements, description, productName) 
             </p>
         </div>
     `);
-}
+};
 
 window.activateAbTlh028DS = () => {
     // Dentalspray
@@ -28,11 +28,11 @@ window.activateAbTlh028DS = () => {
             '<img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/Ebene_1_Kopie_1.png?v=1720609236" alt="Brombeerblätter">',
             '<img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/Ebene_1_Kopie_7.png?v=1720609236" alt="Rosmarin">',
             '<img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/Subtract_4.png?v=1720609236" alt="Salbei">'
-        ]
-        const description = 'Zusammensetzung: Quellwasser, Mineralstoffe (Meersalz und flüssiges Kalzium), fermentierte Kräuter (aus Basilikum, Brombeerblätter, Römische Kamille, Liebstöckel, Hirtentäschel, Spitzwegerich, Rin-gelblumen, Himbeerblätter, Rosmarin, Salbei, Weidenröschen, Schafgarbe, Lungenkraut, Eibisch, Frauenmantel, Taubnessel, Brennnessel, Thymian), Minze, Melasse'
+        ];
+        const description = 'Zusammensetzung: Quellwasser, Mineralstoffe (Meersalz und flüssiges Kalzium), fermentierte Kräuter (aus Basilikum, Brombeerblätter, Römische Kamille, Liebstöckel, Hirtentäschel, Spitzwegerich, Rin-gelblumen, Himbeerblätter, Rosmarin, Salbei, Weidenröschen, Schafgarbe, Lungenkraut, Eibisch, Frauenmantel, Taubnessel, Brennnessel, Thymian), Minze, Melasse';
         const productName = 'Dentalspray';
 
-        injectIngredientsSectionTLH28(imageElements, description, productName)
+        injectIngredientsSectionTLH28(imageElements, description, productName);
     }
 };
 
@@ -48,11 +48,11 @@ window.activateAbTlh028DS2 = () => {
             '<img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/Ebene_1_Kopie_1.png?v=1720609236" alt="Brombeerblätter">',
             '<img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/Ebene_1_Kopie_7.png?v=1720609236" alt="Rosmarin">',
             '<img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/Subtract_4.png?v=1720609236" alt="Salbei">'
-        ]
-        const description = 'Zusammensetzung: Quellwasser, Mineralstoffe (Meersalz und flüssiges Kalzium), fermentierte Kräuter (aus Basilikum, Brombeerblätter, Römische Kamille, Liebstöckel, Hirtentäschel, Spitzwegerich, Rin-gelblumen, Himbeerblätter, Rosmarin, Salbei, Weidenröschen, Schafgarbe, Lungenkraut, Eibisch, Frauenmantel, Taubnessel, Brennnessel, Thymian), Minze, Melasse'
+        ];
+        const description = 'Zusammensetzung: Quellwasser, Mineralstoffe (Meersalz und flüssiges Kalzium), fermentierte Kräuter (aus Basilikum, Brombeerblätter, Römische Kamille, Liebstöckel, Hirtentäschel, Spitzwegerich, Rin-gelblumen, Himbeerblätter, Rosmarin, Salbei, Weidenröschen, Schafgarbe, Lungenkraut, Eibisch, Frauenmantel, Taubnessel, Brennnessel, Thymian), Minze, Melasse';
         const productName = 'Dentalspray';
 
-        injectIngredientsSectionTLH28(imageElements, description, productName)
+        injectIngredientsSectionTLH28(imageElements, description, productName);
     }
 };
 
@@ -66,11 +66,11 @@ window.activateAbTlh028ZS = () => {
             '<img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/20220914_jb_amzaplus_zsnack-02_4.png?v=1719913955" alt="Zistrosenkraut">',
             '<img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/20220914_jb_amzaplus_zsnack-02_5.png?v=1719913955" alt="Rosmarin">',
             '<img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/20220914_jb_amzaplus_zsnack-02_6.png?v=1719913955" alt="Kokosraspeln">'
-        ]
-        const description = 'Zusammensetzung: Süßkartoffel, Pflanzliches Glycerin aus Sonnenblumenkernen, Insektenmehl aus Hermetia-Larven, Bierhefe (6%), Kokosraspel (6%), Lecithin, Lavendel (4,5%), Krill (4%), Schwarzkümmelöl (3%), Hermetiafett, Zistrosenkraut (2%), Wermutkraut (2%), Kokosöl (1%), Rapsöl, Zitronengras (0,5%), Rosmarin'
+        ];
+        const description = 'Zusammensetzung: Süßkartoffel, Pflanzliches Glycerin aus Sonnenblumenkernen, Insektenmehl aus Hermetia-Larven, Bierhefe (6%), Kokosraspel (6%), Lecithin, Lavendel (4,5%), Krill (4%), Schwarzkümmelöl (3%), Hermetiafett, Zistrosenkraut (2%), Wermutkraut (2%), Kokosöl (1%), Rapsöl, Zitronengras (0,5%), Rosmarin';
         const productName = 'Z-Snack';
 
-        injectIngredientsSectionTLH28(imageElements, description, productName)
+        injectIngredientsSectionTLH28(imageElements, description, productName);
     }
 };
 
@@ -84,11 +84,11 @@ window.activateAbTlh028ZS2 = () => {
             '<img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/20220914_jb_amzaplus_zsnack-02_4.png?v=1719913955" alt="Zistrosenkraut">',
             '<img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/20220914_jb_amzaplus_zsnack-02_5.png?v=1719913955" alt="Rosmarin">',
             '<img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/20220914_jb_amzaplus_zsnack-02_6.png?v=1719913955" alt="Kokosraspeln">'
-        ]
-        const description = 'Zusammensetzung: Süßkartoffel, Pflanzliches Glycerin aus Sonnenblumenkernen, Insektenmehl aus Hermetia-Larven, Bierhefe (6%), Kokosraspel (6%), Lecithin, Lavendel (4,5%), Krill (4%), Schwarzkümmelöl (3%), Hermetiafett, Zistrosenkraut (2%), Wermutkraut (2%), Kokosöl (1%), Rapsöl, Zitronengras (0,5%), Rosmarin'
+        ];
+        const description = 'Zusammensetzung: Süßkartoffel, Pflanzliches Glycerin aus Sonnenblumenkernen, Insektenmehl aus Hermetia-Larven, Bierhefe (6%), Kokosraspel (6%), Lecithin, Lavendel (4,5%), Krill (4%), Schwarzkümmelöl (3%), Hermetiafett, Zistrosenkraut (2%), Wermutkraut (2%), Kokosöl (1%), Rapsöl, Zitronengras (0,5%), Rosmarin';
         const productName = 'Z-Snack';
 
-        injectIngredientsSectionTLH28(imageElements, description, productName)
+        injectIngredientsSectionTLH28(imageElements, description, productName);
     }
 };
 
@@ -105,11 +105,11 @@ window.activateAbTlh028GK = () => {
             '<img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/Braun_8.png?v=1720608805" alt="Anis">',
             '<img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/Braun_9.png?v=1720608805" alt="Leinsamen">',
             '<img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/Braun_2.png?v=1720608805" alt="Kamille">'
-        ]
-        const description = 'Zusammensetzung: Süßkartoffel, Pflanzliches Glycerin (aus Sonnenblumenkernen), Insektenproteine aus Hermetia- Larven, Hagebutte (5%),  Melisse (3%), Fenchel (2,5%), Anis, Löwenzahn, Kamille, Ulmenrinde, Karotte, Leinsamen, Hermetiafett, Moor, Rosmarin'
+        ];
+        const description = 'Zusammensetzung: Süßkartoffel, Pflanzliches Glycerin (aus Sonnenblumenkernen), Insektenproteine aus Hermetia- Larven, Hagebutte (5%),  Melisse (3%), Fenchel (2,5%), Anis, Löwenzahn, Kamille, Ulmenrinde, Karotte, Leinsamen, Hermetiafett, Moor, Rosmarin';
         const productName = 'Gras-Kotfresser';
 
-        injectIngredientsSectionTLH28(imageElements, description, productName)
+        injectIngredientsSectionTLH28(imageElements, description, productName);
     }
 };
 
@@ -126,10 +126,10 @@ window.activateAbTlh028GK2 = () => {
             '<img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/Braun_8.png?v=1720608805" alt="Anis">',
             '<img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/Braun_9.png?v=1720608805" alt="Leinsamen">',
             '<img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/Braun_2.png?v=1720608805" alt="Kamille">'
-        ]
-        const description = 'Zusammensetzung: Süßkartoffel, Pflanzliches Glycerin (aus Sonnenblumenkernen), Insektenproteine aus Hermetia- Larven, Hagebutte (5%),  Melisse (3%), Fenchel (2,5%), Anis, Löwenzahn, Kamille, Ulmenrinde, Karotte, Leinsamen, Hermetiafett, Moor, Rosmarin'
+        ];
+        const description = 'Zusammensetzung: Süßkartoffel, Pflanzliches Glycerin (aus Sonnenblumenkernen), Insektenproteine aus Hermetia- Larven, Hagebutte (5%),  Melisse (3%), Fenchel (2,5%), Anis, Löwenzahn, Kamille, Ulmenrinde, Karotte, Leinsamen, Hermetiafett, Moor, Rosmarin';
         const productName = 'Gras-Kotfresser';
 
-        injectIngredientsSectionTLH28(imageElements, description, productName)
+        injectIngredientsSectionTLH28(imageElements, description, productName);
     }
 };
