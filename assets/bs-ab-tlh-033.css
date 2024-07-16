@@ -1,0 +1,13 @@
+.Product__SlideshowMobileNav--variation-b {
+    display: none;
+    padding: 10px 45px;
+}
+
+.Product__SlideshowMobileNav--hidden {
+    display: none !important;
+}
+
+.Product__SlideshowMobileNav--variation-b .flickity-prev-next-button {
+    top: 50%;
+    right: 0;
+}
