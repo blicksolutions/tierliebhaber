@@ -1,3 +1,8 @@
+section:has(.AnnouncementBar) {
+    opacity: 0;
+    transition: opacity .3s ease;
+}
+
 .announcement-bar--variation-b {
     background: #92BAA8 !important;
 }
