@@ -88,7 +88,7 @@
                 <span class="Image__Loader"></span>
 
                 <noscript>
-                  <img src="{{ media | img_url: '800x' }}" alt="{{ media.alt | escape }}" loading="lazy">
+                  <img src="{{ media | img_url: '800x' }}" alt="{{ media.alt | escape }}">
                 </noscript>
               </div>
             </div>
@@ -241,8 +241,16 @@
             </button>
           </div>
 
-          <div class="Product__SlideshowMobileNav--variation-b carousel-nav {% if section.settings.stack_images or section.settings.show_thumbnails %}hidden-desk{% endif %}" data-flickity='{ "asNavFor": ".Product__Slideshow", "contain": true, "pageDots": false, "imagesLoaded": true }'>
-            {{ slideshow_media }}
+          <div class="Product__SlideshowMobileNav--variation-b carousel-nav {% if section.settings.stack_images or section.settings.show_thumbnails %}hidden-desk{% endif %}">
+            {%- for media in product.media -%}
+     
+              {%- case media.media_type -%}
+                {%- when 'image' -%}
+                  <div id="Media{{ media.id }}" tabindex="0" class="Product__SlideItem Product__SlideItem--image Carousel__Cell {% if initial_media_id == media.id %}is-selected{% endif %}">
+                    {{ media |  image_url: width: 400 |  image_tag  }}
+                  </div>
+              {% endcase %}    
+            {% endfor %}  
           </div>
         {%- endif -%}
 
