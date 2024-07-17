@@ -502,8 +502,13 @@ $(document).ready(function(){
     recharge variant selector code
 {%- endcomment -%}
 {% if product.has_only_default_variant != true %}
+    {% assign variant_on_sale_counter = 0 %}
+    {% for variant in product.variants %}
+        {% if variant.compare_at_price > variant.price %}
+            {% assign variant_on_sale_counter = variant_on_sale_counter |  plus: 1 %}
+        {% endif %}
+    {% endfor %}
     <ul class="VariantSelector__List" data-js-variant-selector-list>
-        {% assign variant_on_sale_counter = 0 %}
         {%- for option in product.options_with_values -%}
             {% assign options_amount = option.values | size %}
 
@@ -519,7 +524,6 @@ $(document).ready(function(){
                         {% assign variant_savings = '' %}
                         {% if variant.compare_at_price > variant.price %}
                             {% assign variant_savings = variant.compare_at_price |  minus: variant.price %}
-                             {% assign variant_on_sale_counter = variant_on_sale_counter |  plus: 1 %}
                         {% endif %}
 
                         {% case request.locale.iso_code %}
@@ -558,7 +562,6 @@ $(document).ready(function(){
                 </li>
             {%- endfor -%}
         {%- endfor -%}
-
     </ul>
 
 {% endif %}

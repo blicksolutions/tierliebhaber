@@ -37,7 +37,7 @@ window.replaceVariantSelector = () => {
                     <svg class="rc-plans__usp-icon" width="21" height="21" viewBox="0 0 21 21" fill="none">
                         <path d="M8.41206 15.0238L4.17627 10.788L4.78479 10.1803L8.41206 13.8076L16.2155 6.00421L16.8231 6.61188L8.41206 15.0238Z" fill="black"/>
                     </svg>
-                    <p class="rc-plans__usp-text">
+                    <p class="rc-plans__usp-text" data-js-variant-savings-usp>
                         Du sparst ${savings}
                     </p>
                 </li>
@@ -167,15 +167,25 @@ window.replaceVariantSelector = () => {
 		const oneTimeElement = document.querySelector('[data-option-onetime]');
 
 		oneTimeElement.addEventListener('click', () => {
-			const variantWithSavings = document.querySelector('[data-js-savings]');
+			const subscriptionPlansContainer = document.querySelector('[data-plans-container]');
+			if (subscriptionPlansContainer.style.display != 'none') return;
+
+			const variantSelectorCloneInputElementContainer = document.querySelector('.VariantSelector__List[data-js-variant-selector-list][data-js-injected="true"]');
+			const variantWithSavings = variantSelectorCloneInputElementContainer.querySelectorAll('[data-js-savings]');
 			if (!variantWithSavings) return;
 
-			if (variantWithSavings.classList.contains('VariantSelector__ListItem--selected')) {
-				const savingsList = document.querySelector('[data-js-variant-savings-container]');
-				if (!savingsList) return;
+			variantWithSavings.forEach((variant) => {
+				if (variant.classList.contains('VariantSelector__ListItem--selected')) {
+					const savings = variant.getAttribute('data-js-savings');
+					const savingsList = document.querySelector('[data-js-variant-savings-container]');
+					if (!savingsList) return;
 
-				savingsList.classList.add('active');
-			}
+					const variantSavingsUsp = savingsList.querySelector('[data-js-variant-savings-usp]');
+					variantSavingsUsp.innerHTML = `Du sparst ${savings}`;
+
+					savingsList.classList.add('active');
+				}
+			});
 		});
 	};
 
@@ -253,10 +263,12 @@ window.replaceVariantSelector = () => {
 									const savings = input.getAttribute('data-js-savings');
 									const savingsListElement = document.querySelector('[data-js-variant-savings-container]');
 									const subscriptionElement = document.querySelector('[data-option-subsave]');
+									const variantSavingsUsp = savingsListElement.querySelector('[data-js-variant-savings-usp]');
 									setTimeout(manageSubscriptionFreeShipping, 50);
 
 									if (savings != undefined && !subscriptionElement.classList.contains('rc-option--active')) {
 										savingsListElement.classList.add('active');
+										variantSavingsUsp.innerHTML = `Du sparst ${savings}`;
 									} else {
 										savingsListElement.classList.remove('active');
 									}
