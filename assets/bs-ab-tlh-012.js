@@ -1,7 +1,7 @@
-window.replaceVariantSelector = () => {
+window.activateAbTlh012 = () => {
 	const uspsMarkup = () => {
 		return `
-            <ul class="rc-plans__usps" data-js-variant-usps>
+            <ul class="rc-plans__usps" data-js-tlh012-usps>
                 <li class="rc-plans__usp">
                     <svg class="rc-plans__usp-icon" width="21" height="21" viewBox="0 0 21 21" fill="none">
                         <path d="M8.41206 15.0238L4.17627 10.788L4.78479 10.1803L8.41206 13.8076L16.2155 6.00421L16.8231 6.61188L8.41206 15.0238Z" fill="black"/>
@@ -71,17 +71,17 @@ window.replaceVariantSelector = () => {
 		const plansContainer = document.querySelector('.Product__Info [data-plans-container]');
 		const radioButtonsContainer = document.querySelector('.rc-radio-group__options');
 
-		const variantSelectorElement = document.querySelector('.VariantSelector__List[data-js-variant-selector-list]');
+		const variantSelectorElement = document.querySelector('.VariantSelector__List[data-js-tlh-012-variant-selector-list]');
 
-		if (plansContainer.getAttribute('data-js-variant-selector-replaced') != 'true' && !variantSelectorElement == false) {
+		if (plansContainer.getAttribute('data-js-variant-b') != 'true' && !variantSelectorElement == false) {
 			const variantSelectorElementClone = variantSelectorElement.cloneNode(true);
-			const variantSelectorCloneInputElements = variantSelectorElementClone.querySelectorAll('[data-js-variant-selector-item]');
+			const variantSelectorCloneInputElements = variantSelectorElementClone.querySelectorAll('[data-js-tlh-012-variant-selector-item]');
 
 			variantSelectorCloneInputElements.forEach((element) => {
 				element.addEventListener('click', handleVariantChange);
 			});
 			// prevent markup from being inserted twice
-			plansContainer.setAttribute('data-js-variant-selector-replaced', 'true');
+			plansContainer.setAttribute('data-js-variant-b', 'true');
 			plansContainer.insertAdjacentHTML('beforeend', uspsMarkup());
 			variantSelectorElementClone.setAttribute('data-js-injected', true);
 			radioButtonsContainer.after(variantSelectorElementClone);
@@ -149,10 +149,10 @@ window.replaceVariantSelector = () => {
 					savingsList.classList.add('active');
 				}
 			}
-		} else if (plansContainer.getAttribute('data-js-variant-selector-replaced') != 'true') {
-			plansContainer.setAttribute('data-js-variant-selector-replaced', 'true');
+		} else if (plansContainer.getAttribute('data-js-variant-b') != 'true') {
+			plansContainer.setAttribute('data-js-variant-b', 'true');
 			plansContainer.insertAdjacentHTML('beforeend', uspsMarkup());
-			radioButtonsContainer.classList.add('variant-selector--round-corners');
+			radioButtonsContainer.classList.add('tlh22--round-corners');
 		}
 
 		const subscriptionElement = document.querySelector('[data-option-subsave]');
@@ -243,7 +243,7 @@ window.replaceVariantSelector = () => {
 					variantSelectorInputElements.forEach((inputElement) => {
 						inputElement.addEventListener('change', (event) => {
 							const selectedValue = event.target.getAttribute('value');
-							const clonedVariantInputs = document.querySelectorAll('.VariantSelector__List[data-js-variant-selector-list=""][data-js-injected="true"] [data-js-variant-selector-item]');
+							const clonedVariantInputs = document.querySelectorAll('.VariantSelector__List[data-js-tlh-012-variant-selector-list=""][data-js-injected="true"] [data-js-tlh-012-variant-selector-item]');
 
 							clonedVariantInputs.forEach((input) => {
 								const value = input.getAttribute('data-js-option-value');
@@ -269,6 +269,7 @@ window.replaceVariantSelector = () => {
 				}
 
 				const rechargeWrapper = entry.target.querySelector('.Product__Info [data-widget-container-wrapper]');
+				rechargeWrapper.setAttribute('tlh012-variant', 'b');
 
 				const subscribeText = entry.target.querySelector('.Product__Info [data-label-text-subsave]');
 				subscribeText.innerText = 'Abonnieren';
@@ -289,9 +290,9 @@ window.replaceVariantSelector = () => {
 				const planOptions = entry.target.querySelectorAll('.Product__Info [data-plan-option]');
 
 				planOptions.forEach((option) => {
-					if (option.getAttribute('data-js-variant-selector-replaced') == 'true') return;
+					if (option.getAttribute('data-js-variant-b') == 'true') return;
 					option.innerText = 'Lieferung ' + option.innerText.replace('Alle', 'alle');
-					option.setAttribute('data-js-variant-selector-replaced', 'true');
+					option.setAttribute('data-js-variant-b', 'true');
 				});
 			}
 
@@ -319,4 +320,4 @@ window.replaceVariantSelector = () => {
 		});
 	}
 };
-document.addEventListener('DOMContentLoaded', window.replaceVariantSelector);
+document.addEventListener('DOMContentLoaded', window.activateAbTlh012);
