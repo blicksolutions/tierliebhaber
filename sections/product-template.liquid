@@ -88,7 +88,7 @@
                 <span class="Image__Loader"></span>
 
                 <noscript>
-                  <img src="{{ media | img_url: '800x' }}" alt="{{ media.alt | escape }}">
+                  <img src="{{ media | img_url: '800x' }}" alt="{{ media.alt | escape }}" loading="lazy">
                 </noscript>
               </div>
             </div>
@@ -199,7 +199,8 @@
           "watchCSS": true,
           "dragThreshold": 8,
           "initialIndex": {{ initial_media_index }},
-          "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25}
+          "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25},
+          "asNavFor": ".Product__SlideshowMobileNav--variation-b"
         }
         {%- endcapture -%}
 
