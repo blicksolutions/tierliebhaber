@@ -15,37 +15,6 @@
 	const variantSelectorItems = document.querySelectorAll('.SizeSwatchList .HorizontalList__Item .SizeSwatch__Radio[name]');
 	const pageOverlay = document.querySelector('[data-js-sticky-atc-overlay]');
 
-	const getCookie = (name) => {
-		let documentCookies = document.cookie;
-		let prefix = name + '=';
-		let begin = documentCookies.indexOf('; ' + prefix);
-		let end;
-
-		if (begin == -1) {
-			begin = documentCookies.indexOf(prefix);
-			if (begin != 0) return null;
-		} else {
-			begin += 2;
-			end = document.cookie.indexOf(';', begin);
-			if (end == -1) {
-				end = documentCookies.length;
-			}
-		}
-		return decodeURI(documentCookies.substring(begin + prefix.length, end));
-	};
-
-	const moveForCookieBanner = () => {
-		const checkCookie = getCookie('cookies');
-
-		if (!checkCookie) {
-			stickyAtcContainer.classList.add('ProductMeta__StickyATC--HigherPosition');
-
-			document.addEventListener('cookiesInteracted', () => {
-				stickyAtcContainer.classList.remove('ProductMeta__StickyATC--HigherPosition');
-			});
-		}
-	};
-
 	const closeStickyAtcModal = () => {
 		stickyVariantSelector.classList.remove('open');
 		pageOverlay.classList.remove('is-visible');
@@ -149,6 +118,4 @@
 			}
 		}
 	});
-
-	moveForCookieBanner();
 })();
