@@ -241,7 +241,7 @@
             </button>
           </div>
 
-          <div class="Product__SlideshowMobileNav--variation-b carousel carousel-nav {% if section.settings.stack_images or section.settings.show_thumbnails %}hidden-desk{% endif %}" data-flickity='{ "asNavFor": ".carousel-main", "contain": true, "pageDots": false, "groupCells": 6 }'>
+          <div class="Product__SlideshowMobileNav--variation-b carousel-nav {% if section.settings.stack_images or section.settings.show_thumbnails %}hidden-desk{% endif %}" data-flickity='{ "asNavFor": ".Product__Slideshow", "contain": true, "pageDots": false, "imagesLoaded": true }'>
             {{ slideshow_media }}
           </div>
         {%- endif -%}

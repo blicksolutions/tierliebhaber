@@ -11,3 +11,8 @@
     top: 50%;
     right: 0;
 }
+
+.Product__SlideshowMobileNav--variation-b .Product__SlideItem {
+    height: 40px;
+    width: 40px;
+  }
