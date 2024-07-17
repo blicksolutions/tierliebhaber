@@ -9,10 +9,26 @@
 
 .Product__SlideshowMobileNav--variation-b .flickity-prev-next-button {
     top: 50%;
+    background: none;
+    box-shadow: none;
+    color: #525252;
+    transform: translateY(-50%);
+}
+
+.Product__SlideshowMobileNav--variation-b .flickity-prev-next-button svg {
+    height: 14px;
+}
+
+.Product__SlideshowMobileNav--variation-b .flickity-prev-next-button.previous {
+    left: 0;
+}
+
+.Product__SlideshowMobileNav--variation-b .flickity-prev-next-button.next {
     right: 0;
 }
 
 .Product__SlideshowMobileNav--variation-b .Product__SlideItem {
     height: 40px;
     width: 40px;
+    background: red;
   }
