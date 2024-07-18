@@ -2,6 +2,7 @@
 Those are the option names for which we automatically detect swatch. For the color, we use them to display a swatch, while
 for size, we use it to display a size chart (if applicable)
 {%- endcomment -%}
+<script src="{{ 'bs-recharge-variant-selector.js' | asset_url }}"></script>
 
 <script>
 $(document).ready(function(){
@@ -498,15 +499,20 @@ $(document).ready(function(){
 
 {%- comment -%}
     esthetic-ignore
-    AB-Test code
+    recharge variant selector code
 {%- endcomment -%}
-<script>console.log('product.has_only_default_variant', {{ product.has_only_default_variant | json }})</script>
 {% if product.has_only_default_variant != true %}
-    <ul class="VariantSelector__List" data-js-tlh-012-variant-selector-list>
+    {% assign variant_on_sale_counter = 0 %}
+    {% for variant in product.variants %}
+        {% if variant.compare_at_price > variant.price %}
+            {% assign variant_on_sale_counter = variant_on_sale_counter |  plus: 1 %}
+        {% endif %}
+    {% endfor %}
+    <ul class="VariantSelector__List" data-js-variant-selector-list>
         {%- for option in product.options_with_values -%}
             {% assign options_amount = option.values | size %}
 
-            {% if options_amount > 2 %}
+            {% if options_amount != 2 %}
                 {% assign full_width_options = true %}
             {% else %}
                 {% assign full_width_options = false %}
@@ -540,8 +546,8 @@ $(document).ready(function(){
                 {% endfor %}
                 
                 <li 
-                    class="VariantSelector__ListItem {% if value == option.selected_value %}VariantSelector__ListItem--selected{% endif %} {% if full_width_options == true %}VariantSelector__ListItem--full-width{% endif %}" 
-                    data-js-tlh-012-variant-selector-item data-js-option-value="{{ value | escape }}" 
+                    class="VariantSelector__ListItem {% if value == option.selected_value %}VariantSelector__ListItem--selected{% endif %} {% if full_width_options == true or variant_on_sale_counter > 1 %}VariantSelector__ListItem--full-width{% endif %}" 
+                    data-js-variant-selector-item data-js-option-value="{{ value | escape }}" 
                     {% if variant_savings != blank %} data-js-savings="{{ variant_savings | money }}" {% endif %}
                     {% if free_shipping != blank %} data-js-free-shipping="{{ free_shipping }}" {% endif %}
                     >
@@ -557,10 +563,11 @@ $(document).ready(function(){
             {%- endfor -%}
         {%- endfor -%}
     </ul>
+
 {% endif %}
 {%- comment -%}
     esthetic-ignore
-    AB-Test code
+    recharge variant selector code
 {%- endcomment -%}
 
 {%- comment -%}
