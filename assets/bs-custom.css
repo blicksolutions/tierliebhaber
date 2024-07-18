@@ -178,6 +178,12 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 
 @media (min-width: 768px) {
     .ProductMeta__StickyATC.ProductMeta__StickyATC--HigherPosition {
+        bottom: 150px;
+    }
+}
+
+@media (min-width: 1025px) {
+    .ProductMeta__StickyATC.ProductMeta__StickyATC--HigherPosition {
         bottom: 95px;
     }
 }
@@ -399,6 +405,7 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 }
 
 /* fix slideshow image slidein */
-#Slideslide-0, #Slideslide-0 .Slideshow__Image  {
+#Slideslide-0,
+#Slideslide-0 .Slideshow__Image {
     opacity: 1 !important;
 }

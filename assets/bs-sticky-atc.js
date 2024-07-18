@@ -35,13 +35,22 @@
 	};
 
 	const moveForCookieBanner = () => {
-		const checkCookie = getCookie('cookies');
+		const checkCookie = getCookie('cookieconsent_status');
 
 		if (!checkCookie) {
 			stickyAtcContainer.classList.add('ProductMeta__StickyATC--HigherPosition');
+			const cookieBannerInjectionParent = document.querySelector('.SOYR0oPj0Q6UOw2AemzM');
+			const mutationObserver = new MutationObserver((entries) => {
+				const checkCookie = getCookie('cookieconsent_status');
+				if (!checkCookie) return;
 
-			document.addEventListener('cookiesInteracted', () => {
 				stickyAtcContainer.classList.remove('ProductMeta__StickyATC--HigherPosition');
+			});
+
+			mutationObserver.observe(cookieBannerInjectionParent, {
+				childList: true,
+				subtree: true,
+				attributes: true,
 			});
 		}
 	};
@@ -116,6 +125,7 @@
 		const atcButtonPosition = atcButton.getBoundingClientRect();
 
 		if (atcButtonPosition.top < 0) {
+			moveForCookieBanner();
 			stickyAtcContainer.classList.add('active');
 
 			if (window.innerWidth < 768) {
