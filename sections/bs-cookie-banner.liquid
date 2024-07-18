@@ -1,0 +1,160 @@
+{{ "bs-cookie-banner.css" | asset_url | stylesheet_tag }}
+<script type="text/javascript" src="{{ 'bs-cookie-banner.js' | asset_url }}" defer></script>
+
+
+<section class="cookie-banner__container" data-js-cookie-banner>
+    <p class="cookie-banner__text">
+        {{ section.settings.banner_text }}
+        <a href="{{ section.settings.link }}" class="cookie-banner__link">
+            {{ section.settings.link_text }}
+        </a>
+    </p>
+    <div class="cookie-banner__button-container">
+        <button class="Button Button--secondary cookie-banner__button" data-js-cookie-banner-settings-button>
+            {{ section.settings.banner_settings_button_text }}
+        </button>
+    
+        <button class="Button Button--primary cookie-banner__button" data-js-cookie-banner-accept-all-button>
+            {{ section.settings.banner_accept_all_button_text }}
+        </button>
+    </div>
+</section>
+
+<div class="cookie-banner__modal cookie-banner__modal--hidden" data-js-cookie-modal>
+    <div class="cookie-banner__heading-container">
+        <h3 class="cookie-banner__heading">
+            {{ section.settings.modal_heading }}
+        </h3>
+        <svg class="cookie-banner__close-button" width="15" height="15" viewBox="0 0 15 15" fill="none" data-js-cookie-modal-close-button>
+            <line y1="-0.5" x2="19.6229" y2="-0.5" transform="matrix(0.700705 0.713451 -0.700705 0.713451 0 1.00003)" stroke="black"/>
+            <line y1="-0.5" x2="19.6229" y2="-0.5" transform="matrix(0.700705 -0.713451 0.700705 0.713451 1.25024 15)" stroke="black"/>
+        </svg>
+    </div>
+
+    <ul class="cookie-banner__settings-list">
+        {% for block in section.blocks %}
+            <li class="cookie-banner__setting">
+                <div class="cookie-banner__setting-input">
+                    <label class="cookie-banner__label">
+                        <input 
+                            type="checkbox" 
+                            class="cookie-banner__checkbox" 
+                            {% if forloop.first %}
+                                checked
+                                disabled
+                            {% endif %}
+                        >
+                        <div class="cookie-banner__checkmark"></div>
+
+                        {{ block.settings.name }}
+
+                    </label>
+                </div>
+
+                <p class="cookie-banner__setting-description">
+                    {{ block.settings.description | newline_to_br }}
+                </p>
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="cookie-banner__modal-button-container">
+        <button class="Button Button--secondary cookie-banner__button" data-js-cookie-modal-save-button>
+            {{ section.settings.modal_save_button_text }}
+        </button>
+    
+        <button class="Button Button--primary cookie-banner__button" data-js-cookie-modal-accept-all-button>
+            {{ section.settings.modal_accept_all_button_text }}
+        </button>
+    </div>
+    <p class="cookie-banner__disclaimer">
+        {{ section.settings.disclaimer }}
+    </p>
+</div>
+{% schema %}
+    {
+        "name": "BS Cookie Banner",
+        "tag": "section",
+        "settings": [
+            {
+                "type": "text",
+                "default": "Einstellungen",
+                "id": "banner_settings_button_text",
+                "label": "Settings Button Text"
+            },
+            {
+                "type": "text",
+                "default": "Alle akzeotieren",
+                "id": "banner_accept_all_button_text",
+                "label": "Accept All Button Text"
+            },
+            {
+                "type": "text",
+                "id": "banner_text",
+                "label": "Banner text"
+            },
+            {
+                "type": "url",
+                "id": "link",
+                "label": "Link"
+            },
+            {
+                "type": "text",
+                "id": "link_text",
+                "label": "Link text"
+            },
+            {
+                "type": "header",
+                "content": "Modal"
+            },
+            {
+                "type": "text",
+                "id": "modal_heading",
+                "label": "Modal Heading",
+                "default": "Cookie Einstellungen"
+            },
+            {
+                "type": "text",
+                "default": "Speichern",
+                "id": "modal_save_button_text",
+                "label": "Save Button Text"
+            },
+            {
+                "type": "text",
+                "default": "Alle akzeptieren",
+                "id": "modal_accept_all_button_text",
+                "label": "Accept All Button Text"
+            },
+            {
+                "type": "text",
+                "default": "*Indem du auf “Alle akzeptieren” klickst, erklärst du dich damit einverstanden, dass deine IP-Adresse und deine E-Mail-Adresse (falls registriert) erfasst werden.",
+                "id": "disclaimer",
+                "label": "Disclaimer Text"
+            }
+        ],
+        "max_blocks": 6,
+        "class": "cookie-banner cookie-banner--hidden",
+        "blocks": [
+            {
+                "type": "setting",
+                "name": "Setting",
+                "settings":[
+                    {
+                        "type": "text",
+                        "id": "name",
+                        "label": "Name"
+                    },
+                    {
+                        "type": "textarea",
+                        "id": "description",
+                        "label": "Description"
+                    }
+                ]                
+            }
+        ],
+        "presets": [
+            {
+                "name": "BS Cookie Banner"
+            }
+        ]
+    }
+{% endschema %}

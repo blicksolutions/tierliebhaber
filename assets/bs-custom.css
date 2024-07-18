@@ -172,6 +172,16 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
     transition: bottom 150ms ease-out;
 }
 
+.ProductMeta__StickyATC.ProductMeta__StickyATC--HigherPosition {
+    bottom: 205px;
+}
+
+@media (min-width: 768px) {
+    .ProductMeta__StickyATC.ProductMeta__StickyATC--HigherPosition {
+        bottom: 95px;
+    }
+}
+
 .ProductMeta__StickyATCOverlay {
     position: fixed;
     top: -100vh;
@@ -262,6 +272,17 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 
 .StickyATC__VariantSelector.open {
     bottom: -1px;
+}
+
+.ProductMeta__StickyATC.ProductMeta__StickyATC--HigherPosition .StickyATC__VariantSelector.open {
+    bottom: 189px;
+    ;
+}
+
+@media (min-width: 768px) {
+    .ProductMeta__StickyATC.ProductMeta__StickyATC--HigherPosition .StickyATC__VariantSelector.open {
+        bottom: -1px;
+    }
 }
 
 .VariantSelector__Heading {
@@ -378,7 +399,6 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 }
 
 /* fix slideshow image slidein */
-#Slideslide-0,
-#Slideslide-0 .Slideshow__Image {
+#Slideslide-0, #Slideslide-0 .Slideshow__Image  {
     opacity: 1 !important;
 }
