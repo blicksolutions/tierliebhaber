@@ -46,6 +46,6 @@
     transition: border-color .3s ease;
 }
 
-.Product__SlideshowMobileNav--variation-b .Product__SlideItem.is-selected img {
+.Product__SlideshowMobileNav--variation-b .Product__SlideItem.is-nav-selected img {
 	border-color: #F1AF9E;
 }
