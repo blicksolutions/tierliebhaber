@@ -303,19 +303,19 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 }
 
 @media (min-width: 438px) {
-    .ProductMeta__StickyATC.ProductMeta__StickyATC--HigherPosition {
+    .ProductMeta__StickyATC.ProductMeta__StickyATC--HigherPosition .StickyATC__VariantSelector.open {
         bottom: 209px;
     }
 }
 
 @media (min-width: 501px) {
-    .ProductMeta__StickyATC.ProductMeta__StickyATC--HigherPosition {
+    .ProductMeta__StickyATC.ProductMeta__StickyATC--HigherPosition .StickyATC__VariantSelector.open {
         bottom: 166px;
     }
 }
 
 @media (min-width: 585px) {
-    .ProductMeta__StickyATC.ProductMeta__StickyATC--HigherPosition {
+    .ProductMeta__StickyATC.ProductMeta__StickyATC--HigherPosition .StickyATC__VariantSelector.open {
         bottom: 140px;
     }
 }
