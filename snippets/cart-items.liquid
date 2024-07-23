@@ -163,7 +163,11 @@
           {% endunless %}
 
           {% if line_item.product.tags contains 'free-gift' %}
-              <span class="gift__text">Dein Geschenk</span>
+              <span class="gift__text gift__text--version-a">Dein Geschenk</span>
+          {% endif %}
+          
+          {% if line_item.product.tags contains 'free-gift' %}
+              <span class="gift__text gift__text--version-b">Gratis Geschenk (13.90€)</span>
           {% endif %}
 
         {%- capture item_actions -%}
