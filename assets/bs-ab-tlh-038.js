@@ -1,21 +1,21 @@
 window.activateAbTlh038 = () => {
-    const giftTextSwitch = () => {
-        const versionA = document.querySelector(".gift__text--version-a");
-        const versionB = document.querySelector(".gift__text--version-b");
-    
-        if(versionA && versionB) {
-            versionA.style.display = "none";
-            versionB.style.display = "block";
-        }
-    }
+	const setGiftStepVisibility = () => {
+		const giftIcon = document.querySelector(".CartMessage__StepsLines__Gift img");
+		const giftInfo = document.querySelector(".CartMessage__StepsLines__Gift span");
 
-    giftTextSwitch();
+		if (giftIcon && giftInfo) {
+			giftIcon.style.display = "none";
+			giftInfo.style.display = "block";
+		}
+	};
 
-    document.addEventListener("rerenderingFinished", () => {
-        giftTextSwitch();
-    });
+	setGiftStepVisibility();
+
+	document.addEventListener("rerenderingFinished", () => {
+		setGiftStepVisibility();
+	});
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-    window.activateAbTlh038();
-})
+	window.activateAbTlh038();
+});

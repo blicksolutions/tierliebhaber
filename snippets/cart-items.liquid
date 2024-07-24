@@ -1,5 +1,3 @@
-<script src="{{ 'bs-cart-items.js' |  asset_url }}" defer></script>
-
 {%- assign for_drawer = true -%}
 
 {%- if template == 'cart' or template == 'cart.ajax' -%}
@@ -165,11 +163,7 @@
           {% endunless %}
 
           {% if line_item.product.tags contains 'free-gift' %}
-              <span class="gift__text gift__text--version-a">Dein Geschenk</span>
-          {% endif %}
-          
-          {% if line_item.product.tags contains 'free-gift' %}
-              <span class="gift__text gift__text--version-b">Gratis Geschenk (13.90€)</span>
+              <span class="gift__text">Dein Geschenk</span>
           {% endif %}
 
         {%- capture item_actions -%}

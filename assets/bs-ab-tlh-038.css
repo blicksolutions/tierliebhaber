@@ -1,4 +1,7 @@
-.gift__text {
-    opacity: 0;
-    transition: opacity .3s ease;
+.CartMessage__StepsLines__Gift span {
+    display: none;
+    position: absolute;
+    width: max-content;
+    transform: translateX(-75%) translateY(80%);
+    font-size: 10px;
 }
