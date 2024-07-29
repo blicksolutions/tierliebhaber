@@ -9,7 +9,7 @@
   {%- assign show_price = true-%}
 {%- endif -%}
 
-<div class="ProductMeta">
+<div class="ProductMeta" {% if product.metafields.badge.text == 'Bestseller' %} data-js-bestseller="true" {% endif %}>
   {%- if section.settings.show_vendor and product.vendor != blank -%}
     <h2 class="ProductMeta__Vendor Heading u-h6">
       {%- assign vendor_handle = product.vendor | handle -%}
@@ -23,7 +23,7 @@
     </h2>
   {%- endif -%}
 
-  <div class="ProductBadges" {%- if product.metafields.badge.text contains 'bestseller' -%} data-js-bestseller="true" {%- endif -%}>
+  <div class="ProductBadges">
     {%- if product.metafields.badge.text -%}
       {%- render 'product-badge', product: product -%}
     {%- endif -%}
