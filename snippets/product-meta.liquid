@@ -23,7 +23,7 @@
     </h2>
   {%- endif -%}
 
-  <div class="ProductBadges">
+  <div class="ProductBadges" {%- if product.metafields.badge.text contains 'bestseller' -%} data-js-bestseller="true" {%- endif -%}>
     {%- if product.metafields.badge.text -%}
       {%- render 'product-badge', product: product -%}
     {%- endif -%}
