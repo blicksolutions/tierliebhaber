@@ -10,7 +10,3 @@ window.activateAbTlh033 = () => {
 		cellAlign: 'left'
 	  });
 };
-
-document.addEventListener("DOMContentLoaded", () => {
-    window.activateAbTlh033();
-});
