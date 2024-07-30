@@ -9,10 +9,10 @@
 */
 {
   "current": {
-    "donations_amount": 73119,
+    "donations_amount": 75022,
     "donation_goal": 100000,
     "total_text": "",
-    "total_number": "Bisher gespendet seit 2022: €73.119",
+    "total_number": "Bisher gespendet seit 2022: €75.022",
     "heading_color": "#1c1b1b",
     "text_color": "#1c1b1b",
     "text_light_color": "#6a6a6a",
@@ -96,7 +96,7 @@
             "type": "Top_Bar",
             "settings": {
               "top_svg": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n                                    <path d=\"M20.6243 3.72799C20.619 3.6363 20.5801 3.54978 20.5152 3.48484C20.4502 3.41989 20.3637 3.38104 20.272 3.37565C13.2601 2.96298 7.65878 5.05262 5.28927 8.9649C3.66583 11.6454 3.75454 14.8224 5.53062 17.9391L3.48481 19.9849C3.41449 20.0552 3.37499 20.1506 3.375 20.25C3.375 20.2993 3.38471 20.348 3.40356 20.3935C3.42241 20.439 3.45003 20.4804 3.48486 20.5152C3.51968 20.55 3.56102 20.5776 3.60652 20.5965C3.65202 20.6153 3.70078 20.625 3.75002 20.625C3.84948 20.625 3.94486 20.5855 4.01517 20.5151L6.06117 18.4692C7.69486 19.4001 9.34478 19.8682 10.9315 19.8682C12.3801 19.8691 13.8005 19.4685 15.0351 18.7107C18.9474 16.3413 21.0368 10.7402 20.6243 3.72799ZM14.6465 18.0692C12.2612 19.5139 9.42383 19.4557 6.61227 17.9181L15.2652 9.26519C15.3354 9.19484 15.3748 9.09948 15.3748 9.00007C15.3747 8.90066 15.3352 8.80534 15.2649 8.73505C15.1947 8.66475 15.0993 8.62524 14.9999 8.6252C14.9005 8.62516 14.8052 8.66459 14.7348 8.73483L6.08195 17.3877C4.54434 14.5761 4.48611 11.7387 5.93077 9.35345C8.11668 5.74426 13.3206 3.79427 19.8934 4.10656C20.2061 10.6788 18.2558 15.8833 14.6465 18.0692Z\" stroke=\"#504F4D\"><\/path>\n                                <\/svg>",
-              "title": "Natürliche Formeln mit Tierärzten entwickeln"
+              "title": "Natürliche Formeln mit Tierärzten entwickelt"
             }
           }
         },
@@ -1384,7 +1384,7 @@
       "cart-drawer": {
         "type": "cart-drawer",
         "settings": {
-          "enable_gift": false,
+          "enable_gift": true,
           "gift_min_price": 85,
           "gift_product": "goodie-drops-2",
           "message_gift_icon": "shopify:\/\/shop_images\/image_7.png",
@@ -1590,40 +1590,6 @@
         "settings": {
         }
       },
-      "bs-cookie-banner": {
-        "type": "bs-cookie-banner",
-        "blocks": {
-          "cc64eee5-2a84-437e-9e70-9cb4492d854c": {
-            "type": "setting",
-            "settings": {
-              "name": "Essentiell",
-              "description": "Essenzielle Cookies ermöglichen grundlegende Funktionen und sind für die einwandfreie Funktion der Website erforderlich."
-            }
-          },
-          "9d46ea7f-d630-470d-8587-c5f5f662154f": {
-            "type": "setting",
-            "settings": {
-              "name": "Statistik",
-              "description": "Statistik-Cookies helfen Webseiten-Besitzern zu verstehen, wie Besucher mit Webseiten interagieren, indem Informationen anonym gesammelt und gemeldet werden."
-            }
-          }
-        },
-        "block_order": [
-          "cc64eee5-2a84-437e-9e70-9cb4492d854c",
-          "9d46ea7f-d630-470d-8587-c5f5f662154f"
-        ],
-        "settings": {
-          "banner_settings_button_text": "Einstellungen",
-          "banner_accept_all_button_text": "Alle akzeptieren",
-          "banner_text": "Die Webseite nutzt Cookies, um sicherzustellen, dass du das beste Nutzererlebnis in unserem Store hast.",
-          "link": "shopify:\/\/policies\/privacy-policy",
-          "link_text": "Datenschutzerklärung",
-          "modal_heading": "Cookie Einstellungen",
-          "modal_save_button_text": "Speichern",
-          "modal_accept_all_button_text": "Alle akzeptieren",
-          "disclaimer": "*Indem du auf “Alle akzeptieren” klickst, erklärst du dich damit einverstanden, dass deine IP-Adresse und deine E-Mail-Adresse (falls registriert) erfasst werden."
-        }
-      },
       "page-contact-template": {
         "type": "page-contact-template",
         "blocks": {
@@ -1774,9 +1740,15 @@
         "settings": {
         }
       },
+      "2153490007123654574": {
+        "type": "shopify:\/\/apps\/consentmo-gdpr\/blocks\/gdpr_cookie_consent\/4fbe573f-a377-4fea-9801-3ee0858cae41",
+        "disabled": false,
+        "settings": {
+        }
+      },
       "11724500921838622758": {
         "type": "shopify:\/\/apps\/frequently-bought\/blocks\/app-embed-block\/b1a8cbea-c844-4842-9529-7c62dbab1b1f",
-        "disabled": false,
+        "disabled": true,
         "settings": {
         }
       }
