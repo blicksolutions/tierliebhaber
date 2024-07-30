@@ -15,7 +15,3 @@ window.activateAbTlh038 = () => {
 		setGiftStepVisibility();
 	});
 };
-
-document.addEventListener("DOMContentLoaded", () => {
-	window.activateAbTlh038();
-});
