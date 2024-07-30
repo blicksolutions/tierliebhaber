@@ -240,6 +240,18 @@
               {% render 'icon' with 'media-arrow-right' %}
             </button>
           </div>
+
+          <div class="Product__SlideshowMobileNav--variation-b carousel-nav {% if section.settings.stack_images or section.settings.show_thumbnails %}hidden-desk{% endif %}">
+            {%- for media in product.media -%}
+     
+              {%- case media.media_type -%}
+                {%- when 'image' -%}
+                  <div id="Media{{ media.id }}" tabindex="0" class="Product__SlideItem Product__SlideItem--image Carousel__Cell {% if initial_media_id == media.id %}is-selected{% endif %}">
+                    {{ media |  image_url: width: 400 |  image_tag  }}
+                  </div>
+              {% endcase %}    
+            {% endfor %}  
+          </div>
         {%- endif -%}
 
         {%- unless section.settings.stack_images -%}
