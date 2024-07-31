@@ -854,3 +854,49 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
     background: rgba(212, 175, 55, 0.10);
     color: #D4AF37;
 }
+
+.template-index #shopify-section-header {
+    z-index: 10;
+}
+
+.template-index [data-drawer-id-opened="sidebar-cart"] .PageOverlay {
+    z-index: 11;
+}
+
+@media screen and (max-width: 641px) {
+    .template-index #shopify-section-header .Header__Icon[data-action="toggle-search"] {
+        display: none;
+    }
+
+    .template-index #shopify-section-header {
+        display: flex;
+        flex-direction: column-reverse;
+        z-index: 5;
+    }
+
+    .template-index #shopify-section-header .Search {
+        padding: 10px 16px;
+        position: relative;
+        border-bottom: 1px solid var(--Special-Stroke, #CCC);
+        background: var(--Background-Variation, #F5F5F5);
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .template-index #shopify-section-header .Search .Search__Inner {
+        padding: 10px 15px;
+        border-radius: 25px;
+        border: 1px solid var(--Special-Stroke, #CCC);
+        background: var(--Static-White, #FFF);
+        box-shadow: 0px -2px 0px 0px #EEE inset, 0px 2px 0px 0px #F4F4F4 inset;
+    }
+
+    .template-index #shopify-section-header .Search .Search__Inner .Search__Input {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+    }
+}

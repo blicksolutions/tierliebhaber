@@ -1,4 +1,4 @@
-window.activateAbTlh026 = () => {
+document.addEventListener('DOMContentLoaded', () => {
 	const body = document.querySelector('body');
 
 	if (body.classList.contains('template-index')) {
@@ -39,4 +39,4 @@ window.activateAbTlh026 = () => {
 			}
 		});
 	}
-};
+});
