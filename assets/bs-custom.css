@@ -854,3 +854,8 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
     background: rgba(212, 175, 55, 0.10);
     color: #D4AF37;
 }
+
+/* cart hotfix */
+.CartMessage__Steps {
+    display: none;
+}
