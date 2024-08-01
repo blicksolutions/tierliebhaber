@@ -3,4 +3,3 @@ window.activateAbTlh039 = () => {
 
 	pageContainer.setAttribute('data-js-tlh-039', 'true');
 };
-document.addEventListener('DOMContentLoaded', window.activateAbTlh039);
