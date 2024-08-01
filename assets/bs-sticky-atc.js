@@ -41,12 +41,14 @@
 			stickyAtcContainer.classList.add('ProductMeta__StickyATC--HigherPosition');
 			const bodyElement = document.querySelector('body');
 			const mutationObserver = new MutationObserver((entries) => {
-				if (entry.target.classList.contains('SOYR0oPj0Q6UOw2AemzM')) {
-					const checkCookie = getCookie('cookieconsent_status');
-					if (!checkCookie) return;
+				entries.forEach((entry) => {
+					if (entry.target.classList.contains('SOYR0oPj0Q6UOw2AemzM')) {
+						const checkCookie = getCookie('cookieconsent_status');
+						if (!checkCookie) return;
 
-					stickyAtcContainer.classList.remove('ProductMeta__StickyATC--HigherPosition');
-				}
+						stickyAtcContainer.classList.remove('ProductMeta__StickyATC--HigherPosition');
+					}
+				});
 			});
 
 			mutationObserver.observe(bodyElement, {
