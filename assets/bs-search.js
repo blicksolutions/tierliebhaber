@@ -1,11 +1,9 @@
-window.activateAbTlh026 = () => {
+document.addEventListener('DOMContentLoaded', () => {
 	const body = document.querySelector('body');
 
 	if (body.classList.contains('template-index')) {
 		const header = document.querySelector('#shopify-section-header');
 		if (!header) return;
-
-		header.setAttribute('data-js-tlh-026', 'true');
 
 		const search = header.querySelector('#Search');
 		if (!search) return;
@@ -39,4 +37,4 @@ window.activateAbTlh026 = () => {
 			}
 		});
 	}
-};
+});
