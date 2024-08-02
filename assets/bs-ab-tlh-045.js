@@ -1,13 +1,10 @@
 const changeShippingColor = () => {
 	setTimeout(() => {
 		const shippingCostElement = document.querySelector('.Drawer__Footer__Delivery');
-		console.log('shippingCostElement', shippingCostElement);
 		const subTotalElement = document.querySelector('.Drawer__Footer__SubtotalPrice');
-		console.log('subTotalElement', subTotalElement);
 		if (!subTotalElement) return;
 
 		const price = parseFloat(subTotalElement.getAttribute('data-price').replace('€', '').replace(',', '.'));
-		console.log('price', price);
 
 		switch (window.Shopify.locale) {
 			case 'de':
@@ -38,5 +35,3 @@ window.activateAbTlh045 = () => {
 	changeShippingColor();
 	document.addEventListener('rerenderCart', changeShippingColor);
 };
-
-document.addEventListener('DOMContentLoaded', window.activateAbTlh045);
