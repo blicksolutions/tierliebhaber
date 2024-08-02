@@ -84,6 +84,7 @@
               <span class="CartMessage__StepsLines__Gift" style="right: 0; display: none">
                 <img src="{{ section.settings.message_gift_icon | img_url: '32x32' }}"
                      alt="{{ section.settings.message_gift_icon.alt | escape }}">
+                     <span>Gratis Geschenk (13.90€)</span>
               </span>
           </div>
         </div>
@@ -186,7 +187,7 @@
           <div class="Drawer__Footer__Subtotal">
             <small class="Drawer__Footer__SubtotalLabel">{{ 'cart.general.subtotal' | t }}</small> 
             <span class="Drawer__Footer__SubtotalPrice" data-price="{{ cart.total_price | money }}">
-              {{ cart.total_price | money }}
+              <span>{{ cart.total_price | money }}</span>
               <div class="Drawer__Footer__SubtotalPrice__Visible"></div>
             </span>
           </div>

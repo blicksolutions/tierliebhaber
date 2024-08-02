@@ -1,4 +1,4 @@
-<div class="ProductItem {% if use_horizontal %}ProductItem--horizontal{% endif %}" {% if product.metafields.badge.text contains 'Bestseller' %}data-js-bestseller{% endif %} data-js-product-item=>
+<div class="ProductItem {% if use_horizontal %}ProductItem--horizontal{% endif %}" data-js-product-item>
   <div class="ProductItem__Wrapper {% if product.metafields.badge.text contains 'Bestseller' %}ProductBadge__Bestseller{% endif %}">
     {%- comment -%}
     We are using LazySizes to efficiently choose the most appropriate image in the set. However, because internally LazySizes uses srcset, we need to make

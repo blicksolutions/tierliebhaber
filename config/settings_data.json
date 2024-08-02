@@ -9,10 +9,10 @@
 */
 {
   "current": {
-    "donations_amount": 75022,
+    "donations_amount": 75723,
     "donation_goal": 100000,
     "total_text": "",
-    "total_number": "Bisher gespendet seit 2022: €75.022",
+    "total_number": "Bisher gespendet seit 2022: €75.723",
     "heading_color": "#1c1b1b",
     "text_color": "#1c1b1b",
     "text_light_color": "#6a6a6a",
@@ -1748,7 +1748,7 @@
       },
       "11724500921838622758": {
         "type": "shopify:\/\/apps\/frequently-bought\/blocks\/app-embed-block\/b1a8cbea-c844-4842-9529-7c62dbab1b1f",
-        "disabled": true,
+        "disabled": false,
         "settings": {
         }
       }
