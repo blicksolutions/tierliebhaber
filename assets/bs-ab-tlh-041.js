@@ -1,5 +1,6 @@
 window.activateAbTlh041 = () => {
 	function reformatPrice(text) {
+		console.log('reformatPrice');
 		return text.replace(/€\s*([0-9]+(?:[.,][0-9]{1,3})?(?:[.,][0-9]{2})?)/g, '$1€');
 	}
 
@@ -16,7 +17,7 @@ window.activateAbTlh041 = () => {
 	document.addEventListener('variant:changed', () => {
 		setTimeout(() => {
 			reformatPricesInNode(document.body);
-		}, 300);
+		}, 100);
 	});
 };
 
