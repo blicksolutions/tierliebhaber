@@ -1,5 +1,7 @@
 window.activateAbTlh035 = () => {
 	const productMeta = document.querySelector('.ProductMeta');
+	if (!productMeta) return;
+
 	const isBestseller = productMeta.getAttribute('data-js-bestseller');
 
 	if (isBestseller == 'true') {
