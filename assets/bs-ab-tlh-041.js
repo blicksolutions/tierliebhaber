@@ -12,7 +12,9 @@ window.activateAbTlh041 = () => {
 		}
 	}
 
-	reformatPricesInNode(document.body);
+	setTimeout(() => {
+		reformatPricesInNode(document.body);
+	}, 100);
 
 	document.addEventListener('variant:changed', () => {
 		setTimeout(() => {
