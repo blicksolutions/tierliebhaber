@@ -12,15 +12,22 @@ window.activateAbTlh041 = () => {
 		}
 	}
 
-	setTimeout(() => {
-		reformatPricesInNode(document.body);
-	}, 100);
+	reformatPricesInNode(document.body);
 
-	document.addEventListener('variant:changed', () => {
-		setTimeout(() => {
+	const pdpPriceListElement = document.querySelector('.ProductMeta__PriceList');
+	console.log('pdpPriceListElement', pdpPriceListElement);
+
+	if (pdpPriceListElement != undefined) {
+		const mutationObserver = new MutationObserver((entries) => {
 			reformatPricesInNode(document.body);
-		}, 100);
-	});
+		});
+
+		mutationObserver.observe(pdpPriceListElement, {
+			childList: true,
+			subtree: true,
+			attributes: true,
+		});
+	}
 };
 
 document.addEventListener('DOMContentLoaded', window.activateAbTlh041);
