@@ -19,5 +19,3 @@ window.activateAbTlh035 = () => {
 		productMeta.setAttribute('data-js-tlh-035', true);
 	} else return;
 };
-
-document.addEventListener('DOMContentLoaded', window.activateAbTlh035);
