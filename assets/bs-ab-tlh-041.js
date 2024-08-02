@@ -18,3 +18,5 @@ window.activateAbTlh041 = () => {
 		reformatPricesInNode(document.body);
 	});
 };
+
+document.addEventListener('DOMContentLoaded', window.activateAbTlh041);
