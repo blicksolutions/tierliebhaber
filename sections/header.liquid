@@ -140,6 +140,94 @@ Implementation note: make sure that the Search div is always just before the Hea
       {%- endif -%}
     </div>
   </div>
+  <div class="search__quick-links" data-js-search-quick-links="b">
+    <h4 class="search__quick-links__heading">
+        Unsere Bestseller
+    </h4>
+    <script>console.log('all_products', {{ all_products['z-spray'] | json }})</script>
+    <div class="search__quick-links-container search__quick-links--mobile swiper" data-js-search-quick-links-mobile>
+      <div class="quick-links__list swiper-wrapper">
+          <a href="{{ all_products['gras-kotfresser-drops-2'].url }}" class="search__quick-link swiper-slide">
+            <div class="quick-link__image-container">
+                    {{ all_products['gras-kotfresser-drops-2'].featured_image  | image_url: width: 400 | image_tag: class: 'quick-link__image' }}
+            </div>
+            <p class="quick-link__text">
+                {{ all_products['gras-kotfresser-drops-2'].title }}
+            </p>
+          </a>
+          <a href="{{ all_products['dentalspray'].url }}" class="search__quick-link swiper-slide">
+            <div class="quick-link__image-container">
+                    {{ all_products['dentalspray'].featured_image  | image_url: width: 400 | image_tag: class: 'quick-link__image' }}
+            </div>
+            <p class="quick-link__text">
+                {{ all_products['dentalspray'].title }}
+            </p>
+          </a>
+          <a href="{{ all_products['z-snack'].url }}" class="search__quick-link swiper-slide">
+            <div class="quick-link__image-container">
+                    {{ all_products['z-snack'].featured_image  | image_url: width: 400 | image_tag: class: 'quick-link__image' }}
+            </div>
+            <p class="quick-link__text">
+                {{ all_products['z-snack'].title }}
+            </p>
+          </a>
+          <a href="{{ all_products['darmwohl-sticks'].url }}" class="search__quick-link swiper-slide">
+            <div class="quick-link__image-container">
+                    {{ all_products['darmwohl-sticks'].featured_image  | image_url: width: 400 | image_tag: class: 'quick-link__image' }}
+            </div>
+            <p class="quick-link__text">
+                {{ all_products['darmwohl-sticks'].title }}
+            </p>
+          </a>
+          <a href="{{ all_products['darmpflege-drops'].url }}" class="search__quick-link swiper-slide">
+            <div class="quick-link__image-container">
+                    {{ all_products['darmpflege-drops'].featured_image  | image_url: width: 400 | image_tag: class: 'quick-link__image' }}
+            </div>
+            <p class="quick-link__text">
+                {{ all_products['darmpflege-drops'].title }}
+            </p>
+          </a>
+      </div>
+      <div class="quick-links__scrollbar swiper-scrollbar"></div>
+    </div>
+  </div>
+
+  <div class="search__quick-links" data-js-search-quick-links="c">
+    <h4 class="search__quick-links__heading">
+        Häufig gesucht
+    </h4>
+    <div class="search__quick-links-container search__quick-links--mobile swiper" data-js-search-quick-links-mobile>
+      <div class="quick-links__list swiper-wrapper">
+          <a href="/collections/zahnpflege" class="search__quick-link swiper-slide">
+            <p class="quick-link__text">
+                Zahnbelag
+            </p>
+          </a>
+          <a href="/products/gras-kotfresser-drops-2" class="search__quick-link swiper-slide">
+            <p class="quick-link__text">
+                Sodbrennen
+            </p>
+          </a>
+          <a href="/products/darmwohl-sticks" class="search__quick-link swiper-slide">
+            <p class="quick-link__text">
+                Zu weiche Häufchen
+            </p>
+          </a>
+          <a href="/z-bundle-zb" class="search__quick-link swiper-slide">
+            <p class="quick-link__text">
+                Zecken
+            </p>
+          </a>
+          <a href="/products/darmpflege-drops" class="search__quick-link swiper-slide">
+            <p class="quick-link__text">
+                Bauchweh
+            </p>
+          </a>
+      </div>
+      <div class="quick-links__scrollbar swiper-scrollbar"></div>
+    </div>
+  </div>
+
 </div>
 
 {%- comment -%}
