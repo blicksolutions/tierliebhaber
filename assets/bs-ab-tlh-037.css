@@ -1,3 +1,8 @@
+#section-slideshow {
+	opacity: 0;
+	transition: opacity .3s ease;
+}
+
 .Slideshow--versionB {
 	position: relative;
 	height: 717px;
