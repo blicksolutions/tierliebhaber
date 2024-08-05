@@ -26,7 +26,8 @@
 	object-fit: cover;
 }
 
-.Slideshow--versionB__content {
+.Slideshow--versionB__content,
+.Slideshow--versionB__content-box {
 	z-index: 1;
 	position: relative;
 	width: 100%;
@@ -34,9 +35,26 @@
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
+	background: linear-gradient(to bottom, transparent 45%, #F2F8F5 45%);
+}
+
+.Slideshow--versionB__content-box {
+	padding: 0;
+	background: unset;
 }
 
 .Slideshow--versionB__content__background--mobile {
+	width: 100%;
+	height: max-content;
+	position: absolute;
+	left: 0;
+	top: -65px;
+	margin-top: -18px;
+    z-index: -1;
+}
+
+.Slideshow--versionB__content__background--desktop {
+	display: none;
 	width: 100%;
 	height: max-content;
 	position: absolute;
@@ -83,6 +101,14 @@
     margin: -10px 0 0;
 }
 
+.Slideshow--versionB__cta-button.Button {
+	text-transform: uppercase !important;
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 23px;
+	letter-spacing: normal;
+}
+
 .Slideshow--versionB__cta-button::after {
 	position: absolute;
     content: "";
@@ -100,8 +126,61 @@
 	background-color: #f1af9e;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
 	.Slideshow--versionB {
 		height: 839px;
+	}
+
+	.Slideshow--versionB__content {
+		padding: 25px;
+	}
+
+	.Slideshow--versionB__content-box {
+		width: calc(50% + 100px);
+		padding: 0 0 50px 100px;
+		max-width: 673px;
+	}
+
+	.Slideshow--verisonB__comparison-image {
+		right: 116px;
+		transform: unset;
+		bottom: 75px;
+		top: unset;
+		height: 300px;
+	}
+
+	.Slideshow--versionB__title { 
+		font-size: 32px;
+		line-height: 40px;
+	}
+
+	.Slideshow--versionB__description {
+		font-size: 18px;
+		line-height: 24px;
+	}
+
+	.Slideshow--verisonB__testimonials {
+		font-size: 10px;
+		line-height: 15px;
+	}
+
+	.Slideshow--versionB__cta-button.Button {
+		font-size: 20px;
+		line-height: 25px;
+		font-weight: 600;
+	}
+
+	.Slideshow--versionB__content__background--mobile {
+		display: none;
+	}
+	
+	.Slideshow--versionB__content__background--desktop {
+		display: block;
+	}
+}
+
+@media (min-width: 1366px) {
+	.Slideshow--verisonB__comparison-image {
+		height: 500px;
 	}
 }
