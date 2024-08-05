@@ -27,5 +27,3 @@ window.activateAbTlh041 = () => {
 		});
 	}
 };
-
-document.addEventListener('DOMContentLoaded', window.activateAbTlh041);
