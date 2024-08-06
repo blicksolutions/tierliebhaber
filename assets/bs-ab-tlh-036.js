@@ -32,17 +32,18 @@ window.activateAbTlh036 = (variant) => {
 			} else {
 				searchElement.classList.remove('active');
 				searchQuickLinksElement.classList.remove('active');
+				if (searchInputElement.value == '') {
+					searchQuickLinksElement.classList.remove('hidden');
+				}
 			}
 		});
 
-		searchInputElement.addEventListener('change', () => {
-			console.log('searchInputElement.value', searchInputElement.value);
-			if (searchInputElement.value != '') {
+		searchInputElement.addEventListener('keydown', (event) => {
+			if (document.activeElement == searchInputElement) {
 				searchQuickLinksElement.classList.add('hidden');
 				searchQuickLinksElement.classList.remove('active');
 			} else {
 				searchQuickLinksElement.classList.remove('hidden');
-				searchQuickLinksElement.classList.remove('active');
 			}
 		});
 	}
