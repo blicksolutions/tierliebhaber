@@ -48,11 +48,3 @@ window.activateAbTlh036 = (variant) => {
 		});
 	}
 };
-
-document.addEventListener('DOMContentLoaded', () => {
-	const queryString = window.location.search;
-	const urlParameters = new URLSearchParams(queryString);
-	const variant = urlParameters.get('test-variant');
-	if (!variant) return;
-	activateAbTlh036(variant);
-});
