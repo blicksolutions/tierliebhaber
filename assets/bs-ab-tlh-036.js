@@ -1,5 +1,4 @@
 window.activateAbTlh036 = (variant) => {
-	console.log('activateAbTlh036');
 	const body = document.querySelector('body');
 
 	if (body.classList.contains('template-index')) {
