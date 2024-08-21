@@ -32,7 +32,7 @@ window.activateAbTlh040 = () => {
 	reviews.forEach((review) => {
 		const mutationObserver = new MutationObserver((entries) => {
 			entries.forEach((entry) => {
-				if (entry.attributeName == 'class' && !entry.target.classList.contains('jdgm-spinner')) {
+				if (entry.attributeName == 'class' && entry.target.classList.contains('jdgm-rev__timestamp') && !entry.target.classList.contains('jdgm-spinner')) {
 					console.log('review', review);
 					const reviewSlide = document.createElement('div');
 					reviewSlide.classList.add('testimonials__slide');
@@ -44,7 +44,7 @@ window.activateAbTlh040 = () => {
 					console.log('rating', rating);
 					const author = review.querySelector('.jdgm-rev__author').innerText;
 					const text = review.querySelector('.jdgm-rev__body').innerText;
-					const timestamp = review.querySelector('.jdgm-rev__header .jdgm-rev__timestamp').innerText;
+					const timestamp = review.querySelector('.jdgm-rev__timestamp').innerText;
 					console.log('timestamp', timestamp);
 
 					reviewSlide.innerHTML = `
@@ -77,8 +77,7 @@ window.activateAbTlh040 = () => {
 			});
 		});
 
-		const timestamp = review.querySelector('.jdgm-rev__timestamp');
-		mutationObserver.observe(timestamp, {
+		mutationObserver.observe(review, {
 			childList: true,
 			subtree: true,
 			attributes: true,
