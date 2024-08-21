@@ -33,19 +33,15 @@ window.activateAbTlh040 = () => {
 		const mutationObserver = new MutationObserver((entries) => {
 			entries.forEach((entry) => {
 				if (entry.attributeName == 'class' && entry.target.classList.contains('jdgm-rev__timestamp') && !entry.target.classList.contains('jdgm-spinner')) {
-					console.log('review', review);
 					const reviewSlide = document.createElement('div');
 					reviewSlide.classList.add('testimonials__slide');
 					reviewSlide.classList.add('swiper-slide');
 
 					const icon = review.querySelector('.jdgm-rev__icon').outerHTML;
-					console.log('icon', icon);
 					const rating = review.querySelector('.jdgm-rev__rating').outerHTML;
-					console.log('rating', rating);
 					const author = review.querySelector('.jdgm-rev__author').innerText;
 					const text = review.querySelector('.jdgm-rev__body').innerText;
 					const timestamp = review.querySelector('.jdgm-rev__timestamp').innerText;
-					console.log('timestamp', timestamp);
 
 					reviewSlide.innerHTML = `
                         <div class="testimonial__icon">
