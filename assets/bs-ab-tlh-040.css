@@ -33,7 +33,7 @@
     font-weight: 500;
     line-height: 30px;
     margin-bottom: 20px;
-    padding: 0 8px;
+    padding: 0 16px;
 }
 
 @media (min-width: 768px) {
@@ -57,7 +57,7 @@
 
 @media (min-width: 768px) {
     .testimonials[data-js-tlh-040] .testimonials__swiper-wrapper {
-        padding: 33px 0 25px 0;
+        padding: 46px 0 25px 0;
     }
 }
 
@@ -81,6 +81,8 @@
 
 .testimonials[data-js-tlh-040] .swiper-horizontal > .testimonials__swiper-scrollbar {
     bottom: 0;
+    left: 16px;
+    right: 16px;
 }
 
 .testimonials[data-js-tlh-040] .testimonials__swiper-scrollbar .swiper-scrollbar-drag {
@@ -115,6 +117,7 @@
     align-items: center;
     justify-content: center;
     gap: 6px;
+    margin-top: 16px;
 }
 
 .testimonials[data-js-tlh-040] .testimonial__time {
@@ -130,6 +133,7 @@
     flex-direction: row;
     align-items: center;
     gap: 10px;
+    margin-top: 8px;
 }
 
 .testimonials[data-js-tlh-040] .testimonial__author {
@@ -137,7 +141,7 @@
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
-    line-height: 22.5px
+    line-height: 22.5px;
 }
 
 @media (min-width: 768px) {
@@ -180,10 +184,10 @@
 
 @media (min-width: 768px) {
     .testimonials[data-js-tlh-040] .testimonial__text {
-        font-size: 13.305px;
+        font-size: 14px;
         font-style: normal;
         font-weight: 400;
-        line-height: 16.632px;
+        line-height: 17.5px;
         max-width: 260px;
     }
 }
@@ -208,7 +212,7 @@
         height: 36px;
         width: 36px;
         padding: 6px;
-        z-index: 15;
+        z-index: 3;
     }
 
     .testimonials__swiper-button-prev {
@@ -221,7 +225,24 @@
 }
 
 .testimonials[data-js-tlh-040] .testimonials__button.Button.Button--primary {
+    cursor: pointer;
     display: block;
-    max-width: 313px;
+    max-width: 343px;
+    padding: 15px;
     margin: 15px auto 0;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22.5px;
+    text-transform: uppercase;
+    letter-spacing: normal;
+}
+
+@media (min-width: 768px) {
+    .testimonials[data-js-tlh-040] .testimonials__button.Button.Button--primary {
+        max-width: 406px;
+        font-size: 20px;
+        line-height: 25px;
+        padding: 20px 16px;
+    }
 }

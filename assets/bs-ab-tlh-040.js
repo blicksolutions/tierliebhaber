@@ -30,42 +30,59 @@ window.activateAbTlh040 = () => {
 	const testimonialsWrapper = testimonialsSection.querySelector('[data-js-tlh-040-swiper-wrapper]');
 
 	reviews.forEach((review) => {
-		const reviewSlide = document.createElement('div');
-		reviewSlide.classList.add('testimonials__slide');
-		reviewSlide.classList.add('swiper-slide');
+		const mutationObserver = new MutationObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.attributeName == 'class' && !entry.target.classList.contains('jdgm-spinner')) {
+					console.log('review', review);
+					const reviewSlide = document.createElement('div');
+					reviewSlide.classList.add('testimonials__slide');
+					reviewSlide.classList.add('swiper-slide');
 
-		const icon = review.querySelector('.jdgm-rev__icon').outerHTML;
-		const rating = review.querySelector('.jdgm-rev__rating').outerHTML;
-		const timestamp = review.querySelector('.jdgm-rev__timestamp').innerText;
-		const author = review.querySelector('.jdgm-rev__author').innerText;
-		const text = review.querySelector('.jdgm-rev__body').innerText;
+					const icon = review.querySelector('.jdgm-rev__icon').outerHTML;
+					console.log('icon', icon);
+					const rating = review.querySelector('.jdgm-rev__rating').outerHTML;
+					console.log('rating', rating);
+					const author = review.querySelector('.jdgm-rev__author').innerText;
+					const text = review.querySelector('.jdgm-rev__body').innerText;
+					const timestamp = review.querySelector('.jdgm-rev__header .jdgm-rev__timestamp').innerText;
+					console.log('timestamp', timestamp);
 
-		reviewSlide.innerHTML = `
-            <div class="testimonial__icon">
-                ${icon}
-            </div>
-            <div class="testimonial__rating-time">
-                <div class="testimonial__rating">
-                    ${rating}
-                </div>
-                <div class="testimonial__time">
-                    ${timestamp}
-                </div>
-            </div>
-            <div class="testimonial__author-badge">
-                <div class="testimonial__author">
-                    ${author}
-                </div>
-                <div class="testimonial__badge">
-                    Verifiziert
-                </div>
-            </div>
-            <div class="testimonial__text">
-                “${text}”
-            </div>
+					reviewSlide.innerHTML = `
+                        <div class="testimonial__icon">
+                            ${icon}
+                        </div>
+                        <div class="testimonial__rating-time">
+                            <div class="testimonial__rating">
+                                ${rating}
+                            </div>
+                            <div class="testimonial__time">
+                                ${timestamp}
+                            </div>
+                        </div>
+                        <div class="testimonial__author-badge">
+                            <div class="testimonial__author">
+                                ${author}
+                            </div>
+                            <div class="testimonial__badge">
+                                Verifiziert
+                            </div>
+                        </div>
+                        <div class="testimonial__text">
+                            “${text}”
+                        </div>
+    
+                    `;
+					testimonialsWrapper.appendChild(reviewSlide);
+				}
+			});
+		});
 
-        `;
-		testimonialsWrapper.appendChild(reviewSlide);
+		const timestamp = review.querySelector('.jdgm-rev__timestamp');
+		mutationObserver.observe(timestamp, {
+			childList: true,
+			subtree: true,
+			attributes: true,
+		});
 	});
 
 	const swiper = new Swiper('[data-js-tlh-040-swiper]', {
@@ -97,6 +114,20 @@ window.activateAbTlh040 = () => {
 	});
 
 	testimonialsSection.setAttribute('data-js-tlh-040', 'true');
+
+	const reviewsButton = testimonialsSection.querySelector('[data-js-tlh-040-button]');
+
+	reviewsButton.addEventListener('click', () => {
+		var element = document.querySelector('#judgeme_product_reviews');
+		var headerOffset = 300;
+		var elementPosition = element.getBoundingClientRect().top;
+		var offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+		window.scrollTo({
+			top: offsetPosition,
+			behavior: 'smooth',
+		});
+	});
 };
 
 document.addEventListener('DOMContentLoaded', window.activateAbTlh040);
