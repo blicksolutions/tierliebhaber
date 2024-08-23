@@ -24,6 +24,26 @@ window.shippingrates = {
     }
 }
 
+// place dcart
+window.scThemeConfig = {
+    "cartDiscountSelector": {
+        "path": "#shopify-section-cart-template section div.Container div.PageContent form.Cart footer.Cart__Footer div.Cart__Recap p.Cart__Total",
+        "type": 1
+    },
+    "cartTotalSelector": {
+        "path": "#shopify-section-cart-template section div.Container div.PageContent form.Cart footer.Cart__Footer div.Cart__Recap p.Cart__Total span",
+        "type": 0
+    },
+    "ajaxDicountSelector": {
+        "path": "#sidebar-cart form.Cart div.Drawer__Footer div.Drawer__Footer__Inner div.Drawer__Footer__Coupon div.Drawer__Footer__Coupon-content div.Drawer__Footer__Coupon-dcart",
+        "type": 1
+    },
+    "ajaxTotalSelector": {
+        "path": "#sidebar-cart form.Cart div.Drawer__Footer div.Drawer__Footer__Inner div.Drawer__Footer__Subtotal span.Drawer__Footer__SubtotalPrice",
+        "type": 0
+    },
+};
+
 let deliveryPriceValue = 0;
 
 window.currentCountry = undefined;
