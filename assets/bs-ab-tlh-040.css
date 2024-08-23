@@ -229,7 +229,6 @@
     cursor: pointer;
     display: block;
     width: 100%;
-    font-size: 18px;
     line-height: 22.5px;
     text-transform: uppercase;
 }
@@ -238,7 +237,6 @@
     .testimonials[data-js-tlh-040] .testimonials__button.Button.Button--primary {
         max-width: 406px;
         margin: 15px auto 0;
-        font-size: 20px;
         line-height: 25px;
     }
 }
