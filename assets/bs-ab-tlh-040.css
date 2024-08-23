@@ -228,8 +228,7 @@
 .testimonials[data-js-tlh-040] .testimonials__button.Button.Button--primary {
     cursor: pointer;
     display: block;
-    max-width: 343px;
-    margin: 15px auto 0;
+    width: 100%;
     font-size: 18px;
     line-height: 22.5px;
     text-transform: uppercase;
@@ -238,9 +237,8 @@
 @media (min-width: 768px) {
     .testimonials[data-js-tlh-040] .testimonials__button.Button.Button--primary {
         max-width: 406px;
+        margin: 15px auto 0;
         font-size: 20px;
         line-height: 25px;
-        padding: 20px 16px;
-        letter-spacing: normal;
     }
 }
