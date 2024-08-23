@@ -236,7 +236,7 @@
 @media (min-width: 768px) {
     .testimonials[data-js-tlh-040] .testimonials__button.Button.Button--primary {
         max-width: 406px;
-        margin: 15px auto 0;
+        margin: 30px auto 0;
         line-height: 25px;
     }
 }
