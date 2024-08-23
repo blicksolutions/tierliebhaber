@@ -229,6 +229,7 @@
     cursor: pointer;
     display: block;
     width: 100%;
+    margin: 20px 18px;
     line-height: 22.5px;
     text-transform: uppercase;
 }
