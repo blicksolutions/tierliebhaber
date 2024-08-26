@@ -87,6 +87,13 @@
     background: white;
 }
 
+@media (min-width: 768px) {
+    .testimonials[data-js-tlh-040] .swiper-horizontal > .testimonials__swiper-scrollbar {
+        left: 0;
+        right: 0;
+    }
+}
+
 .testimonials[data-js-tlh-040] .testimonials__swiper-scrollbar .swiper-scrollbar-drag {
     background: #F1AF9E;
 }
