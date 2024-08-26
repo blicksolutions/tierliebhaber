@@ -85,8 +85,8 @@ window.activateAbTlh040 = () => {
 		direction: 'horizontal',
 		slidesPerView: 1.3,
 		spaceBetween: 10,
-		slidesOffsetAfter: 16,
-		slidesOffsetBefore: 16,
+		slidesOffsetAfter: 24,
+		slidesOffsetBefore: 24,
 		breakpoints: {
 			768: {
 				slidesPerView: 3,

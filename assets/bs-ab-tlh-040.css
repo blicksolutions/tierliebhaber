@@ -33,7 +33,7 @@
     font-weight: 500;
     line-height: 30px;
     margin-bottom: 20px;
-    padding: 0 16px;
+    padding: 0 24px;
 }
 
 @media (min-width: 768px) {
@@ -81,8 +81,9 @@
 
 .testimonials[data-js-tlh-040] .swiper-horizontal > .testimonials__swiper-scrollbar {
     bottom: 0;
-    left: 16px;
-    right: 16px;
+    left: 24px;
+    right: 24px;
+    width: auto;
     background: white;
 }
 
@@ -228,15 +229,15 @@
 .testimonials[data-js-tlh-040] .testimonials__button.Button.Button--primary {
     cursor: pointer;
     display: block;
-    margin: 20px 18px;
-    line-height: 22.5px;
+    margin: 20px 24px;
+    line-height: normal;
     text-transform: uppercase;
 }
 
 @media (min-width: 768px) {
     .testimonials[data-js-tlh-040] .testimonials__button.Button.Button--primary {
-        max-width: 406px;
+        max-width: 286px;
         margin: 30px auto 0;
-        line-height: 25px;
+        line-height: normal;
     }
 }
