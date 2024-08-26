@@ -1,3 +1,5 @@
+{{ "bs-cart-drawer.css" |  asset_url |  stylesheet_tag }}
+
 {%- capture section_settings -%}
 {
   "type": {{ settings.cart_type | json }},
@@ -82,8 +84,6 @@
             </span>
 
               <span class="CartMessage__StepsLines__Gift" style="right: 0; display: none">
-                <img src="{{ section.settings.message_gift_icon | img_url: '32x32' }}"
-                     alt="{{ section.settings.message_gift_icon.alt | escape }}">
                      <span>Gratis Geschenk (13.90€)</span>
               </span>
           </div>
