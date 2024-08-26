@@ -1,4 +1,4 @@
-<script src="{{ "bs-announcement-bar.js" |  asset_url }}" defer></script>
+{{ "bs-announcement.css" |  asset_url | stylesheet_tag }}
 
 {%- if section.settings.enable_three_col_content -%}
   {{ 'new-topbar.css' | asset_url | stylesheet_tag }}
