@@ -64,6 +64,10 @@
   </div>
 </div>
 
+{% if template contains 'product' %}
+    {% render 'bs-ab-tlh-040' %}
+{% endif %}
+
 {% schema %}
 {
   "name": "Content Accordion",
