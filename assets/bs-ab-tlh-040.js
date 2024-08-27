@@ -81,7 +81,6 @@ window.activateAbTlh040 = () => {
 	});
 
 	const swiper = new Swiper('[data-js-tlh-040-swiper]', {
-		// Optional parameters
 		direction: 'horizontal',
 		slidesPerView: 1.3,
 		spaceBetween: 10,
@@ -95,14 +94,10 @@ window.activateAbTlh040 = () => {
 				spaceBetween: 15,
 			},
 		},
-
-		// Navigation arrows
 		navigation: {
 			nextEl: '.testimonials__swiper-button-next',
 			prevEl: '.testimonials__swiper-button-prev',
 		},
-
-		// And if we need scrollbar
 		scrollbar: {
 			el: '.testimonials__swiper-scrollbar',
 		},
@@ -124,5 +119,3 @@ window.activateAbTlh040 = () => {
 		});
 	});
 };
-
-document.addEventListener('DOMContentLoaded', window.activateAbTlh040);
