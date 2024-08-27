@@ -1,5 +1,4 @@
 .CartMessage__StepsLines__Gift span {
-    display: none;
     position: absolute;
     width: max-content;
     transform: translateX(-75%) translateY(80%);

@@ -9,212 +9,217 @@
   {%- assign show_price = true-%}
 {%- endif -%}
 
-<div class="ProductMeta" {% if product.metafields.badge.text == 'Bestseller' %} data-js-bestseller="true" {% endif %}>
-  {%- if section.settings.show_vendor and product.vendor != blank -%}
-    <h2 class="ProductMeta__Vendor Heading u-h6">
-      {%- assign vendor_handle = product.vendor | handle -%}
-      {%- assign collection_for_vendor = collections[vendor_handle] -%}
+<div class="ProductMeta {% if product.metafields.badge.text == 'Bestseller' %}Bestseller{% endif %}" {% if product.metafields.badge.text == 'Bestseller' %} data-js-bestseller="true" {% endif %}>
+    {% if product.metafields.badge.text == 'Bestseller' %}
+        <div class="ProductMeta__BestsellerHeader">
+            {%- if product.metafields.badge.text -%}
+                {%- render 'product-badge', product: product -%}
+            {%- endif -%}
+    
+            <h1 class="ProductMeta__Title Heading u-h2">
+                {%- if template.name == 'product' -%}
+                    {%-if custom_title-%}{{custom_title}}{%-else-%}{{- product.title -}}{%-endif-%}
+                {%- else -%}
+                    <a href="{{ product.url }}">{{ product.title }}</a>
+                {%- endif -%}
+            </h1>
+    
+            {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', concierge_install: true, product: product %}
+        </div>
+    {% else %}
+        {%- if section.settings.show_vendor and product.vendor != blank -%}
+            <h2 class="ProductMeta__Vendor Heading u-h6">
+            {%- assign vendor_handle = product.vendor | handle -%}
+            {%- assign collection_for_vendor = collections[vendor_handle] -%}
 
-      {%- unless collection_for_vendor.empty? -%}
-        <a href="{{ collection_for_vendor.url }}">{{ product.vendor }}</a>
-      {%- else -%}
-        {{- product.vendor -}}
-      {%- endunless -%}
-    </h2>
-  {%- endif -%}
-
-  <div class="ProductBadges">
-    {%- if product.metafields.badge.text -%}
-      {%- render 'product-badge', product: product -%}
-    {%- endif -%}
-    {%- if product.metafields.meta.pet_icons.value -%}
-      {%- assign pet_icons = product.metafields.meta.pet_icons.value | split: ',' -%}
-
-      <div class="PetIcons">
-        {%- for icon in pet_icons -%}
-          {%- render 'pet-icons', icon: icon -%}
-        {%- endfor -%}
-      </div>
-    {%- endif -%}
-  </div>
-
-  {%- if show_like_badge -%}
-    {%- render 'like-badge', classes: 'hidden-pocket' -%}
-  {%- endif-%}
-
-  <h1 class="ProductMeta__Title Heading u-h2">
-    {%- if template.name == 'product' -%}
-      {%-if custom_title-%}{{custom_title}}{%-else-%}{{- product.title -}}{%-endif-%}
-    {%- else -%}
-      <a href="{{ product.url }}">{{ product.title }}</a>
-    {%- endif -%}
-  </h1>
-
-  {%- if section.settings.show_sku and selected_variant.sku != blank -%}
-    <p class="ProductMeta__Sku Heading Text--subdued u-h6">{{ 'product.form.sku' | t }}: <span class="ProductMeta__SkuNumber">{{ selected_variant.sku }}</span></p>
-  {%- endif -%}
-
-    {% comment %}
-    {%- if show_description -%}
-        <p class="Product__Description">
-        {{product.description}}
-        </p>
-    {%- endif -%}
-    {% endcomment %}
-    {% comment %}Start automatically added Judge.me widget{% endcomment %}
-    {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', concierge_install: true, product: product %}
-    {% comment %}End automatically added Judge.me widget{% endcomment %}
-
-    <div class="ProductMeta__TLH-035" data-js-tlh-035-container>
-        {%- if product.metafields.badge.text -%}
-            {%- render 'product-badge', product: product -%}
+            {%- unless collection_for_vendor.empty? -%}
+                <a href="{{ collection_for_vendor.url }}">{{ product.vendor }}</a>
+            {%- else -%}
+                {{- product.vendor -}}
+            {%- endunless -%}
+            </h2>
+            
         {%- endif -%}
+
+        <div class="ProductBadges">
+            {%- if product.metafields.badge.text -%}
+            {%- render 'product-badge', product: product -%}
+            {%- endif -%}
+            {%- if product.metafields.meta.pet_icons.value -%}
+            {%- assign pet_icons = product.metafields.meta.pet_icons.value | split: ',' -%}
+
+            <div class="PetIcons">
+                {%- for icon in pet_icons -%}
+                {%- render 'pet-icons', icon: icon -%}
+                {%- endfor -%}
+            </div>
+            {%- endif -%}
+        </div>
+
+        {%- if show_like_badge -%}
+            {%- render 'like-badge', classes: 'hidden-pocket' -%}
+        {%- endif-%}
 
         <h1 class="ProductMeta__Title Heading u-h2">
             {%- if template.name == 'product' -%}
-                {%-if custom_title-%}{{custom_title}}{%-else-%}{{- product.title -}}{%-endif-%}
+            {%-if custom_title-%}{{custom_title}}{%-else-%}{{- product.title -}}{%-endif-%}
             {%- else -%}
-                <a href="{{ product.url }}">{{ product.title }}</a>
+            <a href="{{ product.url }}">{{ product.title }}</a>
             {%- endif -%}
         </h1>
 
+        {%- if section.settings.show_sku and selected_variant.sku != blank -%}
+            <p class="ProductMeta__Sku Heading Text--subdued u-h6">{{ 'product.form.sku' | t }}: <span class="ProductMeta__SkuNumber">{{ selected_variant.sku }}</span></p>
+        {%- endif -%}
+
+        {% comment %}
+        {%- if show_description -%}
+            <p class="Product__Description">
+            {{product.description}}
+            </p>
+        {%- endif -%}
+        {% endcomment %}
+        {% comment %}Start automatically added Judge.me widget{% endcomment %}
         {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', concierge_install: true, product: product %}
-    </div>
+        {% comment %}End automatically added Judge.me widget{% endcomment %}
+    {% endif %}
 
-      <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            function generateRandom(min = 15, max = 26) {
-                let difference = max - min;
-                let rand = Math.random();
-                rand = Math.floor(rand * difference);
-                rand = rand + min;
-                return rand;
-            }
-
-            function updateProgressBar(productId) {
-                let stockValue = localStorage.getItem(`product-${productId}-stock-value`);
-
-                if (!stockValue) {
-                    stockValue = generateRandom(); // Generating random stock value
-                    localStorage.setItem(`product-${productId}-stock-value`, stockValue);
+    {% unless product.metafields.badge.text == 'Bestseller' %}
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                function generateRandom(min = 15, max = 26) {
+                    let difference = max - min;
+                    let rand = Math.random();
+                    rand = Math.floor(rand * difference);
+                    rand = rand + min;
+                    return rand;
                 }
 
-                let percentageEl = document.querySelector('.acc-pr39-percentage');
-                let progressBar = document.querySelector('.acc-pr39-progress-bar');
+                function updateProgressBar(productId) {
+                    let stockValue = localStorage.getItem(`product-${productId}-stock-value`);
 
-                if (percentageEl) {
-                    percentageEl.textContent = `${stockValue}%`;
+                    if (!stockValue) {
+                        stockValue = generateRandom(); // Generating random stock value
+                        localStorage.setItem(`product-${productId}-stock-value`, stockValue);
+                    }
+
+                    let percentageEl = document.querySelector('.acc-pr39-percentage');
+                    let progressBar = document.querySelector('.acc-pr39-progress-bar');
+
+                    if (percentageEl) {
+                        percentageEl.textContent = `${stockValue}%`;
+                    }
+
+                    if (progressBar) {
+                        progressBar.style.setProperty('--progress-width', `${stockValue}%`);
+                    }
                 }
 
-                if (progressBar) {
-                    progressBar.style.setProperty('--progress-width', `${stockValue}%`);
+                let productForm = document.querySelector('.ProductForm');
+                if (productForm) {
+                    let productId = productForm.getAttribute('data-productid');
+                    if (productId) {
+                        updateProgressBar(productId);
+                    }
                 }
-            }
 
-            let productForm = document.querySelector('.ProductForm');
-            if (productForm) {
                 let productId = productForm.getAttribute('data-productid');
-                if (productId) {
-                    updateProgressBar(productId);
-                }
-            }
 
-            let productId = productForm.getAttribute('data-productid');
+                // stock bar handling
+                const sizeSwatches = document.querySelectorAll('.SizeSwatch__Radio');
+                const pdpStockBar = document.querySelector('.pdp-stock-bar');
 
-            // stock bar handling
-            const sizeSwatches = document.querySelectorAll('.SizeSwatch__Radio');
-            const pdpStockBar = document.querySelector('.pdp-stock-bar');
-
-            sizeSwatches.forEach((sizeSwatch) => {
-                sizeSwatch.addEventListener('click', () => {
-                    setTimeout(() => {
-                        fetch(location.href)
-                            .then(response => response.text())
-                            .then(newPdp => {
-                                const newhtml = new DOMParser().parseFromString(newPdp, 'text/html');
-                                pdpStockBar.innerHTML = newhtml.querySelector('.pdp-stock-bar').innerHTML;
-                                updateProgressBar(productId);
-                            });
-                    }, 250);
+                sizeSwatches.forEach((sizeSwatch) => {
+                    sizeSwatch.addEventListener('click', () => {
+                        setTimeout(() => {
+                            fetch(location.href)
+                                .then(response => response.text())
+                                .then(newPdp => {
+                                    const newhtml = new DOMParser().parseFromString(newPdp, 'text/html');
+                                    pdpStockBar.innerHTML = newhtml.querySelector('.pdp-stock-bar').innerHTML;
+                                    updateProgressBar(productId);
+                                });
+                        }, 250);
+                    });
                 });
             });
-        });
-    </script>
+        </script>
 
-  <style>
-    .acc-pr39-progress-bar {
-        flex-grow: 1; /* Take up all available space */
-        height: 6px;
-        border: 1px solid #3578b5;
-        border-radius: 30px;
-        position: relative;
-        background-color: #fff;
-        margin-left: 10px; /* Add space between the percentage and the progress bar */
-        max-width: 253px;
-    }
+        <style>
+            .acc-pr39-progress-bar {
+                flex-grow: 1; /* Take up all available space */
+                height: 6px;
+                border: 1px solid #3578b5;
+                border-radius: 30px;
+                position: relative;
+                background-color: #fff;
+                margin-left: 10px; /* Add space between the percentage and the progress bar */
+                max-width: 253px;
+            }
 
-    .acc-pr39-progress-bar::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        background-color: #3578b5;
-        height: 100%;
-        border-radius: 30px;
-        width: var(--progress-width, 0%); /* Use the custom property */
-    }
-  </style>
+            .acc-pr39-progress-bar::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                background-color: #3578b5;
+                height: 100%;
+                border-radius: 30px;
+                width: var(--progress-width, 0%); /* Use the custom property */
+            }
+        </style>
 
-  {% unless product.id == 8068154949900 or product.id == 7181458014367  or product.id == 7973987385612 %}
-    <div class="pdp-stock-bar wrapper-center-align">
-      {% if selected_variant.available %}
-        <div class="acc-tl-pr39-wrapper">
-          <div class="acc-pr39-title">Nur solange der Vorrat reicht!</div>
-          <div class="acc-pr39-percentage-wrapper">
-            <span class="acc-pr39-percentage"></span>
-            <div class="acc-pr39-progress-bar"></div>
-          </div>
-        </div>
-      {% endif %}
-    </div>
-  {% endunless %}
+        {% unless product.id == 8068154949900 or product.id == 7181458014367  or product.id == 7973987385612 %}
+            <div class="pdp-stock-bar wrapper-center-align">
+            {% if selected_variant.available %}
+                <div class="acc-tl-pr39-wrapper">
+                <div class="acc-pr39-title">Nur solange der Vorrat reicht!</div>
+                <div class="acc-pr39-percentage-wrapper">
+                    <span class="acc-pr39-percentage"></span>
+                    <div class="acc-pr39-progress-bar"></div>
+                </div>
+                </div>
+            {% endif %}
+            </div>
+        {% endunless %}
 
-    <script>
-    /* Function to calculate and update price difference */
-    function updatePriceDifference() {
-        setTimeout(() => {
-                let originalPrice = parseFloat(document.querySelector('.ProductMeta__Price.Price--compareAt').textContent.replace("€", "").replace(",", "."));
-                let currentPrice = parseFloat(document.querySelector('.ProductMeta__Price.Price--highlight').textContent.replace("€", "").replace(",", "."));
-                let priceDifference = originalPrice - currentPrice;
-                document.querySelector('.price-difference').textContent = 'Du sparst €' + priceDifference.toFixed(2).replace(".", ",");
-                // console.log("Price difference updated:", priceDifference);
-            }, 100); // Wait for 100ms before updating the price difference
-        }
+        <script>
+        /* Function to calculate and update price difference */
+        function updatePriceDifference() {
+            setTimeout(() => {
+                    let originalPrice = parseFloat(document.querySelector('.ProductMeta__Price.Price--compareAt').textContent.replace("€", "").replace(",", "."));
+                    let currentPrice = parseFloat(document.querySelector('.ProductMeta__Price.Price--highlight').textContent.replace("€", "").replace(",", "."));
+                    let priceDifference = originalPrice - currentPrice;
+                    document.querySelector('.price-difference').textContent = 'Du sparst €' + priceDifference.toFixed(2).replace(".", ",");
+                    // console.log("Price difference updated:", priceDifference);
+                }, 100); // Wait for 100ms before updating the price difference
+            }
 
-        /* Function to wait for Recharge widget options to load */
-        function waitForRechargeWidget() {
-            setTimeout(waitForPriceChange, 2000); // Wait for 2000ms (2 seconds) for the Recharge widget to load
-        }
+            /* Function to wait for Recharge widget options to load */
+            function waitForRechargeWidget() {
+                setTimeout(waitForPriceChange, 2000); // Wait for 2000ms (2 seconds) for the Recharge widget to load
+            }
 
-        /* Function to wait for changes in the specified class */
-        function waitForPriceChange() {
-        let radioOptions = document.querySelectorAll(".rc_widget__option");
-        if (radioOptions.length === 0) {
-            waitForRechargeWidget(); // Retry if Recharge widget options are not found
-            return;
-        }
-        radioOptions.forEach(function(option) {
-            option.addEventListener("click", function() {
-            updatePriceDifference();
+            /* Function to wait for changes in the specified class */
+            function waitForPriceChange() {
+            let radioOptions = document.querySelectorAll(".rc_widget__option");
+            if (radioOptions.length === 0) {
+                waitForRechargeWidget(); // Retry if Recharge widget options are not found
+                return;
+            }
+            radioOptions.forEach(function(option) {
+                option.addEventListener("click", function() {
+                updatePriceDifference();
+                });
             });
-        });
-        }
+            }
 
-        /* Wait for the DOM to load before executing */
-        document.addEventListener("DOMContentLoaded", function() {
-            waitForRechargeWidget();
-        });
-    </script>
+            /* Wait for the DOM to load before executing */
+            document.addEventListener("DOMContentLoaded", function() {
+                waitForRechargeWidget();
+            });
+        </script>
+    {% endunless %}
 
   {%- if product.template_suffix != 'coming-soon' and show_price -%}
     <div class="ProductMeta__PriceList Heading">
@@ -307,23 +312,164 @@
     </script>
   {%- endif -%}
 
-  {%- if section.settings.show_taxes_included -%}
-    {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
-      <p class="ProductMeta__TaxNotice Rte">
-        {%- if shop.taxes_included -%}
-          {{ 'product.general.include_taxes' | t }}
-        {%- endif -%}
+    {%- if section.settings.show_taxes_included -%}
+        {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
+        <p class="ProductMeta__TaxNotice Rte">
+            {%- if shop.taxes_included -%}
+            {{ 'product.general.include_taxes' | t }}
+            {%- endif -%}
 
-        {%- if shop.shipping_policy.body != blank  -%}
-          {%- assign has_free_shipping = selected_variant.metafields.shipping.has_free_shipping.value -%}
+            {%- if shop.shipping_policy.body != blank  -%}
+            {%- assign has_free_shipping = selected_variant.metafields.shipping.has_free_shipping.value -%}
 
-          <span class="js-ProductMeta__ShippingInfo{% if has_free_shipping %} u-Hidden{% endif %}">
-            {{ 'product.general.shipping_policy_html' | t: link: shop.shipping_policy.url }}
-          </span>
+            <span class="js-ProductMeta__ShippingInfo{% if has_free_shipping %} u-Hidden{% endif %}">
+                {{ 'product.general.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+            </span>
+            {%- endif -%}
+        </p>
         {%- endif -%}
-      </p>
     {%- endif -%}
-  {%- endif -%}
+
+    {%- if show_like_badge and product.metafields.badge.text == 'Bestseller' -%}
+        {%- render 'like-badge', classes: 'hidden-pocket' -%}
+    {%- endif-%}
+
+    {% if product.metafields.badge.text == 'Bestseller' %}
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                function generateRandom(min = 15, max = 26) {
+                    let difference = max - min;
+                    let rand = Math.random();
+                    rand = Math.floor(rand * difference);
+                    rand = rand + min;
+                    return rand;
+                }
+
+                function updateProgressBar(productId) {
+                    let stockValue = localStorage.getItem(`product-${productId}-stock-value`);
+
+                    if (!stockValue) {
+                        stockValue = generateRandom(); // Generating random stock value
+                        localStorage.setItem(`product-${productId}-stock-value`, stockValue);
+                    }
+
+                    let percentageEl = document.querySelector('.acc-pr39-percentage');
+                    let progressBar = document.querySelector('.acc-pr39-progress-bar');
+
+                    if (percentageEl) {
+                        percentageEl.textContent = `${stockValue}%`;
+                    }
+
+                    if (progressBar) {
+                        progressBar.style.setProperty('--progress-width', `${stockValue}%`);
+                    }
+                }
+
+                let productForm = document.querySelector('.ProductForm');
+                if (productForm) {
+                    let productId = productForm.getAttribute('data-productid');
+                    if (productId) {
+                        updateProgressBar(productId);
+                    }
+                }
+
+                let productId = productForm.getAttribute('data-productid');
+
+                // stock bar handling
+                const sizeSwatches = document.querySelectorAll('.SizeSwatch__Radio');
+                const pdpStockBar = document.querySelector('.pdp-stock-bar');
+
+                sizeSwatches.forEach((sizeSwatch) => {
+                    sizeSwatch.addEventListener('click', () => {
+                        setTimeout(() => {
+                            fetch(location.href)
+                                .then(response => response.text())
+                                .then(newPdp => {
+                                    const newhtml = new DOMParser().parseFromString(newPdp, 'text/html');
+                                    pdpStockBar.innerHTML = newhtml.querySelector('.pdp-stock-bar').innerHTML;
+                                    updateProgressBar(productId);
+                                });
+                        }, 250);
+                    });
+                });
+            });
+        </script>
+
+        <style>
+            .acc-pr39-progress-bar {
+                flex-grow: 1; /* Take up all available space */
+                height: 6px;
+                border: 1px solid #3578b5;
+                border-radius: 30px;
+                position: relative;
+                background-color: #fff;
+                margin-left: 10px; /* Add space between the percentage and the progress bar */
+                max-width: 253px;
+            }
+
+            .acc-pr39-progress-bar::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                background-color: #3578b5;
+                height: 100%;
+                border-radius: 30px;
+                width: var(--progress-width, 0%); /* Use the custom property */
+            }
+        </style>
+
+        {% unless product.id == 8068154949900 or product.id == 7181458014367  or product.id == 7973987385612 %}
+            <div class="pdp-stock-bar wrapper-center-align">
+            {% if selected_variant.available %}
+                <div class="acc-tl-pr39-wrapper">
+                <div class="acc-pr39-title">Nur solange der Vorrat reicht!</div>
+                <div class="acc-pr39-percentage-wrapper">
+                    <span class="acc-pr39-percentage"></span>
+                    <div class="acc-pr39-progress-bar"></div>
+                </div>
+                </div>
+            {% endif %}
+            </div>
+        {% endunless %}
+
+        <script>
+        /* Function to calculate and update price difference */
+        function updatePriceDifference() {
+            setTimeout(() => {
+                    let originalPrice = parseFloat(document.querySelector('.ProductMeta__Price.Price--compareAt').textContent.replace("€", "").replace(",", "."));
+                    let currentPrice = parseFloat(document.querySelector('.ProductMeta__Price.Price--highlight').textContent.replace("€", "").replace(",", "."));
+                    let priceDifference = originalPrice - currentPrice;
+                    document.querySelector('.price-difference').textContent = 'Du sparst €' + priceDifference.toFixed(2).replace(".", ",");
+                    // console.log("Price difference updated:", priceDifference);
+                }, 100); // Wait for 100ms before updating the price difference
+            }
+
+            /* Function to wait for Recharge widget options to load */
+            function waitForRechargeWidget() {
+                setTimeout(waitForPriceChange, 2000); // Wait for 2000ms (2 seconds) for the Recharge widget to load
+            }
+
+            /* Function to wait for changes in the specified class */
+            function waitForPriceChange() {
+            let radioOptions = document.querySelectorAll(".rc_widget__option");
+            if (radioOptions.length === 0) {
+                waitForRechargeWidget(); // Retry if Recharge widget options are not found
+                return;
+            }
+            radioOptions.forEach(function(option) {
+                option.addEventListener("click", function() {
+                updatePriceDifference();
+                });
+            });
+            }
+
+            /* Wait for the DOM to load before executing */
+            document.addEventListener("DOMContentLoaded", function() {
+                waitForRechargeWidget();
+            });
+        </script>
+    {% endif %}
 </div>
 
 <script type="application/json" data-product>
