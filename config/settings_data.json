@@ -9,10 +9,10 @@
 */
 {
   "current": {
-    "donations_amount": 76493,
+    "donations_amount": 77721,
     "donation_goal": 100000,
     "total_text": "",
-    "total_number": "Bisher gespendet seit 2022: €76,493",
+    "total_number": "Bisher gespendet seit 2022: €77.721",
     "heading_color": "#1c1b1b",
     "text_color": "#1c1b1b",
     "text_light_color": "#6a6a6a",
@@ -180,7 +180,7 @@
             "type": "image",
             "settings": {
               "image": "shopify:\/\/shop_images\/banner_general_desktop_8274280f-db2d-4363-8b6d-a044cdbf26fd.jpg",
-              "mobile_image": "shopify:\/\/shop_images\/banner_general_mobile.jpg",
+              "mobile_image": "shopify:\/\/shop_images\/banner_general_mobile_8260214a-159b-4ca7-a72c-cdb4d63b91d8.jpg",
               "apply_overlay": false,
               "content_offset_mobile_left": 50,
               "content_offset_mobile_top": 21,
@@ -1614,8 +1614,8 @@
           "image_VTUwhx": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/produktberater_neu.webp",
-              "mobile_image": "shopify:\/\/shop_images\/produktberater_neu.webp",
+              "image": "shopify:\/\/shop_images\/produktberater_neu.jpg",
+              "mobile_image": "shopify:\/\/shop_images\/produktberater_mobile.jpg",
               "apply_overlay": false,
               "content_offset_mobile_left": 30,
               "content_offset_mobile_top": 31,
@@ -1748,7 +1748,7 @@
       },
       "11724500921838622758": {
         "type": "shopify:\/\/apps\/frequently-bought\/blocks\/app-embed-block\/b1a8cbea-c844-4842-9529-7c62dbab1b1f",
-        "disabled": false,
+        "disabled": true,
         "settings": {
         }
       }

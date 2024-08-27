@@ -1,7 +1,0 @@
-.PageContainer .cbb-frequently-bought-container {
-    display: none;
-}
-
-.PageContainer[data-js-tlh-039] .cbb-frequently-bought-container {
-    display: block;
-}
