@@ -1,0 +1,79 @@
+section:has(.AnnouncementBar) {
+    background: #92BAA8 !important;
+}
+
+.AnnouncementBar .topbar_inner span {
+    color: #FFFFFF !important;
+}
+
+.AnnouncementBar .topbar_inner svg {
+    display: block !important;
+}
+
+.AnnouncementBar .topbar_inner path {
+    stroke: #FFFFFF;
+}
+
+.AnnouncementBar .topbar_inner path:nth-of-type(2) {
+    fill: #FFFFFF;
+}
+
+#shopify-section-announcement:has(.AnnouncementBar) + #shopify-section-header {
+    top: 99px !important;
+}
+
+@media (min-width: 491px) {
+    #shopify-section-announcement:has(.AnnouncementBar) + #shopify-section-header {
+        top: 84px !important;
+    }
+}
+
+@media (min-width: 637px) {
+    #shopify-section-announcement:has(.AnnouncementBar) + #shopify-section-header {
+        top: 69px !important;
+    }
+}
+
+@media (min-width: 767px) {
+    #shopify-section-announcement:has(.AnnouncementBar) + #shopify-section-header {
+        top: 60px !important;
+    }
+}
+
+@media (min-width: 832px) {
+    #shopify-section-announcement:has(.AnnouncementBar) + #shopify-section-header {
+        top: 54px !important;
+    }
+}
+
+@media (min-width: 1023px) {
+    #shopify-section-announcement:has(.AnnouncementBar) + #shopify-section-header {
+        top: 68px !important;
+    }
+}
+
+@media (min-width: 1101px) {
+    #shopify-section-announcement:has(.AnnouncementBar) + #shopify-section-header {
+        top: 54px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .AnnouncementBar .topbar_inner {
+        display: flex !important;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .AnnouncementBar .topbar_inner:not(:nth-child(2)) {
+        padding: 0 !important;
+    }
+   
+    .AnnouncementBar #new_topbar {
+        align-items: flex-start;
+    }
+
+    .AnnouncementBar .topbar_inner span {
+        font-size: 10px !important;
+    }
+}
