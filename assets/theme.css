@@ -11832,6 +11832,10 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
     width: 0%;
 }
 
+.CartMessage__StepsLines__Delivery {
+    left: 0;
+ }
+
 .CartMessage__StepsLines__Delivery,
 .CartMessage__StepsLines__Gift {
     position: absolute;
