@@ -2210,7 +2210,7 @@ function _classCallCheck(e, t) {
                 value: function(e) {
                     var t = this;
 
-                    // console.log('_rerenderCart');
+                    console.log('_rerenderCart');
 
                     const deliveryBarTextEl = document.querySelector('.CartMessage__Steps__Text');
                     const deliveryBarValueEl = document.querySelector('.js-cart-drawer-delivery-left-value');

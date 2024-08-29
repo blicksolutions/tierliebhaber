@@ -11805,6 +11805,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
     text-align: center;
     border-bottom: 1px solid #E6E5E5;
     padding-top: 9px;
+    transition: .2s opacity ease-out;
 }
 
 /* /Cart sidebar message */
@@ -11843,6 +11844,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
     bottom: -1px;
     background: #000;
     width: 1px;
+    transition: .3s opacity ease-out;
 }
 
 .CartMessage__StepsLines__Delivery img,

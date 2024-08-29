@@ -84,6 +84,17 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             handleQuantitySelectors(document.querySelectorAll('.Cart__ItemList .QuantitySelector__Button'));
         }, 1000);
+
+        setTimeout(() => {
+            handleQuantitySelectors(document.querySelectorAll('.Cart__ItemList .QuantitySelector__Button'));
+
+            // hide and show CartMessage__Steps
+            if(document.querySelector(".Cart__Empty") !== null) {
+                document.querySelector(".CartMessage__Steps").style.opacity = 0;
+            } else {
+                document.querySelector(".CartMessage__Steps").style.opacity = 1;
+            }
+        }, 600);
     });
 
     window.lockCheckoutButton = () => {
@@ -100,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.handleGift = (subtotalPrice) => {
         if(window.tlh047) {
             const giftContained = cartDrawer.querySelector('.cartGiftItem') != null;
-            const secondGiftContained = cartDrawer.querySelector('.cartGiftItem[data-variant-id="' + window.cartDrawerSecondGiftVariantId + '"]') != null;
+            const secondGiftContained = cartDrawer.querySelector('.CartItemWrapper[data-variant-id="' + window.cartDrawerSecondGiftVariantId + '"]') != null;
 
             console.log(secondGiftContained)
 
@@ -149,6 +160,44 @@ document.addEventListener('DOMContentLoaded', () => {
                 const cartUpdates = {
                     updates: {
                         [window.cartDrawerGiftVariantId]: 1,
+                        [window.cartDrawerSecondGiftVariantId]: 0
+                    }
+                };
+                fetch(window.Shopify.routes.root + 'cart/update.js', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(cartUpdates)
+                })
+                    .then((response) => response.json())
+                    .then(response => {
+                        fetch(window.location.href)
+                            .then((response) => response.text())
+                            .then((responseText) => {
+                                const oldItemsWrapper = document.querySelector('.Cart__ItemList');
+                                const html = new DOMParser().parseFromString(responseText, 'text/html');
+                                const newItemsWrapper = html.querySelector('.Cart__ItemList');
+    
+                                if (newItemsWrapper) {
+                                    oldItemsWrapper.innerHTML = newItemsWrapper.innerHTML;
+                                } else {
+                                    location.reload()
+                                }
+    
+                                // else update cart
+                                setTimeout(() => {
+                                    window.obj.cartSidebarRefresh(true);
+                                    window.unlockCheckoutButton();
+                                }, 1000);
+                            })
+                            .catch(e => {
+                                console.error(e);
+                            });
+                    });
+            } else if (secondGiftContained && subtotalPrice < window.cartDrawerMinPriceForSecondGift){
+                const cartUpdates = {
+                    updates: {
                         [window.cartDrawerSecondGiftVariantId]: 0
                     }
                 };
@@ -833,7 +882,11 @@ if (window.tlh047) {
     
             let subtotalPriceWithoutNoShippingItems = (window.cartData.items_subtotal_price / 100) - noDeliveryItemsTotalPrice;
            
-    
+            document.querySelector(".CartMessage__StepsLines__Delivery").style.opacity = "block";
+            document.querySelector(".CartMessage__StepsLines__Gift").style.opacity = "block";
+            document.querySelector(".CartMessage__StepsLines__Gift").style.right = 0;
+            
+
             // console.log("----- new refresh ----")
             if (replaceDelivery && subtotalPriceEl && deliveryCostEl && totalPriceEl && deliveryBarValueEl && deliveryBarLeftTextEl && deliveryBarFinalTextEl && deliveryBarStepLineEl && deliveryBarTextEl) {
                 if (hasItemWithDeliveryRequired) {
