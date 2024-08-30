@@ -1010,3 +1010,13 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
         margin-top: 10px;
     }
 }
+
+@media (max-width: 768px) {
+    #smile-ui-lite-container {
+        z-index: 9999 !important;
+    }
+
+    .cc-btn.cc-deny {
+        order: 3;
+    }
+}
