@@ -100,7 +100,7 @@
     display: none;
     top: -1px;
     width: 43.5px;
-    z-index: 5;
+    z-index: 4;
 }
 
 @media (min-width: 768px) {
