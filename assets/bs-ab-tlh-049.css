@@ -1,12 +1,16 @@
+div:has(> .bs-info-banner) {
+    position: sticky;
+    z-index: 5;
+    top: 0;
+}
+
 .bs-info-banner {
     display: none;
     gap: 9px;
     align-items: center;
     justify-content: center;
     padding: 4px 16px;
-    position: sticky;
-    z-index: 5;
-    top: 0;
+    background: #fff;
 }
 
 .bs-info-banner img {
@@ -20,7 +24,27 @@
     color: #1C1B1B;
 }
 
-@media (min-width: 768px) {
+div:has(> .bs-info-banner[style="display: flex;"]) + #shopify-section-announcement {
+    top: 21px;
+}
+
+div:has(> .bs-info-banner[style="display: flex;"]) ~ #shopify-section-header {
+    top: 120px !important;
+}
+
+@media (min-width: 491px) {
+    div:has(> .bs-info-banner[style="display: flex;"]) ~ #shopify-section-header {
+        top: 105px !important;
+    }
+}
+
+@media (min-width: 637px) {
+    div:has(> .bs-info-banner[style="display: flex;"]) ~ #shopify-section-header {
+        top: 90px !important;
+    }
+}
+
+@media (min-width: 767px) {
     .bs-info-banner {
         gap: 10px;
         padding: 6px 32px;
@@ -34,5 +58,31 @@
     .bs-info-banner__content * {
         font-size: 18px;
         line-height: 23px;
+    }
+
+    div:has(> .bs-info-banner[style="display: flex;"]) + #shopify-section-announcement {
+        top: 35px;
+    }
+
+    div:has(> .bs-info-banner[style="display: flex;"]) ~ #shopify-section-header {
+        top: 95px !important;
+    }
+}
+
+@media (min-width: 828px) {
+    div:has(> .bs-info-banner[style="display: flex;"]) ~ #shopify-section-header {
+        top: 89px !important;
+    }
+}
+
+@media (min-width: 1023px) {
+    div:has(> .bs-info-banner[style="display: flex;"]) ~ #shopify-section-header {
+        top: 103px !important;
+    }
+}
+
+@media (min-width: 1101px) {
+    div:has(> .bs-info-banner[style="display: flex;"]) ~ #shopify-section-header {
+        top: 89px !important;
     }
 }
