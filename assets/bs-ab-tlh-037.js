@@ -1,4 +1,12 @@
 window.activateAbTlh037 = () => {
-    document.querySelector(".Slideshow--versionA")?.style.display = "none";
-    document.querySelector(".Slideshow--versionB")?.style.display = "flex";
+    const slideshowA = document.querySelector(".Slideshow--versionA");
+    const slideshowB = document.querySelector(".Slideshow--versionB");
+
+    if (slideshowA) {
+        slideshowA.style.display = "none";
+    }
+
+    if (slideshowB) {
+        slideshowB.style.display = "flex";
+    }
 };
