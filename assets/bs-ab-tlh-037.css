@@ -4,9 +4,9 @@
 }
 
 .Slideshow--versionB {
+	display: none;
 	position: relative;
 	height: 717px;
-	display: flex;
 	align-items: flex-end;
 	overflow: hidden;
 }
