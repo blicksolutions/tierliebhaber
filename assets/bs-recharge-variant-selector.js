@@ -1,5 +1,15 @@
 window.replaceVariantSelector = () => {
+	const insertMarkUpFinished = new Event('insertMarkUpFinished');
+
 	const uspsMarkup = () => {
+		let freeShippingText;
+
+		if (window.tlh043 == true) {
+			freeShippingText = 'Gratis Versand';
+		} else {
+			freeShippingText = 'Kostenloser Versand';
+		}
+
 		return `
             <ul class="rc-plans__usps" data-js-variant-usps>
                 <li class="rc-plans__usp">
@@ -15,7 +25,7 @@ window.replaceVariantSelector = () => {
                         <path d="M8.41206 15.0238L4.17627 10.788L4.78479 10.1803L8.41206 13.8076L16.2155 6.00421L16.8231 6.61188L8.41206 15.0238Z" fill="black"/>
                     </svg>
                     <p class="rc-plans__usp-text">
-                        Kostenloser Versand
+                        ${freeShippingText}
                     </p>
                 </li>
                 <li class="rc-plans__usp">
@@ -31,8 +41,11 @@ window.replaceVariantSelector = () => {
 	};
 
 	const savingsMarkup = (savings, freeShipping) => {
-		return `
-            <ul class="rc-plans__usps variant-savings__list">
+		let savingsMarkUp;
+		if (window.tlh043 == true) {
+			savingsMarkUp = '';
+		} else {
+			savingsMarkUp = `                
                 <li class="rc-plans__usp">
                     <svg class="rc-plans__usp-icon" width="21" height="21" viewBox="0 0 21 21" fill="none">
                         <path d="M8.41206 15.0238L4.17627 10.788L4.78479 10.1803L8.41206 13.8076L16.2155 6.00421L16.8231 6.61188L8.41206 15.0238Z" fill="black"/>
@@ -40,7 +53,11 @@ window.replaceVariantSelector = () => {
                     <p class="rc-plans__usp-text" data-js-variant-savings-usp>
                         Du sparst ${savings}
                     </p>
-                </li>
+                </li>`;
+		}
+		return `
+            <ul class="rc-plans__usps variant-savings__list">
+                ${savingsMarkUp}
                 ${freeShipping}
             </ul>
 		`;
@@ -124,13 +141,21 @@ window.replaceVariantSelector = () => {
 				}
 
 				if (freeShippingCheck == 'true') {
+					let freeShippingText;
+
+					if (window.tlh043 == true) {
+						freeShippingText = 'Gratis Versand';
+					} else {
+						freeShippingText = 'Kostenloser Versand';
+					}
+
 					freeShipping = `
-                    <li class="rc-plans__usp">
+                    <li class="rc-plans__usp rc-plans_usp--free-shipping">
                         <svg class="rc-plans__usp-icon" width="21" height="21" viewBox="0 0 21 21" fill="none">
                             <path d="M8.41206 15.0238L4.17627 10.788L4.78479 10.1803L8.41206 13.8076L16.2155 6.00421L16.8231 6.61188L8.41206 15.0238Z" fill="black"/>
                         </svg>
                         <p class="rc-plans__usp-text">
-                            Kostenloser Versand
+                            ${freeShippingText}
                         </p>
                     </li>
                     `;
@@ -176,17 +201,18 @@ window.replaceVariantSelector = () => {
 
 			variantWithSavings.forEach((variant) => {
 				if (variant.classList.contains('VariantSelector__ListItem--selected')) {
-					const savings = variant.getAttribute('data-js-savings');
 					const savingsList = document.querySelector('[data-js-variant-savings-container]');
 					if (!savingsList) return;
 
-					const variantSavingsUsp = savingsList.querySelector('[data-js-variant-savings-usp]');
-					variantSavingsUsp.innerHTML = `Du sparst ${savings}`;
+					setTimeout(() => {
+						manageOneTimeFreeShipping(variant);
+					}, 50);
 
 					savingsList.classList.add('active');
 				}
 			});
 		});
+		document.dispatchEvent(insertMarkUpFinished);
 	};
 
 	const manageSubscriptionFreeShipping = () => {
@@ -236,6 +262,68 @@ window.replaceVariantSelector = () => {
 		}
 	};
 
+	const manageOneTimeFreeShipping = (variant) => {
+		const savings = variant.getAttribute('data-js-savings');
+		const savingsList = document.querySelector('[data-js-variant-savings-container]');
+		if (!savingsList) return;
+
+		let freeShipping = '';
+
+		let freeShippingCheck;
+
+		const price = document.querySelector('.ProductMeta__Price.Price').innerText;
+		if (!price) return;
+
+		const priceFloat = Number.parseFloat(price.replace('€', '').replace(',', '.'));
+
+		switch (window.Shopify.locale) {
+			case 'de':
+				if (priceFloat > 49.0) {
+					freeShippingCheck = 'true';
+				}
+				break;
+
+			case 'at':
+				if (priceFloat > 69.0) {
+					freeShippingCheck = 'true';
+				}
+				break;
+
+			case 'ch':
+				if (priceFloat > 129.0) {
+					freeShippingCheck = 'true';
+				}
+				break;
+
+			default:
+				freeShippingCheck = 'false';
+				break;
+		}
+
+		if (freeShippingCheck == 'true') {
+			let freeShippingText;
+
+			if (window.tlh043 == true) {
+				freeShippingText = 'Gratis Versand';
+			} else {
+				freeShippingText = 'Kostenloser Versand';
+			}
+
+			freeShipping = `
+            <li class="rc-plans__usp rc-plans_usp--free-shipping">
+                <svg class="rc-plans__usp-icon" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                    <path d="M8.41206 15.0238L4.17627 10.788L4.78479 10.1803L8.41206 13.8076L16.2155 6.00421L16.8231 6.61188L8.41206 15.0238Z" fill="black"/>
+                </svg>
+                <p class="rc-plans__usp-text">
+                    ${freeShippingText}
+                </p>
+            </li>
+            `;
+		}
+
+		savingsList.innerHTML = savingsMarkup(savings, freeShipping);
+	};
+
 	const mutationObserver = new MutationObserver((entries) => {
 		entries.forEach((entry) => {
 			if (entry.target.classList.contains('rc-widget-injection-parent')) {
@@ -260,15 +348,19 @@ window.replaceVariantSelector = () => {
 
 								if (value === selectedValue) {
 									input.classList.add('VariantSelector__ListItem--selected');
+									setTimeout(manageSubscriptionFreeShipping, 50);
+
 									const savings = input.getAttribute('data-js-savings');
 									const savingsListElement = document.querySelector('[data-js-variant-savings-container]');
 									const subscriptionElement = document.querySelector('[data-option-subsave]');
 									const variantSavingsUsp = savingsListElement.querySelector('[data-js-variant-savings-usp]');
-									setTimeout(manageSubscriptionFreeShipping, 50);
 
 									if (savings != undefined && !subscriptionElement.classList.contains('rc-option--active')) {
+										setTimeout(() => {
+											manageOneTimeFreeShipping(input);
+										}, 50);
+
 										savingsListElement.classList.add('active');
-										variantSavingsUsp.innerHTML = `Du sparst ${savings}`;
 									} else {
 										savingsListElement.classList.remove('active');
 									}
