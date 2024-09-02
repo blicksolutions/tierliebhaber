@@ -1,0 +1,120 @@
+.search__quick-links {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    [data-js-tlh-036] .search__quick-links {
+        display: none !important;
+    }
+}
+
+[data-js-tlh-036="b"] [data-js-search-quick-links="b"] {
+    display: flex;
+}
+
+[data-js-tlh-036="c"] [data-js-search-quick-links="c"] {
+    display: flex;
+}
+
+/* VARIANT B */
+[data-js-tlh-036] .search__quick-links {
+    flex-direction: column;
+    gap: 6px;
+    margin: 10px 0 0;
+    padding: 10px 0 10px;
+    background: #FFF;
+    border-radius: 10px;
+}
+
+[data-js-tlh-036] .search__quick-links__heading {
+    padding: 0 0 0 10px;
+    color: #525252;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 12.5px;
+    margin: 0;
+}
+
+[data-js-tlh-036] .search__quick-links-container.search__quick-links--mobile.swiper {
+    padding: 0 0 15px 0;
+    width: 100%;
+}
+
+[data-js-tlh-036] .search__quick-link {
+    display: flex;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    border-radius: 25px;
+    border: 1px solid #CCC;
+    background: #FFF;
+    box-shadow: 0px -2px 0px 0px #EEE inset, 0px 2px 0px 0px #F4F4F4 inset;
+}
+
+[data-js-tlh-036="b"] .search__quick-link {
+    padding: 5px 10px 5px 4px;
+}
+
+[data-js-tlh-036="c"] .search__quick-link .quick-link__text {
+    padding: 5px 10px;
+}
+
+[data-js-tlh-036] .quick-link__image-container {
+    height: 32px;
+    width: 32px;
+    aspect-ratio: 1;
+}
+
+[data-js-tlh-036] .quick-link__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+[data-js-tlh-036] .swiper-horizontal > .quick-links__scrollbar.swiper-scrollbar {
+    bottom: 0;
+    left: 10px;
+    background: #F5F5F5;
+}
+
+[data-js-tlh-036] .swiper-horizontal > .quick-links__scrollbar.swiper-scrollbar .swiper-scrollbar-drag {
+    background: #F1AF9E;
+}
+
+/* VARIANT B when searchbar is focused */
+.template-index #shopify-section-header .Search[data-js-tlh-036].active {
+    padding: 10px 0px 10px 16px;
+}
+
+.template-index #shopify-section-header .Search[data-js-tlh-036].active .Search__Inner {
+    margin-right: 10px;
+}
+
+[data-js-tlh-036] .search__quick-links.active {
+    background: transparent;
+    margin: 0;
+    padding: 10px 0 0 0;
+}
+
+[data-js-tlh-036] .search__quick-links.active .search__quick-links__heading {
+    display: none;
+}
+
+[data-js-tlh-036] .search__quick-links.active .quick-links__list.swiper-wrapper {
+    left: -10px;
+}
+
+[data-js-tlh-036] .search__quick-links.active .swiper-horizontal > .quick-links__scrollbar.swiper-scrollbar {
+    background: #FFF;
+    left: 0;
+    width: 97%;
+}
+
+/* VARIANT B when searchbar contains text */
+[data-js-tlh-036] .search__quick-links.hidden {
+    display: none;
+}
