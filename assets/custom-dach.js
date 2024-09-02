@@ -113,8 +113,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const giftContained = cartDrawer.querySelector('.cartGiftItem') != null;
             const secondGiftContained = cartDrawer.querySelector('.CartItemWrapper[data-variant-id="' + window.cartDrawerSecondGiftVariantId + '"]') != null;
 
-            console.log(secondGiftContained)
-
             if (subtotalPrice < window.cartDrawerMinPriceForGift && giftContained) {
                 // console.log("REMOVE GIFT")
                 const cartUpdates = {
@@ -156,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             });
                     });
             } else if (!giftContained && subtotalPrice >= window.cartDrawerMinPriceForGift){
-                console.log("ADDED FIRST GIFT")
+                //console.log("ADDED FIRST GIFT")
                 const cartUpdates = {
                     updates: {
                         [window.cartDrawerGiftVariantId]: 1,
@@ -234,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             });
                     });
             } else if (!secondGiftContained && subtotalPrice >= window.cartDrawerMinPriceForSecondGift){
-                console.log("ADD SECOND GIFT")
+                //console.log("ADD SECOND GIFT")
                 const cartUpdates = {
                     updates: {
                         [window.cartDrawerSecondGiftVariantId]: 1
@@ -421,7 +419,8 @@ if (window.tlh047) {
     
             let subtotalPriceWithoutNoShippingItems = (window.cartData.items_subtotal_price / 100) - noDeliveryItemsTotalPrice;
            
-    
+            document.querySelector(".CartMessage__StepsLines__Delivery").style.display = "block";
+
             // console.log("----- new refresh ----")
             if (replaceDelivery && subtotalPriceEl && deliveryCostEl && totalPriceEl && deliveryBarValueEl && deliveryBarLeftTextEl && deliveryBarFinalTextEl && deliveryBarStepLineEl && deliveryBarTextEl) {
                 if (hasItemWithDeliveryRequired) {
@@ -429,9 +428,7 @@ if (window.tlh047) {
                         case 'DE':
                             if (window.cartDrawerEnableGift) {
                                 const percentPerEuro = 100 / parseInt(window.cartDrawerMinPriceForSecondGift);
-
                                 deliveryBarStepLineEl.style.width = (subtotalPriceWithoutNoShippingItems * percentPerEuro) + '%';
-
 
                                 // delivery 
                                 deliveryStepLine.style.display = "block";
@@ -887,7 +884,6 @@ if (window.tlh047) {
             document.querySelector(".CartMessage__StepsLines__Gift").style.display = "block";
             document.querySelector(".CartMessage__StepsLines__Gift").style.right = 0;
             
-
             // console.log("----- new refresh ----")
             if (replaceDelivery && subtotalPriceEl && deliveryCostEl && totalPriceEl && deliveryBarValueEl && deliveryBarLeftTextEl && deliveryBarFinalTextEl && deliveryBarStepLineEl && deliveryBarTextEl) {
                 if (hasItemWithDeliveryRequired) {
@@ -1084,7 +1080,7 @@ if (window.tlh047) {
                                 } else {
                                     deliveryIconPosition = (window.shippingrates.ch.minSubtotalPriceValue * 100) / parseInt(window.cartDrawerMinPriceForGift) ;
                                     deliveryIcon.style.left = deliveryIconPosition + "%";
-    
+
                                     if (window.shippingrates.ch.minSubtotalPriceValue > subtotalPriceWithoutNoShippingItems) {
                                         deliveryCostEl.textContent = '€' + window.shippingrates.ch.priceValue.replace('.', ',');
                                         deliveryPriceValue = parseFloat(window.shippingrates.ch.priceValue);
