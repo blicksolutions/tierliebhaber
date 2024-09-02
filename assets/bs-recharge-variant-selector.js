@@ -357,7 +357,7 @@ window.replaceVariantSelector = () => {
 
 									if (savings != undefined && !subscriptionElement.classList.contains('rc-option--active')) {
 										setTimeout(() => {
-											manageOneTimeFreeShipping(inputElement);
+											manageOneTimeFreeShipping(input);
 										}, 50);
 
 										savingsListElement.classList.add('active');

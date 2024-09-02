@@ -1,5 +1,4 @@
 window.activateAbTlh043 = () => {
-	window.tlh043 = true;
 	const rechargeInjectionElement = document.querySelector('.rc-widget-injection-parent');
 	if (!rechargeInjectionElement) return;
 	rechargeInjectionElement.setAttribute('data-js-tlh-043', 'true');
@@ -132,4 +131,3 @@ window.activateAbTlh043 = () => {
 		}
 	});
 };
-document.addEventListener('DOMContentLoaded', window.activateAbTlh043);
