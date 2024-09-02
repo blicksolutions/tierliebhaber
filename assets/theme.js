@@ -2220,9 +2220,9 @@ function _classCallCheck(e, t) {
                         if (window.cartBarValue) {
                             deliveryBarValueEl.textContent = window.cartBarValue;
                         }
-                        if (window.cartBarWidth) {
-                            deliveryBarStepLineEl.style.width = window.cartBarWidth;
-                        }
+                        // if (window.cartBarWidth) {
+                        //     deliveryBarStepLineEl.style.width = window.cartBarWidth;
+                        // }
                         deliveryBarTextEl.style.filter = 'blur(5px)';
                     }
 

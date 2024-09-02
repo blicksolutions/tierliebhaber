@@ -430,7 +430,8 @@ if (window.tlh047) {
                             if (window.cartDrawerEnableGift) {
                                 const percentPerEuro = 100 / parseInt(window.cartDrawerMinPriceForSecondGift);
 
-                                deliveryBarStepLineEl.style.width = (subtotalPriceWithoutNoShippingItems * percentPerEuro) + '%'
+                                deliveryBarStepLineEl.style.width = (subtotalPriceWithoutNoShippingItems * percentPerEuro) + '%';
+
 
                                 // delivery 
                                 deliveryStepLine.style.display = "block";
@@ -882,8 +883,8 @@ if (window.tlh047) {
     
             let subtotalPriceWithoutNoShippingItems = (window.cartData.items_subtotal_price / 100) - noDeliveryItemsTotalPrice;
            
-            document.querySelector(".CartMessage__StepsLines__Delivery").style.opacity = "block";
-            document.querySelector(".CartMessage__StepsLines__Gift").style.opacity = "block";
+            document.querySelector(".CartMessage__StepsLines__Delivery").style.display = "block";
+            document.querySelector(".CartMessage__StepsLines__Gift").style.display = "block";
             document.querySelector(".CartMessage__StepsLines__Gift").style.right = 0;
             
 
@@ -894,8 +895,8 @@ if (window.tlh047) {
                         case 'DE':
                             if (window.cartDrawerEnableGift) {
                                 const percentPerEuro = 100 / parseInt(window.cartDrawerMinPriceForGift); // 1.33333
-    
                                 deliveryBarStepLineEl.style.width = (subtotalPriceWithoutNoShippingItems * percentPerEuro) + '%'
+
                                 giftIcon.style.display = 'block';
     
                                 deliveryIconPosition = (window.shippingrates.de.minSubtotalPriceValue * 100) / parseInt(window.cartDrawerMinPriceForGift) ;
