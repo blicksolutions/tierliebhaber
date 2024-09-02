@@ -519,7 +519,11 @@ $(document).ready(function(){
         {%- for option in product.options_with_values -%}
             {% assign options_amount = option.values | size %}
 
-            {% if options_amount != 2 %}
+            {% if options_amount == 3 %}
+                {% assign wrap_options = true %}
+                {% assign full_width_options = false %}
+            {% elsif options_amount > 3 %}
+                {% assign wrap_options = false %}
                 {% assign full_width_options = true %}
             {% else %}
                 {% assign full_width_options = false %}
@@ -553,7 +557,7 @@ $(document).ready(function(){
                 {% endfor %}
                 
                 <li 
-                    class="VariantSelector__ListItem {% if value == option.selected_value %}VariantSelector__ListItem--selected{% endif %} {% if full_width_options == true or variant_on_sale_counter > 1 %}VariantSelector__ListItem--full-width{% endif %}" 
+                    class="VariantSelector__ListItem {% if value == option.selected_value %}VariantSelector__ListItem--selected{% endif %} {% if full_width_options == true or variant_on_sale_counter > 1 %}VariantSelector__ListItem--full-width{% endif %} {% if wrap_options == true and variant_on_sale_counter < 3 %}VariantSelector__ListItem--wrap{% endif %}" 
                     data-js-variant-selector-item data-js-option-value="{{ value | escape }}" 
                     {% if variant_savings != blank %} data-js-savings="{{ variant_savings | money }}" {% endif %}
                     {% if free_shipping != blank %} data-js-free-shipping="{{ free_shipping }}" {% endif %}

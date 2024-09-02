@@ -412,6 +412,7 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
     line-height: 12.15px;
     display: flex;
     padding: 5px 10px;
+    margin-bottom: 0;
     justify-content: center;
     align-items: center;
     gap: 10px;
@@ -1008,5 +1009,15 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 @media (min-width: 768px) {
     .ProductMeta.Bestseller ~ .ProductForm {
         margin-top: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    #smile-ui-lite-container {
+        z-index: 9999 !important;
+    }
+
+    .cc-btn.cc-deny {
+        order: 3;
     }
 }
