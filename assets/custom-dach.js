@@ -183,6 +183,50 @@ document.addEventListener('DOMContentLoaded', () => {
             window.unlockCheckoutButton();
         }
     }
+
+    window.addFreeGift = () => {
+        // console.log("REMOVE GIFT")   LIVE VARIANT ID:: 49300505198860
+        const cartUpdates = {
+            updates: {
+                [43855711797516]: 1
+            }
+        };
+        
+        fetch(window.Shopify.routes.root + 'cart/update.js', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(cartUpdates)
+        })
+            .then((response) => response.json())
+            .then(response => {
+                fetch(window.location.href)
+                    .then((response) => response.text())
+                    .then((responseText) => {
+                        const oldItemsWrapper = document.querySelector('.Cart__ItemList');
+                        const html = new DOMParser().parseFromString(responseText, 'text/html');
+                        const newItemsWrapper = html.querySelector('.Cart__ItemList');
+
+                        if (newItemsWrapper) {
+                            oldItemsWrapper.innerHTML = newItemsWrapper.innerHTML;
+                        } else {
+                            location.reload()
+                        }
+
+
+                        console.log("Item added")
+                        // else update cart
+                        setTimeout(() => {
+                            window.obj.cartSidebarRefresh(true);
+                            window.unlockCheckoutButton();
+                        }, 1000);
+                    })
+                    .catch(e => {
+                        console.error(e);
+                    });
+            });
+    }
 });
 
 window.obj.cartSidebarRefresh = function (replaceDelivery) {
@@ -235,7 +279,13 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
         });
 
         let subtotalPriceWithoutNoShippingItems = (window.cartData.items_subtotal_price / 100) - noDeliveryItemsTotalPrice;
-       
+
+        //add free gift
+        console.log(cartItems)
+
+        if(cartItems.length >= 1) {
+          //  window.addFreeGift();
+        }
 
         // console.log("----- new refresh ----")
         if (replaceDelivery && subtotalPriceEl && deliveryCostEl && totalPriceEl && deliveryBarValueEl && deliveryBarLeftTextEl && deliveryBarFinalTextEl && deliveryBarStepLineEl && deliveryBarTextEl) {
