@@ -11455,7 +11455,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 }
 
 #sidebar-cart.Drawer__Footer__CouponActive .Drawer__Footer {
-    height: 426px;
+    height: 425px;
 }
 
 @media(max-width: 767px) {
