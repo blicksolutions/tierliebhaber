@@ -1,0 +1,36 @@
+.bs-info-banner {
+    display: none;
+    gap: 9px;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 16px;
+    background: #fff;
+}
+
+.bs-info-banner img {
+    width: 11px;
+    height: 11px;
+}
+
+.bs-info-banner__content * {
+    font-size: 10px;
+    line-height: 13px;
+    color: #1C1B1B;
+}
+
+@media (min-width: 767px) {
+    .bs-info-banner {
+        gap: 10px;
+        padding: 6px 32px;
+    }
+    
+    .bs-info-banner img {
+        width: 15px;
+        height: 15px;
+    }
+    
+    .bs-info-banner__content * {
+        font-size: 16px;
+        line-height: 20px;
+    }
+}
