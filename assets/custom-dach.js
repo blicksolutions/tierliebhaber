@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     window.handleGift = (subtotalPrice) => {
-        const giftContained = cartDrawer.querySelector('.cartGiftItem') != null;
+        const giftContained = cartDrawer.querySelector('.CartItemWrapper[data-variant-id="'+ window.cartDrawerGiftVariantId +'"]') != null;
 
         if (subtotalPrice < window.cartDrawerMinPriceForGift && giftContained) {
             // console.log("REMOVE GIFT")
@@ -184,48 +184,95 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    window.addFreeGift = () => {
+
+    window.addFreeGift = (numberOfCartItems) => {
         // console.log("REMOVE GIFT")   LIVE VARIANT ID:: 49300505198860
-        const cartUpdates = {
-            updates: {
-                [43855711797516]: 1
-            }
-        };
-        
-        fetch(window.Shopify.routes.root + 'cart/update.js', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(cartUpdates)
-        })
-            .then((response) => response.json())
-            .then(response => {
-                fetch(window.location.href)
-                    .then((response) => response.text())
-                    .then((responseText) => {
-                        const oldItemsWrapper = document.querySelector('.Cart__ItemList');
-                        const html = new DOMParser().parseFromString(responseText, 'text/html');
-                        const newItemsWrapper = html.querySelector('.Cart__ItemList');
+        const freeGift = 49300505198860;
+        const giftContained = cartDrawer.querySelector('.CartItemWrapper[data-variant-id="'+ freeGift +'"]') != null;
 
-                        if (newItemsWrapper) {
-                            oldItemsWrapper.innerHTML = newItemsWrapper.innerHTML;
-                        } else {
-                            location.reload()
-                        }
+        if(numberOfCartItems >= 1 && !giftContained) {
+            const cartUpdates = {
+                updates: {
+                    [freeGift]: 1
+                }
+            };
 
+            fetch(window.Shopify.routes.root + 'cart/update.js', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(cartUpdates)
+            })
+                .then((response) => response.json())
+                .then(response => {
+                    fetch(window.location.href)
+                        .then((response) => response.text())
+                        .then((responseText) => {
+                            const oldItemsWrapper = document.querySelector('.Cart__ItemList');
+                            const html = new DOMParser().parseFromString(responseText, 'text/html');
+                            const newItemsWrapper = html.querySelector('.Cart__ItemList');
+    
+                            if (newItemsWrapper) {
+                                oldItemsWrapper.innerHTML = newItemsWrapper.innerHTML;
+                            } else {
+                                location.reload()
+                            }
+    
+                            // else update cart
+                            setTimeout(() => {
+                                window.obj.cartSidebarRefresh(true);
+                                window.unlockCheckoutButton();
+                            }, 1000);
 
-                        console.log("Item added")
-                        // else update cart
-                        setTimeout(() => {
-                            window.obj.cartSidebarRefresh(true);
-                            window.unlockCheckoutButton();
-                        }, 1000);
-                    })
-                    .catch(e => {
-                        console.error(e);
-                    });
-            });
+                            giftAdded = true;
+                        })
+                        .catch(e => {
+                            console.error(e);
+                        });
+                });
+        } else if(numberOfCartItems <= 1 && giftContained) {
+            const cartUpdates = {
+                updates: {
+                    [freeGift]: 0
+                }
+            };
+
+            fetch(window.Shopify.routes.root + 'cart/update.js', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(cartUpdates)
+            })
+                .then((response) => response.json())
+                .then(response => {
+                    fetch(window.location.href)
+                        .then((response) => response.text())
+                        .then((responseText) => {
+                            const oldItemsWrapper = document.querySelector('.Cart__ItemList');
+                            const html = new DOMParser().parseFromString(responseText, 'text/html');
+                            const newItemsWrapper = html.querySelector('.Cart__ItemList');
+    
+                            if (newItemsWrapper) {
+                                oldItemsWrapper.innerHTML = newItemsWrapper.innerHTML;
+                            } else {
+                                location.reload()
+                            }
+    
+                            // else update cart
+                            setTimeout(() => {
+                                window.obj.cartSidebarRefresh(true);
+                                window.unlockCheckoutButton();
+                            }, 1000);
+
+                            giftAdded = true;
+                        })
+                        .catch(e => {
+                            console.error(e);
+                        });
+                });
+        }
     }
 });
 
@@ -280,12 +327,8 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
 
         let subtotalPriceWithoutNoShippingItems = (window.cartData.items_subtotal_price / 100) - noDeliveryItemsTotalPrice;
 
-        //add free gift
-        console.log(cartItems)
-
-        if(cartItems.length >= 1) {
-          //  window.addFreeGift();
-        }
+        //add free gift for gift campaign
+        window.addFreeGift(cartItems.length);
 
         // console.log("----- new refresh ----")
         if (replaceDelivery && subtotalPriceEl && deliveryCostEl && totalPriceEl && deliveryBarValueEl && deliveryBarLeftTextEl && deliveryBarFinalTextEl && deliveryBarStepLineEl && deliveryBarTextEl) {
