@@ -2479,7 +2479,6 @@ body:not(.is-tabbing) .flickity-enabled:focus {
 
 .Drawer__Footer {
     flex: none;
-    box-shadow: 0 -1px var(--border-color);
 }
 
 .Drawer--secondary .Drawer__Footer {
@@ -11452,14 +11451,26 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 
 #sidebar-cart .Drawer__Footer {
     padding-bottom: 0;
-    height: 271px;
+    height: 362px;
 }
 
 #sidebar-cart.Drawer__Footer__CouponActive .Drawer__Footer {
-    height: 335px;
+    height: 426px;
+}
+
+@media(max-width: 767px) {
+    #sidebar-cart .Drawer__Footer {
+        padding-bottom: 0;
+        height: 385px;
+    }
+
+    #sidebar-cart.Drawer__Footer__CouponActive .Drawer__Footer {
+        height: 448px;
+    }
 }
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon {
+    border-top: 1px solid #E5E5E5;
     border-bottom: 1px solid #E5E5E5;
 }
 
@@ -11793,6 +11804,22 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
     #sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon-percentage {
         right: 0;
     }
+}
+
+.TLH-047--active .CartMessage__StepsLines__Gift span {
+    width: 80px;
+    line-height: 13px;
+    transform: translateX(-50%) translateY(60%);
+}
+
+.TLH-047--active .CartMessage__StepsLines__Second-Gift span {
+    width: 80px;
+    line-height: 13px;
+    transform: translateX(-73%) translateY(60%);
+}
+
+.TLH-047--active .CartMessage__Steps {
+    height: 95px;
 }
 
 /** /Percentage **/

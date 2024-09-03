@@ -17,9 +17,9 @@
     window.cartDrawerGiftPrice = parseInt({{ section.settings.gift_product.selected_or_first_available_variant.price }}) / 100;
 
     //AB TEST TLH047 -- VARIABLES
-    window.tlh047 = true;
+    window.tlh047 = true; // remove before test starts
     window.cartDrawerMinPriceForSecondGift = 175;
-    window.cartDrawerSecondGiftVariantId = 41523221069983;
+    window.cartDrawerSecondGiftVariantId = 43855711797516;
 </script>
 
 <div id="sidebar-cart" class="Drawer Drawer--fromRight" aria-hidden="true" selected_variant data-section-id="cart" data-section-type="cart" data-section-settings='{{ section_settings }}'>
@@ -60,7 +60,7 @@
           </span>
 
           <span class="CartMessage__StepsLines__Gift CartMessage__StepsLines__Second-Gift" style="display: none; right: 0px;">
-            <span>2. GIFT</span>
+            <span>Gratis Geschenk (39.90€)</span>
           </span>  
         </div>
       </div>

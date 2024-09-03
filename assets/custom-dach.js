@@ -363,8 +363,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+
 if (window.tlh047) {
+    document.querySelector("#sidebar-cart").classList.add("TLH-047--active")
+
     window.obj.cartSidebarRefresh = function (replaceDelivery) {
+        
+        // TLH047
+        window.obj.tlh047Tracking();
+
         if (window.cartDrawerEnableGift) {
             window.giftItemId = window.cartDrawerGiftVariantId;
             sessionStorage.setItem('giftItemAdded', sessionStorage.getItem('giftItemAdded'));
@@ -564,7 +571,7 @@ if (window.tlh047) {
                                     if (totalPrice && couponCodeSet == null && window.shippingrates.at.minSubtotalPriceValue <= subtotalPriceWithoutNoShippingItems) {
                                         totalPrice.textContent = totalPrice?.dataset?.price
                                     }
-                                }, 500);
+                                }, 800);
                             } else {
                                 giftIcon.style.display = 'none';
     
@@ -729,9 +736,12 @@ if (window.tlh047) {
                     window.unlockCheckoutButton();
                 }
     
-                // set price with location based shipping costs
-                const priceWithoutShipping = parseFloat(subtotalPriceEl.textContent.replace('€', '').replace(',', '.'));
-                totalPriceEl.textContent = '€' + (priceWithoutShipping + deliveryPriceValue).toFixed(2);
+                setTimeout(() => {
+                    // set price with location based shipping costs
+                    const priceWithoutShipping = parseFloat(subtotalPriceEl.textContent.replace('€', '').replace(',', '.'));
+                    totalPriceEl.textContent = '€' + (priceWithoutShipping + deliveryPriceValue).toFixed(2);
+                }, 500);
+    
             }
             /** /Delivery after ip +*/
     
@@ -829,7 +839,11 @@ if (window.tlh047) {
         /* /Error */
     };
 } else {
-    window.obj.cartSidebarRefresh = function (replaceDelivery) {
+        window.obj.cartSidebarRefresh = function (replaceDelivery) {
+
+        // TLH047
+        window.obj.tlh047Tracking();
+
         if (window.cartDrawerEnableGift) {
             window.giftItemId = window.cartDrawerGiftVariantId;
             sessionStorage.setItem('giftItemAdded', sessionStorage.getItem('giftItemAdded'));
@@ -1178,9 +1192,11 @@ if (window.tlh047) {
                     window.unlockCheckoutButton();
                 }
     
-                // set price with location based shipping costs
-                const priceWithoutShipping = parseFloat(subtotalPriceEl.textContent.replace('€', '').replace(',', '.'));
-                totalPriceEl.textContent = '€' + (priceWithoutShipping + deliveryPriceValue).toFixed(2);
+                setTimeout(() => {
+                    // set price with location based shipping costs
+                    const priceWithoutShipping = parseFloat(subtotalPriceEl.textContent.replace('€', '').replace(',', '.'));
+                    totalPriceEl.textContent = '€' + (priceWithoutShipping + deliveryPriceValue).toFixed(2);
+                }, 500);
             }
             /** /Delivery after ip +*/
     
@@ -1279,6 +1295,36 @@ if (window.tlh047) {
     };
 }
 
+window.obj.tlh047Tracking = function () {
+    const checkoutButton = document.querySelector("#sidebar-cart .Cart__Checkout");
+
+    if (sessionStorage.getItem("tlh047abLyftTracking") === null) {
+        sessionStorage.setItem("tlh047abLyftTracking", 0);
+    }
+
+    if(checkoutButton !== null) {
+        const totalPrice = parseFloat(document.querySelector(".Drawer__Footer__Total span").dataset.price.replace('€', '').replace(',', '.'));
+
+        if(!checkoutButton.disabled && totalPrice > 175 ) {
+            checkoutButton.addEventListener('click', () => {
+            
+                let abLyftTrackingCount = parseInt(sessionStorage.getItem("tlh047abLyftTracking"));
+                abLyftTrackingCount += 1;
+                sessionStorage.setItem("tlh047abLyftTracking", abLyftTrackingCount);
+
+                if(abLyftTrackingCount <= 2) {
+                    console.log('track ablyft');
+                    console.log(totalPrice);
+
+                    // window['ablyft'].push({
+                    //     eventType: 'custom',
+                    //     eventName: 'tlh-047-order-over-175'
+                    // }); 
+                }
+            });
+        }
+    }
+}
 
 window.obj.cartSidebar = function () {
 
@@ -1412,3 +1458,6 @@ $(document).ready(function () {
         });
 });
 /* /Cart sidebar coupon */
+
+
+
