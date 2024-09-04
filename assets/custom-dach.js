@@ -93,8 +93,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.unlockCheckoutButton = () => {
         // console.log("UNLOCK BUTTON")
-        cartDrawer.querySelector('.Cart__Checkout').disabled = false;
-        document.dispatchEvent(new CustomEvent("rerenderingFinished"));
+        if (cartDrawer.querySelector('.Cart__Checkout') !== null) {
+            cartDrawer.querySelector('.Cart__Checkout').disabled = false;
+            document.dispatchEvent(new CustomEvent("rerenderingFinished"));
+        }
     };
 
     window.handleGift = (subtotalPrice) => {
@@ -180,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
         } else {
             // console.log("DONE NOTHIN!")
-            window.unlockCheckoutButton();
+            // window.unlockCheckoutButton();
         }
     }
 
@@ -188,7 +190,9 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addFreeGift = (numberOfCartItems) => {
         // console.log("REMOVE GIFT")   LIVE VARIANT ID:: 49300505198860
         const freeGift = 49300505198860;
-        const giftContained = cartDrawer.querySelector('.CartItemWrapper[data-variant-id="'+ freeGift +'"]') != null;
+        const giftContained = cartDrawer.querySelector('.CartItemWrapper[data-variant-id="' + freeGift + '"]') != null;
+        
+        console.log(giftContained)
 
         if(numberOfCartItems >= 1 && !giftContained) {
             const cartUpdates = {
@@ -224,8 +228,6 @@ document.addEventListener('DOMContentLoaded', () => {
                                 window.obj.cartSidebarRefresh(true);
                                 window.unlockCheckoutButton();
                             }, 1000);
-
-                            giftAdded = true;
                         })
                         .catch(e => {
                             console.error(e);
@@ -265,13 +267,13 @@ document.addEventListener('DOMContentLoaded', () => {
                                 window.obj.cartSidebarRefresh(true);
                                 window.unlockCheckoutButton();
                             }, 1000);
-
-                            giftAdded = true;
                         })
                         .catch(e => {
                             console.error(e);
                         });
                 });
+        } else {
+            window.unlockCheckoutButton();
         }
     }
 });
