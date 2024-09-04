@@ -15,6 +15,8 @@
     window.cartDrawerGiftProductId = {{ section.settings.gift_product.id }};
     window.cartDrawerGiftVariantId = {{ section.settings.gift_product.selected_or_first_available_variant.id }};
     window.cartDrawerGiftPrice = parseInt({{ section.settings.gift_product.selected_or_first_available_variant.price }}) / 100;
+
+    window.cartDrawerEnableGiftCampaign = {{ section.settings.enable_gift_campaign }};
 </script>
 
 <div id="sidebar-cart" class="Drawer Drawer--fromRight" aria-hidden="true" selected_variant data-section-id="cart" data-section-type="cart" data-section-settings='{{ section_settings }}'>
@@ -306,6 +308,12 @@
     {
       "type": "header",
       "content": "Free gift"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_gift_campaign",
+      "label": "Enable gift campaign",
+      "default": true
     },
     {
       "type": "checkbox",

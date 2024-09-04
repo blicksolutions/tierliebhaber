@@ -182,7 +182,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
         } else {
             // console.log("DONE NOTHIN!")
-            // window.unlockCheckoutButton();
+            if(window.cartDrawerEnableGiftCampaign === false) {
+                window.unlockCheckoutButton();
+            }
         }
     }
 
@@ -329,8 +331,13 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
 
         let subtotalPriceWithoutNoShippingItems = (window.cartData.items_subtotal_price / 100) - noDeliveryItemsTotalPrice;
 
-        //add free gift for gift campaign
-        window.addFreeGift(cartItems.length);
+
+        console.log("GIFT CAMPAIGN: " + window.cartDrawerEnableGiftCampaign);
+
+        if(window.cartDrawerEnableGiftCampaign) {
+            //add free gift for gift campaign
+            window.addFreeGift(cartItems.length);
+        }
 
         // console.log("----- new refresh ----")
         if (replaceDelivery && subtotalPriceEl && deliveryCostEl && totalPriceEl && deliveryBarValueEl && deliveryBarLeftTextEl && deliveryBarFinalTextEl && deliveryBarStepLineEl && deliveryBarTextEl) {
