@@ -188,7 +188,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-
     window.addFreeGift = (numberOfCartItems) => {
         // console.log("REMOVE GIFT")   LIVE VARIANT ID:: 49300505198860
         const freeGift = 49300505198860;
@@ -330,9 +329,6 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
         });
 
         let subtotalPriceWithoutNoShippingItems = (window.cartData.items_subtotal_price / 100) - noDeliveryItemsTotalPrice;
-
-
-        console.log("GIFT CAMPAIGN: " + window.cartDrawerEnableGiftCampaign);
 
         if(window.cartDrawerEnableGiftCampaign) {
             //add free gift for gift campaign
