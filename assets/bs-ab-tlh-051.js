@@ -119,7 +119,3 @@ window.activateAbTlh051 = () => {
 		});
 	});
 };
-
-document.addEventListener("DOMContentLoaded", () => {
-    window.activateAbTlh051();
-})
