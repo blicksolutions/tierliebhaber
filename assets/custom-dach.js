@@ -188,9 +188,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-
     window.addFreeGift = (numberOfCartItems) => {
-        // console.log("REMOVE GIFT")   LIVE VARIANT ID:: 49300505198860
+        // console.log("REMOVE GIFT")
         const freeGift = 49300505198860;
         const giftContained = cartDrawer.querySelector('.CartItemWrapper[data-variant-id="' + freeGift + '"]') != null;
         
