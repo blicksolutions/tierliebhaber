@@ -5,6 +5,10 @@
 	{%- assign upsell_product_count = upsell_product_count | plus: 1 -%}
 {%- endfor -%}
 
+{% if template contains 'product' %}
+    {% render 'bs-ab-tlh-051' %}
+{% endif %}
+
 {%- if upsell_product_count > 0 and bundle_product != blank -%}
 
 	<div class="Section Section--spacingNormal Bundles__Wrapper">
