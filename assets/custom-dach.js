@@ -192,8 +192,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // console.log("REMOVE GIFT")
         const freeGift = 49300505198860;
         const giftContained = cartDrawer.querySelector('.CartItemWrapper[data-variant-id="' + freeGift + '"]') != null;
-        
-        console.log(giftContained)
 
         if(numberOfCartItems >= 1 && !giftContained) {
             const cartUpdates = {
