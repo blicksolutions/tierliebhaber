@@ -1,0 +1,27 @@
+.ProductForm__ShippingEta {
+    opacity: 0;
+    transition: opacity .3s ease;
+}
+
+.ProductForm__ShippingEta--version-b {
+    display: none;
+}
+
+.ProductForm__ShippingEta--version-b {
+    color: #77a464;
+    font-weight: 600;
+    margin-bottom: 0;
+    padding: 8px;
+}
+
+.ProductForm__ShippingEta--version-b:before {
+    background-color: #77a464;
+    border-radius: 50%;
+    content: "";
+    display: inline-block;
+    height: 8px;
+    margin-right: 12px;
+    position: relative;
+    top: -1px;
+    width: 8px;
+}

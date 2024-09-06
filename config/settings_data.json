@@ -1,12 +1,3 @@
-/*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
 {
   "current": {
     "donations_amount": 77721,
@@ -1659,6 +1650,13 @@
           "content": "<p>Seit Januar 2024 unterstützen wir mit einem Teil der Spendengelder Lehrer, die das Bewusstsein für den Tierschutz auf Bali stärken und die Verantwortung jedes Einzelnen im Umgang mit Tieren fördern. <\/p><p>Ein Lehrer unterrichtet pro Jahr im Durchschnitt 8000 Kinder auf Bali über die Themen Tierwohl und Tierschutz. Tierliebhaber zahlt seit diesem Jahr mit einem Teil der Spendengelder das Monatsgehalt für einen Lehrer vor Ort.<\/p><p>Damit der Unterricht auch so richtig Spaß macht, haben wir zusammen mit BAWA ein Schulheft zum Thema Tierwohl für die Kinder gestaltet. 1.000 Stück dieser Schulhefte haben wir an Lehrer und Schulen für die Kinder vor Ort gespendet.<\/p><p>Danke, dass ihr Teil dieses wunderbaren Projekts seid. Dank eurer Spenden haben wir schon so viele positive Veränderungen für den Tierschutz auf Bali bewirkt.<\/p>",
           "link_text": "",
           "link_url": ""
+        }
+      },
+      "bs-info-banner": {
+        "type": "bs-info-banner",
+        "settings": {
+          "richtext": "<p><strong>Gratis Geschenk<\/strong> (Wert 13,90€) zu jeder Bestellung ab 85€<\/p>",
+          "icon": "shopify:\/\/shop_images\/Vector_73.svg"
         }
       }
     },
