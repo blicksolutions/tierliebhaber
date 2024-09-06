@@ -344,7 +344,11 @@ window.obj.cartSidebarRefresh = function (replaceDelivery) {
                         if (window.cartDrawerEnableGift) {
                             const percentPerEuro = 100 / parseInt(window.cartDrawerMinPriceForGift); // 1.33333
 
-                            deliveryBarStepLineEl.style.width = (subtotalPriceWithoutNoShippingItems * percentPerEuro) + '%'
+                            setTimeout(() => {
+                                 deliveryBarStepLineEl.style.width = (subtotalPriceWithoutNoShippingItems * percentPerEuro) + '%'
+                                 console.log(deliveryBarStepLineEl.style.width)
+                            }, 300);
+
                             giftIcon.style.display = 'block';
 
                             deliveryIconPosition = (window.shippingrates.de.minSubtotalPriceValue * 100) / parseInt(window.cartDrawerMinPriceForGift) ;
