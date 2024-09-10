@@ -449,12 +449,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         });
                 });
         } else {
-            window.unlockCheckoutButton();
+                window.unlockCheckoutButton();
             }
         }
     }
 });
-
 
 if (window.tlh047) {
     document.querySelector("#sidebar-cart").classList.add("TLH-047--active")
@@ -473,9 +472,11 @@ if (window.tlh047) {
         window.cartData = JSON.parse(sessionStorage.getItem('scCartData'))
     
         const cartSidebar = $('#sidebar-cart');
+
         setTimeout(() => {
             cartSidebar.removeClass('Drawer__Footer-loading');
         }, 2000);
+
         cartSidebar.attr("data-dcart-calculated", (parseInt(cartSidebar.attr("data-dcart-calculated")) + 1));
     
         const scData = JSON.parse(sessionStorage.getItem("scDiscountData"));
@@ -499,8 +500,6 @@ if (window.tlh047) {
             let hasItemWithDeliveryRequired = false;
             const giftIcon = document.querySelector('.CartMessage__StepsLines__Gift');
             const secondGiftIcon = document.querySelector('.CartMessage__StepsLines__Second-Gift');
-
-
             const deliveryIcon = document.querySelector('.CartMessage__StepsLines__Delivery');
             let deliveryIconPosition;
     
