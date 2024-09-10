@@ -456,7 +456,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 if (window.tlh047) {
-    document.querySelector("#sidebar-cart").classList.add("TLH-047--active")
+    document.querySelector("#sidebar-cart").classList.add("TLH-047--active");
 
     window.obj.cartSidebarRefresh = function (replaceDelivery) {
         
@@ -519,12 +519,10 @@ if (window.tlh047) {
     
             document.querySelector(".CartMessage__StepsLines__Delivery").style.display = "block";
 
-        console.log("GIFT CAMPAIGN: " + window.cartDrawerEnableGiftCampaign);
-
-        if(window.cartDrawerEnableGiftCampaign) {
-            //add free gift for gift campaign
-            window.addFreeGift(cartItems.length);
-        }
+            if(window.cartDrawerEnableGiftCampaign) {
+                //add free gift for gift campaign
+                window.addFreeGift(cartItems.length);
+            }
 
             // console.log("----- new refresh ----")
             if (replaceDelivery && subtotalPriceEl && deliveryCostEl && totalPriceEl && deliveryBarValueEl && deliveryBarLeftTextEl && deliveryBarFinalTextEl && deliveryBarStepLineEl && deliveryBarTextEl) {
@@ -1415,13 +1413,10 @@ window.obj.tlh047Tracking = function () {
                 sessionStorage.setItem("tlh047abLyftTracking", abLyftTrackingCount);
 
                 if(abLyftTrackingCount <= 2) {
-                    console.log('track ablyft');
-                    console.log(totalPrice);
-
-                    // window['ablyft'].push({
-                    //     eventType: 'custom',
-                    //     eventName: 'tlh-047-order-over-175'
-                    // }); 
+                    window['ablyft'].push({
+                        eventType: 'custom',
+                        eventName: 'tlh-047-order-over-175'
+                    }); 
                 }
             });
         }
