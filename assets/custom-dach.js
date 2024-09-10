@@ -625,7 +625,7 @@ if (window.tlh047) {
     
                                 setTimeout(() => {
                                  deliveryBarStepLineEl.style.width = (subtotalPriceWithoutNoShippingItems * percentPerEuro) + '%'
-                                     console.log(deliveryBarStepLineEl.style.width)
+                                     //console.log(deliveryBarStepLineEl.style.width)
                             }, 300);
 
                             giftIcon.style.display = 'block';
