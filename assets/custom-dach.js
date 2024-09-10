@@ -104,8 +104,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.unlockCheckoutButton = () => {
         // console.log("UNLOCK BUTTON")
-        cartDrawer.querySelector('.Cart__Checkout').disabled = false;
-        document.dispatchEvent(new CustomEvent("rerenderingFinished"));
+        if (cartDrawer.querySelector('.Cart__Checkout') !== null) {
+            cartDrawer.querySelector('.Cart__Checkout').disabled = false;
+            document.dispatchEvent(new CustomEvent("rerenderingFinished"));
+        }
     };
 
     window.handleGift = (subtotalPrice) => {
@@ -357,7 +359,97 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
             } else {
                 // console.log("DONE NOTHIN!")
+                if(window.cartDrawerEnableGiftCampaign === false) {
                 window.unlockCheckoutButton();
+            }
+        }
+    }
+
+    window.addFreeGift = (numberOfCartItems) => {
+        // console.log("REMOVE GIFT")
+        const freeGift = 49300505198860;
+        const giftContained = cartDrawer.querySelector('.CartItemWrapper[data-variant-id="' + freeGift + '"]') != null;
+
+        if(numberOfCartItems >= 1 && !giftContained) {
+            const cartUpdates = {
+                updates: {
+                    [freeGift]: 1
+                }
+            };
+
+            fetch(window.Shopify.routes.root + 'cart/update.js', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(cartUpdates)
+            })
+                .then((response) => response.json())
+                .then(response => {
+                    fetch(window.location.href)
+                        .then((response) => response.text())
+                        .then((responseText) => {
+                            const oldItemsWrapper = document.querySelector('.Cart__ItemList');
+                            const html = new DOMParser().parseFromString(responseText, 'text/html');
+                            const newItemsWrapper = html.querySelector('.Cart__ItemList');
+    
+                            if (newItemsWrapper) {
+                                oldItemsWrapper.innerHTML = newItemsWrapper.innerHTML;
+                            } else {
+                                location.reload()
+                            }
+    
+                            // else update cart
+                            setTimeout(() => {
+                                window.obj.cartSidebarRefresh(true);
+                                window.unlockCheckoutButton();
+                            }, 1000);
+                        })
+                        .catch(e => {
+                            console.error(e);
+                        });
+                });
+        } else if(numberOfCartItems <= 1 && giftContained) {
+            const cartUpdates = {
+                updates: {
+                    [freeGift]: 0
+                }
+            };
+
+            fetch(window.Shopify.routes.root + 'cart/update.js', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(cartUpdates)
+            })
+                .then((response) => response.json())
+                .then(response => {
+                    fetch(window.location.href)
+                        .then((response) => response.text())
+                        .then((responseText) => {
+                            const oldItemsWrapper = document.querySelector('.Cart__ItemList');
+                            const html = new DOMParser().parseFromString(responseText, 'text/html');
+                            const newItemsWrapper = html.querySelector('.Cart__ItemList');
+    
+                            if (newItemsWrapper) {
+                                oldItemsWrapper.innerHTML = newItemsWrapper.innerHTML;
+                            } else {
+                                location.reload()
+                            }
+    
+                            // else update cart
+                            setTimeout(() => {
+                                window.obj.cartSidebarRefresh(true);
+                                window.unlockCheckoutButton();
+                            }, 1000);
+                        })
+                        .catch(e => {
+                            console.error(e);
+                        });
+                });
+        } else {
+            window.unlockCheckoutButton();
             }
         }
     }
@@ -425,8 +517,15 @@ if (window.tlh047) {
             });
     
             let subtotalPriceWithoutNoShippingItems = (window.cartData.items_subtotal_price / 100) - noDeliveryItemsTotalPrice;
-           
+    
             document.querySelector(".CartMessage__StepsLines__Delivery").style.display = "block";
+
+        console.log("GIFT CAMPAIGN: " + window.cartDrawerEnableGiftCampaign);
+
+        if(window.cartDrawerEnableGiftCampaign) {
+            //add free gift for gift campaign
+            window.addFreeGift(cartItems.length);
+        }
 
             // console.log("----- new refresh ----")
             if (replaceDelivery && subtotalPriceEl && deliveryCostEl && totalPriceEl && deliveryBarValueEl && deliveryBarLeftTextEl && deliveryBarFinalTextEl && deliveryBarStepLineEl && deliveryBarTextEl) {
@@ -527,8 +626,12 @@ if (window.tlh047) {
                                     subtotalPriceWithoutNoShippingItems -= window.cartDrawerGiftPrice;
                                 }
     
-                                deliveryBarStepLineEl.style.width = (subtotalPriceWithoutNoShippingItems * percentPerEuro) + '%'
-                                giftIcon.style.display = 'block';
+                                setTimeout(() => {
+                                 deliveryBarStepLineEl.style.width = (subtotalPriceWithoutNoShippingItems * percentPerEuro) + '%'
+                                     console.log(deliveryBarStepLineEl.style.width)
+                            }, 300);
+
+                            giftIcon.style.display = 'block';
     
                                 deliveryIconPosition = (window.shippingrates.at.minSubtotalPriceValue * 100) / parseInt(window.cartDrawerMinPriceForGift) ;
                                 deliveryIcon.style.left = deliveryIconPosition + "%";

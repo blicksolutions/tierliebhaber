@@ -20,6 +20,7 @@
     window.tlh047 = true; // remove before test starts
     window.cartDrawerMinPriceForSecondGift = 175;
     window.cartDrawerSecondGiftVariantId = 43855711797516;
+    window.cartDrawerEnableGiftCampaign = {{ section.settings.enable_gift_campaign }};
 </script>
 
 <div id="sidebar-cart" class="Drawer Drawer--fromRight" aria-hidden="true" selected_variant data-section-id="cart" data-section-type="cart" data-section-settings='{{ section_settings }}'>
@@ -316,6 +317,12 @@
     {
       "type": "header",
       "content": "Free gift"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_gift_campaign",
+      "label": "Enable gift campaign",
+      "default": false
     },
     {
       "type": "checkbox",

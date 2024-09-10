@@ -3,6 +3,7 @@ Those are the option names for which we automatically detect swatch. For the col
 for size, we use it to display a size chart (if applicable)
 {%- endcomment -%}
 <script src="{{ 'bs-recharge-variant-selector.js' | asset_url }}"></script>
+<script src="{{ 'bs-product-form.js' | asset_url }}" defer></script>
 
 <script>
 $(document).ready(function(){
@@ -351,6 +352,10 @@ $(document).ready(function(){
       {% else %}
           <p class="{{ shipping_eta_class }}" data-translation-key="{{ shipping_eta_translation_key | t }}">{{ shipping_eta_translation_key | t }}</p>
       {% endif %}
+
+      <p class="ProductForm__ShippingEta--version-b" data-translation-key="Auf Lager! Versand in ca. 1-2 Werktagen">
+          Auf Lager! Versand in ca. 1-2 Werktagen 
+      </p>
   {%- endif -%}
   {%- comment -%}
   --------------------------------------------------------------------------------------------------------------------
@@ -514,7 +519,11 @@ $(document).ready(function(){
         {%- for option in product.options_with_values -%}
             {% assign options_amount = option.values | size %}
 
-            {% if options_amount != 2 %}
+            {% if options_amount == 3 %}
+                {% assign wrap_options = true %}
+                {% assign full_width_options = false %}
+            {% elsif options_amount > 3 %}
+                {% assign wrap_options = false %}
                 {% assign full_width_options = true %}
             {% else %}
                 {% assign full_width_options = false %}
@@ -548,7 +557,7 @@ $(document).ready(function(){
                 {% endfor %}
                 
                 <li 
-                    class="VariantSelector__ListItem {% if value == option.selected_value %}VariantSelector__ListItem--selected{% endif %} {% if full_width_options == true or variant_on_sale_counter > 1 %}VariantSelector__ListItem--full-width{% endif %}" 
+                    class="VariantSelector__ListItem {% if value == option.selected_value %}VariantSelector__ListItem--selected{% endif %} {% if full_width_options == true or variant_on_sale_counter > 1 %}VariantSelector__ListItem--full-width{% endif %} {% if wrap_options == true and variant_on_sale_counter < 3 %}VariantSelector__ListItem--wrap{% endif %}" 
                     data-js-variant-selector-item data-js-option-value="{{ value | escape }}" 
                     {% if variant_savings != blank %} data-js-savings="{{ variant_savings | money }}" {% endif %}
                     {% if free_shipping != blank %} data-js-free-shipping="{{ free_shipping }}" {% endif %}
