@@ -455,8 +455,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-console.log("AB TEST TLH047: " + window.tlh047)
-
 if (window.tlh047) {
     document.querySelector("#sidebar-cart").classList.add("TLH-047--active");
 
