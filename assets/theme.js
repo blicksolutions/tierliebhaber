@@ -2210,8 +2210,6 @@ function _classCallCheck(e, t) {
                 value: function(e) {
                     var t = this;
 
-                    // console.log('_rerenderCart');
-
                     const deliveryBarTextEl = document.querySelector('.CartMessage__Steps__Text');
                     const deliveryBarValueEl = document.querySelector('.js-cart-drawer-delivery-left-value');
                     const deliveryBarStepLineEl = document.querySelector('.CartMessage__StepsLines__Active');
@@ -2220,9 +2218,9 @@ function _classCallCheck(e, t) {
                         if (window.cartBarValue) {
                             deliveryBarValueEl.textContent = window.cartBarValue;
                         }
-                        if (window.cartBarWidth) {
-                            deliveryBarStepLineEl.style.width = window.cartBarWidth;
-                        }
+                        // if (window.cartBarWidth) {
+                        //     deliveryBarStepLineEl.style.width = window.cartBarWidth;
+                        // }
                         deliveryBarTextEl.style.filter = 'blur(5px)';
                     }
 

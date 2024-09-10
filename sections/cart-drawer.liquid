@@ -15,8 +15,11 @@
     window.cartDrawerGiftProductId = {{ section.settings.gift_product.id }};
     window.cartDrawerGiftVariantId = {{ section.settings.gift_product.selected_or_first_available_variant.id }};
     window.cartDrawerGiftPrice = parseInt({{ section.settings.gift_product.selected_or_first_available_variant.price }}) / 100;
-
     window.cartDrawerEnableGiftCampaign = {{ section.settings.enable_gift_campaign }};
+
+    //AB TEST TLH047 -- VARIABLES
+    window.cartDrawerMinPriceForSecondGift = 175;
+    window.cartDrawerSecondGiftVariantId = 43855711797516;
 </script>
 
 <div id="sidebar-cart" class="Drawer Drawer--fromRight" aria-hidden="true" selected_variant data-section-id="cart" data-section-type="cart" data-section-settings='{{ section_settings }}'>
@@ -27,6 +30,41 @@
         {%- render 'icon' with 'close' -%}
       </button>
   </div>
+
+    <!-- Steps message -->
+      <div class="CartMessage__Steps" style="opacity: 0;">
+        <div class="CartMessage__Steps__Text">
+            <div class="CartMessage__Steps__Text-left">
+                {{ section.settings.message_delivery_text-first }} <span class="js-cart-drawer-delivery-left-value"></span> {{ section.settings.message_delivery_text-last }}
+            </div>
+
+            <div class="CartMessage__Steps__Text-final" style="display: none">
+                {{ section.settings.message_final_text }}
+            </div>
+        </div>
+        <div class="CartMessage__StepsLines__Container">
+          <div class="CartMessage__StepsLines">
+            {%- assign message_line_percentage = cart.total_price | divided_by: 71.48934 | times: 100 -%}
+            <span class="CartMessage__StepsLines__Active"
+                  data-free-delivery-amount="{{ section.settings.free_delivery_amount }}"></span>
+          </div>
+
+          <span class="CartMessage__StepsLines__Delivery {{ section.settings.enable_gift }}" style="display: none;">
+            <img src="{{ section.settings.message_delivery_icon | img_url: '32x32' }}" 
+                alt="{{ section.settings.message_delivery_icon.alt | escape }}">
+          </span>
+
+          <span class="CartMessage__StepsLines__Gift" style="display: none">
+            <span>Gratis Geschenk (13.90€)</span>
+          </span>
+
+          <span class="CartMessage__StepsLines__Gift CartMessage__StepsLines__Second-Gift" style="display: none; right: 0px;">
+            <span>Gratis Geschenk (39.90€)</span>
+          </span>  
+        </div>
+      </div>
+    <!-- /Steps message -->
+
 
   <form class="Cart Drawer__Content" action="{{ routes.cart_url }}" method="POST" novalidate>
     <div class="Drawer__Main" data-scrollable>
@@ -60,37 +98,6 @@
       {%- if cart.item_count == 0 -%}
         <p class="Cart__Empty Heading u-h5">{{ 'cart.general.empty' | t }}</p>
       {%- else -%}
-
-        <!-- Steps message -->
-        <div class="CartMessage__Steps">
-          <div class="CartMessage__Steps__Text">
-              <div class="CartMessage__Steps__Text-left">
-                  {{ section.settings.message_delivery_text-first }} <span class="js-cart-drawer-delivery-left-value"></span> {{ section.settings.message_delivery_text-last }}
-              </div>
-
-              <div class="CartMessage__Steps__Text-final" style="display: none">
-                  {{ section.settings.message_final_text }}
-              </div>
-          </div>
-          <div class="CartMessage__StepsLines__Container">
-            <div class="CartMessage__StepsLines">
-              {%- assign message_line_percentage = cart.total_price | divided_by: 71.48934 | times: 100 -%}
-              <span class="CartMessage__StepsLines__Active"
-                    data-free-delivery-amount="{{ section.settings.free_delivery_amount }}"></span>
-            </div>
-
-            <span class="CartMessage__StepsLines__Delivery {{ section.settings.enable_gift }}"
-                  style="{%- if section.settings.enable_gift -%}left: 65.3333%;{%- else -%}left: 100%;{%- endif -%}">
-              <img src="{{ section.settings.message_delivery_icon | img_url: '32x32' }}" 
-                   alt="{{ section.settings.message_delivery_icon.alt | escape }}">
-            </span>
-
-              <span class="CartMessage__StepsLines__Gift" style="right: 0; display: none">
-                     <span>Gratis Geschenk (13.90€)</span>
-              </span>
-          </div>
-        </div>
-        <!-- /Steps message -->
 
         <div class="Drawer__Container cartDrawer__cheering--a">
           <div class="Cheering">
