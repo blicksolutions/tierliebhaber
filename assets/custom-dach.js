@@ -1405,7 +1405,7 @@ window.obj.tlh047Tracking = function () {
     if(checkoutButton !== null) {
         const totalPrice = parseFloat(document.querySelector(".Drawer__Footer__Total span").dataset.price.replace('€', '').replace(',', '.'));
 
-        if(!checkoutButton.disabled && totalPrice > 175 ) {
+        if(!checkoutButton.disabled && totalPrice > 10 ) {
             checkoutButton.addEventListener('click', () => {
             
                 let abLyftTrackingCount = parseInt(sessionStorage.getItem("tlh047abLyftTracking"));
