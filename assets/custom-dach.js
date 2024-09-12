@@ -135,10 +135,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
 
-                console.log(giftContained)
-                console.log(secondGiftContained)
-
-
                 if (subtotalPrice < window.cartDrawerMinPriceForGift && giftContained) {
                     // console.log("REMOVE GIFT")
                     const cartUpdates = {
