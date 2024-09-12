@@ -1,0 +1,395 @@
+<!-- ABlyft Snippet -->
+<script src="https://cdn.ablyft.com/s/55886406.js"></script>
+
+{% if first_time_accessed %}
+    <script type="text/javascript">
+        window['ablyft'] = window['ablyft'] || [];
+
+        // ABlyft revenue goal
+        window['ablyft'].push({
+            eventType: 'revenue',
+            eventName: 'revenue',
+            eventValue: {{ total_price | divided_by: 100.0 }}
+        });
+        
+        // ABlyft purchase count goal
+        window['ablyft'].push({
+            eventType: 'custom',
+            eventName: 'purchase-count'
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // ABlyft units bought goal
+            let unitsBoughtSum = 0;
+
+            document.querySelectorAll('tr.product').forEach((product) => {
+                unitsBoughtSum += parseInt(product.querySelector('.product__quantity span').textContent.trim());
+            });
+
+            window['ablyft'].push({
+                eventType: 'custom',
+                eventName: 'units-bought',
+                eventValue: unitsBoughtSum
+            });
+
+            // Purchased Bundle Count
+            let bundleContained = false;
+
+            const allProducts = document.querySelectorAll('.product__description__name');
+
+            allProducts.forEach((product) => {
+                if (product.textContent.toLowerCase().includes('bundle')) {
+                    bundleContained = true;
+                }
+            });
+
+            if (bundleContained || document.querySelector('.reduction-code__text')?.textContent.toLowerCase().includes('bundle')) {
+                window['ablyft'].push({
+                    eventType: 'custom',
+                    eventName: 'purchased-bundle-count',
+                    eventValue: 0
+                });
+            }
+
+            // ABlyft purchase over 175€
+            if (parseInt(document.querySelector('[data-checkout-subtotal-price-target]')?.dataset.checkoutSubtotalPriceTarget) > 17500) {
+                window['ablyft'].push({
+                    eventType: 'custom',
+                    eventName: 'tlh-047-order-over-175'
+                });
+            }
+        })
+    </script>
+{% endif %}
+
+<div id="c_checkout_button" style="display:none;"><br/> <p><strong>Glückwunsch zu deinem Onlinekurs. Klick auf den Button um direkt zum Kurs zu gelangen:</strong></p> <a href='/apps/my/courses/list' target='_blank' class='btn btn--regular btn--color btn--fill' style='display:block;margin-top: 20px;'>Gehe zu meinen Kursen</a> <br/></div>
+<script>
+    var c_checkout_items = [];
+    var c_checkout_shop = '{{shop.permanent_domain}}';
+    {%for line_item in checkout.line_items%}
+    c_checkout_items.push({{ line_item.product.id }});
+    {% endfor %}
+    document.addEventListener("DOMContentLoaded", function()
+    {
+        var c_http = new XMLHttpRequest();
+        var cb_url = 'https://courses.architechpro.cc/courses/cburl';
+        var c_params = 'shop='+c_checkout_shop+'&checkout_items='+JSON.stringify(c_checkout_items);
+        c_http.open('POST', cb_url, true);
+        c_http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        c_http.onreadystatechange = function() {
+            if(c_http.readyState == 4 && c_http.status == 200) {
+                var status = JSON.parse(c_http.responseText);
+                if(status.status)
+                {
+                    document.getElementById('c_checkout_button').style.display = 'block';
+                }
+            }
+        }
+        c_http.send(c_params);
+    });
+</script>
+
+<script>
+    var enhanced_conversion_data = {
+        "first_name": "{{ checkout.billing_address.first_name }}",
+        "last_name": "{{ checkout.billing_address.last_name }}",
+        "home_address": {
+            "street": "{{ checkout.billing_address.street }}",
+            "city": "{{ checkout.billing_address.city }}",
+            "region": "{{ checkout.billing_address.province }}",
+            "postal_code": "{{ checkout.billing_address.zip }}",
+            "country": "{{ checkout.billing_address.country_code }}"
+        }
+    }
+    if("{{ checkout.email }}"){
+        enhanced_conversion_data.email = "{{ checkout.email }}";
+    }
+    if("{{ checkout.billing_address.phone }}"){
+        enhanced_conversion_data.phone_number = "{{ checkout.billing_address.phone }}";
+    }
+</script>
+<!-- Global site tag (gtag.js) - Google Ads: 843531169 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-843531169"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-843531169', {'allow_enhanced_conversions': true});
+</script>
+{% if first_time_accessed %}
+    <script>
+        gtag('event', 'conversion', {
+            'send_to': 'AW-843531169/LPoeCL3apfUCEKGHnZID',
+            'value': {{ checkout.total_price | divided_by: 100.0 }},
+            'currency': '{{ currency }}',
+            'transaction_id': '{{ order_number }}',
+        });
+    </script>
+{% endif %}
+
+<!-- HYROS -->
+<script>
+    var head = document.head;
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://t.tierliebhaber.de/v1/lst/universal-script?ph=c0c3ea6be250a0a3cfb45f6840a85c4afb26c43413b4d3fa71c57e1e03aaf233&tag=!clicked&ref_url=" + encodeURI(document.URL) ;
+    head.appendChild(script);
+</script>
+
+
+<script type="text/javascript">
+    // Duration in milliseconds to wait while the Kameleoon application file is loaded
+    var kameleoonLoadingTimeout = 1000;
+
+    window.kameleoonQueue = window.kameleoonQueue || [];
+    window.kameleoonStartLoadTime = new Date().getTime();
+    if (! document.getElementById("kameleoonLoadingStyleSheet") && ! window.kameleoonDisplayPageTimeOut)
+    {
+        var kameleoonS = document.getElementsByTagName("script")[0];
+        var kameleoonCc = "* { visibility: hidden !important; background-image: none !important; }";
+        var kameleoonStn = document.createElement("style");
+        kameleoonStn.type = "text/css";
+        kameleoonStn.id = "kameleoonLoadingStyleSheet";
+        if (kameleoonStn.styleSheet)
+        {
+            kameleoonStn.styleSheet.cssText = kameleoonCc;
+        }
+        else
+        {
+            kameleoonStn.appendChild(document.createTextNode(kameleoonCc));
+        }
+        kameleoonS.parentNode.insertBefore(kameleoonStn, kameleoonS);
+        window.kameleoonDisplayPage = function(fromEngine)
+        {
+            if (!fromEngine)
+            {
+                window.kameleoonTimeout = true;
+            }
+            if (kameleoonStn.parentNode)
+            {
+                kameleoonStn.parentNode.removeChild(kameleoonStn);
+            }
+        };
+        window.kameleoonDisplayPageTimeOut = window.setTimeout(window.kameleoonDisplayPage, kameleoonLoadingTimeout);
+    }
+</script>
+<script type="text/javascript" src="//kd8kkhspyu.kameleoon.eu/kameleoon.js" async="true"></script>
+
+<script>
+    window.acceleratedData=window.acceleratedData || {logs:[]};
+    if (!window.acceleratedData.logs) window.acceleratedData.logs=[];
+    if (!window.acceleratedData.version || window.acceleratedData.version<2022123000) Object.assign(window.acceleratedData,{
+        startTime:new Date().getTime(),
+        log: function() {if (!arguments.length) return this.logs.forEach(l=>console.info(l)); [...arguments].forEach(log=>this.logs.push({startTime: (new Date().getTime())-this.startTime, log}))}
+    });
+    (async GoalID=>{
+        for (let i=0;i<100;i++) {if (!!window.Kameleoon) break; await new Promise(r=>setTimeout(r,50))}
+        let checkout = {
+            GoalID,
+            'normalizedRevenue': {{ checkout.total_price | divided_by: 100.00 }}/(Number(((Shopify||{}).currency||{rate:1}).rate)||1),
+            'revenue': {{ checkout.total_price | divided_by: 100.00 }},
+            'currency': '{{ currency }}',
+            'currencyRate': ((Shopify||{}).currency||{}).rate
+        };
+        {% if first_time_accessed %}
+        Kameleoon.API.Goals.processConversion(GoalID, checkout.normalizedRevenue);
+        {% endif %}
+        return checkout;
+// ======================================================
+    })('307222') // <<<< SET THIS 'GoalID' TO REAL VALUE
+        // ======================================================
+        .then(window.acceleratedData.log.bind(window.acceleratedData))
+        .catch(window.acceleratedData.log.bind(window.acceleratedData))
+</script>
+
+<!-- Outbrain Pixel-->
+{% if first_time_accessed %}
+
+    <script data-obct type = "text/javascript">
+        /** DO NOT MODIFY THIS CODE**/
+        !function(_window, _document) {
+            var OB_ADV_ID = '00b418dc9ce408e806b281caeb7c0b216f';
+            if (_window.obApi) {
+                var toArray = function(object) {
+                    return Object.prototype.toString.call(object) === '[object Array]' ? object : [object];
+                };
+                _window.obApi.marketerId = toArray(_window.obApi.marketerId).concat(toArray(OB_ADV_ID));
+                return;
+            }
+            var api = _window.obApi = function() {
+                api.dispatch ? api.dispatch.apply(api, arguments) : api.queue.push(arguments);
+            };
+            api.version = '1.1';
+            api.loaded = true;
+            api.marketerId = OB_ADV_ID;
+            api.queue = [];
+            var tag = _document.createElement('script');
+            tag.async = true;
+            tag.src = '//amplify.outbrain.com/cp/obtp.js';
+            tag.type = 'text/javascript';
+            var script = _document.getElementsByTagName('script')[0];
+            script.parentNode.insertBefore(tag, script);
+        }(window, document);
+
+        obApi('track', 'PAGE_VIEW');
+    </script>
+
+    <script>
+        obApi('track', 'Purchase', {orderValue:'{{ total_price | money_without_currency }}', currency: 'EUR'});
+    </script>
+{% endif %}
+<!-- End Outbrain Pixel -->
+
+<!-- newsletter popup -->
+<script>
+    Shopify.Checkout.OrderStatus.addContentBox(
+        `<style>
+    .WhatsappNewsletterPopup {
+    background: white;
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 10px;
+    }
+
+    .WhatsappNewsletterPopup__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    padding: 20px 35px;
+    border-radius: 10px;
+    width: fit-content;
+    background: rgba(238,187,193, 0.4);
+    position: relative;
+    }
+
+    .WhatsappNewsletterPopup__icon {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    }
+
+    .WhatsappNewsletterPopup__description {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    }
+
+    .WhatsappNewsletterPopup__description p {
+    font-size: 14px;
+    margin: 0;
+    color: #000000;
+    }
+
+    .WhatsappNewsletterPopup__header, .WhatsappNewsletterPopup__greetings {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+    position: relative;
+    color: #000000;
+    }
+
+    .WhatsappNewsletterPopup__greetings:before {
+    content: '💕';
+    position: absolute;
+    right: 0;
+    transform: translateX(100%);
+    }
+
+    .WhatsappNewsletterPopup__button {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 40px;
+    border-radius: 25px;
+    background: rgba(238,187,193, 0.9);
+    text-decoration: none;
+    color: #FFFFFF;
+    }
+
+    .WhatsappNewsletterPopup__button:hover {
+    color: #FFFFFF;
+    }
+
+    @media (min-width: 768px){
+    .WhatsappNewsletterPopup__wrapper {
+    padding: 30px 50px;
+    }
+    }
+</style>
+
+<div class="WhatsappNewsletterPopup">
+    <div class="WhatsappNewsletterPopup__wrapper">
+        <img class="WhatsappNewsletterPopup__icon" src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/IMG_0419_3.png?v=1694778989">
+        <h2 class="WhatsappNewsletterPopup__header">
+            Vielen Dank<br> für deinen Einkauf!
+        </h2>
+        <div class="WhatsappNewsletterPopup__description">
+            <p>
+                Damit du nie wieder tolle Angebote und<br> spannende Aktionen verpasst, melde dich<br> gleich hier ganz unkompliziert zu unserem<br> WhatsApp-Newsletter an!
+            </p>
+            <p>
+                Indem du dich für unseren Newsletter anmeldest,<br> erteilst du uns deine Zustimmung dazu, dass<br> wir dir tolle Infos senden dürfen 💕
+            </p>
+            <p>
+                Wir freuen uns, dass du Teil der Tierliebhaber<br> Familie bist!
+            </p>
+        </div>
+        <p class="WhatsappNewsletterPopup__greetings">
+            Liebe Fellgrüße!
+        </p>
+        <a href="https://wa.me/4917648097026/?text=NEWSLETTER_Tierliebhaber" class="WhatsappNewsletterPopup__button">Anmelden</a>
+    </div>
+</div>`
+    );
+    document.addEventListener("DOMContentLoaded", () => {
+        const popup = document.querySelector('.WhatsappNewsletterPopup');
+
+        popup.parentElement.style.padding = "0px";
+        popup.parentElement.parentElement.style.border = "none";
+        popup.parentElement.parentElement.style.background = "none";
+    });
+</script>
+
+
+
+<script id="js-app-admq-data" type="application/json">
+    {
+    "sid": "{{ shop.id }}",
+"oid": "{{ checkout.order_id }}",
+"cid": "{{ customer.id }}",
+"on": "{{ checkout.order_name }}"
+}
+</script>
+<script id="js-app-admq-script"
+        src="https://shopify.admetrics.events/conversion-v1.min.js"
+        data-endpoint="https://shopify.admetrics.events/receive"
+></script>
+
+<!-- Taboola Pixel Code for page_view event -->
+<script type="text/javascript">
+    window._tfa = window._tfa || [];
+    window._tfa.push({notify: 'event', name: 'page_view', id: 1338323});
+    !function (t, f, a, x) {
+        if (!document.getElementById(x)) {
+            t.async = 1;
+            t.src = a;
+            t.id = x;
+            f.parentNode.insertBefore(t, f);
+        }
+    }(document.createElement('script'),
+        document.getElementsByTagName('script')[0],
+        '//cdn.taboola.com/libtrc/unip/1338323/tfa.js',
+        'tb_tfa_script');
+</script>
+<!-- End of Taboola Pixel Code for page_view event -->
+
+<!-- Taboola Pixel Code for make_purchase event -->
+<script>
+    _tfa.push({notify: 'event', name: 'make_purchase', id: 1338323, revenue: '{{ checkout.total_price | divided_by: 100.0 }}', currency: '{{ order.currency }}', orderid: '{{ order_number }}'});
+</script>
+<!-- End of Taboola Pixel Code for make_purchase event -->
+
+
