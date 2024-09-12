@@ -107,175 +107,200 @@ document.addEventListener('DOMContentLoaded', () => {
         if (cartDrawer.querySelector('.Cart__Checkout') !== null) {
             cartDrawer.querySelector('.Cart__Checkout').disabled = false;
             document.dispatchEvent(new CustomEvent("rerenderingFinished"));
+
+            document.querySelectorAll('.CartItemWrapper.disable-click').forEach((disableClick) => {
+                disableClick.classList.remove('disable-click');
+            })
         }
     };
 
     window.handleGift = (subtotalPrice) => {
         if(window.tlh047) {
-            const giftContained = cartDrawer.querySelector('.cartGiftItem') != null;
-            const secondGiftContained = cartDrawer.querySelector('.CartItemWrapper[data-variant-id="' + window.cartDrawerSecondGiftVariantId + '"]') != null;
+            // const giftContained = cartDrawer.querySelector('.CartItemWrapper[data-variant-id="' + window.cartDrawerGiftVariantId + '"]') != null;
+            // const secondGiftContained = cartDrawer.querySelector('.CartItemWrapper[data-variant-id="' + window.cartDrawerSecondGiftVariantId + '"]') != null;
 
-            if (subtotalPrice < window.cartDrawerMinPriceForGift && giftContained) {
-                // console.log("REMOVE GIFT")
-                const cartUpdates = {
-                    updates: {
-                        [window.cartDrawerGiftVariantId]: 0,
-                        [window.cartDrawerSecondGiftVariantId]: 0,
+            let giftContained = false;
+            let secondGiftContained = false;
+
+            fetch("/cart.json")
+            .then((response) => response.json())
+            .then((cart) => {
+                cart.items.forEach((cartItem) => {
+                    if (cartItem.variant_id == window.cartDrawerGiftVariantId) {
+                        giftContained = true;
                     }
-                };
-                fetch(window.Shopify.routes.root + 'cart/update.js', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(cartUpdates)
-                })
-                    .then((response) => response.json())
-                    .then(response => {
-                        fetch(window.location.href)
-                            .then((response) => response.text())
-                            .then((responseText) => {
-                                const oldItemsWrapper = document.querySelector('.Cart__ItemList');
-                                const html = new DOMParser().parseFromString(responseText, 'text/html');
-                                const newItemsWrapper = html.querySelector('.Cart__ItemList');
-    
-                                if (newItemsWrapper) {
-                                    oldItemsWrapper.innerHTML = newItemsWrapper.innerHTML;
-                                } else {
-                                    location.reload()
-                                }
-    
-                                // else update cart
-                                setTimeout(() => {
-                                    window.obj.cartSidebarRefresh(true);
-                                    window.unlockCheckoutButton();
-                                }, 1000);
-                            })
-                            .catch(e => {
-                                console.error(e);
-                            });
-                    });
-            } else if (!giftContained && subtotalPrice >= window.cartDrawerMinPriceForGift){
-                //console.log("ADDED FIRST GIFT")
-                const cartUpdates = {
-                    updates: {
-                        [window.cartDrawerGiftVariantId]: 1,
-                        [window.cartDrawerSecondGiftVariantId]: 0
+
+                    if (cartItem.variant_id == window.cartDrawerSecondGiftVariantId) {
+                        secondGiftContained = true;
                     }
-                };
-                fetch(window.Shopify.routes.root + 'cart/update.js', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(cartUpdates)
-                })
-                    .then((response) => response.json())
-                    .then(response => {
-                        fetch(window.location.href)
-                            .then((response) => response.text())
-                            .then((responseText) => {
-                                const oldItemsWrapper = document.querySelector('.Cart__ItemList');
-                                const html = new DOMParser().parseFromString(responseText, 'text/html');
-                                const newItemsWrapper = html.querySelector('.Cart__ItemList');
-    
-                                if (newItemsWrapper) {
-                                    oldItemsWrapper.innerHTML = newItemsWrapper.innerHTML;
-                                } else {
-                                    location.reload()
-                                }
-    
-                                // else update cart
-                                setTimeout(() => {
-                                    window.obj.cartSidebarRefresh(true);
-                                    window.unlockCheckoutButton();
-                                }, 1000);
-                            })
-                            .catch(e => {
-                                console.error(e);
-                            });
-                    });
-            } else if (secondGiftContained && subtotalPrice < window.cartDrawerMinPriceForSecondGift){
-                const cartUpdates = {
-                    updates: {
-                        [window.cartDrawerSecondGiftVariantId]: 0
-                    }
-                };
-                fetch(window.Shopify.routes.root + 'cart/update.js', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(cartUpdates)
-                })
-                    .then((response) => response.json())
-                    .then(response => {
-                        fetch(window.location.href)
-                            .then((response) => response.text())
-                            .then((responseText) => {
-                                const oldItemsWrapper = document.querySelector('.Cart__ItemList');
-                                const html = new DOMParser().parseFromString(responseText, 'text/html');
-                                const newItemsWrapper = html.querySelector('.Cart__ItemList');
-    
-                                if (newItemsWrapper) {
-                                    oldItemsWrapper.innerHTML = newItemsWrapper.innerHTML;
-                                } else {
-                                    location.reload()
-                                }
-    
-                                // else update cart
-                                setTimeout(() => {
-                                    window.obj.cartSidebarRefresh(true);
-                                    window.unlockCheckoutButton();
-                                }, 1000);
-                            })
-                            .catch(e => {
-                                console.error(e);
-                            });
-                    });
-            } else if (!secondGiftContained && subtotalPrice >= window.cartDrawerMinPriceForSecondGift){
-                //console.log("ADD SECOND GIFT")
-                const cartUpdates = {
-                    updates: {
-                        [window.cartDrawerSecondGiftVariantId]: 1
-                    }
-                };
-                fetch(window.Shopify.routes.root + 'cart/update.js', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(cartUpdates)
-                })
-                    .then((response) => response.json())
-                    .then(response => {
-                        fetch(window.location.href)
-                            .then((response) => response.text())
-                            .then((responseText) => {
-                                const oldItemsWrapper = document.querySelector('.Cart__ItemList');
-                                const html = new DOMParser().parseFromString(responseText, 'text/html');
-                                const newItemsWrapper = html.querySelector('.Cart__ItemList');
-    
-                                if (newItemsWrapper) {
-                                    oldItemsWrapper.innerHTML = newItemsWrapper.innerHTML;
-                                } else {
-                                    location.reload()
-                                }
-    
-                                // else update cart
-                                setTimeout(() => {
-                                    window.obj.cartSidebarRefresh(true);
-                                    window.unlockCheckoutButton();
-                                }, 1000);
-                            })
-                            .catch(e => {
-                                console.error(e);
-                            });
-                    });
-            } else {
-                // console.log("DONE NOTHIN!")
-                window.unlockCheckoutButton();
-            }
+                });
+
+                console.log(giftContained)
+                console.log(secondGiftContained)
+
+
+                if (subtotalPrice < window.cartDrawerMinPriceForGift && giftContained) {
+                    // console.log("REMOVE GIFT")
+                    const cartUpdates = {
+                        updates: {
+                            [window.cartDrawerGiftVariantId]: 0,
+                            [window.cartDrawerSecondGiftVariantId]: 0,
+                        }
+                    };
+                    fetch(window.Shopify.routes.root + 'cart/update.js', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(cartUpdates)
+                    })
+                        .then((response) => response.json())
+                        .then(response => {
+                            fetch(window.location.href)
+                                .then((response) => response.text())
+                                .then((responseText) => {
+                                    const oldItemsWrapper = document.querySelector('.Cart__ItemList');
+                                    const html = new DOMParser().parseFromString(responseText, 'text/html');
+                                    const newItemsWrapper = html.querySelector('.Cart__ItemList');
+        
+                                    if (newItemsWrapper) {
+                                        oldItemsWrapper.innerHTML = newItemsWrapper.innerHTML;
+                                    } else {
+                                        location.reload()
+                                    }
+        
+                                    // else update cart
+                                    setTimeout(() => {
+                                        window.obj.cartSidebarRefresh(true);
+                                        window.unlockCheckoutButton();
+                                    }, 1000);
+                                })
+                                .catch(e => {
+                                    console.error(e);
+                                });
+                        });
+                } else if (!giftContained && subtotalPrice >= window.cartDrawerMinPriceForGift){
+                    //console.log("ADDED FIRST GIFT")
+                    const cartUpdates = {
+                        updates: {
+                            [window.cartDrawerGiftVariantId]: 1,
+                            [window.cartDrawerSecondGiftVariantId]: 0
+                        }
+                    };
+                    fetch(window.Shopify.routes.root + 'cart/update.js', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(cartUpdates)
+                    })
+                        .then((response) => response.json())
+                        .then(response => {
+                            fetch(window.location.href)
+                                .then((response) => response.text())
+                                .then((responseText) => {
+                                    const oldItemsWrapper = document.querySelector('.Cart__ItemList');
+                                    const html = new DOMParser().parseFromString(responseText, 'text/html');
+                                    const newItemsWrapper = html.querySelector('.Cart__ItemList');
+        
+                                    if (newItemsWrapper) {
+                                        oldItemsWrapper.innerHTML = newItemsWrapper.innerHTML;
+                                    } else {
+                                        location.reload()
+                                    }
+        
+                                    // else update cart
+                                    setTimeout(() => {
+                                        window.obj.cartSidebarRefresh(true);
+                                        window.unlockCheckoutButton();
+                                    }, 1000);
+                                })
+                                .catch(e => {
+                                    console.error(e);
+                                });
+                        });
+                } else if (secondGiftContained && subtotalPrice < window.cartDrawerMinPriceForSecondGift){
+                    const cartUpdates = {
+                        updates: {
+                            [window.cartDrawerSecondGiftVariantId]: 0
+                        }
+                    };
+                    fetch(window.Shopify.routes.root + 'cart/update.js', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(cartUpdates)
+                    })
+                        .then((response) => response.json())
+                        .then(response => {
+                            fetch(window.location.href)
+                                .then((response) => response.text())
+                                .then((responseText) => {
+                                    const oldItemsWrapper = document.querySelector('.Cart__ItemList');
+                                    const html = new DOMParser().parseFromString(responseText, 'text/html');
+                                    const newItemsWrapper = html.querySelector('.Cart__ItemList');
+        
+                                    if (newItemsWrapper) {
+                                        oldItemsWrapper.innerHTML = newItemsWrapper.innerHTML;
+                                    } else {
+                                        location.reload()
+                                    }
+        
+                                    // else update cart
+                                    setTimeout(() => {
+                                        window.obj.cartSidebarRefresh(true);
+                                        window.unlockCheckoutButton();
+                                    }, 1000);
+                                })
+                                .catch(e => {
+                                    console.error(e);
+                                });
+                        });
+                } else if (!secondGiftContained && subtotalPrice >= window.cartDrawerMinPriceForSecondGift){
+                    //console.log("ADD SECOND GIFT")
+                    const cartUpdates = {
+                        updates: {
+                            [window.cartDrawerSecondGiftVariantId]: 1
+                        }
+                    };
+                    fetch(window.Shopify.routes.root + 'cart/update.js', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(cartUpdates)
+                    })
+                        .then((response) => response.json())
+                        .then(response => {
+                            fetch(window.location.href)
+                                .then((response) => response.text())
+                                .then((responseText) => {
+                                    const oldItemsWrapper = document.querySelector('.Cart__ItemList');
+                                    const html = new DOMParser().parseFromString(responseText, 'text/html');
+                                    const newItemsWrapper = html.querySelector('.Cart__ItemList');
+        
+                                    if (newItemsWrapper) {
+                                        oldItemsWrapper.innerHTML = newItemsWrapper.innerHTML;
+                                    } else {
+                                        location.reload()
+                                    }
+        
+                                    // else update cart
+                                    setTimeout(() => {
+                                        window.obj.cartSidebarRefresh(true);
+                                        window.unlockCheckoutButton();
+                                    }, 1000);
+                                })
+                                .catch(e => {
+                                    console.error(e);
+                                });
+                        });
+                } else {
+                    // console.log("DONE NOTHIN!")
+                    window.unlockCheckoutButton();
+                }
+            });
         } else {
             const giftContained = cartDrawer.querySelector('.cartGiftItem') != null;
 
