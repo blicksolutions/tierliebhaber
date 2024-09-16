@@ -1,0 +1,11 @@
+.tlh-044.SidebarMenu.Drawer {
+    width: 100%;
+}
+
+.tlh-044 .Search {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+    z-index: 10;
+}
