@@ -1,292 +1,305 @@
 {%- assign main_menu_handle = section.settings.primary_menu | default: 'main-menu' -%}
 {%- assign main_menu = linklists[main_menu_handle] -%}
 
-
 <!-- A - VARIANT -->
 <section id="sidebar-menu" class="SidebarMenu Drawer Drawer--small Drawer--fromLeft" aria-hidden="true" data-section-id="{{ section.id }}" data-section-type="sidebar-menu">
-    <header class="Drawer__Header" data-drawer-animated-left>
-      <button class="Drawer__Close Icon-Wrapper--clickable" data-action="close-drawer" data-drawer-id="sidebar-menu" aria-label="{{ 'header.navigation.close_sidebar' | t }}">
-        {%- render 'icon' with 'close' -%}
-      </button>
-    </header>
+	<header class="Drawer__Header" data-drawer-animated-left>
+		<button class="Drawer__Close Icon-Wrapper--clickable" data-action="close-drawer" data-drawer-id="sidebar-menu" aria-label="{{ 'header.navigation.close_sidebar' | t }}">
+			{%- render 'icon' with 'close' -%}
+		</button>
+	</header>
 
-    <div class="Drawer__Content">
-      <div class="Drawer__Main" data-drawer-animated-left data-scrollable>
-        <div class="Drawer__Container">
-          <nav class="SidebarMenu__Nav SidebarMenu__Nav--primary" aria-label="{{ 'header.navigation.sidebar_title' | t }}">
-            {%- for link in main_menu.links -%}
-              <div class="Collapsible">
-                {%- if link.links != blank -%}
-                  <button class="Collapsible__Button Heading u-h6" data-action="toggle-collapsible" {% if link.links != blank %}aria-expanded="false"{% endif %}>
-                    {{- link.title | escape -}} <span class="Collapsible__Plus"></span>
-                  </button>
+	<div class="Drawer__Content">
+		<div class="Drawer__Main" data-drawer-animated-left data-scrollable>
+			<div class="Drawer__Container">
+				<nav class="SidebarMenu__Nav SidebarMenu__Nav--primary" aria-label="{{ 'header.navigation.sidebar_title' | t }}">
+					{%- for link in main_menu.links -%}
+						<div class="Collapsible">
+							{%- if link.links != blank -%}
+								<button
+									class="Collapsible__Button Heading u-h6"
+									data-action="toggle-collapsible"
+									{% if link.links != blank %}
+										aria-expanded="false"
+									{% endif %}
+								>
+									{{- link.title | escape -}}
+									<span class="Collapsible__Plus"></span>
+								</button>
 
-                  <div class="Collapsible__Inner">
-                    <div class="Collapsible__Content">
-                      {%- for sub_link in link.links -%}
-                        <div class="Collapsible">
-                          {%- if sub_link.links != blank -%}
-                            <button class="Collapsible__Button Heading Text--subdued Link--primary u-h7" data-action="toggle-collapsible" {% if sub_link.links != blank %}aria-expanded="false"{% endif %}>
-                              {{- sub_link.title | escape -}} <span class="Collapsible__Plus"></span>
-                            </button>
+								<div class="Collapsible__Inner">
+									<div class="Collapsible__Content">
+										{%- for sub_link in link.links -%}
+											<div class="Collapsible">
+												{%- if sub_link.links != blank -%}
+													<button
+														class="Collapsible__Button Heading Text--subdued Link--primary u-h7"
+														data-action="toggle-collapsible"
+														{% if sub_link.links != blank %}
+															aria-expanded="false"
+														{% endif %}
+													>
+														{{- sub_link.title | escape -}}
+														<span class="Collapsible__Plus"></span>
+													</button>
 
-                            <div class="Collapsible__Inner">
-                              <div class="Collapsible__Content">
-                                <ul class="Linklist Linklist--bordered Linklist--spacingLoose">
-                                  {%- for sub_sub_link in sub_link.links -%}
-                                    <li class="Linklist__Item">
-                                      <a href="{{ sub_sub_link.url }}" class="Text--subdued Link Link--primary">{{ sub_sub_link.title | escape }}</a>
-                                    </li>
-                                  {%- endfor -%}
-                                </ul>
-                              </div>
-                            </div>
-                          {%- else -%}
-                            <a href="{{ sub_link.url }}" class="Collapsible__Button Heading Text--subdued Link Link--primary u-h7">{{ sub_link.title | escape }}</a>
-                          {%- endif -%}
-                        </div>
-                      {%- endfor -%}
-                    </div>
-                  </div>
-                {%- else -%}
-                  <a href="{{ link.url }}" class="Collapsible__Button Heading Link Link--primary u-h6">{{ link.title | escape }}</a>
-                {%- endif -%}
-              </div>
-            {%- endfor -%}
-          </nav>
+													<div class="Collapsible__Inner">
+														<div class="Collapsible__Content">
+															<ul class="Linklist Linklist--bordered Linklist--spacingLoose">
+																{%- for sub_sub_link in sub_link.links -%}
+																	<li class="Linklist__Item">
+																		<a href="{{ sub_sub_link.url }}" class="Text--subdued Link Link--primary">{{ sub_sub_link.title | escape }}</a>
+																	</li>
+																{%- endfor -%}
+															</ul>
+														</div>
+													</div>
+												{%- else -%}
+													<a href="{{ sub_link.url }}" class="Collapsible__Button Heading Text--subdued Link Link--primary u-h7">{{ sub_link.title | escape }}</a>
+												{%- endif -%}
+											</div>
+										{%- endfor -%}
+									</div>
+								</div>
+							{%- else -%}
+								<a href="{{ link.url }}" class="Collapsible__Button Heading Link Link--primary u-h6">{{ link.title | escape }}</a>
+							{%- endif -%}
+						</div>
+					{%- endfor -%}
+				</nav>
 
-          {%- assign secondary_menu = linklists[section.settings.secondary_menu] -%}
+				{%- assign secondary_menu = linklists[section.settings.secondary_menu] -%}
 
-          <nav class="SidebarMenu__Nav SidebarMenu__Nav--secondary">
-            <ul class="Linklist Linklist--spacingLoose">
-              {%- for link in secondary_menu.links -%}
-                <li class="Linklist__Item">
-                  <a href="{{ link.url }}" class="Text--subdued Link Link--primary">{{ link.title | escape }}</a>
-                </li>
-              {%- endfor -%}
+				<nav class="SidebarMenu__Nav SidebarMenu__Nav--secondary">
+					<ul class="Linklist Linklist--spacingLoose">
+						{%- for link in secondary_menu.links -%}
+							<li class="Linklist__Item">
+								<a href="{{ link.url }}" class="Text--subdued Link Link--primary">{{ link.title | escape }}</a>
+							</li>
+						{%- endfor -%}
 
-              {%- comment -%}We automatically add some links to the secondary menu{%- endcomment -%}
+						{%- comment -%}We automatically add some links to the secondary menu{%- endcomment -%}
 
-              {%- if shop.customer_accounts_enabled -%}
-                <li class="Linklist__Item">
-                  <a href="{{ routes.account_url }}" class="Text--subdued Link Link--primary">{{ 'header.navigation.account' | t }}</a>
-                </li>
-              {%- endif -%}
-            </ul>
-          </nav>
-        </div>
-      </div>
+						{%- if shop.customer_accounts_enabled -%}
+							<li class="Linklist__Item">
+								<a href="{{ routes.account_url }}" class="Text--subdued Link Link--primary">{{ 'header.navigation.account' | t }}</a>
+							</li>
+						{%- endif -%}
+					</ul>
+				</nav>
+			</div>
+		</div>
 
-      {%- if section.settings.show_social_media -%}
-        {%- capture social_media -%}
+		{%- if section.settings.show_social_media -%}
+			{%- capture social_media -%}
           {% render 'social-media', class: 'SidebarMenu__Social', spacing: 'fill' %}
         {%- endcapture -%}
-      {%- endif -%}
+		{%- endif -%}
 
-      {%- if social_media != blank -%}
-        <aside class="Drawer__Footer" data-drawer-animated-bottom>
-          {%- if social_media != blank -%}
-            {{ social_media }}
-          {%- endif -%}
-        </aside>
-      {%- endif -%}
-    </div>
+		{%- if social_media != blank -%}
+			<aside class="Drawer__Footer" data-drawer-animated-bottom>
+				{%- if social_media != blank -%}
+					{{ social_media }}
+				{%- endif -%}
+			</aside>
+		{%- endif -%}
+	</div>
 </section>
 
 <!-- B - VARIANT -->
 <section id="sidebar-menu" class="SidebarMenu Drawer Drawer--small Drawer--fromLeft tlh-044" aria-hidden="true" data-section-id="{{ section.id }}" data-section-type="sidebar-menu">
-  <header class="Drawer__Header" data-drawer-animated-left>
-    <button class="Drawer__Close Icon-Wrapper--clickable" data-action="close-drawer" data-drawer-id="sidebar-menu" aria-label="{{ 'header.navigation.close_sidebar' | t }}">
-      {%- render 'icon' with 'close' -%}
-    </button>
-  </header>
+	<header class="Drawer__Header" data-drawer-animated-left>
+		<button class="Drawer__Close Icon-Wrapper--clickable" data-action="close-drawer" data-drawer-id="sidebar-menu" aria-label="{{ 'header.navigation.close_sidebar' | t }}">
+			{%- render 'icon' with 'close' -%}
+		</button>
+	</header>
 
-  <div id="Search" class="Search" aria-hidden="false" tabindex="-1">
-    <div class="Search__Inner">
-      <div class="Search__SearchBar">
-        <form action="/search" name="GET" role="search" class="Search__Form">
-          <div class="Search__InputIconWrapper">
-            <span class="hidden-tablet-and-up"><svg class="Icon Icon--search" role="presentation" viewBox="0 0 18 17">
-        <g transform="translate(1 1)" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="square">
-          <path d="M16 16l-5.0752-5.0752"></path>
-          <circle cx="6.4" cy="6.4" r="6.4"></circle>
-        </g>
-      </svg></span>
-            <span class="hidden-phone"><svg class="Icon Icon--search-desktop" role="presentation" viewBox="0 0 21 21">
-        <g transform="translate(1 1)" stroke="currentColor" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="square">
-          <path d="M18 18l-5.7096-5.7096"></path>
-          <circle cx="7.2" cy="7.2" r="7.2"></circle>
-        </g>
-      </svg></span>
-          </div>
-  
-          <input type="search" class="Search__Input Heading" name="q" autocomplete="off" autocorrect="off" autocapitalize="none" aria-label="Was suchst du?" placeholder="Was suchst du?" autofocus="">
-          <input type="hidden" name="type" value="product">
-        </form>
-  
-        <button class="Search__Close Link Link--primary" data-action="close-search" aria-label="Schließen"><svg class="Icon Icon--close" role="presentation" viewBox="0 0 16 14">
-        <path d="M15 0L1 14m14 0L1 0" stroke="currentColor" fill="none" fill-rule="evenodd"></path>
-      </svg></button>
-      </div>
-  
-      <div class="Search__Results" aria-hidden="true"><div class="PageLayout PageLayout--breakLap">
-                <div class="PageLayout__Section"></div>
-                <div class="PageLayout__Section PageLayout__Section--secondary"></div>
-              </div></div>
-    </div>
-  
-    <div class="search__quick-links" data-js-search-quick-links="c">
-      <h4 class="search__quick-links__heading">
-          Häufig gesucht
-      </h4>
-      <div class="search__quick-links-container search__quick-links--mobile swiper" data-js-search-quick-links-mobile="">
-        <div class="quick-links__list swiper-wrapper">
-            <a href="/collections/zahnpflege" class="search__quick-link swiper-slide">
-              <p class="quick-link__text">
-                  Zahnbelag
-              </p>
-            </a>
-            <a href="/products/gras-kotfresser-drops-2" class="search__quick-link swiper-slide">
-              <p class="quick-link__text">
-                  Sodbrennen
-              </p>
-            </a>
-            <a href="/products/darmwohl-sticks" class="search__quick-link swiper-slide">
-              <p class="quick-link__text">
-                  Zu weiche Häufchen
-              </p>
-            </a>
-            <a href="/products/z-bundle-zb" class="search__quick-link swiper-slide">
-              <p class="quick-link__text">
-                  Zecken
-              </p>
-            </a>
-            <a href="/products/darmpflege-drops" class="search__quick-link swiper-slide">
-              <p class="quick-link__text">
-                  Bauchweh
-              </p>
-            </a>
-        </div>
-        <div class="quick-links__scrollbar swiper-scrollbar"></div>
-      </div>
-    </div>
-  
-  </div>
+	<div class="Search__Inner">
+		<div class="Search__SearchBar">
+			<form action="/search" name="GET" role="search" class="Search__Form">
+				<div class="Search__InputIconWrapper">
+					<span class="hidden-tablet-and-up">
+						<svg class="Icon Icon--search" role="presentation" viewBox="0 0 18 17">
+							<g transform="translate(1 1)" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="square">
+							  <path d="M16 16l-5.0752-5.0752"></path>
+							  <circle cx="6.4" cy="6.4" r="6.4"></circle>
+							</g>
+						</svg>
+					</span>
+					<span class="hidden-phone">
+						<svg class="Icon Icon--search-desktop" role="presentation" viewBox="0 0 21 21">
+							<g transform="translate(1 1)" stroke="currentColor" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="square">
+							  <path d="M18 18l-5.7096-5.7096"></path>
+							  <circle cx="7.2" cy="7.2" r="7.2"></circle>
+							</g>
+						</svg>
+					</span>
+				</div>
 
-  <div class="Drawer__Content">
-    <div class="Drawer__Main" data-drawer-animated-left data-scrollable>
-      <div class="Drawer__Container">
-        <nav class="SidebarMenu__Nav SidebarMenu__Nav--primary" aria-label="{{ 'header.navigation.sidebar_title' | t }}">
-          {%- for link in main_menu.links -%}
-            <div class="Collapsible">
-              {%- if link.links != blank -%}
-                <button class="Collapsible__Button Heading u-h6" data-action="toggle-collapsible" {% if link.links != blank %}aria-expanded="false"{% endif %}>
-                  {{- link.title | escape -}} <span class="Collapsible__Plus"></span>
-                </button>
+				<input type="search" class="Search__Input Heading" name="q" autocomplete="off" autocorrect="off" autocapitalize="none" aria-label="Was suchst du?" placeholder="Was suchst du?" autofocus="">
+				<input type="hidden" name="type" value="product">
+			</form>
 
-                <div class="Collapsible__Inner">
-                  <div class="Collapsible__Content">
-                    {%- for sub_link in link.links -%}
-                      <div class="Collapsible">
-                        {%- if sub_link.links != blank -%}
-                          <button class="Collapsible__Button Heading Text--subdued Link--primary u-h7" data-action="toggle-collapsible" {% if sub_link.links != blank %}aria-expanded="false"{% endif %}>
-                            {{- sub_link.title | escape -}} <span class="Collapsible__Plus"></span>
-                          </button>
+			<button class="Search__Close Link Link--primary" data-action="close-search" aria-label="Schließen">
+				<svg class="Icon Icon--close" role="presentation" viewBox="0 0 16 14">
+					<path d="M15 0L1 14m14 0L1 0" stroke="currentColor" fill="none" fill-rule="evenodd"></path>
+				</svg>
+			</button>
+		</div>
 
-                          <div class="Collapsible__Inner">
-                            <div class="Collapsible__Content">
-                              <ul class="Linklist Linklist--bordered Linklist--spacingLoose">
-                                {%- for sub_sub_link in sub_link.links -%}
-                                  <li class="Linklist__Item">
-                                    <a href="{{ sub_sub_link.url }}" class="Text--subdued Link Link--primary">{{ sub_sub_link.title | escape }}</a>
-                                  </li>
-                                {%- endfor -%}
-                              </ul>
-                            </div>
-                          </div>
-                        {%- else -%}
-                          <a href="{{ sub_link.url }}" class="Collapsible__Button Heading Text--subdued Link Link--primary u-h7">{{ sub_link.title | escape }}</a>
-                        {%- endif -%}
-                      </div>
-                    {%- endfor -%}
-                  </div>
-                </div>
-              {%- else -%}
-                <a href="{{ link.url }}" class="Collapsible__Button Heading Link Link--primary u-h6">{{ link.title | escape }}</a>
-              {%- endif -%}
-            </div>
-          {%- endfor -%}
-        </nav>
+		<div class="search__quick-links" data-js-search-quick-links="c">
+			<h4 class="search__quick-links__heading">Häufig gesucht</h4>
+			<div class="search__quick-links-container search__quick-links--mobile swiper" data-js-search-quick-links-mobile="">
+				<div class="quick-links__list swiper-wrapper">
+					<a href="/collections/zahnpflege" class="search__quick-link swiper-slide">
+						<p class="quick-link__text">Zahnbelag</p>
+					</a>
+					<a href="/products/gras-kotfresser-drops-2" class="search__quick-link swiper-slide">
+						<p class="quick-link__text">Sodbrennen</p>
+					</a>
+					<a href="/products/darmwohl-sticks" class="search__quick-link swiper-slide">
+						<p class="quick-link__text">Zu weiche Häufchen</p>
+					</a>
+					<a href="/products/z-bundle-zb" class="search__quick-link swiper-slide">
+						<p class="quick-link__text">Zecken</p>
+					</a>
+					<a href="/products/darmpflege-drops" class="search__quick-link swiper-slide">
+						<p class="quick-link__text">Bauchweh</p>
+					</a>
+				</div>
+				<div class="quick-links__scrollbar swiper-scrollbar"></div>
+			</div>
+		</div>
+	</div>
 
-        {%- assign secondary_menu = linklists[section.settings.secondary_menu] -%}
+	<div class="Drawer__Content">
+		<div class="Drawer__Main" data-drawer-animated-left data-scrollable>
+			<div class="Drawer__Container">
+				<nav class="SidebarMenu__Nav SidebarMenu__Nav--primary" aria-label="{{ 'header.navigation.sidebar_title' | t }}">
+					{%- for link in main_menu.links -%}
+						<div class="Collapsible">
+							{%- if link.links != blank -%}
+								<button
+									class="Collapsible__Button Heading u-h6"
+									data-action="toggle-collapsible"
+									{% if link.links != blank %}
+										aria-expanded="false"
+									{% endif %}
+								>
+									{{- link.title | escape -}}
+									<span class="Collapsible__Plus"></span>
+								</button>
 
-        <nav class="SidebarMenu__Nav SidebarMenu__Nav--secondary">
-          <ul class="Linklist Linklist--spacingLoose">
-            {%- for link in secondary_menu.links -%}
-              <li class="Linklist__Item">
-                <a href="{{ link.url }}" class="Text--subdued Link Link--primary">{{ link.title | escape }}</a>
-              </li>
-            {%- endfor -%}
+								<div class="Collapsible__Inner">
+									<div class="Collapsible__Content">
+										{%- for sub_link in link.links -%}
+											<div class="Collapsible">
+												{%- if sub_link.links != blank -%}
+													<button
+														class="Collapsible__Button Heading Text--subdued Link--primary u-h7"
+														data-action="toggle-collapsible"
+														{% if sub_link.links != blank %}
+															aria-expanded="false"
+														{% endif %}
+													>
+														{{- sub_link.title | escape -}}
+														<span class="Collapsible__Plus"></span>
+													</button>
 
-            {%- comment -%}We automatically add some links to the secondary menu{%- endcomment -%}
+													<div class="Collapsible__Inner">
+														<div class="Collapsible__Content">
+															<ul class="Linklist Linklist--bordered Linklist--spacingLoose">
+																{%- for sub_sub_link in sub_link.links -%}
+																	<li class="Linklist__Item">
+																		<a href="{{ sub_sub_link.url }}" class="Text--subdued Link Link--primary">{{ sub_sub_link.title | escape }}</a>
+																	</li>
+																{%- endfor -%}
+															</ul>
+														</div>
+													</div>
+												{%- else -%}
+													<a href="{{ sub_link.url }}" class="Collapsible__Button Heading Text--subdued Link Link--primary u-h7">{{ sub_link.title | escape }}</a>
+												{%- endif -%}
+											</div>
+										{%- endfor -%}
+									</div>
+								</div>
+							{%- else -%}
+								<a href="{{ link.url }}" class="Collapsible__Button Heading Link Link--primary u-h6">{{ link.title | escape }}</a>
+							{%- endif -%}
+						</div>
+					{%- endfor -%}
+				</nav>
 
-            {%- if shop.customer_accounts_enabled -%}
-              <li class="Linklist__Item">
-                <a href="{{ routes.account_url }}" class="Text--subdued Link Link--primary">{{ 'header.navigation.account' | t }}</a>
-              </li>
-            {%- endif -%}
-          </ul>
-        </nav>
-      </div>
-    </div>
+				{%- assign secondary_menu = linklists[section.settings.secondary_menu] -%}
 
-    {%- if section.settings.show_social_media -%}
-      {%- capture social_media -%}
+				<nav class="SidebarMenu__Nav SidebarMenu__Nav--secondary">
+					<ul class="Linklist Linklist--spacingLoose">
+						{%- for link in secondary_menu.links -%}
+							<li class="Linklist__Item">
+								<a href="{{ link.url }}" class="Text--subdued Link Link--primary">{{ link.title | escape }}</a>
+							</li>
+						{%- endfor -%}
+
+						{%- comment -%}We automatically add some links to the secondary menu{%- endcomment -%}
+
+						{%- if shop.customer_accounts_enabled -%}
+							<li class="Linklist__Item">
+								<a href="{{ routes.account_url }}" class="Text--subdued Link Link--primary">{{ 'header.navigation.account' | t }}</a>
+							</li>
+						{%- endif -%}
+					</ul>
+				</nav>
+			</div>
+		</div>
+
+		{%- if section.settings.show_social_media -%}
+			{%- capture social_media -%}
         {% render 'social-media', class: 'SidebarMenu__Social', spacing: 'fill' %}
       {%- endcapture -%}
-    {%- endif -%}
+		{%- endif -%}
 
-    {%- if social_media != blank -%}
-      <aside class="Drawer__Footer" data-drawer-animated-bottom>
-        {%- if social_media != blank -%}
-          {{ social_media }}
-        {%- endif -%}
-      </aside>
-    {%- endif -%}
-  </div>
+		{%- if social_media != blank -%}
+			<aside class="Drawer__Footer" data-drawer-animated-bottom>
+				{%- if social_media != blank -%}
+					{{ social_media }}
+				{%- endif -%}
+			</aside>
+		{%- endif -%}
+	</div>
 </section>
 
 {% schema %}
 {
-  "name": "Sidebar menu",
-  "settings": [
-    {
-      "type": "link_list",
-      "id": "primary_menu",
-      "label": "Primary menu",
-      "default": "main-menu"
-    },
-    {
-      "type": "link_list",
-      "id": "secondary_menu",
-      "label": "Secondary menu",
-      "info": "This menu won't show dropdown items."
-    },
-    {
-      "type": "checkbox",
-      "id": "show_social_media",
-      "label": "Show social media",
-      "default": true
-    },
-    {
-      "type": "header",
-      "content": "Cart sidebar"
-    },
-    {
-      "type": "product_list",
-      "id": "cart_sidebar_upsell_products",
-      "label": "Upsell products"
-    }
-  ]
+	"name": "Sidebar menu",
+	"settings": [
+		{
+			"type": "link_list",
+			"id": "primary_menu",
+			"label": "Primary menu",
+			"default": "main-menu"
+		},
+		{
+			"type": "link_list",
+			"id": "secondary_menu",
+			"label": "Secondary menu",
+			"info": "This menu won't show dropdown items."
+		},
+		{
+			"type": "checkbox",
+			"id": "show_social_media",
+			"label": "Show social media",
+			"default": true
+		},
+		{
+			"type": "header",
+			"content": "Cart sidebar"
+		},
+		{
+			"type": "product_list",
+			"id": "cart_sidebar_upsell_products",
+			"label": "Upsell products"
+		}
+	]
 }
 {% endschema %}

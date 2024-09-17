@@ -1,3 +1,4 @@
 # Ignore shopify config
+/node_modules/
 /shopify.theme.toml
 /config.yml
