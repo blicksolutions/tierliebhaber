@@ -7,6 +7,10 @@
     width: 100%;
 }
 
+.tlh-044.Drawer:before {
+	content: none !important;
+}
+
 /******************************************************************/
 /* Search Bar
 /******************************************************************/
@@ -17,4 +21,5 @@
     visibility: visible;
     top: 0;
     z-index: 10;
+	pointer-events: all;
 }

@@ -2,7 +2,7 @@
 {%- assign main_menu = linklists[main_menu_handle] -%}
 
 <!-- A - VARIANT -->
-<section id="sidebar-menu" class="SidebarMenu Drawer Drawer--small Drawer--fromLeft" aria-hidden="true" data-section-id="{{ section.id }}" data-section-type="sidebar-menu">
+<section id="sidebar-menu" class="SidebarMenu Drawer Drawer--small Drawer--fromLeft a-variant" aria-hidden="true" data-section-id="{{ section.id }}" data-section-type="sidebar-menu">
 	<header class="Drawer__Header" data-drawer-animated-left>
 		<button class="Drawer__Close Icon-Wrapper--clickable" data-action="close-drawer" data-drawer-id="sidebar-menu" aria-label="{{ 'header.navigation.close_sidebar' | t }}">
 			{%- render 'icon' with 'close' -%}
@@ -107,69 +107,144 @@
 </section>
 
 <!-- B - VARIANT -->
-<section id="sidebar-menu" class="SidebarMenu Drawer Drawer--small Drawer--fromLeft tlh-044" aria-hidden="true" data-section-id="{{ section.id }}" data-section-type="sidebar-menu">
+<section id="sidebar-menu" class="SidebarMenu Drawer Drawer--small Drawer--fromLeft b-variant tlh-044" aria-hidden="true" data-section-id="{{ section.id }}" data-section-type="sidebar-menu">
 	<header class="Drawer__Header" data-drawer-animated-left>
 		<button class="Drawer__Close Icon-Wrapper--clickable" data-action="close-drawer" data-drawer-id="sidebar-menu" aria-label="{{ 'header.navigation.close_sidebar' | t }}">
 			{%- render 'icon' with 'close' -%}
 		</button>
 	</header>
 
-	<div class="Search__Inner">
-		<div class="Search__SearchBar">
-			<form action="/search" name="GET" role="search" class="Search__Form">
-				<div class="Search__InputIconWrapper">
-					<span class="hidden-tablet-and-up">
-						<svg class="Icon Icon--search" role="presentation" viewBox="0 0 18 17">
-							<g transform="translate(1 1)" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="square">
-							  <path d="M16 16l-5.0752-5.0752"></path>
-							  <circle cx="6.4" cy="6.4" r="6.4"></circle>
-							</g>
-						</svg>
-					</span>
-					<span class="hidden-phone">
-						<svg class="Icon Icon--search-desktop" role="presentation" viewBox="0 0 21 21">
-							<g transform="translate(1 1)" stroke="currentColor" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="square">
-							  <path d="M18 18l-5.7096-5.7096"></path>
-							  <circle cx="7.2" cy="7.2" r="7.2"></circle>
-							</g>
-						</svg>
-					</span>
+	<div id="Search" class="Search" aria-hidden="false" tabindex="-1">
+		<div class="Search__Inner">
+			<div class="Search__SearchBar">
+				<form action="/search" name="GET" role="search" class="Search__Form">
+					<div class="Search__InputIconWrapper">
+						<span class="hidden-tablet-and-up">
+							<svg class="Icon Icon--search" role="presentation" viewBox="0 0 18 17">
+								<g transform="translate(1 1)" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="square">
+								  <path d="M16 16l-5.0752-5.0752"></path>
+								  <circle cx="6.4" cy="6.4" r="6.4"></circle>
+								</g>
+							</svg>
+						</span>
+						<span class="hidden-phone">
+							<svg class="Icon Icon--search-desktop" role="presentation" viewBox="0 0 21 21">
+								<g transform="translate(1 1)" stroke="currentColor" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="square">
+								  <path d="M18 18l-5.7096-5.7096"></path>
+								  <circle cx="7.2" cy="7.2" r="7.2"></circle>
+								</g>
+							</svg>
+						</span>
+					</div>
+
+					<input type="search" class="Search__Input Heading" name="q" autocomplete="off" autocorrect="off" autocapitalize="none" aria-label="Was suchst du?" placeholder="Was suchst du?" autofocus="">
+					<input type="hidden" name="type" value="product">
+				</form>
+
+				<button class="Search__Close Link Link--primary" data-action="close-search" aria-label="Schließen">
+					<svg class="Icon Icon--close" role="presentation" viewBox="0 0 16 14">
+						<path d="M15 0L1 14m14 0L1 0" stroke="currentColor" fill="none" fill-rule="evenodd"></path>
+					</svg>
+				</button>
+			</div>
+
+			<div class="Search__Results" aria-hidden="true">
+				<div class="PageLayout PageLayout--breakLap">
+					<div class="PageLayout__Section">
+						<div class="Segment">
+							<div class="Segment__Title Segment__Title--flexed"><span class="Heading Text--subdued u-h7">Produkte</span></div>
+
+							<div class="Segment__Content">
+								<p class="search-result__no-results">Keine Einträge gefunden</p>
+							</div>
+						</div>
+					</div>
+					<div class="PageLayout__Section PageLayout__Section--secondary">
+						<div class="Segment">
+							<div class="Segment__Title Segment__Title--flexed"><span class="Heading Text--subdued u-h7">Artikel</span></div>
+
+							<div class="Segment__Content"><p>Keine Einträge gefunden</p></div>
+						</div>
+					</div>
 				</div>
-
-				<input type="search" class="Search__Input Heading" name="q" autocomplete="off" autocorrect="off" autocapitalize="none" aria-label="Was suchst du?" placeholder="Was suchst du?" autofocus="">
-				<input type="hidden" name="type" value="product">
-			</form>
-
-			<button class="Search__Close Link Link--primary" data-action="close-search" aria-label="Schließen">
-				<svg class="Icon Icon--close" role="presentation" viewBox="0 0 16 14">
-					<path d="M15 0L1 14m14 0L1 0" stroke="currentColor" fill="none" fill-rule="evenodd"></path>
-				</svg>
-			</button>
+			</div>
 		</div>
-
-		<div class="search__quick-links" data-js-search-quick-links="c">
-			<h4 class="search__quick-links__heading">Häufig gesucht</h4>
+		<div class="search__quick-links" data-js-search-quick-links="b">
+			<h4 class="search__quick-links__heading">Unsere Bestseller</h4>
 			<div class="search__quick-links-container search__quick-links--mobile swiper" data-js-search-quick-links-mobile="">
 				<div class="quick-links__list swiper-wrapper">
-					<a href="/collections/zahnpflege" class="search__quick-link swiper-slide">
-						<p class="quick-link__text">Zahnbelag</p>
-					</a>
 					<a href="/products/gras-kotfresser-drops-2" class="search__quick-link swiper-slide">
-						<p class="quick-link__text">Sodbrennen</p>
+						<div class="quick-link__image-container">
+							<img src="//tierliebhaber.de/cdn/shop/files/gk1_39cbb471-f595-4ad2-bff2-5cbf615ed0e7.jpg?v=1716366416&amp;width=400" alt="Gras- &amp; Kotfresser Drops" srcset="//tierliebhaber.de/cdn/shop/files/gk1_39cbb471-f595-4ad2-bff2-5cbf615ed0e7.jpg?v=1716366416&amp;width=352 352w, //tierliebhaber.de/cdn/shop/files/gk1_39cbb471-f595-4ad2-bff2-5cbf615ed0e7.jpg?v=1716366416&amp;width=400 400w" width="400" height="400" class="quick-link__image">
+						</div>
+						<p class="quick-link__text">Gras- &amp; Kotfresser Drops</p>
+					</a>
+					<a href="/products/dentalspray" class="search__quick-link swiper-slide">
+						<div class="quick-link__image-container">
+							<img src="//tierliebhaber.de/cdn/shop/files/dentalspray_1_vergleich.png?v=1722318868&amp;width=400" alt="Dentalspray" srcset="//tierliebhaber.de/cdn/shop/files/dentalspray_1_vergleich.png?v=1722318868&amp;width=352 352w, //tierliebhaber.de/cdn/shop/files/dentalspray_1_vergleich.png?v=1722318868&amp;width=400 400w" width="400" height="401" class="quick-link__image">
+						</div>
+						<p class="quick-link__text">Dentalspray</p>
+					</a>
+					<a href="/products/z-snack" class="search__quick-link swiper-slide">
+						<div class="quick-link__image-container">
+							<img src="//tierliebhaber.de/cdn/shop/files/zsn1_cd3565d1-f686-4c6e-9907-937e9c43bf7b.jpg?v=1716364314&amp;width=400" alt="Z-Snack" srcset="//tierliebhaber.de/cdn/shop/files/zsn1_cd3565d1-f686-4c6e-9907-937e9c43bf7b.jpg?v=1716364314&amp;width=352 352w, //tierliebhaber.de/cdn/shop/files/zsn1_cd3565d1-f686-4c6e-9907-937e9c43bf7b.jpg?v=1716364314&amp;width=400 400w" width="400" height="400" class="quick-link__image">
+						</div>
+						<p class="quick-link__text">Z-Snack</p>
 					</a>
 					<a href="/products/darmwohl-sticks" class="search__quick-link swiper-slide">
-						<p class="quick-link__text">Zu weiche Häufchen</p>
-					</a>
-					<a href="/products/z-bundle-zb" class="search__quick-link swiper-slide">
-						<p class="quick-link__text">Zecken</p>
+						<div class="quick-link__image-container">
+							<img src="//tierliebhaber.de/cdn/shop/files/20240705_Tierliebhaber2456.jpg?v=1724057955&amp;width=400" alt="Darmwohl Sticks" srcset="//tierliebhaber.de/cdn/shop/files/20240705_Tierliebhaber2456.jpg?v=1724057955&amp;width=352 352w, //tierliebhaber.de/cdn/shop/files/20240705_Tierliebhaber2456.jpg?v=1724057955&amp;width=400 400w" width="400" height="400" class="quick-link__image">
+						</div>
+						<p class="quick-link__text">Darmwohl Sticks</p>
 					</a>
 					<a href="/products/darmpflege-drops" class="search__quick-link swiper-slide">
-						<p class="quick-link__text">Bauchweh</p>
+						<div class="quick-link__image-container">
+							<img src="//tierliebhaber.de/cdn/shop/files/20240705_Tierliebhaber2471.jpg?v=1724057725&amp;width=400" alt="Darmpflege Drops" srcset="//tierliebhaber.de/cdn/shop/files/20240705_Tierliebhaber2471.jpg?v=1724057725&amp;width=352 352w, //tierliebhaber.de/cdn/shop/files/20240705_Tierliebhaber2471.jpg?v=1724057725&amp;width=400 400w" width="400" height="400" class="quick-link__image">
+						</div>
+						<p class="quick-link__text">Darmpflege Drops</p>
 					</a>
 				</div>
 				<div class="quick-links__scrollbar swiper-scrollbar"></div>
 			</div>
 		</div>
+
+		{% comment %}
+			<div class="search__quick-links" data-js-search-quick-links="c">
+			  <h4 class="search__quick-links__heading">
+				  Häufig gesucht
+			  </h4>
+			  <div class="search__quick-links-container search__quick-links--mobile swiper" data-js-search-quick-links-mobile="">
+				<div class="quick-links__list swiper-wrapper">
+					<a href="/collections/zahnpflege" class="search__quick-link swiper-slide">
+					  <p class="quick-link__text">
+						  Zahnbelag
+					  </p>
+					</a>
+					<a href="/products/gras-kotfresser-drops-2" class="search__quick-link swiper-slide">
+					  <p class="quick-link__text">
+						  Sodbrennen
+					  </p>
+					</a>
+					<a href="/products/darmwohl-sticks" class="search__quick-link swiper-slide">
+					  <p class="quick-link__text">
+						  Zu weiche Häufchen
+					  </p>
+					</a>
+					<a href="/products/z-bundle-zb" class="search__quick-link swiper-slide">
+					  <p class="quick-link__text">
+						  Zecken
+					  </p>
+					</a>
+					<a href="/products/darmpflege-drops" class="search__quick-link swiper-slide">
+					  <p class="quick-link__text">
+						  Bauchweh
+					  </p>
+					</a>
+				</div>
+				<div class="quick-links__scrollbar swiper-scrollbar"></div>
+			  </div>
+			</div>
+		{% endcomment %}
 	</div>
 
 	<div class="Drawer__Content">

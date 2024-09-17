@@ -1,11 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     const openSideBarNavigation = () => {
+		const sideBarAVariant = document.querySelector(".a-variant.SidebarMenu.Drawer");
         const sidebarBVariant = document.querySelector(".tlh-044.SidebarMenu.Drawer");
         const headerIconBVariant = document.querySelector(".Header__Icon");
         const drawerCloseBVariant = document.querySelector(".tlh-044 .Drawer__Close");
 
         headerIconBVariant.addEventListener("click", () => {
+			sideBarAVariant.style.display = "none";
             sidebarBVariant.ariaHidden = false;
         });
 
