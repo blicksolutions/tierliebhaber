@@ -11822,6 +11822,10 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
     height: 95px;
 }
 
+.disable-click {
+    pointer-events: none;
+}
+
 /** /Percentage **/
 /* /Cart sidebar coupon */
 
