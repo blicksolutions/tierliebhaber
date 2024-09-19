@@ -1474,7 +1474,6 @@ window.obj.cartSidebar = function () {
                 let scSubTotalPrice = scData?.subtotalCents / 100;
                 let subTotalNewPriceValue = parseFloat(scSubTotalPrice + deliveryPriceValue);
                 totalPrice.textContent = Shopify.scFormatMoney(subTotalNewPriceValue * 100);
-                totalPrice.dataset.price = Shopify.scFormatMoney(subTotalNewPriceValue * 100);
             }
         }, 1000);
     });
@@ -1492,7 +1491,6 @@ window.obj.cartSidebar = function () {
                 let scSubTotalPrice = scData?.subtotalCents / 100;
                 let subTotalNewPriceValue = parseFloat(scSubTotalPrice + deliveryPriceValue);
                 totalPrice.textContent = Shopify.scFormatMoney(subTotalNewPriceValue * 100);
-              totalPrice.dataset.price = Shopify.scFormatMoney(subTotalNewPriceValue * 100);
             }
         }, 1000);
         window.obj.cartSidebarRefresh(true);
