@@ -501,7 +501,7 @@ window.obj.cartSidebar = function () {
                 totalPrice.textContent = totalPrice?.dataset?.price
             }
         }, 1000);
-        window.obj.cartSidebarRefresh(true);
+        // window.obj.cartSidebarRefresh(true);
     });
 
     window.addEventListener('sc:discount.remove', function () {
@@ -528,7 +528,7 @@ window.obj.cartSidebar = function () {
         const percentage = $('.Drawer__Footer__Coupon-percentage');
         percentage.text('');
 
-        window.obj.cartSidebarRefresh(true);
+        // window.obj.cartSidebarRefresh(true);
 
         const totalPrice = document.querySelector('.Drawer__Footer__Total span')
         const couponCodeSet = document.querySelector('#sidebar-cart[data-dcart-code]')
