@@ -1473,7 +1473,6 @@ window.obj.cartSidebar = function () {
             if (totalPrice && couponCodeSet == null) {
                 let scSubTotalPrice = scData?.subtotalCents / 100;
                 let subTotalNewPriceValue = parseFloat(scSubTotalPrice + deliveryPriceValue);
-                console.log('subTotalNewPriceValue', subTotalNewPriceValue);
                 totalPrice.textContent = Shopify.scFormatMoney(subTotalNewPriceValue * 100);
             }
         }, 1000);
