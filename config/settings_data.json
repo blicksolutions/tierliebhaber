@@ -54,8 +54,8 @@
     "cart_enable_notes": false,
     "cart_show_free_shipping_threshold": true,
     "cart_free_shipping_threshold": "49",
-    "favicon": "shopify:\/\/shop_images\/Favicon.png",
-    "checkout_logo_image": "shopify:\/\/shop_images\/schriftzug-closeup_1.png",
+    "favicon": "shopify://shop_images/Favicon.png",
+    "checkout_logo_image": "shopify://shop_images/schriftzug-closeup_1.png",
     "checkout_logo_position": "center",
     "checkout_logo_size": "medium",
     "checkout_body_background_color": "#f4fbfd",
@@ -81,21 +81,21 @@
           "top_bar_TUrUr3": {
             "type": "Top_Bar",
             "settings": {
-              "top_svg": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n                                    <path d=\"M11.8456 6.42726L12 6.59097L12.1544 6.42726C14.132 4.33053 17.4026 4.57697 19.0807 6.94915C20.57 9.05459 20.2133 12.0335 18.275 13.6776L12 19L5.725 13.6776C3.78668 12.0335 3.42999 9.05459 4.91934 6.94915C6.59738 4.57698 9.86801 4.33053 11.8456 6.42726Z\" stroke=\"#525252\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n                                <\/svg>",
+              "top_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n                                    <path d=\"M11.8456 6.42726L12 6.59097L12.1544 6.42726C14.132 4.33053 17.4026 4.57697 19.0807 6.94915C20.57 9.05459 20.2133 12.0335 18.275 13.6776L12 19L5.725 13.6776C3.78668 12.0335 3.42999 9.05459 4.91934 6.94915C6.59738 4.57698 9.86801 4.33053 11.8456 6.42726Z\" stroke=\"#525252\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n                                </svg>",
               "title": "Über 310.000 zufriedene Kunden"
             }
           },
           "top_bar_Gq9W6Q": {
             "type": "Top_Bar",
             "settings": {
-              "top_svg": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n                                    <path d=\"M12.0623 20.3759C13.9922 20.3767 15.8645 19.7203 17.3663 18.5155C18.8685 17.3105 19.9092 15.6297 20.3136 13.7535C20.3796 13.4475 20.428 13.1394 20.459 12.8305C20.4582 12.8378 20.4575 12.8451 20.4568 12.8524C20.3377 14.0239 19.9746 15.1583 19.3903 16.1835C18.806 17.2087 18.0132 18.1025 17.062 18.8079C16.1109 19.5133 15.0221 20.015 13.8649 20.2809C12.7088 20.5465 11.5098 20.5709 10.3438 20.3527C10.3338 20.3505 10.3245 20.3466 10.3163 20.3411C10.3078 20.3355 10.3007 20.3283 10.2953 20.3203C10.29 20.3123 10.2863 20.3035 10.2845 20.2945C10.2827 20.2854 10.2827 20.2762 10.2846 20.2671C10.2864 20.2581 10.29 20.2493 10.2954 20.2413C10.3008 20.2333 10.3079 20.2262 10.3165 20.2205C10.325 20.2149 10.3348 20.2108 10.3453 20.2087C10.3558 20.2067 10.3667 20.2067 10.3772 20.2088L10.4745 19.7184M12.0623 20.3759C11.4953 20.3781 10.9295 20.322 10.3742 20.2082L10.4745 19.7184M12.0623 20.3759C12.0619 20.3759 12.0615 20.3759 12.0611 20.3759L12.0614 19.8759M12.0623 20.3759C12.0627 20.3759 12.0631 20.3759 12.0635 20.3759L12.0614 19.8759M10.4745 19.7184C10.4001 19.7036 10.3235 19.7035 10.249 19.7181C10.1745 19.7327 10.1037 19.7618 10.0406 19.8036L12.0614 19.8759M10.4745 19.7184C10.9966 19.8253 11.5284 19.8781 12.0614 19.8759M5.68691 17.6734L5.68222 17.6679L5.67737 17.6625C4.57637 16.4393 3.85572 14.9266 3.60179 13.3068C3.34787 11.6871 3.57141 10.0289 4.24566 8.53209C4.91993 7.03527 6.01631 5.76343 7.40314 4.87035C8.78897 3.97791 10.4055 3.50191 12.0581 3.5C13.2446 3.51733 14.4145 3.779 15.4937 4.26834C16.5739 4.75819 17.5395 5.46543 18.3294 6.34498C19.1192 7.22452 19.716 8.25717 20.0821 9.37733C20.2882 10.0078 20.4187 10.6583 20.4722 11.3154C20.3833 10.2404 20.0856 9.18496 19.587 8.20958C18.7126 6.49901 17.2737 5.13891 15.5115 4.35575C13.7493 3.57262 11.77 3.41352 9.90405 3.90485C8.03807 4.39619 6.3977 5.50845 5.25756 7.05669C4.11735 8.60501 3.54669 10.4954 3.6416 12.4118C3.7365 14.3283 4.49116 16.1538 5.77866 17.5834L5.77865 17.5835L5.78149 17.5866C5.92231 17.7403 6.12095 17.9336 6.24297 18.0523C6.27747 18.0858 6.30584 18.1134 6.32506 18.1325C6.34149 18.1488 6.35701 18.1646 6.37258 18.1804C6.44572 18.2548 6.51993 18.3303 6.69394 18.4653C6.88617 18.6143 7.07079 18.7442 7.24212 18.8633L8.02741 19.4089V18.4527V18.1883C8.02741 18.1729 8.03353 18.1574 8.04564 18.1454C8.05787 18.1332 8.07526 18.1257 8.09417 18.1257C8.11307 18.1257 8.13046 18.1332 8.14269 18.1454C8.1548 18.1574 8.16092 18.1729 8.16092 18.1883V19.6648L7.04473 18.9007C6.88868 18.7939 6.70325 18.6569 6.58224 18.5568C6.45749 18.4536 6.33583 18.3435 6.21639 18.2303L6.21504 18.2291C6.02865 18.0538 5.85233 17.8683 5.68691 17.6734ZM6.7623 19.8133H8.16092V19.8759C8.16092 19.8912 8.1548 19.9067 8.14269 19.9188L8.49492 20.2736L8.14269 19.9188C8.13046 19.9309 8.11307 19.9384 8.09417 19.9384H6.39391C6.375 19.9384 6.35762 19.9309 6.34539 19.9188L5.99316 20.2736L6.34538 19.9188C6.33328 19.9067 6.32716 19.8912 6.32716 19.8759C6.32716 19.8605 6.33328 19.845 6.34538 19.833L5.99316 19.4781L6.34539 19.833C6.35762 19.8208 6.375 19.8133 6.39391 19.8133H6.7623Z\" stroke=\"#504F4D\"><\/path>\n                                    <path d=\"M12.2362 11.7602V9.31105C13.008 9.39354 13.5275 9.87105 13.5275 10.3037C13.5275 10.4771 13.6333 10.6178 13.7638 10.6178C13.8942 10.6178 14 10.4772 14 10.3037C14 9.45312 13.2424 8.77408 12.2362 8.68136V8.31415C12.2362 8.14067 12.1305 8 12 8C11.8696 8 11.7638 8.14063 11.7638 8.31415V8.68136C10.7576 8.77408 10 9.45312 10 10.3037C10 11.4431 10.8147 11.8878 11.7638 12.2398V14.689C10.992 14.6064 10.4725 14.129 10.4725 13.6963C10.4725 13.5229 10.3667 13.3822 10.2362 13.3822C10.1058 13.3822 10 13.5228 10 13.6963C10 14.5469 10.7576 15.2259 11.7638 15.3186V15.6859C11.7638 15.8593 11.8695 16 12 16C12.1304 16 12.2362 15.8594 12.2362 15.6859V15.3186C13.2424 15.2259 14 14.5469 14 13.6963C14 12.5569 13.1853 12.1123 12.2362 11.7602ZM11.7638 11.5855C10.8057 11.2091 10.4725 10.8672 10.4725 10.3037C10.4725 9.87105 10.992 9.39354 11.7638 9.31105V11.5855ZM12.2362 14.689V12.4145C13.1943 12.7909 13.5275 13.1328 13.5275 13.6963C13.5275 14.129 13.008 14.6065 12.2362 14.689Z\" fill=\"#525252\" stroke=\"#525252\" stroke-width=\"0.2\"><\/path>\n                                <\/svg>",
+              "top_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n                                    <path d=\"M12.0623 20.3759C13.9922 20.3767 15.8645 19.7203 17.3663 18.5155C18.8685 17.3105 19.9092 15.6297 20.3136 13.7535C20.3796 13.4475 20.428 13.1394 20.459 12.8305C20.4582 12.8378 20.4575 12.8451 20.4568 12.8524C20.3377 14.0239 19.9746 15.1583 19.3903 16.1835C18.806 17.2087 18.0132 18.1025 17.062 18.8079C16.1109 19.5133 15.0221 20.015 13.8649 20.2809C12.7088 20.5465 11.5098 20.5709 10.3438 20.3527C10.3338 20.3505 10.3245 20.3466 10.3163 20.3411C10.3078 20.3355 10.3007 20.3283 10.2953 20.3203C10.29 20.3123 10.2863 20.3035 10.2845 20.2945C10.2827 20.2854 10.2827 20.2762 10.2846 20.2671C10.2864 20.2581 10.29 20.2493 10.2954 20.2413C10.3008 20.2333 10.3079 20.2262 10.3165 20.2205C10.325 20.2149 10.3348 20.2108 10.3453 20.2087C10.3558 20.2067 10.3667 20.2067 10.3772 20.2088L10.4745 19.7184M12.0623 20.3759C11.4953 20.3781 10.9295 20.322 10.3742 20.2082L10.4745 19.7184M12.0623 20.3759C12.0619 20.3759 12.0615 20.3759 12.0611 20.3759L12.0614 19.8759M12.0623 20.3759C12.0627 20.3759 12.0631 20.3759 12.0635 20.3759L12.0614 19.8759M10.4745 19.7184C10.4001 19.7036 10.3235 19.7035 10.249 19.7181C10.1745 19.7327 10.1037 19.7618 10.0406 19.8036L12.0614 19.8759M10.4745 19.7184C10.9966 19.8253 11.5284 19.8781 12.0614 19.8759M5.68691 17.6734L5.68222 17.6679L5.67737 17.6625C4.57637 16.4393 3.85572 14.9266 3.60179 13.3068C3.34787 11.6871 3.57141 10.0289 4.24566 8.53209C4.91993 7.03527 6.01631 5.76343 7.40314 4.87035C8.78897 3.97791 10.4055 3.50191 12.0581 3.5C13.2446 3.51733 14.4145 3.779 15.4937 4.26834C16.5739 4.75819 17.5395 5.46543 18.3294 6.34498C19.1192 7.22452 19.716 8.25717 20.0821 9.37733C20.2882 10.0078 20.4187 10.6583 20.4722 11.3154C20.3833 10.2404 20.0856 9.18496 19.587 8.20958C18.7126 6.49901 17.2737 5.13891 15.5115 4.35575C13.7493 3.57262 11.77 3.41352 9.90405 3.90485C8.03807 4.39619 6.3977 5.50845 5.25756 7.05669C4.11735 8.60501 3.54669 10.4954 3.6416 12.4118C3.7365 14.3283 4.49116 16.1538 5.77866 17.5834L5.77865 17.5835L5.78149 17.5866C5.92231 17.7403 6.12095 17.9336 6.24297 18.0523C6.27747 18.0858 6.30584 18.1134 6.32506 18.1325C6.34149 18.1488 6.35701 18.1646 6.37258 18.1804C6.44572 18.2548 6.51993 18.3303 6.69394 18.4653C6.88617 18.6143 7.07079 18.7442 7.24212 18.8633L8.02741 19.4089V18.4527V18.1883C8.02741 18.1729 8.03353 18.1574 8.04564 18.1454C8.05787 18.1332 8.07526 18.1257 8.09417 18.1257C8.11307 18.1257 8.13046 18.1332 8.14269 18.1454C8.1548 18.1574 8.16092 18.1729 8.16092 18.1883V19.6648L7.04473 18.9007C6.88868 18.7939 6.70325 18.6569 6.58224 18.5568C6.45749 18.4536 6.33583 18.3435 6.21639 18.2303L6.21504 18.2291C6.02865 18.0538 5.85233 17.8683 5.68691 17.6734ZM6.7623 19.8133H8.16092V19.8759C8.16092 19.8912 8.1548 19.9067 8.14269 19.9188L8.49492 20.2736L8.14269 19.9188C8.13046 19.9309 8.11307 19.9384 8.09417 19.9384H6.39391C6.375 19.9384 6.35762 19.9309 6.34539 19.9188L5.99316 20.2736L6.34538 19.9188C6.33328 19.9067 6.32716 19.8912 6.32716 19.8759C6.32716 19.8605 6.33328 19.845 6.34538 19.833L5.99316 19.4781L6.34539 19.833C6.35762 19.8208 6.375 19.8133 6.39391 19.8133H6.7623Z\" stroke=\"#504F4D\"></path>\n                                    <path d=\"M12.2362 11.7602V9.31105C13.008 9.39354 13.5275 9.87105 13.5275 10.3037C13.5275 10.4771 13.6333 10.6178 13.7638 10.6178C13.8942 10.6178 14 10.4772 14 10.3037C14 9.45312 13.2424 8.77408 12.2362 8.68136V8.31415C12.2362 8.14067 12.1305 8 12 8C11.8696 8 11.7638 8.14063 11.7638 8.31415V8.68136C10.7576 8.77408 10 9.45312 10 10.3037C10 11.4431 10.8147 11.8878 11.7638 12.2398V14.689C10.992 14.6064 10.4725 14.129 10.4725 13.6963C10.4725 13.5229 10.3667 13.3822 10.2362 13.3822C10.1058 13.3822 10 13.5228 10 13.6963C10 14.5469 10.7576 15.2259 11.7638 15.3186V15.6859C11.7638 15.8593 11.8695 16 12 16C12.1304 16 12.2362 15.8594 12.2362 15.6859V15.3186C13.2424 15.2259 14 14.5469 14 13.6963C14 12.5569 13.1853 12.1123 12.2362 11.7602ZM11.7638 11.5855C10.8057 11.2091 10.4725 10.8672 10.4725 10.3037C10.4725 9.87105 10.992 9.39354 11.7638 9.31105V11.5855ZM12.2362 14.689V12.4145C13.1943 12.7909 13.5275 13.1328 13.5275 13.6963C13.5275 14.129 13.008 14.6065 12.2362 14.689Z\" fill=\"#525252\" stroke=\"#525252\" stroke-width=\"0.2\"></path>\n                                </svg>",
               "title": "Kein Risiko, dank Geld Zurück Garantie"
             }
           },
           "top_bar_r7rwkg": {
             "type": "Top_Bar",
             "settings": {
-              "top_svg": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n                                    <path d=\"M20.6243 3.72799C20.619 3.6363 20.5801 3.54978 20.5152 3.48484C20.4502 3.41989 20.3637 3.38104 20.272 3.37565C13.2601 2.96298 7.65878 5.05262 5.28927 8.9649C3.66583 11.6454 3.75454 14.8224 5.53062 17.9391L3.48481 19.9849C3.41449 20.0552 3.37499 20.1506 3.375 20.25C3.375 20.2993 3.38471 20.348 3.40356 20.3935C3.42241 20.439 3.45003 20.4804 3.48486 20.5152C3.51968 20.55 3.56102 20.5776 3.60652 20.5965C3.65202 20.6153 3.70078 20.625 3.75002 20.625C3.84948 20.625 3.94486 20.5855 4.01517 20.5151L6.06117 18.4692C7.69486 19.4001 9.34478 19.8682 10.9315 19.8682C12.3801 19.8691 13.8005 19.4685 15.0351 18.7107C18.9474 16.3413 21.0368 10.7402 20.6243 3.72799ZM14.6465 18.0692C12.2612 19.5139 9.42383 19.4557 6.61227 17.9181L15.2652 9.26519C15.3354 9.19484 15.3748 9.09948 15.3748 9.00007C15.3747 8.90066 15.3352 8.80534 15.2649 8.73505C15.1947 8.66475 15.0993 8.62524 14.9999 8.6252C14.9005 8.62516 14.8052 8.66459 14.7348 8.73483L6.08195 17.3877C4.54434 14.5761 4.48611 11.7387 5.93077 9.35345C8.11668 5.74426 13.3206 3.79427 19.8934 4.10656C20.2061 10.6788 18.2558 15.8833 14.6465 18.0692Z\" stroke=\"#504F4D\"><\/path>\n                                <\/svg>",
+              "top_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n                                    <path d=\"M20.6243 3.72799C20.619 3.6363 20.5801 3.54978 20.5152 3.48484C20.4502 3.41989 20.3637 3.38104 20.272 3.37565C13.2601 2.96298 7.65878 5.05262 5.28927 8.9649C3.66583 11.6454 3.75454 14.8224 5.53062 17.9391L3.48481 19.9849C3.41449 20.0552 3.37499 20.1506 3.375 20.25C3.375 20.2993 3.38471 20.348 3.40356 20.3935C3.42241 20.439 3.45003 20.4804 3.48486 20.5152C3.51968 20.55 3.56102 20.5776 3.60652 20.5965C3.65202 20.6153 3.70078 20.625 3.75002 20.625C3.84948 20.625 3.94486 20.5855 4.01517 20.5151L6.06117 18.4692C7.69486 19.4001 9.34478 19.8682 10.9315 19.8682C12.3801 19.8691 13.8005 19.4685 15.0351 18.7107C18.9474 16.3413 21.0368 10.7402 20.6243 3.72799ZM14.6465 18.0692C12.2612 19.5139 9.42383 19.4557 6.61227 17.9181L15.2652 9.26519C15.3354 9.19484 15.3748 9.09948 15.3748 9.00007C15.3747 8.90066 15.3352 8.80534 15.2649 8.73505C15.1947 8.66475 15.0993 8.62524 14.9999 8.6252C14.9005 8.62516 14.8052 8.66459 14.7348 8.73483L6.08195 17.3877C4.54434 14.5761 4.48611 11.7387 5.93077 9.35345C8.11668 5.74426 13.3206 3.79427 19.8934 4.10656C20.2061 10.6788 18.2558 15.8833 14.6465 18.0692Z\" stroke=\"#504F4D\"></path>\n                                </svg>",
               "title": "Natürliche Formeln mit Tierärzten entwickelt"
             }
           }
@@ -112,11 +112,11 @@
           "enable_trustpilot_widget": false,
           "enable_text_content": false,
           "enable_three_col_content": true,
-          "trustpilot_html": "<div class=\"trustpilot-widget\" data-locale=\"de-DE\" data-template-id=\"5419b6ffb0d04a076446a9af\" data-businessunit-id=\"60d5db8ab6c75b0001a3a5e3\" data-style-height=\"20px\" data-style-width=\"100%\" data-theme=\"light\">\n  <a href=\"https:\/\/de.trustpilot.com\/review\/tierliebhaber.de\" target=\"_blank\" rel=\"noopener\">Trustpilot<\/a>\n<\/div>",
+          "trustpilot_html": "<div class=\"trustpilot-widget\" data-locale=\"de-DE\" data-template-id=\"5419b6ffb0d04a076446a9af\" data-businessunit-id=\"60d5db8ab6c75b0001a3a5e3\" data-style-height=\"20px\" data-style-width=\"100%\" data-theme=\"light\">\n  <a href=\"https://de.trustpilot.com/review/tierliebhaber.de\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>",
           "background": "#f2f8f5",
           "text_color": "#6a6a6a",
           "content": "30 Tage Geld-zurück-Garantie auf alle Tierliebhaber-Produkte 🐶",
-          "link": "shopify:\/\/collections\/alle-produkte"
+          "link": "shopify://collections/alle-produkte"
         }
       },
       "header": {
@@ -124,7 +124,7 @@
         "settings": {
           "use_sticky_header": true,
           "use_sticky_announcement": true,
-          "logo": "shopify:\/\/shop_images\/schriftzug-closeup_1.png",
+          "logo": "shopify://shop_images/schriftzug-closeup_1.png",
           "logo_max_width": 200,
           "mobile_logo_max_width": 120,
           "show_currency_selector": false,
@@ -151,7 +151,7 @@
             "type": "text",
             "settings": {
               "title": "Erreichbarkeit",
-              "content": "<p>Unser Team ist jederzeit <\/p><p>über WhatsApp: +49 176 48097026<\/p><p>per Mail: <a href=\"mailto:info@tierliebhaber.de\">info@tierliebhaber.de<\/a> <\/p><p>(Wir melden uns in der Regel innerhalb von 2-3 Werktagen mit einer Antwort bei dir)<\/p><p>oder telefonisch von Mo - Fr von 11-13 Uhr für dich erreichbar.<\/p><p>Tel.: +49 34149980019<\/p>",
+              "content": "<p>Unser Team ist jederzeit </p><p>über WhatsApp: +49 176 48097026</p><p>per Mail: <a href=\"mailto:info@tierliebhaber.de\">info@tierliebhaber.de</a> </p><p>(Wir melden uns in der Regel innerhalb von 2-3 Werktagen mit einer Antwort bei dir)</p><p>oder telefonisch von Mo - Fr von 11-13 Uhr für dich erreichbar.</p><p>Tel.: +49 34149980019</p>",
               "show_social_media": true
             }
           },
@@ -179,8 +179,8 @@
           "slide-0": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/202408_jb_end_of_season_z_kunde_desktop.jpg",
-              "mobile_image": "shopify:\/\/shop_images\/202408_jb_end_of_season_z_kunde_mobile.jpg",
+              "image": "shopify://shop_images/202408_jb_end_of_season_z_kunde_desktop.jpg",
+              "mobile_image": "shopify://shop_images/202408_jb_end_of_season_z_kunde_mobile.jpg",
               "apply_overlay": false,
               "content_offset_mobile_left": 50,
               "content_offset_mobile_top": 21,
@@ -190,7 +190,7 @@
               "subheading": "",
               "title": "",
               "button_1_text": "",
-              "button_1_link": "shopify:\/\/collections\/z-produkte",
+              "button_1_link": "shopify://collections/z-produkte",
               "button_2_text": "",
               "button_2_link": "",
               "button_font": "Sweet Purple",
@@ -329,7 +329,7 @@
               "title": "2000",
               "subheading": "Sub-heading",
               "heading": "Heading",
-              "content": "<p>Add your own custom content to give more information about your store, availability details...<\/p>"
+              "content": "<p>Add your own custom content to give more information about your store, availability details...</p>"
             }
           },
           "item-1": {
@@ -339,7 +339,7 @@
               "title": "2001",
               "subheading": "Sub-heading",
               "heading": "Heading",
-              "content": "<p>Add your own custom content to give more information about your store, availability details...<\/p>"
+              "content": "<p>Add your own custom content to give more information about your store, availability details...</p>"
             }
           },
           "item-2": {
@@ -349,7 +349,7 @@
               "title": "2002",
               "subheading": "Sub-heading",
               "heading": "Heading",
-              "content": "<p>Add your own custom content to give more information about your store, availability details...<\/p>"
+              "content": "<p>Add your own custom content to give more information about your store, availability details...</p>"
             }
           }
         },
@@ -465,7 +465,7 @@
           "text_color": "#ffffff",
           "apply_overlay": true,
           "title": "Our story",
-          "content": "<p>Add your own custom content to explain your processes...<\/p>"
+          "content": "<p>Add your own custom content to explain your processes...</p>"
         }
       },
       "product-template": {
@@ -513,7 +513,7 @@
           "show_only_for_visitors": true,
           "show_only_once": true,
           "title": "Popup",
-          "content": "<p>You can use this popup to display some useful information to your customers.<\/p>",
+          "content": "<p>You can use this popup to display some useful information to your customers.</p>",
           "show_newsletter": true,
           "apparition_delay": 5
         }
@@ -579,7 +579,7 @@
           "subheading": "Alles rund um die Gesundheit unserer Hunde!",
           "title": "Tierliebhaber Blog",
           "show_category": false,
-          "button_link": "shopify:\/\/blogs\/news",
+          "button_link": "shopify://blogs/news",
           "button_text": "Alle Beiträge anzeigen"
         }
       },
@@ -611,7 +611,7 @@
           "bd5374af-d99b-4192-b2f9-c0f3123ac0f3": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/logo_bunte_3b000de3-2716-4d31-b5cf-0063f6d2e369.jpg",
+              "image": "shopify://shop_images/logo_bunte_3b000de3-2716-4d31-b5cf-0063f6d2e369.jpg",
               "image_alt": "",
               "image_url": "",
               "max_width": 128
@@ -620,7 +620,7 @@
           "51a4e0a4-5035-4f15-81ea-400c105bea3d": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/100_naturlich_2.png",
+              "image": "shopify://shop_images/100_naturlich_2.png",
               "image_alt": "",
               "image_url": "",
               "max_width": 160
@@ -629,7 +629,7 @@
           "143db82c-8dbd-4241-8805-62b2a626ca51": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/shop-apotheke-com-4439.png",
+              "image": "shopify://shop_images/shop-apotheke-com-4439.png",
               "image_alt": "",
               "image_url": "",
               "max_width": 136
@@ -638,24 +638,24 @@
           "fb93a848-0723-4d67-a948-992c854e0b5f": {
             "type": "html",
             "settings": {
-              "html": "<div class=\"trustpilot-widget\" data-locale=\"de-DE\" data-template-id=\"53aa8807dec7e10d38f59f32\" data-businessunit-id=\"60d5db8ab6c75b0001a3a5e3\" data-style-height=\"150px\" data-style-width=\"100%\" data-theme=\"light\">\n  <a href=\"https:\/\/de.trustpilot.com\/review\/tierliebhaber.de\" target=\"_blank\" rel=\"noopener\">Trustpilot<\/a>\n<\/div>"
+              "html": "<div class=\"trustpilot-widget\" data-locale=\"de-DE\" data-template-id=\"53aa8807dec7e10d38f59f32\" data-businessunit-id=\"60d5db8ab6c75b0001a3a5e3\" data-style-height=\"150px\" data-style-width=\"100%\" data-theme=\"light\">\n  <a href=\"https://de.trustpilot.com/review/tierliebhaber.de\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>"
             }
           },
           "f6452686-be98-4be8-8ad1-8cd81d013eb7": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Gefaelltnutzernvonehorses.png",
+              "image": "shopify://shop_images/Gefaelltnutzernvonehorses.png",
               "image_alt": "PferdeWelt",
-              "image_url": "https:\/\/aktion.tierliebhaber.de\/ehorses-testbericht61958504",
+              "image_url": "https://aktion.tierliebhaber.de/ehorses-testbericht61958504",
               "max_width": 160
             }
           },
           "db8fd44d-cc21-46fc-ab84-efde41ab3e9c": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Gefaelltnutzernvonedogs.png",
+              "image": "shopify://shop_images/Gefaelltnutzernvonedogs.png",
               "image_alt": "",
-              "image_url": "https:\/\/aktion.tierliebhaber.de\/edogs-test",
+              "image_url": "https://aktion.tierliebhaber.de/edogs-test",
               "max_width": 160
             }
           }
@@ -678,17 +678,17 @@
           "4ee956a9-6e65-4a24-9583-e5004d4d31b4": {
             "type": "button",
             "settings": {
-              "image": "shopify:\/\/shop_images\/whatsapp.png",
+              "image": "shopify://shop_images/whatsapp.png",
               "image_alt": "",
               "text": "Per WhatsApp",
               "color": "#43c253",
-              "url": "https:\/\/api.whatsapp.com\/send\/?phone=4917648097026&text=Hey,%20ich%20habe%20eine%20Frage,%20auf%20die%20ich%20keine%20Antworte%20finde%20auf%20eurer%20Seite.%20%E2%98%BA%EF%B8%8F"
+              "url": "https://api.whatsapp.com/send/?phone=4917648097026&text=Hey,%20ich%20habe%20eine%20Frage,%20auf%20die%20ich%20keine%20Antworte%20finde%20auf%20eurer%20Seite.%20%E2%98%BA%EF%B8%8F"
             }
           },
           "40e2fcb1-8917-457f-b8f7-347c740d00d7": {
             "type": "button",
             "settings": {
-              "image": "shopify:\/\/shop_images\/anruf.png",
+              "image": "shopify://shop_images/anruf.png",
               "image_alt": "",
               "text": "Ruf uns an (Mo-Fr 11-13 Uhr)",
               "color": "#f1af9e",
@@ -698,7 +698,7 @@
           "8f086c70-24cd-4e1d-bcb8-a0a1924f5b23": {
             "type": "button",
             "settings": {
-              "image": "shopify:\/\/shop_images\/email.png",
+              "image": "shopify://shop_images/email.png",
               "image_alt": "",
               "text": "Per Email",
               "color": "#dddddd",
@@ -713,12 +713,12 @@
         ],
         "settings": {
           "title": "Bei Fragen sind wir immer da!",
-          "subtitle": "<p>Bei Fragen zu einer bestehenden Bestellung, schreib uns einfach eine Nachricht per<br\/>WhatsApp oder per E-Mail.<\/p><p><strong>Hast du Fragen zu unseren Produkten oder kommst bei einer Bestellung nicht weiter?<\/strong> <br\/><br\/>Wir sind jederzeit für dich auf WhatsApp erreichbar.<\/p><p><strong>Du wünschst dir eine Produktberatung oder einen individuellen Rückruf?<\/strong><\/p><p>Schreib uns einfach eine Nachricht per<br\/>WhatsApp oder per E-Mail mit deiner Telefonnummer und wann es für dich zeitlich<br\/>passt, dann melden wir uns sehr gerne bei dir!<\/p>",
-          "image": "shopify:\/\/shop_images\/CS.png",
+          "subtitle": "<p>Bei Fragen zu einer bestehenden Bestellung, schreib uns einfach eine Nachricht per<br/>WhatsApp oder per E-Mail.</p><p><strong>Hast du Fragen zu unseren Produkten oder kommst bei einer Bestellung nicht weiter?</strong> <br/><br/>Wir sind jederzeit für dich auf WhatsApp erreichbar.</p><p><strong>Du wünschst dir eine Produktberatung oder einen individuellen Rückruf?</strong></p><p>Schreib uns einfach eine Nachricht per<br/>WhatsApp oder per E-Mail mit deiner Telefonnummer und wann es für dich zeitlich<br/>passt, dann melden wir uns sehr gerne bei dir!</p>",
+          "image": "shopify://shop_images/CS.png",
           "image_alt": "",
           "image_min_width": 340,
           "cta_title": "Schnell & einfach",
-          "microcopy": "<p><em>Wir melden uns in der Regel <\/em><\/p><p><em>innerhalb von 2-3 Werktagen mit einer Antwort bei dir!<\/em><\/p>"
+          "microcopy": "<p><em>Wir melden uns in der Regel </em></p><p><em>innerhalb von 1-2 Werktagen mit einer Antwort bei dir!</em></p>"
         }
       },
       "1628812121ed1d8117": {
@@ -733,7 +733,7 @@
               "subheading": "",
               "title": "Zahnpflege",
               "button_text": "Mehr entdecken",
-              "button_link": "shopify:\/\/collections\/zahnpflege",
+              "button_link": "shopify://collections/zahnpflege",
               "apply_overlay": true
             }
           },
@@ -741,7 +741,7 @@
             "type": "collection",
             "settings": {
               "collection": "funktionssnacks",
-              "image": "shopify:\/\/shop_images\/03_Chillout_Sticks_Deko.jpg",
+              "image": "shopify://shop_images/03_Chillout_Sticks_Deko.jpg",
               "image_alignment": "center center",
               "content_position": "middleCenter",
               "subheading": "",
@@ -768,7 +768,7 @@
             "type": "collection",
             "settings": {
               "collection": "belohnung",
-              "image": "shopify:\/\/shop_images\/03_Goodie_Drops_Deko.jpg",
+              "image": "shopify://shop_images/03_Goodie_Drops_Deko.jpg",
               "image_alignment": "center center",
               "content_position": "middleCenter",
               "subheading": "",
@@ -834,13 +834,13 @@
         "disabled": true,
         "settings": {
           "section_size": "normal",
-          "image": "shopify:\/\/shop_images\/Design_ohne_Titel_4.jpg",
+          "image": "shopify://shop_images/Design_ohne_Titel_4.jpg",
           "text_color": "#ffffff",
           "overlay_color": "#363636",
           "overlay_opacity": 43,
           "subheading": "",
           "title": "Tierliebhaber Mission",
-          "content": "<p>Als Tierliebhaber möchten wir für ein gesundes, leichtes und bewusstes Zusammenleben mit unseren Hunden sorgen. Das ist unsere Mission, die wir gemeinsam mit anderen Tierliebhabern erreichen möchten.<\/p><p>Liebe Grüße, Josefine Schmidt (Gründerin von Tierliebhaber)<\/p>"
+          "content": "<p>Als Tierliebhaber möchten wir für ein gesundes, leichtes und bewusstes Zusammenleben mit unseren Hunden sorgen. Das ist unsere Mission, die wir gemeinsam mit anderen Tierliebhabern erreichen möchten.</p><p>Liebe Grüße, Josefine Schmidt (Gründerin von Tierliebhaber)</p>"
         }
       },
       "1629450062a372f406": {
@@ -849,13 +849,13 @@
         "settings": {
           "subheading": "",
           "title": "Das sagen unsere Kunden",
-          "html": "<!-- TrustBox widget - Slider -->\n<div class=\"trustpilot-widget\" data-locale=\"de-DE\" data-template-id=\"54ad5defc6454f065c28af8b\" data-businessunit-id=\"60d5db8ab6c75b0001a3a5e3\" data-style-height=\"240px\" data-style-width=\"100%\" data-theme=\"light\" data-stars=\"4,5\" data-review-languages=\"de\" data-font-family=\"Poppins\">\n  <a href=\"https:\/\/de.trustpilot.com\/review\/tierliebhaber.de\" target=\"_blank\" rel=\"noopener\">Trustpilot<\/a>\n<\/div>\n<!-- End TrustBox widget -->"
+          "html": "<!-- TrustBox widget - Slider -->\n<div class=\"trustpilot-widget\" data-locale=\"de-DE\" data-template-id=\"54ad5defc6454f065c28af8b\" data-businessunit-id=\"60d5db8ab6c75b0001a3a5e3\" data-style-height=\"240px\" data-style-width=\"100%\" data-theme=\"light\" data-stars=\"4,5\" data-review-languages=\"de\" data-font-family=\"Poppins\">\n  <a href=\"https://de.trustpilot.com/review/tierliebhaber.de\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>\n<!-- End TrustBox widget -->"
         }
       },
       "1629465395882c28f0": {
         "type": "seo-content",
         "settings": {
-          "seo_content": "<h2>Hundebedarf<\/h2> <p>Hunde gehören zu den treuesten Begleitern des Menschen. Als immer fröhliche Vierbeiner bereichern sie unseren Tag. Sie spielen, toben und helfen uns dabei, Kontakte zu anderen Hundehaltern zu knüpfen. Zudem vertreiben sie Kummer und Sorgen und halten dich als Hundehalter fit. Sicherlich möchtest du deinem Hund ein langes und vor allem gesundes Leben ermöglichen. Deshalb ist es wichtig die Bedürfnisse deines Hundes zu kennen und dabei auf natürlichen Hundebedarf zu vertrauen. <\/p> <p>Wir von Tierliebhaber schätzen gesunde Hundebedarf-Produkte, welche die Vitalität deines Vierbeiners erhalten und euch ein möglichst langes Miteinander ermöglichen. Für uns umfasst das Hundezubehör neben Nahrungsmitteln für den Hund auch Snacks, Pflegeprodukte, Belohnungen und essenzielle Dinge, wie Ergänzungen für die Gesundheit deines Hundes. Erfahre jetzt mehr über unser Sortiment an Hundebedarf.<\/p> <h3>Hier gibt es alles an Hundebedarf für deine Vierbeiner<\/h3> <p>In unserem Hundeshop findest du alles an Hundebedarf für deinen Liebling. Wir bieten dir eine optimale und ausgewogene Nahrung für deinen Hund. Die meisten industriell gefertigten Nahrung für Hunde setzt sich aus verschiedenen Zusatzstoffen zusammen, die für den Organismus deines Hundes keine Bereicherung darstellen. Im Gegenteil: Hundefutter ist häufig sogar nur aus Resten zusammengestellt und garantiert keine optimale Versorgung deines Hundes.<\/p> <p>Wir möchten Hundefutter neu definieren. Bei uns bekommt dein Hund ausschließlich natürliches Hundefutter. Die Hundenahrung muss speziell auf die Anforderungen des Hundes ausgerichtet sein. Das gilt nicht nur für das tägliche Hundefutter. Auch Snacks, wie Kauartikel für Hunde zum Schutz der Zähne sowie Hundeleckerli als Belohnung, müssen den Anforderungen an guten Hundebedarf gerecht werden.<\/p> <p>Unser Zubehör für Hunde kommt den Bedürfnissen von Nieren, Magen, Darm und der Lebensfreude des Hundes entgegen. Entscheide dich von Anfang an für möglichst naturreines Futter aus dem Hundeshop und du deckst den Hundebedarf perfekt ab.<\/p> <h3>Hundebedarf und Hundeartikel Online kaufen: Top-Auswahl bei Tierliebhaber<\/h3> <p>Hundebedarf und Hundezubehör gibt es bei uns in allen Variationen. Schau dich gerne um und sieh, was dein Hund braucht. Unsere Darmwohl Sticks sind ein absoluter Verkaufsschlager. Viele Hunde neigen mindestens einmal in ihrem Leben zu Verdauungsbeschwerden.<\/p> <p>Diese werden durch ungesundes Essen begünstigt. Auch der Bewegungsmangel kann zu einem trägen Darm beitragen. Und ähnlich wie beim Menschen versetzt Stress den Magen und Darm des Hundes in Wallungen. Dadurch kann es zum Durchfall kommen. Unsere Darmwohl Sticks setzen sich aus Präbiotika zusammen. Zusammen mit den enthaltenen Pflanzenstoffen regenerieren sie den Darm deines Hundes und lassen sich als zusätzliches Hundefutter online in unserem Hundeshop erwerben.<\/p> <p>Außerdem bieten wir dir tolle Fleisch Smoothies an. Die Stückchen wurden hierbei schonend zerkleinert. Hunde lieben das. Vor allem schlingende Hunde profitieren von den Stücklosen Smoothies aus Fleisch. Mithilfe von Insektenprotein kannst du den Körper deines Hundes auf positive Weise unterstützen. Darüber hinaus bieten wir dir hochwertiges Trockenfutter an.<\/p> <p>Möchtest du noch ein paar Hunde Kauartikel und vergleichbaren Hundebedarf in den virtuellen Warenkorb legen? Wie wäre es mit unseren neuen Chillout Sticks, die das Stresslevel deines Tieres verringern? Neben dem Baldrianwurzelpulver findest du die besten Kräuter darin, die deinen Hund beruhigen und sein System wieder in Balance bringen.<\/p> <h3>Hundezubehör, Hundepflege, Hundefutter & Hundesnacks – was muss man beachten?<\/h3> <p>Möchtest du Hundefutter und Hundezubehör kaufen, solltest du nicht auf irgendein Produkt zurückgreifen. In unserem Hundeshop kriegst du zu jeder Produktinformation auch eine Auflistung aller Bestandteile. Zusätzlich informieren wir dich über den Nutzen des jeweiligen Hundefutters und der Hundeleckerlis. Alles ist luftdicht verpackt und kommt schnell zu dir nach Hause. Verzichte darauf, dein Futter bei unbekannten Firmen und fragwürdigen Herstellern zu kaufen.<\/p> <p>Weiterhin solltest du nicht ausschließlich danach schauen, dass der Hundebedarf günstig ist. Viel wichtiger ist, was drin steckt. Hundefutter sollte demzufolge nicht aus Chemie bestehen. Spielzeuge für den Hund müssen BPA-frei sein. Unser Hundezubehör garantiert dir eine dauerhaft gesunde Versorgung deines Hundes.<\/p> <p>Auf unserer Homepage findest du zahlreiche echte Bewertungen von anderen Hundehaltern, die dieses oder jenes Produkt erworben haben. Sie geben dir ihre Erfahrungen damit bekannt.<\/p> <p>Wichtig für dich: Beim Kauf von Hundebedarf musst du die individuelle Situation deines Hundes einfließen lassen. Wie alt ist er? Welche Versorgung braucht er? Handelt es sich um einen sensiblen Hund, der schnell zu Hautproblemen oder zu Stress neigt? Diese Hunde brauchen eine besondere Aufmerksamkeit und speziellen Hundebedarf.<\/p> <p>Damit die Nahrung Hund und Mensch bereichert, sollte sie auf die persönlichen Bedürfnisse des Hundes abgestimmt sein und sensible Tiere einbeziehen. Unsere Produkte sind für alle Tiere geeignet. Da sie komplett aus Natur pur bestehen, musst du dir keine Gedanken machen.<\/p> <h3>Hundebedarf online im Hundeshop kaufen – jetzt bei Tierliebhaber!<\/h3> <p>Immer mehr Menschen setzen bei der Anschaffung von ihrem Hundebedarf nicht auf Supermärkte um die Ecke. Auch klassische lokale Läden führen zumeist industriell hergestellte Futterarten. Möchtest du mehr für deinen Hund herausholen? Dann solltest du in unserem Shop einkaufen. Wir garantieren dir nicht nur Qualität hochwertige und dauerhaft kontrollierte Produkte.<\/p> <p>Darüber hinaus kannst du nach Eingang deiner Bestellung mit einem schnellen Versand der Waren rechnen. Das ist für dich äußerst praktisch und spart dir Zeit und das Warten in der Schlange im Laden ein. In dieser Zeit kannst du dich ab sofort mehr mit deinem Hund beschäftigen und so für besondere Momente mit deinem Vierbeiner sorgen. Außerdem hast du lange Zeit dich mit unserem Sortiment vertraut zu machen. Sieh dir die Produkte in aller Ruhe an und stelle deinen Warenkorb ganz nach den Vorlieben deines Hundes zusammen.<\/p> <p>Bei Tierliebhaber bekommst du übrigens nicht nur Futter und Leckerlis. Wir stehen auch für Pflegeprodukte jeglicher Art. Unser Schwarzkümmel Shampoo wird eine Wohltat für deinen Hund sein. Der Duft des Shampoos ist äußerst dezent und wird weder dich noch deinen Hund stören. Sanfte Kokosdüfte und der Geruch von Schwarzkümmel machen dieses Shampoo so besonders. Und auch hinsichtlich der Wirkung hat es einiges zu bieten: Die Pflegeöle sind sehr entspannend und auch für sensible Hunde geeignet. Das Shampoo sorgt für ein gesundes Fell und macht die Pflege deines Vierbeiners zu einem Kinderspiel.<\/p> <p>Abgesehen von diesem innovativen Produkt findest du bei uns im Shop darüber hinaus andere Pflegeprodukte und Hundebedarf:<\/p> <p>Das Dentalspray als Ersatz für die Zahnpflege mit einer Bürste. Bei Anwendung des Dentalsprays fühlt sich der Hund nicht gestört<\/p> <p>das Pfötchen-Balsam als Unterstützung in den Wintermonaten. Wenn Salz auf dem Boden deinem Hund zusetzt, wirkt der Balsam poröser Haut entgegen<\/p> <p>das Öhrchen Öl zur Reinigung des Ohres ohne Alkohol und andere Substanzen, die schädlich sein könnten<\/p> <p>Z-Spot zur Abwehr von Parasiten, vor allem im Sommer gegen Zecken wirkungsvoll<\/p>"
+          "seo_content": "<h2>Hundebedarf</h2> <p>Hunde gehören zu den treuesten Begleitern des Menschen. Als immer fröhliche Vierbeiner bereichern sie unseren Tag. Sie spielen, toben und helfen uns dabei, Kontakte zu anderen Hundehaltern zu knüpfen. Zudem vertreiben sie Kummer und Sorgen und halten dich als Hundehalter fit. Sicherlich möchtest du deinem Hund ein langes und vor allem gesundes Leben ermöglichen. Deshalb ist es wichtig die Bedürfnisse deines Hundes zu kennen und dabei auf natürlichen Hundebedarf zu vertrauen. </p> <p>Wir von Tierliebhaber schätzen gesunde Hundebedarf-Produkte, welche die Vitalität deines Vierbeiners erhalten und euch ein möglichst langes Miteinander ermöglichen. Für uns umfasst das Hundezubehör neben Nahrungsmitteln für den Hund auch Snacks, Pflegeprodukte, Belohnungen und essenzielle Dinge, wie Ergänzungen für die Gesundheit deines Hundes. Erfahre jetzt mehr über unser Sortiment an Hundebedarf.</p> <h3>Hier gibt es alles an Hundebedarf für deine Vierbeiner</h3> <p>In unserem Hundeshop findest du alles an Hundebedarf für deinen Liebling. Wir bieten dir eine optimale und ausgewogene Nahrung für deinen Hund. Die meisten industriell gefertigten Nahrung für Hunde setzt sich aus verschiedenen Zusatzstoffen zusammen, die für den Organismus deines Hundes keine Bereicherung darstellen. Im Gegenteil: Hundefutter ist häufig sogar nur aus Resten zusammengestellt und garantiert keine optimale Versorgung deines Hundes.</p> <p>Wir möchten Hundefutter neu definieren. Bei uns bekommt dein Hund ausschließlich natürliches Hundefutter. Die Hundenahrung muss speziell auf die Anforderungen des Hundes ausgerichtet sein. Das gilt nicht nur für das tägliche Hundefutter. Auch Snacks, wie Kauartikel für Hunde zum Schutz der Zähne sowie Hundeleckerli als Belohnung, müssen den Anforderungen an guten Hundebedarf gerecht werden.</p> <p>Unser Zubehör für Hunde kommt den Bedürfnissen von Nieren, Magen, Darm und der Lebensfreude des Hundes entgegen. Entscheide dich von Anfang an für möglichst naturreines Futter aus dem Hundeshop und du deckst den Hundebedarf perfekt ab.</p> <h3>Hundebedarf und Hundeartikel Online kaufen: Top-Auswahl bei Tierliebhaber</h3> <p>Hundebedarf und Hundezubehör gibt es bei uns in allen Variationen. Schau dich gerne um und sieh, was dein Hund braucht. Unsere Darmwohl Sticks sind ein absoluter Verkaufsschlager. Viele Hunde neigen mindestens einmal in ihrem Leben zu Verdauungsbeschwerden.</p> <p>Diese werden durch ungesundes Essen begünstigt. Auch der Bewegungsmangel kann zu einem trägen Darm beitragen. Und ähnlich wie beim Menschen versetzt Stress den Magen und Darm des Hundes in Wallungen. Dadurch kann es zum Durchfall kommen. Unsere Darmwohl Sticks setzen sich aus Präbiotika zusammen. Zusammen mit den enthaltenen Pflanzenstoffen regenerieren sie den Darm deines Hundes und lassen sich als zusätzliches Hundefutter online in unserem Hundeshop erwerben.</p> <p>Außerdem bieten wir dir tolle Fleisch Smoothies an. Die Stückchen wurden hierbei schonend zerkleinert. Hunde lieben das. Vor allem schlingende Hunde profitieren von den Stücklosen Smoothies aus Fleisch. Mithilfe von Insektenprotein kannst du den Körper deines Hundes auf positive Weise unterstützen. Darüber hinaus bieten wir dir hochwertiges Trockenfutter an.</p> <p>Möchtest du noch ein paar Hunde Kauartikel und vergleichbaren Hundebedarf in den virtuellen Warenkorb legen? Wie wäre es mit unseren neuen Chillout Sticks, die das Stresslevel deines Tieres verringern? Neben dem Baldrianwurzelpulver findest du die besten Kräuter darin, die deinen Hund beruhigen und sein System wieder in Balance bringen.</p> <h3>Hundezubehör, Hundepflege, Hundefutter & Hundesnacks – was muss man beachten?</h3> <p>Möchtest du Hundefutter und Hundezubehör kaufen, solltest du nicht auf irgendein Produkt zurückgreifen. In unserem Hundeshop kriegst du zu jeder Produktinformation auch eine Auflistung aller Bestandteile. Zusätzlich informieren wir dich über den Nutzen des jeweiligen Hundefutters und der Hundeleckerlis. Alles ist luftdicht verpackt und kommt schnell zu dir nach Hause. Verzichte darauf, dein Futter bei unbekannten Firmen und fragwürdigen Herstellern zu kaufen.</p> <p>Weiterhin solltest du nicht ausschließlich danach schauen, dass der Hundebedarf günstig ist. Viel wichtiger ist, was drin steckt. Hundefutter sollte demzufolge nicht aus Chemie bestehen. Spielzeuge für den Hund müssen BPA-frei sein. Unser Hundezubehör garantiert dir eine dauerhaft gesunde Versorgung deines Hundes.</p> <p>Auf unserer Homepage findest du zahlreiche echte Bewertungen von anderen Hundehaltern, die dieses oder jenes Produkt erworben haben. Sie geben dir ihre Erfahrungen damit bekannt.</p> <p>Wichtig für dich: Beim Kauf von Hundebedarf musst du die individuelle Situation deines Hundes einfließen lassen. Wie alt ist er? Welche Versorgung braucht er? Handelt es sich um einen sensiblen Hund, der schnell zu Hautproblemen oder zu Stress neigt? Diese Hunde brauchen eine besondere Aufmerksamkeit und speziellen Hundebedarf.</p> <p>Damit die Nahrung Hund und Mensch bereichert, sollte sie auf die persönlichen Bedürfnisse des Hundes abgestimmt sein und sensible Tiere einbeziehen. Unsere Produkte sind für alle Tiere geeignet. Da sie komplett aus Natur pur bestehen, musst du dir keine Gedanken machen.</p> <h3>Hundebedarf online im Hundeshop kaufen – jetzt bei Tierliebhaber!</h3> <p>Immer mehr Menschen setzen bei der Anschaffung von ihrem Hundebedarf nicht auf Supermärkte um die Ecke. Auch klassische lokale Läden führen zumeist industriell hergestellte Futterarten. Möchtest du mehr für deinen Hund herausholen? Dann solltest du in unserem Shop einkaufen. Wir garantieren dir nicht nur Qualität hochwertige und dauerhaft kontrollierte Produkte.</p> <p>Darüber hinaus kannst du nach Eingang deiner Bestellung mit einem schnellen Versand der Waren rechnen. Das ist für dich äußerst praktisch und spart dir Zeit und das Warten in der Schlange im Laden ein. In dieser Zeit kannst du dich ab sofort mehr mit deinem Hund beschäftigen und so für besondere Momente mit deinem Vierbeiner sorgen. Außerdem hast du lange Zeit dich mit unserem Sortiment vertraut zu machen. Sieh dir die Produkte in aller Ruhe an und stelle deinen Warenkorb ganz nach den Vorlieben deines Hundes zusammen.</p> <p>Bei Tierliebhaber bekommst du übrigens nicht nur Futter und Leckerlis. Wir stehen auch für Pflegeprodukte jeglicher Art. Unser Schwarzkümmel Shampoo wird eine Wohltat für deinen Hund sein. Der Duft des Shampoos ist äußerst dezent und wird weder dich noch deinen Hund stören. Sanfte Kokosdüfte und der Geruch von Schwarzkümmel machen dieses Shampoo so besonders. Und auch hinsichtlich der Wirkung hat es einiges zu bieten: Die Pflegeöle sind sehr entspannend und auch für sensible Hunde geeignet. Das Shampoo sorgt für ein gesundes Fell und macht die Pflege deines Vierbeiners zu einem Kinderspiel.</p> <p>Abgesehen von diesem innovativen Produkt findest du bei uns im Shop darüber hinaus andere Pflegeprodukte und Hundebedarf:</p> <p>Das Dentalspray als Ersatz für die Zahnpflege mit einer Bürste. Bei Anwendung des Dentalsprays fühlt sich der Hund nicht gestört</p> <p>das Pfötchen-Balsam als Unterstützung in den Wintermonaten. Wenn Salz auf dem Boden deinem Hund zusetzt, wirkt der Balsam poröser Haut entgegen</p> <p>das Öhrchen Öl zur Reinigung des Ohres ohne Alkohol und andere Substanzen, die schädlich sein könnten</p> <p>Z-Spot zur Abwehr von Parasiten, vor allem im Sommer gegen Zecken wirkungsvoll</p>"
         }
       },
       "1630396737d0d511a7": {
@@ -864,8 +864,8 @@
           "1630396737d0d511a7-0": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/versicherung_banner_banner.jpg",
-              "mobile_image": "shopify:\/\/shop_images\/PHOTO-2024-02-06-18-47-11.jpg",
+              "image": "shopify://shop_images/versicherung_banner_banner.jpg",
+              "mobile_image": "shopify://shop_images/PHOTO-2024-02-06-18-47-11.jpg",
               "apply_overlay": false,
               "content_offset_mobile_left": 50,
               "content_offset_mobile_top": 41,
@@ -875,7 +875,7 @@
               "subheading": "",
               "title": "",
               "button_1_text": "Mehr erfahren!",
-              "button_1_link": "https:\/\/aktion.tierliebhaber.de\/tlh-versicherung53166224",
+              "button_1_link": "https://aktion.tierliebhaber.de/tlh-versicherung53166224",
               "button_2_text": "",
               "button_2_link": "",
               "button_font": "Poppins",
@@ -905,65 +905,65 @@
           "ab316d36-4c17-4afc-83ea-1d5816e1f122": {
             "type": "link",
             "settings": {
-              "url": "shopify:\/\/collections\/darmpflege",
+              "url": "shopify://collections/darmpflege",
               "title": "DARMPFLEGE",
               "limited": false,
-              "image": "shopify:\/\/shop_images\/shop_icons_Darm.png"
+              "image": "shopify://shop_images/shop_icons_Darm.png"
             }
           },
           "863a849c-20ff-43f6-9cd9-94073d6fd04d": {
             "type": "link",
             "settings": {
-              "url": "shopify:\/\/collections\/z-produkte",
+              "url": "shopify://collections/z-produkte",
               "title": "Z-PRODUKTE",
               "limited": false,
-              "image": "shopify:\/\/shop_images\/shop_icons_Z-Produkte.png"
+              "image": "shopify://shop_images/shop_icons_Z-Produkte.png"
             }
           },
           "a430d2ff-cdbf-4f9c-84e1-9663c871ea7e": {
             "type": "link",
             "settings": {
-              "url": "shopify:\/\/collections\/gelenke",
+              "url": "shopify://collections/gelenke",
               "title": "GELENKE",
               "limited": false,
-              "image": "shopify:\/\/shop_images\/shop_icons_Gelenke.png"
+              "image": "shopify://shop_images/shop_icons_Gelenke.png"
             }
           },
           "c78385cd-6e9a-4a63-bfd9-127c16d13879": {
             "type": "link",
             "settings": {
-              "url": "shopify:\/\/collections\/beruhigung",
+              "url": "shopify://collections/beruhigung",
               "title": "BERUHIGUNG",
               "limited": false,
-              "image": "shopify:\/\/shop_images\/shop_icons_Beruhigung.png"
+              "image": "shopify://shop_images/shop_icons_Beruhigung.png"
             }
           },
           "4530082d-54d6-4f71-8956-6a66a0d4fe53": {
             "type": "link",
             "settings": {
-              "url": "shopify:\/\/collections\/zahnpflege",
+              "url": "shopify://collections/zahnpflege",
               "title": "ZAHNPFLEGE",
               "limited": false,
-              "image": "shopify:\/\/shop_images\/shop_icons_Zahnpflege.png"
+              "image": "shopify://shop_images/shop_icons_Zahnpflege.png"
             }
           },
           "01824073-761e-438c-8aa0-a0ad004d0ea9": {
             "type": "link",
             "settings": {
-              "url": "shopify:\/\/collections\/kundenlieblinge",
+              "url": "shopify://collections/kundenlieblinge",
               "title": "KUNDEN<br>LIEBLINGE",
               "limited": false,
-              "image": "shopify:\/\/shop_images\/shop_icons_Kundenlieblinge.png"
+              "image": "shopify://shop_images/shop_icons_Kundenlieblinge.png"
             }
           },
           "5e642c2d-5f0f-47e1-a40e-c619d4d25457": {
             "type": "link",
             "disabled": true,
             "settings": {
-              "url": "shopify:\/\/collections\/bundles",
+              "url": "shopify://collections/bundles",
               "title": "Bundles",
               "limited": false,
-              "image": "shopify:\/\/shop_images\/icon-angebote_35699035-d8a7-44de-a3b1-020a092a3624.png"
+              "image": "shopify://shop_images/icon-angebote_35699035-d8a7-44de-a3b1-020a092a3624.png"
             }
           }
         },
@@ -987,7 +987,7 @@
           "738c91bf-23c2-4f02-8766-8439e1996678": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Zahnpflege.png",
+              "image": "shopify://shop_images/Zahnpflege.png",
               "image_alt": "",
               "image_url": "",
               "max_width": 48
@@ -996,7 +996,7 @@
           "27fb777c-1c69-465d-b6eb-ab213ed00f95": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/BluePet2021Logo.png",
+              "image": "shopify://shop_images/BluePet2021Logo.png",
               "image_alt": "",
               "image_url": "",
               "max_width": 96
@@ -1005,7 +1005,7 @@
           "c0ce6287-61d3-4b74-8029-e2ab00cddc17": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/sweet_potato_1.png",
+              "image": "shopify://shop_images/sweet_potato_1.png",
               "image_alt": "",
               "image_url": "",
               "max_width": 40
@@ -1014,7 +1014,7 @@
           "046f8b21-f584-47c1-ab16-f6e7efc3f370": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/sweet_potato.png",
+              "image": "shopify://shop_images/sweet_potato.png",
               "image_alt": "",
               "image_url": "",
               "max_width": 96
@@ -1023,7 +1023,7 @@
           "99172d79-97a7-443d-a146-2210419a2c8f": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Fermented_Herbs_4.png",
+              "image": "shopify://shop_images/Fermented_Herbs_4.png",
               "image_alt": "",
               "image_url": "",
               "max_width": 88
@@ -1032,7 +1032,7 @@
           "b5c404e8-6ef7-4a80-8d6e-10be0b92ba4f": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/vetevo_seaweed.png",
+              "image": "shopify://shop_images/vetevo_seaweed.png",
               "image_alt": "",
               "image_url": "",
               "max_width": 128
@@ -1060,8 +1060,8 @@
           "text_color": "#ffffff",
           "subheading": "",
           "title": "Tierliebhaber wird 5 Jahre alt.",
-          "image": "shopify:\/\/shop_images\/Bildschirmfoto_2021-10-19_um_15.05.33.png",
-          "video_url": "https:\/\/youtu.be\/YGQ02suvvSs"
+          "image": "shopify://shop_images/Bildschirmfoto_2021-10-19_um_15.05.33.png",
+          "video_url": "https://youtu.be/YGQ02suvvSs"
         }
       },
       "16346490400a4b1df7": {
@@ -1070,7 +1070,7 @@
         "settings": {
           "subheading": "",
           "title": "Wer dahinter steckt...",
-          "html": "<script src=\"https:\/\/fast.wistia.com\/embed\/medias\/15pe7zcjtb.jsonp\" async=\"\"><\/script><script src=\"https:\/\/fast.wistia.com\/assets\/external\/E-v1.js\" async=\"\"><\/script><div class=\"wistia_responsive_padding\" style=\"padding:125.0% 0 0 0;position:relative;\"><div class=\"wistia_responsive_wrapper\" style=\"height:100%;left:0;position:absolute;top:0;width:100%;\"><span class=\"wistia_embed wistia_async_15pe7zcjtb popover=true popoverAnimateThumbnail=true videoFoam=true\" style=\"display:inline-block;height:100%;position:relative;width:100%\"> <\/span><\/div><\/div>"
+          "html": "<script src=\"https://fast.wistia.com/embed/medias/15pe7zcjtb.jsonp\" async=\"\"></script><script src=\"https://fast.wistia.com/assets/external/E-v1.js\" async=\"\"></script><div class=\"wistia_responsive_padding\" style=\"padding:125.0% 0 0 0;position:relative;\"><div class=\"wistia_responsive_wrapper\" style=\"height:100%;left:0;position:absolute;top:0;width:100%;\"><span class=\"wistia_embed wistia_async_15pe7zcjtb popover=true popoverAnimateThumbnail=true videoFoam=true\" style=\"display:inline-block;height:100%;position:relative;width:100%\"> </span></div></div>"
         }
       },
       "164847561630f9cc4a": {
@@ -1082,7 +1082,7 @@
           "description_heading": "Tierliebe spenden - Gutes tun! ❤️🌏",
           "description_text": "Eure Spenden helfen uns, Straßenhunde auf Bali zu retten und unsere Tierklinik mitten auf Bali weiter aufzubauen.\n\nDu kannst ein wichtiger Teil dieses Hilfsprojekts sein! Dafür danken wir dir!\n\nAuf Instagram & Facebook zeigen wir euch ganz transparent, was mit jedem einzelnen Euro von euch, den ihr liebevoll spendet, alles erreicht wird!",
           "description_disclaimer": "",
-          "image": "shopify:\/\/shop_images\/WhatsApp_Image_2024-01-19_at_14.18.17.jpg"
+          "image": "shopify://shop_images/WhatsApp_Image_2024-01-19_at_14.18.17.jpg"
         }
       },
       "list-collections-template": {
@@ -1103,7 +1103,7 @@
           "39dc3e9f-7214-40fc-a8ea-99703bb366ce": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/1.png",
+              "image": "shopify://shop_images/1.png",
               "item-headline": "Tierliebhaber zu sein verbindet.",
               "item-subline": "Marcel"
             }
@@ -1111,7 +1111,7 @@
           "fbf0c782-db4b-4751-8b2e-bfd39a9071c9": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/2.png",
+              "image": "shopify://shop_images/2.png",
               "item-headline": "diese Liebe für mich bedingungslos ist.",
               "item-subline": "Mona"
             }
@@ -1119,7 +1119,7 @@
           "07c13b6a-7d00-4c6b-8eb3-a5226d8341ae": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/8.png",
+              "image": "shopify://shop_images/8.png",
               "item-headline": "Tierliebe verbindet und meine Sprotte mich immer zum Lächeln bringt.",
               "item-subline": "Katharina"
             }
@@ -1127,7 +1127,7 @@
           "6e6ac8b4-c69d-4e46-b873-8ef52dc7279f": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/49d7040a-10b5-421e-beb4-308e2c0def28.jpg",
+              "image": "shopify://shop_images/49d7040a-10b5-421e-beb4-308e2c0def28.jpg",
               "item-headline": "Tiere immer gute Laune verbreiten",
               "item-subline": "Vanessa"
             }
@@ -1135,7 +1135,7 @@
           "e7da5d0b-e6f2-4dc8-bb17-43e7d2427a0a": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/CINDY.png",
+              "image": "shopify://shop_images/CINDY.png",
               "item-headline": "Weil Tiere die treuesten Seelen sind und Liebe statt Leid verdienen.",
               "item-subline": "CINDY"
             }
@@ -1143,7 +1143,7 @@
           "7bbe8948-4bae-40bb-8b62-2707d411df05": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Foto_Julia.jpg",
+              "image": "shopify://shop_images/Foto_Julia.jpg",
               "item-headline": "weil jede Tierseele seinen ganz eigenen besonderen Wert hat.",
               "item-subline": "Julia"
             }
@@ -1151,7 +1151,7 @@
           "6bda2625-ceee-49bb-abe7-690b3a098683": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/11.png",
+              "image": "shopify://shop_images/11.png",
               "item-headline": "Tiere einfach unheimlich viel Wärme zurückgeben!",
               "item-subline": "Thomas"
             }
@@ -1159,7 +1159,7 @@
           "907d64bb-7ed5-4221-819c-5ba7bad02c9a": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/20230918135323908.jpg",
+              "image": "shopify://shop_images/20230918135323908.jpg",
               "item-headline": "Tiere unsere besten, treusten und ehrlichsten Freunde sind.",
               "item-subline": "Fränzi"
             }
@@ -1167,7 +1167,7 @@
           "fbc8d66f-53c5-48bf-97bc-18660c2decc3": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/3.png",
+              "image": "shopify://shop_images/3.png",
               "item-headline": "jedes Tier Inspiration birgt.",
               "item-subline": "Jonas"
             }
@@ -1175,7 +1175,7 @@
           "7fc1f111-fcf6-44c4-8333-2d6d0965c18b": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/10.png",
+              "image": "shopify://shop_images/10.png",
               "item-headline": "meine Hunde für jeden Spaß zu haben sind.",
               "item-subline": "Evelyn"
             }
@@ -1183,7 +1183,7 @@
           "011087d7-c3b7-4f9c-89c1-814eda2200e1": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Luise_cfe1d698-bc16-4dda-84bd-667a681abb53.png",
+              "image": "shopify://shop_images/Luise_cfe1d698-bc16-4dda-84bd-667a681abb53.png",
               "item-headline": "Von den Tieren können wir noch so viel lernen.",
               "item-subline": "Luise"
             }
@@ -1191,7 +1191,7 @@
           "8c5e510e-1173-4b3d-86f9-42d6ca1c0d3c": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Franzi.jpg",
+              "image": "shopify://shop_images/Franzi.jpg",
               "item-headline": "Weil die Liebe eines Tieres bedingungslos und einzigartig ist.",
               "item-subline": "FRANZI"
             }
@@ -1199,7 +1199,7 @@
           "9739a031-bd3f-4d3d-812d-bdaec6753ffe": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Dagmar.jpg",
+              "image": "shopify://shop_images/Dagmar.jpg",
               "item-headline": "Weil mir Tiere das geben, was so mancher Mensch nicht vermag.",
               "item-subline": "DAGMAR"
             }
@@ -1207,7 +1207,7 @@
           "dabc02cf-2cb1-4e4b-976e-43c245da136d": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Bildschirmfoto_2023-09-27_um_11.07.09.png",
+              "image": "shopify://shop_images/Bildschirmfoto_2023-09-27_um_11.07.09.png",
               "item-headline": "Tiere einfach herzensgut sind.",
               "item-subline": "LEILA"
             }
@@ -1215,7 +1215,7 @@
           "b34db382-273a-4142-9177-15691ffbb0ae": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/WhatsApp_Image_2023-05-22_at_13.10.34.jpg",
+              "image": "shopify://shop_images/WhatsApp_Image_2023-05-22_at_13.10.34.jpg",
               "item-headline": "Es mir wichtig ist, dass es allen Tieren unserer Kunden gut geht.",
               "item-subline": "ALMUTH"
             }
@@ -1223,7 +1223,7 @@
           "bedbc4f7-dd79-4bfc-9655-4806b9018126": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/WhatsApp_Image_2023-06-07_at_11.54.06.jpg",
+              "image": "shopify://shop_images/WhatsApp_Image_2023-06-07_at_11.54.06.jpg",
               "item-headline": "Weil der Sabber meines Hundes besser ist als jede Gesichtsmaske dieser Welt.",
               "item-subline": "CLARISSA"
             }
@@ -1231,7 +1231,7 @@
           "1029a882-fa1f-4f21-8b8a-512648bce919": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/WhatsApp_Image_2023-06-07_at_11.54.19.jpg",
+              "image": "shopify://shop_images/WhatsApp_Image_2023-06-07_at_11.54.19.jpg",
               "item-headline": "Weil Tiere einen auch ohne Worte verstehen.",
               "item-subline": "STEFFI"
             }
@@ -1239,7 +1239,7 @@
           "1306cb63-6a80-4f8b-8816-cc15595a4c75": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/WhatsApp_Image_2023-06-07_at_13.39.57.jpg",
+              "image": "shopify://shop_images/WhatsApp_Image_2023-06-07_at_13.39.57.jpg",
               "item-headline": "Weil Tiere die treusten Seelen sind",
               "item-subline": "ANNABELL"
             }
@@ -1247,7 +1247,7 @@
           "96510506-f5fd-47f6-98d6-ee51f1266c07": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/WhatsApp_Image_2023-06-07_at_16.32.05.jpg",
+              "image": "shopify://shop_images/WhatsApp_Image_2023-06-07_at_16.32.05.jpg",
               "item-headline": "Weil es mit Kuscheln anfängt und mit unendlicher Liebe 💘 endet. LG Kristin",
               "item-subline": "KRISTIN"
             }
@@ -1255,7 +1255,7 @@
           "6535227e-8a36-4c9e-81fd-0c1a664c38bc": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/WhatsApp_Image_2023-06-08_at_08.39.31.jpg",
+              "image": "shopify://shop_images/WhatsApp_Image_2023-06-08_at_08.39.31.jpg",
               "item-headline": "Weil meine Liebe zu Tieren nie endet❤️",
               "item-subline": "LUISE"
             }
@@ -1264,7 +1264,7 @@
             "type": "item",
             "disabled": true,
             "settings": {
-              "image": "shopify:\/\/shop_images\/Melanie.jpg",
+              "image": "shopify://shop_images/Melanie.jpg",
               "item-headline": "Weil Tiere nichts verlangen, sondern nur geben.",
               "item-subline": "MELANIE"
             }
@@ -1272,7 +1272,7 @@
           "e8479bc0-b685-401c-b55f-1f6a9e2815f1": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Micha.png",
+              "image": "shopify://shop_images/Micha.png",
               "item-headline": "Weil es zum Menschsein dazugehört.",
               "item-subline": "MICHA"
             }
@@ -1281,7 +1281,7 @@
             "type": "item",
             "disabled": true,
             "settings": {
-              "image": "shopify:\/\/shop_images\/Tina.png",
+              "image": "shopify://shop_images/Tina.png",
               "item-headline": "Tiere so feinfühlig sind, dass sie bereits am Morgen wissen, wie es mir geht.",
               "item-subline": "TINA"
             }
@@ -1289,7 +1289,7 @@
           "item_bijYcH": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Bildschirmfoto_2024-01-15_um_10.34.35.png",
+              "image": "shopify://shop_images/Bildschirmfoto_2024-01-15_um_10.34.35.png",
               "item-headline": "Wir sind Tierliebhaber, weil Tiere die eigene Lebensqualität ins Unermessliche steigern.",
               "item-subline": "FELIX"
             }
@@ -1297,7 +1297,7 @@
           "item_DhWxmW": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Kai.png",
+              "image": "shopify://shop_images/Kai.png",
               "item-headline": "Weil sie mir täglich ein Lächeln aufs Gesicht zaubern können.",
               "item-subline": "KAI"
             }
@@ -1305,7 +1305,7 @@
           "item_hhDRtj": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Lysann.jpg",
+              "image": "shopify://shop_images/Lysann.jpg",
               "item-headline": "Weil Tiere wie beste Freunde sind.",
               "item-subline": "Lysann"
             }
@@ -1313,7 +1313,7 @@
           "item_PCrRF8": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Sophia.jpg",
+              "image": "shopify://shop_images/Sophia.jpg",
               "item-headline": "SOPHIA",
               "item-subline": "Weil Tiere einfach wunderbare Seelen sind."
             }
@@ -1321,7 +1321,7 @@
           "item_nFaVHA": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/WhatsApp_Bild_2024-04-08_um_12.18.01_2afa9a40.jpg",
+              "image": "shopify://shop_images/WhatsApp_Bild_2024-04-08_um_12.18.01_2afa9a40.jpg",
               "item-headline": "Weil mir meine Hündin Hopey jeden Tag aufs Neue in die Seele schaut und mir neue Erkenntnisse über mich selbst beibringt.",
               "item-subline": "CONNY"
             }
@@ -1329,7 +1329,7 @@
           "item_R43Phc": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Artjom.png",
+              "image": "shopify://shop_images/Artjom.png",
               "item-headline": "Weil Tiere uns zu besseren Menschen machen.",
               "item-subline": "ARTJOM"
             }
@@ -1337,7 +1337,7 @@
           "item_RTNkbB": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Bianka.png",
+              "image": "shopify://shop_images/Bianka.png",
               "item-headline": "Weil Tiere einfach liebenswert sind.",
               "item-subline": "BIANCA"
             }
@@ -1388,7 +1388,7 @@
           "enable_gift": true,
           "gift_min_price": 85,
           "gift_product": "goodie-drops-2",
-          "message_delivery_icon": "shopify:\/\/shop_images\/image_8.png",
+          "message_delivery_icon": "shopify://shop_images/image_8.png",
           "message_delivery_text-first": "Noch",
           "message_delivery_text-last": "bis zum kostenlosen Versand",
           "message_final_text": "Glückwunsch: der Versand ist kostenlos!",
@@ -1396,7 +1396,7 @@
           "upsell_items": [
             "darmpflege-drops"
           ],
-          "payment_image": "shopify:\/\/shop_images\/Bildschirmfoto_2022-05-14_um_19.25_1_1.png"
+          "payment_image": "shopify://shop_images/Bildschirmfoto_2022-05-14_um_19.25_1_1.png"
         }
       },
       "b94622a9-dfd5-4703-963d-0b90d3126168": {
@@ -1405,9 +1405,9 @@
           "subheading": "",
           "title": "Hier kannst du spenden",
           "image_position": "left",
-          "content": "<p>Gemeinsam können wir noch viel mehr Hunden helfen, doch dafür brauchen wir deine Unterstüzung!<\/p>",
+          "content": "<p>Gemeinsam können wir noch viel mehr Hunden helfen, doch dafür brauchen wir deine Unterstüzung!</p>",
           "link_text": ">>> JETZT SPENDEN <<<",
-          "link_url": "https:\/\/tierliebhaber.de\/products\/spende?_pos=1&_sid=bc571c26c&_ss=r"
+          "link_url": "https://tierliebhaber.de/products/spende?_pos=1&_sid=bc571c26c&_ss=r"
         }
       },
       "356a1b79-1388-4224-ad0f-10ec20c026f0": {
@@ -1416,9 +1416,9 @@
         "settings": {
           "subheading": "",
           "title": "30 Tage Geld-zurück-Garantie",
-          "image": "shopify:\/\/shop_images\/Untitled_design_5.png",
+          "image": "shopify://shop_images/Untitled_design_5.png",
           "image_position": "left",
-          "content": "<h4>100% Wirksamkeits-Garantie: Teste unsere Produkte komplett ohne Risiko. Wir sind so von der Wirksamkeit unserer Produkte überzeugt, dass wir dir das Geld zurückerstatten, falls du nicht zufrieden bist. Wende das Produkt entsprechend der Empfehlung mind. 30 - 90 Tage an. Danach hast du 30 Tage lang Zeit, das Produkt an uns zurückzuschicken.* Wir erstatten dir daraufhin den vollen Kaufpreis. Bitte sei dir jedoch bewusst, dass die Produkte keine Zaubermittel sind :)<\/h4><h6>*Die Kosten der Rücksendung trägst du selbst. <\/h6>",
+          "content": "<h4>100% Wirksamkeits-Garantie: Teste unsere Produkte komplett ohne Risiko. Wir sind so von der Wirksamkeit unserer Produkte überzeugt, dass wir dir das Geld zurückerstatten, falls du nicht zufrieden bist. Wende das Produkt entsprechend der Empfehlung mind. 30 - 90 Tage an. Danach hast du 30 Tage lang Zeit, das Produkt an uns zurückzuschicken.* Wir erstatten dir daraufhin den vollen Kaufpreis. Bitte sei dir jedoch bewusst, dass die Produkte keine Zaubermittel sind :)</h4><h6>*Die Kosten der Rücksendung trägst du selbst. </h6>",
           "link_text": "",
           "link_url": ""
         }
@@ -1452,7 +1452,7 @@
       "cfc032c1-c00f-4d3f-827c-a8fdb86b7458": {
         "type": "bs-bild",
         "settings": {
-          "bild_image": "shopify:\/\/shop_images\/Untitled_design_5.png",
+          "bild_image": "shopify://shop_images/Untitled_design_5.png",
           "horizontal_alignment": "middle",
           "bild_image_size_mobile": 100,
           "bild_image_size_desktop": 20
@@ -1464,55 +1464,55 @@
           "5c96523e-491f-4649-84a3-aeac405024d6": {
             "type": "usp_block",
             "settings": {
-              "usp_url": "shopify:\/\/collections\/zahnpflege",
+              "usp_url": "shopify://collections/zahnpflege",
               "usp_title": "ZAHNPFLEGE",
-              "usp_image": "shopify:\/\/shop_images\/shop_icons_Zahnpflege.png",
-              "usp_image_desktop": "shopify:\/\/shop_images\/Frame_1000004192_1.png"
+              "usp_image": "shopify://shop_images/shop_icons_Zahnpflege.png",
+              "usp_image_desktop": "shopify://shop_images/Frame_1000004192_1.png"
             }
           },
           "07d970b9-4f37-4c66-a836-b41f2fe0019f": {
             "type": "usp_block",
             "settings": {
-              "usp_url": "shopify:\/\/collections\/z-produkte",
+              "usp_url": "shopify://collections/z-produkte",
               "usp_title": "Z-Produkte",
-              "usp_image": "shopify:\/\/shop_images\/shop_icons_Z-Produkte.png",
-              "usp_image_desktop": "shopify:\/\/shop_images\/Frame_1000004192.jpg"
+              "usp_image": "shopify://shop_images/shop_icons_Z-Produkte.png",
+              "usp_image_desktop": "shopify://shop_images/Frame_1000004192.jpg"
             }
           },
           "cbb517a9-229d-4c66-afb8-69530f46741b": {
             "type": "usp_block",
             "settings": {
-              "usp_url": "shopify:\/\/collections\/darmpflege",
+              "usp_url": "shopify://collections/darmpflege",
               "usp_title": "DARMPFLEGE",
-              "usp_image": "shopify:\/\/shop_images\/shop_icons_Darm.png",
-              "usp_image_desktop": "shopify:\/\/shop_images\/Frame_1000004192_1.jpg"
+              "usp_image": "shopify://shop_images/shop_icons_Darm.png",
+              "usp_image_desktop": "shopify://shop_images/Frame_1000004192_1.jpg"
             }
           },
           "3bb5f842-a8c4-42aa-9a62-a626dce6fab9": {
             "type": "usp_block",
             "settings": {
-              "usp_url": "shopify:\/\/collections\/gelenke",
+              "usp_url": "shopify://collections/gelenke",
               "usp_title": "GELENKE",
-              "usp_image": "shopify:\/\/shop_images\/shop_icons_Gelenke.png",
-              "usp_image_desktop": "shopify:\/\/shop_images\/Frame_1000004192_2.jpg"
+              "usp_image": "shopify://shop_images/shop_icons_Gelenke.png",
+              "usp_image_desktop": "shopify://shop_images/Frame_1000004192_2.jpg"
             }
           },
           "671c09b6-b3af-45dd-a8f0-223c8cd21809": {
             "type": "usp_block",
             "settings": {
-              "usp_url": "shopify:\/\/collections\/beruhigung",
+              "usp_url": "shopify://collections/beruhigung",
               "usp_title": "BERUHIGUNG",
-              "usp_image": "shopify:\/\/shop_images\/shop_icons_Beruhigung.png",
-              "usp_image_desktop": "shopify:\/\/shop_images\/Frame_1000004192_3.jpg"
+              "usp_image": "shopify://shop_images/shop_icons_Beruhigung.png",
+              "usp_image_desktop": "shopify://shop_images/Frame_1000004192_3.jpg"
             }
           },
           "ee8ad1bd-62c9-4911-8f09-2de25b44253f": {
             "type": "usp_block",
             "settings": {
-              "usp_url": "shopify:\/\/collections\/kundenlieblinge",
+              "usp_url": "shopify://collections/kundenlieblinge",
               "usp_title": "KUNDEN<br>LIEBLINGE",
-              "usp_image": "shopify:\/\/shop_images\/shop_icons_Kundenlieblinge.png",
-              "usp_image_desktop": "shopify:\/\/shop_images\/Frame_1000004192_4.jpg"
+              "usp_image": "shopify://shop_images/shop_icons_Kundenlieblinge.png",
+              "usp_image_desktop": "shopify://shop_images/Frame_1000004192_4.jpg"
             }
           }
         },
@@ -1533,49 +1533,49 @@
           "1ee10129-1ca3-4b79-9135-63f22c191b4c": {
             "type": "usp_block",
             "settings": {
-              "usp_url": "shopify:\/\/collections\/zahnpflege",
+              "usp_url": "shopify://collections/zahnpflege",
               "usp_title": "ZAHNPFLEGE",
-              "usp_image": "shopify:\/\/shop_images\/shop_icons_Zahnpflege.png"
+              "usp_image": "shopify://shop_images/shop_icons_Zahnpflege.png"
             }
           },
           "22dd8802-a4c2-4765-9f88-62e9f9db73fc": {
             "type": "usp_block",
             "settings": {
-              "usp_url": "shopify:\/\/collections\/z-produkte",
+              "usp_url": "shopify://collections/z-produkte",
               "usp_title": "Z-Produkte",
-              "usp_image": "shopify:\/\/shop_images\/shop_icons_Z-Produkte.png"
+              "usp_image": "shopify://shop_images/shop_icons_Z-Produkte.png"
             }
           },
           "f0a03260-bba5-4fc9-b77e-c1c8a80825ba": {
             "type": "usp_block",
             "settings": {
-              "usp_url": "shopify:\/\/collections\/darmpflege",
+              "usp_url": "shopify://collections/darmpflege",
               "usp_title": "DARMPFLEGE",
-              "usp_image": "shopify:\/\/shop_images\/shop_icons_Darm.png"
+              "usp_image": "shopify://shop_images/shop_icons_Darm.png"
             }
           },
           "39a2132d-4551-46b4-bf64-c563a5d0c3c1": {
             "type": "usp_block",
             "settings": {
-              "usp_url": "shopify:\/\/collections\/gelenke",
+              "usp_url": "shopify://collections/gelenke",
               "usp_title": "GELENKE",
-              "usp_image": "shopify:\/\/shop_images\/shop_icons_Gelenke.png"
+              "usp_image": "shopify://shop_images/shop_icons_Gelenke.png"
             }
           },
           "b624e985-eac4-4705-9cab-016c84cbde42": {
             "type": "usp_block",
             "settings": {
-              "usp_url": "shopify:\/\/collections\/beruhigung",
+              "usp_url": "shopify://collections/beruhigung",
               "usp_title": "BERUHIGUNG",
-              "usp_image": "shopify:\/\/shop_images\/shop_icons_Beruhigung.png"
+              "usp_image": "shopify://shop_images/shop_icons_Beruhigung.png"
             }
           },
           "381adaa1-791a-4b86-bd77-e0a432f1ffa3": {
             "type": "usp_block",
             "settings": {
-              "usp_url": "shopify:\/\/collections\/kundenlieblinge",
+              "usp_url": "shopify://collections/kundenlieblinge",
               "usp_title": "KUNDENLIEBLINGE",
-              "usp_image": "shopify:\/\/shop_images\/shop_icons_Kundenlieblinge.png"
+              "usp_image": "shopify://shop_images/shop_icons_Kundenlieblinge.png"
             }
           }
         },
@@ -1614,8 +1614,8 @@
           "image_VTUwhx": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/produktberater_neu.jpg",
-              "mobile_image": "shopify:\/\/shop_images\/produktberater_mobile.jpg",
+              "image": "shopify://shop_images/produktberater_neu.jpg",
+              "mobile_image": "shopify://shop_images/produktberater_mobile.jpg",
               "apply_overlay": false,
               "content_offset_mobile_left": 30,
               "content_offset_mobile_top": 31,
@@ -1625,7 +1625,7 @@
               "subheading": "",
               "title": "",
               "button_1_text": "",
-              "button_1_link": "https:\/\/tierliebhaber.de\/#quiz-7jH9Qj",
+              "button_1_link": "https://tierliebhaber.de/#quiz-7jH9Qj",
               "button_2_text": "",
               "button_2_link": "",
               "button_font": "Poppins",
@@ -1654,9 +1654,9 @@
         "settings": {
           "subheading": "",
           "title": "Bildungsprogramm mit BAWA",
-          "image": "shopify:\/\/shop_images\/Design_ohne_Titel_2_f57df122-4cae-4ac8-9664-a764ac3bc693.png",
+          "image": "shopify://shop_images/Design_ohne_Titel_2_f57df122-4cae-4ac8-9664-a764ac3bc693.png",
           "image_position": "left",
-          "content": "<p>Seit Januar 2024 unterstützen wir mit einem Teil der Spendengelder Lehrer, die das Bewusstsein für den Tierschutz auf Bali stärken und die Verantwortung jedes Einzelnen im Umgang mit Tieren fördern. <\/p><p>Ein Lehrer unterrichtet pro Jahr im Durchschnitt 8000 Kinder auf Bali über die Themen Tierwohl und Tierschutz. Tierliebhaber zahlt seit diesem Jahr mit einem Teil der Spendengelder das Monatsgehalt für einen Lehrer vor Ort.<\/p><p>Damit der Unterricht auch so richtig Spaß macht, haben wir zusammen mit BAWA ein Schulheft zum Thema Tierwohl für die Kinder gestaltet. 1.000 Stück dieser Schulhefte haben wir an Lehrer und Schulen für die Kinder vor Ort gespendet.<\/p><p>Danke, dass ihr Teil dieses wunderbaren Projekts seid. Dank eurer Spenden haben wir schon so viele positive Veränderungen für den Tierschutz auf Bali bewirkt.<\/p>",
+          "content": "<p>Seit Januar 2024 unterstützen wir mit einem Teil der Spendengelder Lehrer, die das Bewusstsein für den Tierschutz auf Bali stärken und die Verantwortung jedes Einzelnen im Umgang mit Tieren fördern. </p><p>Ein Lehrer unterrichtet pro Jahr im Durchschnitt 8000 Kinder auf Bali über die Themen Tierwohl und Tierschutz. Tierliebhaber zahlt seit diesem Jahr mit einem Teil der Spendengelder das Monatsgehalt für einen Lehrer vor Ort.</p><p>Damit der Unterricht auch so richtig Spaß macht, haben wir zusammen mit BAWA ein Schulheft zum Thema Tierwohl für die Kinder gestaltet. 1.000 Stück dieser Schulhefte haben wir an Lehrer und Schulen für die Kinder vor Ort gespendet.</p><p>Danke, dass ihr Teil dieses wunderbaren Projekts seid. Dank eurer Spenden haben wir schon so viele positive Veränderungen für den Tierschutz auf Bali bewirkt.</p>",
           "link_text": "",
           "link_url": ""
         }
@@ -1664,8 +1664,8 @@
       "bs-info-banner": {
         "type": "bs-info-banner",
         "settings": {
-          "richtext": "<p><strong>Gratis Geschenk<\/strong> (Wert 13,90€) zu jeder Bestellung ab 85€<\/p>",
-          "icon": "shopify:\/\/shop_images\/Vector_73.svg"
+          "richtext": "<p><strong>Gratis Geschenk</strong> (Wert 13,90€) zu jeder Bestellung ab 85€</p>",
+          "icon": "shopify://shop_images/Vector_73.svg"
         }
       }
     },
@@ -1698,63 +1698,63 @@
     ],
     "blocks": {
       "162859120942cad3d6": {
-        "type": "shopify:\/\/apps\/judge-me-product-reviews\/blocks\/judgeme_core\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "type": "shopify://apps/judge-me-product-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
         "disabled": false,
         "settings": {
         }
       },
       "162859120960fa81b2": {
-        "type": "shopify:\/\/apps\/judge-me-product-reviews\/blocks\/reviews_tab\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "type": "shopify://apps/judge-me-product-reviews/blocks/reviews_tab/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
         "disabled": true,
         "settings": {
           "position": "left"
         }
       },
       "33229646823806756": {
-        "type": "shopify:\/\/apps\/dcart-discount-on-cart\/blocks\/app-embed\/731e2611-8bdf-4514-b5e4-f64f1cae3fb7",
+        "type": "shopify://apps/dcart-discount-on-cart/blocks/app-embed/731e2611-8bdf-4514-b5e4-f64f1cae3fb7",
         "disabled": false,
         "settings": {
         }
       },
       "855628211100114053": {
-        "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
+        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
         "disabled": false,
         "settings": {
         }
       },
       "17676059084223943535": {
-        "type": "shopify:\/\/apps\/triplewhale\/blocks\/triple_pixel_snippet\/483d496b-3f1a-4609-aea7-8eee3b6b7a2a",
+        "type": "shopify://apps/triplewhale/blocks/triple_pixel_snippet/483d496b-3f1a-4609-aea7-8eee3b6b7a2a",
         "disabled": false,
         "settings": {
         }
       },
       "6757137876795001004": {
-        "type": "shopify:\/\/apps\/pixoo-outbrain-pixel\/blocks\/star_rating\/7eb7f1da-dc3d-4f59-af0d-5d4efc849789",
+        "type": "shopify://apps/pixoo-outbrain-pixel/blocks/star_rating/7eb7f1da-dc3d-4f59-af0d-5d4efc849789",
         "disabled": false,
         "settings": {
         }
       },
       "3667842014806057753": {
-        "type": "shopify:\/\/apps\/one-click-upsell-zipify-ocu\/blocks\/app-embed\/bfe6e378-b73a-4871-b8d3-7d6ede22678e",
+        "type": "shopify://apps/one-click-upsell-zipify-ocu/blocks/app-embed/bfe6e378-b73a-4871-b8d3-7d6ede22678e",
         "disabled": false,
         "settings": {
           "allowed_templates": ""
         }
       },
       "17398511487517060589": {
-        "type": "shopify:\/\/apps\/admetrics-data-studio\/blocks\/conversion\/95b54974-e3ea-4514-839b-d0c971e19c1c",
+        "type": "shopify://apps/admetrics-data-studio/blocks/conversion/95b54974-e3ea-4514-839b-d0c971e19c1c",
         "disabled": false,
         "settings": {
         }
       },
       "2153490007123654574": {
-        "type": "shopify:\/\/apps\/consentmo-gdpr\/blocks\/gdpr_cookie_consent\/4fbe573f-a377-4fea-9801-3ee0858cae41",
+        "type": "shopify://apps/consentmo-gdpr/blocks/gdpr_cookie_consent/4fbe573f-a377-4fea-9801-3ee0858cae41",
         "disabled": false,
         "settings": {
         }
       },
       "11724500921838622758": {
-        "type": "shopify:\/\/apps\/frequently-bought\/blocks\/app-embed-block\/b1a8cbea-c844-4842-9529-7c62dbab1b1f",
+        "type": "shopify://apps/frequently-bought/blocks/app-embed-block/b1a8cbea-c844-4842-9529-7c62dbab1b1f",
         "disabled": true,
         "settings": {
         }
@@ -1842,7 +1842,7 @@
               "type": "text",
               "settings": {
                 "title": "About the shop",
-                "content": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme settings.<\/p>",
+                "content": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme settings.</p>",
                 "show_social_media": true
               }
             },
@@ -1856,7 +1856,7 @@
               "type": "newsletter",
               "settings": {
                 "title": "Newsletter",
-                "content": "<p>Subscribe to receive updates, access to exclusive deals, and more.<\/p>"
+                "content": "<p>Subscribe to receive updates, access to exclusive deals, and more.</p>"
               }
             }
           },
@@ -1992,7 +1992,7 @@
                 "title": "2000",
                 "subheading": "Sub-heading",
                 "heading": "Heading",
-                "content": "<p>Add your own custom content to give more information about your store, availability details...<\/p>"
+                "content": "<p>Add your own custom content to give more information about your store, availability details...</p>"
               }
             },
             "item-1": {
@@ -2002,7 +2002,7 @@
                 "title": "2001",
                 "subheading": "Sub-heading",
                 "heading": "Heading",
-                "content": "<p>Add your own custom content to give more information about your store, availability details...<\/p>"
+                "content": "<p>Add your own custom content to give more information about your store, availability details...</p>"
               }
             },
             "item-2": {
@@ -2012,7 +2012,7 @@
                 "title": "2002",
                 "subheading": "Sub-heading",
                 "heading": "Heading",
-                "content": "<p>Add your own custom content to give more information about your store, availability details...<\/p>"
+                "content": "<p>Add your own custom content to give more information about your store, availability details...</p>"
               }
             }
           },
@@ -2112,7 +2112,7 @@
             "text_color": "#ffffff",
             "apply_overlay": true,
             "title": "Our story",
-            "content": "<p>Add your own custom content to explain your processes...<\/p>"
+            "content": "<p>Add your own custom content to explain your processes...</p>"
           }
         },
         "product-template": {
@@ -2230,7 +2230,7 @@
               "type": "text",
               "settings": {
                 "title": "About the shop",
-                "content": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme settings.<\/p>",
+                "content": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme settings.</p>",
                 "show_social_media": true
               }
             },
@@ -2244,7 +2244,7 @@
               "type": "newsletter",
               "settings": {
                 "title": "Newsletter",
-                "content": "<p>Subscribe to receive updates, access to exclusive deals, and more.<\/p>"
+                "content": "<p>Subscribe to receive updates, access to exclusive deals, and more.</p>"
               }
             }
           },
@@ -2380,7 +2380,7 @@
                 "title": "2000",
                 "subheading": "Sub-heading",
                 "heading": "Heading",
-                "content": "<p>Add your own custom content to give more information about your store, availability details...<\/p>"
+                "content": "<p>Add your own custom content to give more information about your store, availability details...</p>"
               }
             },
             "item-1": {
@@ -2390,7 +2390,7 @@
                 "title": "2001",
                 "subheading": "Sub-heading",
                 "heading": "Heading",
-                "content": "<p>Add your own custom content to give more information about your store, availability details...<\/p>"
+                "content": "<p>Add your own custom content to give more information about your store, availability details...</p>"
               }
             },
             "item-2": {
@@ -2400,7 +2400,7 @@
                 "title": "2002",
                 "subheading": "Sub-heading",
                 "heading": "Heading",
-                "content": "<p>Add your own custom content to give more information about your store, availability details...<\/p>"
+                "content": "<p>Add your own custom content to give more information about your store, availability details...</p>"
               }
             }
           },
@@ -2500,7 +2500,7 @@
             "text_color": "#ffffff",
             "apply_overlay": true,
             "title": "Our story",
-            "content": "<p>Add your own custom content to explain your processes...<\/p>"
+            "content": "<p>Add your own custom content to explain your processes...</p>"
           }
         },
         "product-template": {
@@ -2619,7 +2619,7 @@
               "type": "text",
               "settings": {
                 "title": "About the shop",
-                "content": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme settings.<\/p>",
+                "content": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme settings.</p>",
                 "show_social_media": true
               }
             },
@@ -2633,7 +2633,7 @@
               "type": "newsletter",
               "settings": {
                 "title": "Newsletter",
-                "content": "<p>Subscribe to receive updates, access to exclusive deals, and more.<\/p>"
+                "content": "<p>Subscribe to receive updates, access to exclusive deals, and more.</p>"
               }
             }
           },
@@ -2769,7 +2769,7 @@
                 "title": "2000",
                 "subheading": "Sub-heading",
                 "heading": "Heading",
-                "content": "<p>Add your own custom content to give more information about your store, availability details...<\/p>"
+                "content": "<p>Add your own custom content to give more information about your store, availability details...</p>"
               }
             },
             "item-1": {
@@ -2779,7 +2779,7 @@
                 "title": "2001",
                 "subheading": "Sub-heading",
                 "heading": "Heading",
-                "content": "<p>Add your own custom content to give more information about your store, availability details...<\/p>"
+                "content": "<p>Add your own custom content to give more information about your store, availability details...</p>"
               }
             },
             "item-2": {
@@ -2789,7 +2789,7 @@
                 "title": "2002",
                 "subheading": "Sub-heading",
                 "heading": "Heading",
-                "content": "<p>Add your own custom content to give more information about your store, availability details...<\/p>"
+                "content": "<p>Add your own custom content to give more information about your store, availability details...</p>"
               }
             }
           },
@@ -2889,7 +2889,7 @@
             "text_color": "#ffffff",
             "apply_overlay": true,
             "title": "Our story",
-            "content": "<p>Add your own custom content to explain your processes...<\/p>"
+            "content": "<p>Add your own custom content to explain your processes...</p>"
           }
         },
         "product-template": {
