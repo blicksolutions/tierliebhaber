@@ -857,7 +857,10 @@ if (window.tlh047) {
                 setTimeout(() => {
                     // set price with location based shipping costs
                     const priceWithoutShipping = parseFloat(subtotalPriceEl.textContent.replace('€', '').replace(',', '.'));
-                    totalPriceEl.textContent = '€' + (priceWithoutShipping + deliveryPriceValue).toFixed(2);
+					const scData = JSON.parse(sessionStorage.getItem("scDiscountData"));
+					const discount = parseFloat(scData.discount.amount)
+
+                    totalPriceEl.textContent = '€' + ((priceWithoutShipping + deliveryPriceValue) - discount).toFixed(2);
                 }, 500);
     
             }
@@ -1310,7 +1313,10 @@ if (window.tlh047) {
                 setTimeout(() => {
                     // set price with location based shipping costs
                     const priceWithoutShipping = parseFloat(subtotalPriceEl.textContent.replace('€', '').replace(',', '.'));
-                    totalPriceEl.textContent = '€' + (priceWithoutShipping + deliveryPriceValue).toFixed(2);
+					const scData = JSON.parse(sessionStorage.getItem("scDiscountData"));
+					const discount = parseFloat(scData.discount.amount)
+
+					totalPriceEl.textContent = '€' + ((priceWithoutShipping + deliveryPriceValue) - discount).toFixed(2);
                 }, 500);
             }
             /** /Delivery after ip +*/
@@ -1458,9 +1464,7 @@ window.obj.cartSidebar = function () {
 
 
     window.addEventListener('sc:discount.init', function () {
-        //console.log('dcart init');
-
-        const cartSidebar = $('#sidebar-cart');
+         const cartSidebar = $('#sidebar-cart');
         cartSidebar.attr("data-dcart-calculated", 0);
         cartSidebar.addClass('Drawer__Footer__DCart-inited').removeClass('Drawer__Footer-loading');
         window.obj.cartSidebarRefresh(true);
@@ -1479,8 +1483,6 @@ window.obj.cartSidebar = function () {
     });
 
     window.addEventListener('sc:discount.calculated', function () {
-
-
         const scData = JSON.parse(sessionStorage.getItem("scDiscountData"));
 
         setTimeout(() => {
