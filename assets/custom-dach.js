@@ -827,6 +827,9 @@ if (window.tlh047) {
                             break;
                         default:
                             deliveryIcon.style.left = "100%"
+							giftIcon.style.display = 'none';
+							secondGiftIcon.style.display = 'none';
+
                             // use de
                             if (window.shippingrates.de.minSubtotalPriceValue > subtotalPriceWithoutNoShippingItems) {
                                 deliveryCostEl.textContent = '€' + window.shippingrates.de.priceValue.replace('.', ',');
@@ -849,6 +852,8 @@ if (window.tlh047) {
                     }
                 } else {
                     deliveryIcon.style.left = "100%"
+					giftIcon.style.display = 'none';
+					secondGiftIcon.style.display = 'none';
                     deliveryPriceValue = 0;
                     deliveryCostEl.textContent = deliveryCostEl.getAttribute('data-freeshipping-text');
                     window.unlockCheckoutButton();
@@ -1283,6 +1288,8 @@ if (window.tlh047) {
                             break;
                         default:
                             deliveryIcon.style.left = "100%"
+							giftIcon.style.display = 'none';
+
                             // use de
                             if (window.shippingrates.de.minSubtotalPriceValue > subtotalPriceWithoutNoShippingItems) {
                                 deliveryCostEl.textContent = '€' + window.shippingrates.de.priceValue.replace('.', ',');
@@ -1305,6 +1312,7 @@ if (window.tlh047) {
                     }
                 } else {
                     deliveryIcon.style.left = "100%"
+					giftIcon.style.display = 'none';
                     deliveryPriceValue = 0;
                     deliveryCostEl.textContent = deliveryCostEl.getAttribute('data-freeshipping-text');
                     window.unlockCheckoutButton();
