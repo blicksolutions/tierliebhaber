@@ -5,21 +5,90 @@
 
 .tlh-044.SidebarMenu.Drawer {
     width: 100%;
+	background-color: white;
 }
 
 .tlh-044.Drawer:before {
 	content: none !important;
 }
 
+.tlh-044 .Drawer__Header {
+	justify-content: flex-end;
+}
+
+.tlh-044 .Drawer__Close {
+	position: relative;
+	left: -15px;
+	top: unset;
+}
+
+.tlh-044.Drawer--fromLeft {
+	transform: translate(calc(-100vw));
+}
+
+/******************************************************************/
+/* Menu
+/******************************************************************/
+
+.tlh-044 .SidebarMenu__menu li {
+	list-style: none;
+}
+
+.tlh-044 .SidebarMenu__menu li {
+	padding: 16px 0;
+	border-bottom: 1px #ccc solid;
+}
+
+.tlh-044 .SidebarMenu__menu  li:last-child {
+	border-bottom: none
+}
+
+.tlh-044 .SidebarMenu__menu {
+	background-color: #f5f5f5;
+	padding: 16px;
+}
+
+.tlh-044 .SidebarMenu__submenu {
+	/* padding: 16px; */
+}
+
+/* submenu */
+
+.tlh-044 .SidebarMenu__submenu {
+	opacity: 0;
+	visibility: hidden;
+	position: absolute;
+	top: 60px;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transform: translateX(100%);
+	background-color: white;
+	transition: transform .3s ease-out, opacity .3s ease-out, visibility .3s ease-out;
+}
+
+.tlh-044 .SidebarMenu__submenu.SidebarMenu__submenu--open {
+	z-index: 20;
+	transform: translateX(0);
+	opacity: 1;
+	visibility: visible;
+}
+
+/* second-level submenu */
+
+.tlh-044 .SidebarMenu__submenu.SidebarMenu__sub-level-2 {
+	top: 0;
+}
+
 /******************************************************************/
 /* Search Bar
 /******************************************************************/
 
-.tlh-044 .Search {
+/* .tlh-044 .Search {
     position: relative;
     opacity: 1;
     visibility: visible;
     top: 0;
     z-index: 10;
 	pointer-events: all;
-}
+} */
