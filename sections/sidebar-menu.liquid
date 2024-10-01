@@ -119,20 +119,41 @@
 		{%- for link in main_menu.links -%}
 			{%- if link.links != blank -%}
 				<li>
-					{{ link.title }}  ->
+					{{ link.title }}
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M14 5L21 12M21 12L14 19M21 12L3 12" stroke="#525252" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
 
-					<ul class="SidebarMenu__submenu SidebarMenu__sub-level-1">
-						<span>{{ link.title }}</span>
+					<ul class="SidebarMenu__submenu SidebarMenu__sub-level-1 SidebarMenu__submenu--open">
+						<div class="SidebarMenu__submenu-close">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M15 19L8 12L15 5" stroke="#525252" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+							{{ link.title }}
+						</div>
 						{%- for sub_link in link.links -%}
 							{%- if sub_link.links != blank -%}
 								<li>
-									{{ sub_link.title }} ->
+									{{ sub_link.title }}
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M14 5L21 12M21 12L14 19M21 12L3 12" stroke="#525252" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+									</svg>
 
 									<ul class="SidebarMenu__submenu SidebarMenu__sub-level-2">
-										<span>{{ sub_link.title }}</span>
+										<div class="SidebarMenu__submenu-close">
+											<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M15 19L8 12L15 5" stroke="#525252" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+											</svg>
+											{{ sub_link.title }}
+										</div>
 										{%- for sub_sub_link in sub_link.links -%}
 											{%- if sub_sub_link.links != blank -%}
-												<li>{{ sub_sub_link.title }} -></li>
+												<li>
+													{{ sub_sub_link.title }}
+													<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<path d="M14 5L21 12M21 12L14 19M21 12L3 12" stroke="#525252" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+													</svg>
+												</li>
 											{%- else -%}
 												<li>
 													<a href="{{ sub_sub_link.url }}">{{ sub_sub_link.title | escape }}</a>
