@@ -414,11 +414,14 @@ document.addEventListener('DOMContentLoaded', function() {
         </style>
 
     {%- render 'head-scripts', layout: 'checkout' -%}
-
+{%- comment -%}
+<!-- Commented by Vladimir, do not turn on becuse you will have duplications -->
     {% include 'dataLayer-allPages' %}
+{%- endcomment -%}
   </head>
   <body>
     {{ skip_to_content_link }}
+    
 {%- comment -%}
 <!-- Commented by Vladimir, do not turn on becuse you will have duplications -->
     <!-- Google Tag Manager (noscript) -->
