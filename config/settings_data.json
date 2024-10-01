@@ -1728,12 +1728,6 @@
         "settings": {
         }
       },
-      "6757137876795001004": {
-        "type": "shopify://apps/pixoo-outbrain-pixel/blocks/star_rating/7eb7f1da-dc3d-4f59-af0d-5d4efc849789",
-        "disabled": false,
-        "settings": {
-        }
-      },
       "3667842014806057753": {
         "type": "shopify://apps/one-click-upsell-zipify-ocu/blocks/app-embed/bfe6e378-b73a-4871-b8d3-7d6ede22678e",
         "disabled": false,
@@ -1747,12 +1741,6 @@
         "settings": {
         }
       },
-      "2153490007123654574": {
-        "type": "shopify://apps/consentmo-gdpr/blocks/gdpr_cookie_consent/4fbe573f-a377-4fea-9801-3ee0858cae41",
-        "disabled": false,
-        "settings": {
-        }
-      },
       "11724500921838622758": {
         "type": "shopify://apps/frequently-bought/blocks/app-embed-block/b1a8cbea-c844-4842-9529-7c62dbab1b1f",
         "disabled": true,
@@ -1762,6 +1750,18 @@
       "15685250022964305326": {
         "type": "shopify://apps/elevar-conversion-tracking/blocks/dataLayerEmbed/bc30ab68-b15c-4311-811f-8ef485877ad6",
         "disabled": false,
+        "settings": {
+        }
+      },
+      "6757137876795001004": {
+        "type": "shopify://apps/pixoo-outbrain-pixel/blocks/star_rating/7eb7f1da-dc3d-4f59-af0d-5d4efc849789",
+        "disabled": true,
+        "settings": {
+        }
+      },
+      "2153490007123654574": {
+        "type": "shopify://apps/consentmo-gdpr/blocks/gdpr_cookie_consent/4fbe573f-a377-4fea-9801-3ee0858cae41",
+        "disabled": true,
         "settings": {
         }
       }
