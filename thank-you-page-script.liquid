@@ -32,6 +32,7 @@
                 eventValue: unitsBoughtSum
             });
 
+
             // Purchased Bundle Count
             let bundleContained = false;
 
@@ -50,15 +51,8 @@
                     eventValue: 0
                 });
             }
-
-            // ABlyft purchase over 175€
-            if (parseInt(document.querySelector('[data-checkout-subtotal-price-target]')?.dataset.checkoutSubtotalPriceTarget) > 17500) {
-                window['ablyft'].push({
-                    eventType: 'custom',
-                    eventName: 'tlh-047-order-over-175'
-                });
-            }
         })
+        
     </script>
 {% endif %}
 
