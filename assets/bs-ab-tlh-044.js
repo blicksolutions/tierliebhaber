@@ -1,4 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+	let menuOpenTime;
+	let menuCloseTime;
+
 	/******************************************************************/
 	/* open sidebar vavigation
 	/******************************************************************/
@@ -32,9 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	const openSubmenu = () => {
 		const subMenuItems = document.querySelectorAll("li.SidebarMenu__item-has-submenu");
-		const sideBarMenuDrawer = document.querySelector(".tlh-044.SidebarMenu");
-
-		
 
 		subMenuItems.forEach((subMenuItem) => {
 			subMenuItem.addEventListener("click", () => {
@@ -49,7 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	const closeSubmenu = () => {
 		const closeSubmenus = document.querySelectorAll(".SidebarMenu__submenu-close");
-		const sideBarMenuDrawer = document.querySelector(".tlh-044.SidebarMenu");
 
 		closeSubmenus.forEach((closeSubmenu) => {
 			closeSubmenu.addEventListener("click", (event) => {
@@ -70,13 +70,27 @@ document.addEventListener("DOMContentLoaded", () => {
 		const headerIconBVariant = document.querySelector(".Header__Icon");
 		const drawerCloseBVariant = document.querySelector(".tlh-044 .Drawer__Close");
 
+
 		headerIconBVariant.addEventListener("click", () => {
 			sideBarAVariant.style.display = "none";
 			sidebarBVariant.ariaHidden = false;
+
+			menuOpenTime = new Date();
 		});
 
 		drawerCloseBVariant.addEventListener("click", () => {
 			sidebarBVariant.ariaHidden = true;
+
+			menuCloseTime = new Date();
+
+			const timeSpentOnMenu = menuCloseTime - menuOpenTime;
+			const timeSpentOnMenuInSeconds = Math.floor(timeSpentOnMenu / 1000);
+
+			const minutes = Math.floor(timeSpentOnMenuInSeconds / 60);
+			const seconds = timeSpentOnMenuInSeconds % 60;
+
+			// AB custom goal aufrufen, zu klären in welchem Format
+			console.log(`Das Menü war ${minutes} min ${seconds}s lang offen.`);
 		});
 	};
 
