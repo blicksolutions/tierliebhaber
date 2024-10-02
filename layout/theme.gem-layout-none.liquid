@@ -1,0 +1,398 @@
+{% comment %}
+	GEMPAGES BUILDER (https://apps.shopify.com/gempages)
+
+	You SHOULD NOT modify source code in this file because
+	It is automatically generated from GEMPAGES BUILDER
+	Try to edit page with the live editor.
+{% endcomment %}
+<!doctype html>
+
+<html class="no-js" lang="{{ shop.locale }}">
+  <head>
+      <!-- BS: AB Scripts -->
+      <link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}">
+      <link rel="stylesheet" href="{{ 'bs-ab-tlh-040.css' | asset_url }}">
+      <link rel="stylesheet" href="{{ 'bs-ab-tlh-050.css' | asset_url }}">
+      <link rel="stylesheet" href="{{ 'bs-ab-tlh-051.css' | asset_url }}">
+
+      <script src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
+      <script src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
+      <script src="{{ 'bs-ab-tlh-009.js' | asset_url }}"></script>
+      <script src="{{ 'bs-ab-tlh-010.js' | asset_url }}"></script>
+      <script src="{{ 'bs-ab-tlh-011.js' | asset_url }}"></script>
+      <script src="{{ 'bs-ab-tlh-025.js' | asset_url }}"></script>
+      <script src="{{ 'bs-ab-tlh-040.js' | asset_url }}"></script>
+      <script src="{{ 'bs-ab-tlh-050.js' | asset_url }}"></script>
+      <script src="{{ 'bs-ab-tlh-051.js' | asset_url }}"></script>
+      <!-- END BS: AB Scripts -->
+
+      <!-- ABlyft Snippet -->
+      <script src="https://cdn.ablyft.com/s/55886406.js"></script>
+      <script>
+          window['ablyft'] = window['ablyft'] || [];
+      </script>
+
+      <!-- TLH-026 custom goal snippet -->
+       <script>
+        document.addEventListener('DOMContentLoaded',() => {
+            document.querySelector('.Search__Inner').addEventListener('click',() =>  {
+                window['ablyft'].push({
+                    eventType: 'custom',
+                    eventName: 'tlh-026-clicks-on-searchbar',
+                    eventValue: 1 //optional
+                });
+            });
+        });
+       </script>
+      <!-- END: TLH-026 custom goal snippet -->
+
+      <!-- Varify.io® code for Animagus GmbH-->
+      <script>
+          window.varify = window.varify || {};
+          window.varify.iid = 1625;
+      </script>
+      <script src="https://app.varify.io/varify.js"></script>
+
+      {% render 'replo-head' %}
+
+      <script src="{{ 'bs-load-third-party-scripts.js' | asset_url }}" defer></script>
+      <script src="{{ 'bs-subscription-callout.js' | asset_url }}" defer></script>
+      <script src="{{ 'bs-sticky-atc.js' | asset_url }}" defer></script>
+
+
+    <script type="text/javascript">
+    // Duration in milliseconds to wait while the Kameleoon application file is loaded
+    var kameleoonLoadingTimeout = 1000;
+
+    window.kameleoonQueue = window.kameleoonQueue || [];
+    window.kameleoonStartLoadTime = new Date().getTime();
+    if (! document.getElementById("kameleoonLoadingStyleSheet") && ! window.kameleoonDisplayPageTimeOut)
+    {
+        var kameleoonS = document.getElementsByTagName("script")[0];
+        var kameleoonCc = "* { visibility: hidden !important; background-image: none !important; }";
+        var kameleoonStn = document.createElement("style");
+        kameleoonStn.type = "text/css";
+        kameleoonStn.id = "kameleoonLoadingStyleSheet";
+        if (kameleoonStn.styleSheet)
+        {
+            kameleoonStn.styleSheet.cssText = kameleoonCc;
+        }
+        else
+        {
+            kameleoonStn.appendChild(document.createTextNode(kameleoonCc));
+        }
+        kameleoonS.parentNode.insertBefore(kameleoonStn, kameleoonS);
+        window.kameleoonDisplayPage = function(fromEngine)
+        {
+            if (!fromEngine)
+            {
+                window.kameleoonTimeout = true;
+            }
+            if (kameleoonStn.parentNode)
+            {
+                kameleoonStn.parentNode.removeChild(kameleoonStn);
+            }
+        };
+        window.kameleoonDisplayPageTimeOut = window.setTimeout(window.kameleoonDisplayPage, kameleoonLoadingTimeout);
+    }
+</script>
+<script type="text/javascript" src="//kd8kkhspyu.kameleoon.eu/kameleoon.js" async="true"></script>
+    <script>window.SLIDECART_DISABLE = true</script>
+     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
+
+{%- comment -%}
+<!-- Commented by Vladimir, do not turn on becuse you will have duplications -->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NB2JQCG');</script>
+<!-- End Google Tag Manager-->
+{%- endcomment -%}
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="theme-color" content="{{ settings.accent_color }}">
+    <meta name="google-site-verification" content="QZiR1WxDnZAKrxARkf6DQjhHzK1Y3t4Oo5I1TMO2Sgo">
+
+    <!-- NoIndex on pages with vendors not known to the shop -->
+    {%- if request.path == '/collections/vendors' -%}
+      {%- assign lowercase_vendors = shop.vendors | join: ',' | downcase | split: ',' -%}
+      {%- assign lowercase_input = collection.title | downcase -%}
+      {%- unless lowercase_vendors contains lowercase_input -%}
+        <meta name="robots" content="noindex">
+      {%- endunless -%}
+    {%- endif -%}
+
+    <title>
+      {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+    </title>
+
+
+    <!-- Swiper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.1.4/swiper-bundle.min.js" integrity="sha512-hNnjFWCqifslGhuZJVHjXdBund00oDV71mBacLyZYVwmuf+Lx+MGgoG04wehsvhp6FvLYfycrES+b1yh24yvhg==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.1.4/swiper-bundle.min.css" integrity="sha512-M0U3q0gtzBgpMf++hqHvaLWyFPubXtEVzk/OO2UEE7Rtvo7wDLh8ClrpWIoUgfGebHxQrPNXmdfYPlrEIZU0Rg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    {%- if page_description -%}
+      <meta name="description" content="{{ page_description | escape }}">
+    {%- endif -%}
+
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    {%- if settings.favicon -%}
+      <link rel="shortcut icon" href="{{ settings.favicon | img_url: '96x' }}" type="image/png">
+    {%- endif -%}
+
+    <script>
+      window.experiments = {
+        data: {
+          product: {
+            id: {{ product.id | json }},
+            title: {{ product.title | json }},
+          },
+        },
+      };
+    </script>
+
+    {% render 'social-meta-tags' %}
+    {% render 'css-variables' %}
+
+    {{ content_for_header }}
+
+    <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
+    <link rel="stylesheet" href="{{ 'bs-custom.css' | asset_url }}">
+    <link rel="stylesheet" href="{{ 'recommended-search-products.css' | asset_url }}">
+
+
+    {%- render 'head-styles', layout: 'theme' -%}
+
+    <script>
+      {%- if request.page_type == 'policy' -%}
+        document.addEventListener('DOMContentLoaded', function() {
+          document.querySelector('.shopify-policy__title').classList.add('PageHeader', 'Heading', 'u-h1');
+          document.querySelector('.shopify-policy__body').classList.add('Rte');
+        });
+      {%- endif -%}
+
+      // This allows to expose several variables to the global scope, to be used in scripts
+      window.theme = {
+        pageType: {{ request.page_type | json }},
+        moneyFormat: {{ shop.money_format | json }},
+        moneyWithCurrencyFormat: {{ shop.money_with_currency_format | json }},
+        productImageSize: {{ settings.product_image_size | json }},
+        searchMode: {{ settings.search_mode | json }},
+        showPageTransition: {{ settings.show_page_transition | json }},
+        showElementStaggering: {{ settings.show_element_staggering | json }},
+        showImageZooming: {{ settings.show_image_zooming | json }}
+      };
+
+      window.routes = {
+        rootUrl: {{ routes.root_url | json }},
+        rootUrlWithoutSlash: {% if routes.root_url == '/' %}''{% else %}{{ routes.root_url | json }}{% endif %},
+        cartUrl: {{ routes.cart_url | json }},
+        cartAddUrl: {{ routes.cart_add_url | json }},
+        cartChangeUrl: {{ routes.cart_change_url | json }},
+        searchUrl: {{ routes.search_url | json }},
+        productRecommendationsUrl: {{ routes.product_recommendations_url | json }}
+      };
+
+      window.languages = {
+        cartAddNote: {{ 'cart.general.add_note' | t | json }},
+        cartEditNote: {{ 'cart.general.edit_note' | t | json }},
+        productImageLoadingError: {{ 'product.slideshow.image_loading_error' | t | json }},
+        productFormAddToCart: {% if product.template_suffix == 'pre-order' %}{{ 'product.form.pre_order' | t | json }}{% elsif product.template_suffix == 'donation' %}{{ 'product.form.add_to_cart_donation' | t | json }}{%else%}{{ 'product.form.add_to_cart' | t | json }}{% endif %},
+        productFormUnavailable: {{ 'product.form.unavailable' | t | json }},
+        productFormSoldOut: {{ 'product.form.sold_out' | t | json }},
+        shippingEstimatorOneResult: {{ 'cart.shipping_estimator.one_result_title' | t | json }},
+        shippingEstimatorMoreResults: {{ 'cart.shipping_estimator.more_results_title' | t | json }},
+        shippingEstimatorNoResults: {{ 'cart.shipping_estimator.no_results_title' | t | json }}
+      };
+
+      window.lazySizesConfig = {
+        loadHidden: false,
+        hFac: 0.5,
+        expFactor: 2,
+        ricTimeout: 150,
+        lazyClass: 'Image--lazyLoad',
+        loadingClass: 'Image--lazyLoading',
+        loadedClass: 'Image--lazyLoaded'
+      };
+
+      {% if customer %}
+        window.Shopify.isUserLoggedIn = true;
+      {% else %}
+        window.Shopify.isUserLoggedIn = false;
+      {% endif %}
+
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+      document.documentElement.style.setProperty('--window-height', window.innerHeight + 'px');
+
+      // We do a quick detection of some features (we could use Modernizr but for so little...)
+      (function() {
+        document.documentElement.className += ((window.CSS && window.CSS.supports('(position: sticky) or (position: -webkit-sticky)')) ? ' supports-sticky' : ' no-supports-sticky');
+        document.documentElement.className += (window.matchMedia('(-moz-touch-enabled: 1), (hover: none)')).matches ? ' no-supports-hover' : ' supports-hover';
+      }());
+    </script>
+
+    <script src="{{ 'lazysizes.min.js' | asset_url }}" async></script>
+
+    {%- if template == 'customers/addresses' -%}
+      <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer></script>
+      <script src="{{ 'customer_area.js' | shopify_asset_url }}" defer></script>
+    {%- endif -%}
+
+    <script src="https://cdn.polyfill.io/v3/polyfill.min.js?unknown=polyfill&features=fetch,Element.prototype.closest,Element.prototype.remove,Element.prototype.classList,Array.prototype.includes,Array.prototype.fill,Object.assign,CustomEvent,IntersectionObserver,IntersectionObserverEntry,URL" defer></script>
+    <script src="{{ 'libs.min.js' | asset_url }}" defer></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="{{ 'theme.min.js' | asset_url }}" defer></script>
+    <script src="{{ 'custom-dach.js' | asset_url }}" defer></script>
+    <script src="{{ 'search-manipulation.js' | asset_url }}" defer></script>
+
+    {%- comment -%}
+<!-- Commented by Vladimir, do not turn on becuse you will have duplications -->
+    <!-- Global site tag (gtag.js) - Google Ads: 843531169 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-843531169"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'AW-843531169');
+    </script>
+{%- endcomment -%}
+
+    <script>
+      (function () {
+        window.onpageshow = function() {
+          if (window.theme.showPageTransition) {
+            var pageTransition = document.querySelector('.PageTransition');
+
+            if (pageTransition) {
+              pageTransition.style.visibility = 'visible';
+              pageTransition.style.opacity = '0';
+            }
+          }
+
+          // When the page is loaded from the cache, we have to reload the cart content
+          document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', {
+            bubbles: true
+          }));
+        };
+      })();
+    </script>
+
+    {%- render 'head-scripts', layout: 'theme' -%}
+
+    {% render 'microdata-schema' %}
+    {% include 'judgeme_core' %}
+    {% include 'ufe-offer' %}
+
+     {% render 'hide-pricing-new-visitors' %}
+     {% render 'hide-pricing-product-page' %}
+    
+    {%- comment -%}
+<!-- Commented by Vladimir, do not turn on becuse you will have duplications -->
+     <!-- Outbrain Pixel-->
+<script data-obct type = "text/javascript">
+  /** DO NOT MODIFY THIS CODE**/
+  !function(_window, _document) {
+    var OB_ADV_ID = '00b418dc9ce408e806b281caeb7c0b216f';
+    if (_window.obApi) {
+      var toArray = function(object) {
+        return Object.prototype.toString.call(object) === '[object Array]' ? object : [object];
+      };
+      _window.obApi.marketerId = toArray(_window.obApi.marketerId).concat(toArray(OB_ADV_ID));
+      return;
+    }
+    var api = _window.obApi = function() {
+      api.dispatch ? api.dispatch.apply(api, arguments) : api.queue.push(arguments);
+    };
+    api.version = '1.1';
+    api.loaded = true;
+    api.marketerId = OB_ADV_ID;
+    api.queue = [];
+    var tag = _document.createElement('script');
+    tag.async = true;
+    tag.src = '//amplify.outbrain.com/cp/obtp.js';
+    tag.type = 'text/javascript';
+    var script = _document.getElementsByTagName('script')[0];
+    script.parentNode.insertBefore(tag, script);
+  }(window, document);
+
+  obApi('track', 'PAGE_VIEW');
+</script>
+
+    <!-- End Outbrain Pixel -->
+
+    
+    {% include 'dataLayer-allPages' %}
+
+    <!-- Taboola Pixel Code -->
+<script type='text/javascript'>
+  window._tfa = window._tfa || [];
+  window._tfa.push({notify: 'event', name: 'page_view', id: 1338323});
+  !function (t, f, a, x) {
+         if (!document.getElementById(x)) {
+            t.async = 1;t.src = a;t.id=x;f.parentNode.insertBefore(t, f);
+         }
+  }(document.createElement('script'),
+  document.getElementsByTagName('script')[0],
+  '//cdn.taboola.com/libtrc/unip/1338323/tfa.js',
+  'tb_tfa_script');
+</script>
+<!-- End of Taboola Pixel Code -->
+    {%- endcomment -%}
+    
+{% if template.name == "index" %}
+    <!-- Amazon Ad Tag -->
+        <script>
+            !function(w,d,s,t,a){if(w.amzn)return;w.amzn=a=function(){w.amzn.q.push([arguments,(new Date).getTime()])};a.q=[];a.version="0.0";s=d.createElement("script");s.src="https://c.amazon-adsystem.com/aat/amzn.js";s.id="amzn-pixel";s.async=true;t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t)}(window,document);
+            amzn("setRegion", "EU");
+            amzn("addTag", "9ed9779f-1bce-49a3-a8de-4434d6a6c0be");
+            amzn("trackEvent", "PageView");
+        </script>
+    <!-- END: Amazon Ad Tag -->
+{% endif %}
+
+    {% render 'rapid-search-settings' %}
+</head>
+
+  {%- capture classes -%}features--heading-{{ settings.heading_size }}{%- endcapture -%}
+
+  {%- if settings.uppercase_heading -%}
+    {%- assign classes = classes | append: ' features--heading-uppercase' -%}
+  {%- endif -%}
+
+  {%- if settings.product_show_price_on_hover -%}
+    {%- assign classes = classes | append: ' features--show-price-on-hover' -%}
+  {%- endif -%}
+
+  {%- if settings.show_page_transition -%}
+    {%- assign classes = classes | append: ' features--show-page-transition' -%}
+  {%- endif -%}
+
+  {%- if settings.show_button_transition -%}
+    {%- assign classes = classes | append: ' features--show-button-transition' -%}
+  {%- endif -%}
+
+  {%- if settings.show_image_zooming -%}
+    {%- assign classes = classes | append: ' features--show-image-zooming' -%}
+  {%- endif -%}
+
+  {%- if settings.show_element_staggering -%}
+    {%- assign classes = classes | append: ' features--show-element-staggering' -%}
+  {%- endif -%}
+
+  {%- assign shopCurrencySymbol = 100 | money | replace: '1.00' | replace: '1,00' -%}
+
+  <body>
+<div class="gem-container">
+	{{ content_for_layout }}
+</div><!-- end .gem-container --></body>
+</html>
