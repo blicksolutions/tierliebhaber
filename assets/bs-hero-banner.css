@@ -1,4 +1,4 @@
-.bs-slideshow {
+.bs-hero-banner {
 	display: flex;
 	position: relative;
 	height: 717px;
@@ -6,7 +6,7 @@
 	overflow: hidden;
 }
 
-.bs-slideshow::before {
+.bs-hero-banner::before {
 	content: "";
 	position: absolute;
 	width: 100%;
@@ -19,7 +19,7 @@
 	z-index: 1;
 }
 
-.bs-slideshow__background {
+.bs-hero-banner__background {
 	position: absolute;
 	width: 100%;
 	height: 68%;
@@ -27,8 +27,8 @@
 	object-fit: cover;
 }
 
-.bs-slideshow__content,
-.bs-slideshow__content-box {
+.bs-hero-banner__content,
+.bs-hero-banner__content-box {
 	z-index: 1;
 	position: relative;
 	width: 100%;
@@ -39,12 +39,12 @@
 	background: linear-gradient(to bottom, transparent 45%, #f2f8f5 45%);
 }
 
-.bs-slideshow__content-box {
+.bs-hero-banner__content-box {
 	padding: 0;
 	background: unset;
 }
 
-.bs-slideshow__content__background--mobile {
+.bs-hero-banner__content__background--mobile {
 	width: 100%;
 	height: auto;
 	position: absolute;
@@ -54,7 +54,7 @@
 	z-index: -1;
 }
 
-.bs-slideshow__content__background--desktop {
+.bs-hero-banner__content__background--desktop {
 	display: none;
 	width: 100%;
 	height: auto;
@@ -65,7 +65,7 @@
 	z-index: -1;
 }
 
-.bs-slideshow__comparison-image {
+.bs-hero-banner__comparison-image {
 	position: absolute;
 	right: 19px;
 	top: 0;
@@ -74,7 +74,7 @@
 	transform: translateY(-100%);
 }
 
-.bs-slideshow__testimonials {
+.bs-hero-banner__testimonials {
 	background: #fff;
 	display: flex;
 	gap: 8px;
@@ -86,7 +86,7 @@
 	line-height: 11px;
 }
 
-.bs-slideshow__title {
+.bs-hero-banner__title {
 	font-size: 24px;
 	color: #525252;
 	font-weight: 600;
@@ -94,7 +94,7 @@
 	margin: 0;
 }
 
-.bs-slideshow__description {
+.bs-hero-banner__description {
 	font-size: 16px;
 	color: #525252;
 	margin: 0;
@@ -102,7 +102,7 @@
 	margin: -10px 0 0;
 }
 
-.bs-slideshow__cta-button.Button {
+.bs-hero-banner__cta-button.Button {
 	text-transform: uppercase !important;
 	font-size: 18px;
 	font-weight: 700;
@@ -110,7 +110,7 @@
 	letter-spacing: normal;
 }
 
-.bs-slideshow__cta-button::after {
+.bs-hero-banner__cta-button::after {
 	position: absolute;
 	content: "";
 	display: block;
@@ -128,34 +128,34 @@
 }
 
 @media (min-width: 390px) {
-	.bs-slideshow__background {
+	.bs-hero-banner__background {
 		height: 80%;
 	}
 }
 
 @media (min-width: 768px) {
-	.bs-slideshow__background {
+	.bs-hero-banner__background {
 		top: 0;
 		height: 110%;
 	}
 }
 
 @media (min-width: 1024px) {
-	.bs-slideshow {
+	.bs-hero-banner {
 		height: 839px;
 	}
 
-	.bs-slideshow__content {
+	.bs-hero-banner__content {
 		padding: 25px;
 	}
 
-	.bs-slideshow__content-box {
+	.bs-hero-banner__content-box {
 		width: calc(50% + 100px);
 		padding: 0 0 50px 100px;
 		max-width: 673px;
 	}
 
-	.bs-slideshow__comparison-image {
+	.bs-hero-banner__comparison-image {
 		right: 116px;
 		transform: unset;
 		bottom: 75px;
@@ -163,38 +163,38 @@
 		height: 300px;
 	}
 
-	.bs-slideshow__title {
+	.bs-hero-banner__title {
 		font-size: 32px;
 		line-height: 40px;
 	}
 
-	.bs-slideshow__description {
+	.bs-hero-banner__description {
 		font-size: 18px;
 		line-height: 24px;
 	}
 
-	.bs-slideshow__testimonials {
+	.bs-hero-banner__testimonials {
 		font-size: 10px;
 		line-height: 15px;
 	}
 
-	.bs-slideshow__cta-button.Button {
+	.bs-hero-banner__cta-button.Button {
 		font-size: 20px;
 		line-height: 25px;
 		font-weight: 600;
 	}
 
-	.bs-slideshow__content__background--mobile {
+	.bs-hero-banner__content__background--mobile {
 		display: none;
 	}
 
-	.bs-slideshow__content__background--desktop {
+	.bs-hero-banner__content__background--desktop {
 		display: block;
 	}
 }
 
 @media (min-width: 1366px) {
-	.bs-slideshow__comparison-image {
+	.bs-hero-banner__comparison-image {
 		height: 500px;
 	}
 }
