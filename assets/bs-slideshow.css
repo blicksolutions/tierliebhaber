@@ -1,10 +1,5 @@
-#section-slideshow {
-	opacity: 0;
-	transition: opacity 0.3s ease;
-}
-
 .Slideshow--versionB {
-	display: none;
+	display: flex;
 	position: relative;
 	height: 717px;
 	align-items: flex-end;
