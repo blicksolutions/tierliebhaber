@@ -1660,11 +1660,23 @@
           "link_text": "",
           "link_url": ""
         }
+      },
+      "bs_hero_banner_XriWJa": {
+        "type": "bs-hero-banner",
+        "settings": {
+          "title": "Kinderleichte Zahnpflege für Hunde!",
+          "description": "<p>Einfach aufs Futter sprühen und Zahnbelag selbst entfernen… 100% natürlich dank probiotischen Mikroorganismen!</p>",
+          "button_label": "Zum Dentalspray",
+          "button_url": "https://tierliebhaber.de/collections/zahnpflege/products/dentalspray",
+          "testimonial_text": "<p><strong>11.000+ Hundebesitzer</strong> berichten von sichtbaren Verbesserungen <br/> und hervorragender Wirkung</p>",
+          "background_image": "shopify://shop_images/Dental-Spray-5.jpg",
+          "foreground_image": "shopify://shop_images/Vorher_Nachher_TLH_2.png"
+        }
       }
     },
     "content_for_index": [
       "ddee7e2a-800b-4859-be96-f251a0f829b6",
-      "slideshow",
+      "bs_hero_banner_XriWJa",
       "1628785723a639a63d",
       "b19906e5-1981-4bbf-8ce1-d0a2d3727570",
       "1630563614cd6684d8",
