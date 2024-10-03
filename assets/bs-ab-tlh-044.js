@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			slidesPerView: 1,
 			centerInsufficientSlides: true,
 			spaceBetween: 10,
+			allowTouchMove: false
 		});
 
 		const bestsellerCategories = document.querySelectorAll(".bestseller__category");
