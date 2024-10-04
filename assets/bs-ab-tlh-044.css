@@ -46,6 +46,25 @@
 }
 
 /******************************************************************/
+/* Navigation Search
+/******************************************************************/
+
+.tlh-044 .Search {
+	position: relative;
+	opacity: 1;
+	visibility: visible;
+	z-index: 1;
+	top: 20px;
+	pointer-events: all;
+	transform: translateY(-25px) !important;
+}
+
+.tlh-044 .Search__Inner {
+	/* height: 100dvh; */
+    max-height: calc(100dvh - 64px);
+}
+
+/******************************************************************/
 /* Bestseller swiper
 /******************************************************************/
 

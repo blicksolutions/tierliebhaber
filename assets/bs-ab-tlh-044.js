@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-
 	/******************************************************************/
 	/* bestseller swiper
 	/******************************************************************/
@@ -9,14 +8,13 @@ document.addEventListener("DOMContentLoaded", () => {
 			slidesPerView: 1,
 			centerInsufficientSlides: true,
 			spaceBetween: 10,
-			allowTouchMove: false
+			allowTouchMove: false,
 		});
 
 		const bestsellerCategories = document.querySelectorAll(".bestseller__category");
 
 		bestsellerCategories.forEach((bestsellerCategory) => {
 			bestsellerCategory.addEventListener("click", () => {
-
 				bestsellerCategories.forEach((category) => {
 					category.classList.remove("active");
 				});
@@ -87,49 +85,54 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		menuItems.forEach((menuItem) => {
 			menuItem.addEventListener("click", () => {
-
 				// AB custom goal => "Clicks on menu items"
-				console.log("click on menu item!")
+				console.log("click on menu item!");
 
 				// window['ablyft'].push({
 				// 	eventType: 'custom',
-				// 	eventName: 'clicks-on-menu-items'
-				// }); 
+				// 	eventName: 'tlh-044-clicks-on-menu-items'
+				// });
 			});
 		});
-	}
+	};
 
 	const checkTimeSpentOnMenu = () => {
 		let menuOpenTime;
 		let menuCloseTime;
 		const headerIcon = document.querySelector(".Header__Wrapper .Header__Icon");
 		const sideBarMenuDrawerClose = document.querySelectorAll(".SidebarMenu .Drawer__Close, .PageOverlay, .SidebarMenu .Collapsible a, .SidebarMenu .SidebarMenu__item a");
+		const pageOverlay = document.querySelector(".PageOverlay");
 
 		headerIcon.addEventListener("click", () => {
 			menuOpenTime = new Date();
+			pageOverlay.classList.add("sidebar-menu-is-open");
 		});
 
 		sideBarMenuDrawerClose.forEach((drawerClose) => {
 			drawerClose.addEventListener("click", () => {
 				menuCloseTime = new Date();
-	
+
 				const timeSpentOnMenu = menuCloseTime - menuOpenTime;
 				const timeSpentOnMenuInSeconds = Math.floor(timeSpentOnMenu / 1000);
-	
+
 				const minutes = Math.floor(timeSpentOnMenuInSeconds / 60);
 				const seconds = timeSpentOnMenuInSeconds % 60;
-	
-				// AB custom goal => "Time spent on menu"
-				console.log(`Das Menü war ${timeSpentOnMenuInSeconds}s lang offen.`);
 
-				// window['ablyft'].push({
-				// 	eventType: 'custom',
-				// 	eventName: 'time-spent-on-menu',
-				// 	eventValue: timeSpentOnMenuInSeconds
-				// }); 
+				// do only push when PageOverlay was opened by SidebarMenu
+				if (!(drawerClose.classList.contains("PageOverlay") && !drawerClose.classList.contains("sidebar-menu-is-open"))) {
+					console.log(`Das Menü war ${timeSpentOnMenuInSeconds}s lang offen.`);
+
+					// window['ablyft'].push({
+					// 	eventType: 'custom',
+					// 	eventName: 'tlh-044-time-spent-on-menu',
+					// 	eventValue: timeSpentOnMenuInSeconds
+					// });
+				}
+
+				pageOverlay.classList.remove("sidebar-menu-is-open");
 			});
 		});
-	}
+	};
 
 	/******************************************************************/
 	/* call these functions in A and B Variant
@@ -149,5 +152,5 @@ document.addEventListener("DOMContentLoaded", () => {
 		bestsellerSwiper();
 	};
 
-	//window.activateAbTlh044();
+	window.activateAbTlh044();
 });
