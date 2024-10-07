@@ -2,7 +2,6 @@
 
 <html class="no-js" lang="{{ shop.locale }}">
   <head>
-  {% render 'cookiebot' %}
     
       <!-- BS: AB Scripts -->
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}">
@@ -157,7 +156,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {% render 'css-variables' %}
 
     {{ content_for_header }}
-    {% render 'cookie-consent' %}
+   {%- comment -%}{% render 'cookie-consent' %}{%- endcomment -%}
     <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
     <link rel="stylesheet" href="{{ 'bs-custom.css' | asset_url }}">
     <link rel="stylesheet" href="{{ 'recommended-search-products.css' | asset_url }}">
