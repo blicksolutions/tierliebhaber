@@ -129,7 +129,7 @@
 	-webkit-tap-highlight-color:transparent;
 }
 
-.tlh-044 .bestseller__link:first-child {
+.tlh-044 .bestseller__link.bestseller__link--highlight {
 	border: 1px solid #D4AF37;
 	background: linear-gradient(270deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%), #FFF;
 }
@@ -235,20 +235,6 @@
 	user-select: none;
 	max-height: 56px;
 }
-
-/******************************************************************/
-/* Search Bar
-/******************************************************************/
-
-/* .tlh-044 .Search {
-    position: relative;
-    opacity: 1;
-    visibility: visible;
-    top: 0;
-    z-index: 10;
-	pointer-events: all;
-} */
-
 
 #smile-ui-lite-container, #superchat-widget {
 	display: none !important;
