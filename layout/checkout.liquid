@@ -67,7 +67,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta name="referrer" content="origin">
 
 
-
+    {%- comment -%}
+<!-- Commented by Vladimir, not used anymore -->    
     <!-- HYROS -->
     <script>
       var head = document.head;
@@ -76,7 +77,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       script.src = "https://t.tierliebhaber.de/v1/lst/universal-script?ph=c0c3ea6be250a0a3cfb45f6840a85c4afb26c43413b4d3fa71c57e1e03aaf233&tag=!clicked&ref_url=" + encodeURI(document.URL) ;
       head.appendChild(script);
     </script>
-
+    {%- endcomment -%}
     <title>{{ page_title }}</title>
 
     {%- comment -%}
