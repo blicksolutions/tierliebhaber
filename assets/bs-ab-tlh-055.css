@@ -1,3 +1,25 @@
 .bs-hero-banner.bs-hero-banner--version-b {
 	display: none;
 }
+
+.bs-hero-banner.bs-hero-banner--version-b .bs-hero-banner__background {
+	top: -30px;
+}
+
+@media (min-width: 390px) {
+	.bs-hero-banner.bs-hero-banner--version-b .bs-hero-banner__background {
+		object-position: top;
+	}
+}
+
+@media (min-width: 1024px) {
+	.bs-hero-banner.bs-hero-banner--version-b .bs-hero-banner__background {
+		top: -140px;
+	}
+}
+
+@media (min-width: 1366px) {
+	.bs-hero-banner.bs-hero-banner--version-b .bs-hero-banner__background {
+		top: -210px;
+	}
+}
