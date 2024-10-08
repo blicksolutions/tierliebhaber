@@ -251,6 +251,12 @@
 					</li>
 				{%- endif -%}
 			{%- endfor -%}
+
+			{%- if shop.customer_accounts_enabled -%}
+				<li class="SidebarMenu__item">
+					<a href="{{ routes.account_url }}">{{ 'header.navigation.account' | t }}</a>
+				</li>
+			{%- endif -%}
 		</ul>
 	</div>
 </section>
