@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 				// do only push when PageOverlay was opened by SidebarMenu
 				if (!(drawerClose.classList.contains("PageOverlay") && !drawerClose.classList.contains("sidebar-menu-is-open"))) {
-					console.log(`Das Menü war ${timeSpentOnMenuInSeconds}s lang offen.`);
+					//console.log(`Das Menü war ${timeSpentOnMenuInSeconds}s lang offen.`);
 
 					window['ablyft'].push({
 						eventType: 'custom',
