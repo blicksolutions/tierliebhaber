@@ -40,7 +40,7 @@
 		}
 
 		if(infoTextVC && infoTextOg) {
-			infoTextVC.style.display = "block";
+			infoTextVC.style.display = "flex";
 			infoTextOg.style.display = "none";
 		}
 	};
