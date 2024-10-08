@@ -85,8 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		menuItems.forEach((menuItem) => {
 			menuItem.addEventListener("click", () => {
-				// AB custom goal => "Clicks on menu items"
-				console.log("click on menu item!");
+				//console.log("click on menu item!");
 
 				window['ablyft'].push({
 					eventType: 'custom',
