@@ -1,6 +1,10 @@
 .CartMessage__StepsLines__Gift span {
-    position: absolute;
-    width: max-content;
-    transform: translateX(-75%) translateY(80%);
-    font-size: 10px;
+	position: absolute;
+	width: max-content;
+	transform: translateX(-75%) translateY(80%);
+	font-size: 10px;
+}
+
+#sidebar-cart .Drawer__Footer .Drawer__Footer__Delivery [data-free-shipping="true"] {
+	color: #77a464;
 }

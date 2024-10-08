@@ -1,4 +1,20 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin language editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
+  "404": {
+    "general": {
+      "title": "404",
+      "content": "Die Seite die du gesucht hast konnte leider nicht mehr gefunden werden.",
+      "button": "Zur Startseite und Produkte finden"
+    }
+  },
   "general": {
     "meta": {
       "tags": "Getaggt \"{{ tags }}\"",
@@ -87,13 +103,6 @@
         "one": "1 Eintrag für \"{{terms}}\"",
         "other": "{{count}} Einträge für \"{{terms}}\""
       }
-    }
-  },
-  "404": {
-    "general": {
-      "title": "404",
-      "content": "Die Seite die du gesucht hast konnte leider nicht mehr gefunden werden.",
-      "button": "Zur Startseite und Produkte finden"
     }
   },
   "home_page": {
@@ -197,8 +206,8 @@
       "back_to_account": "Zurück zum Account",
       "cancelled_at": "Bestellung am {{ date }} storniert",
       "placed_at": "Bestellung am {{ date }} getätigt",
-      "fulfillment_html": "Deine Bestellung wurde versandt. Den Versand kannst du anhand der Nummer {{tracking_number}} oder über den folgenden Link verfolgen: <a href=\"{{tracking_url}}\" class=\"Link Link--underlineNative\" target=\"_blank\">{{tracking_url}}<\/a>",
-      "line_fulfillment_html": "Dein Produkt wurde versandt. Den Versand kannst du anhand der Nummer {{tracking_number}} oder über den folgenden Link verfolgen: <a href=\"{{tracking_url}}\" class=\"Link Link--underlineNative\" target=\"_blank\">{{tracking_url}}<\/a>",
+      "fulfillment_html": "Deine Bestellung wurde versandt. Den Versand kannst du anhand der Nummer {{tracking_number}} oder über den folgenden Link verfolgen: <a href=\"{{tracking_url}}\" class=\"Link Link--underlineNative\" target=\"_blank\">{{tracking_url}}</a>",
+      "line_fulfillment_html": "Dein Produkt wurde versandt. Den Versand kannst du anhand der Nummer {{tracking_number}} oder über den folgenden Link verfolgen: <a href=\"{{tracking_url}}\" class=\"Link Link--underlineNative\" target=\"_blank\">{{tracking_url}}</a>",
       "product": "Produkt",
       "quantity": "Menge",
       "line_price": "Gesamtpreis",
@@ -322,7 +331,7 @@
     "general": {
       "view_in_space": "In deinem Bereich ansehen",
       "include_taxes": "inkl. MwSt.",
-      "shipping_policy_html": "zzgl. <a href=\"{{ link }}\" class=\"link link--accented\">Versandkosten<\/a>"
+      "shipping_policy_html": "zzgl. <a href=\"{{ link }}\" class=\"link link--accented\">Versandkosten</a>"
     },
     "labels": {
       "on_sale": "Im Angebot",
@@ -382,8 +391,8 @@
       "check_other_stores": "Verfügbarkeit in anderen Shops überprüfen",
       "pick_up_available": "Abholung verfügbar",
       "pick_up_currently_unavailable": "Abholung derzeit nicht verfügbar",
-      "pick_up_available_at_html": "Abholung bei <strong>{{ location_name }}<\/strong> verfügbar",
-      "pick_up_unavailable_at_html": "Abholung bei <strong>{{ location_name }}<\/strong> derzeit nicht verfügbar"
+      "pick_up_available_at_html": "Abholung bei <strong>{{ location_name }}</strong> verfügbar",
+      "pick_up_unavailable_at_html": "Abholung bei <strong>{{ location_name }}</strong> derzeit nicht verfügbar"
     }
   },
   "gift_card": {
@@ -442,7 +451,7 @@
   },
   "date_formats": {
     "month_day_year": "%d %B, %Y",
-    "month_day_year_short": "%d\/%m\/%Y",
+    "month_day_year_short": "%d/%m/%Y",
     "month_day_year_time": "%d %B, %Y um %I:%M%p"
   },
   "shopify": {
@@ -471,8 +480,8 @@
         "first_name_label": "Vorname",
         "optional_first_name_label": "Vorname",
         "last_name_label": "Nachname",
-        "company_label": "Packstation \/ Firma (optional) ",
-        "optional_company_label": "Packstation \/ Firma (optional) ",
+        "company_label": "Packstation / Firma (optional) ",
+        "optional_company_label": "Packstation / Firma (optional) ",
         "address1_label": "Straße, Hausnummer",
         "optional_address2_label": "DHL Postnummer, Zimmer o.ä (optional)"
       }
@@ -488,6 +497,41 @@
         "text": "Bitte überprüfe deine Lieferadresse und fahre anschließend mit deiner Bestellung fort.",
         "button_text": "Lieferadresse überprüfen"
       }
+    }
+  },
+  "gempages": {
+    "Carousel": {
+      "no_slider": "No Slider"
+    },
+    "Newsletter": {
+      "err_msg_default": "Can’t send email. Please try again later.",
+      "success_msg_default": "Thanks for contacting us. We'll get back to you as soon as possible."
+    },
+    "IconListV2": {
+      "icons_not_found": "Icons not found"
+    },
+    "IconList": {
+      "icons_not_found": "Icons not found"
+    },
+    "IconListHoz": {
+      "icons_not_found": "Icons not found"
+    },
+    "Product": {
+      "product_not_found": "Product not found"
+    },
+    "ProductList": {
+      "product_not_found": "Product Not Found!",
+      "no_products_found": "No products found!",
+      "no_related_products": "No related products!"
+    },
+    "ProductTitle": {
+      "product_not_found": "Product Not Found"
+    },
+    "ProductVariants": {
+      "please_select": "Please select an option"
+    },
+    "StockCounter": {
+      "let_buy_now": "<mark>HURRY!</mark> LET BUY NOW"
     }
   }
 }
