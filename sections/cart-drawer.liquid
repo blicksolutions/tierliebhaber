@@ -154,9 +154,11 @@
           <!-- /Upsell items -->
         {%- endif -%}
       {%- endif -%}
+	  
+		{%- unless cart.item_count == 0 -%}
+			{% render 'bs-ab-tlh-052' cart_items: cart.items  %}
+		{%- endunless -%}
     </div>
-
-	{% render 'bs-ab-tlh-052' %}
 
     {%- unless cart.item_count == 0 -%}
 

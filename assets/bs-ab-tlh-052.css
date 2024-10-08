@@ -2,41 +2,69 @@
 	display: none;
 }
 
-.cart-upsell__container {
+.cart-upsell {
 	display: none;
 }
 
-.Drawer[data-js-tlh-052="true"] .cart-upsell__container {
-	display: flex;
+.Drawer[data-js-tlh-052="true"] .cart-upsell {
+	display: block;
 }
 
-.Drawer[data-js-tlh-052] .cart-upsell__container {
-	flex-direction: column;
-	gap: 20px;
-	padding: 15px 16px 30px;
-	max-height: 206px;
+.Drawer[data-js-tlh-052] .cart-upsell {
+	max-height: 290px;
 	overflow: overlay;
-	position: relative;
+}
+
+@media (min-width: 768px) {
+	.Drawer[data-js-tlh-052] .cart-upsell {
+		max-height: 275px;
+	}
 }
 
 /* Scrollbar width */
-.Drawer[data-js-tlh-052] .cart-upsell__container::-webkit-scrollbar {
-	width: 5px;
+.Drawer[data-js-tlh-052] .cart-upsell::-webkit-scrollbar {
+	width: 8px;
 }
 
 /* Scrollbar Track */
-.Drawer[data-js-tlh-052] .cart-upsell__container::-webkit-scrollbar-track {
-	background: #CCC;
+.Drawer[data-js-tlh-052] .cart-upsell::-webkit-scrollbar-track {
+	background: #F5F5F5;
+	border: 0.5px solid #CCC;
+	border-radius: 24px;
 }
 
 /* Scrollbar Handle */
-.Drawer[data-js-tlh-052] .cart-upsell__container::-webkit-scrollbar-thumb {
-	background: #6A6B6A;
+.Drawer[data-js-tlh-052] .cart-upsell::-webkit-scrollbar-thumb {
+	background: #CCC;
+	border-radius: 24px;
 }
 
 /* Scrollbar Handle on hover */
-.Drawer[data-js-tlh-052] .cart-upsell__container::-webkit-scrollbar-thumb:hover {
-	background: #1C1B1B;
+.Drawer[data-js-tlh-052] .cart-upsell::-webkit-scrollbar-thumb:hover {
+	background: #CCC;
+}
+
+.Drawer[data-js-tlh-052] .cart-upsell__title {
+	border-top: 1px solid #F8F8F8;
+	padding-top: 27px;
+	text-align: center;
+	color: #737373;
+	line-height: normal;
+	margin-bottom: 5px;
+}
+
+.Drawer[data-js-tlh-052] .cart-upsell__container {
+	display: flex;
+	flex-direction: column;
+	gap: 45px;
+	padding: 15px 16px 30px;
+}
+
+@media (min-width: 768px) {
+	.Drawer[data-js-tlh-052] .cart-upsell__container {
+		gap: 30px;
+		padding: 15px 16px;
+	}
 }
 
 .Drawer[data-js-tlh-052] .cart-upsell__container .cart-upsell__heading {
