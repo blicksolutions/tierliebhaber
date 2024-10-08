@@ -186,6 +186,14 @@
 	cursor: pointer;
 }
 
+.Drawer[data-js-tlh-052] .cart-upsell__container .cart-upsell__product-container.open .product__info .product__actions .product__usp-button {
+	border-color: transparent;
+}
+
+.Drawer[data-js-tlh-052] .cart-upsell__container .cart-upsell__product-container.open .product__info .product__actions .product__usp-button .product-usp-button-chevron {
+	transform: rotate(180deg);
+}
+
 .Drawer[data-js-tlh-052] .cart-upsell__container .cart-upsell__product-container .product__usps {
 	display: none;
 	flex-direction: column;
