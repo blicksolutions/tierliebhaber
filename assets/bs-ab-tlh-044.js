@@ -88,10 +88,10 @@ document.addEventListener("DOMContentLoaded", () => {
 				// AB custom goal => "Clicks on menu items"
 				console.log("click on menu item!");
 
-				// window['ablyft'].push({
-				// 	eventType: 'custom',
-				// 	eventName: 'tlh-044-clicks-on-menu-items'
-				// });
+				window['ablyft'].push({
+					eventType: 'custom',
+					eventName: 'tlh-044-clicks-on-menu-items'
+				});
 			});
 		});
 	};
@@ -122,11 +122,11 @@ document.addEventListener("DOMContentLoaded", () => {
 				if (!(drawerClose.classList.contains("PageOverlay") && !drawerClose.classList.contains("sidebar-menu-is-open"))) {
 					console.log(`Das Menü war ${timeSpentOnMenuInSeconds}s lang offen.`);
 
-					// window['ablyft'].push({
-					// 	eventType: 'custom',
-					// 	eventName: 'tlh-044-time-spent-on-menu',
-					// 	eventValue: timeSpentOnMenuInSeconds
-					// });
+					window['ablyft'].push({
+						eventType: 'custom',
+						eventName: 'tlh-044-time-spent-on-menu',
+						eventValue: timeSpentOnMenuInSeconds
+					});
 				}
 
 				pageOverlay.classList.remove("sidebar-menu-is-open");
@@ -152,5 +152,5 @@ document.addEventListener("DOMContentLoaded", () => {
 		bestsellerSwiper();
 	};
 
-	window.activateAbTlh044();
+	//window.activateAbTlh044();
 });
