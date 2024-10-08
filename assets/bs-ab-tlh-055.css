@@ -6,9 +6,30 @@
 	top: -30px;
 }
 
+.bs-hero-banner.bs-hero-banner--version-b .bs-hero-banner__testimonials {
+	width: 100%;
+	font-size: 9px;
+	max-width: 428px;
+}
+
+.bs-hero-banner.bs-hero-banner--version-b .bs-hero-banner__testimonials svg {
+	height: 22px;
+	width: auto;
+}
+
 @media (min-width: 390px) {
 	.bs-hero-banner.bs-hero-banner--version-b .bs-hero-banner__background {
 		object-position: top;
+	}
+}
+
+@media (min-width: 768px) {
+	.bs-hero-banner.bs-hero-banner--version-b .bs-hero-banner__testimonials {
+		font-size: 12px;
+	}
+	
+	.bs-hero-banner.bs-hero-banner--version-b .bs-hero-banner__testimonials svg {
+		height: 28px;
 	}
 }
 
