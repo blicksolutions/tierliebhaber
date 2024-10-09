@@ -56,15 +56,11 @@
 .Drawer[data-js-tlh-052] .cart-upsell__container {
 	display: flex;
 	flex-direction: column;
-	gap: 45px;
-	padding: 15px 16px 30px;
 }
 
-@media (min-width: 768px) {
-	.Drawer[data-js-tlh-052] .cart-upsell__container {
-		gap: 30px;
-		padding: 15px 16px;
-	}
+.Drawer[data-js-tlh-052] .cart-upsell__container .cart-upsell__item {
+	padding: 15px 15px 30px;
+	border-bottom: 1px solid #F8F8F8;
 }
 
 .Drawer[data-js-tlh-052] .cart-upsell__container .cart-upsell__heading {
@@ -94,14 +90,13 @@
 }
 
 .Drawer[data-js-tlh-052] .cart-upsell__container .cart-upsell__product-container .product__image-container {
-	height: 123px;
+	height: 125px;
 	width: 123px;
 }
 
 .Drawer[data-js-tlh-052] .cart-upsell__container .cart-upsell__product-container .product__image-container .product__image {
 	height: 100%;
 	width: 100%;
-	object-fit: contain;
 	border-radius: 8px 0 0 8px;
 }
 
@@ -109,17 +104,34 @@
 	border-radius: 8px 0 0 0;
 }
 
+.Drawer[data-js-tlh-052] .cart-upsell__container .cart-upsell__product-container .product__details-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 125px;
+}
+
 .Drawer[data-js-tlh-052] .cart-upsell__container .cart-upsell__product-container .product__info {
 	display: flex;
 	flex-direction: column;
+	gap: 10px;
 }
 
-.Drawer[data-js-tlh-052] .cart-upsell__container .cart-upsell__product-container .product__info .product__title {
+.Drawer[data-js-tlh-052] .cart-upsell__container .cart-upsell__product-container.open .product__info {
+	gap: 5px;
+}
+
+.Drawer[data-js-tlh-052] .cart-upsell__container .cart-upsell__product-container .product__details-container .product__title {
 	color: #000;
 	font-size: 18px;
 	font-style: normal;
 	font-weight: 600;
 	line-height: 23px;
+	margin-bottom: 0;
+}
+
+.Drawer[data-js-tlh-052] .cart-upsell__container .cart-upsell__product-container.open .product__details-container .product__title {
+	padding-top: 8px;
 }
 
 .Drawer[data-js-tlh-052] .cart-upsell__container .cart-upsell__product-container .product__info .product__price {
@@ -127,7 +139,6 @@
 	align-items: flex-end;
 	flex-direction: row;
 	gap: 6px;
-	margin-bottom: 10px;
 }
 
 .Drawer[data-js-tlh-052] .cart-upsell__container .cart-upsell__product-container .product__info .product__price .ProductItem__PriceList {
@@ -161,7 +172,7 @@
 .Drawer[data-js-tlh-052] .cart-upsell__container .cart-upsell__product-container .product__info .product__actions .product__atc .CartItem__Actions .CartItem__Actions__UpsellBtn {
 	margin-top: 0;
 	padding: 8px 10px;
-	height: 45px;
+	height: 39px;
 	width: 125px;
 	min-width: unset;
 	border-radius: 5px;
@@ -179,7 +190,7 @@
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	height: 100%;
+	height: 39px;
 	padding: 8px;
 	border-radius: 5px;
 	border: 1px solid #F1AF9E;
