@@ -26,7 +26,7 @@
 	{% endif %}
 {% endfor %}
 
-{% unsless hide_chillout_drops == true and hide_kotfresser_drops == true and hide_darmwohl_sticks == true and hide_zahnfee_sticks == true and hide_laufigkeitssaft == true and hide_gelenk_saft == true %}
+{% unless hide_chillout_drops == true and hide_kotfresser_drops == true and hide_darmwohl_sticks == true and hide_zahnfee_sticks == true and hide_laufigkeitssaft == true and hide_gelenk_saft == true %}
 		
 	<div class="cart-upsell">
 		<p class="cart-upsell__title">
@@ -633,4 +633,4 @@
 		
 		</div>
 	</div>
-{% endunsless %}
+{% endunless %}
