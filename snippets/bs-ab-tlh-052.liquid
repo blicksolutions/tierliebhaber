@@ -26,608 +26,611 @@
 	{% endif %}
 {% endfor %}
 
-<div class="cart-upsell">
-	<p class="cart-upsell__title">
-		Probier´s doch mal:
-	</p>
-	<div class="cart-upsell__container" data-js-tlh-052-container>
+{% unsless hide_chillout_drops == true and hide_kotfresser_drops == true and hide_darmwohl_sticks == true and hide_zahnfee_sticks == true and hide_laufigkeitssaft == true and hide_gelenk_saft == true %}
+		
+	<div class="cart-upsell">
+		<p class="cart-upsell__title">
+			Probier´s doch mal:
+		</p>
+		<div class="cart-upsell__container" data-js-tlh-052-container>
 
-		{% unless hide_chillout_drops == true %}
-			<div class="cart-upsell__item" data-js-tlh-052-item>
-				<h2 class="cart-upsell__heading" data-js-tlh-052-heading>
-					Entspanntes Silvester für deinen Hund?
-				</h2>
-				<div class="cart-upsell__product-container" data-js-tlh-052-product-container data-js-product-id="{{ chillout_drops.id }}">
-					<div class="product__top">
-						
-						<div class="product__image-container">
-							{{ chillout_drops.featured_image |  image_url: width: 1000 |  image_tag: class: "product__image", loading: 'lazy' }}
-						</div>
-						<div class="product__details-container">
-							<h2 class="product__title">
-								{{ chillout_drops.title }}
-							</h2>
-							<div class="product__info">
-								<div class="product__price">
-									<div class="ProductItem__PriceList Heading">
-										{%- if chillout_drops.compare_at_price > chillout_drops.price -%}
-											<span class="ProductItem__Price Price Price--highlight Text--subdued">{{ chillout_drops.price | money_without_trailing_zeros }}</span>
-											<span class="ProductItem__Price Price Price--compareAt Text--subdued">{{ chillout_drops.compare_at_price | money_without_trailing_zeros }}</span>
-										{%- elsif chillout_drops.price_varies -%}
-											{%- capture formatted_min_price -%}{{ chillout_drops.price_min | money_without_trailing_zeros }}{%- endcapture -%}
-											{%- capture formatted_max_price -%}{{ chillout_drops.price_max | money_without_trailing_zeros }}{%- endcapture -%}
-											<span class="ProductItem__Price Price Text--subdued">{{ 'collection.product.from_price_html' | t: min_price: formatted_min_price, max_price: formatted_max_price }}</span>
-										{%- else -%}
-											<span class="ProductItem__Price Price Text--subdued">{{ chillout_drops.price | money_without_trailing_zeros }}</span>
+			{% unless hide_chillout_drops == true %}
+				<div class="cart-upsell__item" data-js-tlh-052-item>
+					<h2 class="cart-upsell__heading" data-js-tlh-052-heading>
+						Entspanntes Silvester für deinen Hund?
+					</h2>
+					<div class="cart-upsell__product-container" data-js-tlh-052-product-container data-js-product-id="{{ chillout_drops.id }}">
+						<div class="product__top">
+							
+							<div class="product__image-container">
+								{{ chillout_drops.featured_image |  image_url: width: 1000 |  image_tag: class: "product__image", loading: 'lazy' }}
+							</div>
+							<div class="product__details-container">
+								<h2 class="product__title">
+									{{ chillout_drops.title }}
+								</h2>
+								<div class="product__info">
+									<div class="product__price">
+										<div class="ProductItem__PriceList Heading">
+											{%- if chillout_drops.compare_at_price > chillout_drops.price -%}
+												<span class="ProductItem__Price Price Price--highlight Text--subdued">{{ chillout_drops.price | money_without_trailing_zeros }}</span>
+												<span class="ProductItem__Price Price Price--compareAt Text--subdued">{{ chillout_drops.compare_at_price | money_without_trailing_zeros }}</span>
+											{%- elsif chillout_drops.price_varies -%}
+												{%- capture formatted_min_price -%}{{ chillout_drops.price_min | money_without_trailing_zeros }}{%- endcapture -%}
+												{%- capture formatted_max_price -%}{{ chillout_drops.price_max | money_without_trailing_zeros }}{%- endcapture -%}
+												<span class="ProductItem__Price Price Text--subdued">{{ 'collection.product.from_price_html' | t: min_price: formatted_min_price, max_price: formatted_max_price }}</span>
+											{%- else -%}
+												<span class="ProductItem__Price Price Text--subdued">{{ chillout_drops.price | money_without_trailing_zeros }}</span>
+											{%- endif -%}
+										</div>
+								
+										{%- if chillout_drops.selected_or_first_available_variant.unit_price_measurement -%}
+											<div class="ProductItem__UnitPriceMeasurement">
+												<div class="UnitPriceMeasurement Heading Text--subdued">
+													<span class="UnitPriceMeasurement__Price">{{ chillout_drops.selected_or_first_available_variant.unit_price | money_without_trailing_zeros }}</span>
+													<span class="UnitPriceMeasurement__Separator">/ </span>
+									
+													<span class="UnitPriceMeasurement__ReferenceValue" {%- if chillout_drops.selected_or_first_available_variant.unit_price_measurement.reference_value == 1 -%}style="display: none"{% endif %}>
+														{{- chillout_drops.selected_or_first_available_variant.unit_price_measurement.reference_value -}}
+													</span>
+									
+													<span class="UnitPriceMeasurement__ReferenceUnit">{{ chillout_drops.selected_or_first_available_variant.unit_price_measurement.reference_unit }}</span>
+												</div>
+											</div>
 										{%- endif -%}
 									</div>
-							
-									{%- if chillout_drops.selected_or_first_available_variant.unit_price_measurement -%}
-										<div class="ProductItem__UnitPriceMeasurement">
-											<div class="UnitPriceMeasurement Heading Text--subdued">
-												<span class="UnitPriceMeasurement__Price">{{ chillout_drops.selected_or_first_available_variant.unit_price | money_without_trailing_zeros }}</span>
-												<span class="UnitPriceMeasurement__Separator">/ </span>
-								
-												<span class="UnitPriceMeasurement__ReferenceValue" {%- if chillout_drops.selected_or_first_available_variant.unit_price_measurement.reference_value == 1 -%}style="display: none"{% endif %}>
-													{{- chillout_drops.selected_or_first_available_variant.unit_price_measurement.reference_value -}}
-												</span>
-								
-												<span class="UnitPriceMeasurement__ReferenceUnit">{{ chillout_drops.selected_or_first_available_variant.unit_price_measurement.reference_unit }}</span>
-											</div>
+									
+									<div class="product__actions">
+										<div class="product__atc">
+											{%- capture item_actions -%}
+												<div class="CartItem__Actions Heading Text--subdued" style="text-align: center">
+												<button type="button" 
+														class="Button Button--secondary CartItem__Actions__UpsellBtn"
+														data-product-id="{{ chillout_drops.id }}"
+														data-variant-id="{{ chillout_drops.selected_or_first_available_variant.id }}">
+													{{ 'cart.sidebar.upsell.add' | t }}
+												</button>
+												</div>
+											{%- endcapture -%}
+									
+											{{ item_actions }}
 										</div>
-									{%- endif -%}
-								</div>
-								
-								<div class="product__actions">
-									<div class="product__atc">
-										{%- capture item_actions -%}
-											<div class="CartItem__Actions Heading Text--subdued" style="text-align: center">
-											<button type="button" 
-													class="Button Button--secondary CartItem__Actions__UpsellBtn"
-													data-product-id="{{ chillout_drops.id }}"
-													data-variant-id="{{ chillout_drops.selected_or_first_available_variant.id }}">
-												{{ 'cart.sidebar.upsell.add' | t }}
-											</button>
-											</div>
-										{%- endcapture -%}
-								
-										{{ item_actions }}
-									</div>
-									<div class="product__usp-button" data-js-tlh-052-product-usp-button onclick="tlh052Click({{ chillout_drops.id }})">
-										<svg class="product__usp-button-icon" width="25" height="27" viewBox="0 0 25 27" fill="none">
-											<path d="M12.4999 24.2143C6.74679 24.2143 2.08325 19.4176 2.08325 13.5001C2.08325 7.58255 6.74679 2.78577 12.4999 2.78577C18.253 2.78577 22.9166 7.58255 22.9166 13.5001C22.9166 19.4176 18.253 24.2143 12.4999 24.2143ZM11.7749 20.4279C12.4312 20.4279 13.1624 20.1193 14.0624 18.8658L15.0114 17.5586C15.0391 17.5204 15.0592 17.4769 15.0703 17.4306C15.0815 17.3843 15.0835 17.3362 15.0763 17.2891C15.0691 17.242 15.0529 17.1968 15.0285 17.1562C15.0041 17.1157 14.9721 17.0806 14.9343 17.0529C14.8544 16.9949 14.7564 16.9693 14.6593 16.9812C14.5621 16.9931 14.4727 17.0415 14.4083 17.1172L12.8718 18.9161C12.8364 18.9575 12.7892 18.9861 12.7369 18.9979C12.6846 19.0096 12.6301 19.0039 12.5812 18.9815C12.5337 18.9601 12.4951 18.9221 12.4723 18.8742C12.4494 18.8264 12.4437 18.7718 12.4562 18.7201L14.3916 10.7422C14.413 10.6552 14.4128 10.5642 14.3909 10.4773C14.3691 10.3905 14.3264 10.3107 14.2668 10.2453C14.2071 10.1799 14.1324 10.1309 14.0496 10.103C13.9667 10.0751 13.8784 10.069 13.7926 10.0854L10.303 10.7422C10.2344 10.7552 10.1709 10.7881 10.1199 10.8371C10.069 10.8861 10.0327 10.9491 10.0155 11.0186L9.92596 11.3765C9.9161 11.4161 9.91519 11.4575 9.92331 11.4976C9.93142 11.5376 9.94835 11.5752 9.97279 11.6075C9.99722 11.6398 10.0285 11.6659 10.0643 11.6838C10.1 11.7017 10.1393 11.7109 10.1791 11.7108H11.9812L10.4437 18.0558C10.3874 18.3065 10.2937 18.7308 10.2937 19.0393C10.2937 19.7529 10.7062 20.4279 11.7749 20.4279ZM13.6812 9.13934C14.4124 9.13934 14.9749 8.69577 15.1249 8.02077C15.1624 7.86648 15.1812 7.69291 15.1812 7.5772C15.1812 7.0372 14.7687 6.53577 13.9999 6.53577C13.2687 6.53577 12.7062 6.97934 12.5562 7.65434C12.5214 7.79957 12.5025 7.94835 12.4999 8.09791C12.4999 8.63791 12.9124 9.13934 13.6812 9.13934Z" fill="#F1AF9E"/>
-										</svg>
-										<svg class="product-usp-button-chevron" width="26" height="25" viewBox="0 0 26 25" fill="none">
-											<g clip-path="url(#clip0_4599_132)">
-											<path fill-rule="evenodd" clip-rule="evenodd" d="M13.3413 16.3615C13.146 16.5568 12.8811 16.6665 12.6049 16.6665C12.3287 16.6665 12.0638 16.5568 11.8684 16.3615L5.97572 10.4688C5.87623 10.3727 5.79688 10.2577 5.74228 10.1307C5.68769 10.0036 5.65896 9.86689 5.65775 9.72857C5.65655 9.59026 5.68291 9.4531 5.73528 9.32508C5.78766 9.19706 5.86501 9.08076 5.96281 8.98295C6.06062 8.88515 6.17692 8.8078 6.30494 8.75543C6.43295 8.70305 6.57012 8.67669 6.70843 8.6779C6.84674 8.6791 6.98343 8.70783 7.11052 8.76243C7.23761 8.81702 7.35255 8.89637 7.44864 8.99586L12.6049 14.1521L17.7611 8.99586C17.9576 8.80612 18.2207 8.70112 18.4938 8.7035C18.767 8.70587 19.0282 8.81542 19.2214 9.00855C19.4145 9.20169 19.5241 9.46295 19.5264 9.73607C19.5288 10.0092 19.4238 10.2723 19.2341 10.4688L13.3413 16.3615Z" fill="#BBBBBB"/>
-											</g>
-											<defs>
-											<clipPath id="clip0_4599_132">
-											<rect width="25" height="25" fill="white" transform="translate(0.10498)"/>
-											</clipPath>
-											</defs>
-										</svg>
+										<div class="product__usp-button" data-js-tlh-052-product-usp-button onclick="tlh052Click({{ chillout_drops.id }})">
+											<svg class="product__usp-button-icon" width="25" height="27" viewBox="0 0 25 27" fill="none">
+												<path d="M12.4999 24.2143C6.74679 24.2143 2.08325 19.4176 2.08325 13.5001C2.08325 7.58255 6.74679 2.78577 12.4999 2.78577C18.253 2.78577 22.9166 7.58255 22.9166 13.5001C22.9166 19.4176 18.253 24.2143 12.4999 24.2143ZM11.7749 20.4279C12.4312 20.4279 13.1624 20.1193 14.0624 18.8658L15.0114 17.5586C15.0391 17.5204 15.0592 17.4769 15.0703 17.4306C15.0815 17.3843 15.0835 17.3362 15.0763 17.2891C15.0691 17.242 15.0529 17.1968 15.0285 17.1562C15.0041 17.1157 14.9721 17.0806 14.9343 17.0529C14.8544 16.9949 14.7564 16.9693 14.6593 16.9812C14.5621 16.9931 14.4727 17.0415 14.4083 17.1172L12.8718 18.9161C12.8364 18.9575 12.7892 18.9861 12.7369 18.9979C12.6846 19.0096 12.6301 19.0039 12.5812 18.9815C12.5337 18.9601 12.4951 18.9221 12.4723 18.8742C12.4494 18.8264 12.4437 18.7718 12.4562 18.7201L14.3916 10.7422C14.413 10.6552 14.4128 10.5642 14.3909 10.4773C14.3691 10.3905 14.3264 10.3107 14.2668 10.2453C14.2071 10.1799 14.1324 10.1309 14.0496 10.103C13.9667 10.0751 13.8784 10.069 13.7926 10.0854L10.303 10.7422C10.2344 10.7552 10.1709 10.7881 10.1199 10.8371C10.069 10.8861 10.0327 10.9491 10.0155 11.0186L9.92596 11.3765C9.9161 11.4161 9.91519 11.4575 9.92331 11.4976C9.93142 11.5376 9.94835 11.5752 9.97279 11.6075C9.99722 11.6398 10.0285 11.6659 10.0643 11.6838C10.1 11.7017 10.1393 11.7109 10.1791 11.7108H11.9812L10.4437 18.0558C10.3874 18.3065 10.2937 18.7308 10.2937 19.0393C10.2937 19.7529 10.7062 20.4279 11.7749 20.4279ZM13.6812 9.13934C14.4124 9.13934 14.9749 8.69577 15.1249 8.02077C15.1624 7.86648 15.1812 7.69291 15.1812 7.5772C15.1812 7.0372 14.7687 6.53577 13.9999 6.53577C13.2687 6.53577 12.7062 6.97934 12.5562 7.65434C12.5214 7.79957 12.5025 7.94835 12.4999 8.09791C12.4999 8.63791 12.9124 9.13934 13.6812 9.13934Z" fill="#F1AF9E"/>
+											</svg>
+											<svg class="product-usp-button-chevron" width="26" height="25" viewBox="0 0 26 25" fill="none">
+												<g clip-path="url(#clip0_4599_132)">
+												<path fill-rule="evenodd" clip-rule="evenodd" d="M13.3413 16.3615C13.146 16.5568 12.8811 16.6665 12.6049 16.6665C12.3287 16.6665 12.0638 16.5568 11.8684 16.3615L5.97572 10.4688C5.87623 10.3727 5.79688 10.2577 5.74228 10.1307C5.68769 10.0036 5.65896 9.86689 5.65775 9.72857C5.65655 9.59026 5.68291 9.4531 5.73528 9.32508C5.78766 9.19706 5.86501 9.08076 5.96281 8.98295C6.06062 8.88515 6.17692 8.8078 6.30494 8.75543C6.43295 8.70305 6.57012 8.67669 6.70843 8.6779C6.84674 8.6791 6.98343 8.70783 7.11052 8.76243C7.23761 8.81702 7.35255 8.89637 7.44864 8.99586L12.6049 14.1521L17.7611 8.99586C17.9576 8.80612 18.2207 8.70112 18.4938 8.7035C18.767 8.70587 19.0282 8.81542 19.2214 9.00855C19.4145 9.20169 19.5241 9.46295 19.5264 9.73607C19.5288 10.0092 19.4238 10.2723 19.2341 10.4688L13.3413 16.3615Z" fill="#BBBBBB"/>
+												</g>
+												<defs>
+												<clipPath id="clip0_4599_132">
+												<rect width="25" height="25" fill="white" transform="translate(0.10498)"/>
+												</clipPath>
+												</defs>
+											</svg>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+						<ul class="product__usps" data-js-product-usps>
+							<li class="product__usp">
+								<svg class="usp__icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+									<circle cx="8" cy="8" r="8" fill="#EFA38F"/>
+									<path d="M6.52225 11.0368L6.66367 11.1782L6.8051 11.0368L12.1882 5.65313L12.3296 5.5117L12.1882 5.37029L11.7993 4.98138L11.6578 4.83996L11.5164 4.98138L6.66367 9.83414L4.48363 7.65411L4.34231 7.51279L4.20089 7.65401L3.81144 8.04292L3.66982 8.18434L3.81134 8.32586L6.52225 11.0368Z" fill="white" stroke="white" stroke-width="0.4"/>
+								</svg>						
+								<p class="usp__text">
+									100% natürliche Beruhigungshilfe mit Baldrian
+								</p>
+							</li>
+							<li class="product__usp">
+								<svg class="usp__icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+									<circle cx="8" cy="8" r="8" fill="#EFA38F"/>
+									<path d="M6.52225 11.0368L6.66367 11.1782L6.8051 11.0368L12.1882 5.65313L12.3296 5.5117L12.1882 5.37029L11.7993 4.98138L11.6578 4.83996L11.5164 4.98138L6.66367 9.83414L4.48363 7.65411L4.34231 7.51279L4.20089 7.65401L3.81144 8.04292L3.66982 8.18434L3.81134 8.32586L6.52225 11.0368Z" fill="white" stroke="white" stroke-width="0.4"/>
+								</svg>	
+								<p class="usp__text">
+									Johanniskraut & Lavendel speziell für ängstliche Hunde
+								</p>
+							</li>
+						</ul>
 					</div>
-					<ul class="product__usps" data-js-product-usps>
-						<li class="product__usp">
-							<svg class="usp__icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
-								<circle cx="8" cy="8" r="8" fill="#EFA38F"/>
-								<path d="M6.52225 11.0368L6.66367 11.1782L6.8051 11.0368L12.1882 5.65313L12.3296 5.5117L12.1882 5.37029L11.7993 4.98138L11.6578 4.83996L11.5164 4.98138L6.66367 9.83414L4.48363 7.65411L4.34231 7.51279L4.20089 7.65401L3.81144 8.04292L3.66982 8.18434L3.81134 8.32586L6.52225 11.0368Z" fill="white" stroke="white" stroke-width="0.4"/>
-							</svg>						
-							<p class="usp__text">
-								100% natürliche Beruhigungshilfe mit Baldrian
-							</p>
-						</li>
-						<li class="product__usp">
-							<svg class="usp__icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
-								<circle cx="8" cy="8" r="8" fill="#EFA38F"/>
-								<path d="M6.52225 11.0368L6.66367 11.1782L6.8051 11.0368L12.1882 5.65313L12.3296 5.5117L12.1882 5.37029L11.7993 4.98138L11.6578 4.83996L11.5164 4.98138L6.66367 9.83414L4.48363 7.65411L4.34231 7.51279L4.20089 7.65401L3.81144 8.04292L3.66982 8.18434L3.81134 8.32586L6.52225 11.0368Z" fill="white" stroke="white" stroke-width="0.4"/>
-							</svg>	
-							<p class="usp__text">
-								Johanniskraut & Lavendel speziell für ängstliche Hunde
-							</p>
-						</li>
-					</ul>
-				</div>
-			</div>	
-		{% endunless %}
-	
-		{% unless hide_kotfresser_drops == true %}
-			<div class="cart-upsell__item" data-js-tlh-052-item>
-				<h2 class="cart-upsell__heading" data-js-tlh-052-heading>
-					Perfekt für Hunde bei Übersäuerung oder Sodbrennen!
-				</h2>
-				<div class="cart-upsell__product-container" data-js-tlh-052-product-container data-js-product-id="{{ kotfresser_drops.id }}">
-					<div class="product__top">
-						
-						<div class="product__image-container">
-							{{ kotfresser_drops.featured_image |  image_url: width: 1000 |  image_tag: class: "product__image", loading: 'lazy' }}
-						</div>
-						<div class="product__details-container">
-							<h2 class="product__title">
-								{{ kotfresser_drops.title }}
-							</h2>
-							<div class="product__info">
-								<div class="product__price">
-									<div class="ProductItem__PriceList Heading">
-										{%- if kotfresser_drops.compare_at_price > kotfresser_drops.price -%}
-											<span class="ProductItem__Price Price Price--highlight Text--subdued">{{ kotfresser_drops.price | money_without_trailing_zeros }}</span>
-											<span class="ProductItem__Price Price Price--compareAt Text--subdued">{{ kotfresser_drops.compare_at_price | money_without_trailing_zeros }}</span>
-										{%- elsif kotfresser_drops.price_varies -%}
-											{%- capture formatted_min_price -%}{{ kotfresser_drops.price_min | money_without_trailing_zeros }}{%- endcapture -%}
-											{%- capture formatted_max_price -%}{{ kotfresser_drops.price_max | money_without_trailing_zeros }}{%- endcapture -%}
-											<span class="ProductItem__Price Price Text--subdued">{{ 'collection.product.from_price_html' | t: min_price: formatted_min_price, max_price: formatted_max_price }}</span>
-										{%- else -%}
-											<span class="ProductItem__Price Price Text--subdued">{{ kotfresser_drops.price | money_without_trailing_zeros }}</span>
+				</div>	
+			{% endunless %}
+		
+			{% unless hide_kotfresser_drops == true %}
+				<div class="cart-upsell__item" data-js-tlh-052-item>
+					<h2 class="cart-upsell__heading" data-js-tlh-052-heading>
+						Perfekt für Hunde bei Übersäuerung oder Sodbrennen!
+					</h2>
+					<div class="cart-upsell__product-container" data-js-tlh-052-product-container data-js-product-id="{{ kotfresser_drops.id }}">
+						<div class="product__top">
+							
+							<div class="product__image-container">
+								{{ kotfresser_drops.featured_image |  image_url: width: 1000 |  image_tag: class: "product__image", loading: 'lazy' }}
+							</div>
+							<div class="product__details-container">
+								<h2 class="product__title">
+									{{ kotfresser_drops.title }}
+								</h2>
+								<div class="product__info">
+									<div class="product__price">
+										<div class="ProductItem__PriceList Heading">
+											{%- if kotfresser_drops.compare_at_price > kotfresser_drops.price -%}
+												<span class="ProductItem__Price Price Price--highlight Text--subdued">{{ kotfresser_drops.price | money_without_trailing_zeros }}</span>
+												<span class="ProductItem__Price Price Price--compareAt Text--subdued">{{ kotfresser_drops.compare_at_price | money_without_trailing_zeros }}</span>
+											{%- elsif kotfresser_drops.price_varies -%}
+												{%- capture formatted_min_price -%}{{ kotfresser_drops.price_min | money_without_trailing_zeros }}{%- endcapture -%}
+												{%- capture formatted_max_price -%}{{ kotfresser_drops.price_max | money_without_trailing_zeros }}{%- endcapture -%}
+												<span class="ProductItem__Price Price Text--subdued">{{ 'collection.product.from_price_html' | t: min_price: formatted_min_price, max_price: formatted_max_price }}</span>
+											{%- else -%}
+												<span class="ProductItem__Price Price Text--subdued">{{ kotfresser_drops.price | money_without_trailing_zeros }}</span>
+											{%- endif -%}
+										</div>
+								
+										{%- if kotfresser_drops.selected_or_first_available_variant.unit_price_measurement -%}
+											<div class="ProductItem__UnitPriceMeasurement">
+												<div class="UnitPriceMeasurement Heading Text--subdued">
+													<span class="UnitPriceMeasurement__Price">{{ kotfresser_drops.selected_or_first_available_variant.unit_price | money_without_trailing_zeros }}</span>
+													<span class="UnitPriceMeasurement__Separator">/ </span>
+									
+													<span class="UnitPriceMeasurement__ReferenceValue" {%- if kotfresser_drops.selected_or_first_available_variant.unit_price_measurement.reference_value == 1 -%}style="display: none"{% endif %}>
+														{{- kotfresser_drops.selected_or_first_available_variant.unit_price_measurement.reference_value -}}
+													</span>
+									
+													<span class="UnitPriceMeasurement__ReferenceUnit">{{ kotfresser_drops.selected_or_first_available_variant.unit_price_measurement.reference_unit }}</span>
+												</div>
+											</div>
 										{%- endif -%}
 									</div>
-							
-									{%- if kotfresser_drops.selected_or_first_available_variant.unit_price_measurement -%}
-										<div class="ProductItem__UnitPriceMeasurement">
-											<div class="UnitPriceMeasurement Heading Text--subdued">
-												<span class="UnitPriceMeasurement__Price">{{ kotfresser_drops.selected_or_first_available_variant.unit_price | money_without_trailing_zeros }}</span>
-												<span class="UnitPriceMeasurement__Separator">/ </span>
-								
-												<span class="UnitPriceMeasurement__ReferenceValue" {%- if kotfresser_drops.selected_or_first_available_variant.unit_price_measurement.reference_value == 1 -%}style="display: none"{% endif %}>
-													{{- kotfresser_drops.selected_or_first_available_variant.unit_price_measurement.reference_value -}}
-												</span>
-								
-												<span class="UnitPriceMeasurement__ReferenceUnit">{{ kotfresser_drops.selected_or_first_available_variant.unit_price_measurement.reference_unit }}</span>
-											</div>
+									
+									<div class="product__actions">
+										<div class="product__atc">
+											{%- capture item_actions -%}
+												<div class="CartItem__Actions Heading Text--subdued" style="text-align: center">
+												<button type="button" 
+														class="Button Button--secondary CartItem__Actions__UpsellBtn"
+														data-product-id="{{ kotfresser_drops.id }}"
+														data-variant-id="{{ kotfresser_drops.selected_or_first_available_variant.id }}">
+													{{ 'cart.sidebar.upsell.add' | t }}
+												</button>
+												</div>
+											{%- endcapture -%}
+									
+											{{ item_actions }}
 										</div>
-									{%- endif -%}
-								</div>
-								
-								<div class="product__actions">
-									<div class="product__atc">
-										{%- capture item_actions -%}
-											<div class="CartItem__Actions Heading Text--subdued" style="text-align: center">
-											<button type="button" 
-													class="Button Button--secondary CartItem__Actions__UpsellBtn"
-													data-product-id="{{ kotfresser_drops.id }}"
-													data-variant-id="{{ kotfresser_drops.selected_or_first_available_variant.id }}">
-												{{ 'cart.sidebar.upsell.add' | t }}
-											</button>
-											</div>
-										{%- endcapture -%}
-								
-										{{ item_actions }}
-									</div>
-									<div class="product__usp-button" data-js-tlh-052-product-usp-button onclick="tlh052Click({{ kotfresser_drops.id }})">
-										<svg class="product__usp-button-icon" width="25" height="27" viewBox="0 0 25 27" fill="none">
-											<path d="M12.4999 24.2143C6.74679 24.2143 2.08325 19.4176 2.08325 13.5001C2.08325 7.58255 6.74679 2.78577 12.4999 2.78577C18.253 2.78577 22.9166 7.58255 22.9166 13.5001C22.9166 19.4176 18.253 24.2143 12.4999 24.2143ZM11.7749 20.4279C12.4312 20.4279 13.1624 20.1193 14.0624 18.8658L15.0114 17.5586C15.0391 17.5204 15.0592 17.4769 15.0703 17.4306C15.0815 17.3843 15.0835 17.3362 15.0763 17.2891C15.0691 17.242 15.0529 17.1968 15.0285 17.1562C15.0041 17.1157 14.9721 17.0806 14.9343 17.0529C14.8544 16.9949 14.7564 16.9693 14.6593 16.9812C14.5621 16.9931 14.4727 17.0415 14.4083 17.1172L12.8718 18.9161C12.8364 18.9575 12.7892 18.9861 12.7369 18.9979C12.6846 19.0096 12.6301 19.0039 12.5812 18.9815C12.5337 18.9601 12.4951 18.9221 12.4723 18.8742C12.4494 18.8264 12.4437 18.7718 12.4562 18.7201L14.3916 10.7422C14.413 10.6552 14.4128 10.5642 14.3909 10.4773C14.3691 10.3905 14.3264 10.3107 14.2668 10.2453C14.2071 10.1799 14.1324 10.1309 14.0496 10.103C13.9667 10.0751 13.8784 10.069 13.7926 10.0854L10.303 10.7422C10.2344 10.7552 10.1709 10.7881 10.1199 10.8371C10.069 10.8861 10.0327 10.9491 10.0155 11.0186L9.92596 11.3765C9.9161 11.4161 9.91519 11.4575 9.92331 11.4976C9.93142 11.5376 9.94835 11.5752 9.97279 11.6075C9.99722 11.6398 10.0285 11.6659 10.0643 11.6838C10.1 11.7017 10.1393 11.7109 10.1791 11.7108H11.9812L10.4437 18.0558C10.3874 18.3065 10.2937 18.7308 10.2937 19.0393C10.2937 19.7529 10.7062 20.4279 11.7749 20.4279ZM13.6812 9.13934C14.4124 9.13934 14.9749 8.69577 15.1249 8.02077C15.1624 7.86648 15.1812 7.69291 15.1812 7.5772C15.1812 7.0372 14.7687 6.53577 13.9999 6.53577C13.2687 6.53577 12.7062 6.97934 12.5562 7.65434C12.5214 7.79957 12.5025 7.94835 12.4999 8.09791C12.4999 8.63791 12.9124 9.13934 13.6812 9.13934Z" fill="#F1AF9E"/>
-										</svg>
-										<svg class="product-usp-button-chevron" width="26" height="25" viewBox="0 0 26 25" fill="none">
-											<g clip-path="url(#clip0_4599_132)">
-											<path fill-rule="evenodd" clip-rule="evenodd" d="M13.3413 16.3615C13.146 16.5568 12.8811 16.6665 12.6049 16.6665C12.3287 16.6665 12.0638 16.5568 11.8684 16.3615L5.97572 10.4688C5.87623 10.3727 5.79688 10.2577 5.74228 10.1307C5.68769 10.0036 5.65896 9.86689 5.65775 9.72857C5.65655 9.59026 5.68291 9.4531 5.73528 9.32508C5.78766 9.19706 5.86501 9.08076 5.96281 8.98295C6.06062 8.88515 6.17692 8.8078 6.30494 8.75543C6.43295 8.70305 6.57012 8.67669 6.70843 8.6779C6.84674 8.6791 6.98343 8.70783 7.11052 8.76243C7.23761 8.81702 7.35255 8.89637 7.44864 8.99586L12.6049 14.1521L17.7611 8.99586C17.9576 8.80612 18.2207 8.70112 18.4938 8.7035C18.767 8.70587 19.0282 8.81542 19.2214 9.00855C19.4145 9.20169 19.5241 9.46295 19.5264 9.73607C19.5288 10.0092 19.4238 10.2723 19.2341 10.4688L13.3413 16.3615Z" fill="#BBBBBB"/>
-											</g>
-											<defs>
-											<clipPath id="clip0_4599_132">
-											<rect width="25" height="25" fill="white" transform="translate(0.10498)"/>
-											</clipPath>
-											</defs>
-										</svg>
+										<div class="product__usp-button" data-js-tlh-052-product-usp-button onclick="tlh052Click({{ kotfresser_drops.id }})">
+											<svg class="product__usp-button-icon" width="25" height="27" viewBox="0 0 25 27" fill="none">
+												<path d="M12.4999 24.2143C6.74679 24.2143 2.08325 19.4176 2.08325 13.5001C2.08325 7.58255 6.74679 2.78577 12.4999 2.78577C18.253 2.78577 22.9166 7.58255 22.9166 13.5001C22.9166 19.4176 18.253 24.2143 12.4999 24.2143ZM11.7749 20.4279C12.4312 20.4279 13.1624 20.1193 14.0624 18.8658L15.0114 17.5586C15.0391 17.5204 15.0592 17.4769 15.0703 17.4306C15.0815 17.3843 15.0835 17.3362 15.0763 17.2891C15.0691 17.242 15.0529 17.1968 15.0285 17.1562C15.0041 17.1157 14.9721 17.0806 14.9343 17.0529C14.8544 16.9949 14.7564 16.9693 14.6593 16.9812C14.5621 16.9931 14.4727 17.0415 14.4083 17.1172L12.8718 18.9161C12.8364 18.9575 12.7892 18.9861 12.7369 18.9979C12.6846 19.0096 12.6301 19.0039 12.5812 18.9815C12.5337 18.9601 12.4951 18.9221 12.4723 18.8742C12.4494 18.8264 12.4437 18.7718 12.4562 18.7201L14.3916 10.7422C14.413 10.6552 14.4128 10.5642 14.3909 10.4773C14.3691 10.3905 14.3264 10.3107 14.2668 10.2453C14.2071 10.1799 14.1324 10.1309 14.0496 10.103C13.9667 10.0751 13.8784 10.069 13.7926 10.0854L10.303 10.7422C10.2344 10.7552 10.1709 10.7881 10.1199 10.8371C10.069 10.8861 10.0327 10.9491 10.0155 11.0186L9.92596 11.3765C9.9161 11.4161 9.91519 11.4575 9.92331 11.4976C9.93142 11.5376 9.94835 11.5752 9.97279 11.6075C9.99722 11.6398 10.0285 11.6659 10.0643 11.6838C10.1 11.7017 10.1393 11.7109 10.1791 11.7108H11.9812L10.4437 18.0558C10.3874 18.3065 10.2937 18.7308 10.2937 19.0393C10.2937 19.7529 10.7062 20.4279 11.7749 20.4279ZM13.6812 9.13934C14.4124 9.13934 14.9749 8.69577 15.1249 8.02077C15.1624 7.86648 15.1812 7.69291 15.1812 7.5772C15.1812 7.0372 14.7687 6.53577 13.9999 6.53577C13.2687 6.53577 12.7062 6.97934 12.5562 7.65434C12.5214 7.79957 12.5025 7.94835 12.4999 8.09791C12.4999 8.63791 12.9124 9.13934 13.6812 9.13934Z" fill="#F1AF9E"/>
+											</svg>
+											<svg class="product-usp-button-chevron" width="26" height="25" viewBox="0 0 26 25" fill="none">
+												<g clip-path="url(#clip0_4599_132)">
+												<path fill-rule="evenodd" clip-rule="evenodd" d="M13.3413 16.3615C13.146 16.5568 12.8811 16.6665 12.6049 16.6665C12.3287 16.6665 12.0638 16.5568 11.8684 16.3615L5.97572 10.4688C5.87623 10.3727 5.79688 10.2577 5.74228 10.1307C5.68769 10.0036 5.65896 9.86689 5.65775 9.72857C5.65655 9.59026 5.68291 9.4531 5.73528 9.32508C5.78766 9.19706 5.86501 9.08076 5.96281 8.98295C6.06062 8.88515 6.17692 8.8078 6.30494 8.75543C6.43295 8.70305 6.57012 8.67669 6.70843 8.6779C6.84674 8.6791 6.98343 8.70783 7.11052 8.76243C7.23761 8.81702 7.35255 8.89637 7.44864 8.99586L12.6049 14.1521L17.7611 8.99586C17.9576 8.80612 18.2207 8.70112 18.4938 8.7035C18.767 8.70587 19.0282 8.81542 19.2214 9.00855C19.4145 9.20169 19.5241 9.46295 19.5264 9.73607C19.5288 10.0092 19.4238 10.2723 19.2341 10.4688L13.3413 16.3615Z" fill="#BBBBBB"/>
+												</g>
+												<defs>
+												<clipPath id="clip0_4599_132">
+												<rect width="25" height="25" fill="white" transform="translate(0.10498)"/>
+												</clipPath>
+												</defs>
+											</svg>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+						<ul class="product__usps" data-js-tlh-052-product-usps>
+							<li class="product__usp">
+								<svg class="usp__icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+									<circle cx="8" cy="8" r="8" fill="#EFA38F"/>
+									<path d="M6.52225 11.0368L6.66367 11.1782L6.8051 11.0368L12.1882 5.65313L12.3296 5.5117L12.1882 5.37029L11.7993 4.98138L11.6578 4.83996L11.5164 4.98138L6.66367 9.83414L4.48363 7.65411L4.34231 7.51279L4.20089 7.65401L3.81144 8.04292L3.66982 8.18434L3.81134 8.32586L6.52225 11.0368Z" fill="white" stroke="white" stroke-width="0.4"/>
+								</svg>						
+								<p class="usp__text">
+									Natürliche Formel mit Ulmenrine bindet Magensäure
+								</p>
+							</li>
+							<li class="product__usp">
+								<svg class="usp__icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+									<circle cx="8" cy="8" r="8" fill="#EFA38F"/>
+									<path d="M6.52225 11.0368L6.66367 11.1782L6.8051 11.0368L12.1882 5.65313L12.3296 5.5117L12.1882 5.37029L11.7993 4.98138L11.6578 4.83996L11.5164 4.98138L6.66367 9.83414L4.48363 7.65411L4.34231 7.51279L4.20089 7.65401L3.81144 8.04292L3.66982 8.18434L3.81134 8.32586L6.52225 11.0368Z" fill="white" stroke="white" stroke-width="0.4"/>
+								</svg>	
+								<p class="usp__text">
+									lindert Sodbrennen und gleicht Übersäuerung aus
+								</p>
+							</li>
+						</ul>
 					</div>
-					<ul class="product__usps" data-js-tlh-052-product-usps>
-						<li class="product__usp">
-							<svg class="usp__icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
-								<circle cx="8" cy="8" r="8" fill="#EFA38F"/>
-								<path d="M6.52225 11.0368L6.66367 11.1782L6.8051 11.0368L12.1882 5.65313L12.3296 5.5117L12.1882 5.37029L11.7993 4.98138L11.6578 4.83996L11.5164 4.98138L6.66367 9.83414L4.48363 7.65411L4.34231 7.51279L4.20089 7.65401L3.81144 8.04292L3.66982 8.18434L3.81134 8.32586L6.52225 11.0368Z" fill="white" stroke="white" stroke-width="0.4"/>
-							</svg>						
-							<p class="usp__text">
-								Natürliche Formel mit Ulmenrine bindet Magensäure
-							</p>
-						</li>
-						<li class="product__usp">
-							<svg class="usp__icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
-								<circle cx="8" cy="8" r="8" fill="#EFA38F"/>
-								<path d="M6.52225 11.0368L6.66367 11.1782L6.8051 11.0368L12.1882 5.65313L12.3296 5.5117L12.1882 5.37029L11.7993 4.98138L11.6578 4.83996L11.5164 4.98138L6.66367 9.83414L4.48363 7.65411L4.34231 7.51279L4.20089 7.65401L3.81144 8.04292L3.66982 8.18434L3.81134 8.32586L6.52225 11.0368Z" fill="white" stroke="white" stroke-width="0.4"/>
-							</svg>	
-							<p class="usp__text">
-								lindert Sodbrennen und gleicht Übersäuerung aus
-							</p>
-						</li>
-					</ul>
-				</div>
-			</div>	
-		{% endunless %}
-	
-		{% unless hide_darmwohl_sticks == true %}
-			<div class="cart-upsell__item" data-js-tlh-052-item>
-				<h2 class="cart-upsell__heading" data-js-tlh-052-heading>
-					Probleme mit den Analdrüsen oder weichem Kot?
-				</h2>
-				<div class="cart-upsell__product-container" data-js-tlh-052-product-container data-js-product-id="{{ darmwohl_sticks.id }}">
-					<div class="product__top">
-						
-						<div class="product__image-container">
-							{{ darmwohl_sticks.featured_image |  image_url: width: 1000 |  image_tag: class: "product__image", loading: 'lazy' }}
-						</div>
-						<div class="product__details-container">
-							<h2 class="product__title">
-								{{ darmwohl_sticks.title }}
-							</h2>
-							<div class="product__info">
-								<div class="product__price">
-									<div class="ProductItem__PriceList Heading">
-										{%- if darmwohl_sticks.compare_at_price > darmwohl_sticks.price -%}
-											<span class="ProductItem__Price Price Price--highlight Text--subdued">{{ darmwohl_sticks.price | money_without_trailing_zeros }}</span>
-											<span class="ProductItem__Price Price Price--compareAt Text--subdued">{{ darmwohl_sticks.compare_at_price | money_without_trailing_zeros }}</span>
-										{%- elsif darmwohl_sticks.price_varies -%}
-											{%- capture formatted_min_price -%}{{ darmwohl_sticks.price_min | money_without_trailing_zeros }}{%- endcapture -%}
-											{%- capture formatted_max_price -%}{{ darmwohl_sticks.price_max | money_without_trailing_zeros }}{%- endcapture -%}
-											<span class="ProductItem__Price Price Text--subdued">{{ 'collection.product.from_price_html' | t: min_price: formatted_min_price, max_price: formatted_max_price }}</span>
-										{%- else -%}
-											<span class="ProductItem__Price Price Text--subdued">{{ darmwohl_sticks.price | money_without_trailing_zeros }}</span>
+				</div>	
+			{% endunless %}
+		
+			{% unless hide_darmwohl_sticks == true %}
+				<div class="cart-upsell__item" data-js-tlh-052-item>
+					<h2 class="cart-upsell__heading" data-js-tlh-052-heading>
+						Probleme mit den Analdrüsen oder weichem Kot?
+					</h2>
+					<div class="cart-upsell__product-container" data-js-tlh-052-product-container data-js-product-id="{{ darmwohl_sticks.id }}">
+						<div class="product__top">
+							
+							<div class="product__image-container">
+								{{ darmwohl_sticks.featured_image |  image_url: width: 1000 |  image_tag: class: "product__image", loading: 'lazy' }}
+							</div>
+							<div class="product__details-container">
+								<h2 class="product__title">
+									{{ darmwohl_sticks.title }}
+								</h2>
+								<div class="product__info">
+									<div class="product__price">
+										<div class="ProductItem__PriceList Heading">
+											{%- if darmwohl_sticks.compare_at_price > darmwohl_sticks.price -%}
+												<span class="ProductItem__Price Price Price--highlight Text--subdued">{{ darmwohl_sticks.price | money_without_trailing_zeros }}</span>
+												<span class="ProductItem__Price Price Price--compareAt Text--subdued">{{ darmwohl_sticks.compare_at_price | money_without_trailing_zeros }}</span>
+											{%- elsif darmwohl_sticks.price_varies -%}
+												{%- capture formatted_min_price -%}{{ darmwohl_sticks.price_min | money_without_trailing_zeros }}{%- endcapture -%}
+												{%- capture formatted_max_price -%}{{ darmwohl_sticks.price_max | money_without_trailing_zeros }}{%- endcapture -%}
+												<span class="ProductItem__Price Price Text--subdued">{{ 'collection.product.from_price_html' | t: min_price: formatted_min_price, max_price: formatted_max_price }}</span>
+											{%- else -%}
+												<span class="ProductItem__Price Price Text--subdued">{{ darmwohl_sticks.price | money_without_trailing_zeros }}</span>
+											{%- endif -%}
+										</div>
+								
+										{%- if darmwohl_sticks.selected_or_first_available_variant.unit_price_measurement -%}
+											<div class="ProductItem__UnitPriceMeasurement">
+												<div class="UnitPriceMeasurement Heading Text--subdued">
+													<span class="UnitPriceMeasurement__Price">{{ darmwohl_sticks.selected_or_first_available_variant.unit_price | money_without_trailing_zeros }}</span>
+													<span class="UnitPriceMeasurement__Separator">/ </span>
+									
+													<span class="UnitPriceMeasurement__ReferenceValue" {%- if darmwohl_sticks.selected_or_first_available_variant.unit_price_measurement.reference_value == 1 -%}style="display: none"{% endif %}>
+														{{- darmwohl_sticks.selected_or_first_available_variant.unit_price_measurement.reference_value -}}
+													</span>
+									
+													<span class="UnitPriceMeasurement__ReferenceUnit">{{ darmwohl_sticks.selected_or_first_available_variant.unit_price_measurement.reference_unit }}</span>
+												</div>
+											</div>
 										{%- endif -%}
 									</div>
-							
-									{%- if darmwohl_sticks.selected_or_first_available_variant.unit_price_measurement -%}
-										<div class="ProductItem__UnitPriceMeasurement">
-											<div class="UnitPriceMeasurement Heading Text--subdued">
-												<span class="UnitPriceMeasurement__Price">{{ darmwohl_sticks.selected_or_first_available_variant.unit_price | money_without_trailing_zeros }}</span>
-												<span class="UnitPriceMeasurement__Separator">/ </span>
-								
-												<span class="UnitPriceMeasurement__ReferenceValue" {%- if darmwohl_sticks.selected_or_first_available_variant.unit_price_measurement.reference_value == 1 -%}style="display: none"{% endif %}>
-													{{- darmwohl_sticks.selected_or_first_available_variant.unit_price_measurement.reference_value -}}
-												</span>
-								
-												<span class="UnitPriceMeasurement__ReferenceUnit">{{ darmwohl_sticks.selected_or_first_available_variant.unit_price_measurement.reference_unit }}</span>
-											</div>
+									
+									<div class="product__actions">
+										<div class="product__atc">
+											{%- capture item_actions -%}
+												<div class="CartItem__Actions Heading Text--subdued" style="text-align: center">
+												<button type="button" 
+														class="Button Button--secondary CartItem__Actions__UpsellBtn"
+														data-product-id="{{ darmwohl_sticks.id }}"
+														data-variant-id="{{ darmwohl_sticks.selected_or_first_available_variant.id }}">
+													{{ 'cart.sidebar.upsell.add' | t }}
+												</button>
+												</div>
+											{%- endcapture -%}
+									
+											{{ item_actions }}
 										</div>
-									{%- endif -%}
-								</div>
-								
-								<div class="product__actions">
-									<div class="product__atc">
-										{%- capture item_actions -%}
-											<div class="CartItem__Actions Heading Text--subdued" style="text-align: center">
-											<button type="button" 
-													class="Button Button--secondary CartItem__Actions__UpsellBtn"
-													data-product-id="{{ darmwohl_sticks.id }}"
-													data-variant-id="{{ darmwohl_sticks.selected_or_first_available_variant.id }}">
-												{{ 'cart.sidebar.upsell.add' | t }}
-											</button>
-											</div>
-										{%- endcapture -%}
-								
-										{{ item_actions }}
-									</div>
-									<div class="product__usp-button" data-js-tlh-052-product-usp-button onclick="tlh052Click({{ darmwohl_sticks.id }})">
-										<svg class="product__usp-button-icon" width="25" height="27" viewBox="0 0 25 27" fill="none">
-											<path d="M12.4999 24.2143C6.74679 24.2143 2.08325 19.4176 2.08325 13.5001C2.08325 7.58255 6.74679 2.78577 12.4999 2.78577C18.253 2.78577 22.9166 7.58255 22.9166 13.5001C22.9166 19.4176 18.253 24.2143 12.4999 24.2143ZM11.7749 20.4279C12.4312 20.4279 13.1624 20.1193 14.0624 18.8658L15.0114 17.5586C15.0391 17.5204 15.0592 17.4769 15.0703 17.4306C15.0815 17.3843 15.0835 17.3362 15.0763 17.2891C15.0691 17.242 15.0529 17.1968 15.0285 17.1562C15.0041 17.1157 14.9721 17.0806 14.9343 17.0529C14.8544 16.9949 14.7564 16.9693 14.6593 16.9812C14.5621 16.9931 14.4727 17.0415 14.4083 17.1172L12.8718 18.9161C12.8364 18.9575 12.7892 18.9861 12.7369 18.9979C12.6846 19.0096 12.6301 19.0039 12.5812 18.9815C12.5337 18.9601 12.4951 18.9221 12.4723 18.8742C12.4494 18.8264 12.4437 18.7718 12.4562 18.7201L14.3916 10.7422C14.413 10.6552 14.4128 10.5642 14.3909 10.4773C14.3691 10.3905 14.3264 10.3107 14.2668 10.2453C14.2071 10.1799 14.1324 10.1309 14.0496 10.103C13.9667 10.0751 13.8784 10.069 13.7926 10.0854L10.303 10.7422C10.2344 10.7552 10.1709 10.7881 10.1199 10.8371C10.069 10.8861 10.0327 10.9491 10.0155 11.0186L9.92596 11.3765C9.9161 11.4161 9.91519 11.4575 9.92331 11.4976C9.93142 11.5376 9.94835 11.5752 9.97279 11.6075C9.99722 11.6398 10.0285 11.6659 10.0643 11.6838C10.1 11.7017 10.1393 11.7109 10.1791 11.7108H11.9812L10.4437 18.0558C10.3874 18.3065 10.2937 18.7308 10.2937 19.0393C10.2937 19.7529 10.7062 20.4279 11.7749 20.4279ZM13.6812 9.13934C14.4124 9.13934 14.9749 8.69577 15.1249 8.02077C15.1624 7.86648 15.1812 7.69291 15.1812 7.5772C15.1812 7.0372 14.7687 6.53577 13.9999 6.53577C13.2687 6.53577 12.7062 6.97934 12.5562 7.65434C12.5214 7.79957 12.5025 7.94835 12.4999 8.09791C12.4999 8.63791 12.9124 9.13934 13.6812 9.13934Z" fill="#F1AF9E"/>
-										</svg>
-										<svg class="product-usp-button-chevron" width="26" height="25" viewBox="0 0 26 25" fill="none">
-											<g clip-path="url(#clip0_4599_132)">
-											<path fill-rule="evenodd" clip-rule="evenodd" d="M13.3413 16.3615C13.146 16.5568 12.8811 16.6665 12.6049 16.6665C12.3287 16.6665 12.0638 16.5568 11.8684 16.3615L5.97572 10.4688C5.87623 10.3727 5.79688 10.2577 5.74228 10.1307C5.68769 10.0036 5.65896 9.86689 5.65775 9.72857C5.65655 9.59026 5.68291 9.4531 5.73528 9.32508C5.78766 9.19706 5.86501 9.08076 5.96281 8.98295C6.06062 8.88515 6.17692 8.8078 6.30494 8.75543C6.43295 8.70305 6.57012 8.67669 6.70843 8.6779C6.84674 8.6791 6.98343 8.70783 7.11052 8.76243C7.23761 8.81702 7.35255 8.89637 7.44864 8.99586L12.6049 14.1521L17.7611 8.99586C17.9576 8.80612 18.2207 8.70112 18.4938 8.7035C18.767 8.70587 19.0282 8.81542 19.2214 9.00855C19.4145 9.20169 19.5241 9.46295 19.5264 9.73607C19.5288 10.0092 19.4238 10.2723 19.2341 10.4688L13.3413 16.3615Z" fill="#BBBBBB"/>
-											</g>
-											<defs>
-											<clipPath id="clip0_4599_132">
-											<rect width="25" height="25" fill="white" transform="translate(0.10498)"/>
-											</clipPath>
-											</defs>
-										</svg>
+										<div class="product__usp-button" data-js-tlh-052-product-usp-button onclick="tlh052Click({{ darmwohl_sticks.id }})">
+											<svg class="product__usp-button-icon" width="25" height="27" viewBox="0 0 25 27" fill="none">
+												<path d="M12.4999 24.2143C6.74679 24.2143 2.08325 19.4176 2.08325 13.5001C2.08325 7.58255 6.74679 2.78577 12.4999 2.78577C18.253 2.78577 22.9166 7.58255 22.9166 13.5001C22.9166 19.4176 18.253 24.2143 12.4999 24.2143ZM11.7749 20.4279C12.4312 20.4279 13.1624 20.1193 14.0624 18.8658L15.0114 17.5586C15.0391 17.5204 15.0592 17.4769 15.0703 17.4306C15.0815 17.3843 15.0835 17.3362 15.0763 17.2891C15.0691 17.242 15.0529 17.1968 15.0285 17.1562C15.0041 17.1157 14.9721 17.0806 14.9343 17.0529C14.8544 16.9949 14.7564 16.9693 14.6593 16.9812C14.5621 16.9931 14.4727 17.0415 14.4083 17.1172L12.8718 18.9161C12.8364 18.9575 12.7892 18.9861 12.7369 18.9979C12.6846 19.0096 12.6301 19.0039 12.5812 18.9815C12.5337 18.9601 12.4951 18.9221 12.4723 18.8742C12.4494 18.8264 12.4437 18.7718 12.4562 18.7201L14.3916 10.7422C14.413 10.6552 14.4128 10.5642 14.3909 10.4773C14.3691 10.3905 14.3264 10.3107 14.2668 10.2453C14.2071 10.1799 14.1324 10.1309 14.0496 10.103C13.9667 10.0751 13.8784 10.069 13.7926 10.0854L10.303 10.7422C10.2344 10.7552 10.1709 10.7881 10.1199 10.8371C10.069 10.8861 10.0327 10.9491 10.0155 11.0186L9.92596 11.3765C9.9161 11.4161 9.91519 11.4575 9.92331 11.4976C9.93142 11.5376 9.94835 11.5752 9.97279 11.6075C9.99722 11.6398 10.0285 11.6659 10.0643 11.6838C10.1 11.7017 10.1393 11.7109 10.1791 11.7108H11.9812L10.4437 18.0558C10.3874 18.3065 10.2937 18.7308 10.2937 19.0393C10.2937 19.7529 10.7062 20.4279 11.7749 20.4279ZM13.6812 9.13934C14.4124 9.13934 14.9749 8.69577 15.1249 8.02077C15.1624 7.86648 15.1812 7.69291 15.1812 7.5772C15.1812 7.0372 14.7687 6.53577 13.9999 6.53577C13.2687 6.53577 12.7062 6.97934 12.5562 7.65434C12.5214 7.79957 12.5025 7.94835 12.4999 8.09791C12.4999 8.63791 12.9124 9.13934 13.6812 9.13934Z" fill="#F1AF9E"/>
+											</svg>
+											<svg class="product-usp-button-chevron" width="26" height="25" viewBox="0 0 26 25" fill="none">
+												<g clip-path="url(#clip0_4599_132)">
+												<path fill-rule="evenodd" clip-rule="evenodd" d="M13.3413 16.3615C13.146 16.5568 12.8811 16.6665 12.6049 16.6665C12.3287 16.6665 12.0638 16.5568 11.8684 16.3615L5.97572 10.4688C5.87623 10.3727 5.79688 10.2577 5.74228 10.1307C5.68769 10.0036 5.65896 9.86689 5.65775 9.72857C5.65655 9.59026 5.68291 9.4531 5.73528 9.32508C5.78766 9.19706 5.86501 9.08076 5.96281 8.98295C6.06062 8.88515 6.17692 8.8078 6.30494 8.75543C6.43295 8.70305 6.57012 8.67669 6.70843 8.6779C6.84674 8.6791 6.98343 8.70783 7.11052 8.76243C7.23761 8.81702 7.35255 8.89637 7.44864 8.99586L12.6049 14.1521L17.7611 8.99586C17.9576 8.80612 18.2207 8.70112 18.4938 8.7035C18.767 8.70587 19.0282 8.81542 19.2214 9.00855C19.4145 9.20169 19.5241 9.46295 19.5264 9.73607C19.5288 10.0092 19.4238 10.2723 19.2341 10.4688L13.3413 16.3615Z" fill="#BBBBBB"/>
+												</g>
+												<defs>
+												<clipPath id="clip0_4599_132">
+												<rect width="25" height="25" fill="white" transform="translate(0.10498)"/>
+												</clipPath>
+												</defs>
+											</svg>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+						<ul class="product__usps" data-js-product-usps>
+							<li class="product__usp">
+								<svg class="usp__icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+									<circle cx="8" cy="8" r="8" fill="#EFA38F"/>
+									<path d="M6.52225 11.0368L6.66367 11.1782L6.8051 11.0368L12.1882 5.65313L12.3296 5.5117L12.1882 5.37029L11.7993 4.98138L11.6578 4.83996L11.5164 4.98138L6.66367 9.83414L4.48363 7.65411L4.34231 7.51279L4.20089 7.65401L3.81144 8.04292L3.66982 8.18434L3.81134 8.32586L6.52225 11.0368Z" fill="white" stroke="white" stroke-width="0.4"/>
+								</svg>						
+								<p class="usp__text">
+									100% natürliche Formel festigt den Kot
+								</p>
+							</li>
+							<li class="product__usp">
+								<svg class="usp__icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+									<circle cx="8" cy="8" r="8" fill="#EFA38F"/>
+									<path d="M6.52225 11.0368L6.66367 11.1782L6.8051 11.0368L12.1882 5.65313L12.3296 5.5117L12.1882 5.37029L11.7993 4.98138L11.6578 4.83996L11.5164 4.98138L6.66367 9.83414L4.48363 7.65411L4.34231 7.51279L4.20089 7.65401L3.81144 8.04292L3.66982 8.18434L3.81134 8.32586L6.52225 11.0368Z" fill="white" stroke="white" stroke-width="0.4"/>
+								</svg>	
+								<p class="usp__text">
+									pflegt den Darm und hilft bei verstopften Analdrüsen
+								</p>
+							</li>
+						</ul>
 					</div>
-					<ul class="product__usps" data-js-product-usps>
-						<li class="product__usp">
-							<svg class="usp__icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
-								<circle cx="8" cy="8" r="8" fill="#EFA38F"/>
-								<path d="M6.52225 11.0368L6.66367 11.1782L6.8051 11.0368L12.1882 5.65313L12.3296 5.5117L12.1882 5.37029L11.7993 4.98138L11.6578 4.83996L11.5164 4.98138L6.66367 9.83414L4.48363 7.65411L4.34231 7.51279L4.20089 7.65401L3.81144 8.04292L3.66982 8.18434L3.81134 8.32586L6.52225 11.0368Z" fill="white" stroke="white" stroke-width="0.4"/>
-							</svg>						
-							<p class="usp__text">
-								100% natürliche Formel festigt den Kot
-							</p>
-						</li>
-						<li class="product__usp">
-							<svg class="usp__icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
-								<circle cx="8" cy="8" r="8" fill="#EFA38F"/>
-								<path d="M6.52225 11.0368L6.66367 11.1782L6.8051 11.0368L12.1882 5.65313L12.3296 5.5117L12.1882 5.37029L11.7993 4.98138L11.6578 4.83996L11.5164 4.98138L6.66367 9.83414L4.48363 7.65411L4.34231 7.51279L4.20089 7.65401L3.81144 8.04292L3.66982 8.18434L3.81134 8.32586L6.52225 11.0368Z" fill="white" stroke="white" stroke-width="0.4"/>
-							</svg>	
-							<p class="usp__text">
-								pflegt den Darm und hilft bei verstopften Analdrüsen
-							</p>
-						</li>
-					</ul>
-				</div>
-			</div>	
-		{% endunless %}
-	
-		{% unless hide_zahnfee_sticks == true %}
-			<div class="cart-upsell__item" data-js-tlh-052-item>
-				<h2 class="cart-upsell__heading" data-js-tlh-052-heading>
-					Gesunde Zähne und frischer Atem?
-				</h2>
-				<div class="cart-upsell__product-container" data-js-tlh-052-product-container data-js-product-id="{{ zahnfee_sticks.id }}">
-					<div class="product__top">
-						
-						<div class="product__image-container">
-							{{ zahnfee_sticks.featured_image |  image_url: width: 1000 |  image_tag: class: "product__image", loading: 'lazy' }}
-						</div>
-						<div class="product__details-container">
-							<h2 class="product__title">
-								{{ zahnfee_sticks.title }}
-							</h2>
-							<div class="product__info">
-								<div class="product__price">
-									<div class="ProductItem__PriceList Heading">
-										{%- if zahnfee_sticks.compare_at_price > zahnfee_sticks.price -%}
-											<span class="ProductItem__Price Price Price--highlight Text--subdued">{{ zahnfee_sticks.price | money_without_trailing_zeros }}</span>
-											<span class="ProductItem__Price Price Price--compareAt Text--subdued">{{ zahnfee_sticks.compare_at_price | money_without_trailing_zeros }}</span>
-										{%- elsif zahnfee_sticks.price_varies -%}
-											{%- capture formatted_min_price -%}{{ zahnfee_sticks.price_min | money_without_trailing_zeros }}{%- endcapture -%}
-											{%- capture formatted_max_price -%}{{ zahnfee_sticks.price_max | money_without_trailing_zeros }}{%- endcapture -%}
-											<span class="ProductItem__Price Price Text--subdued">{{ 'collection.product.from_price_html' | t: min_price: formatted_min_price, max_price: formatted_max_price }}</span>
-										{%- else -%}
-											<span class="ProductItem__Price Price Text--subdued">{{ zahnfee_sticks.price | money_without_trailing_zeros }}</span>
+				</div>	
+			{% endunless %}
+		
+			{% unless hide_zahnfee_sticks == true %}
+				<div class="cart-upsell__item" data-js-tlh-052-item>
+					<h2 class="cart-upsell__heading" data-js-tlh-052-heading>
+						Gesunde Zähne und frischer Atem?
+					</h2>
+					<div class="cart-upsell__product-container" data-js-tlh-052-product-container data-js-product-id="{{ zahnfee_sticks.id }}">
+						<div class="product__top">
+							
+							<div class="product__image-container">
+								{{ zahnfee_sticks.featured_image |  image_url: width: 1000 |  image_tag: class: "product__image", loading: 'lazy' }}
+							</div>
+							<div class="product__details-container">
+								<h2 class="product__title">
+									{{ zahnfee_sticks.title }}
+								</h2>
+								<div class="product__info">
+									<div class="product__price">
+										<div class="ProductItem__PriceList Heading">
+											{%- if zahnfee_sticks.compare_at_price > zahnfee_sticks.price -%}
+												<span class="ProductItem__Price Price Price--highlight Text--subdued">{{ zahnfee_sticks.price | money_without_trailing_zeros }}</span>
+												<span class="ProductItem__Price Price Price--compareAt Text--subdued">{{ zahnfee_sticks.compare_at_price | money_without_trailing_zeros }}</span>
+											{%- elsif zahnfee_sticks.price_varies -%}
+												{%- capture formatted_min_price -%}{{ zahnfee_sticks.price_min | money_without_trailing_zeros }}{%- endcapture -%}
+												{%- capture formatted_max_price -%}{{ zahnfee_sticks.price_max | money_without_trailing_zeros }}{%- endcapture -%}
+												<span class="ProductItem__Price Price Text--subdued">{{ 'collection.product.from_price_html' | t: min_price: formatted_min_price, max_price: formatted_max_price }}</span>
+											{%- else -%}
+												<span class="ProductItem__Price Price Text--subdued">{{ zahnfee_sticks.price | money_without_trailing_zeros }}</span>
+											{%- endif -%}
+										</div>
+								
+										{%- if zahnfee_sticks.selected_or_first_available_variant.unit_price_measurement -%}
+											<div class="ProductItem__UnitPriceMeasurement">
+												<div class="UnitPriceMeasurement Heading Text--subdued">
+													<span class="UnitPriceMeasurement__Price">{{ zahnfee_sticks.selected_or_first_available_variant.unit_price | money_without_trailing_zeros }}</span>
+													<span class="UnitPriceMeasurement__Separator">/ </span>
+									
+													<span class="UnitPriceMeasurement__ReferenceValue" {%- if zahnfee_sticks.selected_or_first_available_variant.unit_price_measurement.reference_value == 1 -%}style="display: none"{% endif %}>
+														{{- zahnfee_sticks.selected_or_first_available_variant.unit_price_measurement.reference_value -}}
+													</span>
+									
+													<span class="UnitPriceMeasurement__ReferenceUnit">{{ zahnfee_sticks.selected_or_first_available_variant.unit_price_measurement.reference_unit }}</span>
+												</div>
+											</div>
 										{%- endif -%}
 									</div>
-							
-									{%- if zahnfee_sticks.selected_or_first_available_variant.unit_price_measurement -%}
-										<div class="ProductItem__UnitPriceMeasurement">
-											<div class="UnitPriceMeasurement Heading Text--subdued">
-												<span class="UnitPriceMeasurement__Price">{{ zahnfee_sticks.selected_or_first_available_variant.unit_price | money_without_trailing_zeros }}</span>
-												<span class="UnitPriceMeasurement__Separator">/ </span>
-								
-												<span class="UnitPriceMeasurement__ReferenceValue" {%- if zahnfee_sticks.selected_or_first_available_variant.unit_price_measurement.reference_value == 1 -%}style="display: none"{% endif %}>
-													{{- zahnfee_sticks.selected_or_first_available_variant.unit_price_measurement.reference_value -}}
-												</span>
-								
-												<span class="UnitPriceMeasurement__ReferenceUnit">{{ zahnfee_sticks.selected_or_first_available_variant.unit_price_measurement.reference_unit }}</span>
-											</div>
+									
+									<div class="product__actions">
+										<div class="product__atc">
+											{%- capture item_actions -%}
+												<div class="CartItem__Actions Heading Text--subdued" style="text-align: center">
+												<button type="button" 
+														class="Button Button--secondary CartItem__Actions__UpsellBtn"
+														data-product-id="{{ zahnfee_sticks.id }}"
+														data-variant-id="{{ zahnfee_sticks.selected_or_first_available_variant.id }}">
+													{{ 'cart.sidebar.upsell.add' | t }}
+												</button>
+												</div>
+											{%- endcapture -%}
+									
+											{{ item_actions }}
 										</div>
-									{%- endif -%}
-								</div>
-								
-								<div class="product__actions">
-									<div class="product__atc">
-										{%- capture item_actions -%}
-											<div class="CartItem__Actions Heading Text--subdued" style="text-align: center">
-											<button type="button" 
-													class="Button Button--secondary CartItem__Actions__UpsellBtn"
-													data-product-id="{{ zahnfee_sticks.id }}"
-													data-variant-id="{{ zahnfee_sticks.selected_or_first_available_variant.id }}">
-												{{ 'cart.sidebar.upsell.add' | t }}
-											</button>
-											</div>
-										{%- endcapture -%}
-								
-										{{ item_actions }}
-									</div>
-									<div class="product__usp-button" data-js-tlh-052-product-usp-button onclick="tlh052Click({{ zahnfee_sticks.id }})">
-										<svg class="product__usp-button-icon" width="25" height="27" viewBox="0 0 25 27" fill="none">
-											<path d="M12.4999 24.2143C6.74679 24.2143 2.08325 19.4176 2.08325 13.5001C2.08325 7.58255 6.74679 2.78577 12.4999 2.78577C18.253 2.78577 22.9166 7.58255 22.9166 13.5001C22.9166 19.4176 18.253 24.2143 12.4999 24.2143ZM11.7749 20.4279C12.4312 20.4279 13.1624 20.1193 14.0624 18.8658L15.0114 17.5586C15.0391 17.5204 15.0592 17.4769 15.0703 17.4306C15.0815 17.3843 15.0835 17.3362 15.0763 17.2891C15.0691 17.242 15.0529 17.1968 15.0285 17.1562C15.0041 17.1157 14.9721 17.0806 14.9343 17.0529C14.8544 16.9949 14.7564 16.9693 14.6593 16.9812C14.5621 16.9931 14.4727 17.0415 14.4083 17.1172L12.8718 18.9161C12.8364 18.9575 12.7892 18.9861 12.7369 18.9979C12.6846 19.0096 12.6301 19.0039 12.5812 18.9815C12.5337 18.9601 12.4951 18.9221 12.4723 18.8742C12.4494 18.8264 12.4437 18.7718 12.4562 18.7201L14.3916 10.7422C14.413 10.6552 14.4128 10.5642 14.3909 10.4773C14.3691 10.3905 14.3264 10.3107 14.2668 10.2453C14.2071 10.1799 14.1324 10.1309 14.0496 10.103C13.9667 10.0751 13.8784 10.069 13.7926 10.0854L10.303 10.7422C10.2344 10.7552 10.1709 10.7881 10.1199 10.8371C10.069 10.8861 10.0327 10.9491 10.0155 11.0186L9.92596 11.3765C9.9161 11.4161 9.91519 11.4575 9.92331 11.4976C9.93142 11.5376 9.94835 11.5752 9.97279 11.6075C9.99722 11.6398 10.0285 11.6659 10.0643 11.6838C10.1 11.7017 10.1393 11.7109 10.1791 11.7108H11.9812L10.4437 18.0558C10.3874 18.3065 10.2937 18.7308 10.2937 19.0393C10.2937 19.7529 10.7062 20.4279 11.7749 20.4279ZM13.6812 9.13934C14.4124 9.13934 14.9749 8.69577 15.1249 8.02077C15.1624 7.86648 15.1812 7.69291 15.1812 7.5772C15.1812 7.0372 14.7687 6.53577 13.9999 6.53577C13.2687 6.53577 12.7062 6.97934 12.5562 7.65434C12.5214 7.79957 12.5025 7.94835 12.4999 8.09791C12.4999 8.63791 12.9124 9.13934 13.6812 9.13934Z" fill="#F1AF9E"/>
-										</svg>
-										<svg class="product-usp-button-chevron" width="26" height="25" viewBox="0 0 26 25" fill="none">
-											<g clip-path="url(#clip0_4599_132)">
-											<path fill-rule="evenodd" clip-rule="evenodd" d="M13.3413 16.3615C13.146 16.5568 12.8811 16.6665 12.6049 16.6665C12.3287 16.6665 12.0638 16.5568 11.8684 16.3615L5.97572 10.4688C5.87623 10.3727 5.79688 10.2577 5.74228 10.1307C5.68769 10.0036 5.65896 9.86689 5.65775 9.72857C5.65655 9.59026 5.68291 9.4531 5.73528 9.32508C5.78766 9.19706 5.86501 9.08076 5.96281 8.98295C6.06062 8.88515 6.17692 8.8078 6.30494 8.75543C6.43295 8.70305 6.57012 8.67669 6.70843 8.6779C6.84674 8.6791 6.98343 8.70783 7.11052 8.76243C7.23761 8.81702 7.35255 8.89637 7.44864 8.99586L12.6049 14.1521L17.7611 8.99586C17.9576 8.80612 18.2207 8.70112 18.4938 8.7035C18.767 8.70587 19.0282 8.81542 19.2214 9.00855C19.4145 9.20169 19.5241 9.46295 19.5264 9.73607C19.5288 10.0092 19.4238 10.2723 19.2341 10.4688L13.3413 16.3615Z" fill="#BBBBBB"/>
-											</g>
-											<defs>
-											<clipPath id="clip0_4599_132">
-											<rect width="25" height="25" fill="white" transform="translate(0.10498)"/>
-											</clipPath>
-											</defs>
-										</svg>
+										<div class="product__usp-button" data-js-tlh-052-product-usp-button onclick="tlh052Click({{ zahnfee_sticks.id }})">
+											<svg class="product__usp-button-icon" width="25" height="27" viewBox="0 0 25 27" fill="none">
+												<path d="M12.4999 24.2143C6.74679 24.2143 2.08325 19.4176 2.08325 13.5001C2.08325 7.58255 6.74679 2.78577 12.4999 2.78577C18.253 2.78577 22.9166 7.58255 22.9166 13.5001C22.9166 19.4176 18.253 24.2143 12.4999 24.2143ZM11.7749 20.4279C12.4312 20.4279 13.1624 20.1193 14.0624 18.8658L15.0114 17.5586C15.0391 17.5204 15.0592 17.4769 15.0703 17.4306C15.0815 17.3843 15.0835 17.3362 15.0763 17.2891C15.0691 17.242 15.0529 17.1968 15.0285 17.1562C15.0041 17.1157 14.9721 17.0806 14.9343 17.0529C14.8544 16.9949 14.7564 16.9693 14.6593 16.9812C14.5621 16.9931 14.4727 17.0415 14.4083 17.1172L12.8718 18.9161C12.8364 18.9575 12.7892 18.9861 12.7369 18.9979C12.6846 19.0096 12.6301 19.0039 12.5812 18.9815C12.5337 18.9601 12.4951 18.9221 12.4723 18.8742C12.4494 18.8264 12.4437 18.7718 12.4562 18.7201L14.3916 10.7422C14.413 10.6552 14.4128 10.5642 14.3909 10.4773C14.3691 10.3905 14.3264 10.3107 14.2668 10.2453C14.2071 10.1799 14.1324 10.1309 14.0496 10.103C13.9667 10.0751 13.8784 10.069 13.7926 10.0854L10.303 10.7422C10.2344 10.7552 10.1709 10.7881 10.1199 10.8371C10.069 10.8861 10.0327 10.9491 10.0155 11.0186L9.92596 11.3765C9.9161 11.4161 9.91519 11.4575 9.92331 11.4976C9.93142 11.5376 9.94835 11.5752 9.97279 11.6075C9.99722 11.6398 10.0285 11.6659 10.0643 11.6838C10.1 11.7017 10.1393 11.7109 10.1791 11.7108H11.9812L10.4437 18.0558C10.3874 18.3065 10.2937 18.7308 10.2937 19.0393C10.2937 19.7529 10.7062 20.4279 11.7749 20.4279ZM13.6812 9.13934C14.4124 9.13934 14.9749 8.69577 15.1249 8.02077C15.1624 7.86648 15.1812 7.69291 15.1812 7.5772C15.1812 7.0372 14.7687 6.53577 13.9999 6.53577C13.2687 6.53577 12.7062 6.97934 12.5562 7.65434C12.5214 7.79957 12.5025 7.94835 12.4999 8.09791C12.4999 8.63791 12.9124 9.13934 13.6812 9.13934Z" fill="#F1AF9E"/>
+											</svg>
+											<svg class="product-usp-button-chevron" width="26" height="25" viewBox="0 0 26 25" fill="none">
+												<g clip-path="url(#clip0_4599_132)">
+												<path fill-rule="evenodd" clip-rule="evenodd" d="M13.3413 16.3615C13.146 16.5568 12.8811 16.6665 12.6049 16.6665C12.3287 16.6665 12.0638 16.5568 11.8684 16.3615L5.97572 10.4688C5.87623 10.3727 5.79688 10.2577 5.74228 10.1307C5.68769 10.0036 5.65896 9.86689 5.65775 9.72857C5.65655 9.59026 5.68291 9.4531 5.73528 9.32508C5.78766 9.19706 5.86501 9.08076 5.96281 8.98295C6.06062 8.88515 6.17692 8.8078 6.30494 8.75543C6.43295 8.70305 6.57012 8.67669 6.70843 8.6779C6.84674 8.6791 6.98343 8.70783 7.11052 8.76243C7.23761 8.81702 7.35255 8.89637 7.44864 8.99586L12.6049 14.1521L17.7611 8.99586C17.9576 8.80612 18.2207 8.70112 18.4938 8.7035C18.767 8.70587 19.0282 8.81542 19.2214 9.00855C19.4145 9.20169 19.5241 9.46295 19.5264 9.73607C19.5288 10.0092 19.4238 10.2723 19.2341 10.4688L13.3413 16.3615Z" fill="#BBBBBB"/>
+												</g>
+												<defs>
+												<clipPath id="clip0_4599_132">
+												<rect width="25" height="25" fill="white" transform="translate(0.10498)"/>
+												</clipPath>
+												</defs>
+											</svg>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+						<ul class="product__usps" data-js-product-usps>
+							<li class="product__usp">
+								<svg class="usp__icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+									<circle cx="8" cy="8" r="8" fill="#EFA38F"/>
+									<path d="M6.52225 11.0368L6.66367 11.1782L6.8051 11.0368L12.1882 5.65313L12.3296 5.5117L12.1882 5.37029L11.7993 4.98138L11.6578 4.83996L11.5164 4.98138L6.66367 9.83414L4.48363 7.65411L4.34231 7.51279L4.20089 7.65401L3.81144 8.04292L3.66982 8.18434L3.81134 8.32586L6.52225 11.0368Z" fill="white" stroke="white" stroke-width="0.4"/>
+								</svg>						
+								<p class="usp__text">
+									Leckere, gesunde Kaustangen zur täglichen Zahnpflege
+								</p>
+							</li>
+						</ul>
 					</div>
-					<ul class="product__usps" data-js-product-usps>
-						<li class="product__usp">
-							<svg class="usp__icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
-								<circle cx="8" cy="8" r="8" fill="#EFA38F"/>
-								<path d="M6.52225 11.0368L6.66367 11.1782L6.8051 11.0368L12.1882 5.65313L12.3296 5.5117L12.1882 5.37029L11.7993 4.98138L11.6578 4.83996L11.5164 4.98138L6.66367 9.83414L4.48363 7.65411L4.34231 7.51279L4.20089 7.65401L3.81144 8.04292L3.66982 8.18434L3.81134 8.32586L6.52225 11.0368Z" fill="white" stroke="white" stroke-width="0.4"/>
-							</svg>						
-							<p class="usp__text">
-								Leckere, gesunde Kaustangen zur täglichen Zahnpflege
-							</p>
-						</li>
-					</ul>
-				</div>
-			</div>	
-		{% endunless %}
-	
-		{% unless hide_laufigkeitssaft == true %}
-			<div class="cart-upsell__item" data-js-tlh-052-item>
-				<h2 class="cart-upsell__heading" data-js-tlh-052-heading>
-					Probleme in der Läufigkeit oder mit Scheinschwangerschaft?
-				</h2>
-				<div class="cart-upsell__product-container" data-js-tlh-052-product-container data-js-product-id="{{ laufigkeitssaft.id }}">
-					<div class="product__top">
-						
-						<div class="product__image-container">
-							{{ laufigkeitssaft.featured_image |  image_url: width: 1000 |  image_tag: class: "product__image", loading: 'lazy' }}
-						</div>
-						<div class="product__details-container">
-							<h2 class="product__title">
-								{{ laufigkeitssaft.title }}
-							</h2>
-							<div class="product__info">
-								<div class="product__price">
-									<div class="ProductItem__PriceList Heading">
-										{%- if laufigkeitssaft.compare_at_price > laufigkeitssaft.price -%}
-											<span class="ProductItem__Price Price Price--highlight Text--subdued">{{ laufigkeitssaft.price | money_without_trailing_zeros }}</span>
-											<span class="ProductItem__Price Price Price--compareAt Text--subdued">{{ laufigkeitssaft.compare_at_price | money_without_trailing_zeros }}</span>
-										{%- elsif laufigkeitssaft.price_varies -%}
-											{%- capture formatted_min_price -%}{{ laufigkeitssaft.price_min | money_without_trailing_zeros }}{%- endcapture -%}
-											{%- capture formatted_max_price -%}{{ laufigkeitssaft.price_max | money_without_trailing_zeros }}{%- endcapture -%}
-											<span class="ProductItem__Price Price Text--subdued">{{ 'collection.product.from_price_html' | t: min_price: formatted_min_price, max_price: formatted_max_price }}</span>
-										{%- else -%}
-											<span class="ProductItem__Price Price Text--subdued">{{ laufigkeitssaft.price | money_without_trailing_zeros }}</span>
+				</div>	
+			{% endunless %}
+		
+			{% unless hide_laufigkeitssaft == true %}
+				<div class="cart-upsell__item" data-js-tlh-052-item>
+					<h2 class="cart-upsell__heading" data-js-tlh-052-heading>
+						Probleme in der Läufigkeit oder mit Scheinschwangerschaft?
+					</h2>
+					<div class="cart-upsell__product-container" data-js-tlh-052-product-container data-js-product-id="{{ laufigkeitssaft.id }}">
+						<div class="product__top">
+							
+							<div class="product__image-container">
+								{{ laufigkeitssaft.featured_image |  image_url: width: 1000 |  image_tag: class: "product__image", loading: 'lazy' }}
+							</div>
+							<div class="product__details-container">
+								<h2 class="product__title">
+									{{ laufigkeitssaft.title }}
+								</h2>
+								<div class="product__info">
+									<div class="product__price">
+										<div class="ProductItem__PriceList Heading">
+											{%- if laufigkeitssaft.compare_at_price > laufigkeitssaft.price -%}
+												<span class="ProductItem__Price Price Price--highlight Text--subdued">{{ laufigkeitssaft.price | money_without_trailing_zeros }}</span>
+												<span class="ProductItem__Price Price Price--compareAt Text--subdued">{{ laufigkeitssaft.compare_at_price | money_without_trailing_zeros }}</span>
+											{%- elsif laufigkeitssaft.price_varies -%}
+												{%- capture formatted_min_price -%}{{ laufigkeitssaft.price_min | money_without_trailing_zeros }}{%- endcapture -%}
+												{%- capture formatted_max_price -%}{{ laufigkeitssaft.price_max | money_without_trailing_zeros }}{%- endcapture -%}
+												<span class="ProductItem__Price Price Text--subdued">{{ 'collection.product.from_price_html' | t: min_price: formatted_min_price, max_price: formatted_max_price }}</span>
+											{%- else -%}
+												<span class="ProductItem__Price Price Text--subdued">{{ laufigkeitssaft.price | money_without_trailing_zeros }}</span>
+											{%- endif -%}
+										</div>
+								
+										{%- if laufigkeitssaft.selected_or_first_available_variant.unit_price_measurement -%}
+											<div class="ProductItem__UnitPriceMeasurement">
+												<div class="UnitPriceMeasurement Heading Text--subdued">
+													<span class="UnitPriceMeasurement__Price">{{ laufigkeitssaft.selected_or_first_available_variant.unit_price | money_without_trailing_zeros }}</span>
+													<span class="UnitPriceMeasurement__Separator">/ </span>
+									
+													<span class="UnitPriceMeasurement__ReferenceValue" {%- if laufigkeitssaft.selected_or_first_available_variant.unit_price_measurement.reference_value == 1 -%}style="display: none"{% endif %}>
+														{{- laufigkeitssaft.selected_or_first_available_variant.unit_price_measurement.reference_value -}}
+													</span>
+									
+													<span class="UnitPriceMeasurement__ReferenceUnit">{{ laufigkeitssaft.selected_or_first_available_variant.unit_price_measurement.reference_unit }}</span>
+												</div>
+											</div>
 										{%- endif -%}
 									</div>
-							
-									{%- if laufigkeitssaft.selected_or_first_available_variant.unit_price_measurement -%}
-										<div class="ProductItem__UnitPriceMeasurement">
-											<div class="UnitPriceMeasurement Heading Text--subdued">
-												<span class="UnitPriceMeasurement__Price">{{ laufigkeitssaft.selected_or_first_available_variant.unit_price | money_without_trailing_zeros }}</span>
-												<span class="UnitPriceMeasurement__Separator">/ </span>
-								
-												<span class="UnitPriceMeasurement__ReferenceValue" {%- if laufigkeitssaft.selected_or_first_available_variant.unit_price_measurement.reference_value == 1 -%}style="display: none"{% endif %}>
-													{{- laufigkeitssaft.selected_or_first_available_variant.unit_price_measurement.reference_value -}}
-												</span>
-								
-												<span class="UnitPriceMeasurement__ReferenceUnit">{{ laufigkeitssaft.selected_or_first_available_variant.unit_price_measurement.reference_unit }}</span>
-											</div>
+									
+									<div class="product__actions">
+										<div class="product__atc">
+											{%- capture item_actions -%}
+												<div class="CartItem__Actions Heading Text--subdued" style="text-align: center">
+												<button type="button" 
+														class="Button Button--secondary CartItem__Actions__UpsellBtn"
+														data-product-id="{{ laufigkeitssaft.id }}"
+														data-variant-id="{{ laufigkeitssaft.selected_or_first_available_variant.id }}">
+													{{ 'cart.sidebar.upsell.add' | t }}
+												</button>
+												</div>
+											{%- endcapture -%}
+									
+											{{ item_actions }}
 										</div>
-									{%- endif -%}
-								</div>
-								
-								<div class="product__actions">
-									<div class="product__atc">
-										{%- capture item_actions -%}
-											<div class="CartItem__Actions Heading Text--subdued" style="text-align: center">
-											<button type="button" 
-													class="Button Button--secondary CartItem__Actions__UpsellBtn"
-													data-product-id="{{ laufigkeitssaft.id }}"
-													data-variant-id="{{ laufigkeitssaft.selected_or_first_available_variant.id }}">
-												{{ 'cart.sidebar.upsell.add' | t }}
-											</button>
-											</div>
-										{%- endcapture -%}
-								
-										{{ item_actions }}
-									</div>
-									<div class="product__usp-button" data-js-tlh-052-product-usp-button onclick="tlh052Click({{ laufigkeitssaft.id }})">
-										<svg class="product__usp-button-icon" width="25" height="27" viewBox="0 0 25 27" fill="none">
-											<path d="M12.4999 24.2143C6.74679 24.2143 2.08325 19.4176 2.08325 13.5001C2.08325 7.58255 6.74679 2.78577 12.4999 2.78577C18.253 2.78577 22.9166 7.58255 22.9166 13.5001C22.9166 19.4176 18.253 24.2143 12.4999 24.2143ZM11.7749 20.4279C12.4312 20.4279 13.1624 20.1193 14.0624 18.8658L15.0114 17.5586C15.0391 17.5204 15.0592 17.4769 15.0703 17.4306C15.0815 17.3843 15.0835 17.3362 15.0763 17.2891C15.0691 17.242 15.0529 17.1968 15.0285 17.1562C15.0041 17.1157 14.9721 17.0806 14.9343 17.0529C14.8544 16.9949 14.7564 16.9693 14.6593 16.9812C14.5621 16.9931 14.4727 17.0415 14.4083 17.1172L12.8718 18.9161C12.8364 18.9575 12.7892 18.9861 12.7369 18.9979C12.6846 19.0096 12.6301 19.0039 12.5812 18.9815C12.5337 18.9601 12.4951 18.9221 12.4723 18.8742C12.4494 18.8264 12.4437 18.7718 12.4562 18.7201L14.3916 10.7422C14.413 10.6552 14.4128 10.5642 14.3909 10.4773C14.3691 10.3905 14.3264 10.3107 14.2668 10.2453C14.2071 10.1799 14.1324 10.1309 14.0496 10.103C13.9667 10.0751 13.8784 10.069 13.7926 10.0854L10.303 10.7422C10.2344 10.7552 10.1709 10.7881 10.1199 10.8371C10.069 10.8861 10.0327 10.9491 10.0155 11.0186L9.92596 11.3765C9.9161 11.4161 9.91519 11.4575 9.92331 11.4976C9.93142 11.5376 9.94835 11.5752 9.97279 11.6075C9.99722 11.6398 10.0285 11.6659 10.0643 11.6838C10.1 11.7017 10.1393 11.7109 10.1791 11.7108H11.9812L10.4437 18.0558C10.3874 18.3065 10.2937 18.7308 10.2937 19.0393C10.2937 19.7529 10.7062 20.4279 11.7749 20.4279ZM13.6812 9.13934C14.4124 9.13934 14.9749 8.69577 15.1249 8.02077C15.1624 7.86648 15.1812 7.69291 15.1812 7.5772C15.1812 7.0372 14.7687 6.53577 13.9999 6.53577C13.2687 6.53577 12.7062 6.97934 12.5562 7.65434C12.5214 7.79957 12.5025 7.94835 12.4999 8.09791C12.4999 8.63791 12.9124 9.13934 13.6812 9.13934Z" fill="#F1AF9E"/>
-										</svg>
-										<svg class="product-usp-button-chevron" width="26" height="25" viewBox="0 0 26 25" fill="none">
-											<g clip-path="url(#clip0_4599_132)">
-											<path fill-rule="evenodd" clip-rule="evenodd" d="M13.3413 16.3615C13.146 16.5568 12.8811 16.6665 12.6049 16.6665C12.3287 16.6665 12.0638 16.5568 11.8684 16.3615L5.97572 10.4688C5.87623 10.3727 5.79688 10.2577 5.74228 10.1307C5.68769 10.0036 5.65896 9.86689 5.65775 9.72857C5.65655 9.59026 5.68291 9.4531 5.73528 9.32508C5.78766 9.19706 5.86501 9.08076 5.96281 8.98295C6.06062 8.88515 6.17692 8.8078 6.30494 8.75543C6.43295 8.70305 6.57012 8.67669 6.70843 8.6779C6.84674 8.6791 6.98343 8.70783 7.11052 8.76243C7.23761 8.81702 7.35255 8.89637 7.44864 8.99586L12.6049 14.1521L17.7611 8.99586C17.9576 8.80612 18.2207 8.70112 18.4938 8.7035C18.767 8.70587 19.0282 8.81542 19.2214 9.00855C19.4145 9.20169 19.5241 9.46295 19.5264 9.73607C19.5288 10.0092 19.4238 10.2723 19.2341 10.4688L13.3413 16.3615Z" fill="#BBBBBB"/>
-											</g>
-											<defs>
-											<clipPath id="clip0_4599_132">
-											<rect width="25" height="25" fill="white" transform="translate(0.10498)"/>
-											</clipPath>
-											</defs>
-										</svg>
+										<div class="product__usp-button" data-js-tlh-052-product-usp-button onclick="tlh052Click({{ laufigkeitssaft.id }})">
+											<svg class="product__usp-button-icon" width="25" height="27" viewBox="0 0 25 27" fill="none">
+												<path d="M12.4999 24.2143C6.74679 24.2143 2.08325 19.4176 2.08325 13.5001C2.08325 7.58255 6.74679 2.78577 12.4999 2.78577C18.253 2.78577 22.9166 7.58255 22.9166 13.5001C22.9166 19.4176 18.253 24.2143 12.4999 24.2143ZM11.7749 20.4279C12.4312 20.4279 13.1624 20.1193 14.0624 18.8658L15.0114 17.5586C15.0391 17.5204 15.0592 17.4769 15.0703 17.4306C15.0815 17.3843 15.0835 17.3362 15.0763 17.2891C15.0691 17.242 15.0529 17.1968 15.0285 17.1562C15.0041 17.1157 14.9721 17.0806 14.9343 17.0529C14.8544 16.9949 14.7564 16.9693 14.6593 16.9812C14.5621 16.9931 14.4727 17.0415 14.4083 17.1172L12.8718 18.9161C12.8364 18.9575 12.7892 18.9861 12.7369 18.9979C12.6846 19.0096 12.6301 19.0039 12.5812 18.9815C12.5337 18.9601 12.4951 18.9221 12.4723 18.8742C12.4494 18.8264 12.4437 18.7718 12.4562 18.7201L14.3916 10.7422C14.413 10.6552 14.4128 10.5642 14.3909 10.4773C14.3691 10.3905 14.3264 10.3107 14.2668 10.2453C14.2071 10.1799 14.1324 10.1309 14.0496 10.103C13.9667 10.0751 13.8784 10.069 13.7926 10.0854L10.303 10.7422C10.2344 10.7552 10.1709 10.7881 10.1199 10.8371C10.069 10.8861 10.0327 10.9491 10.0155 11.0186L9.92596 11.3765C9.9161 11.4161 9.91519 11.4575 9.92331 11.4976C9.93142 11.5376 9.94835 11.5752 9.97279 11.6075C9.99722 11.6398 10.0285 11.6659 10.0643 11.6838C10.1 11.7017 10.1393 11.7109 10.1791 11.7108H11.9812L10.4437 18.0558C10.3874 18.3065 10.2937 18.7308 10.2937 19.0393C10.2937 19.7529 10.7062 20.4279 11.7749 20.4279ZM13.6812 9.13934C14.4124 9.13934 14.9749 8.69577 15.1249 8.02077C15.1624 7.86648 15.1812 7.69291 15.1812 7.5772C15.1812 7.0372 14.7687 6.53577 13.9999 6.53577C13.2687 6.53577 12.7062 6.97934 12.5562 7.65434C12.5214 7.79957 12.5025 7.94835 12.4999 8.09791C12.4999 8.63791 12.9124 9.13934 13.6812 9.13934Z" fill="#F1AF9E"/>
+											</svg>
+											<svg class="product-usp-button-chevron" width="26" height="25" viewBox="0 0 26 25" fill="none">
+												<g clip-path="url(#clip0_4599_132)">
+												<path fill-rule="evenodd" clip-rule="evenodd" d="M13.3413 16.3615C13.146 16.5568 12.8811 16.6665 12.6049 16.6665C12.3287 16.6665 12.0638 16.5568 11.8684 16.3615L5.97572 10.4688C5.87623 10.3727 5.79688 10.2577 5.74228 10.1307C5.68769 10.0036 5.65896 9.86689 5.65775 9.72857C5.65655 9.59026 5.68291 9.4531 5.73528 9.32508C5.78766 9.19706 5.86501 9.08076 5.96281 8.98295C6.06062 8.88515 6.17692 8.8078 6.30494 8.75543C6.43295 8.70305 6.57012 8.67669 6.70843 8.6779C6.84674 8.6791 6.98343 8.70783 7.11052 8.76243C7.23761 8.81702 7.35255 8.89637 7.44864 8.99586L12.6049 14.1521L17.7611 8.99586C17.9576 8.80612 18.2207 8.70112 18.4938 8.7035C18.767 8.70587 19.0282 8.81542 19.2214 9.00855C19.4145 9.20169 19.5241 9.46295 19.5264 9.73607C19.5288 10.0092 19.4238 10.2723 19.2341 10.4688L13.3413 16.3615Z" fill="#BBBBBB"/>
+												</g>
+												<defs>
+												<clipPath id="clip0_4599_132">
+												<rect width="25" height="25" fill="white" transform="translate(0.10498)"/>
+												</clipPath>
+												</defs>
+											</svg>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+						<ul class="product__usps" data-js-product-usps>
+							<li class="product__usp">
+								<svg class="usp__icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+									<circle cx="8" cy="8" r="8" fill="#EFA38F"/>
+									<path d="M6.52225 11.0368L6.66367 11.1782L6.8051 11.0368L12.1882 5.65313L12.3296 5.5117L12.1882 5.37029L11.7993 4.98138L11.6578 4.83996L11.5164 4.98138L6.66367 9.83414L4.48363 7.65411L4.34231 7.51279L4.20089 7.65401L3.81144 8.04292L3.66982 8.18434L3.81134 8.32586L6.52225 11.0368Z" fill="white" stroke="white" stroke-width="0.4"/>
+								</svg>						
+								<p class="usp__text">
+									Hormonausgleichende, beruhigende Formel die bei Läufigkeitsproblemen und Scheinschwangerschaft hilft
+								</p>
+							</li>
+						</ul>
 					</div>
-					<ul class="product__usps" data-js-product-usps>
-						<li class="product__usp">
-							<svg class="usp__icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
-								<circle cx="8" cy="8" r="8" fill="#EFA38F"/>
-								<path d="M6.52225 11.0368L6.66367 11.1782L6.8051 11.0368L12.1882 5.65313L12.3296 5.5117L12.1882 5.37029L11.7993 4.98138L11.6578 4.83996L11.5164 4.98138L6.66367 9.83414L4.48363 7.65411L4.34231 7.51279L4.20089 7.65401L3.81144 8.04292L3.66982 8.18434L3.81134 8.32586L6.52225 11.0368Z" fill="white" stroke="white" stroke-width="0.4"/>
-							</svg>						
-							<p class="usp__text">
-								Hormonausgleichende, beruhigende Formel die bei Läufigkeitsproblemen und Scheinschwangerschaft hilft
-							</p>
-						</li>
-					</ul>
-				</div>
-			</div>	
-		{% endunless %}
-	
-		{% unless hide_gelenk_saft == true %}
-			<div class="cart-upsell__item" data-js-tlh-052-item>
-				<h2 class="cart-upsell__heading" data-js-tlh-052-heading>
-					Perfekt für alte, schwere und sportliche Hunde!
-				</h2>
-				<div class="cart-upsell__product-container" data-js-tlh-052-product-container data-js-product-id="{{ gelenk_saft.id }}">
-					<div class="product__top">
-						
-						<div class="product__image-container">
-							{{ gelenk_saft.featured_image |  image_url: width: 1000 |  image_tag: class: "product__image", loading: 'lazy' }}
-						</div>
-						<div class="product__details-container">
-							<h2 class="product__title">
-								{{ gelenk_saft.title }}
-							</h2>
-							<div class="product__info">
-								<div class="product__price">
-									<div class="ProductItem__PriceList Heading">
-										{%- if gelenk_saft.compare_at_price > gelenk_saft.price -%}
-											<span class="ProductItem__Price Price Price--highlight Text--subdued">{{ gelenk_saft.price | money_without_trailing_zeros }}</span>
-											<span class="ProductItem__Price Price Price--compareAt Text--subdued">{{ gelenk_saft.compare_at_price | money_without_trailing_zeros }}</span>
-										{%- elsif gelenk_saft.price_varies -%}
-											{%- capture formatted_min_price -%}{{ gelenk_saft.price_min | money_without_trailing_zeros }}{%- endcapture -%}
-											{%- capture formatted_max_price -%}{{ gelenk_saft.price_max | money_without_trailing_zeros }}{%- endcapture -%}
-											<span class="ProductItem__Price Price Text--subdued">{{ 'collection.product.from_price_html' | t: min_price: formatted_min_price, max_price: formatted_max_price }}</span>
-										{%- else -%}
-											<span class="ProductItem__Price Price Text--subdued">{{ gelenk_saft.price | money_without_trailing_zeros }}</span>
+				</div>	
+			{% endunless %}
+		
+			{% unless hide_gelenk_saft == true %}
+				<div class="cart-upsell__item" data-js-tlh-052-item>
+					<h2 class="cart-upsell__heading" data-js-tlh-052-heading>
+						Perfekt für alte, schwere und sportliche Hunde!
+					</h2>
+					<div class="cart-upsell__product-container" data-js-tlh-052-product-container data-js-product-id="{{ gelenk_saft.id }}">
+						<div class="product__top">
+							
+							<div class="product__image-container">
+								{{ gelenk_saft.featured_image |  image_url: width: 1000 |  image_tag: class: "product__image", loading: 'lazy' }}
+							</div>
+							<div class="product__details-container">
+								<h2 class="product__title">
+									{{ gelenk_saft.title }}
+								</h2>
+								<div class="product__info">
+									<div class="product__price">
+										<div class="ProductItem__PriceList Heading">
+											{%- if gelenk_saft.compare_at_price > gelenk_saft.price -%}
+												<span class="ProductItem__Price Price Price--highlight Text--subdued">{{ gelenk_saft.price | money_without_trailing_zeros }}</span>
+												<span class="ProductItem__Price Price Price--compareAt Text--subdued">{{ gelenk_saft.compare_at_price | money_without_trailing_zeros }}</span>
+											{%- elsif gelenk_saft.price_varies -%}
+												{%- capture formatted_min_price -%}{{ gelenk_saft.price_min | money_without_trailing_zeros }}{%- endcapture -%}
+												{%- capture formatted_max_price -%}{{ gelenk_saft.price_max | money_without_trailing_zeros }}{%- endcapture -%}
+												<span class="ProductItem__Price Price Text--subdued">{{ 'collection.product.from_price_html' | t: min_price: formatted_min_price, max_price: formatted_max_price }}</span>
+											{%- else -%}
+												<span class="ProductItem__Price Price Text--subdued">{{ gelenk_saft.price | money_without_trailing_zeros }}</span>
+											{%- endif -%}
+										</div>
+								
+										{%- if gelenk_saft.selected_or_first_available_variant.unit_price_measurement -%}
+											<div class="ProductItem__UnitPriceMeasurement">
+												<div class="UnitPriceMeasurement Heading Text--subdued">
+													<span class="UnitPriceMeasurement__Price">{{ gelenk_saft.selected_or_first_available_variant.unit_price | money_without_trailing_zeros }}</span>
+													<span class="UnitPriceMeasurement__Separator">/ </span>
+									
+													<span class="UnitPriceMeasurement__ReferenceValue" {%- if gelenk_saft.selected_or_first_available_variant.unit_price_measurement.reference_value == 1 -%}style="display: none"{% endif %}>
+														{{- gelenk_saft.selected_or_first_available_variant.unit_price_measurement.reference_value -}}
+													</span>
+									
+													<span class="UnitPriceMeasurement__ReferenceUnit">{{ gelenk_saft.selected_or_first_available_variant.unit_price_measurement.reference_unit }}</span>
+												</div>
+											</div>
 										{%- endif -%}
 									</div>
-							
-									{%- if gelenk_saft.selected_or_first_available_variant.unit_price_measurement -%}
-										<div class="ProductItem__UnitPriceMeasurement">
-											<div class="UnitPriceMeasurement Heading Text--subdued">
-												<span class="UnitPriceMeasurement__Price">{{ gelenk_saft.selected_or_first_available_variant.unit_price | money_without_trailing_zeros }}</span>
-												<span class="UnitPriceMeasurement__Separator">/ </span>
-								
-												<span class="UnitPriceMeasurement__ReferenceValue" {%- if gelenk_saft.selected_or_first_available_variant.unit_price_measurement.reference_value == 1 -%}style="display: none"{% endif %}>
-													{{- gelenk_saft.selected_or_first_available_variant.unit_price_measurement.reference_value -}}
-												</span>
-								
-												<span class="UnitPriceMeasurement__ReferenceUnit">{{ gelenk_saft.selected_or_first_available_variant.unit_price_measurement.reference_unit }}</span>
-											</div>
+									
+									<div class="product__actions">
+										<div class="product__atc">
+											{%- capture item_actions -%}
+												<div class="CartItem__Actions Heading Text--subdued" style="text-align: center">
+												<button type="button" 
+														class="Button Button--secondary CartItem__Actions__UpsellBtn"
+														data-product-id="{{ gelenk_saft.id }}"
+														data-variant-id="{{ gelenk_saft.selected_or_first_available_variant.id }}">
+													{{ 'cart.sidebar.upsell.add' | t }}
+												</button>
+												</div>
+											{%- endcapture -%}
+									
+											{{ item_actions }}
 										</div>
-									{%- endif -%}
-								</div>
-								
-								<div class="product__actions">
-									<div class="product__atc">
-										{%- capture item_actions -%}
-											<div class="CartItem__Actions Heading Text--subdued" style="text-align: center">
-											<button type="button" 
-													class="Button Button--secondary CartItem__Actions__UpsellBtn"
-													data-product-id="{{ gelenk_saft.id }}"
-													data-variant-id="{{ gelenk_saft.selected_or_first_available_variant.id }}">
-												{{ 'cart.sidebar.upsell.add' | t }}
-											</button>
-											</div>
-										{%- endcapture -%}
-								
-										{{ item_actions }}
-									</div>
-									<div class="product__usp-button" data-js-tlh-052-product-usp-button onclick="tlh052Click({{ gelenk_saft.id }})">
-										<svg class="product__usp-button-icon" width="25" height="27" viewBox="0 0 25 27" fill="none">
-											<path d="M12.4999 24.2143C6.74679 24.2143 2.08325 19.4176 2.08325 13.5001C2.08325 7.58255 6.74679 2.78577 12.4999 2.78577C18.253 2.78577 22.9166 7.58255 22.9166 13.5001C22.9166 19.4176 18.253 24.2143 12.4999 24.2143ZM11.7749 20.4279C12.4312 20.4279 13.1624 20.1193 14.0624 18.8658L15.0114 17.5586C15.0391 17.5204 15.0592 17.4769 15.0703 17.4306C15.0815 17.3843 15.0835 17.3362 15.0763 17.2891C15.0691 17.242 15.0529 17.1968 15.0285 17.1562C15.0041 17.1157 14.9721 17.0806 14.9343 17.0529C14.8544 16.9949 14.7564 16.9693 14.6593 16.9812C14.5621 16.9931 14.4727 17.0415 14.4083 17.1172L12.8718 18.9161C12.8364 18.9575 12.7892 18.9861 12.7369 18.9979C12.6846 19.0096 12.6301 19.0039 12.5812 18.9815C12.5337 18.9601 12.4951 18.9221 12.4723 18.8742C12.4494 18.8264 12.4437 18.7718 12.4562 18.7201L14.3916 10.7422C14.413 10.6552 14.4128 10.5642 14.3909 10.4773C14.3691 10.3905 14.3264 10.3107 14.2668 10.2453C14.2071 10.1799 14.1324 10.1309 14.0496 10.103C13.9667 10.0751 13.8784 10.069 13.7926 10.0854L10.303 10.7422C10.2344 10.7552 10.1709 10.7881 10.1199 10.8371C10.069 10.8861 10.0327 10.9491 10.0155 11.0186L9.92596 11.3765C9.9161 11.4161 9.91519 11.4575 9.92331 11.4976C9.93142 11.5376 9.94835 11.5752 9.97279 11.6075C9.99722 11.6398 10.0285 11.6659 10.0643 11.6838C10.1 11.7017 10.1393 11.7109 10.1791 11.7108H11.9812L10.4437 18.0558C10.3874 18.3065 10.2937 18.7308 10.2937 19.0393C10.2937 19.7529 10.7062 20.4279 11.7749 20.4279ZM13.6812 9.13934C14.4124 9.13934 14.9749 8.69577 15.1249 8.02077C15.1624 7.86648 15.1812 7.69291 15.1812 7.5772C15.1812 7.0372 14.7687 6.53577 13.9999 6.53577C13.2687 6.53577 12.7062 6.97934 12.5562 7.65434C12.5214 7.79957 12.5025 7.94835 12.4999 8.09791C12.4999 8.63791 12.9124 9.13934 13.6812 9.13934Z" fill="#F1AF9E"/>
-										</svg>
-										<svg class="product-usp-button-chevron" width="26" height="25" viewBox="0 0 26 25" fill="none">
-											<g clip-path="url(#clip0_4599_132)">
-											<path fill-rule="evenodd" clip-rule="evenodd" d="M13.3413 16.3615C13.146 16.5568 12.8811 16.6665 12.6049 16.6665C12.3287 16.6665 12.0638 16.5568 11.8684 16.3615L5.97572 10.4688C5.87623 10.3727 5.79688 10.2577 5.74228 10.1307C5.68769 10.0036 5.65896 9.86689 5.65775 9.72857C5.65655 9.59026 5.68291 9.4531 5.73528 9.32508C5.78766 9.19706 5.86501 9.08076 5.96281 8.98295C6.06062 8.88515 6.17692 8.8078 6.30494 8.75543C6.43295 8.70305 6.57012 8.67669 6.70843 8.6779C6.84674 8.6791 6.98343 8.70783 7.11052 8.76243C7.23761 8.81702 7.35255 8.89637 7.44864 8.99586L12.6049 14.1521L17.7611 8.99586C17.9576 8.80612 18.2207 8.70112 18.4938 8.7035C18.767 8.70587 19.0282 8.81542 19.2214 9.00855C19.4145 9.20169 19.5241 9.46295 19.5264 9.73607C19.5288 10.0092 19.4238 10.2723 19.2341 10.4688L13.3413 16.3615Z" fill="#BBBBBB"/>
-											</g>
-											<defs>
-											<clipPath id="clip0_4599_132">
-											<rect width="25" height="25" fill="white" transform="translate(0.10498)"/>
-											</clipPath>
-											</defs>
-										</svg>
+										<div class="product__usp-button" data-js-tlh-052-product-usp-button onclick="tlh052Click({{ gelenk_saft.id }})">
+											<svg class="product__usp-button-icon" width="25" height="27" viewBox="0 0 25 27" fill="none">
+												<path d="M12.4999 24.2143C6.74679 24.2143 2.08325 19.4176 2.08325 13.5001C2.08325 7.58255 6.74679 2.78577 12.4999 2.78577C18.253 2.78577 22.9166 7.58255 22.9166 13.5001C22.9166 19.4176 18.253 24.2143 12.4999 24.2143ZM11.7749 20.4279C12.4312 20.4279 13.1624 20.1193 14.0624 18.8658L15.0114 17.5586C15.0391 17.5204 15.0592 17.4769 15.0703 17.4306C15.0815 17.3843 15.0835 17.3362 15.0763 17.2891C15.0691 17.242 15.0529 17.1968 15.0285 17.1562C15.0041 17.1157 14.9721 17.0806 14.9343 17.0529C14.8544 16.9949 14.7564 16.9693 14.6593 16.9812C14.5621 16.9931 14.4727 17.0415 14.4083 17.1172L12.8718 18.9161C12.8364 18.9575 12.7892 18.9861 12.7369 18.9979C12.6846 19.0096 12.6301 19.0039 12.5812 18.9815C12.5337 18.9601 12.4951 18.9221 12.4723 18.8742C12.4494 18.8264 12.4437 18.7718 12.4562 18.7201L14.3916 10.7422C14.413 10.6552 14.4128 10.5642 14.3909 10.4773C14.3691 10.3905 14.3264 10.3107 14.2668 10.2453C14.2071 10.1799 14.1324 10.1309 14.0496 10.103C13.9667 10.0751 13.8784 10.069 13.7926 10.0854L10.303 10.7422C10.2344 10.7552 10.1709 10.7881 10.1199 10.8371C10.069 10.8861 10.0327 10.9491 10.0155 11.0186L9.92596 11.3765C9.9161 11.4161 9.91519 11.4575 9.92331 11.4976C9.93142 11.5376 9.94835 11.5752 9.97279 11.6075C9.99722 11.6398 10.0285 11.6659 10.0643 11.6838C10.1 11.7017 10.1393 11.7109 10.1791 11.7108H11.9812L10.4437 18.0558C10.3874 18.3065 10.2937 18.7308 10.2937 19.0393C10.2937 19.7529 10.7062 20.4279 11.7749 20.4279ZM13.6812 9.13934C14.4124 9.13934 14.9749 8.69577 15.1249 8.02077C15.1624 7.86648 15.1812 7.69291 15.1812 7.5772C15.1812 7.0372 14.7687 6.53577 13.9999 6.53577C13.2687 6.53577 12.7062 6.97934 12.5562 7.65434C12.5214 7.79957 12.5025 7.94835 12.4999 8.09791C12.4999 8.63791 12.9124 9.13934 13.6812 9.13934Z" fill="#F1AF9E"/>
+											</svg>
+											<svg class="product-usp-button-chevron" width="26" height="25" viewBox="0 0 26 25" fill="none">
+												<g clip-path="url(#clip0_4599_132)">
+												<path fill-rule="evenodd" clip-rule="evenodd" d="M13.3413 16.3615C13.146 16.5568 12.8811 16.6665 12.6049 16.6665C12.3287 16.6665 12.0638 16.5568 11.8684 16.3615L5.97572 10.4688C5.87623 10.3727 5.79688 10.2577 5.74228 10.1307C5.68769 10.0036 5.65896 9.86689 5.65775 9.72857C5.65655 9.59026 5.68291 9.4531 5.73528 9.32508C5.78766 9.19706 5.86501 9.08076 5.96281 8.98295C6.06062 8.88515 6.17692 8.8078 6.30494 8.75543C6.43295 8.70305 6.57012 8.67669 6.70843 8.6779C6.84674 8.6791 6.98343 8.70783 7.11052 8.76243C7.23761 8.81702 7.35255 8.89637 7.44864 8.99586L12.6049 14.1521L17.7611 8.99586C17.9576 8.80612 18.2207 8.70112 18.4938 8.7035C18.767 8.70587 19.0282 8.81542 19.2214 9.00855C19.4145 9.20169 19.5241 9.46295 19.5264 9.73607C19.5288 10.0092 19.4238 10.2723 19.2341 10.4688L13.3413 16.3615Z" fill="#BBBBBB"/>
+												</g>
+												<defs>
+												<clipPath id="clip0_4599_132">
+												<rect width="25" height="25" fill="white" transform="translate(0.10498)"/>
+												</clipPath>
+												</defs>
+											</svg>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+						<ul class="product__usps" data-js-product-usps>
+							<li class="product__usp">
+								<svg class="usp__icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+									<circle cx="8" cy="8" r="8" fill="#EFA38F"/>
+									<path d="M6.52225 11.0368L6.66367 11.1782L6.8051 11.0368L12.1882 5.65313L12.3296 5.5117L12.1882 5.37029L11.7993 4.98138L11.6578 4.83996L11.5164 4.98138L6.66367 9.83414L4.48363 7.65411L4.34231 7.51279L4.20089 7.65401L3.81144 8.04292L3.66982 8.18434L3.81134 8.32586L6.52225 11.0368Z" fill="white" stroke="white" stroke-width="0.4"/>
+								</svg>						
+								<p class="usp__text">
+									Die besten Gelenknährstoffe in einer leckeren Kaustange vereint
+								</p>
+							</li>
+						</ul>
 					</div>
-					<ul class="product__usps" data-js-product-usps>
-						<li class="product__usp">
-							<svg class="usp__icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
-								<circle cx="8" cy="8" r="8" fill="#EFA38F"/>
-								<path d="M6.52225 11.0368L6.66367 11.1782L6.8051 11.0368L12.1882 5.65313L12.3296 5.5117L12.1882 5.37029L11.7993 4.98138L11.6578 4.83996L11.5164 4.98138L6.66367 9.83414L4.48363 7.65411L4.34231 7.51279L4.20089 7.65401L3.81144 8.04292L3.66982 8.18434L3.81134 8.32586L6.52225 11.0368Z" fill="white" stroke="white" stroke-width="0.4"/>
-							</svg>						
-							<p class="usp__text">
-								Die besten Gelenknährstoffe in einer leckeren Kaustange vereint
-							</p>
-						</li>
-					</ul>
-				</div>
-			</div>	
-		{% endunless %}
-	
+				</div>	
+			{% endunless %}
+		
+		</div>
 	</div>
-</div>
+{% endunsless %}
