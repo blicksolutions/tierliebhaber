@@ -10,7 +10,7 @@
 
 		const calculateTimeDifference = (currentHours, currentMinutes, targetHours) => {
 			const currentTotalMinutes = (currentHours * 60) + currentMinutes;
-			const targetTotalMinutes = targetHours * 60;  // Target time is in hours only (12:00 or 24:00)
+			const targetTotalMinutes = targetHours * 60;
 			
 			const diffMinutes = targetTotalMinutes - currentTotalMinutes;
 			const hours = Math.floor(diffMinutes / 60);
@@ -24,9 +24,11 @@
 			const minutesSpan = infoTextVC.querySelector(".ProductForm__ShippingEta--version-c__minutes");
 			const deliveryDateSpan = infoTextVC.querySelector(".ProductForm__ShippingEta--version-c__delivery-date");
 
-			hoursSpan.innerHTML = hours;
-			minutesSpan.innerHTML = minutes;
-			deliveryDateSpan.innerHTML = deliveryDate;
+			if(hoursSpan, minutesSpan, deliveryDateSpan) {
+				hoursSpan.innerHTML = hours;
+				minutesSpan.innerHTML = minutes;
+				deliveryDateSpan.innerHTML = deliveryDate;
+			}
 		}
 
 		if(hours < 12) {

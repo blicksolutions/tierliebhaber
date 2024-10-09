@@ -1,6 +1,7 @@
 .ProductForm__ShippingEta--version-c {
 	display: none;
 	gap: 7px;
+	margin: 8px 0;
 }
 
 .ProductForm__ShippingEta--version-c svg {
@@ -15,4 +16,11 @@
 
 .ProductForm__ShippingEta--version-c__text span {
 	color: #77A464;
+}
+
+@media (min-width: 768px) {
+	.ProductForm__ShippingEta--version-c__text {
+		font-size: 14px;
+		line-height: 18px;
+	}
 }
