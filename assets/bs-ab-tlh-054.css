@@ -12,6 +12,7 @@
 
 .bs-info-badge svg {
 	min-width: fit-content;
+	width: fit-content;
 }
 
 .bs-info-badge__description {
