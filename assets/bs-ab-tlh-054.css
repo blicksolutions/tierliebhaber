@@ -11,7 +11,7 @@
 }
 
 .bs-info-badge svg {
-	min-width: fit-content;
+	min-width: auto;
 }
 
 .bs-info-badge__description {
