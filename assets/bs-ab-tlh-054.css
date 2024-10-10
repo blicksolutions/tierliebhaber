@@ -12,13 +12,13 @@
 
 .bs-info-badge svg {
 	min-width: fit-content;
-	width: fit-content;
 }
 
 .bs-info-badge__description {
 	font-size: 12px;
 	line-height: 15px;
 	color: #1C1B1B;
+	width: 100%;
 }
 
 .bs-info-badge__description strong {
