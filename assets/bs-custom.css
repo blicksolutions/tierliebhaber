@@ -1021,4 +1021,16 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
         order: 3;
     }
 }
- 
+
+/******************************************************************/
+/* Highlight second menu item
+/******************************************************************/
+
+.Header .Header__MainNav .HorizontalList > li:nth-child(2) {
+	padding: 8px 20px;;
+	background-color: #d4c7e7;;
+}
+
+.Header .Header__MainNav .HorizontalList > li:nth-child(2) a {
+	font-size: 16px;
+}
