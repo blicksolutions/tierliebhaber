@@ -1,127 +1,297 @@
 {%- assign main_menu_handle = section.settings.primary_menu | default: 'main-menu' -%}
 {%- assign main_menu = linklists[main_menu_handle] -%}
 
-<section id="sidebar-menu" class="SidebarMenu Drawer Drawer--small Drawer--fromLeft" aria-hidden="true" data-section-id="{{ section.id }}" data-section-type="sidebar-menu">
-    <header class="Drawer__Header" data-drawer-animated-left>
-      <button class="Drawer__Close Icon-Wrapper--clickable" data-action="close-drawer" data-drawer-id="sidebar-menu" aria-label="{{ 'header.navigation.close_sidebar' | t }}">
-        {%- render 'icon' with 'close' -%}
-      </button>
-    </header>
+<!-- A - VARIANT -->
+<section id="sidebar-menu" class="SidebarMenu Drawer Drawer--small Drawer--fromLeft a-variant" aria-hidden="true" data-section-id="{{ section.id }}" data-section-type="sidebar-menu">
+	<header class="Drawer__Header" data-drawer-animated-left>
+		<button class="Drawer__Close Icon-Wrapper--clickable" data-action="close-drawer" data-drawer-id="sidebar-menu" aria-label="{{ 'header.navigation.close_sidebar' | t }}">
+			{%- render 'icon' with 'close' -%}
+		</button>
+	</header>
 
-    <div class="Drawer__Content">
-      <div class="Drawer__Main" data-drawer-animated-left data-scrollable>
-        <div class="Drawer__Container">
-          <nav class="SidebarMenu__Nav SidebarMenu__Nav--primary" aria-label="{{ 'header.navigation.sidebar_title' | t }}">
-            {%- for link in main_menu.links -%}
-              <div class="Collapsible">
-                {%- if link.links != blank -%}
-                  <button class="Collapsible__Button Heading u-h6" data-action="toggle-collapsible" {% if link.links != blank %}aria-expanded="false"{% endif %}>
-                    {{- link.title | escape -}} <span class="Collapsible__Plus"></span>
-                  </button>
+	<div class="Drawer__Content">
+		<div class="Drawer__Main" data-drawer-animated-left data-scrollable>
+			<div class="Drawer__Container">
+				<nav class="SidebarMenu__Nav SidebarMenu__Nav--primary" aria-label="{{ 'header.navigation.sidebar_title' | t }}">
+					{%- for link in main_menu.links -%}
+						<div class="Collapsible">
+							{%- if link.links != blank -%}
+								<button
+									class="Collapsible__Button Heading u-h6"
+									data-action="toggle-collapsible"
+									{% if link.links != blank %}
+										aria-expanded="false"
+									{% endif %}
+								>
+									{{- link.title | escape -}}
+									<span class="Collapsible__Plus"></span>
+								</button>
 
-                  <div class="Collapsible__Inner">
-                    <div class="Collapsible__Content">
-                      {%- for sub_link in link.links -%}
-                        <div class="Collapsible">
-                          {%- if sub_link.links != blank -%}
-                            <button class="Collapsible__Button Heading Text--subdued Link--primary u-h7" data-action="toggle-collapsible" {% if sub_link.links != blank %}aria-expanded="false"{% endif %}>
-                              {{- sub_link.title | escape -}} <span class="Collapsible__Plus"></span>
-                            </button>
+								<div class="Collapsible__Inner">
+									<div class="Collapsible__Content">
+										{%- for sub_link in link.links -%}
+											<div class="Collapsible">
+												{%- if sub_link.links != blank -%}
+													<button
+														class="Collapsible__Button Heading Text--subdued Link--primary u-h7"
+														data-action="toggle-collapsible"
+														{% if sub_link.links != blank %}
+															aria-expanded="false"
+														{% endif %}
+													>
+														{{- sub_link.title | escape -}}
+														<span class="Collapsible__Plus"></span>
+													</button>
 
-                            <div class="Collapsible__Inner">
-                              <div class="Collapsible__Content">
-                                <ul class="Linklist Linklist--bordered Linklist--spacingLoose">
-                                  {%- for sub_sub_link in sub_link.links -%}
-                                    <li class="Linklist__Item">
-                                      <a href="{{ sub_sub_link.url }}" class="Text--subdued Link Link--primary">{{ sub_sub_link.title | escape }}</a>
-                                    </li>
-                                  {%- endfor -%}
-                                </ul>
-                              </div>
-                            </div>
-                          {%- else -%}
-                            <a href="{{ sub_link.url }}" class="Collapsible__Button Heading Text--subdued Link Link--primary u-h7">{{ sub_link.title | escape }}</a>
-                          {%- endif -%}
-                        </div>
-                      {%- endfor -%}
-                    </div>
-                  </div>
-                {%- else -%}
-                  <a href="{{ link.url }}" class="Collapsible__Button Heading Link Link--primary u-h6">{{ link.title | escape }}</a>
-                {%- endif -%}
-              </div>
-            {%- endfor -%}
-          </nav>
+													<div class="Collapsible__Inner">
+														<div class="Collapsible__Content">
+															<ul class="Linklist Linklist--bordered Linklist--spacingLoose">
+																{%- for sub_sub_link in sub_link.links -%}
+																	<li class="Linklist__Item">
+																		<a href="{{ sub_sub_link.url }}" class="Text--subdued Link Link--primary">{{ sub_sub_link.title | escape }}</a>
+																	</li>
+																{%- endfor -%}
+															</ul>
+														</div>
+													</div>
+												{%- else -%}
+													<a href="{{ sub_link.url }}" class="Collapsible__Button Heading Text--subdued Link Link--primary u-h7">{{ sub_link.title | escape }}</a>
+												{%- endif -%}
+											</div>
+										{%- endfor -%}
+									</div>
+								</div>
+							{%- else -%}
+								<a href="{{ link.url }}" class="Collapsible__Button Heading Link Link--primary u-h6">{{ link.title | escape }}</a>
+							{%- endif -%}
+						</div>
+					{%- endfor -%}
+				</nav>
 
-          {%- assign secondary_menu = linklists[section.settings.secondary_menu] -%}
+				{%- assign secondary_menu = linklists[section.settings.secondary_menu] -%}
 
-          <nav class="SidebarMenu__Nav SidebarMenu__Nav--secondary">
-            <ul class="Linklist Linklist--spacingLoose">
-              {%- for link in secondary_menu.links -%}
-                <li class="Linklist__Item">
-                  <a href="{{ link.url }}" class="Text--subdued Link Link--primary">{{ link.title | escape }}</a>
-                </li>
-              {%- endfor -%}
+				<nav class="SidebarMenu__Nav SidebarMenu__Nav--secondary">
+					<ul class="Linklist Linklist--spacingLoose">
+						{%- for link in secondary_menu.links -%}
+							<li class="Linklist__Item">
+								<a href="{{ link.url }}" class="Text--subdued Link Link--primary">{{ link.title | escape }}</a>
+							</li>
+						{%- endfor -%}
 
-              {%- comment -%}We automatically add some links to the secondary menu{%- endcomment -%}
+						{%- comment -%}We automatically add some links to the secondary menu{%- endcomment -%}
 
-              {%- if shop.customer_accounts_enabled -%}
-                <li class="Linklist__Item">
-                  <a href="{{ routes.account_url }}" class="Text--subdued Link Link--primary">{{ 'header.navigation.account' | t }}</a>
-                </li>
-              {%- endif -%}
-            </ul>
-          </nav>
-        </div>
-      </div>
+						{%- if shop.customer_accounts_enabled -%}
+							<li class="Linklist__Item">
+								<a href="{{ routes.account_url }}" class="Text--subdued Link Link--primary">{{ 'header.navigation.account' | t }}</a>
+							</li>
+						{%- endif -%}
+					</ul>
+				</nav>
+			</div>
+		</div>
 
-      {%- if section.settings.show_social_media -%}
-        {%- capture social_media -%}
+		{%- if section.settings.show_social_media -%}
+			{%- capture social_media -%}
           {% render 'social-media', class: 'SidebarMenu__Social', spacing: 'fill' %}
         {%- endcapture -%}
-      {%- endif -%}
+		{%- endif -%}
 
-      {%- if social_media != blank -%}
-        <aside class="Drawer__Footer" data-drawer-animated-bottom>
-          {%- if social_media != blank -%}
-            {{ social_media }}
-          {%- endif -%}
-        </aside>
-      {%- endif -%}
-    </div>
+		{%- if social_media != blank -%}
+			<aside class="Drawer__Footer" data-drawer-animated-bottom>
+				{%- if social_media != blank -%}
+					{{ social_media }}
+				{%- endif -%}
+			</aside>
+		{%- endif -%}
+	</div>
+</section>
+
+<!-- B - VARIANT -->
+<section id="sidebar-menu" class="SidebarMenu Drawer Drawer--small Drawer--fromLeft b-variant tlh-044" aria-hidden="true" data-section-id="{{ section.id }}" data-section-type="sidebar-menu">
+	<header class="Drawer__Header" data-drawer-animated-left>
+		<img class="Header__LogoImage Header__LogoImage--primary" src="//tierliebhaber.de/cdn/shop/files/schriftzug-closeup_1_200x.png?v=1628231294" srcset="//tierliebhaber.de/cdn/shop/files/schriftzug-closeup_1_200x.png?v=1628231294 1x, //tierliebhaber.de/cdn/shop/files/schriftzug-closeup_1_200x@2x.png?v=1628231294 2x" width="200" alt="Tierliebhaber" loading="lazy">
+		<button class="Drawer__Close Icon-Wrapper--clickable" data-action="close-drawer" data-drawer-id="sidebar-menu" aria-label="{{ 'header.navigation.close_sidebar' | t }}">
+			<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M1 13L13 1M1 1L13 13" stroke="#262626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+			</svg>
+		</button>
+	</header>
+
+	<div class="SidebarMenu__wrapper">
+		<!-- Swiper -->
+		<div class="bestseller">
+			<div class="bestseller__categories">
+				<div class="bestseller__category active" data-slide-to="0">
+					<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M22.0228 13.4084L22.0237 13.4084C22.208 13.4079 22.3899 13.368 22.5575 13.2915C22.8195 13.176 23.0343 12.9747 23.1665 12.7207C23.2988 12.4666 23.3404 12.1751 23.2846 11.8941C23.2845 11.8939 23.2845 11.8936 23.2844 11.8933L21.7456 3.68565L21.7456 3.68563C21.7135 3.51478 21.6468 3.3523 21.5497 3.20816C21.4525 3.06402 21.3269 2.94127 21.1806 2.84744C21.0343 2.75362 20.8703 2.6907 20.6988 2.66255C20.5273 2.63441 20.3518 2.64163 20.1832 2.68378L20.1832 2.68379L15.0183 3.97501H10.6473L5.48251 2.68379L5.44613 2.82931L5.48251 2.68379C5.31386 2.64162 5.13838 2.63439 4.96683 2.66253C4.79529 2.69068 4.63131 2.7536 4.48498 2.84743C4.33864 2.94126 4.21304 3.06403 4.11588 3.20818C4.01872 3.35233 3.95207 3.51482 3.92001 3.68568L3.92001 3.6857L2.38115 11.8934C2.38109 11.8936 2.38103 11.8939 2.38097 11.8942C2.32516 12.1751 2.3668 12.4667 2.49904 12.7207C2.63123 12.9747 2.84605 13.176 3.10803 13.2915C3.2756 13.368 3.45759 13.4079 3.64183 13.4084L3.64274 13.4084C3.83511 13.4078 4.02479 13.3632 4.19723 13.2779C4.36942 13.1927 4.51985 13.0693 4.63703 12.9171C4.63719 12.9169 4.63736 12.9167 4.63753 12.9165L4.80778 12.6998V17.25V17.2502C4.80884 18.1847 5.18054 19.0806 5.84135 19.7414C6.50215 20.4023 7.39809 20.774 8.33261 20.775H8.33278H17.3328H17.333C18.2675 20.774 19.1634 20.4023 19.8242 19.7414C20.485 19.0806 20.8567 18.1847 20.8578 17.2502V17.25V12.6998L21.028 12.9164C21.0282 12.9166 21.0283 12.9168 21.0285 12.917C21.1457 13.0693 21.2961 13.1927 21.4683 13.2779C21.6408 13.3632 21.8305 13.4078 22.0228 13.4084ZM5.22783 3.7024L9.6693 4.81281L3.81089 12.269C3.81088 12.269 3.81088 12.269 3.81087 12.269C3.77976 12.3086 3.73627 12.3366 3.68737 12.3485C3.63845 12.3605 3.58695 12.3557 3.54109 12.3349C3.49523 12.3141 3.45768 12.2785 3.43443 12.2338C3.41118 12.1892 3.40359 12.138 3.41286 12.0885L4.95204 3.87932C4.96172 3.82779 4.98905 3.78125 5.02934 3.7477C5.06954 3.71421 5.12013 3.69576 5.17243 3.69548C5.19107 3.69552 5.20963 3.69783 5.2277 3.70237L5.22783 3.7024ZM17.3326 19.725H13.3578V18.2175L14.704 16.8713C14.704 16.8713 14.704 16.8713 14.704 16.8713C14.8024 16.7728 14.8578 16.6393 14.8578 16.5001C14.8578 16.3608 14.8025 16.2273 14.704 16.1288C14.6056 16.0303 14.4721 15.975 14.3328 15.975C14.1936 15.975 14.0601 16.0303 13.9616 16.1287L13.9616 16.1288L12.8328 17.2576L11.704 16.1288L11.704 16.1287C11.6055 16.0303 11.472 15.975 11.3327 15.975C11.1935 15.975 11.06 16.0303 10.9615 16.1288C10.8631 16.2273 10.8078 16.3608 10.8078 16.5001C10.8078 16.6393 10.8631 16.7728 10.9616 16.8713C10.9616 16.8713 10.9616 16.8713 10.9616 16.8713L12.3078 18.2175V19.725H8.33295C7.67672 19.7243 7.04758 19.4633 6.58356 18.9992C6.11953 18.5352 5.85852 17.9061 5.85778 17.2498V11.3634L10.838 5.02501H14.8276L19.8078 11.3634V17.2498C19.807 17.9061 19.546 18.5352 19.082 18.9992C18.618 19.4633 17.9888 19.7243 17.3326 19.725ZM10.2061 13.625C10.305 13.477 10.3578 13.303 10.3578 13.125C10.3578 12.8863 10.263 12.6574 10.0942 12.4886C9.92539 12.3198 9.69648 12.225 9.45778 12.225C9.27978 12.225 9.10577 12.2778 8.95777 12.3767C8.80976 12.4756 8.69441 12.6161 8.62629 12.7806C8.55817 12.945 8.54035 13.126 8.57508 13.3006C8.6098 13.4752 8.69552 13.6355 8.82139 13.7614C8.94725 13.8873 9.10762 13.973 9.2822 14.0077C9.45678 14.0424 9.63774 14.0246 9.8022 13.9565C9.96665 13.8884 10.1072 13.773 10.2061 13.625ZM16.2078 14.025C16.3858 14.025 16.5598 13.9722 16.7078 13.8733C16.8558 13.7744 16.9712 13.6339 17.0393 13.4694C17.1074 13.305 17.1252 13.124 17.0905 12.9494C17.0558 12.7748 16.97 12.6145 16.8442 12.4886C16.7183 12.3627 16.5579 12.277 16.3834 12.2423C16.2088 12.2076 16.0278 12.2254 15.8634 12.2935C15.6989 12.3616 15.5584 12.477 15.4595 12.625C15.3606 12.773 15.3078 12.947 15.3078 13.125C15.3078 13.3637 15.4026 13.5926 15.5714 13.7614C15.7402 13.9302 15.9691 14.025 16.2078 14.025ZM20.7135 3.87921L22.2527 12.0885C22.262 12.138 22.2544 12.1892 22.2312 12.2338C22.2079 12.2785 22.1704 12.3141 22.1245 12.3349C22.0786 12.3557 22.0271 12.3605 21.9782 12.3485C21.9293 12.3366 21.8858 12.3086 21.8547 12.269L15.9963 4.81281L20.4378 3.7024C20.4676 3.69496 20.4986 3.69368 20.5288 3.69865C20.5591 3.70361 20.588 3.71472 20.6138 3.73128C20.6397 3.74784 20.6618 3.76951 20.679 3.79495C20.6961 3.82039 20.7079 3.84906 20.7135 3.87921Z" fill="#525252" stroke="#525252" stroke-width="0.3"/>
+					</svg>
+					Hund
+				</div>
+				<div class="bestseller__category" data-slide-to="1">
+					<svg width="27" height="26" viewBox="0 0 27 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M21.1906 11.5485C22.3952 12.9723 22.1447 14.7133 22.1448 16.25C22.1448 20.4817 16.439 21.6667 13.4997 21.6667C10.5603 21.6667 4.85461 20.4817 4.85461 16.25C4.85462 14.7133 4.60415 12.9723 5.80872 11.5485M21.1906 11.5485C20.9799 11.2995 20.7246 11.0602 20.4157 10.8333M21.1906 11.5485C21.9489 11.9853 22.1426 10.3509 22.1448 9.8177V7.78657C22.1448 6.02615 20.9345 5.41678 19.8971 5.41678C18.8597 5.41678 16.7848 7.10936 16.0932 7.10936C15.2632 7.10936 15.1034 6.94021 13.4997 6.94021C11.896 6.94021 11.7361 7.10936 10.9062 7.10936C10.2146 7.10936 8.13973 5.41666 7.10233 5.41666C6.06492 5.41666 4.85462 6.02603 4.85462 7.78645V9.8177C4.85671 10.3509 5.05045 11.9853 5.80872 11.5485M5.80872 11.5485C6.01946 11.2995 6.27473 11.0602 6.58366 10.8333" stroke="#525252" stroke-width="1.5" stroke-linecap="round"/>
+						<path d="M14.3948 17.3333C14.3948 17.5203 14.0036 17.6719 13.5211 17.6719C13.0387 17.6719 12.6475 17.5203 12.6475 17.3333C12.6475 17.1463 13.0387 16.9948 13.5211 16.9948C14.0036 16.9948 14.3948 17.1463 14.3948 17.3333Z" stroke="#525252" stroke-width="1.5"/>
+						<path d="M17.2915 14.7266C17.2915 15.194 17.0569 15.5729 16.7673 15.5729C16.4778 15.5729 16.2432 15.194 16.2432 14.7266C16.2432 14.2592 16.4778 13.8802 16.7673 13.8802C17.0569 13.8802 17.2915 14.2592 17.2915 14.7266Z" stroke="#525252" stroke-width="1.5"/>
+						<path d="M10.7915 14.7266C10.7915 15.194 10.5569 15.5729 10.2674 15.5729C9.97785 15.5729 9.74316 15.194 9.74316 14.7266C9.74316 14.2592 9.97785 13.8802 10.2674 13.8802C10.5569 13.8802 10.7915 14.2592 10.7915 14.7266Z" stroke="#525252" stroke-width="1.5"/>
+						<path d="M24.3334 16.7579C23.8092 16.4192 21.5377 15.5729 20.6641 15.5729" stroke="#525252" stroke-width="1.5" stroke-linecap="round"/>
+						<path d="M22.5858 19.4662C22.0616 19.1275 20.8384 18.2812 19.9648 18.2812" stroke="#525252" stroke-width="1.5" stroke-linecap="round"/>
+						<path d="M2.66699 16.7579C3.19118 16.4192 5.4627 15.5729 6.33635 15.5729" stroke="#525252" stroke-width="1.5" stroke-linecap="round"/>
+						<path d="M4.41406 19.4662C4.93827 19.1275 6.16138 18.2812 7.03504 18.2812" stroke="#525252" stroke-width="1.5" stroke-linecap="round"/>
+					</svg>
+					Katze
+				</div>
+				<div class="bestseller__category" data-slide-to="2">
+					<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<g clip-path="url(#clip0_4359_28)">
+						  <path d="M17.9781 9.57178C17.863 9.22017 17.7525 8.889 17.6732 8.5755C17.5934 8.26134 17.5448 7.96697 17.5451 7.68347C17.5457 7.38047 17.5974 7.08984 17.7339 6.77662C18.1279 5.87597 18.2699 4.98952 18.2697 4.18978C18.2693 3.16345 18.039 2.277 17.8103 1.64283C17.581 1.0087 17.3517 0.6255 17.3392 0.604734L16.975 0L14.0053 3.77967H10.3373L7.36794 0.000328125L7.00367 0.6045C6.9913 0.625547 6.76194 1.00875 6.53262 1.64287C6.30359 2.27705 6.07362 3.16284 6.0733 4.18983C6.07302 4.98956 6.21505 5.87602 6.60908 6.77634C6.74061 7.07812 6.7932 7.37709 6.79353 7.69528C6.79597 8.29823 6.58864 8.97263 6.35652 9.69131C6.12809 10.4109 5.8752 11.1748 5.87305 11.999C5.87305 12.2091 5.89039 12.4233 5.93033 12.6384C6.03866 13.2212 6.25658 13.93 6.52241 14.6901C6.92103 15.8285 7.42897 17.0752 7.83627 18.081C8.03961 18.5834 8.2182 19.0257 8.34294 19.3584C8.40514 19.524 8.45403 19.6627 8.48441 19.761C8.49955 19.8099 8.51038 19.849 8.51534 19.8713L8.51656 19.8774C8.51595 19.91 8.51286 19.9623 8.50667 20.031C8.48623 20.2739 8.4395 20.6648 8.43917 21.096C8.43978 21.4321 8.46673 21.7961 8.56822 22.1554C8.66914 22.5126 8.85205 22.8753 9.17455 23.1517C9.45373 23.39 9.77961 23.547 10.1077 23.664C10.6007 23.8373 11.1074 23.9171 11.4973 23.9586C11.887 23.9995 12.1591 24 12.1715 24C12.1882 23.9994 12.6654 24 13.2696 23.9025C13.5717 23.853 13.906 23.7796 14.2349 23.6639C14.5633 23.5469 14.8889 23.39 15.1684 23.1517C15.4906 22.8753 15.6735 22.5126 15.7747 22.1554C15.8763 21.796 15.9032 21.4317 15.9035 21.0956C15.9035 20.8078 15.8824 20.5397 15.8626 20.3194C15.8527 20.2092 15.8428 20.1111 15.8363 20.0309C15.8301 19.9628 15.827 19.9114 15.8264 19.8786C15.8304 19.8607 15.839 19.8257 15.8527 19.782C15.8883 19.6638 15.9539 19.4788 16.0393 19.2537C16.3392 18.462 16.8821 17.1643 17.3733 15.8953C17.619 15.2605 17.8521 14.6313 18.0374 14.0686C18.2229 13.504 18.3612 13.0138 18.4163 12.6152C18.446 12.396 18.4593 12.1822 18.4593 11.9742C18.4587 11.0639 18.2068 10.2743 17.9781 9.57178ZM10.1804 4.75434H14.1937C14.2083 4.77848 14.2225 4.80389 14.2368 4.83234C14.3361 5.03288 14.4107 5.3288 14.4528 5.64694C14.4961 5.96513 14.5104 6.30553 14.5104 6.60703C14.5104 6.80325 14.5045 6.98245 14.4971 7.1295L13.6435 6.98709L12.706 9.01744C12.0092 8.64975 11.5889 8.14927 11.3305 7.71473C11.1835 7.46681 11.0915 7.2412 11.0374 7.08084C11.0105 7.00102 10.9928 6.93727 10.982 6.8955L10.9715 6.84966L10.9697 6.84037L10.8873 6.38977L9.68211 6.90633C9.64372 6.76022 9.60997 6.57173 9.6103 6.34861C9.61245 5.92055 9.72608 5.37366 10.1804 4.75434ZM17.4507 12.4845C17.4275 12.6582 17.3708 12.9067 17.2876 13.1964C16.9973 14.2165 16.3953 15.7396 15.8679 17.0488C15.6039 17.7046 15.3581 18.3088 15.1761 18.7823C15.0852 19.0192 15.0099 19.2228 14.9548 19.3896C14.9273 19.4738 14.9044 19.5481 14.8865 19.6186C14.8778 19.6545 14.8697 19.6886 14.8635 19.7257C14.8573 19.7634 14.8514 19.8025 14.8512 19.8585C14.8515 19.9417 14.8574 20.0231 14.8651 20.1138C14.8883 20.3822 14.9292 20.7341 14.9292 21.0956C14.9295 21.376 14.9035 21.6576 14.8372 21.8891C14.7707 22.1225 14.671 22.2946 14.5339 22.4122C14.3872 22.5391 14.1647 22.6561 13.9106 22.7446C13.5299 22.8798 13.0857 22.9541 12.7434 22.9897C12.5723 23.0077 12.4259 23.0167 12.3244 23.0213C12.2736 23.0232 12.2337 23.0244 12.2074 23.025L12.1782 23.0257H12.1715H12.1693C12.1322 23.0257 11.6914 23.0198 11.1801 22.9322C10.9248 22.8889 10.6524 22.8245 10.4085 22.7366C10.1643 22.6487 9.95136 22.5351 9.80867 22.4119C9.67184 22.2946 9.57219 22.1225 9.50534 21.8892C9.43944 21.658 9.41309 21.376 9.41375 21.0959C9.41375 20.8554 9.4317 20.6171 9.45059 20.4073C9.4602 20.302 9.47009 20.2039 9.4775 20.1138C9.48528 20.0232 9.49147 19.9424 9.49175 19.8585C9.49109 19.7981 9.48463 19.7557 9.4775 19.7143C9.46325 19.6363 9.44314 19.5635 9.4175 19.48C9.32216 19.173 9.14328 18.7174 8.9158 18.1513C8.57563 17.3054 8.1312 16.2289 7.73966 15.1865C7.34848 14.1466 7.01113 13.1314 6.88855 12.4617C6.86038 12.3097 6.84767 12.1559 6.84767 11.999C6.84519 11.3852 7.05256 10.7068 7.28469 9.98869C7.5125 9.26972 7.76567 8.51109 7.76816 7.69528C7.76848 7.26694 7.69297 6.82219 7.50167 6.38611C7.16773 5.62223 7.04792 4.87631 7.04764 4.18983C7.04736 3.31055 7.24756 2.53022 7.44908 1.97409C7.47416 1.90444 7.49923 1.8382 7.52398 1.776L9.55869 4.36594C9.03997 5.09175 8.87745 5.79459 8.87961 6.34866C8.88083 7.07138 9.13527 7.53652 9.15355 7.57087L9.31386 7.85934L10.3773 7.40377C10.4464 7.59314 10.5482 7.8278 10.7017 8.08716C11.0555 8.68697 11.6856 9.40256 12.7432 9.84206L13.0681 9.97762L14.0731 7.79995L15.1558 7.98009L15.1963 7.5938C15.1969 7.58573 15.2412 7.16358 15.2412 6.60708C15.2409 6.17438 15.2155 5.66245 15.1152 5.18709C15.0645 4.94939 14.9951 4.72003 14.8927 4.5105C14.8648 4.45416 14.8339 4.39875 14.8004 4.34522L16.8184 1.77694C17.0403 2.33686 17.2975 3.20006 17.295 4.18988C17.295 4.87603 17.1752 5.62163 16.841 6.38616C16.6482 6.825 16.5699 7.26422 16.5708 7.68356C16.5708 8.07727 16.6367 8.45269 16.7283 8.8148C16.8666 9.35831 17.0622 9.87488 17.2161 10.3939C17.3709 10.913 17.4851 11.4295 17.4851 11.9743C17.4851 12.1403 17.4745 12.31 17.4507 12.4845Z" fill="#525252" stroke="#525252" stroke-width="0.3"/>
+						  <path d="M10.8616 20.7112C10.6598 20.7112 10.4961 21.0111 10.4961 21.381C10.4961 21.7511 10.6598 22.051 10.8616 22.051C11.0634 22.051 11.2272 21.7511 11.2272 21.381C11.2272 21.0111 11.0634 20.7112 10.8616 20.7112Z" fill="#525252"/>
+						  <path d="M13.4808 20.7112C13.279 20.7112 13.1152 21.0111 13.1152 21.381C13.1152 21.7511 13.279 22.051 13.4808 22.051C13.6826 22.051 13.846 21.7511 13.846 21.381C13.846 21.0111 13.6826 20.7112 13.4808 20.7112Z" fill="#525252"/>
+						  <path d="M8.6403 11.3778C8.26178 11.3778 7.95508 11.6842 7.95508 12.0627C7.95508 12.4416 8.26178 12.748 8.6403 12.748C9.01886 12.748 9.32523 12.4416 9.32523 12.0627C9.32523 11.6842 9.01881 11.3778 8.6403 11.3778Z" fill="#525252"/>
+						  <path d="M15.7025 11.3778C15.324 11.3778 15.0176 11.6842 15.0176 12.0627C15.0176 12.4416 15.324 12.748 15.7025 12.748C16.0811 12.748 16.3878 12.4416 16.3878 12.0627C16.3878 11.6842 16.0811 11.3778 15.7025 11.3778Z" fill="#525252"/>
+						</g>
+						<defs>
+						  <clipPath id="clip0_4359_28">
+							<rect width="24" height="24" fill="white" transform="translate(0.166016)"/>
+						  </clipPath>
+						</defs>
+					</svg>
+					Pferd
+				</div>
+			</div>
+			<div class="bestseller__title">Bestseller</div>
+			<div class="bestseller__swiper swiper">
+				<div class="bestseller__swiper-wrapper swiper-wrapper">
+					<div class="swiper-slide">
+						<a class="bestseller__link bestseller__link--highlight" href="https://tierliebhaber.de/collections/zahnpflege/products/dentalspray"><img class="bestseller__image" src="//tierliebhaber.de/cdn/shop/files/dentalspray_1_vergleich_60x.png?v=1722318868" alt="Dentalspray">Dentalspray</a>
+						<a class="bestseller__link bestseller__link--highlight" href="https://tierliebhaber.de/collections/beruhigung/products/chillout-drops"><img class="bestseller__image" src="//tierliebhaber.de/cdn/shop/files/20240705_Tierliebhaber2408_60x.jpg?v=1724057171" alt="Chillout Drops">Chillout Drops</a>
+						<a class="bestseller__link bestseller__link--highlight" href="https://tierliebhaber.de/collections/kundenlieblinge/products/gras-kotfresser-drops-2"><img class="bestseller__image" src="//tierliebhaber.de/cdn/shop/files/gk1_39cbb471-f595-4ad2-bff2-5cbf615ed0e7_60x.jpg?v=1716366416" alt="Gras- & Kotfresser Drops">Gras- & Kotfresser Drops</a>
+						<a class="bestseller__link bestseller__link--highlight" href="https://tierliebhaber.de/collections/darmpflege/products/darmwohl-sticks"><img class="bestseller__image" src="//tierliebhaber.de/cdn/shop/files/20240705_Tierliebhaber2456_60x.jpg?v=1724057955" alt="Darmwohl Sticks">Darmwohl Sticks</a>
+						<a class="bestseller__link bestseller__link--highlight" href="https://tierliebhaber.de/collections/z-produkte/products/z-snack"><img class="bestseller__image" src="//tierliebhaber.de/cdn/shop/files/zsn1_cd3565d1-f686-4c6e-9907-937e9c43bf7b_60x.jpg?v=1716364314" alt="Z-Snack">Z-Snack</a>
+						<a class="bestseller__link bestseller__link--highlight" href="https://tierliebhaber.de/collections/darmpflege/products/darmpflege-drops"><img class="bestseller__image" src="//tierliebhaber.de/cdn/shop/files/20240705_Tierliebhaber2471_60x.jpg?v=1724057725" alt="Darmpflege Drops">Darmpflege Drops</a>
+					</div>
+					<div class="swiper-slide">
+						<a class="bestseller__link bestseller__link--highlight" href="https://tierliebhaber.de/collections/katzen/products/dentalspray-katzen-1"><img class="bestseller__image" src="//tierliebhaber.de/cdn/shop/files/bild_1_60x.jpg?v=1721652428" alt="Dentalspray (Katzen)">Dentalspray (Katzen)</a>
+						<a class="bestseller__link bestseller__link--highlight" href="https://tierliebhaber.de/collections/katzen/products/z-spray-katze"><img class="bestseller__image" src="//tierliebhaber.de/cdn/shop/products/z-spray_katzen_60x.png?v=1681377940" alt="Z-Spray - Katze">Z-Spray - Katze</a>
+						<a class="bestseller__link" href="https://tierliebhaber.de/collections/katzen/products/pra-probio-kur-katze"><img class="bestseller__image" src="//tierliebhaber.de/cdn/shop/files/prae_und_probio_kur_katze_2_gzg_60x.jpg?v=1709287441" alt="Prä & Probio Kur - Katze">Prä & Probio Kur - Katze</a>
+						<a class="bestseller__link" href="https://tierliebhaber.de/collections/katzen/products/premium-lachsol-1l"><img class="bestseller__image" src="//tierliebhaber.de/cdn/shop/products/lachs_oel_60x.png?v=1681376776" alt="Premium Lachsöl 1L">Premium Lachsöl 1L</a>
+						<a class="bestseller__link" href="https://tierliebhaber.de/collections/katzen/products/fleischbroeckchen-mit-kaninchen-kartoffeln"><img class="bestseller__image" class="bestseller__image" src="//tierliebhaber.de/cdn/shop/files/shopbild_2_gzg_e563c7bd-1895-4bfe-afe4-6998d9f277cc_60x.jpg?v=1722509125" alt="Fleischbröckchen mit Kaninchen & Kartoffeln">Fleischbröckchen mit Kaninchen & Kartoffeln</a>
+						<a class="bestseller__link" href="https://tierliebhaber.de/collections/katzen/products/fleischbroeckchen-mit-huhn-kartoffeln"><img class="bestseller__image" src="//tierliebhaber.de/cdn/shop/files/shopbild_2_gzg_60x.jpg?v=1722505956" alt="Fleischbröckchen mit Huhn & Kartoffeln">Fleischbröckchen mit Huhn & Kartoffeln</a>
+					</div>
+					<div class="swiper-slide">
+						<a class="bestseller__link bestseller__link--highlight" href="https://tierliebhaber.de/collections/pferde/products/hustenkrautersaft-pferd"><img class="bestseller__image" src="//tierliebhaber.de/cdn/shop/files/Hustenkraeuter_4579a5f6-1fd0-4dff-b170-686f243f13d5_60x.png?v=1720298137" alt="Hustenkräutersaft Pferd">Husten&shy;kräutersaft Pferd</a>
+						<a class="bestseller__link bestseller__link--highlight" href="https://tierliebhaber.de/collections/pferde/products/chilloutsaft-pferd"><img class="bestseller__image" src="//tierliebhaber.de/cdn/shop/files/Chilloutsaft_464b3b83-2668-4a63-b46d-b46ffda56b80_60x.png?v=1720298136" alt="Chilloutsaft Pferd">Chilloutsaft Pferd</a>
+						<a class="bestseller__link bestseller__link--highlight" href="https://tierliebhaber.de/collections/pferde/products/darmkrautersaft-pferd"><img class="bestseller__image" src="//tierliebhaber.de/cdn/shop/files/Darmkraeuter_1f1a3ec1-43eb-41a8-a4d2-97ced3ea7694_60x.png?v=1720298138" alt="Darmkräutersaft Pferd">Darmkräutersaft Pferd</a>
+						<a class="bestseller__link bestseller__link--highlight" href="https://tierliebhaber.de/collections/pferde/products/gelenkkrautersaft-pferd"><img class="bestseller__image" src="//tierliebhaber.de/cdn/shop/files/Gelenkkraeuter_e8399374-cbe7-47d5-a823-8205fe6cc09c_60x.png?v=1720298325" alt="Gelenkkräutersaft Pferd">Gelenk&shy;kräutersaft Pferd</a>
+						<a class="bestseller__link" href="https://tierliebhaber.de/collections/pferde/products/parasitenschutz-spray-pferd"><img class="bestseller__image" src="//tierliebhaber.de/cdn/shop/products/parasiten_60x.png?v=1681376989" alt="Parasitenschutz Spray Pferd">Parasiten&shy;schutz Spray Pferd</a>
+						<a class="bestseller__link" href="https://tierliebhaber.de/collections/pferde/products/krautersaft-bundle"><img class="bestseller__image" src="//tierliebhaber.de/cdn/shop/files/Bundle_60x.png?v=1718950475" alt="Kräutersaft Bundle">Kräutersaft Bundle</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Menu -->
+		<ul class="SidebarMenu__menu">
+			{%- for link in main_menu.links -%}
+				{%- if link.links != blank -%}
+					<li class="SidebarMenu__item SidebarMenu__item-has-submenu">
+						{{ link.title }}
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M14 5L21 12M21 12L14 19M21 12L3 12" stroke="#525252" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg>
+
+						<ul class="SidebarMenu__submenu SidebarMenu__sub-level-1">
+							<div class="SidebarMenu__submenu-close">
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M15 19L8 12L15 5" stroke="#525252" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+								</svg>
+								{{ link.title }}
+							</div>
+							{%- for sub_link in link.links -%}
+								{%- if sub_link.links != blank -%}
+									<li class="SidebarMenu__item SidebarMenu__item-has-submenu">
+										{{ sub_link.title }}
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M14 5L21 12M21 12L14 19M21 12L3 12" stroke="#525252" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+										</svg>
+
+										<ul class="SidebarMenu__submenu SidebarMenu__sub-level-2">
+											<div class="SidebarMenu__submenu-close">
+												<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M15 19L8 12L15 5" stroke="#525252" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+												</svg>
+												{{ sub_link.title }}
+											</div>
+											{%- for sub_sub_link in sub_link.links -%}
+												{%- if sub_sub_link.links != blank -%}
+													<li class="SidebarMenu__item SidebarMenu__item-has-submenu">
+														{{ sub_sub_link.title }}
+														<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+															<path d="M14 5L21 12M21 12L14 19M21 12L3 12" stroke="#525252" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+														</svg>
+													</li>
+												{%- else -%}
+													<li>
+														<a href="{{ sub_sub_link.url }}">{{ sub_sub_link.title | escape }}</a>
+													</li>
+												{%- endif -%}
+											{%- endfor -%}
+										</ul>
+									</li>
+								{%- else -%}
+									<li class="SidebarMenu__item">
+										<a href="{{ sub_link.url }}">{{ sub_link.title | escape }}</a>
+									</li>
+								{%- endif -%}
+							{%- endfor -%}
+						</ul>
+					</li>
+				{%- else -%}
+					<li class="SidebarMenu__item">
+						<a href="{{ link.url }}">{{ link.title | escape }}</a>
+					</li>
+				{%- endif -%}
+			{%- endfor -%}
+
+			{%- if shop.customer_accounts_enabled -%}
+				<li class="SidebarMenu__item">
+					<a href="{{ routes.account_url }}">{{ 'header.navigation.account' | t }}</a>
+				</li>
+			{%- endif -%}
+		</ul>
+	</div>
 </section>
 
 {% schema %}
 {
-  "name": "Sidebar menu",
-  "settings": [
-    {
-      "type": "link_list",
-      "id": "primary_menu",
-      "label": "Primary menu",
-      "default": "main-menu"
-    },
-    {
-      "type": "link_list",
-      "id": "secondary_menu",
-      "label": "Secondary menu",
-      "info": "This menu won't show dropdown items."
-    },
-    {
-      "type": "checkbox",
-      "id": "show_social_media",
-      "label": "Show social media",
-      "default": true
-    },
-    {
-      "type": "header",
-      "content": "Cart sidebar"
-    },
-    {
-      "type": "product_list",
-      "id": "cart_sidebar_upsell_products",
-      "label": "Upsell products"
-    }
-  ]
+	"name": "Sidebar menu",
+	"settings": [
+		{
+			"type": "link_list",
+			"id": "primary_menu",
+			"label": "Primary menu",
+			"default": "main-menu"
+		},
+		{
+			"type": "link_list",
+			"id": "secondary_menu",
+			"label": "Secondary menu",
+			"info": "This menu won't show dropdown items."
+		},
+		{
+			"type": "checkbox",
+			"id": "show_social_media",
+			"label": "Show social media",
+			"default": true
+		},
+		{
+			"type": "header",
+			"content": "Cart sidebar"
+		},
+		{
+			"type": "product_list",
+			"id": "cart_sidebar_upsell_products",
+			"label": "Upsell products"
+		}
+	]
 }
 {% endschema %}
