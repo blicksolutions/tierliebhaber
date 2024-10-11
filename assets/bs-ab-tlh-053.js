@@ -32,7 +32,7 @@
 		}
 
 		if(hours < 12) {
-			const { diffHours, diffMinutes } = calculateTimeDifference(hours, minutes, 12);
+			const { hours: diffHours, minutes: diffMinutes } = calculateTimeDifference(hours, minutes, 12);
 
 			insertContent(diffHours, diffMinutes, "morgen");
 		} else {
