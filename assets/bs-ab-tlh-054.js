@@ -24,7 +24,3 @@ window.activateAbTlh054 = () => {
 		applyABAdjustments();
 	}	
 };
-
-document.addEventListener("DOMContentLoaded", () => {
-	window.activateAbTlh054();
-});
