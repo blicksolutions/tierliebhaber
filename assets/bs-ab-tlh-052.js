@@ -6,8 +6,6 @@ window.activateAbTlh052 = () => {
 
 };
 
-document.addEventListener('DOMContentLoaded',window.activateAbTlh052)
-
 const tlh052Click = (productId) => {
 	const productContainer = document.querySelector(`[data-js-tlh-052-product-container][data-js-product-id="${productId}"]`)
 	productContainer.classList.toggle('open')
