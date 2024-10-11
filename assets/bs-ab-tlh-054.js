@@ -1,8 +1,8 @@
 window.activateAbTlh054 = () => {
 	const productBadgesElement = document.querySelector(".ProductMeta .ProductBadges");
-	const productBadgeText = productBadgesElement.querySelector(".ProductBadge__Text");
 
 	const applyABAdjustments = () => {
+		const productBadgeText = productBadgesElement.querySelector(".ProductBadge__Text");
 		const bannerMarkup = () => {
 			return `
 			<div class="bs-info-badge">
