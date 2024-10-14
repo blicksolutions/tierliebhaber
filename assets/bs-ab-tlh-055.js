@@ -7,7 +7,3 @@ window.activateAbTlh055 = () => {
 		versionB.style.display = "flex";
 	}
 };
-
-document.addEventListener("DOMContentLoaded", () => {
-	window.activateAbTlh055();
-})
