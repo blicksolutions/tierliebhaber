@@ -1027,6 +1027,18 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 /******************************************************************/
 
 .Header .Header__MainNav .HorizontalList > li:nth-child(2) {
-	padding: 5px 20px;;
-	background-color: #d4c7e7;;
+	padding: 6px 20px;;
+	background-color: #d4c7e7;
+}
+
+/* TLH044 - Variant */
+.SidebarMenu.tlh-044 .SidebarMenu__menu > li:nth-child(2) a {
+	padding: 18px 20px;
+	background-color: #d4c7e7;
+}
+  
+/* Live - Variamnt */
+.SidebarMenu .SidebarMenu__Nav > div:nth-child(2) a {
+	padding: 18px 20px;
+	background-color: #d4c7e7;
 }
