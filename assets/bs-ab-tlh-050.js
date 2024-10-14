@@ -1,5 +1,5 @@
 window.activateAbTlh050 = () => {
-	const versionA = document.querySelector(".ProductForm__ShippingEta");
+	const versionA = document.querySelector(".ProductForm__ShippingEta:not(.-Unavailable)");
 	const versionB = document.querySelector(".ProductForm__ShippingEta--version-b");
 
 	if (versionB && versionA) {

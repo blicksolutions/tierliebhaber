@@ -19,10 +19,10 @@
 
     //AB TEST TLH047 -- VARIABLES
     window.cartDrawerMinPriceForSecondGift = 175;
-    window.cartDrawerSecondGiftVariantId = 43855711797516;
+    window.cartDrawerSecondGiftVariantId = {{ section.settings.gift_product.selected_or_first_available_variant.id }};
 </script>
 
-<div id="sidebar-cart" class="Drawer Drawer--fromRight" aria-hidden="true" selected_variant data-section-id="cart" data-section-type="cart" data-section-settings='{{ section_settings }}'>
+<div id="sidebar-cart" class="Drawer Drawer--fromRight" aria-hidden="true" selected_variant data-section-id="cart" data-section-type="cart" data-section-settings='{{ section_settings }}' data-js-tlh-052>
   <div class="Drawer__Header Drawer__Header--bordered Drawer__Container">
       <span class="Drawer__Title Heading u-h4">{{ 'cart.general.title' | t }}</span>
 
@@ -154,6 +154,10 @@
           <!-- /Upsell items -->
         {%- endif -%}
       {%- endif -%}
+	  
+		{%- unless cart.item_count == 0 -%}
+			{% render 'bs-ab-tlh-052' cart_items: cart.items  %}
+		{%- endunless -%}
     </div>
 
     {%- unless cart.item_count == 0 -%}

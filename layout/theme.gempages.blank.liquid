@@ -6,6 +6,7 @@
       <!-- BS: AB Scripts -->
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}">
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-040.css' | asset_url }}">
+      <link rel="stylesheet" href="{{ 'bs-ab-tlh-044.css' | asset_url }}">
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-050.css' | asset_url }}">
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-051.css' | asset_url }}">
 
@@ -16,6 +17,7 @@
       <script src="{{ 'bs-ab-tlh-011.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-025.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-040.js' | asset_url }}"></script>
+      <script src="{{ 'bs-ab-tlh-044.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-050.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-051.js' | asset_url }}"></script>
       <!-- END BS: AB Scripts -->
@@ -388,5 +390,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <body class="prestige--v4 {{ classes }} {% if template.directory %}template-{{ template.directory | handle }}{% endif %} template-{{ template.name | handle }}"
         data-currency-symbol="{{ shopCurrencySymbol }}"><main id="main" role="main">
         {{ content_for_layout }}
-      </main></body>
+      </main>
+   <style>
+      {% if page.url == 'https://tierliebhaber.de/a/gempages?version=v7&shop_id=534104955091420133&theme_page_id=534930085216518969&page_type=GP_FUNNEL_PAGE' %}
+      .needsclick.kl-private-reset-css-Xuajs1,#superchat-widget{
+        display:none !important;
+      }
+        {% endif %}
+    </style>
+  </body>
 </html>
