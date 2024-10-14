@@ -24,8 +24,12 @@
 			const targetTotalMinutes = targetHours * 60;
 			
 			const diffMinutes = targetTotalMinutes - currentTotalMinutes;
-			const hours = Math.floor(diffMinutes / 60);
+			let hours = Math.floor(diffMinutes / 60);
 			const minutes = diffMinutes % 60;
+
+			if(targetHours === 24) {
+				hours = hours + 12;
+			}
 			
 			return { hours, minutes };
 		}
