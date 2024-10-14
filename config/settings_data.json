@@ -1,18 +1,18 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
-    "donations_amount": 85565,
+    "donations_amount": 82814,
     "donation_goal": 100000,
     "total_text": "",
-    "total_number": "Bisher gespendet seit 2022: €85,565",
+    "total_number": "Bisher gespendet seit 2022: €82.814",
     "heading_color": "#1c1b1b",
     "text_color": "#1c1b1b",
     "text_light_color": "#6a6a6a",
@@ -151,7 +151,7 @@
             "type": "text",
             "settings": {
               "title": "Erreichbarkeit",
-              "content": "<p>Unser Team ist jederzeit </p><p>über WhatsApp: +49 176 48097026</p><p>per Mail: <a href=\"mailto:info@tierliebhaber.de\">info@tierliebhaber.de</a> </p><p>(Wir melden uns in der Regel innerhalb von 1-2 Werktagen mit einer Antwort bei dir)</p><p>oder telefonisch von Mo - Fr von 11-15 Uhr für dich erreichbar.</p><p>Tel.: +49 34149980019</p>",
+              "content": "<p>Unser Team ist jederzeit </p><p>über WhatsApp: +49 176 48097026</p><p>per Mail: <a href=\"mailto:info@tierliebhaber.de\">info@tierliebhaber.de</a> </p><p>(Wir melden uns in der Regel innerhalb von 1-2 Werktagen mit einer Antwort bei dir)</p><p>oder telefonisch von Mo - Fr von 11-13 Uhr für dich erreichbar.</p><p>Tel.: +49 34149980019</p>",
               "show_social_media": true
             }
           },
@@ -690,7 +690,7 @@
             "settings": {
               "image": "shopify://shop_images/anruf.png",
               "image_alt": "",
-              "text": "Ruf uns an (Mo-Fr 11-15 Uhr)",
+              "text": "Ruf uns an (Mo-Fr 11-13 Uhr)",
               "color": "#f1af9e",
               "url": "tel:034149980019"
             }
@@ -1767,6 +1767,28 @@
       "2153490007123654574": {
         "type": "shopify://apps/consentmo-gdpr/blocks/gdpr_cookie_consent/4fbe573f-a377-4fea-9801-3ee0858cae41",
         "disabled": true,
+        "settings": {
+        }
+      },
+      "17151115064775110295": {
+        "type": "shopify://apps/recharge-subscriptions/blocks/recharge-theme/371eed76-0b44-4869-9813-730372ea378e",
+        "disabled": true,
+        "settings": {
+          "color_brand": "#467c99",
+          "contrast_color": "#ffffff",
+          "color_brand_secondary": "#467c99",
+          "corners": "8px",
+          "app_background": "#f9f8f4",
+          "app_container": 1200,
+          "app_vertical_padding": 32,
+          "images_aspect_ratio": "1",
+          "cards_background": "#ffffff",
+          "cards_border_color": "rgba(0,0,0,0)"
+        }
+      },
+      "6478312753674380289": {
+        "type": "shopify://apps/gempages-builder/blocks/embed-gp-script-head/20b379d4-1b20-474c-a6ca-665c331919f3",
+        "disabled": false,
         "settings": {
         }
       }

@@ -9,9 +9,6 @@
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-044.css' | asset_url }}">
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-050.css' | asset_url }}">
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-051.css' | asset_url }}">
-      <link rel="stylesheet" href="{{ 'bs-ab-tlh-052.css' | asset_url }}">
-      <link rel="stylesheet" href="{{ 'bs-ab-tlh-054.css' | asset_url }}">
-      <link rel="stylesheet" href="{{ 'bs-ab-tlh-055.css' | asset_url }}">
 
       <script src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
@@ -23,9 +20,6 @@
       <script src="{{ 'bs-ab-tlh-044.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-050.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-051.js' | asset_url }}"></script>
-      <script src="{{ 'bs-ab-tlh-052.js' | asset_url }}"></script>
-      <script src="{{ 'bs-ab-tlh-054.js' | asset_url }}"></script>
-      <script src="{{ 'bs-ab-tlh-055.js' | asset_url }}"></script>
       <!-- END BS: AB Scripts -->
 
       <!-- ABlyft Snippet -->
@@ -396,13 +390,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <body class="prestige--v4 {{ classes }} {% if template.directory %}template-{{ template.directory | handle }}{% endif %} template-{{ template.name | handle }}"
         data-currency-symbol="{{ shopCurrencySymbol }}">
 
-    {%- comment -%}
-<!-- Commented by Vladimir, do not turn on becuse you will have duplications -->
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NB2JQCG"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-{%- endcomment -%}
+    
 
     <a class="PageSkipLink u-visually-hidden" href="#main">{{ 'header.navigation.skip_to_content' | t }}</a>
     <span class="LoadingBar"></span>
@@ -412,16 +400,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="PageTransition"></div>
     {%- endif -%}
 
-    {% section 'popup' %}
-    {% section 'sidebar-menu' %}
+    <div style="display:none"> {% section 'popup' %} </div>
+    <div style="display:none"> {% section 'sidebar-menu' %} </div>
 
     {%- if template != 'cart' -%}
       {% section 'cart-drawer' %}
     {%- endif -%}
 
     <div class="PageContainer">
-      {% section 'announcement' %}
-      {% section 'header' %}
+      <div style="display:none"> {% section 'announcement' %} </div>
+      <div style="display:none"> {% section 'header' %} </div>
 
       <main id="main" role="main">
         {{ content_for_layout }}
@@ -478,6 +466,5 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- NextLevel Network Tag tag -->
     <script src="https://www.dwin1.com/86929.js" type="text/javascript" defer="defer"></script>
 <!-- END:NextLevel Network Tag tag -->
-   
 </body>
 </html>
