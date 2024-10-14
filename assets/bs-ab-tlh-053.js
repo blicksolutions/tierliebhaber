@@ -8,6 +8,17 @@
 		const hours = now.getHours();
 		const minutes = now.getMinutes(); 
 
+		const formatDate = () => {
+			const futureDate = new Date(now);
+			futureDate.setDate(futureDate.getDate() + 3);
+
+			const day = String(futureDate.getDate()).padStart(2, '0');
+			const month = String(futureDate.getMonth() + 1).padStart(2, '0');
+			const year = futureDate.getFullYear();
+
+			return `${day}.${month}.${year}`;
+		}
+
 		const calculateTimeDifference = (currentHours, currentMinutes, targetHours) => {
 			const currentTotalMinutes = (currentHours * 60) + currentMinutes;
 			const targetTotalMinutes = targetHours * 60;
@@ -34,11 +45,12 @@
 		if(hours < 12) {
 			const { hours: diffHours, minutes: diffMinutes } = calculateTimeDifference(hours, minutes, 12);
 
-			insertContent(diffHours, diffMinutes, "morgen");
+			insertContent(diffHours, diffMinutes, "übermorgen");
 		} else {
 			const { hours: diffHours, minutes: diffMinutes } = calculateTimeDifference(hours, minutes, 24);
+			const formattedDate = formatDate();
 
-			insertContent(diffHours, diffMinutes, "übermorgen");
+			insertContent(diffHours, diffMinutes, formattedDate);
 		}
 
 		if(infoTextVC && infoTextOg) {
