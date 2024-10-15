@@ -1,0 +1,26 @@
+.ProductForm__ShippingEta--version-c {
+	display: none;
+	gap: 7px;
+	margin: 8px 0;
+}
+
+.ProductForm__ShippingEta--version-c svg {
+	min-width: fit-content;
+}
+
+.ProductForm__ShippingEta--version-c__text {
+	font-size: 12px;
+	line-height: 15px;
+	color: #1C1B1B;
+}
+
+.ProductForm__ShippingEta--version-c__text span {
+	color: #77A464;
+}
+
+@media (min-width: 768px) {
+	.ProductForm__ShippingEta--version-c__text {
+		font-size: 14px;
+		line-height: 18px;
+	}
+}
