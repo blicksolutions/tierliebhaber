@@ -1022,6 +1022,11 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
     }
 }
 
+/* Cookie Declaration Override */
+.Rte .CookieDeclaration table {
+    white-space: normal;
+}
+
 /******************************************************************/
 /* Highlight second menu item
 /******************************************************************/
