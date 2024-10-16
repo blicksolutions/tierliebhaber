@@ -1,0 +1,10 @@
+.ProductMeta__visitor-ping {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.ProductMeta__visitor-ping__icon {
+	width: 15px;
+	height: auto;
+}
