@@ -704,12 +704,23 @@
               "color": "#dddddd",
               "url": "mailto:info@tierliebhaber.de"
             }
+          },
+          "button_fHjjxH": {
+            "type": "button",
+            "settings": {
+              "image": "shopify://shop_images/calling_1_1.png",
+              "image_alt": "",
+              "text": "Produktberatung buchen",
+              "color": "#f1af9e",
+              "url": "https://calendly.com/kundenservice-tierliebhaber/10min"
+            }
           }
         },
         "block_order": [
           "4ee956a9-6e65-4a24-9583-e5004d4d31b4",
           "40e2fcb1-8917-457f-b8f7-347c740d00d7",
-          "8f086c70-24cd-4e1d-bcb8-a0a1924f5b23"
+          "8f086c70-24cd-4e1d-bcb8-a0a1924f5b23",
+          "button_fHjjxH"
         ],
         "settings": {
           "title": "Bei Fragen sind wir immer da!",
