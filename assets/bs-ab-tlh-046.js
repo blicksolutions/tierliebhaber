@@ -1,12 +1,19 @@
 window.activateAbTlh046 = () => {
 	window.tlh046 = true
 
+	const rechargeContainer = document.querySelector('[data-js-tlh-046-recharge-container]')
+	if (!rechargeContainer) return
+	rechargeContainer.setAttribute('data-js-tlh-046-recharge-container', 'true')
+
 	const variantSelectorContainer = document.querySelector('[data-js-tlh-046-variant-selector]')
 	if (!variantSelectorContainer) return
 	variantSelectorContainer.setAttribute('data-js-tlh-046-variant-selector', 'true')
 
+	
+
 	const variantSelector = document.querySelector('[data-js-tlh-046-variant-selector-list]')
 	if (!variantSelector) return
+	variantSelector.setAttribute('data-js-tlh-046-variant-selector-list', 'true')
 
 	const optionElements = variantSelector.querySelectorAll('[data-js-option-value]')
 	if (!optionElements) return
