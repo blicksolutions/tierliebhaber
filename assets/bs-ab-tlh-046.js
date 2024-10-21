@@ -1,6 +1,10 @@
 window.activateAbTlh046 = () => {
 	window.tlh046 = true
 
+	const variantSelectorContainer = document.querySelector('[data-js-tlh-046-variant-selector]')
+	if (!variantSelectorContainer) return
+	variantSelectorContainer.setAttribute('data-js-tlh-046-variant-selector', 'true')
+
 	const variantSelector = document.querySelector('[data-js-tlh-046-variant-selector-list]')
 	if (!variantSelector) return
 

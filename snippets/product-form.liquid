@@ -61,82 +61,86 @@ $(document).ready(function(){
             {% assign variant_on_sale_counter = variant_on_sale_counter |  plus: 1 %}
         {% endif %}
     {% endfor %}
-    <ul class="VariantSelector__List" data-js-tlh-046-variant-selector-list>
-        {%- for option in product.options_with_values -%}
-            {% assign options_amount = option.values | size %}
+	<div class="variant-selector" data-js-tlh-046-variant-selector>
+		<div class="VariantSelector__Heading">
+			Wie viel brauchst du?
+		</div>
+		<ul class="VariantSelector__List" data-js-tlh-046-variant-selector-list>
+			{%- for option in product.options_with_values -%}
+				{% assign options_amount = option.values | size %}
 
-            {% if options_amount > 2 %}
-                {% assign full_width_options = true %}
-            {% else %}
-                {% assign full_width_options = false %}
-            {% endif %}
+				{% if options_amount > 2 %}
+					{% assign full_width_options = true %}
+				{% else %}
+					{% assign full_width_options = false %}
+				{% endif %}
 
-            {%- for value in option.values -%}
-                {% for variant in product.variants %}
-                    {% if variant.option1 == value %}
-                        {% assign variant_savings = '' %}
-                        {% if variant.compare_at_price > variant.price %}
-                            {% assign variant_savings = variant.compare_at_price |  minus: variant.price %}
-							{% assign compare_at_price_percent = variant.price |  times: 1.0 |  divided_by: variant.compare_at_price |  times: 100 |  minus: 100 | times: -1 |  round %}
-                        {% endif %}
+				{%- for value in option.values -%}
+					{% for variant in product.variants %}
+						{% if variant.option1 == value %}
+							{% assign variant_savings = '' %}
+							{% if variant.compare_at_price > variant.price %}
+								{% assign variant_savings = variant.compare_at_price |  minus: variant.price %}
+								{% assign compare_at_price_percent = variant.price |  times: 1.0 |  divided_by: variant.compare_at_price |  times: 100 |  minus: 100 | times: -1 |  round %}
+							{% endif %}
 
-                        {% case request.locale.iso_code %}
-                            {% when 'de' %}                                                            
-                                {% if variant.price > 4900 %}
-                                    {% assign free_shipping = true %}
-                                {% endif %}
+							{% case request.locale.iso_code %}
+								{% when 'de' %}                                                            
+									{% if variant.price > 4900 %}
+										{% assign free_shipping = true %}
+									{% endif %}
 
-                            {% when 'at' %}                                                            
-                                {% if variant.price > 6900 %}
-                                    {% assign free_shipping = true %}
-                                {% endif %}
+								{% when 'at' %}                                                            
+									{% if variant.price > 6900 %}
+										{% assign free_shipping = true %}
+									{% endif %}
 
-                            {% when 'ch' %}                                                            
-                                {% if variant.price > 12900 %}
-                                    {% assign free_shipping = true %}
-                                {% endif %}
-                        {% endcase %}
+								{% when 'ch' %}                                                            
+									{% if variant.price > 12900 %}
+										{% assign free_shipping = true %}
+									{% endif %}
+							{% endcase %}
 
-						{% assign variant_price = variant.price %}
-                    {% endif %}
-                {% endfor %}
-                
-                <li 
-                    class="VariantSelector__ListItem {% if value == option.selected_value %}VariantSelector__ListItem--selected{% endif %} {% if full_width_options == true or variant_on_sale_counter > 1 %}VariantSelector__ListItem--full-width{% endif %}" 
-                    data-js-variant-selector-item data-js-option-value="{{ value | escape }}" 
-                    {% if variant_price != blank %} data-js-price="{{ variant_price | money }}" {% endif %}
-                    {% if compare_at_price_percent != blank %} data-js-savings="{{ compare_at_price_percent }}" {% endif %}
-                    {% if free_shipping != blank %} data-js-free-shipping="{{ free_shipping }}" {% endif %}
-                    >
-					<p class="VariantSelector__OptionText" data-js-option-prefix>
+							{% assign variant_price = variant.price %}
+						{% endif %}
+					{% endfor %}
+					
+					<li 
+						class="VariantSelector__ListItem {% if value == option.selected_value %}VariantSelector__ListItem--selected{% endif %} {% if full_width_options == true or variant_on_sale_counter > 1 %}VariantSelector__ListItem--full-width{% endif %}" 
+						data-js-variant-selector-item data-js-option-value="{{ value | escape }}" 
+						{% if variant_price != blank %} data-js-price="{{ variant_price | money }}" {% endif %}
+						{% if compare_at_price_percent != blank %} data-js-savings="{{ compare_at_price_percent }}" {% endif %}
+						{% if free_shipping != blank %} data-js-free-shipping="{{ free_shipping }}" {% endif %}
+						>
+						<p class="VariantSelector__OptionText" data-js-option-prefix>
 
-					</p>
-					<div class="VariantSelector__ImageContainer" data-js-tlh-046-image-container data-js-src="{{ product.featured_image |  image_url: width:1000 }}">
+						</p>
+						<div class="VariantSelector__ImageContainer" data-js-tlh-046-image-container data-js-src="{{ product.featured_image |  image_url: width:1000 }}">
 
-					</div>
-                    <div class="VariantSelector__OptionText" data-js-option-suffix>
-                        
-                    </div>
-                    {% if compare_at_price_percent != blank %}
-                        <p class="VariantSelector__OptionSavings">
-                        -{{ compare_at_price_percent }}%
-                        </p>
-                    {% endif %}
-                    {% if forloop.index == 2 %}
-                        <div class="VariantSelector__Bestseller">
-							<svg class="VariantSelector__ListItem--BestsellerIcon" width="13" height="13" viewBox="0 0 13 13" fill="none">
-								<path d="M9.83975 11.9167L8.95954 8.11146L11.9116 5.55208L8.01162 5.21354L6.49495 1.625L4.97829 5.21354L1.07829 5.55208L4.03037 8.11146L3.15016 11.9167L6.49495 9.89896L9.83975 11.9167Z" fill="#D4AF37"/>
-							</svg>
-							<p class="VariantSelector__BestsellerText">
-								Bestseller
+						</div>
+						<div class="VariantSelector__OptionText" data-js-option-suffix>
+							
+						</div>
+						{% if compare_at_price_percent != blank %}
+							<p class="VariantSelector__OptionSavings">
+							-{{ compare_at_price_percent }}%
 							</p>
-                        </div>
-                    {% endif %}
-                </li>
-            {%- endfor -%}
-        {%- endfor -%}
-    </ul>
-
+						{% endif %}
+						{% if forloop.index == 2 %}
+							<div class="VariantSelector__Bestseller">
+								<svg class="VariantSelector__ListItem--BestsellerIcon" width="13" height="13" viewBox="0 0 13 13" fill="none">
+									<path d="M9.83975 11.9167L8.95954 8.11146L11.9116 5.55208L8.01162 5.21354L6.49495 1.625L4.97829 5.21354L1.07829 5.55208L4.03037 8.11146L3.15016 11.9167L6.49495 9.89896L9.83975 11.9167Z" fill="#D4AF37"/>
+								</svg>
+								<p class="VariantSelector__BestsellerText">
+									Bestseller
+								</p>
+							</div>
+						{% endif %}
+					</li>
+				{%- endfor -%}
+			{%- endfor -%}
+		</ul>
+	</div>
 {% endif %}
 
   {%- if template.suffix == "standardprodukt-mit-abo" -%}
