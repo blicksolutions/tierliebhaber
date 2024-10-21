@@ -49,18 +49,14 @@
                   data-free-delivery-amount="{{ section.settings.free_delivery_amount }}"></span>
           </div>
 
-          <span class="CartMessage__StepsLines__Delivery {{ section.settings.enable_gift }}" style="display: none;">
+          <span class="CartMessage__StepsLines__Delivery {{ section.settings.enable_gift }}">
             <img src="{{ section.settings.message_delivery_icon | img_url: '32x32' }}" 
                 alt="{{ section.settings.message_delivery_icon.alt | escape }}">
           </span>
 
-          <span class="CartMessage__StepsLines__Gift" style="display: none">
+          <span class="CartMessage__StepsLines__Gift" style="right: 0px;">
             <span>Gratis Geschenk (13.90€)</span>
           </span>
-
-          <span class="CartMessage__StepsLines__Gift CartMessage__StepsLines__Second-Gift" style="display: none; right: 0px;">
-            <span>Gratis Geschenk (39.90€)</span>
-          </span>  
         </div>
       </div>
     <!-- /Steps message -->
@@ -173,7 +169,7 @@
         
         <div class="Drawer__Footer__Inner">
           
-          {%- if contains_free_shipping_variant or cart.total_price >= free_delivery_amount -%}
+          {%- if contains_free_shipping_variant -%}
             {%- assign delivery_cost = 0 -%}
             {%- assign delivery_cost_price = 0 | money -%}
           {%- else -%}
@@ -220,26 +216,32 @@
 				{% when 'de' %}
 					{% if cart.total_price > 4900 %}
 						{% assign data-free-shipping = true %}
+						{% assign delivery_cost = 0 %}
 					{% endif %}
 					
 				{% when 'at' %}
 					{% if cart.total_price > 6900 %}
 						{% assign data-free-shipping = true %}
+						{% assign delivery_cost = 0 %}
 					{% endif %}
 
 				{% when 'ch' %}
 					{% if cart.total_price > 12900 %}
 						{% assign data-free-shipping = true %}
+						{% assign delivery_cost = 0 %}
 					{% endif %}
 				{% else %}
 					{% assign data-free-shipping = false %}
+					{% assign delivery_cost = 0 %}
 			{% endcase %}
 			
 			<span data-freeshipping-text="{{ 'cart.sidebar.free_shipping' | t }}"
-                  data-shipping-price="{{ delivery_cost_price }}"
-                  data-text="{%- if delivery_cost > 0 -%}{{ delivery_cost | money }}{%- else -%}{{ 'cart.sidebar.free_shipping' | t }}{%- endif -%}"
-				  {%- if data-free-shipping == true -%}data-free-shipping="true"{%- endif -%}>
-              {%- if delivery_cost > 0 -%}
+					data-shipping-price="{{ delivery_cost_price }}"
+					data-text="{%- if delivery_cost > 0 -%}{{ delivery_cost | money }}{%- else -%}{{ 'cart.sidebar.free_shipping' | t }}{%- endif -%}"
+					{%- if data-free-shipping == true -%}
+						data-free-shipping="true"
+					{%- endif -%}>
+				{%- if delivery_cost > 0 -%}
                 {{ delivery_cost | money }}
               {%- else -%}
                 {{ 'cart.sidebar.free_shipping' | t }}

@@ -13,15 +13,15 @@
 	window.shippingrates = {
 		de: {
 			minSubtotalPriceValue: 49,
-			priceValue: 4.90,
+			priceValue: 4.9,
 		},
 		at: {
 			minSubtotalPriceValue: 69,
-			priceValue: 6.90,
+			priceValue: 6.9,
 		},
 		ch: {
 			minSubtotalPriceValue: 129,
-			priceValue: 12.90,
+			priceValue: 12.9,
 		},
 		otherLocations: {
 			country: null,
@@ -57,22 +57,23 @@
 		scData = JSON.parse(sessionStorage.getItem("scDiscountData"));
 		const cartDrawer = document.querySelector("#sidebar-cart");
 
-		// unlock checkout button
-		window.unlockCheckoutButton();
+		// console.log(scData)
 
+		// Call functions on first load
+		window.unlockCheckoutButton();
 		checkGeoLocation();
 
 		document.addEventListener("rerenderCart", () => {
 			const targetObserver = new MutationObserver((mutationsList, observer) => {
+				// Call functions on cart drawer changes
 				cheeringBar();
 
-				// if (freeGiftActivate) {
-				// 	if (scData.stage === "initial") {
-				// 		window.unlockCheckoutButton();
-				// 	}
-				// } else {
-				// 	window.unlockCheckoutButton();
-				// }
+				// handle free gift, if enabled. Else unlock checkout button
+				if (window.cartDrawerEnableGift) {
+					handleFreeGift();
+				} else {
+					window.unlockCheckoutButton();
+				}
 
 				observer.disconnect();
 			});
@@ -185,14 +186,18 @@
 		const deliveryIcon = document.querySelector(".CartMessage__StepsLines__Delivery");
 
 		let cartValues = {
-			cartTotalPrice: document.querySelector(".Cart__values").dataset.cartTotalPrice,
 			cartTotalPriceFloat: document.querySelector(".Cart__values").dataset.cartTotalPriceFloat,
 		};
-
 
 		let noDeliveryItemsTotalPrice = 0;
 		let hasItemWithDeliveryRequired = false;
 		let deliveryIconPosition;
+
+		if (document.querySelector(".Cart__Empty") !== null) {
+			document.querySelector(".CartMessage__Steps").style.opacity = 0;
+		} else {
+			document.querySelector(".CartMessage__Steps").style.opacity = 1;
+		}
 
 		// exclude items with no shipping requirement from shipping calculation
 		cartItems.forEach((cartItem) => {
@@ -203,44 +208,46 @@
 			}
 		});
 
-		let subtotalPriceWithoutNoShippingItems = cartValues.cartTotalPriceFloat / 100 - noDeliveryItemsTotalPrice;
+		let subtotalPriceWithoutNoShippingItems = cartValues.cartTotalPriceFloat - noDeliveryItemsTotalPrice;
 
-
-		if(hasItemWithDeliveryRequired) {
+		if (hasItemWithDeliveryRequired) {
 			if (window.cartDrawerEnableGift) {
 				const percentPerEuro = 100 / parseInt(window.cartDrawerMinPriceForGift);
 				deliveryBarStepLineEl.style.width = subtotalPriceWithoutNoShippingItems * percentPerEuro + "%";
-	
+
 				giftIcon.style.display = "block";
-	
+
 				// Delivery icon position
 				deliveryIconPosition = (minSubtotalPriceValue * 100) / parseInt(window.cartDrawerMinPriceForGift);
 				deliveryIcon.style.left = deliveryIconPosition + "%";
-	
+
 				if (minSubtotalPriceValue > subtotalPriceWithoutNoShippingItems) {
-					deliveryCostEl.textContent = Shopify.scFormatMoney(window.shippingrates.de.priceValue);
+					let remainingPriceFreeShipping = parseFloat(minSubtotalPriceValue) - parseFloat(subtotalPriceWithoutNoShippingItems);
+
 					deliveryBarFinalTextEl.style.display = "none";
 					deliveryBarLeftTextEl.style.display = "block";
-					deliveryBarValueEl.textContent = Shopify.scFormatMoney(parseFloat(minSubtotalPriceValue) - parseFloat(subtotalPriceWithoutNoShippingItems));
+					deliveryBarValueEl.textContent = Shopify.scFormatMoney(remainingPriceFreeShipping * 100);
 				} else {
+					let remainingPriceFreeGift = parseFloat(window.cartDrawerMinPriceForGift) - parseFloat(subtotalPriceWithoutNoShippingItems);
+
 					deliveryBarFinalTextEl.style.display = "block";
 					deliveryBarLeftTextEl.style.display = "none";
 					deliveryCostEl.textContent = deliveryCostEl.getAttribute("data-freeshipping-text");
-					deliveryBarFinalTextEl.textContent = "Noch " + Shopify.scFormatMoney(parseInt(window.cartDrawerMinPriceForGift) - subtotalPriceWithoutNoShippingItems) + " bis zum Geschenk";
-	
+					deliveryBarFinalTextEl.textContent = "Noch " + Shopify.scFormatMoney(remainingPriceFreeGift * 100) + " bis zum Geschenk";
+
 					if (subtotalPriceWithoutNoShippingItems >= parseInt(window.cartDrawerMinPriceForGift)) {
 						deliveryBarFinalTextEl.innerHTML = "Kostenloser Versand & Geschenk!";
 					}
 				}
 			} else {
 				giftIcon.style.display = "none";
-	
+
 				if (minSubtotalPriceValue > subtotalPriceWithoutNoShippingItems) {
-					deliveryCostEl.textContent = "€" + window.shippingrates.de.priceValue.replace(".", ",");
+					let remainingPrice = parseFloat(minSubtotalPriceValue) - parseFloat(subtotalPriceWithoutNoShippingItems);
 					deliveryBarFinalTextEl.style.display = "none";
 					deliveryBarLeftTextEl.style.display = "block";
-					deliveryBarValueEl.textContent =  Shopify.scFormatMoney(parseFloat(minSubtotalPriceValue) - parseFloat(subtotalPriceWithoutNoShippingItems));
-					deliveryBarStepLineEl.style.width = ((subtotalPriceWithoutNoShippingItems / window.shippingrates.de.minSubtotalPriceValue) * 100).toFixed(2) + "%";
+					deliveryBarValueEl.textContent = Shopify.scFormatMoney(remainingPrice * 100);
+					deliveryBarStepLineEl.style.width = ((subtotalPriceWithoutNoShippingItems / minSubtotalPriceValue) * 100).toFixed(2) + "%";
 				} else {
 					deliveryBarFinalTextEl.style.display = "block";
 					deliveryBarLeftTextEl.style.display = "none";
@@ -249,10 +256,10 @@
 				}
 			}
 		} else {
-			deliveryIcon.style.left = "100%"
-			giftIcon.style.display = 'none';
+			deliveryIcon.style.left = "100%";
+			giftIcon.style.display = "none";
 			deliveryPriceValue = 0;
-			deliveryCostEl.textContent = deliveryCostEl.getAttribute('data-freeshipping-text');
+			deliveryCostEl.textContent = deliveryCostEl.getAttribute("data-freeshipping-text");
 		}
 	};
 
@@ -260,7 +267,43 @@
 	/* FREE GIFT
     /******************************************************************/
 
-	const handleFreeGift = async (cartUpdates) => {};
+	const handleFreeGift = async () => {
+		let cartValues = {
+			cartTotalPriceFloat: document.querySelector(".Cart__values").dataset.cartTotalPriceFloat,
+		};
+
+		let subtotalPrice;
+
+		if (document.querySelector('.CartItemWrapper[data-variant-id="' + window.cartDrawerGiftVariantId + '"]')) {
+			subtotalPrice = cartValues.cartTotalPriceFloat - window.cartDrawerGiftPrice;
+		} else {
+			subtotalPrice = cartValues.cartTotalPriceFloat;
+		}
+
+		const giftContained = document.querySelector(".CartItemWrapper.cartGiftItem") !== null;
+
+		if (subtotalPrice < window.cartDrawerMinPriceForGift && giftContained) {
+			// console.log("REMOVE GIFT")
+			const cartUpdates = {
+				updates: {
+					[window.cartDrawerGiftVariantId]: 0,
+				},
+			};
+
+			updateCart(cartUpdates);
+		} else if (!giftContained && subtotalPrice >= window.cartDrawerMinPriceForGift) {
+			// console.log("ADD GIFT")
+			const cartUpdates = {
+				updates: {
+					[window.cartDrawerGiftVariantId]: 1,
+				},
+			};
+
+			updateCart(cartUpdates);
+		} else {
+			window.unlockCheckoutButton();
+		}
+	};
 
 	/******************************************************************/
 	/* HELPER: UPDATE CART
@@ -278,12 +321,10 @@
 				body: JSON.stringify(cartUpdates),
 			});
 
-			// Check if update respons is ok
+			// Check if update response is ok
 			if (!updateResponse.ok) {
 				throw new Error(`Update request failed with status ${updateResponse.status}`);
 			}
-
-			const updateJsonData = await updateResponse.json();
 
 			// Page fetch request
 			const pageResponse = await fetch(window.location.href);
@@ -293,27 +334,20 @@
 			}
 
 			const responseText = await pageResponse.text();
-			const oldItemsWrapper = document.querySelector(".drawer__inner");
+			const oldItemsWrapper = document.querySelector(".Cart__ItemList");
 			const html = new DOMParser().parseFromString(responseText, "text/html");
-			const newItemsWrapper = html.querySelector(".drawer__inner");
-			const cartDrawer = document.querySelector("cart-drawer");
-			const oldIconCart = document.querySelector(".cart-count-bubble");
-			const newIconCart = html.querySelector(".cart-count-bubble");
+			const newItemsWrapper = html.querySelector(".Cart__ItemList");
 
-			// Update cart drawer if elements are found, otherwise reload the page
-			if (newIconCart && newItemsWrapper) {
-				oldIconCart.innerHTML = newIconCart.innerHTML;
+			if (newItemsWrapper) {
 				oldItemsWrapper.innerHTML = newItemsWrapper.innerHTML;
 			} else {
 				location.reload();
 			}
 
-			// Update cart empty state
-			if (updateJsonData.item_count == 0) {
-				cartDrawer.classList.add("is-empty");
-			} else {
-				cartDrawer.classList.remove("is-empty");
-			}
+			// Unlock checkout button after timeout
+			setTimeout(() => {
+				window.unlockCheckoutButton();
+			}, 1000);
 		} catch (error) {
 			console.error("Error updating the cart:", error);
 		}
