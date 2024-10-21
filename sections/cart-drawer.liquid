@@ -1,4 +1,4 @@
-{{ "bs-cart-drawer.css" |  asset_url |  stylesheet_tag }}
+{{ 'bs-cart-drawer.css' | asset_url | stylesheet_tag }}
 
 {%- capture section_settings -%}
 {
@@ -10,414 +10,423 @@
 {%- endcapture -%}
 
 <script>
-    window.cartDrawerEnableGift = {{ section.settings.enable_gift }};
-    window.cartDrawerMinPriceForGift = {{ section.settings.gift_min_price }};
-    window.cartDrawerGiftProductId = {{ section.settings.gift_product.id }};
-    window.cartDrawerGiftVariantId = {{ section.settings.gift_product.selected_or_first_available_variant.id }};
-    window.cartDrawerGiftPrice = parseInt({{ section.settings.gift_product.selected_or_first_available_variant.price }}) / 100;
-    window.cartDrawerEnableGiftCampaign = {{ section.settings.enable_gift_campaign }};
-
-    //AB TEST TLH047 -- VARIABLES
-    window.cartDrawerMinPriceForSecondGift = 175;
-    window.cartDrawerSecondGiftVariantId = {{ section.settings.gift_product.selected_or_first_available_variant.id }};
+	window.cartDrawerEnableGift = {{ section.settings.enable_gift }};
+	window.cartDrawerMinPriceForGift = {{ section.settings.gift_min_price }};
+	window.cartDrawerGiftProductId = {{ section.settings.gift_product.id }};
+	window.cartDrawerGiftVariantId = {{ section.settings.gift_product.selected_or_first_available_variant.id }};
+	window.cartDrawerGiftPrice = parseInt({{ section.settings.gift_product.selected_or_first_available_variant.price }}) / 100;
+	window.cartDrawerEnableGiftCampaign = {{ section.settings.enable_gift_campaign }};
 </script>
 
-<div id="sidebar-cart" class="Drawer Drawer--fromRight" aria-hidden="true" selected_variant data-section-id="cart" data-section-type="cart" data-section-settings='{{ section_settings }}' data-js-tlh-052>
-  <div class="Drawer__Header Drawer__Header--bordered Drawer__Container">
-      <span class="Drawer__Title Heading u-h4">{{ 'cart.general.title' | t }}</span>
+<div id="sidebar-cart" class="Drawer Drawer--fromRight" aria-hidden="true" selected_variant data-section-id="cart" data-section-type="cart" data-section-settings="{{ section_settings }}" data-js-tlh-052>
+	<div class="Drawer__Header Drawer__Header--bordered Drawer__Container">
+		<span class="Drawer__Title Heading u-h4">{{ 'cart.general.title' | t }}</span>
 
-      <button class="Drawer__Close Icon-Wrapper--clickable" data-action="close-drawer" data-drawer-id="sidebar-cart" aria-label="{{ 'header.navigation.close_cart' | t }}">
-        {%- render 'icon' with 'close' -%}
-      </button>
-  </div>
+		<button class="Drawer__Close Icon-Wrapper--clickable" data-action="close-drawer" data-drawer-id="sidebar-cart" aria-label="{{ 'header.navigation.close_cart' | t }}">
+			{%- render 'icon' with 'close' -%}
+		</button>
+	</div>
 
-    <!-- Steps message -->
-      <div class="CartMessage__Steps" style="opacity: 0;">
-        <div class="CartMessage__Steps__Text">
-            <div class="CartMessage__Steps__Text-left">
-                {{ section.settings.message_delivery_text-first }} <span class="js-cart-drawer-delivery-left-value"></span> {{ section.settings.message_delivery_text-last }}
-            </div>
+	<!-- Steps message -->
+	<div class="CartMessage__Steps" style="opacity: 0;">
+		<div class="CartMessage__Steps__Text">
+			<div class="CartMessage__Steps__Text-left">
+				{{ section.settings['message_delivery_text-first'] }}
+				<span class="js-cart-drawer-delivery-left-value"></span> {{ section.settings['message_delivery_text-last'] }}
+			</div>
 
-            <div class="CartMessage__Steps__Text-final" style="display: none">
-                {{ section.settings.message_final_text }}
-            </div>
-        </div>
-        <div class="CartMessage__StepsLines__Container">
-          <div class="CartMessage__StepsLines">
-            {%- assign message_line_percentage = cart.total_price | divided_by: 71.48934 | times: 100 -%}
-            <span class="CartMessage__StepsLines__Active"
-                  data-free-delivery-amount="{{ section.settings.free_delivery_amount }}"></span>
-          </div>
+			<div class="CartMessage__Steps__Text-final" style="display: none">
+				{{ section.settings.message_final_text }}
+			</div>
+		</div>
+		<div class="CartMessage__StepsLines__Container">
+			<div class="CartMessage__StepsLines">
+				{%- assign message_line_percentage = cart.total_price | divided_by: 71.48934 | times: 100 -%}
+				<span
+					class="CartMessage__StepsLines__Active"
+					data-free-delivery-amount="{{ section.settings.free_delivery_amount }}"
+				></span>
+			</div>
 
-          <span class="CartMessage__StepsLines__Delivery {{ section.settings.enable_gift }}" style="display: none;">
-            <img src="{{ section.settings.message_delivery_icon | img_url: '32x32' }}" 
-                alt="{{ section.settings.message_delivery_icon.alt | escape }}">
-          </span>
+			<span class="CartMessage__StepsLines__Delivery {{ section.settings.enable_gift }}" style="display: none;">
+				<img
+					src="{{ section.settings.message_delivery_icon | img_url: '32x32' }}"
+					alt="{{ section.settings.message_delivery_icon.alt | escape }}"
+				>
+			</span>
 
-          <span class="CartMessage__StepsLines__Gift" style="display: none">
-            <span>Gratis Geschenk (13.90€)</span>
-          </span>
+			<span class="CartMessage__StepsLines__Gift" style="display: none">
+				<span>Gratis Geschenk (13.90€)</span>
+			</span>
+		</div>
+	</div>
+	<!-- /Steps message -->
 
-          <span class="CartMessage__StepsLines__Gift CartMessage__StepsLines__Second-Gift" style="display: none; right: 0px;">
-            <span>Gratis Geschenk (39.90€)</span>
-          </span>  
-        </div>
-      </div>
-    <!-- /Steps message -->
+	<form class="Cart Drawer__Content" action="{{ routes.cart_url }}" method="POST" novalidate>
+		<div class="Drawer__Main" data-scrollable>
 
-
-  <form class="Cart Drawer__Content" action="{{ routes.cart_url }}" method="POST" novalidate>
-    <div class="Drawer__Main" data-scrollable>
-      {%- if settings.cart_show_free_shipping_threshold -%}
-        {%- assign threshold_in_cents = settings.cart_free_shipping_threshold | times: 100 -%}
-        {%- assign contains_free_shipping_variant = false -%}
-
-        {%- for line_item in cart.items -%}
-          {%- assign has_free_shipping = line_item.variant.metafields.shipping.has_free_shipping -%}
-          
-          {%- if has_free_shipping -%}
-            {%- assign contains_free_shipping_variant = true -%}
-            {%- break -%}
-          {%- endif -%}
-        {%- endfor -%}
-
-        <div class="Cart__ShippingNotice Text--subdued">
-          <div class="Drawer__Container">
-            {%- if cart.total_price >= threshold_in_cents or contains_free_shipping_variant -%}
-              <p>{{- 'cart.general.free_shipping' | t -}}</p>
-            {%- else -%}
-              {%- capture remaining_amount -%}<span>{{ cart.total_price | minus: threshold_in_cents | abs | money_without_trailing_zeros }}</span>{%- endcapture -%}
-              <p>{{- 'cart.general.free_shipping_remaining_html' | t: remaining_amount: remaining_amount -}}</p>
-            {%- endif -%}
-          </div>
-        </div>
-      {%- endif -%}
-
-      {%- assign free_delivery_amount = section.settings.free_delivery_amount | times: 100 -%}
-      
-      {%- if cart.item_count == 0 -%}
-        <p class="Cart__Empty Heading u-h5">{{ 'cart.general.empty' | t }}</p>
-      {%- else -%}
-
-        <div class="Drawer__Container cartDrawer__cheering--a">
-          <div class="Cheering">
-            <p class="Cheering__Title">
-              {{ 'cart.cheering.title' | t }}
-            </p>
-            <p class="Cheering__Text">
-              {{ 'cart.cheering.text' | t }}
-            </p>
-          </div>
-        </div>
-
-        <div class="Drawer__Container">
-          <input type="hidden" name="attributes[collection_mobile_items_per_row]" value="">
-          <input type="hidden" name="attributes[collection_desktop_items_per_row]" value="">
-
-          {% render 'cart-items' %}
-        </div>
-      
-        {%- assign upsell_item = null -%}
-            
-        {%- for line_item in section.settings.upsell_items -%}
-          {%- if upsell_item == null -%}
-            {%- if line_item.available -%}
-              {%- assign upsell_item_found = false -%}
-      
-              {%- for cart_line_item in cart.items -%}
-            	{%- if cart_line_item.product.title == line_item.title -%}
-                  {%- assign upsell_item_found = true -%}
-            	{%- endif -%}
-              {%- endfor -%}
-      
-              {%- if upsell_item_found == false -%}
-                {%- assign upsell_item = line_item -%}
-      		  {%- endif -%}
-      
-            {%- endif -%}
-          {%- else -%}
-          {%- endif -%}
-        {%- endfor -%}
-      
-        {%- if upsell_item -%}
-          <!-- Upsell items -->
-          <div class="CartUpsells__Container">
-            <p class="CartUpsells__Title">
-              {{ section.settings.upsell_title }}
-            </p>
-            <div class="CartUpsells__Items">
-              <div class="Drawer__Container">
-                {% render 'cart-upsell-item', line_item: upsell_item: upsell_item %}
-              </div>
-            </div>
-          </div>
-          <!-- /Upsell items -->
-        {%- endif -%}
-      {%- endif -%}
-	  
-		{%- unless cart.item_count == 0 -%}
-			{% render 'bs-ab-tlh-052' cart_items: cart.items  %}
-		{%- endunless -%}
-    </div>
-
-    {%- unless cart.item_count == 0 -%}
-
-      <div class="Drawer__Footer" data-drawer-animated-bottom>
-        
-        <div class="Drawer__Footer__Inner">
-          
-          {%- if contains_free_shipping_variant or cart.total_price >= free_delivery_amount -%}
-            {%- assign delivery_cost = 0 -%}
-            {%- assign delivery_cost_price = 0 | money -%}
-          {%- else -%}
-            {%- assign delivery_cost = threshold_in_cents | divided_by: 10 -%}
-            {%- assign delivery_cost_price = threshold_in_cents | divided_by: 10 | money -%}
-
-            {% comment %}Set free delivery if a product in the "0% Steuer" collection{% endcomment %}
-            {%- assign only_0_tax_items = true -%}
-            
-            {%- for line_item in cart.items -%}
-              {%- for line_item_product_collection in line_item.product.collections -%}
-                {%- unless line_item_product_collection.title == '0% Steuer' -%} 
-                  {%- assign only_0_tax_items = false -%}
-                {%- endunless -%}
-              {%- endfor -%}
-            {%- endfor -%}
-            
-            {%- for line_item in cart.items -%}
-              {%- for line_item_product_collection in line_item.product.collections -%}
-                {%- if line_item_product_collection.title == '0% Steuer' and only_0_tax_items == true -%} 
-                  {%- assign delivery_cost = 0 -%}
-                  {%- assign delivery_cost_price = 0 | money -%}
-                {%- endif -%}
-              {%- endfor -%}
-            {%- endfor -%}
-            {% comment %}End: Set free delivery if a product in the "0% Steuer" collection{% endcomment %}
-            
-          {%- endif -%}
-
-          <!-- Subtotal -->
-          <div class="Drawer__Footer__Subtotal">
-            <small class="Drawer__Footer__SubtotalLabel">{{ 'cart.general.subtotal' | t }}</small> 
-            <span class="Drawer__Footer__SubtotalPrice" data-price="{{ cart.total_price | money }}">
-              <div class="Drawer__Footer__SubtotalPrice__Visible"></div>
-            </span>
-          </div>
-          <!-- /Subtotal -->
-
-          <!-- Delivery -->
-          <div class="Drawer__Footer__Delivery">
-            <small>{{ 'cart.general.delivery' | t }}</small> 
-
-			{% case request.locale.iso_code %}
-				{% when 'de' %}
-					{% if cart.total_price > 4900 %}
-						{% assign data-free-shipping = true %}
-					{% endif %}
-					
-				{% when 'at' %}
-					{% if cart.total_price > 6900 %}
-						{% assign data-free-shipping = true %}
-					{% endif %}
-
-				{% when 'ch' %}
-					{% if cart.total_price > 12900 %}
-						{% assign data-free-shipping = true %}
-					{% endif %}
-				{% else %}
-					{% assign data-free-shipping = false %}
-			{% endcase %}
 			
-			<span data-freeshipping-text="{{ 'cart.sidebar.free_shipping' | t }}"
-                  data-shipping-price="{{ delivery_cost_price }}"
-                  data-text="{%- if delivery_cost > 0 -%}{{ delivery_cost | money }}{%- else -%}{{ 'cart.sidebar.free_shipping' | t }}{%- endif -%}"
-				  {%- if data-free-shipping == true -%}data-free-shipping="true"{%- endif -%}>
-              {%- if delivery_cost > 0 -%}
-                {{ delivery_cost | money }}
-              {%- else -%}
-                {{ 'cart.sidebar.free_shipping' | t }}
-              {%- endif -%}
-            </span>
-          </div>
-          <!-- /Delivery -->
-          
-          <!-- Total -->
-          <div class="Drawer__Footer__Total">
-            <small>{{ 'cart.general.total' | t }}</small>
-            <span data-price="{{ cart.total_price | plus: delivery_cost | money }}">{{ cart.total_price | plus: delivery_cost | money }}</span>
-          </div>
-          <!-- /Total -->
+			<input
+				type="hidden"
+				class="Cart__values"
+				data-cart-total-price="{{ cart.total_price }}"
+				data-cart-total-price-float="{{ cart.total_price | divided_by: 100.00 }}"
+			>
+				
+			{%- if settings.cart_show_free_shipping_threshold -%}
+				{%- assign threshold_in_cents = settings.cart_free_shipping_threshold | times: 100 -%}
+				{%- assign contains_free_shipping_variant = false -%}
 
-          <!-- Scroll button -->
-          <span class="CartUpsells__ScrollBtn">
-          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAh0lEQVRIie2TQQqAIBBFn13M47TsKOWqTpttRhhE0TIhwg8DguN//y+EoZflZao1dQoyAAPwB4AB7A0fK2+qZAAHnMAS3aV+8iy7RwqSa+BleU1AYvM9ZVySATYB6Sa6QUjuyaR/AgmAZnMNcQrio7NrMdeQ0ERPU/IS5FXzGNLFXEO6mX9TFwuTLBH05pO4AAAAAElFTkSuQmCC" 
-               alt="">
-          </span>
-          <!-- /Scroll button -->
-          
-          <!-- Cart sidebar coupon -->
-          <div class="Drawer__Footer__Coupon">
-            <div class="Drawer__Footer__Coupon-title">
-              {{ 'cart.sidebar.coupon.title' | t }}
-            </div>
-            <div class="Drawer__Footer__Coupon-content">
-              <div class="Drawer__Footer__Coupon-dcart"></div>
-              <div class="Drawer__Footer__Coupon-percentage"></div>
-            </div>
-          </div>
-          <!-- /Cart sidebar coupon -->
-        </div>
-        
-        {%- if settings.cart_enable_notes or shipping_and_taxes_notice != blank -%}
-          {%- if settings.cart_enable_notes -%}
-            {%- if cart.note == blank -%}
-              <button type="button" class="Cart__NoteButton" data-action="toggle-cart-note">{{ 'cart.general.add_note' | t }}</button>
-            {%- else -%}
-              <button type="button" class="Cart__NoteButton" data-action="toggle-cart-note">{{ 'cart.general.edit_note' | t }}</button>
-            {%- endif -%}
-          {%- endif -%}
+				{%- for line_item in cart.items -%}
+					{%- assign has_free_shipping = line_item.variant.metafields.shipping.has_free_shipping -%}
 
-          {%- capture shipping_and_taxes_notice -%}{{ 'cart.general.shipping_and_taxes_notice' | t }}{%- endcapture -%}
+					{%- if has_free_shipping -%}
+						{%- assign contains_free_shipping_variant = true -%}
+						{%- break -%}
+					{%- endif -%}
+				{%- endfor -%}
 
-          {% comment %}
-          {%- if shipping_and_taxes_notice != blank -%}
-            <p class="Cart__Taxes Text--subdued">{{ shipping_and_taxes_notice }}</p>
-          {%- endif -%}
-          {% endcomment %}
+				<div class="Cart__ShippingNotice Text--subdued">
+					<div class="Drawer__Container">
+						{%- if cart.total_price >= threshold_in_cents or contains_free_shipping_variant -%}
+							<p>{{- 'cart.general.free_shipping' | t -}}</p>
+						{%- else -%}
+							{%- capture remaining_amount -%}<span>{{ cart.total_price | minus: threshold_in_cents | abs | money_without_trailing_zeros }}</span>{%- endcapture -%}
+							<p>{{- 'cart.general.free_shipping_remaining_html' | t: remaining_amount: remaining_amount -}}</p>
+						{%- endif -%}
+					</div>
+				</div>
+			{%- endif -%}
 
-          {%- if cart.cart_level_discount_applications != blank -%}
-            {%- for discount_application in cart.cart_level_discount_applications -%}
-              <p class="Cart__Discount">{%- render 'icon' with 'sale' -%} {{ 'cart.general.discount' | t }} ({{ discount_application.title }}): -<span>{{ discount_application.total_allocated_amount | money_without_trailing_zeros }}</span></p>
-            {%- endfor -%}
-          {%- endif -%}
-        {%- endif -%}
+			{%- assign free_delivery_amount = section.settings.free_delivery_amount | times: 100 -%}
 
-        <button type="submit" name="checkout" class="Cart__Checkout Button Button--primary Button--full" disabled>
-          <span>{{- 'cart.general.checkout' | t -}}</span>
-        </button>
+			{%- if cart.item_count == 0 -%}
+				<p class="Cart__Empty Heading u-h5">{{ 'cart.general.empty' | t }}</p>
+			{%- else -%}
+				<div class="Drawer__Container cartDrawer__cheering--a">
+					<div class="Cheering">
+						<p class="Cheering__Title">
+							{{ 'cart.cheering.title' | t }}
+						</p>
+						<p class="Cheering__Text">
+							{{ 'cart.cheering.text' | t }}
+						</p>
+					</div>
+				</div>
 
-        {%- if settings.cart_enable_notes -%}
-          <div class="Cart__OffscreenNoteContainer" aria-hidden="true">
-            {%- if cart.note == blank -%}
-              <span class="Cart__NoteButton">{{ 'cart.general.add_note' | t }}</span>
-            {%- else -%}
-              <span class="Cart__NoteButton">{{ 'cart.general.edit_note' | t }}</span>
-            {%- endif -%}
+				<div class="Drawer__Container">
+					<input type="hidden" name="attributes[collection_mobile_items_per_row]" value="">
+					<input type="hidden" name="attributes[collection_desktop_items_per_row]" value="">
 
-            <div class="Form__Item">
-              <textarea class="Cart__Note Form__Textarea" name="note" id="cart-note" rows="3" placeholder="{{ 'cart.general.note_placeholder' | t }}" data-scrollable>{{ cart.note }}</textarea>
-            </div>
+					{% render 'cart-items' %}
+				</div>
 
-            <button type="button" class="Button Button--primary Button--full" data-action="toggle-cart-note">{{ 'cart.general.save_note' | t }}</button>
-          </div>
-        {%- endif -%}
-        
-        {%- if section.settings.payment_image -%}
-          <!-- Payment image -->
-          <div class="CartPayment__Image">
-            {%- assign image = section.settings.payment_image -%}
-            {%- capture supported_sizes -%}{%- render 'image-size', sizes: '200,400,600,800', image: image -%}{%- endcapture -%}
-            {%- assign image_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-            <img class="VariantSelector__Image Image--lazyLoad Image--fadeIn" 
-                 data-src="{{ image_url }}" 
-                 data-widths="[{{ supported_sizes }}]" 
-                 data-sizes="auto" 
-                 alt="{{ image.alt | escape }}">
-          </div>
-          <!-- /Payment image -->
-        {%- endif -%}
-        
-      </div>
-    {%- endunless -%}
-  </form>
+				{%- assign upsell_item = null -%}
+
+				{%- for line_item in section.settings.upsell_items -%}
+					{%- if upsell_item == null -%}
+						{%- if line_item.available -%}
+							{%- assign upsell_item_found = false -%}
+
+							{%- for cart_line_item in cart.items -%}
+								{%- if cart_line_item.product.title == line_item.title -%}
+									{%- assign upsell_item_found = true -%}
+								{%- endif -%}
+							{%- endfor -%}
+
+							{%- if upsell_item_found == false -%}
+								{%- assign upsell_item = line_item -%}
+							{%- endif -%}
+						{%- endif -%}
+					{%- else -%}
+					{%- endif -%}
+				{%- endfor -%}
+
+				{%- if upsell_item -%}
+					<!-- Upsell items -->
+					<div class="CartUpsells__Container">
+						<p class="CartUpsells__Title">
+							{{ section.settings.upsell_title }}
+						</p>
+						<div class="CartUpsells__Items">
+							<div class="Drawer__Container">
+								{% render 'cart-upsell-item', line_item: upsell_item: upsell_item %}
+							</div>
+						</div>
+					</div>
+					<!-- /Upsell items -->
+				{%- endif -%}
+			{%- endif -%}
+
+			{%- unless cart.item_count == 0 -%}
+				{% render 'bs-ab-tlh-052', cart_items: cart.items %}
+			{%- endunless -%}
+		</div>
+
+		{%- unless cart.item_count == 0 -%}
+			<div class="Drawer__Footer" data-drawer-animated-bottom>
+				<div class="Drawer__Footer__Inner">
+					{%- if contains_free_shipping_variant or cart.total_price >= free_delivery_amount -%}
+						{%- assign delivery_cost = 0 -%}
+						{%- assign delivery_cost_price = 0 | money -%}
+					{%- else -%}
+						{%- assign delivery_cost = threshold_in_cents | divided_by: 10 -%}
+						{%- assign delivery_cost_price = threshold_in_cents | divided_by: 10 | money -%}
+
+						{% comment %}Set free delivery if a product in the "0% Steuer" collection{% endcomment %}
+						{%- assign only_0_tax_items = true -%}
+
+						{%- for line_item in cart.items -%}
+							{%- for line_item_product_collection in line_item.product.collections -%}
+								{%- unless line_item_product_collection.title == '0% Steuer' -%}
+									{%- assign only_0_tax_items = false -%}
+								{%- endunless -%}
+							{%- endfor -%}
+						{%- endfor -%}
+
+						{%- for line_item in cart.items -%}
+							{%- for line_item_product_collection in line_item.product.collections -%}
+								{%- if line_item_product_collection.title == '0% Steuer' and only_0_tax_items == true -%}
+									{%- assign delivery_cost = 0 -%}
+									{%- assign delivery_cost_price = 0 | money -%}
+								{%- endif -%}
+							{%- endfor -%}
+						{%- endfor -%}
+						{% comment %}End: Set free delivery if a product in the "0% Steuer" collection{% endcomment %}
+					{%- endif -%}
+
+					<!-- Subtotal -->
+					<div class="Drawer__Footer__Subtotal">
+						<small class="Drawer__Footer__SubtotalLabel">{{ 'cart.general.subtotal' | t }}</small>
+						<span class="Drawer__Footer__SubtotalPrice" data-price="{{ cart.total_price | money }}">
+							<div class="Drawer__Footer__SubtotalPrice__Visible"></div>
+						</span>
+					</div>
+					<!-- /Subtotal -->
+
+					<!-- Delivery -->
+					<div class="Drawer__Footer__Delivery">
+						<small>{{ 'cart.general.delivery' | t }}</small>
+
+						{% case request.locale.iso_code %}
+							{% when 'de' %}
+								{% if cart.total_price > 4900 %}
+									{% assign data-free-shipping = true %}
+								{% endif %}
+
+							{% when 'at' %}
+								{% if cart.total_price > 6900 %}
+									{% assign data-free-shipping = true %}
+								{% endif %}
+
+							{% when 'ch' %}
+								{% if cart.total_price > 12900 %}
+									{% assign data-free-shipping = true %}
+								{% endif %}
+							{% else %}
+								{% assign data-free-shipping = false %}
+						{% endcase %}
+
+						<span
+							data-freeshipping-text="{{ 'cart.sidebar.free_shipping' | t }}"
+							data-shipping-price="{{ delivery_cost_price }}"
+							data-text="{%- if delivery_cost > 0 -%}{{ delivery_cost | money }}{%- else -%}{{ 'cart.sidebar.free_shipping' | t }}{%- endif -%}"
+							{%- if data-free-shipping == true -%}
+								data-free-shipping="true"
+							{%- endif -%}
+						>
+							{%- if delivery_cost > 0 -%}
+								{{ delivery_cost | money }}
+							{%- else -%}
+								{{ 'cart.sidebar.free_shipping' | t }}
+							{%- endif -%}
+						</span>
+					</div>
+					<!-- /Delivery -->
+
+					<!-- Total -->
+					<div class="Drawer__Footer__Total">
+						<small>{{ 'cart.general.total' | t }}</small>
+						<span data-price="{{ cart.total_price | plus: delivery_cost | money }}">{{ cart.total_price | plus: delivery_cost | money }}</span>
+					</div>
+					<!-- /Total -->
+
+					<!-- Scroll button -->
+					<span class="CartUpsells__ScrollBtn">
+						<img
+							src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAh0lEQVRIie2TQQqAIBBFn13M47TsKOWqTpttRhhE0TIhwg8DguN//y+EoZflZao1dQoyAAPwB4AB7A0fK2+qZAAHnMAS3aV+8iy7RwqSa+BleU1AYvM9ZVySATYB6Sa6QUjuyaR/AgmAZnMNcQrio7NrMdeQ0ERPU/IS5FXzGNLFXEO6mX9TFwuTLBH05pO4AAAAAElFTkSuQmCC"
+							alt=""
+						>
+					</span>
+					<!-- /Scroll button -->
+
+					<!-- Cart sidebar coupon -->
+					<div class="Drawer__Footer__Coupon">
+						<div class="Drawer__Footer__Coupon-title">
+							{{ 'cart.sidebar.coupon.title' | t }}
+						</div>
+						<div class="Drawer__Footer__Coupon-content">
+							<div class="Drawer__Footer__Coupon-dcart"></div>
+							<div class="Drawer__Footer__Coupon-percentage"></div>
+						</div>
+					</div>
+					<!-- /Cart sidebar coupon -->
+				</div>
+
+				{%- if settings.cart_enable_notes or shipping_and_taxes_notice != blank -%}
+					{%- if settings.cart_enable_notes -%}
+						{%- if cart.note == blank -%}
+							<button type="button" class="Cart__NoteButton" data-action="toggle-cart-note">{{ 'cart.general.add_note' | t }}</button>
+						{%- else -%}
+							<button type="button" class="Cart__NoteButton" data-action="toggle-cart-note">{{ 'cart.general.edit_note' | t }}</button>
+						{%- endif -%}
+					{%- endif -%}
+
+					{%- capture shipping_and_taxes_notice -%}{{ 'cart.general.shipping_and_taxes_notice' | t }}{%- endcapture -%}
+
+					{% comment %}
+						{%- if shipping_and_taxes_notice != blank -%}
+						  <p class="Cart__Taxes Text--subdued">{{ shipping_and_taxes_notice }}</p>
+						{%- endif -%}
+					{% endcomment %}
+
+					{%- if cart.cart_level_discount_applications != blank -%}
+						{%- for discount_application in cart.cart_level_discount_applications -%}
+							<p class="Cart__Discount">
+								{%- render 'icon' with 'sale' -%}
+								{{ 'cart.general.discount' | t }} ({{ discount_application.title }}): -<span>{{ discount_application.total_allocated_amount | money_without_trailing_zeros }}</span>
+							</p>
+						{%- endfor -%}
+					{%- endif -%}
+				{%- endif -%}
+
+				<button type="submit" name="checkout" class="Cart__Checkout Button Button--primary Button--full" disabled>
+					<span>{{- 'cart.general.checkout' | t -}}</span>
+				</button>
+
+				{%- if settings.cart_enable_notes -%}
+					<div class="Cart__OffscreenNoteContainer" aria-hidden="true">
+						{%- if cart.note == blank -%}
+							<span class="Cart__NoteButton">{{ 'cart.general.add_note' | t }}</span>
+						{%- else -%}
+							<span class="Cart__NoteButton">{{ 'cart.general.edit_note' | t }}</span>
+						{%- endif -%}
+
+						<div class="Form__Item">
+							<textarea class="Cart__Note Form__Textarea" name="note" id="cart-note" rows="3" placeholder="{{ 'cart.general.note_placeholder' | t }}" data-scrollable>{{ cart.note }}</textarea>
+						</div>
+
+						<button type="button" class="Button Button--primary Button--full" data-action="toggle-cart-note">{{ 'cart.general.save_note' | t }}</button>
+					</div>
+				{%- endif -%}
+
+				{%- if section.settings.payment_image -%}
+					<!-- Payment image -->
+					<div class="CartPayment__Image">
+						{%- assign image = section.settings.payment_image -%}
+						{%- capture supported_sizes -%}{%- render 'image-size', sizes: '200,400,600,800', image: image -%}{%- endcapture -%}
+						{%- assign image_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+						<img
+							class="VariantSelector__Image Image--lazyLoad Image--fadeIn"
+							data-src="{{ image_url }}"
+							data-widths="[{{ supported_sizes }}]"
+							data-sizes="auto"
+							alt="{{ image.alt | escape }}"
+						>
+					</div>
+					<!-- /Payment image -->
+				{%- endif -%}
+			</div>
+		{%- endunless -%}
+	</form>
 </div>
 
 {% schema %}
 {
-  "name": "Cart sidebar",
-  "settings": [
-    {
-      "type": "header",
-      "content": "Free gift"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_gift_campaign",
-      "label": "Enable gift campaign",
-      "default": false
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_gift",
-      "label": "Enable gift item",
-      "default": false
-    },
-    {
-      "type": "number",
-      "id": "gift_min_price",
-      "label": "Min pricevalue to get a gift in €",
-      "default": 85
-    },
-    {
-      "type": "product",
-      "id": "gift_product",
-      "label": "Gift product"
-    },
-    {
-      "type": "header",
-      "content": "Free delivery"
-    },
-    {
-      "type": "image_picker",
-      "id": "message_delivery_icon",
-      "label": "Icon"
-    },
-    {
-      "type": "text",
-      "id": "message_delivery_text-first",
-      "label": "Message before value",
-      "default": "Noch"
-    },
-    {
-      "type": "text",
-      "id": "message_delivery_text-last",
-      "label": "Message after value",
-      "default": "bis zum kostenlosen Versand"
-    },
-    {
-      "type": "header",
-      "content": "Final"
-    },
-    {
-      "type": "text",
-      "id": "message_final_text",
-      "label": "Message",
-      "default": "Glückwunsch: sie erhalten kostenlosen Versand!"
-    },
-    {
-      "type": "header",
-      "content": "Upsell"
-    },
-    {
-      "type": "text",
-      "id": "upsell_title",
-      "label": "Upsell title"
-    },
-    {
-      "type": "product_list",
-      "id": "upsell_items",
-      "label": "Upsell products",
-      "limit": 2
-    },
-    {
-      "type": "header",
-      "content": "Payment"
-    },
-    {
-      "type": "image_picker",
-      "id": "payment_image",
-      "label": "Payment image"
-    }
-  ]
+	"name": "Cart sidebar",
+	"settings": [
+		{
+			"type": "header",
+			"content": "Free gift"
+		},
+		{
+			"type": "checkbox",
+			"id": "enable_gift_campaign",
+			"label": "Enable gift campaign",
+			"default": false
+		},
+		{
+			"type": "checkbox",
+			"id": "enable_gift",
+			"label": "Enable gift item",
+			"default": false
+		},
+		{
+			"type": "number",
+			"id": "gift_min_price",
+			"label": "Min pricevalue to get a gift in €",
+			"default": 85
+		},
+		{
+			"type": "product",
+			"id": "gift_product",
+			"label": "Gift product"
+		},
+		{
+			"type": "header",
+			"content": "Free delivery"
+		},
+		{
+			"type": "image_picker",
+			"id": "message_delivery_icon",
+			"label": "Icon"
+		},
+		{
+			"type": "text",
+			"id": "message_delivery_text-first",
+			"label": "Message before value",
+			"default": "Noch"
+		},
+		{
+			"type": "text",
+			"id": "message_delivery_text-last",
+			"label": "Message after value",
+			"default": "bis zum kostenlosen Versand"
+		},
+		{
+			"type": "header",
+			"content": "Final"
+		},
+		{
+			"type": "text",
+			"id": "message_final_text",
+			"label": "Message",
+			"default": "Glückwunsch: sie erhalten kostenlosen Versand!"
+		},
+		{
+			"type": "header",
+			"content": "Upsell"
+		},
+		{
+			"type": "text",
+			"id": "upsell_title",
+			"label": "Upsell title"
+		},
+		{
+			"type": "product_list",
+			"id": "upsell_items",
+			"label": "Upsell products",
+			"limit": 2
+		},
+		{
+			"type": "header",
+			"content": "Payment"
+		},
+		{
+			"type": "image_picker",
+			"id": "payment_image",
+			"label": "Payment image"
+		}
+	]
 }
 {% endschema %}
