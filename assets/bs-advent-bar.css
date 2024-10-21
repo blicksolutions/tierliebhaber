@@ -1,0 +1,67 @@
+.bs-advent-bar {
+	background: #000000;
+	color: #fff;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 16px;
+	height: 54px;
+}
+
+.bs-advent-bar:hover .bs-advent-bar__text {
+	text-decoration-thickness: 1px;
+	text-underline-offset: 2px;
+	text-decoration: underline;
+}
+
+.bs-advent-bar__text {
+	font-size: 14px;
+}
+
+#shopify-section-announcement:has(.bs-advent-bar) + #shopify-section-header {
+    top: 153px !important;
+}
+
+@media (min-width: 491px) {
+    #shopify-section-announcement:has(.bs-advent-bar) + #shopify-section-header {
+        top: 138px !important;
+    }
+}
+
+@media (min-width: 637px) {
+    #shopify-section-announcement:has(.bs-advent-bar) + #shopify-section-header {
+        top: 123px !important;
+    }
+}
+
+@media (min-width: 767px) {
+    #shopify-section-announcement:has(.bs-advent-bar) + #shopify-section-header {
+        top: 114px !important;
+    }
+
+	.bs-advent-bar {
+		padding: 10px;
+	}	
+
+	.bs-advent-bar__text {
+		font-size: 16px;
+	}
+}
+
+@media (min-width: 832px) {
+    #shopify-section-announcement:has(.bs-advent-bar) + #shopify-section-header {
+        top: 108px !important;
+    }
+}
+
+@media (min-width: 1023px) {
+    #shopify-section-announcement:has(.bs-advent-bar) + #shopify-section-header {
+        top: 122px !important;
+    }
+}
+
+@media (min-width: 1101px) {
+    #shopify-section-announcement:has(.bs-advent-bar) + #shopify-section-header {
+        top: 108px !important;
+    }
+}
