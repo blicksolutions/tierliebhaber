@@ -62,11 +62,13 @@
 		// Call functions on first load
 		window.unlockCheckoutButton();
 		checkGeoLocation();
+		toggleDCart()
 
 		document.addEventListener("rerenderCart", () => {
 			const targetObserver = new MutationObserver((mutationsList, observer) => {
 				// Call functions on cart drawer changes
 				cheeringBar();
+				toggleDCart();
 
 				// handle free gift, if enabled. Else unlock checkout button
 				if (window.cartDrawerEnableGift) {
@@ -91,33 +93,31 @@
 	/* DCART EVENT LISTENER
     /******************************************************************/
 
-	// window.addEventListener("sc:discount.init", function () {
-	// 	console.log("sc:discount.init");
+	window.addEventListener("sc:discount.init", function () {
+		console.log("sc:discount.init");
 
-	// 	scData = JSON.parse(sessionStorage.getItem("scDiscountData"));
+		// scData = JSON.parse(sessionStorage.getItem("scDiscountData"));
 
-	// 	dCartCalculation();
-	// });
+		dCartCalculation();
+	});
 
-	// window.addEventListener("sc:discount.calculated", () => {
-	// 	console.log("sc:discount.calculated");
+	window.addEventListener("sc:discount.calculated", () => {
+		console.log("sc:discount.calculated");
 
-	// 	scData = JSON.parse(sessionStorage.getItem("scDiscountData"));
+		dCartCalculation();
+	});
 
-	// 	dCartCalculation();
-	// });
+	window.addEventListener("sc:discount.remove", () => {
+		console.log("sc:discount.remove");
 
-	// window.addEventListener("sc:discount.remove", () => {
-	// 	console.log("sc:discount.remove");
+		dCartCalculation();
+	});
 
-	// 	dCartCalculation();
-	// });
+	window.addEventListener("sc:discount.error", () => {
+		console.log("sc:discount.error");
 
-	// window.addEventListener("sc:discount.error", () => {
-	// 	console.log("sc:discount.error");
-
-	// 	dCartCalculation();
-	// });
+		dCartCalculation();
+	});
 
 	/******************************************************************/
 	/* WINDOW FUNCTIONS - LOCK/UNLOCK CHECKOUT BUTTON
@@ -357,29 +357,45 @@
 	/* DCART
     /******************************************************************/
 
+	const toggleDCart = () => {
+		const couponTitle = document.querySelector("#sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon-title");
+
+		couponTitle.addEventListener("click", () => {
+			document.querySelector("#sidebar-cart").classList.toggle("Drawer__Footer__CouponActive")
+		})
+	}
+
 	const dCartCalculation = () => {
-		const cartDrawerElement = document.querySelector(".cart-drawer");
+		const cartDrawerElement = document.querySelector("#sidebar-cart");
 
 		const dCartObserver = new MutationObserver((mutationsList, observer) => {
 			scData = JSON.parse(sessionStorage.getItem("scDiscountData"));
 
 			// do calculation only if discount is added
 			if ((scData.stage === "complete" && scData.subtotalCents > 0) || (scData.stage === "initial" && scData.subtotalCents > 0)) {
-				const subTotalFormatted = scData?.totalFormatted;
-				const totalFormatted = scData?.subtotalFormatted;
+				
+				const couponPercentage = document.querySelector('#sidebar-cart .Drawer__Footer__Coupon-percentage');
+				const saving = parseFloat(scData?.discount?.amount) * 100;
 
-				const compareAtPriceElement = document.querySelector(".cart-drawer__footer .totals__subtotal-value-wrapper .totals__subtotal-compare-at-price s");
-				const totalPriceElement = document.querySelector(".cart-drawer__footer .totals__subtotal-value-wrapper .totals__subtotal-price-value");
+				console.log(saving)
+				couponPercentage.textContent = Shopify.scFormatMoney(saving);
+				
+				
+				// const subTotalFormatted = scData?.totalFormatted;
+				// const totalFormatted = scData?.subtotalFormatted;
 
-				// compare at price
-				if (scData.subtotalCents !== scData.totalCents) {
-					compareAtPriceElement.textContent = subTotalFormatted;
-				} else {
-					compareAtPriceElement.textContent = "";
-				}
+				// const compareAtPriceElement = document.querySelector(".cart-drawer__footer .totals__subtotal-value-wrapper .totals__subtotal-compare-at-price s");
+				// const totalPriceElement = document.querySelector(".cart-drawer__footer .totals__subtotal-value-wrapper .totals__subtotal-price-value");
 
-				// totalprice
-				totalPriceElement.textContent = totalFormatted;
+				// // compare at price
+				// if (scData.subtotalCents !== scData.totalCents) {
+				// 	compareAtPriceElement.textContent = subTotalFormatted;
+				// } else {
+				// 	compareAtPriceElement.textContent = "";
+				// }
+
+				// // totalprice
+				// totalPriceElement.textContent = totalFormatted;
 			}
 
 			observer.disconnect();
