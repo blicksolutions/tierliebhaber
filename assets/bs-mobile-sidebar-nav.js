@@ -77,79 +77,15 @@ document.addEventListener("DOMContentLoaded", () => {
 	};
 
 	/******************************************************************/
-	/* AB Test functions
-	/******************************************************************/
-
-	const clicksOnMenuItems = () => {
-		const menuItems = document.querySelectorAll(".SidebarMenu .Collapsible a, .SidebarMenu .Collapsible__Button, .SidebarMenu .SidebarMenu__item, .SidebarMenu .SidebarMenu__submenu-close");
-
-		menuItems.forEach((menuItem) => {
-			menuItem.addEventListener("click", () => {
-				//console.log("click on menu item!");
-
-				window['ablyft'].push({
-					eventType: 'custom',
-					eventName: 'tlh-044-clicks-on-menu-items'
-				});
-			});
-		});
-	};
-
-	const checkTimeSpentOnMenu = () => {
-		let menuOpenTime;
-		let menuCloseTime;
-		const headerIcon = document.querySelector(".Header__Wrapper .Header__Icon");
-		const sideBarMenuDrawerClose = document.querySelectorAll(".SidebarMenu .Drawer__Close, .PageOverlay, .SidebarMenu .Collapsible a, .SidebarMenu .SidebarMenu__item a");
-		const pageOverlay = document.querySelector(".PageOverlay");
-
-		headerIcon.addEventListener("click", () => {
-			menuOpenTime = new Date();
-			pageOverlay.classList.add("sidebar-menu-is-open");
-		});
-
-		sideBarMenuDrawerClose.forEach((drawerClose) => {
-			drawerClose.addEventListener("click", () => {
-				menuCloseTime = new Date();
-
-				const timeSpentOnMenu = menuCloseTime - menuOpenTime;
-				const timeSpentOnMenuInSeconds = Math.floor(timeSpentOnMenu / 1000);
-
-				const minutes = Math.floor(timeSpentOnMenuInSeconds / 60);
-				const seconds = timeSpentOnMenuInSeconds % 60;
-
-				// do only push when PageOverlay was opened by SidebarMenu
-				if (!(drawerClose.classList.contains("PageOverlay") && !drawerClose.classList.contains("sidebar-menu-is-open"))) {
-					//console.log(`Das Menü war ${timeSpentOnMenuInSeconds}s lang offen.`);
-
-					window['ablyft'].push({
-						eventType: 'custom',
-						eventName: 'tlh-044-time-spent-on-menu',
-						eventValue: timeSpentOnMenuInSeconds
-					});
-				}
-
-				pageOverlay.classList.remove("sidebar-menu-is-open");
-			});
-		});
-	};
-
-	/******************************************************************/
-	/* call these functions in A and B Variant
-	/******************************************************************/
-
-	checkTimeSpentOnMenu();
-	clicksOnMenuItems();
-
-	/******************************************************************/
 	/* window function to activate AB-TLH-044
 	/******************************************************************/
 
-	window.activateAbTlh044 = () => {
+	window.mobileSidbarNavigation = () => {
 		openSideBarNavigation();
 		openSubmenu();
 		closeSubmenu();
 		bestsellerSwiper();
 	};
 
-	//window.activateAbTlh044();
+	window.mobileSidbarNavigation();
 });
