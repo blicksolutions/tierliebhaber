@@ -8,6 +8,7 @@
 	let scData;
 	let minSubtotalPriceValue;
 	let shippingPrice;
+	let currentCountry
 
 	// Define shippingrates
 	window.shippingrates = {
@@ -57,8 +58,6 @@
 		scData = JSON.parse(sessionStorage.getItem("scDiscountData"));
 		const cartDrawer = document.querySelector("#sidebar-cart");
 
-		// console.log(scData)
-
 		// Call functions on first load
 		window.unlockCheckoutButton();
 		checkGeoLocation();
@@ -66,7 +65,14 @@
 
 		document.addEventListener("rerenderCart", () => {
 			const targetObserver = new MutationObserver((mutationsList, observer) => {
-				// Call functions on cart drawer changes
+				/* Call functions on cart drawer changes */
+				/*****************************************/
+
+				// call only if discount code has been entered
+				if(scData?.stage === "complete") {
+					dCartCalculation();
+				}
+
 				cheeringBar();
 				toggleDCart();
 
@@ -96,13 +102,15 @@
 	window.addEventListener("sc:discount.init", function () {
 		console.log("sc:discount.init");
 
-		// scData = JSON.parse(sessionStorage.getItem("scDiscountData"));
-
 		dCartCalculation();
 	});
 
 	window.addEventListener("sc:discount.calculated", () => {
 		console.log("sc:discount.calculated");
+
+		const martinCartData = JSON.parse(sessionStorage.getItem("DCART:cart"));
+		console.log("MARTIN LOG")
+		console.log(martinCartData)
 
 		dCartCalculation();
 	});
@@ -147,7 +155,8 @@
 		fetch("/browsing_context_suggestions.json")
 			.then((response) => response.json())
 			.then((json) => {
-				let currentCountry = json.detected_values.country.handle;
+				currentCountry = json.detected_values.country.handle;
+
 				switch (currentCountry) {
 					case "DE":
 						minSubtotalPriceValue = window.shippingrates.de.minSubtotalPriceValue;
@@ -210,6 +219,11 @@
 
 		let subtotalPriceWithoutNoShippingItems = cartValues.cartTotalPriceFloat - noDeliveryItemsTotalPrice;
 
+
+
+		console.log("COUNTRY: " + currentCountry);
+		console.log("MINSUBTOTAL: " + minSubtotalPriceValue);
+
 		if (hasItemWithDeliveryRequired) {
 			if (window.cartDrawerEnableGift) {
 				const percentPerEuro = 100 / parseInt(window.cartDrawerMinPriceForGift);
@@ -258,8 +272,6 @@
 		} else {
 			deliveryIcon.style.left = "100%";
 			giftIcon.style.display = "none";
-			deliveryPriceValue = 0;
-			deliveryCostEl.textContent = deliveryCostEl.getAttribute("data-freeshipping-text");
 		}
 	};
 
@@ -280,7 +292,7 @@
 			subtotalPrice = cartValues.cartTotalPriceFloat;
 		}
 
-		const giftContained = document.querySelector(".CartItemWrapper.cartGiftItem") !== null;
+		const giftContained = document.querySelector('.CartItemWrapper[data-variant-id="' + window.cartDrawerGiftVariantId + '"]') !== null;
 
 		if (subtotalPrice < window.cartDrawerMinPriceForGift && giftContained) {
 			// console.log("REMOVE GIFT")
@@ -358,11 +370,13 @@
     /******************************************************************/
 
 	const toggleDCart = () => {
-		const couponTitle = document.querySelector("#sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon-title");
+		if(document.querySelector("#sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon-title")) {
+			const couponTitle = document.querySelector("#sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon-title");
 
-		couponTitle.addEventListener("click", () => {
-			document.querySelector("#sidebar-cart").classList.toggle("Drawer__Footer__CouponActive")
-		})
+			couponTitle.addEventListener("click", () => {
+				document.querySelector("#sidebar-cart").classList.toggle("Drawer__Footer__CouponActive")
+			})
+		}
 	}
 
 	const dCartCalculation = () => {
@@ -373,29 +387,11 @@
 
 			// do calculation only if discount is added
 			if ((scData.stage === "complete" && scData.subtotalCents > 0) || (scData.stage === "initial" && scData.subtotalCents > 0)) {
-				
-				const couponPercentage = document.querySelector('#sidebar-cart .Drawer__Footer__Coupon-percentage');
-				const saving = parseFloat(scData?.discount?.amount) * 100;
-
-				console.log(saving)
-				couponPercentage.textContent = Shopify.scFormatMoney(saving);
-				
-				
-				// const subTotalFormatted = scData?.totalFormatted;
-				// const totalFormatted = scData?.subtotalFormatted;
-
-				// const compareAtPriceElement = document.querySelector(".cart-drawer__footer .totals__subtotal-value-wrapper .totals__subtotal-compare-at-price s");
-				// const totalPriceElement = document.querySelector(".cart-drawer__footer .totals__subtotal-value-wrapper .totals__subtotal-price-value");
-
-				// // compare at price
-				// if (scData.subtotalCents !== scData.totalCents) {
-				// 	compareAtPriceElement.textContent = subTotalFormatted;
-				// } else {
-				// 	compareAtPriceElement.textContent = "";
-				// }
-
-				// // totalprice
-				// totalPriceElement.textContent = totalFormatted;
+				if(scData?.code) {
+					const couponPercentage = document.querySelector('#sidebar-cart .Drawer__Footer__Coupon-percentage');
+					const saving = parseFloat(scData?.discount?.amount) * 100;
+					couponPercentage.textContent = Shopify.scFormatMoney(saving);
+				}
 			}
 
 			observer.disconnect();
