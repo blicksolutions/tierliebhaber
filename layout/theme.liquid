@@ -74,6 +74,7 @@
       <script src="{{ 'bs-load-third-party-scripts.js' | asset_url }}" defer></script>
       <script src="{{ 'bs-subscription-callout.js' | asset_url }}" defer></script>
       <script src="{{ 'bs-sticky-atc.js' | asset_url }}" defer></script>
+	  <script src="{{ 'bs-mobile-sidebar-nav.js' | asset_url }}" defer></script>
 
 
     <script type="text/javascript">
@@ -178,11 +179,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {% render 'css-variables' %}
 
     {{ content_for_header }}
+
    {%- comment -%}{% render 'cookie-consent' %}{%- endcomment -%}
+
+  	<link rel="stylesheet" href="{{ 'bs-mobile-sidebar-nav.css' | asset_url }}">
+
     <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
     <link rel="stylesheet" href="{{ 'bs-custom.css' | asset_url }}">
     <link rel="stylesheet" href="{{ 'recommended-search-products.css' | asset_url }}">
-
 
     {%- render 'head-styles', layout: 'theme' -%}
 
