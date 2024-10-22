@@ -110,6 +110,11 @@
 	color: #525252;
 }
 
+.SidebarMenu .bestseller__swiper, 
+.SidebarMenu .bestseller__swiper-wrapper {
+	z-index: 0;
+}
+
 .SidebarMenu .bestseller .swiper-slide {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
