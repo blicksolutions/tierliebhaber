@@ -81,6 +81,7 @@ $(document).ready(function(){
 							{% assign variant_savings = '' %}
 							{% if variant.compare_at_price > variant.price %}
 								{% assign variant_savings = variant.compare_at_price |  minus: variant.price %}
+								{% assign variant_compare_at_price = variant.compare_at_price %}
 								{% assign compare_at_price_percent = variant.price |  times: 1.0 |  divided_by: variant.compare_at_price |  times: 100 |  minus: 100 | times: -1 |  round %}
 							{% endif %}
 
@@ -109,6 +110,7 @@ $(document).ready(function(){
 						class="VariantSelector__ListItem {% if value == option.selected_value %}VariantSelector__ListItem--selected{% endif %} {% if full_width_options == true or variant_on_sale_counter > 1 %}VariantSelector__ListItem--full-width{% endif %}" 
 						data-js-variant-selector-item data-js-option-value="{{ value | escape }}" 
 						{% if variant_price != blank %} data-js-price="{{ variant_price | money }}" {% endif %}
+						{% if variant_compare_at_price != blank %} data-js-compare-at-price="{{ variant_compare_at_price | money }}" {% endif %}
 						{% if compare_at_price_percent != blank %} data-js-savings="{{ compare_at_price_percent }}" {% endif %}
 						{% if free_shipping != blank %} data-js-free-shipping="{{ free_shipping }}" {% endif %}
 						>

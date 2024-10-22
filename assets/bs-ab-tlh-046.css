@@ -77,7 +77,7 @@
 
 @media (min-width: 768px) {
 	.variant-selector[data-js-tlh-046-variant-selector="true"] .VariantSelector__ListItem {
-		padding: 20px 25px;
+		padding: 20px;
 	}
 }
 

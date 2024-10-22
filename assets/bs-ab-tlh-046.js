@@ -64,6 +64,43 @@ window.activateAbTlh046 = () => {
 		});
 	};
 
+	const compareAtPrice = (option) => {
+		const priceContainer = document.querySelector('.ProductMeta__PriceList')
+		const compareAtPriceElements = priceContainer.querySelectorAll('.ProductMeta__Price.Price.Price--compareAt')
+		if (!compareAtPriceElements) return
+
+		const priceDifferenceElement = priceContainer.querySelector('.price-difference')
+		if (!priceDifferenceElement) return
+
+		if (option.classList.contains('rc-option__subsave')) {
+					const selectedVariant = variantSelectorContainer.querySelector('.VariantSelector__ListItem--selected')
+
+					const originalCompareAtPrice = parseFloat(selectedVariant.getAttribute('data-js-compare-at-price').replace(',','.'))
+					const price = parseFloat(selectedVariant.getAttribute('data-js-price').replace(',','.'))
+					const subscriptionCompareAtPrice = originalCompareAtPrice * 0.85
+					const priceDifference = subscriptionCompareAtPrice - (price * 0.85)
+			
+					const priceDifferenceMessage = `Du sparst €${priceDifference.toFixed(2).toString().replace('.',',')}` 
+			
+					priceDifferenceElement.innerText = priceDifferenceMessage
+					compareAtPriceElements.forEach((compareAtPriceElement)=>{
+						compareAtPriceElement.innerText = `${subscriptionCompareAtPrice.toFixed(2).toString().replace('.',',')}€` 
+					})
+		} else if (option.classList.contains('rc-option__onetime')) {
+			const selectedVariant = variantSelectorContainer.querySelector('.VariantSelector__ListItem--selected')
+			const originalCompareAtPrice = parseFloat(selectedVariant.getAttribute('data-js-compare-at-price').replace(',','.'))
+			const price = parseFloat(selectedVariant.getAttribute('data-js-price').replace(',','.'))
+			const priceDifference = originalCompareAtPrice - price
+	
+			const priceDifferenceMessage = `Du sparst €${priceDifference.toFixed(2).toString().replace('.',',')}` 
+	
+			priceDifferenceElement.innerText = priceDifferenceMessage
+			compareAtPriceElements.forEach((compareAtPriceElement)=>{
+				compareAtPriceElement.innerText = `${originalCompareAtPrice.toFixed(2).toString().replace('.',',')}€` 
+			})
+		}
+	}
+
 	const originalVariantSelectorWrapper = document.querySelector('.Product__Info .ProductForm__Variants');
 	if (!originalVariantSelectorWrapper) return;
 
@@ -89,6 +126,11 @@ window.activateAbTlh046 = () => {
 						input.classList.remove('VariantSelector__ListItem--selected');
 					}
 				});
+
+				setTimeout(()=>{
+					const rechargeOption = document.querySelector('.rc-option--active')
+					compareAtPrice(rechargeOption)
+				}, 110)
 			});
 			
 		});
@@ -211,11 +253,23 @@ window.activateAbTlh046 = () => {
 			const planOptions = rechargeInjectionElement.querySelectorAll('[data-plan-option]');
 	
 			planOptions.forEach((option) => {
+
 				if (option.getAttribute('data-js-variant-selector-replaced') == 'true') return;
 				option.innerText = 'Lieferung ' + option.innerText.replace('Alle', 'alle');
 				option.setAttribute('data-js-variant-selector-replaced', 'true');
 			});
 		},50)
+
+		const options = document.querySelectorAll('.rc-radio.rc-option')
+		options.forEach((option) => {
+				//handle subscription compare at price
+				option.addEventListener('click', ()=>{
+					setTimeout(()=>{
+						
+						compareAtPrice(option)
+					, 110})
+				})
+		})
 
 		//subscription text
 		const subSaveText = rechargeInjectionElement.querySelector('[data-label-text-subsave]')
