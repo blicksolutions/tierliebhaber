@@ -28,7 +28,21 @@
       <script src="{{ 'bs-ab-tlh-055.js' | asset_url }}"></script>
       <!-- END BS: AB Scripts -->
 
-      <!-- ABlyft Snippet -->
+	  <!-- ABlyft DE Visitor Audience Setting -->
+	  <script>
+		  fetch('/browsing_context_suggestions.json')
+			  .then(response => response.json())
+			  .then(json => {
+				  if(json.detected_values.country.handle == "DE") {
+					  window.isDeVisitor = true;
+				  } else {
+					  window.isDeVisitor = false;
+				  }
+			  });
+	  </script>
+	  <!-- END ABlyft DE Visitor Audience Setting -->
+
+	  <!-- ABlyft Snippet -->
       <script src="https://cdn.ablyft.com/s/55886406.js"></script>
       <script>
           window['ablyft'] = window['ablyft'] || [];
