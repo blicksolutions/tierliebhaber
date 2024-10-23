@@ -54,7 +54,7 @@
 		ajaxDicountSelector: {
 			path: "#sidebar-cart form.Cart div.Drawer__Footer div.Drawer__Footer__Inner div.Drawer__Footer__Coupon div.Drawer__Footer__Coupon-content div.Drawer__Footer__Coupon-dcart",
 			type: 1,
-		}
+		},
 	};
 
 	document.addEventListener("DOMContentLoaded", async () => {
@@ -63,6 +63,8 @@
 
 		// Call functions on first load
 		window.unlockCheckoutButton();
+		console.log("unlock in DOMCONTENTLOADED")
+
 		checkGeoLocation();
 		toggleDCart();
 
@@ -71,14 +73,17 @@
 				/* Call functions on cart drawer changes */
 				/*****************************************/
 
+				totalCalculation(false);
+
 				// call only if discount code has been entered
 				if (scData?.stage === "complete") {
 					dCartCalculation();
-				} else {
-					totalCalculation(false);
 				}
 
-				cheeringBar();
+				if (scData?.stage === "initial") {
+					cheeringBar();
+				}
+		
 				toggleDCart();
 
 				// handle free gift, if enabled. Else unlock checkout button
@@ -86,6 +91,7 @@
 					handleFreeGift();
 				} else {
 					window.unlockCheckoutButton();
+					console.log("unlock when Gift if not enabled")
 				}
 
 				observer.disconnect();
@@ -112,6 +118,10 @@
 
 	window.addEventListener("sc:discount.calculated", () => {
 		console.log("sc:discount.calculated");
+
+		// window.unlockCheckoutButton();
+		// console.log("unlock in sc:discount calculated")
+
 
 		dCartCalculation();
 	});
@@ -186,16 +196,17 @@
     /******************************************************************/
 
 	const totalCalculation = (isDcart) => {
+		const cartItems = document.querySelectorAll(".Drawer__Container .CartItemWrapper[data-price]");
 		const subTotalPriceCompareAtEl = document.querySelector(".Drawer__Footer__Subtotal .Drawer__Footer__SubtotalPrice .Drawer__Footer__SubtotalPrice_Compare-at");
 		const subTotalPriceEl = document.querySelector(".Drawer__Footer__Subtotal .Drawer__Footer__SubtotalPrice .Drawer__Footer__SubtotalPrice_Value");
 		const deliveryCostEl = document.querySelector(".Drawer__Footer__Delivery span");
 		const totalPriceEl = document.querySelector(".Drawer__Footer__Total span");
-		const cartItems = document.querySelectorAll(".Drawer__Container .CartItemWrapper[data-price]");
 
 		let subTotalPrice;
 		let scCompareAtPrice;
+		let noDeliveryItemsTotalPrice = 0;
 
-		if(isDcart) {
+		if (isDcart) {
 			subTotalPrice = scData?.subtotalCents / 100;
 			scCompareAtPrice = scData?.totalCents / 100;
 		} else {
@@ -205,42 +216,60 @@
 		let shippingRate = shippingPrice;
 		let hasItemWithDeliveryRequired = false;
 
+		// Exclude items with no shipping requirement from shipping calculation
 		cartItems.forEach((cartItem) => {
 			if (cartItem.dataset.reqShipping == "false") {
-				hasItemWithDeliveryRequired = false;
+				noDeliveryItemsTotalPrice += parseFloat(cartItem.dataset.price / 100);
 			} else {
 				hasItemWithDeliveryRequired = true;
 			}
 		});
 
+		let subtotalPriceWithoutNoShippingItems = subTotalPrice - noDeliveryItemsTotalPrice;
+
 		if (subTotalPrice > 0) {
-			if (subTotalPrice >= parseFloat(minSubtotalPriceValue)) {
+			if (subtotalPriceWithoutNoShippingItems >= parseFloat(minSubtotalPriceValue)) {
 				shippingRate = 0;
-				deliveryCostEl.textContent = deliveryCostEl.getAttribute("data-freeshipping-text");
-			} else {
-				let shippingPriceFormatted = Shopify.scFormatMoney(shippingRate * 100);
-				deliveryCostEl.textContent = shippingPriceFormatted;
 			}
 
 			let subtotalPriceFormatted = Shopify.scFormatMoney(subTotalPrice * 100);
-			let totalPrice = parseFloat(subTotalPrice) + parseFloat(shippingRate);
-			let totalPriceFormatted = Shopify.scFormatMoney(totalPrice.toFixed(2) * 100);
 
+			if (subtotalPriceWithoutNoShippingItems >= parseFloat(minSubtotalPriceValue)) {
+				
+				let totalPrice = parseFloat(subTotalPrice) + parseFloat(shippingRate);
+				let totalPriceFormatted = Shopify.scFormatMoney(totalPrice.toFixed(2) * 100);
+	
+				subTotalPriceEl.textContent = subtotalPriceFormatted;
+				deliveryCostEl.textContent = deliveryCostEl.getAttribute("data-freeshipping-text");
+				totalPriceEl.textContent = totalPriceFormatted;
+			} else {
+				if (!hasItemWithDeliveryRequired) {
+					if(deliveryCostEl) {
+						deliveryCostEl.textContent = deliveryCostEl.getAttribute("data-freeshipping-text");
+					}
 
-			subTotalPriceCompareAtEl.textContent = "";
-
-			if(isDcart) {
-				let scCompareAtPriceFormatted = Shopify.scFormatMoney(scCompareAtPrice * 100);
-
-				subTotalPriceCompareAtEl.textContent = scCompareAtPriceFormatted;
+					subTotalPriceEl.textContent = subtotalPriceFormatted;
+					totalPriceEl.textContent = subtotalPriceFormatted;
+				} else {
+					shippingRate = shippingPrice;
+					let shippingPriceFormatted = Shopify.scFormatMoney(shippingRate * 100);
+					let totalPrice = parseFloat(subTotalPrice) + parseFloat(shippingRate);
+					let totalPriceFormatted = Shopify.scFormatMoney(totalPrice.toFixed(2) * 100);
+		
+					subTotalPriceEl.textContent = subtotalPriceFormatted;
+					deliveryCostEl.textContent = shippingPriceFormatted;
+					totalPriceEl.textContent = totalPriceFormatted;
+				}
 			}
 
-			subTotalPriceEl.textContent = subtotalPriceFormatted;
-			totalPriceEl.textContent = totalPriceFormatted;
-		}
-
-		if (!hasItemWithDeliveryRequired) {
-			deliveryCostEl.textContent = deliveryCostEl.getAttribute("data-freeshipping-text");
+			// Compare at price
+			if (isDcart) {
+				// Do only if no dCart error occured
+				if (scData?.subtotalCents !== scData?.totalCents) {
+					let scCompareAtPriceFormatted = Shopify.scFormatMoney(scCompareAtPrice * 100);
+					subTotalPriceCompareAtEl.textContent = scCompareAtPriceFormatted;
+				}
+			}
 		}
 	};
 
@@ -254,8 +283,12 @@
 		let noDeliveryItemsTotalPrice = 0;
 		let hasItemWithDeliveryRequired = false;
 
+		if(scData?.stage === "complete") {
+			subtotalPrice = parseFloat(scData?.totalCents / 100);
+		}
+
 		// Show/hide cheering bar
-		if (document.querySelector(".Cart__Empty") !== null) {
+		if (subtotalPrice === 0) {
 			document.querySelector(".CartMessage__Steps").style.opacity = 0;
 		} else {
 			document.querySelector(".CartMessage__Steps").style.opacity = 1;
@@ -270,8 +303,8 @@
 			}
 		});
 
-		console.log("COUNTRY: " + currentCountry);
-		console.log("MINSUBTOTAL: " + minSubtotalPriceValue);
+		// console.log("COUNTRY: " + currentCountry);
+		// console.log("MINSUBTOTAL: " + minSubtotalPriceValue);
 
 		if (hasItemWithDeliveryRequired) {
 			switch (currentCountry) {
@@ -285,6 +318,9 @@
 		} else {
 			deliveryIcon.style.left = "100%";
 			giftIcon.style.display = "none";
+			deliveryBarStepLineEl.style.width = "0%";
+
+			deliveryBarValueEl.innerHTML = Shopify.scFormatMoney(minSubtotalPriceValue * 100);
 		}
 	};
 
@@ -421,7 +457,17 @@
 
 	const handleFreeGift = async () => {
 		const giftContained = document.querySelector('.CartItemWrapper[data-variant-id="' + window.cartDrawerGiftVariantId + '"]') !== null;
+		const cartItems = document.querySelectorAll(".Drawer__Container .CartItemWrapper[data-price]");
 		let subtotalPrice = parseFloat(document.querySelector(".Cart__values").dataset.cartTotalPriceFloat);
+		let noDeliveryItemsTotalPrice = 0;
+
+		cartItems.forEach((cartItem) => {
+			if (cartItem.dataset.reqShipping == "false") {
+				noDeliveryItemsTotalPrice += parseFloat(cartItem.dataset.price / 100);
+			}
+		});
+
+		subtotalPrice = subtotalPrice - noDeliveryItemsTotalPrice;
 
 		if (subtotalPrice < window.cartDrawerMinPriceForGift && giftContained) {
 			// console.log("REMOVE GIFT")
@@ -443,6 +489,7 @@
 			updateCart(cartUpdates);
 		} else {
 			window.unlockCheckoutButton();
+			console.log("unlock in handle freegift")
 		}
 	};
 
@@ -488,9 +535,14 @@
 			// Unlock checkout button after timeout
 			setTimeout(() => {
 				window.unlockCheckoutButton();
+				console.log("unlock after updating free gift")
 			}, 1000);
 		} catch (error) {
 			console.error("Error updating the cart:", error);
+			setTimeout(() => {
+				window.unlockCheckoutButton();
+				console.log("unlock after updating free gift")
+			}, 1000);
 		}
 	};
 
@@ -519,10 +571,11 @@
 				if (scData?.code) {
 					const couponPercentage = document.querySelector("#sidebar-cart .Drawer__Footer__Coupon-percentage");
 					const saving = parseFloat(scData?.discount?.amount) * 100;
-					couponPercentage.textContent = Shopify.scFormatMoney(saving);
+					couponPercentage.textContent = "-" + Shopify.scFormatMoney(saving);
 				}
 
-				totalCalculation(true)
+				cheeringBar();
+				totalCalculation(true);
 			}
 
 			observer.disconnect();

@@ -11633,10 +11633,10 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
     position: relative;
 }
 
-
+/* 
 #sidebar-cart .Drawer__Footer .sc_simple-container--complete {
     display: none;
-}
+} */
 
 
 #sidebar-cart .Drawer__Footer .scDiscount.scActive form {
