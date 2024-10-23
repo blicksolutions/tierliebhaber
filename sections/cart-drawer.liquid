@@ -203,7 +203,8 @@
           <div class="Drawer__Footer__Subtotal">
             <small class="Drawer__Footer__SubtotalLabel">{{ 'cart.general.subtotal' | t }}</small> 
             <span class="Drawer__Footer__SubtotalPrice" data-price="{{ cart.total_price | money }}">
-              <div class="Drawer__Footer__SubtotalPrice__Visible"></div>
+              <s class="Drawer__Footer__SubtotalPrice_Compare-at"></s>
+              <span class="Drawer__Footer__SubtotalPrice_Value"></span>
             </span>
           </div>
           <!-- /Subtotal -->
@@ -211,49 +212,15 @@
           <!-- Delivery -->
           <div class="Drawer__Footer__Delivery">
             <small>{{ 'cart.general.delivery' | t }}</small> 
-
-			{% case request.locale.iso_code %}
-				{% when 'de' %}
-					{% if cart.total_price > 4900 %}
-						{% assign data-free-shipping = true %}
-						{% assign delivery_cost = 0 %}
-					{% endif %}
-					
-				{% when 'at' %}
-					{% if cart.total_price > 6900 %}
-						{% assign data-free-shipping = true %}
-						{% assign delivery_cost = 0 %}
-					{% endif %}
-
-				{% when 'ch' %}
-					{% if cart.total_price > 12900 %}
-						{% assign data-free-shipping = true %}
-						{% assign delivery_cost = 0 %}
-					{% endif %}
-				{% else %}
-					{% assign data-free-shipping = false %}
-					{% assign delivery_cost = 0 %}
-			{% endcase %}
-			
-			<span data-freeshipping-text="{{ 'cart.sidebar.free_shipping' | t }}"
-					data-shipping-price="{{ delivery_cost_price }}"
-					data-text="{%- if delivery_cost > 0 -%}{{ delivery_cost | money }}{%- else -%}{{ 'cart.sidebar.free_shipping' | t }}{%- endif -%}"
-					{%- if data-free-shipping == true -%}
-						data-free-shipping="true"
-					{%- endif -%}>
-				{%- if delivery_cost > 0 -%}
-                {{ delivery_cost | money }}
-              {%- else -%}
-                {{ 'cart.sidebar.free_shipping' | t }}
-              {%- endif -%}
-            </span>
+		
+			<span data-freeshipping-text="{{ 'cart.sidebar.free_shipping' | t }}"></span>
           </div>
           <!-- /Delivery -->
           
           <!-- Total -->
           <div class="Drawer__Footer__Total">
             <small>{{ 'cart.general.total' | t }}</small>
-            <span data-price="{{ cart.total_price | plus: delivery_cost | money }}">{{ cart.total_price | plus: delivery_cost | money }}</span>
+            <span></span>
           </div>
           <!-- /Total -->
 
