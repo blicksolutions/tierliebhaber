@@ -2,7 +2,6 @@
 	display: none;
 	background: #FDF3F0;
 	padding: 10px 16px;
-	gap: 8px;
 	font-size: 12px;
 	line-height: 15px;
 	color: #525252;
@@ -21,6 +20,7 @@
 	position: relative;
 	flex: 1 0 auto;
 	max-width: max-content;
+	margin-right: 8px;
 }
 
 .LikeBadge--version-b__profiles svg {
