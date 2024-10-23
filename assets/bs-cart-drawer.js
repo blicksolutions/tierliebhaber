@@ -186,6 +186,12 @@
     /******************************************************************/
 
 	const totalCalculation = (isDcart) => {
+		const subTotalPriceCompareAtEl = document.querySelector(".Drawer__Footer__Subtotal .Drawer__Footer__SubtotalPrice .Drawer__Footer__SubtotalPrice_Compare-at");
+		const subTotalPriceEl = document.querySelector(".Drawer__Footer__Subtotal .Drawer__Footer__SubtotalPrice .Drawer__Footer__SubtotalPrice_Value");
+		const deliveryCostEl = document.querySelector(".Drawer__Footer__Delivery span");
+		const totalPriceEl = document.querySelector(".Drawer__Footer__Total span");
+		const cartItems = document.querySelectorAll(".Drawer__Container .CartItemWrapper[data-price]");
+
 		let subTotalPrice;
 		let scCompareAtPrice;
 
@@ -197,13 +203,6 @@
 		}
 
 		let shippingRate = shippingPrice;
-
-		const subTotalPriceCompareAtEl = document.querySelector(".Drawer__Footer__Subtotal .Drawer__Footer__SubtotalPrice .Drawer__Footer__SubtotalPrice_Compare-at");
-		const subTotalPriceEl = document.querySelector(".Drawer__Footer__Subtotal .Drawer__Footer__SubtotalPrice .Drawer__Footer__SubtotalPrice_Value");
-		const deliveryCostEl = document.querySelector(".Drawer__Footer__Delivery span");
-		const totalPriceEl = document.querySelector(".Drawer__Footer__Total span");
-		const cartItems = document.querySelectorAll(".Drawer__Container .CartItemWrapper[data-price]");
-
 		let hasItemWithDeliveryRequired = false;
 
 		cartItems.forEach((cartItem) => {
@@ -229,7 +228,7 @@
 
 
 			subTotalPriceCompareAtEl.textContent = "";
-			
+
 			if(isDcart) {
 				let scCompareAtPriceFormatted = Shopify.scFormatMoney(scCompareAtPrice * 100);
 
