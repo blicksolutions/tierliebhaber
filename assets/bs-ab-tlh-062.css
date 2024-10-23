@@ -1,0 +1,48 @@
+.LikeBadge--version-b {
+	display: none;
+	background: #FDF3F0;
+	padding: 10px 16px;
+	gap: 8px;
+	font-size: 12px;
+	line-height: 15px;
+	color: #525252;
+	margin-bottom: 15px;
+}
+
+.LikeBadge--version-b span {
+	color: #F1AF9E;
+	font-weight: 600;
+}
+
+.LikeBadge--version-b__profiles {
+	display: flex;
+	align-items: center;
+	margin-bottom: 7px;
+	position: relative;
+	flex: 1 0 auto;
+	max-width: max-content;
+}
+
+.LikeBadge--version-b__profiles svg {
+	position: absolute;
+    bottom: 0;
+    z-index: 1;
+    transform: translateX(-41%) translateY(7px);
+    left: 50%;
+}
+
+.LikeBadge--version-b__text {
+	text-align: start;
+	display: flex;
+	align-items: center;
+}
+
+.LikeBadge--version-b.active + .LikeBadge {
+	display: none;
+}
+
+@media (min-width: 1008px) {
+	.LikeBadge--version-b {
+		border-radius: 5px;
+	}
+}
