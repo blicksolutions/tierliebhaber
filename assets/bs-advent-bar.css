@@ -13,10 +13,10 @@
 }
 
 .bs-advent-bar__text span {
-	color: #E31359;
 	text-decoration: underline;
 	text-decoration-thickness: 1px;
 	text-underline-offset: 2px;
+    font-weight: 700;
 }
 
 #shopify-section-announcement:has(.bs-advent-bar) + #shopify-section-header {
