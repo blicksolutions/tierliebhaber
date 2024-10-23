@@ -28,7 +28,21 @@
       <script src="{{ 'bs-ab-tlh-055.js' | asset_url }}"></script>
       <!-- END BS: AB Scripts -->
 
-      <!-- ABlyft Snippet -->
+	  <!-- ABlyft DE Visitor Audience Setting -->
+	  <script>
+		  fetch('/browsing_context_suggestions.json')
+			  .then(response => response.json())
+			  .then(json => {
+				  if(json.detected_values.country.handle == "DE") {
+					  window.isDeVisitor = true;
+				  } else {
+					  window.isDeVisitor = false;
+				  }
+			  });
+	  </script>
+	  <!-- END ABlyft DE Visitor Audience Setting -->
+
+	  <!-- ABlyft Snippet -->
       <script src="https://cdn.ablyft.com/s/55886406.js"></script>
       <script>
           window['ablyft'] = window['ablyft'] || [];
@@ -60,6 +74,38 @@
       <script src="{{ 'bs-load-third-party-scripts.js' | asset_url }}" defer></script>
       <script src="{{ 'bs-subscription-callout.js' | asset_url }}" defer></script>
       <script src="{{ 'bs-sticky-atc.js' | asset_url }}" defer></script>
+	  <script src="{{ 'bs-mobile-sidebar-nav.js' | asset_url }}" defer></script>
+
+	  <!-- Awin Implementation-->
+	  <script>
+		var AWIN = AWIN || {};
+		AWIN.Tracking = AWIN.Tracking || {};
+		AWIN.Tracking.AdvertiserConsent = false;
+
+		//get Cookie
+		let documentCookies = document.cookie;
+		let prefix = 'CookieConsent' + '=';
+		let begin = documentCookies.indexOf('; ' + prefix);
+		let end;
+
+		if (begin == -1) {
+			begin = documentCookies.indexOf(prefix);
+			if (begin != 0) return null;
+		} else {
+			begin += 2;
+			end = document.cookie.indexOf(';', begin);
+			if (end == -1) {
+				end = documentCookies.length;
+			}
+		}
+		const consentCookie = decodeURI(documentCookies.substring(begin + prefix.length, end));
+		if (consentCookie.includes('necessary:true') && consentCookie.includes('preferences:true') && consentCookie.includes('statistics:true') && consentCookie.includes('marketing:true')) {
+			AWIN.Tracking.Consent.setAdvertiserConsentStatus(true)
+		} else {
+			AWIN.Tracking.Consent.setAdvertiserConsentStatus(false)
+		}
+	  </script>
+      <!-- END: Awin Implementation -->
 
 
     <script type="text/javascript">
@@ -164,11 +210,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {% render 'css-variables' %}
 
     {{ content_for_header }}
+
    {%- comment -%}{% render 'cookie-consent' %}{%- endcomment -%}
+
+  	<link rel="stylesheet" href="{{ 'bs-mobile-sidebar-nav.css' | asset_url }}">
+
     <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
     <link rel="stylesheet" href="{{ 'bs-custom.css' | asset_url }}">
     <link rel="stylesheet" href="{{ 'recommended-search-products.css' | asset_url }}">
-
 
     {%- render 'head-styles', layout: 'theme' -%}
 
