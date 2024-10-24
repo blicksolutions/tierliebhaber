@@ -120,9 +120,6 @@
 	window.addEventListener("sc:discount.calculated", () => {
 		console.log("sc:discount.calculated");
 
-		// window.unlockCheckoutButton();
-		// console.log("unlock in sc:discount calculated")
-
 		dCartCalculation();
 	});
 
