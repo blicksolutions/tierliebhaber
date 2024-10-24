@@ -20,3 +20,7 @@
 #sidebar-cart .Drawer__Footer .scError + div .sc_simple-container--complete {
 	display: flex;
 }
+
+#sidebar-cart span.highlight-free-shipping {
+	color: #77a464;
+}

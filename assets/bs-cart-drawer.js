@@ -63,7 +63,7 @@
 
 		// Call functions on first load
 		window.unlockCheckoutButton();
-		console.log("unlock in DOMCONTENTLOADED")
+		console.log("unlock in DOMCONTENTLOADED");
 
 		checkGeoLocation();
 		toggleDCart();
@@ -83,7 +83,8 @@
 				if (scData?.stage === "initial") {
 					cheeringBar();
 				}
-		
+
+				showHideCheeringBar();
 				toggleDCart();
 
 				// handle free gift, if enabled. Else unlock checkout button
@@ -91,7 +92,7 @@
 					handleFreeGift();
 				} else {
 					window.unlockCheckoutButton();
-					console.log("unlock when Gift if not enabled")
+					console.log("unlock when Gift if not enabled");
 				}
 
 				observer.disconnect();
@@ -121,7 +122,6 @@
 
 		// window.unlockCheckoutButton();
 		// console.log("unlock in sc:discount calculated")
-
 
 		dCartCalculation();
 	});
@@ -235,17 +235,18 @@
 			let subtotalPriceFormatted = Shopify.scFormatMoney(subTotalPrice * 100);
 
 			if (subtotalPriceWithoutNoShippingItems >= parseFloat(minSubtotalPriceValue)) {
-				
 				let totalPrice = parseFloat(subTotalPrice) + parseFloat(shippingRate);
 				let totalPriceFormatted = Shopify.scFormatMoney(totalPrice.toFixed(2) * 100);
-	
+
 				subTotalPriceEl.textContent = subtotalPriceFormatted;
 				deliveryCostEl.textContent = deliveryCostEl.getAttribute("data-freeshipping-text");
+				deliveryCostEl.classList.add("highlight-free-shipping");
 				totalPriceEl.textContent = totalPriceFormatted;
 			} else {
 				if (!hasItemWithDeliveryRequired) {
-					if(deliveryCostEl) {
+					if (deliveryCostEl) {
 						deliveryCostEl.textContent = deliveryCostEl.getAttribute("data-freeshipping-text");
+						deliveryCostEl.classList.add("highlight-free-shipping");
 					}
 
 					subTotalPriceEl.textContent = subtotalPriceFormatted;
@@ -255,9 +256,10 @@
 					let shippingPriceFormatted = Shopify.scFormatMoney(shippingRate * 100);
 					let totalPrice = parseFloat(subTotalPrice) + parseFloat(shippingRate);
 					let totalPriceFormatted = Shopify.scFormatMoney(totalPrice.toFixed(2) * 100);
-		
+
 					subTotalPriceEl.textContent = subtotalPriceFormatted;
 					deliveryCostEl.textContent = shippingPriceFormatted;
+					deliveryCostEl.classList.remove("highlight-free-shipping");
 					totalPriceEl.textContent = totalPriceFormatted;
 				}
 			}
@@ -283,15 +285,8 @@
 		let noDeliveryItemsTotalPrice = 0;
 		let hasItemWithDeliveryRequired = false;
 
-		if(scData?.stage === "complete") {
+		if (scData?.stage === "complete") {
 			subtotalPrice = parseFloat(scData?.totalCents / 100);
-		}
-
-		// Show/hide cheering bar
-		if (subtotalPrice === 0) {
-			document.querySelector(".CartMessage__Steps").style.opacity = 0;
-		} else {
-			document.querySelector(".CartMessage__Steps").style.opacity = 1;
 		}
 
 		// Exclude items with no shipping requirement from shipping calculation
@@ -451,12 +446,22 @@
 		}
 	};
 
+	const showHideCheeringBar = () => {
+		const cartItems = document.querySelectorAll(".Drawer__Container .CartItemWrapper[data-price]");
+
+		// Show/hide cheering bar
+		if (cartItems.length === 0 ) {
+			document.querySelector(".CartMessage__Steps").style.opacity = 0;
+		} else {
+			document.querySelector(".CartMessage__Steps").style.opacity = 1;
+		}
+	}
+
 	/******************************************************************/
 	/* FREE GIFT
     /******************************************************************/
 
 	const handleFreeGift = async () => {
-		const giftContained = document.querySelector('.CartItemWrapper[data-variant-id="' + window.cartDrawerGiftVariantId + '"]') !== null;
 		const cartItems = document.querySelectorAll(".Drawer__Container .CartItemWrapper[data-price]");
 		let subtotalPrice = parseFloat(document.querySelector(".Cart__values").dataset.cartTotalPriceFloat);
 		let noDeliveryItemsTotalPrice = 0;
@@ -469,28 +474,39 @@
 
 		subtotalPrice = subtotalPrice - noDeliveryItemsTotalPrice;
 
-		if (subtotalPrice < window.cartDrawerMinPriceForGift && giftContained) {
-			// console.log("REMOVE GIFT")
-			const cartUpdates = {
-				updates: {
-					[window.cartDrawerGiftVariantId]: 0,
-				},
-			};
+		fetch("/cart.js")
+			.then((res) => res.json())
+			.then((cart) => {
+				const giftContained = cart.items.some((cartItem) => cartItem.variant_id === parseInt(window.cartDrawerGiftVariantId));
 
-			updateCart(cartUpdates);
-		} else if (!giftContained && subtotalPrice >= window.cartDrawerMinPriceForGift) {
-			// console.log("ADD GIFT")
-			const cartUpdates = {
-				updates: {
-					[window.cartDrawerGiftVariantId]: 1,
-				},
-			};
+				console.log("FETCH CART.JS");
 
-			updateCart(cartUpdates);
-		} else {
-			window.unlockCheckoutButton();
-			console.log("unlock in handle freegift")
-		}
+				if (subtotalPrice < window.cartDrawerMinPriceForGift && giftContained) {
+					// console.log("REMOVE GIFT")
+					const cartUpdates = {
+						updates: {
+							[window.cartDrawerGiftVariantId]: 0,
+						},
+					};
+
+					updateCart(cartUpdates);
+				} else if (!giftContained && subtotalPrice >= window.cartDrawerMinPriceForGift) {
+					// console.log("ADD GIFT")
+					const cartUpdates = {
+						updates: {
+							[window.cartDrawerGiftVariantId]: 1,
+						},
+					};
+
+					updateCart(cartUpdates);
+				} else {
+					window.unlockCheckoutButton();
+					console.log("unlock in handle freegift");
+				}
+			})
+			.catch((error) => {
+				console.error("Error fetching cart:", error);
+			});
 	};
 
 	/******************************************************************/
@@ -535,13 +551,13 @@
 			// Unlock checkout button after timeout
 			setTimeout(() => {
 				window.unlockCheckoutButton();
-				console.log("unlock after updating free gift")
+				console.log("unlock after updating free gift");
 			}, 1000);
 		} catch (error) {
 			console.error("Error updating the cart:", error);
 			setTimeout(() => {
 				window.unlockCheckoutButton();
-				console.log("unlock after updating free gift")
+				console.log("unlock after updating free gift");
 			}, 1000);
 		}
 	};
