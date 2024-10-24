@@ -1,31 +1,5 @@
 {%- assign like_badge = shop.metafields.product.like_badge.value -%}
 
-{%- if product.metafields.meta.pet_icons contains ',' -%}
-  {%- assign pet_icon = product.metafields.meta.pet_icons | split: ', ' | first -%}
-{%- else -%}
-  {%- assign pet_icon = product.metafields.meta.pet_icons -%}
-{%- endif -%}
-
-{%- if pet_icon != blank and like_badge.pets[pet_icon].pet != blank -%}
-  {%- assign like_badge_pet = like_badge.pets[pet_icon].pet -%}
-{%- else -%}
-  {%- assign like_badge_pet = like_badge.default_pet -%}
-{%- endif -%}
-
-{%- assign like_badge_text = like_badge.pet_text -%}
-
-{%- capture random_number -%}{%- render 'random-number', min: like_badge.like_range.min, max: like_badge.like_range.max -%}{%- endcapture -%}
-
-{% assign random_number = 44 %}
-
-{%- capture like_badge_names -%}
-  {%- for dog in like_badge.dogs -%}
-    {{ dog.name }}{% unless forloop.last %}, {% endunless %}
-  {%- endfor -%}
-{%- endcapture -%}
-
-{%- assign like_badge_names = like_badge_names | strip_newlines -%}
-
 <div class="LikeBadge--version-b {% if classes %}{{ classes }}{% endif %}">
 	<div class="LikeBadge--version-b__profiles">
 		{%- if like_badge.pets[product.metafields.meta.pet_icons].images != blank -%}
