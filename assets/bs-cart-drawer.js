@@ -44,7 +44,6 @@
 		},
 	};
 
-	
 	/******************************************************************/
 	/* PLACE DCART
     /******************************************************************/
@@ -205,7 +204,12 @@
 
 	const cheeringBar = () => {
 		const cartItems = document.querySelectorAll(".Drawer__Container .CartItemWrapper[data-price]");
-		let subtotalPrice = parseFloat(document.querySelector(".Cart__values").dataset.cartTotalPriceFloat);
+		let subtotalPrice;
+
+		if (document.querySelector(".Cart__values")) {
+			subtotalPrice = parseFloat(document.querySelector(".Cart__values").dataset.cartTotalPriceFloat);
+		}
+
 		let noDeliveryItemsTotalPrice = 0;
 		let hasItemWithDeliveryRequired = false;
 
@@ -239,11 +243,21 @@
 					break;
 			}
 		} else {
-			deliveryIcon.style.left = "100%";
-			giftIcon.style.display = "none";
-			deliveryBarStepLineEl.style.width = "0%";
+			if (deliveryIcon) {
+				deliveryIcon.style.left = "100%";
+			}
 
-			deliveryBarValueEl.innerHTML = Shopify.scFormatMoney(minSubtotalPriceValue * 100);
+			if (giftIcon) {
+				giftIcon.style.display = "none";
+			}
+
+			if (deliveryBarStepLineEl) {
+				deliveryBarStepLineEl.style.width = "0%";
+			}
+
+			if (deliveryBarStepLineEl) {
+				deliveryBarValueEl.innerHTML = Shopify.scFormatMoney(minSubtotalPriceValue * 100);
+			}
 		}
 	};
 
