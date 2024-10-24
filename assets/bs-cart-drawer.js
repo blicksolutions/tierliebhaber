@@ -223,8 +223,6 @@
 		// console.log("COUNTRY: " + currentCountry);
 		// console.log("MINSUBTOTAL: " + minSubtotalPriceValue);
 
-		console.log(subtotalPrice)
-
 		if (hasItemWithDeliveryRequired) {
 			switch (currentCountry) {
 				case "DE":
