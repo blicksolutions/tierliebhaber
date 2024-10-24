@@ -90,10 +90,8 @@
 					dCartCalculation();
 				}
 
-				if (scData?.stage === "initial") {
-					cheeringBar();
-				}
-
+			
+				cheeringBar();				
 				showHideCheeringBar();
 				toggleDCart();
 
@@ -204,11 +202,7 @@
 
 	const cheeringBar = () => {
 		const cartItems = document.querySelectorAll(".Drawer__Container .CartItemWrapper[data-price]");
-		let subtotalPrice;
-
-		if (document.querySelector(".Cart__values")) {
-			subtotalPrice = parseFloat(document.querySelector(".Cart__values").dataset.cartTotalPriceFloat);
-		}
+		let subtotalPrice = parseFloat(document.querySelector(".Cart__values").dataset.cartTotalPriceFloat);
 
 		let noDeliveryItemsTotalPrice = 0;
 		let hasItemWithDeliveryRequired = false;
@@ -226,8 +220,10 @@
 			}
 		});
 
-		console.log("COUNTRY: " + currentCountry);
-		console.log("MINSUBTOTAL: " + minSubtotalPriceValue);
+		// console.log("COUNTRY: " + currentCountry);
+		// console.log("MINSUBTOTAL: " + minSubtotalPriceValue);
+
+		console.log(subtotalPrice)
 
 		if (hasItemWithDeliveryRequired) {
 			switch (currentCountry) {
