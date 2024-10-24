@@ -1,5 +1,56 @@
-window.activateAbTlh059B = () => {
+const insertSection = (snippetMarkup) => {
 	const productMetaElement = document.querySelector(".ProductMeta");
+
+	if(productMetaElement) {
+		productMetaElement.insertAdjacentHTML("beforebegin",snippetMarkup)
+	}
+};
+
+window.activateAbTlh059B = () => {
+	let randomNumber = Math.floor(Math.random() * (150 - 50 + 1) + 50);
+	const sessionStorageValue = window.sessionStorage.getItem(`recent-buy-${productTitle.toLowerCase()}`);
+
+	if(sessionStorageValue) {
+		let maxValue = sessionStorageValue * 1 + 10;
+		let minValue = sessionStorageValue - 10;
+
+		console.log(maxValue, minValue)
+
+		if(maxValue >= 150) {
+			const maxValueOffset = maxValue - 150;
+			minValue = minValue - maxValueOffset;
+
+			randomNumber = Math.floor(Math.random() * (150 - minValue + 1) + minValue);
+		} else if(minValue <= 50) {
+			const minValueOffset = 50 - minValue;
+			maxValue = maxValue + minValueOffset;
+
+			randomNumber = Math.floor(Math.random() * (maxValue - 50 + 1) + 50);
+		} else {
+			randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1) + minValue);
+		}
+
+		sessionStorage.setItem(`recent-buy-${productTitle.toLowerCase()}`, randomNumber);
+	} else {
+		sessionStorage.setItem(`recent-buy-${productTitle.toLowerCase()}`, randomNumber);
+	}
+
+	const content = `
+	<div class="ProductMeta__visitor-ping" ping-current-users>
+		<svg class="ProductMeta__visitor-ping__icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+			<path d="M10.0005 8C10.0005 9.1046 9.10507 10 8.00047 10C6.89594 10 6.00049 9.1046 6.00049 8C6.00049 6.8954 6.89594 6 8.00047 6C9.10507 6 10.0005 6.8954 10.0005 8Z" stroke="#525252" stroke-width="1.47439" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M8.00082 3.33325C5.01572 3.33325 2.48886 5.29517 1.63934 7.99992C2.48885 10.7047 5.01572 12.6666 8.00082 12.6666C10.9859 12.6666 13.5128 10.7047 14.3623 7.99992C13.5128 5.29519 10.9859 3.33325 8.00082 3.33325Z" stroke="#525252" stroke-width="1.47439" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>
+		<span class="ProductMeta__visitor-ping__text">
+			<span>${randomNumber} Kunden</span> sehen sich dieses Produkt im Moment an
+		</span>
+	</div>
+	`;
+
+	insertSection(content);
+}
+
+window.activateAbTlh059C = () => {
 	const content = `
 	<div class="ProductMeta__visitor-ping" ping-recent-buys>
 		<svg class="ProductMeta__visitor-ping__icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -9,30 +60,9 @@ window.activateAbTlh059B = () => {
 			<span>${Math.floor(Math.random() * (150 - 50 + 1) + 50)} Mal</span> in den letzten 24 Stunden gekauft
 		</span>
 	</div>
-	`
+	`;
 
-	if(productMetaElement) {
-		productMetaElement.insertAdjacentHTML("beforebegin",content)
-	}
-}
-
-window.activateAbTlh059C = () => {
-	const productMetaElement = document.querySelector(".ProductMeta");
-	const content = `
-	<div class="ProductMeta__visitor-ping" ping-current-users>
-		<svg class="ProductMeta__visitor-ping__icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-			<path d="M10.0005 8C10.0005 9.1046 9.10507 10 8.00047 10C6.89594 10 6.00049 9.1046 6.00049 8C6.00049 6.8954 6.89594 6 8.00047 6C9.10507 6 10.0005 6.8954 10.0005 8Z" stroke="#525252" stroke-width="1.47439" stroke-linecap="round" stroke-linejoin="round"/>
-			<path d="M8.00082 3.33325C5.01572 3.33325 2.48886 5.29517 1.63934 7.99992C2.48885 10.7047 5.01572 12.6666 8.00082 12.6666C10.9859 12.6666 13.5128 10.7047 14.3623 7.99992C13.5128 5.29519 10.9859 3.33325 8.00082 3.33325Z" stroke="#525252" stroke-width="1.47439" stroke-linecap="round" stroke-linejoin="round"/>
-		</svg>
-		<span class="ProductMeta__visitor-ping__text">
-			<span>${Math.floor(Math.random() * (150 - 50 + 1) + 50)} Kunden</span> sehen sich dieses Produkt im Moment an
-		</span>
-	</div>
-	`
-
-	if(productMetaElement) {
-		productMetaElement.insertAdjacentHTML("beforebegin",content)
-	}
+	insertSection(content);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
