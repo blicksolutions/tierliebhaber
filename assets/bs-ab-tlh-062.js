@@ -5,11 +5,7 @@ window.activateAbTlh062 = () => {
 			socialProofsB.forEach((socialProofB) => {
 				socialProofB.classList.add("active");
 				socialProofB.style.display = "flex";
-			})
+			});
 		}
 };
-
-document.addEventListener("DOMContentLoaded", () => {
-	window.activateAbTlh062();
-})
 
