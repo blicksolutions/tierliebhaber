@@ -35,7 +35,6 @@ window.activateAbTlh061 = () => {
 				if (entry.attributeName == 'class' && entry.target.classList.contains('jdgm-rev__timestamp') && !entry.target.classList.contains('jdgm-spinner')) {
 					const reviewSlide = document.createElement('div');
 					reviewSlide.classList.add('testimonials__slide');
-					reviewSlide.classList.add('swiper-slide');
 
 					const icon = review.querySelector('.jdgm-rev__icon').outerHTML;
 					const rating = review.querySelector('.jdgm-rev__rating').outerHTML;
@@ -78,29 +77,6 @@ window.activateAbTlh061 = () => {
 			subtree: true,
 			attributes: true,
 		});
-	});
-
-	const swiper = new Swiper('[data-js-tlh-040-swiper]', {
-		direction: 'horizontal',
-		slidesPerView: 1.3,
-		spaceBetween: 10,
-		slidesOffsetAfter: 24,
-		slidesOffsetBefore: 24,
-		breakpoints: {
-			768: {
-				slidesPerView: 3,
-				slidesOffsetAfter: 0,
-				slidesOffsetBefore: 0,
-				spaceBetween: 15,
-			},
-		},
-		navigation: {
-			nextEl: '.testimonials__swiper-button-next',
-			prevEl: '.testimonials__swiper-button-prev',
-		},
-		scrollbar: {
-			el: '.testimonials__swiper-scrollbar',
-		},
 	});
 
 	testimonialsSection.setAttribute('data-js-tlh-040', 'true');
