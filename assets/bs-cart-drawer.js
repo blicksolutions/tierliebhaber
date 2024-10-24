@@ -88,7 +88,7 @@
 				toggleDCart();
 
 				// handle free gift, if enabled. Else unlock checkout button
-				if (window.cartDrawerEnableGift) {
+				if ((window.cartDrawerEnableGift && (currentCountry === "DE") || currentCountry === "AT" || currentCountry === "CH")) {
 					handleFreeGift();
 				} else {
 					window.unlockCheckoutButton();
@@ -295,16 +295,20 @@
 			}
 		});
 
-		// console.log("COUNTRY: " + currentCountry);
-		// console.log("MINSUBTOTAL: " + minSubtotalPriceValue);
+		console.log("COUNTRY: " + currentCountry);
+		console.log("MINSUBTOTAL: " + minSubtotalPriceValue);
 
 		if (hasItemWithDeliveryRequired) {
 			switch (currentCountry) {
+				case "DE":
+  				case "AT":
+					handleCheeringBar(subtotalPrice, noDeliveryItemsTotalPrice);
+					break;
 				case "CH":
 					handleCheeringBarCH(subtotalPrice, noDeliveryItemsTotalPrice);
 					break;
 				default:
-					handleCheeringBar(subtotalPrice, noDeliveryItemsTotalPrice);
+					handleCheeringBarOtherLocation(subtotalPrice, noDeliveryItemsTotalPrice);
 					break;
 			}
 		} else {
@@ -443,16 +447,38 @@
 		}
 	};
 
+	const handleCheeringBarOtherLocation = (subtotalPrice, noDeliveryItemsTotalPrice) => {
+		let subtotalPriceWithoutNoShippingItems = subtotalPrice - noDeliveryItemsTotalPrice;
+
+		giftIcon.style.display = "none";
+		deliveryIcon.style.left = "100%";
+
+		console.log("handle bar ")
+
+		if (minSubtotalPriceValue > subtotalPriceWithoutNoShippingItems) {
+			let remainingPriceFreeShipping = parseFloat(minSubtotalPriceValue) - parseFloat(subtotalPriceWithoutNoShippingItems);
+
+			deliveryBarFinalTextEl.style.display = "none";
+			deliveryBarLeftTextEl.style.display = "block";
+			deliveryBarValueEl.textContent = Shopify.scFormatMoney(remainingPriceFreeShipping * 100);
+			deliveryBarStepLineEl.style.width = ((subtotalPriceWithoutNoShippingItems / minSubtotalPriceValue) * 100).toFixed(2) + "%";
+		} else {
+			deliveryBarFinalTextEl.style.display = "block";
+			deliveryBarLeftTextEl.style.display = "none";
+			deliveryBarStepLineEl.style.width = "100%";
+		}
+	};
+
 	const showHideCheeringBar = () => {
 		const cartItems = document.querySelectorAll(".Drawer__Container .CartItemWrapper[data-price]");
 
 		// Show/hide cheering bar
-		if (cartItems.length === 0 ) {
+		if (cartItems.length === 0) {
 			document.querySelector(".CartMessage__Steps").style.opacity = 0;
 		} else {
 			document.querySelector(".CartMessage__Steps").style.opacity = 1;
 		}
-	}
+	};
 
 	/******************************************************************/
 	/* FREE GIFT
