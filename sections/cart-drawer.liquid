@@ -12,14 +12,9 @@
 <script>
 	window.cartDrawerEnableGift = {{ section.settings.enable_gift }};
 	window.cartDrawerMinPriceForGift = {{ section.settings.gift_min_price }};
-	window.cartDrawerGiftProductId = {{ section.settings.gift_product.id }};
 	window.cartDrawerGiftVariantId = {{ section.settings.gift_product.selected_or_first_available_variant.id }};
 	window.cartDrawerGiftPrice = parseInt({{ section.settings.gift_product.selected_or_first_available_variant.price }}) / 100;
-	window.cartDrawerEnableGiftCampaign = {{ section.settings.enable_gift_campaign }};
-
-	//AB TEST TLH047 -- VARIABLES
-	window.cartDrawerMinPriceForSecondGift = 175;
-	window.cartDrawerSecondGiftVariantId = {{ section.settings.gift_product.selected_or_first_available_variant.id }};
+	{% comment %} window.cartDrawerEnableGiftCampaign = {{ section.settings.enable_gift_campaign }}; {% endcomment %}
 </script>
 
 <div id="sidebar-cart" class="Drawer Drawer--fromRight" aria-hidden="true" selected_variant data-section-id="cart" data-section-type="cart" data-section-settings='{{ section_settings }}' data-js-tlh-052>
@@ -35,7 +30,8 @@
 	<div class="CartMessage__Steps" style="opacity: 0;">
 		<div class="CartMessage__Steps__Text">
 			<div class="CartMessage__Steps__Text-left">
-				{{ section.settings['message_delivery_text-first'] }}<span class="js-cart-drawer-delivery-left-value"></span>{{ section.settings['message_delivery_text-last'] }}
+				{{ section.settings['message_delivery_text-first'] -}}
+				<span class="js-cart-drawer-delivery-left-value"></span>{{ section.settings['message_delivery_text-last'] }}
 			</div>
 
 			<div class="CartMessage__Steps__Text-final" style="display: none">
@@ -321,12 +317,6 @@
 		},
 		{
 			"type": "checkbox",
-			"id": "enable_gift_campaign",
-			"label": "Enable gift campaign",
-			"default": false
-		},
-		{
-			"type": "checkbox",
 			"id": "enable_gift",
 			"label": "Enable gift item",
 			"default": false
@@ -400,3 +390,13 @@
 	]
 }
 {% endschema %}
+
+{% comment %} Setting for later {% endcomment %}
+{% comment %}
+	{
+		"type": "checkbox",
+		"id": "enable_gift_campaign",
+		"label": "Enable gift campaign",
+		"default": false
+	},
+{% endcomment %}

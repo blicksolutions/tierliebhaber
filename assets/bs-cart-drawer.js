@@ -17,7 +17,10 @@
 	const giftIcon = document.querySelector(".CartMessage__StepsLines__Gift");
 	const deliveryIcon = document.querySelector(".CartMessage__StepsLines__Delivery");
 
-	// Define shippingrates
+	/******************************************************************/
+	/* DEFINE SHIPPING RATES
+    /******************************************************************/
+
 	window.shippingrates = {
 		de: {
 			minSubtotalPriceValue: 49,
@@ -41,7 +44,11 @@
 		},
 	};
 
-	// Place dcart
+	
+	/******************************************************************/
+	/* PLACE DCART
+    /******************************************************************/
+
 	window.scThemeConfig = {
 		cartDiscountSelector: {
 			path: "#shopify-section-cart-template section div.Container div.PageContent form.Cart footer.Cart__Footer div.Cart__Recap p.Cart__Total",
@@ -56,6 +63,10 @@
 			type: 1,
 		},
 	};
+
+	/******************************************************************/
+	/* DOMContentLoaded
+    /******************************************************************/
 
 	document.addEventListener("DOMContentLoaded", async () => {
 		scData = JSON.parse(sessionStorage.getItem("scDiscountData"));
@@ -88,7 +99,7 @@
 				toggleDCart();
 
 				// handle free gift, if enabled. Else unlock checkout button
-				if ((window.cartDrawerEnableGift && (currentCountry === "DE") || currentCountry === "AT" || currentCountry === "CH")) {
+				if (window.cartDrawerEnableGift && (currentCountry === "DE" || currentCountry === "AT" || currentCountry === "CH")) {
 					handleFreeGift();
 				} else {
 					window.unlockCheckoutButton();
@@ -189,90 +200,6 @@
 	};
 
 	/******************************************************************/
-	/* TOTAL CALCULATION WITHOUT DCART
-    /******************************************************************/
-
-	const totalCalculation = (isDcart) => {
-		const cartItems = document.querySelectorAll(".Drawer__Container .CartItemWrapper[data-price]");
-		const subTotalPriceCompareAtEl = document.querySelector(".Drawer__Footer__Subtotal .Drawer__Footer__SubtotalPrice .Drawer__Footer__SubtotalPrice_Compare-at");
-		const subTotalPriceEl = document.querySelector(".Drawer__Footer__Subtotal .Drawer__Footer__SubtotalPrice .Drawer__Footer__SubtotalPrice_Value");
-		const deliveryCostEl = document.querySelector(".Drawer__Footer__Delivery span");
-		const totalPriceEl = document.querySelector(".Drawer__Footer__Total span");
-
-		let subTotalPrice;
-		let scCompareAtPrice;
-		let noDeliveryItemsTotalPrice = 0;
-
-		if (isDcart) {
-			subTotalPrice = scData?.subtotalCents / 100;
-			scCompareAtPrice = scData?.totalCents / 100;
-		} else {
-			subTotalPrice = parseFloat(document.querySelector(".Cart__values").dataset.cartTotalPriceFloat);
-		}
-
-		let shippingRate = shippingPrice;
-		let hasItemWithDeliveryRequired = false;
-
-		// Exclude items with no shipping requirement from shipping calculation
-		cartItems.forEach((cartItem) => {
-			if (cartItem.dataset.reqShipping == "false") {
-				noDeliveryItemsTotalPrice += parseFloat(cartItem.dataset.price / 100);
-			} else {
-				hasItemWithDeliveryRequired = true;
-			}
-		});
-
-		let subtotalPriceWithoutNoShippingItems = subTotalPrice - noDeliveryItemsTotalPrice;
-
-		if (subTotalPrice > 0) {
-			if (subtotalPriceWithoutNoShippingItems >= parseFloat(minSubtotalPriceValue)) {
-				shippingRate = 0;
-			}
-
-			let subtotalPriceFormatted = Shopify.scFormatMoney(subTotalPrice * 100);
-
-			if (subtotalPriceWithoutNoShippingItems >= parseFloat(minSubtotalPriceValue)) {
-				let totalPrice = parseFloat(subTotalPrice) + parseFloat(shippingRate);
-				let totalPriceFormatted = Shopify.scFormatMoney(totalPrice.toFixed(2) * 100);
-
-				subTotalPriceEl.textContent = subtotalPriceFormatted;
-				deliveryCostEl.textContent = deliveryCostEl.getAttribute("data-freeshipping-text");
-				deliveryCostEl.classList.add("highlight-free-shipping");
-				totalPriceEl.textContent = totalPriceFormatted;
-			} else {
-				if (!hasItemWithDeliveryRequired) {
-					if (deliveryCostEl) {
-						deliveryCostEl.textContent = deliveryCostEl.getAttribute("data-freeshipping-text");
-						deliveryCostEl.classList.add("highlight-free-shipping");
-					}
-
-					subTotalPriceEl.textContent = subtotalPriceFormatted;
-					totalPriceEl.textContent = subtotalPriceFormatted;
-				} else {
-					shippingRate = shippingPrice;
-					let shippingPriceFormatted = Shopify.scFormatMoney(shippingRate * 100);
-					let totalPrice = parseFloat(subTotalPrice) + parseFloat(shippingRate);
-					let totalPriceFormatted = Shopify.scFormatMoney(totalPrice.toFixed(2) * 100);
-
-					subTotalPriceEl.textContent = subtotalPriceFormatted;
-					deliveryCostEl.textContent = shippingPriceFormatted;
-					deliveryCostEl.classList.remove("highlight-free-shipping");
-					totalPriceEl.textContent = totalPriceFormatted;
-				}
-			}
-
-			// Compare at price
-			if (isDcart) {
-				// Do only if no dCart error occured
-				if (scData?.subtotalCents !== scData?.totalCents) {
-					let scCompareAtPriceFormatted = Shopify.scFormatMoney(scCompareAtPrice * 100);
-					subTotalPriceCompareAtEl.textContent = scCompareAtPriceFormatted;
-				}
-			}
-		}
-	};
-
-	/******************************************************************/
 	/* CHEERING BAR
     /******************************************************************/
 
@@ -301,7 +228,7 @@
 		if (hasItemWithDeliveryRequired) {
 			switch (currentCountry) {
 				case "DE":
-  				case "AT":
+				case "AT":
 					handleCheeringBar(subtotalPrice, noDeliveryItemsTotalPrice);
 					break;
 				case "CH":
@@ -353,6 +280,7 @@
 			}
 		} else {
 			giftIcon.style.display = "none";
+			deliveryIcon.style.left = "100%";
 
 			if (minSubtotalPriceValue > subtotalPriceWithoutNoShippingItems) {
 				let remainingPrice = parseFloat(minSubtotalPriceValue) - parseFloat(subtotalPriceWithoutNoShippingItems);
@@ -431,6 +359,7 @@
 			deliveryBarStepLineEl.style.width = subtotalPriceWithoutNoShippingItems * percentPerEuro + "%";
 		} else {
 			giftIcon.style.display = "none";
+			deliveryIcon.style.left = "100%";
 
 			if (minSubtotalPriceValue > subtotalPriceWithoutNoShippingItems) {
 				let remainingPriceFreeShipping = parseFloat(minSubtotalPriceValue) - parseFloat(subtotalPriceWithoutNoShippingItems);
@@ -452,8 +381,6 @@
 
 		giftIcon.style.display = "none";
 		deliveryIcon.style.left = "100%";
-
-		console.log("handle bar ")
 
 		if (minSubtotalPriceValue > subtotalPriceWithoutNoShippingItems) {
 			let remainingPriceFreeShipping = parseFloat(minSubtotalPriceValue) - parseFloat(subtotalPriceWithoutNoShippingItems);
@@ -501,8 +428,6 @@
 			.then((res) => res.json())
 			.then((cart) => {
 				const giftContained = cart.items.some((cartItem) => cartItem.variant_id === parseInt(window.cartDrawerGiftVariantId));
-
-				console.log("FETCH CART.JS");
 
 				if (subtotalPrice < window.cartDrawerMinPriceForGift && giftContained) {
 					// console.log("REMOVE GIFT")
@@ -582,6 +507,90 @@
 				window.unlockCheckoutButton();
 				console.log("unlock after updating free gift");
 			}, 1000);
+		}
+	};
+
+	/******************************************************************/
+	/* TOTAL CALCULATION
+    /******************************************************************/
+
+	const totalCalculation = (isDcart) => {
+		const cartItems = document.querySelectorAll(".Drawer__Container .CartItemWrapper[data-price]");
+		const subTotalPriceCompareAtEl = document.querySelector(".Drawer__Footer__Subtotal .Drawer__Footer__SubtotalPrice .Drawer__Footer__SubtotalPrice_Compare-at");
+		const subTotalPriceEl = document.querySelector(".Drawer__Footer__Subtotal .Drawer__Footer__SubtotalPrice .Drawer__Footer__SubtotalPrice_Value");
+		const deliveryCostEl = document.querySelector(".Drawer__Footer__Delivery span");
+		const totalPriceEl = document.querySelector(".Drawer__Footer__Total span");
+
+		let subTotalPrice;
+		let scCompareAtPrice;
+		let noDeliveryItemsTotalPrice = 0;
+
+		if (isDcart) {
+			subTotalPrice = scData?.subtotalCents / 100;
+			scCompareAtPrice = scData?.totalCents / 100;
+		} else {
+			subTotalPrice = parseFloat(document.querySelector(".Cart__values").dataset.cartTotalPriceFloat);
+		}
+
+		let shippingRate = shippingPrice;
+		let hasItemWithDeliveryRequired = false;
+
+		// Exclude items with no shipping requirement from shipping calculation
+		cartItems.forEach((cartItem) => {
+			if (cartItem.dataset.reqShipping == "false") {
+				noDeliveryItemsTotalPrice += parseFloat(cartItem.dataset.price / 100);
+			} else {
+				hasItemWithDeliveryRequired = true;
+			}
+		});
+
+		let subtotalPriceWithoutNoShippingItems = subTotalPrice - noDeliveryItemsTotalPrice;
+
+		if (subTotalPrice > 0) {
+			if (subtotalPriceWithoutNoShippingItems >= parseFloat(minSubtotalPriceValue)) {
+				shippingRate = 0;
+			}
+
+			let subtotalPriceFormatted = Shopify.scFormatMoney(subTotalPrice * 100);
+
+			if (subtotalPriceWithoutNoShippingItems >= parseFloat(minSubtotalPriceValue)) {
+				let totalPrice = parseFloat(subTotalPrice) + parseFloat(shippingRate);
+				let totalPriceFormatted = Shopify.scFormatMoney(totalPrice.toFixed(2) * 100);
+
+				subTotalPriceEl.textContent = subtotalPriceFormatted;
+				deliveryCostEl.textContent = deliveryCostEl.getAttribute("data-freeshipping-text");
+				deliveryCostEl.classList.add("highlight-free-shipping");
+				totalPriceEl.textContent = totalPriceFormatted;
+			} else {
+				if (!hasItemWithDeliveryRequired) {
+					if (deliveryCostEl) {
+						deliveryCostEl.textContent = deliveryCostEl.getAttribute("data-freeshipping-text");
+						deliveryCostEl.classList.add("highlight-free-shipping");
+					}
+
+					subTotalPriceEl.textContent = subtotalPriceFormatted;
+					totalPriceEl.textContent = subtotalPriceFormatted;
+				} else {
+					shippingRate = shippingPrice;
+					let shippingPriceFormatted = Shopify.scFormatMoney(shippingRate * 100);
+					let totalPrice = parseFloat(subTotalPrice) + parseFloat(shippingRate);
+					let totalPriceFormatted = Shopify.scFormatMoney(totalPrice.toFixed(2) * 100);
+
+					subTotalPriceEl.textContent = subtotalPriceFormatted;
+					deliveryCostEl.textContent = shippingPriceFormatted;
+					deliveryCostEl.classList.remove("highlight-free-shipping");
+					totalPriceEl.textContent = totalPriceFormatted;
+				}
+			}
+
+			// Compare at price
+			if (isDcart) {
+				// Do only if no dCart error occured
+				if (scData?.subtotalCents !== scData?.totalCents) {
+					let scCompareAtPriceFormatted = Shopify.scFormatMoney(scCompareAtPrice * 100);
+					subTotalPriceCompareAtEl.textContent = scCompareAtPriceFormatted;
+				}
+			}
 		}
 	};
 
