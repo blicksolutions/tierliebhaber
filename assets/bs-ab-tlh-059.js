@@ -80,7 +80,7 @@ window.activateAbTlh059C = () => {
 	insertSection(content);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-	window.activateAbTlh059C();
-	window.activateAbTlh059B();
-})
+// document.addEventListener("DOMContentLoaded", () => {
+// 	window.activateAbTlh059C();
+// 	window.activateAbTlh059B();
+// })
