@@ -67,7 +67,7 @@
       "sidebar-menu": {
         "type": "sidebar-menu",
         "settings": {
-          "primary_menu": "main-menu",
+          "primary_menu": "test-hauptmen",
           "secondary_menu": "",
           "show_social_media": true,
           "cart_sidebar_upsell_products": [
@@ -107,6 +107,7 @@
         ],
         "settings": {
           "enable_bar": true,
+          "enable_advent_bar": true,
           "sticky_bar": true,
           "home_page_only": false,
           "enable_trustpilot_widget": false,
@@ -129,7 +130,7 @@
           "mobile_logo_max_width": 120,
           "show_currency_selector": false,
           "show_locale_selector": false,
-          "navigation_menu": "main-menu",
+          "navigation_menu": "test-hauptmen",
           "navigation_style": "center",
           "show_icons": true,
           "enable_transparent_header": false,
@@ -1738,12 +1739,6 @@
         "settings": {
         }
       },
-      "17676059084223943535": {
-        "type": "shopify://apps/triplewhale/blocks/triple_pixel_snippet/483d496b-3f1a-4609-aea7-8eee3b6b7a2a",
-        "disabled": false,
-        "settings": {
-        }
-      },
       "3667842014806057753": {
         "type": "shopify://apps/one-click-upsell-zipify-ocu/blocks/app-embed/bfe6e378-b73a-4871-b8d3-7d6ede22678e",
         "disabled": false,
@@ -1771,12 +1766,6 @@
       },
       "6757137876795001004": {
         "type": "shopify://apps/pixoo-outbrain-pixel/blocks/star_rating/7eb7f1da-dc3d-4f59-af0d-5d4efc849789",
-        "disabled": true,
-        "settings": {
-        }
-      },
-      "2153490007123654574": {
-        "type": "shopify://apps/consentmo-gdpr/blocks/gdpr_cookie_consent/4fbe573f-a377-4fea-9801-3ee0858cae41",
         "disabled": true,
         "settings": {
         }
