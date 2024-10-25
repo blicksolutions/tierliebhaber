@@ -1031,8 +1031,13 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 /* Highlight second menu item
 /******************************************************************/
 
-.Header .Header__MainNav .HorizontalList > li:nth-child(2) {
-	padding: 6px 20px;;
+.Header .Header__MainNav .HorizontalList .HorizontalList__Item.christmas-collection {
+	padding: 6px 20px;
+	background-color: #e0ac4b;
+}
+
+.Header .Header__MainNav .HorizontalList .HorizontalList__Item.newyear-collection {
+	padding: 6px 20px;
 	background-color: #d4c7e7;
 }
 
@@ -1043,7 +1048,14 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 }
   
 /* Live - Variant */
-.SidebarMenu .SidebarMenu__Nav > div:nth-child(2) a {
+
+
+.SidebarMenu .SidebarMenu__item.christmas-collection {
+	padding: 18px 20px;
+	background-color: #e0ac4b;
+}
+
+.SidebarMenu .SidebarMenu__item.newyear-collection {
 	padding: 18px 20px;
 	background-color: #d4c7e7;
 }

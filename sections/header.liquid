@@ -192,7 +192,7 @@ HEADER CONTENT
 
         <nav class="Header__MainNav hidden-pocket hidden-lap" aria-label="{{ 'header.navigation.title' | t }}">
           <ul class="HorizontalList HorizontalList--spacingExtraLoose">
-            {%- for link in main_menu.links -%}
+			  {%- for link in main_menu.links -%}
               {%- assign downcased_link_title = link.title | downcase | strip -%}
               {%- assign use_mega_menu = false -%}
 
@@ -343,7 +343,10 @@ HEADER CONTENT
                 {%- endif -%}
               {%- endcapture -%}
 
-              <li class="HorizontalList__Item {% if link.links == blank and link.active %}is-active{% endif %}" {% if menu_item_dropdown != blank %}aria-haspopup="true"{% endif %}>
+              <li 
+			  	class="HorizontalList__Item {% if link.links == blank and link.active %}is-active{% endif %} {% if link.handle contains 'weihnachten' %}christmas-collection{% endif %} {% if link.handle contains 'silvester' %}newyear-collection{% endif %}" 
+				{% if menu_item_dropdown != blank %}aria-haspopup="true"{% endif %} 
+				>
                 <a href="{{ link.url }}" class="Heading u-h6">
                   {{- link.title | escape -}}
 
