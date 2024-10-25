@@ -7,7 +7,7 @@ const insertSection = (snippetMarkup) => {
 };
 
 window.activateAbTlh059B = () => {
-	if (productTitle) {
+	if (typeof productTitle != 'undefined') {
 		let randomNumber = Math.floor(Math.random() * (150 - 50 + 1) + 50);
 		const sessionStorageValue = window.sessionStorage.getItem(`current-visitors-${productTitle.toLowerCase()}`);
 
@@ -51,7 +51,7 @@ window.activateAbTlh059B = () => {
 }
 
 window.activateAbTlh059C = () => {
-	if (productTitle) {
+	if (typeof productTitle != 'undefined') {
 		let randomNumber = Math.floor(Math.random() * (100 - 50 + 1) + 50);
 		const sessionStorageValue = window.sessionStorage.getItem(`recent-buy-${productTitle.toLowerCase()}`) * 1;
 
