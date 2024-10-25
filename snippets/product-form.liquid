@@ -3,7 +3,6 @@ Those are the option names for which we automatically detect swatch. For the col
 for size, we use it to display a size chart (if applicable)
 {%- endcomment -%}
 <script src="{{ 'bs-recharge-variant-selector.js' | asset_url }}"></script>
-<script src="{{ 'bs-product-form.js' | asset_url }}" defer></script>
 
 <script>
 $(document).ready(function(){
@@ -353,9 +352,6 @@ $(document).ready(function(){
           <p class="{{ shipping_eta_class }}" data-translation-key="{{ shipping_eta_translation_key | t }}">{{ shipping_eta_translation_key | t }}</p>
       {% endif %}
 
-      <p class="ProductForm__ShippingEta--version-b" data-translation-key="Auf Lager! Versand in ca. 1-2 Werktagen">
-          Auf Lager! Versand in ca. 1-2 Werktagen 
-      </p>
       <div class="ProductForm__ShippingEta--version-c" data-translation-key="Bestelle in den nächsten XX h xx min, um deine Produkte bis übermorgen zu bekommen.">
 		{% render 'bs-icon-clock' %}
 		<p class="ProductForm__ShippingEta--version-c__text">Bestelle in den nächsten <span class="ProductForm__ShippingEta--version-c__hours"></span> <span>h</span> <span class="ProductForm__ShippingEta--version-c__minutes"></span> <span>min</span>, um deine Produkte <span>bis</span> <span class="ProductForm__ShippingEta--version-c__delivery-date"></span> zu bekommen.</p>

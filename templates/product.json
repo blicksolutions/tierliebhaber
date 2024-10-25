@@ -36,7 +36,7 @@
         "reviews_enabled": false,
         "featured_image_size": "large",
         "benefit_item_1_image": "shopify://shop_images/icons8-benutzergruppe-mann-frau-80.png",
-        "benefit_item_1_title": "Über 165.000 glückliche Kunden",
+        "benefit_item_1_title": "Über 310.000 glückliche Kunden",
         "benefit_item_2_image": "shopify://shop_images/image_8.png",
         "benefit_item_2_title": "Versandkostenfrei ab 49€ in DE"
       }
@@ -417,15 +417,26 @@
             "image": "shopify://shop_images/email.png",
             "image_alt": "",
             "text": "Per Email",
-            "color": "#dddddd",
+            "color": "#43c253",
             "url": "mailto:info@tierliebhaber.de"
+          }
+        },
+        "button_DX3KpP": {
+          "type": "button",
+          "settings": {
+            "image": "shopify://shop_images/calling_1_1.png",
+            "image_alt": "",
+            "text": "Produktberatung buchen",
+            "color": "#f1af9e",
+            "url": "https://calendly.com/kundenservice-tierliebhaber/10min"
           }
         }
       },
       "block_order": [
         "6019ae12-5366-4bb0-b0fb-d5360dbf448b",
         "7e85fc1c-a467-4500-83c7-3f55b878b381",
-        "cd707ae6-291b-4929-8937-dbe7654b243d"
+        "cd707ae6-291b-4929-8937-dbe7654b243d",
+        "button_DX3KpP"
       ],
       "settings": {
         "title": "Fragen? Wir sind für dich da...",

@@ -151,7 +151,7 @@
             "type": "text",
             "settings": {
               "title": "Erreichbarkeit",
-              "content": "<p>Unser Team ist jederzeit </p><p>über WhatsApp: +49 176 48097026</p><p>per Mail: <a href=\"mailto:info@tierliebhaber.de\">info@tierliebhaber.de</a> </p><p>(Wir melden uns in der Regel innerhalb von 1-2 Werktagen mit einer Antwort bei dir)</p><p>oder telefonisch von Mo - Fr von 11-15 Uhr für dich erreichbar.</p><p>Tel.: +49 34149980019</p>",
+              "content": "<p>Unser Team ist jederzeit </p><p>über WhatsApp: +49 176 48097026</p><p>per Mail: <a href=\"mailto:info@tierliebhaber.de\">info@tierliebhaber.de</a> </p><p>(Wir melden uns in der Regel innerhalb von 1-2 Werktagen mit einer Antwort bei dir)</p><p>oder telefonisch von Mo - Fr von 11-15 Uhr für dich erreichbar.</p><p>Tel.: +49 34149980019</p><p></p><p><strong>Gern kannst du auch eine </strong><a href=\"https://calendly.com/kundenservice-tierliebhaber/10min\" target=\"_blank\" title=\"https://calendly.com/kundenservice-tierliebhaber/10min\"><strong>Produktberatung bei uns buchen!</strong></a></p>",
               "show_social_media": true
             }
           },
@@ -701,15 +701,26 @@
               "image": "shopify://shop_images/email.png",
               "image_alt": "",
               "text": "Per Email",
-              "color": "#dddddd",
+              "color": "#43c253",
               "url": "mailto:info@tierliebhaber.de"
+            }
+          },
+          "button_fHjjxH": {
+            "type": "button",
+            "settings": {
+              "image": "shopify://shop_images/calling_1_1.png",
+              "image_alt": "",
+              "text": "Produktberatung buchen",
+              "color": "#f1af9e",
+              "url": "https://calendly.com/kundenservice-tierliebhaber/10min"
             }
           }
         },
         "block_order": [
           "4ee956a9-6e65-4a24-9583-e5004d4d31b4",
           "40e2fcb1-8917-457f-b8f7-347c740d00d7",
-          "8f086c70-24cd-4e1d-bcb8-a0a1924f5b23"
+          "8f086c70-24cd-4e1d-bcb8-a0a1924f5b23",
+          "button_fHjjxH"
         ],
         "settings": {
           "title": "Bei Fragen sind wir immer da!",
