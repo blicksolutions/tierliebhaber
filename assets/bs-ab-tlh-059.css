@@ -1,0 +1,35 @@
+.ProductMeta__visitor-ping {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 10px;
+	justify-content: center;
+}
+
+.ProductMeta__visitor-ping__icon {
+	width: 15px;
+	height: auto;
+}
+
+.ProductMeta__visitor-ping__text {
+	font-size: 12px;
+	line-height: 15px;
+	color: #525252;
+}
+
+.ProductMeta__visitor-ping__text span {
+	font-weight: 600;
+}
+
+@media (min-width: 1008px) {
+	.ProductMeta__visitor-ping {
+		justify-content: flex-start;
+	}
+}
+
+@media (min-width: 1140px) {
+	.ProductMeta__visitor-ping__text {
+		font-size: 14px;
+		line-height: 18px;
+	}
+}

@@ -56,6 +56,10 @@
     <script>
       document.documentElement.style.setProperty('--announcement-bar-height', document.getElementById('shopify-section-announcement').offsetHeight + 'px');
     </script>
+
+	{% if section.settings.enable_advent_bar %}
+		{% render 'bs-advent-bar' %}
+	{% endif %}
   {%- endunless -%}
 {%- endif -%}
 
@@ -67,6 +71,12 @@
       "type": "checkbox",
       "id": "enable_bar",
       "label": "Enable bar",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_advent_bar",
+      "label": "Enable advent bar",
       "default": true
     },
     {
