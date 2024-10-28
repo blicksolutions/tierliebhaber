@@ -67,7 +67,7 @@
       "sidebar-menu": {
         "type": "sidebar-menu",
         "settings": {
-          "primary_menu": "test-hauptmen",
+          "primary_menu": "main-menu",
           "secondary_menu": "",
           "show_social_media": true,
           "cart_sidebar_upsell_products": [
@@ -130,7 +130,7 @@
           "mobile_logo_max_width": 120,
           "show_currency_selector": false,
           "show_locale_selector": false,
-          "navigation_menu": "test-hauptmen",
+          "navigation_menu": "main-menu",
           "navigation_style": "center",
           "show_icons": true,
           "enable_transparent_header": false,
