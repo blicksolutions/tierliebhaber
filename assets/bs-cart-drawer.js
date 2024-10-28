@@ -634,9 +634,18 @@
 
 			// do calculation only if discount is added
 			if ((scData.stage === "complete" && scData.subtotalCents > 0) || (scData.stage === "initial" && scData.subtotalCents > 0)) {
+				
+				const couponPercentage = document.querySelector("#sidebar-cart .Drawer__Footer__Coupon-percentage");
+
+				// Discount saving
 				if (scData?.code) {
-					const couponPercentage = document.querySelector("#sidebar-cart .Drawer__Footer__Coupon-percentage");
 					const saving = parseFloat(scData?.discount?.amount) * 100;
+					couponPercentage.textContent = "-" + Shopify.scFormatMoney(saving);
+				}
+
+				// Gift saving
+				if (scData.gifts.length > 0) {
+					const saving = parseFloat(scData?.gifts[0]?.amount_used) * 100;
 					couponPercentage.textContent = "-" + Shopify.scFormatMoney(saving);
 				}
 

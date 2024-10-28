@@ -11548,9 +11548,9 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
     margin: 2px 0 0 0;
 }
 
-#sidebar-cart .Drawer__Footer .scDiscount:not(.scActive) .sc_simple-info {
+/* #sidebar-cart .Drawer__Footer .scDiscount:not(.scActive) .sc_simple-info {
     display: none !important;
-}
+} */
 
 #sidebar-cart .Drawer__Footer .sc_simple-info .sc-tag .code > svg {
     opacity: .75;
