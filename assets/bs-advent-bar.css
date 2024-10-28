@@ -10,6 +10,7 @@
 
 .bs-advent-bar__text {
 	font-size: 14px;
+	text-align: center;
 }
 
 .bs-advent-bar__text span {
