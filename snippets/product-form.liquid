@@ -54,9 +54,6 @@ $(document).ready(function(){
     esthetic-ignore
     TLH-046 variant selector code
 {%- endcomment -%}
-<script>
-	window.productHandle = '{{ product.handle }}'
-</script>
 {% if product.has_only_default_variant != true %}
     {% assign variant_on_sale_counter = 0 %}
     {% for variant in product.variants %}
