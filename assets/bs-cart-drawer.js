@@ -10,6 +10,8 @@
 	let shippingPrice;
 	let currentCountry;
 
+
+	const cartMessageSteps = document.querySelector(".CartMessage__Steps");
 	const deliveryBarValueEl = document.querySelector(".js-cart-drawer-delivery-left-value");
 	const deliveryBarLeftTextEl = document.querySelector(".CartMessage__Steps__Text-left");
 	const deliveryBarFinalTextEl = document.querySelector(".CartMessage__Steps__Text-final");
@@ -220,8 +222,8 @@
 			}
 		});
 
-		// console.log("COUNTRY: " + currentCountry);
-		// console.log("MINSUBTOTAL: " + minSubtotalPriceValue);
+		console.log("COUNTRY: " + currentCountry);
+		console.log("MINSUBTOTAL: " + minSubtotalPriceValue);
 
 		if (hasItemWithDeliveryRequired) {
 			switch (currentCountry) {
@@ -268,6 +270,14 @@
 			// Delivery icon position
 			deliveryIconPosition = (minSubtotalPriceValue * 100) / parseInt(window.cartDrawerMinPriceForGift);
 			deliveryIcon.style.left = deliveryIconPosition + "%";
+
+			// Cheerin Bar styles only for AT
+			if (currentCountry === "AT") {
+				cartMessageSteps.style.height = "105px";
+				giftIcon.querySelector("span").style.width = "60px";
+				giftIcon.querySelector("span").style.lineHeight = "12px";
+				giftIcon.querySelector("span").style.bottom = "-10px";
+			}
 
 			if (minSubtotalPriceValue > subtotalPriceWithoutNoShippingItems) {
 				let remainingPriceFreeShipping = parseFloat(minSubtotalPriceValue) - parseFloat(subtotalPriceWithoutNoShippingItems);
