@@ -1,6 +1,58 @@
 window.activateAbTlh046 = () => {
-	window.tlh046 = true
+	const productHandle = window.productHandle
+	switch (productHandle) {
+		case 'dentalspray':
+			bestseller = true;
+			break;
+		case 'dentalspray-katzen-1':
+			bestseller = true;
+			break;
+		case 'gras-kotfresser-drops-2':
+			bestseller = true;
+			break;
+		case 'darmpflege-drops':
+			bestseller = true;
+			break;
+		case 'hustenkrautersaft':
+			bestseller = true;
+			break;
+		case 'chillloutsaft-fur-hunde':
+			bestseller = true;
+			break;
+		case 'chillout-drops':
+			bestseller = true;
+			break;
+		case 'gelenk-sticks':
+			bestseller = true;
+			break;
+		case 'gelenkkrautersaft-pferd':
+			bestseller = true;
+			break;
+		case 'chilloutsaft-pferd':
+			bestseller = true;
+			break;
+		case 'darmwohl-sticks':
+			bestseller = true;
+			break;
+		case 'z-snack':
+			bestseller = true;
+			break;
+		case 'z-spot':
+			bestseller = true;
+			break;
+		case 'chillout-sticks':
+			bestseller = true;
+			break;
 
+		default:
+			bestseller = false;
+			break;
+	}
+
+	if (bestseller == true) {
+		window.tlh046 = true
+	} else return
+	
 	const rechargeContainer = document.querySelector('[data-js-tlh-046-recharge-container]')
 	if (!rechargeContainer) return
 	rechargeContainer.setAttribute('data-js-tlh-046-recharge-container', 'true')
