@@ -55,7 +55,7 @@ $(document).ready(function(){
     TLH-046 variant selector code
 {%- endcomment -%}
 <script>
-	window.productHandle = {{ product.handle }}
+	window.productHandle = '{{ product.handle }}'
 </script>
 {% if product.has_only_default_variant != true %}
     {% assign variant_on_sale_counter = 0 %}
@@ -120,7 +120,7 @@ $(document).ready(function(){
 						<p class="VariantSelector__OptionText" data-js-option-prefix>
 
 						</p>
-						<div class="VariantSelector__ImageContainer" data-js-tlh-046-image-container data-js-src="{{ product.featured_image |  image_url: width:1000 }}">
+						<div class="VariantSelector__ImageContainer" data-js-tlh-046-image-container data-js-src="{{ product.metafields.custom.tlh_046_variant_selector_image |  image_url: width:1000 }}">
 
 						</div>
 						<div class="VariantSelector__OptionText" data-js-option-suffix>

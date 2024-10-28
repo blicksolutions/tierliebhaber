@@ -1,5 +1,8 @@
 window.activateAbTlh046 = () => {
-	const productHandle = window.productHandle
+	const productHandle = window.location.pathname.split('/').slice(-1).toString();
+	console.log('productHandle', productHandle)
+	let bestseller;
+
 	switch (productHandle) {
 		case 'dentalspray':
 			bestseller = true;
@@ -52,7 +55,7 @@ window.activateAbTlh046 = () => {
 	if (bestseller == true) {
 		window.tlh046 = true
 	} else return
-	
+
 	const rechargeContainer = document.querySelector('[data-js-tlh-046-recharge-container]')
 	if (!rechargeContainer) return
 	rechargeContainer.setAttribute('data-js-tlh-046-recharge-container', 'true')
