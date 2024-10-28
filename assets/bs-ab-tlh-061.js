@@ -1,40 +1,17 @@
 window.activateAbTlh061 = () => {
-	const productHandle = window.location.pathname.split('/').slice(-1).toString();
-	let bestseller;
-
-	switch (productHandle) {
-		case 'dentalspray':
-			bestseller = true;
-			break;
-
-		case 'dentalspray-katzen-1':
-			bestseller = true;
-			break;
-
-		case 'gras-kotfresser-drops-2':
-			bestseller = true;
-			break;
-
-		default:
-			bestseller = false;
-			break;
-	}
-
-	if (bestseller == false) return;
-
 	const reviewsContainer = document.querySelector('#judgeme_product_reviews');
 	if (!reviewsContainer) return;
 
 	const reviews = reviewsContainer.querySelectorAll('.jdgm-widget .jdgm-rev-widg .jdgm-rev-widg__reviews .jdgm-rev');
-	const testimonialsSection = document.querySelector('[data-js-tlh-040]');
-	const testimonialsWrapper = testimonialsSection.querySelector('[data-js-tlh-040-swiper-wrapper]');
+	const testimonialsSection = document.querySelector('[data-js-tlh-061]');
+	const testimonialsWrapper = document.querySelector('[data-js-tlh-061-wrapper]');
 
 	reviews.forEach((review) => {
 		const mutationObserver = new MutationObserver((entries) => {
 			entries.forEach((entry) => {
 				if (entry.attributeName == 'class' && entry.target.classList.contains('jdgm-rev__timestamp') && !entry.target.classList.contains('jdgm-spinner')) {
 					const reviewSlide = document.createElement('div');
-					reviewSlide.classList.add('testimonials__slide');
+					reviewSlide.classList.add('testimonials__card');
 
 					const icon = review.querySelector('.jdgm-rev__icon').outerHTML;
 					const rating = review.querySelector('.jdgm-rev__rating').outerHTML;
@@ -67,7 +44,10 @@ window.activateAbTlh061 = () => {
                         </div>
     
                     `;
-					testimonialsWrapper.appendChild(reviewSlide);
+
+					if(testimonialsWrapper) {
+						testimonialsWrapper.appendChild(reviewSlide);
+					}
 				}
 			});
 		});
@@ -79,9 +59,9 @@ window.activateAbTlh061 = () => {
 		});
 	});
 
-	testimonialsSection.setAttribute('data-js-tlh-040', 'true');
+	testimonialsSection.setAttribute('data-js-tlh-061', 'true');
 
-	const reviewsButton = testimonialsSection.querySelector('[data-js-tlh-040-button]');
+	const reviewsButton = testimonialsSection.querySelector('[data-js-tlh-061-button]');
 
 	reviewsButton.addEventListener('click', () => {
 		var element = document.querySelector('#judgeme_product_reviews');
