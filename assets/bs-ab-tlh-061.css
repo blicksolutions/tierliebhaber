@@ -123,6 +123,17 @@
 	border-radius: 50px;
 	background: #F5F5F5;
 	margin-top: 10px;
+    position: relative;
+}
+
+.testimonials__rating-metric__thumb {
+    content: '';
+	position: absolute;
+    height: 100%;
+    background: #F1AF9E;
+    border-radius: 50px;
+    left: 0;
+    top: 0;
 }
 
 .testimonials__rating-metric__header span:first-child {

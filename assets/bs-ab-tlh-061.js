@@ -19,8 +19,11 @@ window.activateAbTlh061 = () => {
 	reviewsNumberTarget.innerHTML = reviewsNumber;
 
 	const effectMetric = document.querySelector('.testimonials__rating-metric[data-js-tlh-061-metric-effect] .testimonials__rating-metric__number');
+	const effectMetricRatingThumb = document.querySelector('.testimonials__rating-metric[data-js-tlh-061-metric-effect] .testimonials__rating-metric__thumb');
 	const qualityMetric = document.querySelector('.testimonials__rating-metric[data-js-tlh-061-metric-quality] .testimonials__rating-metric__number');
+	const qualityMetricRatingThumb = document.querySelector('.testimonials__rating-metric[data-js-tlh-061-metric-quality] .testimonials__rating-metric__thumb');
 	const shippingMetric = document.querySelector('.testimonials__rating-metric[data-js-tlh-061-metric-shipping] .testimonials__rating-metric__number');
+	const shippingMetricRatingThumb = document.querySelector('.testimonials__rating-metric[data-js-tlh-061-metric-shipping] .testimonials__rating-metric__thumb');
 
 	switch(avgRating) {
 		case 5.00:
@@ -38,6 +41,10 @@ window.activateAbTlh061 = () => {
 			qualityMetric.innerHTML = avgRating * 1 + 0.02;
 			shippingMetric.innerHTML = avgRating * 1 + 0.01;
 	  }
+
+	  effectMetricRatingThumb.style.width = (effectMetric.innerHTML / 5 * 100) + '%';
+	  qualityMetricRatingThumb.style.width = (qualityMetric.innerHTML / 5 * 100) + '%';
+	  shippingMetricRatingThumb.style.width = (shippingMetric.innerHTML / 5 * 100) + '%';
 
 	reviews.forEach((review) => {
 		const mutationObserver = new MutationObserver((entries) => {
