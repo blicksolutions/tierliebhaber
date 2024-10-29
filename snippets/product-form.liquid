@@ -460,7 +460,10 @@ $(document).ready(function(){
   -%}
 
   {%- if selling_points.size > 0 -%}
-    <div class="ProductForm__SellingPoints" style="margin-top: 45px; margin-bottom: 45px;">
+    <div class="ProductForm__SellingPoints" style="margin-top: 45px; margin-bottom: 45px;" data-js-tlh-058-selling-points>
+		<h2 class="SellingPoints__Heading">
+			Vorteile
+		</h2>
       {%- for selling_point in selling_points -%}
         <div class="SellingPointItem">
           <div class="SellingPointItem__Icon">{%- render 'icon', icon: selling_point.icon -%}</div>
