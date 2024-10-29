@@ -571,10 +571,11 @@ window.addEventListener('jdgm.doneSetup', function(event) {
     observer.disconnect();
   }, 5000);
 
-  document.querySelector('.jdgm-write-rev-link').addEventListener('click', function() {
-    updateText();  
-  });
+  setInterval(() => {
+    updateText(); 
+  }, 500); 
 });
+
 
    </script>
 </body>
