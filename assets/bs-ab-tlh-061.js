@@ -2,6 +2,10 @@ window.activateAbTlh061 = () => {
 	const reviewsContainer = document.querySelector('#judgeme_product_reviews');
 	if (!reviewsContainer) return;
 
+	const reviews = reviewsContainer.querySelectorAll('.jdgm-widget .jdgm-rev-widg .jdgm-rev-widg__reviews .jdgm-rev');	
+	const testimonialsSection = document.querySelector('[data-js-tlh-061]');
+	const testimonialsWrapper = document.querySelector('[data-js-tlh-061-wrapper]');
+
 	const reviewWidget = document.querySelector('.jdgm-rev-widg');
 	const avgRating = reviewWidget.dataset.averageRating;
 	const reviewsNumber = reviewWidget.dataset.numberOfReviews;
@@ -10,13 +14,30 @@ window.activateAbTlh061 = () => {
 	const starRatingWidget = document.querySelector('.jdgm-rev-widg__summary-stars').outerHTML;
 	const starRatingWidgetTarget = document.querySelector('.testimonials__rating-product');
 
-	const reviews = reviewsContainer.querySelectorAll('.jdgm-widget .jdgm-rev-widg .jdgm-rev-widg__reviews .jdgm-rev');	
-	const testimonialsSection = document.querySelector('[data-js-tlh-061]');
-	const testimonialsWrapper = document.querySelector('[data-js-tlh-061-wrapper]');
-
 	starRatingWidgetTarget.insertAdjacentHTML('afterbegin', starRatingWidget);
 	avgRatingTarget.innerHTML = avgRating;
 	reviewsNumberTarget.innerHTML = reviewsNumber;
+
+	const effectMetric = document.querySelector('.testimonials__rating-metric[data-js-tlh-061-metric-effect] .testimonials__rating-metric__number');
+	const qualityMetric = document.querySelector('.testimonials__rating-metric[data-js-tlh-061-metric-quality] .testimonials__rating-metric__number');
+	const shippingMetric = document.querySelector('.testimonials__rating-metric[data-js-tlh-061-metric-shipping] .testimonials__rating-metric__number');
+
+	switch(avgRating) {
+		case 5.00:
+			effectMetric.innerHTML = avgRating;
+			qualityMetric.innerHTML = avgRating;
+			shippingMetric.innerHTML = avgRating;
+		  break;
+		case 4.99:
+			effectMetric.innerHTML = avgRating - 0.02;
+			qualityMetric.innerHTML = avgRating * 1 + 0.01;
+			shippingMetric.innerHTML = avgRating;
+		  break;
+		default:
+			effectMetric.innerHTML = avgRating - 0.03;
+			qualityMetric.innerHTML = avgRating * 1 + 0.02;
+			shippingMetric.innerHTML = avgRating * 1 + 0.01;
+	  }
 
 	reviews.forEach((review) => {
 		const mutationObserver = new MutationObserver((entries) => {
