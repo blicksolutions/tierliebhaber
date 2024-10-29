@@ -19,6 +19,9 @@ window.activateAbTlh046 = () => {
 		case 'hustenkrautersaft':
 			bestseller = true;
 			break;
+		case 'hustenkrautersaft-pferd':
+			bestseller = true;
+			break;
 		case 'chillloutsaft-fur-hunde':
 			bestseller = true;
 			break;
