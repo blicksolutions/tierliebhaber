@@ -2,9 +2,21 @@ window.activateAbTlh061 = () => {
 	const reviewsContainer = document.querySelector('#judgeme_product_reviews');
 	if (!reviewsContainer) return;
 
-	const reviews = reviewsContainer.querySelectorAll('.jdgm-widget .jdgm-rev-widg .jdgm-rev-widg__reviews .jdgm-rev');
+	const reviewWidget = document.querySelector('.jdgm-rev-widg');
+	const avgRating = reviewWidget.dataset.averageRating;
+	const reviewsNumber = reviewWidget.dataset.numberOfReviews;
+	const avgRatingTarget = document.querySelector(".testimonials__rating-product__average span");
+	const reviewsNumberTarget = document.querySelector(".testimonials__rating-product__reviews-number span");
+	const starRatingWidget = document.querySelector('.jdgm-rev-widg__summary-stars').outerHTML;
+	const starRatingWidgetTarget = document.querySelector('.testimonials__rating-product');
+
+	const reviews = reviewsContainer.querySelectorAll('.jdgm-widget .jdgm-rev-widg .jdgm-rev-widg__reviews .jdgm-rev');	
 	const testimonialsSection = document.querySelector('[data-js-tlh-061]');
 	const testimonialsWrapper = document.querySelector('[data-js-tlh-061-wrapper]');
+
+	starRatingWidgetTarget.insertAdjacentHTML('afterbegin', starRatingWidget);
+	avgRatingTarget.innerHTML = avgRating;
+	reviewsNumberTarget.innerHTML = reviewsNumber;
 
 	reviews.forEach((review) => {
 		const mutationObserver = new MutationObserver((entries) => {

@@ -70,6 +70,24 @@
     max-width: 527px;
 }
 
+.testimonials[data-js-tlh-061] .testimonials__rating-product {
+    display: flex;
+    gap: 9px;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.testimonials[data-js-tlh-061] .testimonials__rating-product span {
+    font-size: 12px;
+    line-height: 15px;
+}
+
+.testimonials[data-js-tlh-061] .testimonials__rating-product .jdgm-rev-widg__summary-stars span {
+    font-size: 21px;
+    display: flex;
+    line-height: normal;
+}
+
 .testimonials[data-js-tlh-061] .testimonials__list {
     width: 100%;
 }
