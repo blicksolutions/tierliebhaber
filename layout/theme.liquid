@@ -548,14 +548,18 @@ window.addEventListener('jdgm.doneSetup', function(event) {
   const targetNode = document.body;
   const config = { childList: true, subtree: true };
 
+  const updateText = function() {
+    const reviewLink = document.querySelector('.jdgm-write-rev-link');
+    if (reviewLink) {
+      reviewLink.textContent = 'Schreib uns eine Bewertung';
+    }
+  };
+
   const callback = function(mutationsList, observer) {
     for (let mutation of mutationsList) {
       if (mutation.type === 'childList') {
-        const reviewLink = document.querySelector('.jdgm-write-rev-link');
-        if (reviewLink) {
-          reviewLink.textContent = 'Schreib uns eine Bewertung';
-          observer.disconnect();
-        }
+        updateText();
+        observer.disconnect();
       }
     }
   };
@@ -566,6 +570,10 @@ window.addEventListener('jdgm.doneSetup', function(event) {
   setTimeout(() => {
     observer.disconnect();
   }, 5000);
+
+  document.querySelector('.jdgm-write-rev-link').addEventListener('click', function() {
+    updateText();  
+  });
 });
 
    </script>
