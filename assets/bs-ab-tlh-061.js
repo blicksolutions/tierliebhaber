@@ -12,6 +12,7 @@ window.activateAbTlh061 = () => {
 				if (entry.attributeName == 'class' && entry.target.classList.contains('jdgm-rev__timestamp') && !entry.target.classList.contains('jdgm-spinner')) {
 					const reviewSlide = document.createElement('div');
 					reviewSlide.classList.add('testimonials__card');
+					reviewSlide.classList.add('grid-item');
 
 					const icon = review.querySelector('.jdgm-rev__icon').outerHTML;
 					const rating = review.querySelector('.jdgm-rev__rating').outerHTML;
@@ -47,6 +48,16 @@ window.activateAbTlh061 = () => {
 
 					if(testimonialsWrapper) {
 						testimonialsWrapper.appendChild(reviewSlide);
+
+						const grid = document.querySelector(".testimonials__list.grid")
+
+					    const msnry = new Masonry( grid, {
+							itemSelector: ".grid-item",
+							columnWidth: ".grid-item",
+							percentPosition: true,
+							gutter: 10,  
+							fitWidth: true
+						  });
 					}
 				}
 			});
