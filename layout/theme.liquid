@@ -545,12 +545,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- END:NextLevel Network Tag tag -->
    <script>
 window.addEventListener('jdgm.doneSetup', function(event) {
-  setTimeout(function() {
-    const reviewLink = document.querySelector('.jdgm-write-rev-link StickyATC__ATC Button Button--primary Button--full');
-    if (reviewLink) {
-      reviewLink.textContent = 'Schreib uns eine Bewertung';
+  const targetNode = document.body;
+  const config = { childList: true, subtree: true };
+
+  const callback = function(mutationsList, observer) {
+    for (let mutation of mutationsList) {
+      if (mutation.type === 'childList') {
+        const reviewLink = document.querySelector('.jdgm-write-rev-link');
+        if (reviewLink) {
+          reviewLink.textContent = 'Schreib uns eine Bewertung';
+          observer.disconnect();
+        }
+      }
     }
-  }, 500); 
+  };
+
+  const observer = new MutationObserver(callback);
+  observer.observe(targetNode, config);
+
+  setTimeout(() => {
+    observer.disconnect();
+  }, 5000);
 });
 
    </script>
