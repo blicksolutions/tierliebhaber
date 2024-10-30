@@ -37,5 +37,33 @@ window.activateAbTlh058 = () => {
 			}
 		})
 	})
+
+	const sliderContainer = document.querySelector('[data-js-tlh-058-slider]');
+
+	if(!sliderContainer) return;
+
+	sliderContainer.setAttribute('data-js-tlh-058-slider', true)
+	const slider = sliderContainer.querySelector('.BenefitsTwo.swiper');
+
+	const swiper = new Swiper(slider, {
+		centerInsufficientSlides: true,
+		pagination: {
+		  el: ".swiper-pagination-benefits-two",
+		  clickable: true
+		},
+		autoHeight: true,
+		spaceBetween: 30,
+		breakpoints: {
+			600: {
+				slidesPerView: 2,
+				spaceBetween: 40
+			},
+			1008: {
+				slidesPerView: 3,
+				spaceBetween: 102
+			}
+		},
+		simulateTouch: true
+	  });
 }
 document.addEventListener('DOMContentLoaded', window.activateAbTlh058)

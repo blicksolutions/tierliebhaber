@@ -288,3 +288,129 @@
 	font-weight: 400;
 	line-height: 20px;
 }
+
+/* slider */
+[data-js-tlh-058-slider] {
+	display: none;
+}
+
+[data-js-tlh-058-slider="true"] {
+	display: block;
+}
+
+[data-js-tlh-058-slider="true"] + .Section:has(.Benefits) {
+	display: none;
+}
+
+[data-js-tlh-058-slider="true"] .SectionHeader {
+	display: none;
+}
+
+.shopify-section--bordered>.Section--spacingNormal:has([data-js-tlh-058-slider="true"]) {
+	padding: 30px 0;
+}
+
+[data-js-tlh-058-slider="true"] .BenefitsTwo.swiper {
+	overflow: visible;
+}
+
+[data-js-tlh-058-slider="true"] .BenefitsTwo.swiper:hover {
+	cursor: grab;
+}
+
+[data-js-tlh-058-slider="true"] .swiper-slide {
+	border-radius: 10px;
+	padding: 24px 16px;
+}
+
+[data-js-tlh-058-slider="true"] .Image {
+	width: 118px;
+	height: 118px;
+	margin-bottom: 20px;
+}
+
+[data-js-tlh-058-slider="true"] .BenefitItem__Title {
+	margin-bottom: 10px;
+	font-size: 20px !important;
+	line-height: 25px;
+	color: #1C1B1B;
+}
+
+[data-js-tlh-058-slider="true"] .BenefitItem__Text {
+	font-size: 16px;
+	line-height: 20px;
+	color: #1C1B1B;
+}
+
+[data-js-tlh-058-slider="true"] .swiper-pagination-benefits-two {
+	display: flex;
+	justify-content: center;
+	padding-top: 20px;
+	gap: 10px;
+}
+
+[data-js-tlh-058-slider="true"] .swiper-pagination-bullet {
+	margin: 0 !important;
+	height: 15px;
+	width: 15px;
+	background: #fff;
+	opacity: 1;
+}
+
+[data-js-tlh-058-slider="true"] .swiper-pagination-bullet.swiper-pagination-bullet-active {
+	background: #1C1B1B;
+}
+
+@media (min-width: 1008px) {
+	[data-js-tlh-058-slider="true"] .SectionHeader {
+		display: block;
+	}
+	
+	[data-js-tlh-058-slider="true"] .SectionHeader,
+	[data-js-tlh-058-slider="true"] .SectionHeader:not(:only-child) {
+		margin-bottom: 58px;
+	}
+
+	[data-js-tlh-058-slider="true"] .SectionHeader .SectionHeader__Heading {
+		font-size: 28px;
+		line-height: 35px;
+	}
+
+	.shopify-section--bordered>.Section--spacingNormal[data-js-tlh-058-slider="true"].Section {
+		padding: 58px;
+	}
+
+	[data-js-tlh-058-slider="true"] .BenefitsTwo.swiper:hover {
+		cursor: unset;
+	}
+
+	[data-js-tlh-058-slider="true"] .swiper-slide {
+		padding: 0;
+	}
+
+	[data-js-tlh-058-slider="true"] .Image {
+		width: 120px;
+		height: 120px;
+		margin-bottom: 27px;
+	}
+
+	[data-js-tlh-058-slider="true"] .BenefitItem__Title {
+		font-size: 24px !important;
+	}
+
+	[data-js-tlh-058-slider="true"] .BenefitItem__Text {
+		font-size: 18px;
+	}
+
+	[data-js-tlh-058-slider="true"] .swiper-pagination-benefits-two {
+		padding-top: 0;
+	}
+}
+
+@media (min-width: 1200px) {
+	[data-js-tlh-058-slider="true"] .Container {
+		padding: 0px 89px;
+        max-width: 1324px;
+        margin: 0 auto;
+	}
+}
