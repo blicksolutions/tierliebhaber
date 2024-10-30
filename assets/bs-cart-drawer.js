@@ -325,6 +325,7 @@
 
 			giftIcon.style.left = giftIconPosition + "%";
 			giftIcon.style.right = "auto";
+			giftIcon.style.display = "block";
 			deliveryIcon.style.left = "100%";
 
 			if (subtotalPriceWithoutNoShippingItems < window.cartDrawerMinPriceForGift) {
