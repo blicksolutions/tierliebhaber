@@ -91,7 +91,7 @@ window.activateAbTlh061 = () => {
 
 						const grid = document.querySelector(".testimonials__list.grid")
 
-					    const msnry = new Masonry( grid, {
+					    new Masonry( grid, {
 							itemSelector: ".grid-item",
 							columnWidth: ".grid-item",
 							percentPosition: true,
@@ -110,20 +110,29 @@ window.activateAbTlh061 = () => {
 		});
 	});
 
-	testimonialsSection.setAttribute('data-js-tlh-061', 'true');
-
-	const reviewsButton = testimonialsSection.querySelector('[data-js-tlh-061-button]');
-
-	reviewsButton.addEventListener('click', () => {
-		var element = document.querySelector('#judgeme_product_reviews');
-		var headerOffset = 300;
-		var elementPosition = element.getBoundingClientRect().top;
-		var offsetPosition = elementPosition + window.scrollY - headerOffset;
+	const scrollToReviewsWidget = () => {
+		const element = document.querySelector('#judgeme_product_reviews');
+		const headerOffset = 300;
+		const elementPosition = element.getBoundingClientRect().top;
+		const offsetPosition = elementPosition + window.scrollY - headerOffset;
 
 		window.scrollTo({
 			top: offsetPosition,
 			behavior: 'smooth',
 		});
+	}
+
+	testimonialsSection.setAttribute('data-js-tlh-061', 'true');
+
+	const reviewsButton = testimonialsSection.querySelector('[data-js-tlh-061-button]');
+	const showMoreButton = testimonialsSection.querySelector('[data-js-tlh-061-button-more]');
+
+	reviewsButton.addEventListener('click', () => {
+		scrollToReviewsWidget();
+	});
+	
+	showMoreButton.addEventListener('click', () => {
+		scrollToReviewsWidget();
 	});
 };
 
