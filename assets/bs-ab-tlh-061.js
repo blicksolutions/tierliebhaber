@@ -9,8 +9,8 @@ window.activateAbTlh061 = () => {
 	const reviewWidget = document.querySelector('.jdgm-rev-widg');
 	const avgRating = reviewWidget.dataset.averageRating;
 	const reviewsNumber = reviewWidget.dataset.numberOfReviews;
-	const avgRatingTarget = document.querySelector(".testimonials__rating-product__average span");
-	const reviewsNumberTarget = document.querySelector(".testimonials__rating-product__reviews-number span");
+	const avgRatingTarget = document.querySelector('.testimonials__rating-product__average span');
+	const reviewsNumberTarget = document.querySelector('.testimonials__rating-product__reviews-number span');
 	const starRatingWidget = document.querySelector('.jdgm-rev-widg__summary-stars').outerHTML;
 	const starRatingWidgetTarget = document.querySelector('.testimonials__rating-product');
 
@@ -89,11 +89,11 @@ window.activateAbTlh061 = () => {
 					if(testimonialsWrapper) {
 						testimonialsWrapper.appendChild(reviewSlide);
 
-						const grid = document.querySelector(".testimonials__list.grid")
+						const grid = document.querySelector('.testimonials__list.grid')
 
 					    new Masonry( grid, {
-							itemSelector: ".grid-item",
-							columnWidth: ".grid-item",
+							itemSelector: '.grid-item',
+							columnWidth: '.grid-item',
 							percentPosition: true,
 							gutter: 10,  
 							fitWidth: true

@@ -14,7 +14,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: 20px;
+    gap: 24px;
     background: #F5F5F5;
 	margin: 0 24px;
 	position: relative;
@@ -114,7 +114,11 @@
 
 .testimonials__rating-metric__header {
 	display: flex;
-	gap: 10px;
+	gap: 5px;
+    font-size: 16px;
+    line-height: 20px;
+    color: #1C1B1B;
+    font-weight: 500;
 }
 
 .testimonials__rating-metric__rating-bar {
@@ -264,6 +268,11 @@
         font-size: 28px;
         font-weight: 500;
         line-height: 35px;
+    }
+
+    .testimonials__rating-metric__header {
+        font-size: 18px;
+        line-height: 22px;
     }
 
 	.testimonials[data-js-tlh-061] .testimonials__button.Button.Button--secondary {
