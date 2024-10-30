@@ -49,6 +49,18 @@ window.activateAbTlh046 = () => {
 		case 'chillout-sticks':
 			bestseller = true;
 			break;
+		case 'dentalspray-tl0010-fb-d4':
+			bestseller = true;
+			break;
+		case 'gras-kotfresser-drops-3':
+			bestseller = true;
+			break;
+		case 'chillout-drops-1':
+			bestseller = true;
+			break;
+		case 'hustenkrautersaft-pferd-1':
+			bestseller = true;
+			break;
 
 		default:
 			bestseller = false;
