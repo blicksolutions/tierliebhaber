@@ -1,10 +1,12 @@
 window.activateAbTlh061 = () => {
 	const reviewsContainer = document.querySelector('#judgeme_product_reviews');
-	if (!reviewsContainer) return;
+	if(!reviewsContainer) return;
 
 	const reviews = reviewsContainer.querySelectorAll('.jdgm-widget .jdgm-rev-widg .jdgm-rev-widg__reviews .jdgm-rev');	
 	const testimonialsSection = document.querySelector('[data-js-tlh-061]');
 	const testimonialsWrapper = document.querySelector('[data-js-tlh-061-wrapper]');
+
+	if(!reviews.length) return;
 
 	const reviewWidget = document.querySelector('.jdgm-rev-widg');
 	const avgRating = reviewWidget.dataset.averageRating;
@@ -25,7 +27,7 @@ window.activateAbTlh061 = () => {
 	const shippingMetric = document.querySelector('.testimonials__rating-metric[data-js-tlh-061-metric-shipping] .testimonials__rating-metric__number');
 	const shippingMetricRatingThumb = document.querySelector('.testimonials__rating-metric[data-js-tlh-061-metric-shipping] .testimonials__rating-metric__thumb');
 
-	switch(avgRating) {
+	switch(avgRating * 1) {
 		case 5.00:
 			effectMetric.innerHTML = avgRating;
 			qualityMetric.innerHTML = avgRating;
@@ -95,8 +97,7 @@ window.activateAbTlh061 = () => {
 							itemSelector: '.grid-item',
 							columnWidth: '.grid-item',
 							percentPosition: true,
-							gutter: 10,  
-							fitWidth: true
+							gutter: 10
 						  });
 					}
 				}
