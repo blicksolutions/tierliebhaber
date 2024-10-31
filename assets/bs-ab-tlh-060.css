@@ -41,3 +41,23 @@
     transform: translateX(-90%) translateY(-50%);
 }
 
+/* pdp info component */
+[data-bs-tlh-060-amount-info] {
+    display: none;
+}
+
+[data-bs-tlh-060-amount-info="true"] {
+    display: flex;
+}
+
+.bs-amount-info {
+    align-items: center;
+    gap: 4px;
+    padding: 8px 0;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.bs-amount-info:hover {
+    cursor: pointer;
+}
