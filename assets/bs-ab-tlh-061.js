@@ -111,7 +111,11 @@ window.activateAbTlh061 = () => {
 		});
 	});
 
-	const scrollToReviewsWidget = () => {
+	testimonialsSection.setAttribute('data-js-tlh-061', 'true');
+
+	const reviewsButton = testimonialsSection.querySelector('[data-js-tlh-061-button]');
+
+	reviewsButton.addEventListener('click', () => {
 		const element = document.querySelector('#judgeme_product_reviews');
 		const headerOffset = 300;
 		const elementPosition = element.getBoundingClientRect().top;
@@ -121,19 +125,6 @@ window.activateAbTlh061 = () => {
 			top: offsetPosition,
 			behavior: 'smooth',
 		});
-	}
-
-	testimonialsSection.setAttribute('data-js-tlh-061', 'true');
-
-	const reviewsButton = testimonialsSection.querySelector('[data-js-tlh-061-button]');
-	const showMoreButton = testimonialsSection.querySelector('[data-js-tlh-061-button-more]');
-
-	reviewsButton.addEventListener('click', () => {
-		scrollToReviewsWidget();
-	});
-	
-	showMoreButton.addEventListener('click', () => {
-		scrollToReviewsWidget();
 	});
 };
 
