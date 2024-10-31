@@ -61,3 +61,28 @@
 .bs-amount-info:hover {
     cursor: pointer;
 }
+
+/* popup component */
+.bs-amount-calculator-popup__bg-container {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(68, 63, 63, 0.50);
+    z-index: 20;
+}
+
+.bs-amount-calculator-popup {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+    background: #ffff;
+    padding: 16px;
+    border-radius: 10px;
+}
