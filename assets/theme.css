@@ -11452,21 +11452,21 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 
 #sidebar-cart .Drawer__Footer {
     padding-bottom: 0;
-    height: 362px;
+    height: 337px;
 }
 
 #sidebar-cart.Drawer__Footer__CouponActive .Drawer__Footer {
-    height: 425px;
+    height: 400px;
 }
 
-@media(max-width: 767px) {
+@media(max-width: 600px) {
     #sidebar-cart .Drawer__Footer {
         padding-bottom: 0;
-        height: 385px;
+        height: 347px;
     }
 
     #sidebar-cart.Drawer__Footer__CouponActive .Drawer__Footer {
-        height: 448px;
+        height: 410px;
     }
 }
 
@@ -11974,6 +11974,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 /* Cart sidebar payment image */
 .CartPayment__Image {
     margin-top: 12px;
+	width: 100%;
 }
 
 /* /Cart sidebar payment image */

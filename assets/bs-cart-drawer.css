@@ -24,3 +24,7 @@
 #sidebar-cart span.highlight-free-shipping {
 	color: #77a464;
 }
+
+#sidebar-cart .Cart__Checkout {
+	margin-top: -10px;
+}
