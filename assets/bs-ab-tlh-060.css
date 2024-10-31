@@ -1,0 +1,43 @@
+/* pdp anchor component */
+[data-bs-tlh-060-anchor] {
+    display: none;
+}
+
+[data-bs-tlh-060-anchor="true"] {
+    display: flex;
+}
+
+.ProductMeta__PriceList:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]) {
+    display: flex;
+    align-items: center;
+    gap: 21px;
+    flex-wrap: wrap;
+}
+
+.bs-pdp-anchor {
+    padding: 4px 10px;
+    background: #ABCDBE;
+    border-radius: 6px;
+    align-items: center;
+    width: max-content;
+    font-size: 14px;
+    line-height: 18px;
+    gap: 5px;
+    position: relative;
+}
+
+.bs-pdp-anchor:hover {
+    cursor: pointer;
+}
+
+.bs-pdp-anchor svg:not(.triangle--green) {
+    margin-left: 3px;
+}
+
+.bs-pdp-anchor .triangle--green {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateX(-90%) translateY(-50%);
+}
+
