@@ -42,11 +42,11 @@ window.activateAbTlh061 = () => {
 			effectMetric.innerHTML = avgRating - 0.03;
 			qualityMetric.innerHTML = avgRating * 1 + 0.02;
 			shippingMetric.innerHTML = avgRating * 1 + 0.01;
-	  }
+	}
 
-	  effectMetricRatingThumb.style.width = (effectMetric.innerHTML / 5 * 100) + '%';
-	  qualityMetricRatingThumb.style.width = (qualityMetric.innerHTML / 5 * 100) + '%';
-	  shippingMetricRatingThumb.style.width = (shippingMetric.innerHTML / 5 * 100) + '%';
+	effectMetricRatingThumb.style.width = (effectMetric.innerHTML / 5 * 100) + '%';
+	qualityMetricRatingThumb.style.width = (qualityMetric.innerHTML / 5 * 100) + '%';
+	shippingMetricRatingThumb.style.width = (shippingMetric.innerHTML / 5 * 100) + '%';
 
 	reviews.forEach((review) => {
 		const mutationObserver = new MutationObserver((entries) => {
