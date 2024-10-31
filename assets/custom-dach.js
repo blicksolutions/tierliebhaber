@@ -24,13 +24,6 @@ window.shippingrates = {
     }
 }
 
-(function() {
-  window.addEventListener('DCART:config.initialized', function(e) {
-    if (!window.DCART.discountbox.customConfig) window.DCART.discountbox.customConfig = {};
-    window.DCART.discountbox.customConfig.disableCartRefresh = true;
-  });
-})();
-
 // place dcart
 window.scThemeConfig = {
     "cartDiscountSelector": {
