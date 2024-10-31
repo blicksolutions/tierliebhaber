@@ -101,6 +101,10 @@
     width: 100%;
 }
 
+.bs-amount-calculator-popup__main {
+    width: 100%;
+}
+
 .bs-amount-calculator-popup__title {
     margin: 0;
     font-size: 16px;
@@ -124,6 +128,8 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
+    width: fit-content;
+    margin: 0 auto;
 }
 
 .bs-amount-calculator-popup__metrics-card__title {
@@ -150,4 +156,91 @@
     font-size: 12px;
     line-height: 15px;
     color: #525252;
+}
+
+.bs-amount-calculator-popup__progress-bar {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 461px;
+    position: relative;
+    margin: 10px auto 33px;
+}
+
+.bs-amount-calculator-popup__progress-bar__thumb {
+    position: absolute;
+    width: 100%;
+    height: 7px;
+    background: #CCCCCC;
+    top: 20px;
+    transform: translateY(-50%);
+    border-radius: 50px;
+}
+
+.bs-amount-calculator-popup__progress-bar__thumb-active {
+    background: #F1AF9E;
+    height: 100%;
+    border-radius: 50px;
+}
+
+.bs-amount-calculator-popup__progress-bar__bullet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 0 25px;
+    width: 20%;
+    position: relative;
+}
+
+.bs-amount-calculator-popup__progress-bar__bullet::before {
+    content: '';
+    position: relative;
+    height: 10px;
+    width: 10px;
+    border: 1px solid #F1AF9E;
+    background: #ffff;
+    border-radius: 50%;
+}
+
+.bs-amount-calculator-popup__progress-bar__bullet.active::before {
+    transform: scale(1.5);
+}
+
+.bs-amount-calculator-popup__progress-bar__bullet:hover {
+    cursor: pointer;
+}
+
+.bs-amount-calculator-popup__progress-bar__bullet::after {
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    font-size: 10px;
+    line-height: 12px;
+    white-space: nowrap;
+    transform: translateX(-50%);
+}
+
+.bs-amount-calculator-popup__progress-bar__bullet.active::after {
+    transform: translateX(-50%) scale(1.4);
+    color: #1C1B1B;
+}
+
+.bs-amount-calculator-popup__progress-bar__bullet[id="1"]::after {
+    content: 'bis 5kg';
+}
+
+.bs-amount-calculator-popup__progress-bar__bullet[id="2"]::after {
+    content: 'bis 10kg';
+}
+
+.bs-amount-calculator-popup__progress-bar__bullet[id="3"]::after {
+    content: 'bis 20kg';
+}
+
+.bs-amount-calculator-popup__progress-bar__bullet[id="4"]::after {
+    content: 'bis 30kg';
+}
+
+.bs-amount-calculator-popup__progress-bar__bullet[id="5"]::after {
+    content: 'ab 30kg';
 }

@@ -12,6 +12,8 @@ window.activateAbTlh060 = () => {
     if(!pdpAmountInfo) return;
 
     pdpAmountInfo.setAttribute('data-bs-tlh-060-amount-info', true)
+
+    // popup component
 };
 
 document.addEventListener('DOMContentLoaded', () => {
