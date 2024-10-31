@@ -1,0 +1,29 @@
+{%- assign like_badge = shop.metafields.product.like_badge.value -%}
+
+<div class="LikeBadge--version-b {% if classes %}{{ classes }}{% endif %}">
+	<div class="LikeBadge--version-b__profiles">
+		{%- if like_badge.pets[product.metafields.meta.pet_icons].images != blank -%}
+			{%- for pet_image in like_badge.pets[product.metafields.meta.pet_icons].images -%}
+				<img
+				class="LikeBadge__Image Image--lazyLoad Image--fadeIn"
+				data-src="{{ pet_image.filename | file_url }}"
+				alt="{{ pet_image.alt | escape }}"
+				loading="lazy"
+				>
+			{%- endfor -%}
+		{%- else -%}
+			{%- for dog in like_badge.dogs -%}
+				<img
+				class="LikeBadge__Image Image--lazyLoad Image--fadeIn"
+				data-src="{{ images[dog.image.filename] | img_url: 'master' }}"
+				alt="{{ dog.image.alt | escape }}"
+				loading="lazy"
+				>
+			{%- endfor -%}
+		{%- endif -%}
+		{% render 'bs-icon-heart' %}
+	</div>
+	<div class="LikeBadge--version-b__text">
+		<p><span>Samy, Bella</span> und <span>7964 andere Hunde</span> finden dieses Produkt super</p>
+	</div>
+</div>
