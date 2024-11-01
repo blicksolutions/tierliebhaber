@@ -1,8 +1,3 @@
-.section-bs-hero-banner {
-	opacity: 0;
-	transition: opacity .3s ease;
-}
-
 .bs-hero-banner {
 	display: flex;
 	position: relative;
