@@ -31,9 +31,9 @@ window.activateAbTlh061 = () => {
 
 	switch (avgRating * 1) {
 		case 5.00:
-			effectMetric.innerHTML = avgRating.toFixed(2);
-			qualityMetric.innerHTML = avgRating.toFixed(2);
-			shippingMetric.innerHTML = avgRating.toFixed(2);
+			effectMetric.innerHTML = avgRating;
+			qualityMetric.innerHTML = avgRating;
+			shippingMetric.innerHTML = avgRating;
 			break;
 		case 4.99:
 			effectMetric.innerHTML = (avgRating - 0.02).toFixed(2);
