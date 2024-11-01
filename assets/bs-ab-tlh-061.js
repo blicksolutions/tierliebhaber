@@ -38,7 +38,7 @@ window.activateAbTlh061 = () => {
 		case 4.99:
 			effectMetric.innerHTML = (avgRating - 0.02).toFixed(2);
 			qualityMetric.innerHTML = (avgRating * 1 + 0.01).toFixed(2);
-			shippingMetric.innerHTML = avgRating.toFixed(2);
+			shippingMetric.innerHTML = avgRating;
 			break;
 		default:
 			effectMetric.innerHTML = (avgRating - 0.03).toFixed(2);
