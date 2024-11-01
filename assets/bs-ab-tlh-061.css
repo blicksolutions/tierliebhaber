@@ -1,7 +1,3 @@
-.StickyATC__ATC {
-    display: none !important;
-}
-
 .testimonials__wrapper:has(.testimonials[data-js-tlh-061]) {
 	width: 100%;
 	overflow: hidden;

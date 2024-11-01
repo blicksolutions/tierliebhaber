@@ -16,9 +16,11 @@ window.activateAbTlh061 = () => {
 	const starRatingWidget = document.querySelector('.jdgm-rev-widg__summary-stars').outerHTML;
 	const starRatingWidgetTarget = document.querySelector('.testimonials__rating-product');
 
-	starRatingWidgetTarget.insertAdjacentHTML('afterbegin', starRatingWidget);
-	avgRatingTarget.innerHTML = avgRating;
-	reviewsNumberTarget.innerHTML = reviewsNumber;
+	if(starRatingWidgetTarget && avgRatingTarget && reviewsNumberTarget){
+		starRatingWidgetTarget.insertAdjacentHTML('afterbegin', starRatingWidget);
+		avgRatingTarget.innerHTML = avgRating.toFixed(2);
+		reviewsNumberTarget.innerHTML = reviewsNumber;
+	}
 
 	const effectMetric = document.querySelector('.testimonials__rating-metric[data-js-tlh-061-metric-effect] .testimonials__rating-metric__number');
 	const effectMetricRatingThumb = document.querySelector('.testimonials__rating-metric[data-js-tlh-061-metric-effect] .testimonials__rating-metric__thumb');
@@ -27,26 +29,28 @@ window.activateAbTlh061 = () => {
 	const shippingMetric = document.querySelector('.testimonials__rating-metric[data-js-tlh-061-metric-shipping] .testimonials__rating-metric__number');
 	const shippingMetricRatingThumb = document.querySelector('.testimonials__rating-metric[data-js-tlh-061-metric-shipping] .testimonials__rating-metric__thumb');
 
-	switch(avgRating * 1) {
+	switch (avgRating * 1) {
 		case 5.00:
-			effectMetric.innerHTML = avgRating;
-			qualityMetric.innerHTML = avgRating;
-			shippingMetric.innerHTML = avgRating;
-		  break;
+			effectMetric.innerHTML = avgRating.toFixed(2);
+			qualityMetric.innerHTML = avgRating.toFixed(2);
+			shippingMetric.innerHTML = avgRating.toFixed(2);
+			break;
 		case 4.99:
-			effectMetric.innerHTML = avgRating - 0.02;
-			qualityMetric.innerHTML = avgRating * 1 + 0.01;
-			shippingMetric.innerHTML = avgRating;
-		  break;
+			effectMetric.innerHTML = (avgRating - 0.02).toFixed(2);
+			qualityMetric.innerHTML = (avgRating * 1 + 0.01).toFixed(2);
+			shippingMetric.innerHTML = avgRating.toFixed(2);
+			break;
 		default:
-			effectMetric.innerHTML = avgRating - 0.03;
-			qualityMetric.innerHTML = avgRating * 1 + 0.02;
-			shippingMetric.innerHTML = avgRating * 1 + 0.01;
+			effectMetric.innerHTML = (avgRating - 0.03).toFixed(2);
+			qualityMetric.innerHTML = (avgRating * 1 + 0.02).toFixed(2);
+			shippingMetric.innerHTML = (avgRating * 1 + 0.01).toFixed(2);
 	}
 
-	effectMetricRatingThumb.style.width = (effectMetric.innerHTML / 5 * 100) + '%';
-	qualityMetricRatingThumb.style.width = (qualityMetric.innerHTML / 5 * 100) + '%';
-	shippingMetricRatingThumb.style.width = (shippingMetric.innerHTML / 5 * 100) + '%';
+	if(effectMetricRatingThumb && qualityMetricRatingThumb && shippingMetricRatingThumb) {
+		effectMetricRatingThumb.style.width = (effectMetric.innerHTML / 5 * 100) + '%';
+		qualityMetricRatingThumb.style.width = (qualityMetric.innerHTML / 5 * 100) + '%';
+		shippingMetricRatingThumb.style.width = (shippingMetric.innerHTML / 5 * 100) + '%';
+	}
 
 	reviews.forEach((review) => {
 		const mutationObserver = new MutationObserver((entries) => {
@@ -111,7 +115,9 @@ window.activateAbTlh061 = () => {
 		});
 	});
 
-	testimonialsSection.setAttribute('data-js-tlh-061', 'true');
+	if(testimonialsSection) {
+		testimonialsSection.setAttribute('data-js-tlh-061', 'true');
+	}
 
 	const reviewsButton = testimonialsSection.querySelector('[data-js-tlh-061-button]');
 
@@ -127,7 +133,3 @@ window.activateAbTlh061 = () => {
 		});
 	});
 };
-
-document.addEventListener("DOMContentLoaded", () => {
-	window.activateAbTlh061();
-})
