@@ -1,10 +1,14 @@
 {{ "bs-hero-banner.css" |  asset_url |  stylesheet_tag }}
+{{ "bs-ab-tlh-055.css" |  asset_url |  stylesheet_tag }}
+
 
 <section id="section-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="hero-banner">
 	<div class="bs-hero-banner">
-		{% if section.settings.background_image %}
+		{% comment %} {% if section.settings.background_image %}
 			{{ section.settings.background_image |  image_url: width: 2000 |  image_tag: class: "bs-hero-banner__background" }}
-		{% endif %}
+		{% endif %} {% endcomment %}
+		<img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/20240705_Tierliebhaber2408.png?v=1728646413" class="bs-hero-banner__background bs-hero-banner__background--mobile">
+		<img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/Hero_Image.png?v=1728646413" class="bs-hero-banner__background bs-hero-banner__background--desktop">
 		<div class="bs-hero-banner__content">
 			{% render 'bs-icon-wave-mobile' %}
 			{% render 'bs-icon-wave-desktop' %}
