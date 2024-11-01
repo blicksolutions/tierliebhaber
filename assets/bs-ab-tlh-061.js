@@ -18,7 +18,7 @@ window.activateAbTlh061 = () => {
 
 	if(starRatingWidgetTarget && avgRatingTarget && reviewsNumberTarget){
 		starRatingWidgetTarget.insertAdjacentHTML('afterbegin', starRatingWidget);
-		avgRatingTarget.innerHTML = avgRating.toFixed(2);
+		avgRatingTarget.innerHTML = avgRating;
 		reviewsNumberTarget.innerHTML = reviewsNumber;
 	}
 
