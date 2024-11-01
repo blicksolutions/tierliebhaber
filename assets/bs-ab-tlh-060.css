@@ -247,3 +247,20 @@
 .bs-amount-calculator-popup__progress-bar__bullet[id="5"]::after {
     content: 'ab 30kg';
 }
+
+@media (min-width: 768px) {
+    .bs-amount-calculator-popup__title {
+        font-size: 18px;
+        line-height: 23px;
+    }
+
+    .bs-amount-calculator-popup__title {
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    .bs-amount-calculator-popup__progress-bar__bullet:after {
+        font-size: 12px;
+        line-height: 15px;
+    }
+}
