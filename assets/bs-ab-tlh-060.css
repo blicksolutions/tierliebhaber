@@ -69,12 +69,16 @@
     height: 100vh;
     top: 0;
     left: 0;
-    display: flex;
     align-items: center;
     justify-content: center;
     background: rgba(68, 63, 63, 0.50);
     z-index: 20;
     padding: 16px;
+    display: none;
+}
+
+.bs-amount-calculator-popup__bg-container[data-bs-tlh-060-popup="true"].active {
+    display: flex;
 }
 
 .bs-amount-calculator-popup {
@@ -181,6 +185,7 @@
     background: #F1AF9E;
     height: 100%;
     border-radius: 50px;
+    width: 10%;
     transition: width .3s ease;
 }
 
@@ -262,5 +267,9 @@
     .bs-amount-calculator-popup__progress-bar__bullet:after {
         font-size: 12px;
         line-height: 15px;
+    }
+
+    .bs-amount-calculator-popup__progress-bar {
+        margin: 20px auto 36px;
     }
 }
