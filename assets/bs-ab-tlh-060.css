@@ -12,6 +12,20 @@
     align-items: center;
     gap: 21px;
     flex-wrap: wrap;
+    justify-content: center;
+}
+
+.ProductMeta__PriceList:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]) + .ProductMeta__UnitPriceMeasurement,
+.ProductMeta__PriceList:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]) ~ .ProductMeta__TaxNotice {
+    margin-top: 10px;
+}
+
+.ProductMeta__PriceList:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]) + .ProductMeta__UnitPriceMeasurement *,
+.ProductMeta__PriceList:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]) ~ .ProductMeta__TaxNotice * {
+    font-size: 14px;
+    line-height: 18px;
+    color: #525252;
+    font-weight: 400;
 }
 
 .bs-pdp-anchor {
@@ -117,6 +131,10 @@
     padding-bottom: 10px;
     border-bottom: 1px solid #CCCCCC;
     width: 100%;
+}
+
+.bs-amount-calculator-popup__header svg:hover {
+    cursor: pointer;
 }
 
 .bs-amount-calculator-popup__main {
@@ -285,5 +303,36 @@
 
     .bs-amount-calculator-popup__progress-bar {
         margin: 20px auto 36px;
+    }
+}
+
+@media (min-width: 1008px) {
+    .ProductMeta__PriceList:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]) {
+        justify-content: unset;
+    }
+  
+    .ProductMeta.Bestseller:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]) {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .ProductMeta.Bestseller:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]) .ProductMeta__BestsellerHeader {
+        width: 100%;
+    }
+    
+    .ProductMeta.Bestseller:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]) .ProductMeta__PriceList {
+        width: 100%;
+    }
+    
+    .ProductMeta.Bestseller:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]) .ProductMeta__UnitPriceMeasurement {
+        margin-right: 5px;
+    }
+   
+    .ProductMeta.Bestseller:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]) .ProductMeta__TaxNotice,
+    .ProductMeta.Bestseller:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]) .ProductMeta__UnitPriceMeasurement {
+        margin-top: 6px;
+        margin-bottom: 17px;
+        font-size: 12px;
+        line-height: 14px;
     }
 }
