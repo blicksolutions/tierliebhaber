@@ -1,6 +1,5 @@
 window.activateAbTlh046 = () => {
 	const productHandle = window.location.pathname.split('/').slice(-1).toString();
-	console.log('productHandle', productHandle)
 	let bestseller;
 
 	switch (productHandle) {
@@ -364,5 +363,3 @@ window.activateAbTlh046 = () => {
 		});
 	}
 };
-
-document.addEventListener('DOMContentLoaded', window.activateAbTlh046)
