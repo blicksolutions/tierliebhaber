@@ -36,6 +36,13 @@ window.activateAbTlh060 = () => {
         }
     });
 
+    // popup
+    if(dailyUnit) {
+        const popupUnitTarget = document.querySelector('.bs-amount-calculator-popup__metrics-card__unit');
+
+        popupUnitTarget.innerHTML = dailyUnit;
+    }
+
     // popup progressbar
     const progressbarActiveThumb = document.querySelector('.bs-amount-calculator-popup__progress-bar__thumb-active');
     const bullets = document.querySelectorAll('.bs-amount-calculator-popup__progress-bar__bullet');

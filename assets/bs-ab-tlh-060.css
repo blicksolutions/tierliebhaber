@@ -188,6 +188,10 @@
     font-weight: 700;
 }
 
+.bs-amount-calculator-popup__metrics-card__unit {
+    margin-left: 5px;
+}
+
 .bs-amount-calculator-popup__metrics-card__info {
     font-size: 12px;
     line-height: 15px;
