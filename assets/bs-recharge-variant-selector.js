@@ -1,15 +1,9 @@
 window.replaceVariantSelector = () => {
+    if (window.tlh046 == true) return
+
 	const insertMarkUpFinished = new Event('insertMarkUpFinished');
 
 	const uspsMarkup = () => {
-		let freeShippingText;
-
-		if (window.tlh043 == true) {
-			freeShippingText = 'Gratis Versand';
-		} else {
-			freeShippingText = 'Kostenloser Versand';
-		}
-
 		return `
             <ul class="rc-plans__usps" data-js-variant-usps>
                 <li class="rc-plans__usp">
@@ -25,7 +19,7 @@ window.replaceVariantSelector = () => {
                         <path d="M8.41206 15.0238L4.17627 10.788L4.78479 10.1803L8.41206 13.8076L16.2155 6.00421L16.8231 6.61188L8.41206 15.0238Z" fill="black"/>
                     </svg>
                     <p class="rc-plans__usp-text">
-                        ${freeShippingText}
+                        Kostenloser Versand
                     </p>
                 </li>
                 <li class="rc-plans__usp">
@@ -141,13 +135,6 @@ window.replaceVariantSelector = () => {
 				}
 
 				if (freeShippingCheck == 'true') {
-					let freeShippingText;
-
-					if (window.tlh043 == true) {
-						freeShippingText = 'Gratis Versand';
-					} else {
-						freeShippingText = 'Kostenloser Versand';
-					}
 
 					freeShipping = `
                     <li class="rc-plans__usp rc-plans_usp--free-shipping">
@@ -155,7 +142,7 @@ window.replaceVariantSelector = () => {
                             <path d="M8.41206 15.0238L4.17627 10.788L4.78479 10.1803L8.41206 13.8076L16.2155 6.00421L16.8231 6.61188L8.41206 15.0238Z" fill="black"/>
                         </svg>
                         <p class="rc-plans__usp-text">
-                            ${freeShippingText}
+                            Kostenloser Versand
                         </p>
                     </li>
                     `;

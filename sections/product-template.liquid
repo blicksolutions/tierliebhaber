@@ -216,6 +216,8 @@
           </button>
         {%- endif -%}
 
+		{% render 'bs-ab-tlh-062', classes: 'hidden-lap-and-up' %}
+
         {%- render 'like-badge', classes: 'hidden-lap-and-up' -%}
 
         {%- if media_count > 1 -%}
@@ -428,6 +430,10 @@ This is the root container for the zoom functionality. Must not be removed, as o
       CompareAtPrice: item.CompareAtPrice
     }
   }]);
+</script>
+
+<script>
+	const productTitle = {{ product.title | json }};
 </script>
 
 {% schema %}

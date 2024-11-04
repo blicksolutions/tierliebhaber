@@ -22,6 +22,7 @@ html {
     -moz-text-size-adjust: 100%;
     text-size-adjust: 100%;
     -ms-overflow-style: -ms-autohiding-scrollbar;
+	overflow-x: hidden;
 }
 
 body {
@@ -11820,6 +11821,10 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 
 .TLH-047--active .CartMessage__Steps {
     height: 95px;
+}
+
+.disable-click {
+    pointer-events: none;
 }
 
 /** /Percentage **/

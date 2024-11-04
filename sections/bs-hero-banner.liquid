@@ -1,0 +1,86 @@
+{{ "bs-hero-banner.css" |  asset_url |  stylesheet_tag }}
+<script src="{{ "bs-hero-banner.js" |  asset_url }}" defer></script>
+
+<section class="section-bs-hero-banner" id="section-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="hero-banner">
+	<div class="bs-hero-banner">
+		{% if section.settings.background_image %}
+			{{ section.settings.background_image |  image_url: width: 2000 |  image_tag: class: "bs-hero-banner__background" }}
+		{% endif %}
+		<div class="bs-hero-banner__content">
+			{% render 'bs-icon-wave-mobile' %}
+			{% render 'bs-icon-wave-desktop' %}
+			{% if section.settings.foreground_image %}
+				{{ section.settings.foreground_image |  image_url: width: 1000 |  image_tag: class: "bs-hero-banner__comparison-image" }}
+			{% endif %}
+			<div class="bs-hero-banner__content-box">
+				<div class="bs-hero-banner__testimonials">
+					{% render 'bs-icon-profile-bubbles' %}
+					{{ section.settings.testimonial_text }}
+				</div>
+				<h2 class="bs-hero-banner__title">
+					{{ section.settings.title }}
+				</h2>
+				<div class="bs-hero-banner__description">
+					{{ section.settings.description }}
+				</div>
+				<a href="{{ section.settings.button_url }}" class="bs-hero-banner__cta-button Button Button--primary">
+					{{ section.settings.button_label }}
+				</a>
+			</div>
+		</div>
+	</div>
+
+	{% render 'bs-ab-tlh-055' %}
+</section>
+
+{% schema %}
+	{
+		"name": "BS Hero Banner",
+		"settings": [
+			{
+				"type": "text",
+				"id": "title",
+				"label": "Title",
+				"default": "Kinderleichte Zahnpflege für Hunde!"
+			},
+			{
+				"type": "richtext",
+				"id": "description",
+				"label": "Description",
+				"default": "<p>Einfach aufs Futter sprühen und Zahnbelag selbst entfernen… 100% natürlich dank probiotischen Mikroorganismen!</p>"
+			},
+			{
+				"type": "text",
+				"id": "button_label",
+				"label": "Button label",
+				"default": "Zum Dentalspray"
+			},
+			{
+				"type": "url",
+				"id": "button_url",
+				"label": "Button url"
+			},
+			{
+				"type": "richtext",
+				"id": "testimonial_text",
+				"label": "Testimonial text",
+				"default": "<p><strong>11.000+ Hundebesitzer</strong> berichten von sichtbaren Verbesserungen <br/> und hervorragender Wirkung</span></p>"
+			},
+			{
+				"type": "image_picker",
+				"id": "background_image",
+				"label": "Background image"
+			},
+			{
+				"type": "image_picker",
+				"id": "foreground_image",
+				"label": "Foreground image"
+			}
+		],
+		"presets": [
+			{
+				"name": "BS Hero Banner"
+			}
+		]
+	}
+{% endschema %}
