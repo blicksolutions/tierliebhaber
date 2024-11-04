@@ -44,6 +44,8 @@ window.scThemeConfig = {
     },
 };
 
+window.scGiftcodeLength = 7;
+
 let deliveryPriceValue = 0;
 
 window.currentCountry = undefined;
@@ -863,7 +865,7 @@ if (window.tlh047) {
                     // set price with location based shipping costs
                     const priceWithoutShipping = parseFloat(subtotalPriceEl.textContent.replace('€', '').replace(',', '.'));
 					const scData = JSON.parse(sessionStorage.getItem("scDiscountData"));
-					const discount = parseFloat(scData.discount.amount)
+					const discount = scData.discount == undefined ? 0 : parseFloat(scData.discount.amount);
 
                     totalPriceEl.textContent = '€' + ((priceWithoutShipping + deliveryPriceValue) - discount).toFixed(2);
                 }, 500);
@@ -1322,7 +1324,7 @@ if (window.tlh047) {
                     // set price with location based shipping costs
                     const priceWithoutShipping = parseFloat(subtotalPriceEl.textContent.replace('€', '').replace(',', '.'));
 					const scData = JSON.parse(sessionStorage.getItem("scDiscountData"));
-					const discount = parseFloat(scData.discount.amount)
+					const discount = scData.discount == undefined ? 0 : parseFloat(scData.discount.amount);
 
 					totalPriceEl.textContent = '€' + ((priceWithoutShipping + deliveryPriceValue) - discount).toFixed(2);
                 }, 500);

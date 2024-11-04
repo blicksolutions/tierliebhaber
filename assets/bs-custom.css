@@ -1014,11 +1014,42 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 
 @media (max-width: 768px) {
     #smile-ui-lite-container {
-        z-index: 9999 !important;
+        z-index: 19 !important;
     }
 
     .cc-btn.cc-deny {
         order: 3;
     }
 }
- 
+
+/* Cookie Declaration Override */
+.Rte .CookieDeclaration table {
+    white-space: normal;
+}
+
+/******************************************************************/
+/* Highlight second menu item
+/******************************************************************/
+
+.Header .Header__MainNav .HorizontalList .HorizontalList__Item.christmas-collection {
+	padding: 6px 20px;
+	background-color: var(--button-background);
+}
+
+.Header .Header__MainNav .HorizontalList .HorizontalList__Item.newyear-collection {
+	padding: 6px 20px;
+	background-color: #d4c7e7;
+}
+  
+/* Live - Variant */
+
+
+.SidebarMenu .SidebarMenu__item.christmas-collection {
+	padding: 18px 20px;
+	background-color: var(--button-background);
+}
+
+.SidebarMenu .SidebarMenu__item.newyear-collection {
+	padding: 18px 20px;
+	background-color: #d4c7e7;
+}
