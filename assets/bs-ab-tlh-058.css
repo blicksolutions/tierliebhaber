@@ -272,6 +272,7 @@
 @media (min-width: 768px) {
 	[data-js-tlh-058="true"] .ProductForm__SellingPoints {
 		background: #FFF;
+		padding: 15px 24px 0;
 	}
 }
 
@@ -287,6 +288,12 @@
 
 [data-js-tlh-058="true"] .ProductForm__SellingPoints .SellingPoints__Heading {
 	display: block;
+}
+
+@media (min-width: 768px) {
+	[data-js-tlh-058="true"] .ProductForm__SellingPoints .SellingPoints__Heading {
+		display: none;
+	}
 }
 
 [data-js-tlh-058="true"] .ProductForm__SellingPoints .SellingPointItem {
@@ -311,6 +318,10 @@
 
 [data-js-tlh-058-slider="true"] {
 	display: block;
+}
+
+[data-js-tlh-058-slider="true"] > .Container {
+	overflow: hidden;
 }
 
 [data-js-tlh-058-slider="true"] + .Section:has(.Benefits) {
@@ -432,20 +443,20 @@
 
 @media screen and (min-width: 1140px) {
 	[data-js-tlh-058="true"] .Product__Gallery:not(.Product__Gallery--stack).Product__Gallery--withThumbnails .Product__SlideshowNavScroller {
-		max-width: 570px;
+		max-width: 550px;
 		margin-left: auto;
 		margin-right: auto;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 16px;
 	}
 
-	.Product__Gallery:not(.Product__Gallery--stack).Product__Gallery--withThumbnails .Product__SlideshowNavImage {
-		margin: 8px;
-	}
-
-	.Product__Gallery:not(.Product__Gallery--stack).Product__Gallery--withThumbnails .Product__SlideshowNavImage:first-child {
-		margin-left: 0;
-	}
-
-	.Product__Gallery:not(.Product__Gallery--stack).Product__Gallery--withThumbnails .Product__SlideshowNavImage:nth-child(6) {
-		margin-right: 0;
+	[data-js-tlh-058="true"] .Product__Gallery:not(.Product__Gallery--stack).Product__Gallery--withThumbnails .Product__SlideshowNavImage {
+		margin: 0;
+		width: auto;
+		max-width: 70px;
+		flex: 1 1 calc(100% / 7 - 16px);
+		display: flex;
 	}
 }
