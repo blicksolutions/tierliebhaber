@@ -51,3 +51,13 @@
    position: relative;
    height: 22px;
 }
+
+.Header .Header__MainNav .HorizontalList[bs-tlh-064="true"] .HorizontalList__Item.christmas-collection {
+    background-color: #F3D2C9;
+    border-radius: 8px;
+}
+
+.Header .Header__MainNav .HorizontalList[bs-tlh-064="true"] .HorizontalList__Item.newyear-collection {
+    background-color: #CCC1E1;
+    border-radius: 8px;
+}

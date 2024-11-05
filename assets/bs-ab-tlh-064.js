@@ -1,9 +1,12 @@
 const adjustHolidayCards = () => {
-    const cardWrapper = document.querySelector('.SidebarMenu__menu');
+    const mobileMenuItemsWrapper = document.querySelector('.SidebarMenu__menu');
+    const desktopMenuItemsWrapper = document.querySelector('.HorizontalList');
 
-    if(!cardWrapper) return;
+    if(!mobileMenuItemsWrapper) return;
+    if(!desktopMenuItemsWrapper) return;
 
-    cardWrapper.setAttribute('bs-tlh-064', true);
+    mobileMenuItemsWrapper.setAttribute('bs-tlh-064', true);
+    desktopMenuItemsWrapper.setAttribute('bs-tlh-064', true);
 }
 
 window.activateAbTlh064B = () => {
