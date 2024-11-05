@@ -5,9 +5,13 @@ const adjustHolidayCards = () => {
     if(!mobileMenuItemsWrapper) return;
     if(!desktopMenuItemsWrapper) return;
 
-    mobileMenuItemsWrapper.setAttribute('bs-tlh-064', true);
-    desktopMenuItemsWrapper.setAttribute('bs-tlh-064', true);
+    mobileMenuItemsWrapper.setAttribute('data-ab-tlh-064', true);
+    desktopMenuItemsWrapper.setAttribute('data-ab-tlh-064', true);
 }
+
+const content = (linkUrl, imgUrl, title) => { 
+    return `<a class="bestseller__link"  href="${linkUrl}"><img class="bestseller__image" src="${imgUrl}" alt="${title}">${title}</a>`;
+};
 
 window.activateAbTlh064B = () => {
 	adjustHolidayCards();
