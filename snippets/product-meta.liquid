@@ -516,9 +516,3 @@
     }
   </script>
 {%- endif -%}
-
-{% if product.metafields.custom.product_daily_unit %}
-  <script>
-    const dailyUnit = {{ product.metafields.custom.product_daily_unit | json }};
-  </script>
-{% endif %}

@@ -34,3 +34,9 @@
         </div>
     </div>
 </div>
+
+<script>
+    const dailyUnit = {{ product.metafields.custom.product_daily_unit | json }};
+    const usageQuantity = {{ product.metafields.custom.usage_quantity | json }};
+    const productPrice = {{ product.price | json }}
+</script>

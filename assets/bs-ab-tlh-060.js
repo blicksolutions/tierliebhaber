@@ -1,4 +1,13 @@
 window.activateAbTlh060 = () => {
+    let quantityPerUnit = 40;
+    const anchorValueTarget = document.querySelector('.bs-pdp-anchor__value');
+
+    if(usageQuantity) {
+        quantityPerUnit = usageQuantity;
+    }
+
+    anchorValueTarget.innerHTML = (Math.trunc((productPrice / (quantityPerUnit * 100)) * 100) / 100) + '€';
+
     // anchor component
     const pdpAnchor = document.querySelector('[data-bs-tlh-060-anchor]');
     const pdpAmountInfo = document.querySelector('[data-bs-tlh-060-amount-info]');
@@ -46,13 +55,97 @@ window.activateAbTlh060 = () => {
     // popup progressbar
     const progressbarActiveThumb = document.querySelector('.bs-amount-calculator-popup__progress-bar__thumb-active');
     const bullets = document.querySelectorAll('.bs-amount-calculator-popup__progress-bar__bullet');
-    let currentActiveBullet = document.querySelector('.bs-amount-calculator-popup__progress-bar__bullet.active')
+    let currentActiveBullet = document.querySelector('.bs-amount-calculator-popup__progress-bar__bullet.active');
+
+    const handleBulletSwitch = (id) => {
+        const amountPerDayValueTarget = document.querySelector('.bs-amount-calculator-popup__metrics-card__value span:first-child');
+        const monthsTarget = document.querySelector('.bs-amount-calculator-popup__metrics-card__info span');
+        const imageTarget = document.querySelector('.bs-amount-calculator-popup__image');
+        let monthsValue;
+
+        const insertNewContent = (dailyAmount, months, imageUrl) => {
+            amountPerDayValueTarget.innerHTML = dailyAmount;
+            monthsTarget.innerHTML = months;
+            imageTarget.innerHTML = imageUrl;
+        };
+
+        switch(id * 1) {
+            case 1:
+                monthsValue = Math.round(((quantityPerUnit / 1) / 30));
+
+                if(monthsValue < 1) {
+                    monthsValue = '1/2 Monat';
+                } else if(monthsValue = 1) {
+                    monthsValue = '1 Monat';
+                } else {
+                    monthsValue = monthsValue + 'Monate';
+                }
+
+                insertNewContent(1, monthsValue, 'nein');
+                break;
+            case 2:
+                monthsValue = Math.round(((quantityPerUnit / 2) / 30));
+
+                if(monthsValue < 1) {
+                    monthsValue = '1/2 Monat';
+                } else if(monthsValue = 1) {
+                    monthsValue = '1 Monat';
+                } else {
+                    monthsValue = monthsValue + 'Monate';
+                }
+
+                insertNewContent(2, monthsValue, 'nein');
+                break;
+            case 3:
+                monthsValue = Math.round(((quantityPerUnit / 3) / 30));
+
+                if(monthsValue < 1) {
+                    monthsValue = '1/2 Monat';
+                } else if(monthsValue = 1) {
+                    monthsValue = '1 Monat';
+                } else {
+                    monthsValue = monthsValue + 'Monate';
+                }
+
+                insertNewContent(4, monthsValue, 'nein');
+                break;
+            case 4:
+                monthsValue = Math.round(((quantityPerUnit / 4) / 30));
+
+                if(monthsValue < 1) {
+                    monthsValue = '1/2 Monat';
+                } else if(monthsValue = 1) {
+                    monthsValue = '1 Monat';
+                } else {
+                    monthsValue = monthsValue + 'Monate';
+                }
+
+                insertNewContent(6, monthsValue, 'nein');
+                break;
+            case 5:
+                monthsValue = Math.round(((quantityPerUnit / 5) / 30));
+
+                if(monthsValue < 1) {
+                    monthsValue = '1/2 Monat';
+                } else if(monthsValue = 1) {
+                    monthsValue = '1 Monat';
+                } else {
+                    monthsValue = monthsValue + 'Monate';
+                }
+
+                insertNewContent(7, monthsValue, 'nein');
+                break;
+            default:
+                break;
+        }
+    }
 
     bullets.forEach((bullet) => {
         bullet.addEventListener('click', (e) => {
             if(e.currentTarget != currentActiveBullet) {
                 currentActiveBullet.classList.remove('active');
                 progressbarActiveThumb.style.width = `${e.currentTarget.dataset.activeThumbWidth}%`;
+                handleBulletSwitch(e.currentTarget.attributes.id.value);
                 e.currentTarget.classList.add('active');
                 currentActiveBullet = e.currentTarget;
             }
