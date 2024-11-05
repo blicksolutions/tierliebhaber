@@ -1,4 +1,6 @@
 window.activateAbTlh056 = (testVariant) => {
+	if (testVariant == '') return
+
 	const cartDrawerElement = document.querySelector('[data-js-tlh-056]')
 	if (!cartDrawerElement) return
 
