@@ -75,10 +75,10 @@ window.activateAbTlh060 = () => {
 
                 if(monthsValue < 1) {
                     monthsValue = '1/2 Monat';
-                } else if(monthsValue = 1) {
+                } else if(monthsValue === 1) {
                     monthsValue = '1 Monat';
                 } else {
-                    monthsValue = monthsValue + 'Monate';
+                    monthsValue = monthsValue + ' Monate';
                 }
 
                 insertNewContent(1, monthsValue, 'nein');
@@ -88,10 +88,10 @@ window.activateAbTlh060 = () => {
 
                 if(monthsValue < 1) {
                     monthsValue = '1/2 Monat';
-                } else if(monthsValue = 1) {
+                } else if(monthsValue === 1) {
                     monthsValue = '1 Monat';
                 } else {
-                    monthsValue = monthsValue + 'Monate';
+                    monthsValue = monthsValue + ' Monate';
                 }
 
                 insertNewContent(2, monthsValue, 'nein');
@@ -101,10 +101,10 @@ window.activateAbTlh060 = () => {
 
                 if(monthsValue < 1) {
                     monthsValue = '1/2 Monat';
-                } else if(monthsValue = 1) {
+                } else if(monthsValue === 1) {
                     monthsValue = '1 Monat';
                 } else {
-                    monthsValue = monthsValue + 'Monate';
+                    monthsValue = monthsValue + ' Monate';
                 }
 
                 insertNewContent(4, monthsValue, 'nein');
@@ -114,10 +114,10 @@ window.activateAbTlh060 = () => {
 
                 if(monthsValue < 1) {
                     monthsValue = '1/2 Monat';
-                } else if(monthsValue = 1) {
+                } else if(monthsValue === 1) {
                     monthsValue = '1 Monat';
                 } else {
-                    monthsValue = monthsValue + 'Monate';
+                    monthsValue = monthsValue + ' Monate';
                 }
 
                 insertNewContent(6, monthsValue, 'nein');
@@ -127,10 +127,10 @@ window.activateAbTlh060 = () => {
 
                 if(monthsValue < 1) {
                     monthsValue = '1/2 Monat';
-                } else if(monthsValue = 1) {
+                } else if(monthsValue === 1) {
                     monthsValue = '1 Monat';
                 } else {
-                    monthsValue = monthsValue + 'Monate';
+                    monthsValue = monthsValue + ' Monate';
                 }
 
                 insertNewContent(7, monthsValue, 'nein');
