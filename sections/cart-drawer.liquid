@@ -18,8 +18,8 @@
 </script>
 
 <div id="sidebar-cart" class="Drawer Drawer--fromRight" aria-hidden="true" selected_variant data-section-id="cart" data-section-type="cart" data-section-settings='{{ section_settings }}' data-js-tlh-052>
-	<div class="Drawer__Header Drawer__Header--bordered Drawer__Container">
-		<span class="Drawer__Title Heading u-h4">{{ 'cart.general.title' | t }}</span>
+  <div class="Drawer__Header Drawer__Header--bordered Drawer__Container">
+      <span class="Drawer__Title Heading u-h4">{{ 'cart.general.title' | t }}</span>
 
 		<button class="Drawer__Close Icon-Wrapper--clickable" data-action="close-drawer" data-drawer-id="sidebar-cart" aria-label="{{ 'header.navigation.close_cart' | t }}">
 			{%- render 'icon' with 'close' -%}
@@ -115,50 +115,47 @@
 					<input type="hidden" name="attributes[collection_mobile_items_per_row]" value="">
 					<input type="hidden" name="attributes[collection_desktop_items_per_row]" value="">
 
-					{% render 'cart-items' %}
-				</div>
-
-				{%- assign upsell_item = null -%}
-
-				{%- for line_item in section.settings.upsell_items -%}
-					{%- if upsell_item == null -%}
-						{%- if line_item.available -%}
-							{%- assign upsell_item_found = false -%}
-
-							{%- for cart_line_item in cart.items -%}
-								{%- if cart_line_item.product.title == line_item.title -%}
-									{%- assign upsell_item_found = true -%}
-								{%- endif -%}
-							{%- endfor -%}
-
-							{%- if upsell_item_found == false -%}
-								{%- assign upsell_item = line_item -%}
-							{%- endif -%}
-						{%- endif -%}
-					{%- else -%}
-					{%- endif -%}
-				{%- endfor -%}
-
-				{%- if upsell_item -%}
-					<!-- Upsell items -->
-					<div class="CartUpsells__Container">
-						<p class="CartUpsells__Title">
-							{{ section.settings.upsell_title }}
-						</p>
-						<div class="CartUpsells__Items">
-							<div class="Drawer__Container">
-								{% render 'cart-upsell-item', line_item: upsell_item: upsell_item %}
-							</div>
-						</div>
-					</div>
-					<!-- /Upsell items -->
-				{%- endif -%}
-			{%- endif -%}
-
-			{%- unless cart.item_count == 0 -%}
-				{% render 'bs-ab-tlh-052', cart_items: cart.items %}
-			{%- endunless -%}
-		</div>
+          {% render 'cart-items' %}
+        </div>
+      
+        {%- assign upsell_item = null -%}
+            
+        {%- for line_item in section.settings.upsell_items -%}
+          {%- if upsell_item == null -%}
+            {%- if line_item.available -%}
+              {%- assign upsell_item_found = false -%}
+      
+              {%- for cart_line_item in cart.items -%}
+            	{%- if cart_line_item.product.title == line_item.title -%}
+                  {%- assign upsell_item_found = true -%}
+            	{%- endif -%}
+              {%- endfor -%}
+      
+              {%- if upsell_item_found == false -%}
+                {%- assign upsell_item = line_item -%}
+      		  {%- endif -%}
+      
+            {%- endif -%}
+          {%- else -%}
+          {%- endif -%}
+        {%- endfor -%}
+      
+        {%- if upsell_item -%}
+          <!-- Upsell items -->
+          <div class="CartUpsells__Container">
+            <p class="CartUpsells__Title">
+              {{ section.settings.upsell_title }}
+            </p>
+            <div class="CartUpsells__Items">
+              <div class="Drawer__Container">
+                {% render 'cart-upsell-item', line_item: upsell_item: upsell_item %}
+              </div>
+            </div>
+          </div>
+          <!-- /Upsell items -->
+        {%- endif -%}
+      {%- endif -%}
+    </div>
 
 		{%- unless cart.item_count == 0 -%}
 			<div class="Drawer__Footer" data-drawer-animated-bottom>

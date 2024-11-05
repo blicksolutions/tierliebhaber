@@ -5,13 +5,13 @@
     
       <!-- BS: AB Scripts -->
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}">
-      <link rel="stylesheet" href="{{ 'bs-ab-tlh-040.css' | asset_url }}">
-      <link rel="stylesheet" href="{{ 'bs-ab-tlh-044.css' | asset_url }}">
-      <link rel="stylesheet" href="{{ 'bs-ab-tlh-051.css' | asset_url }}">
-      <link rel="stylesheet" href="{{ 'bs-ab-tlh-052.css' | asset_url }}">
 	  <link rel="stylesheet" href="{{ 'bs-ab-tlh-053.css' | asset_url }}">
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-054.css' | asset_url }}">
+      <link rel="stylesheet" href="{{ 'bs-ab-tlh-046.css' | asset_url }}">
       <link rel="stylesheet" href="{{ 'bs-ab-tlh-055.css' | asset_url }}">
+      <link rel="stylesheet" href="{{ 'bs-ab-tlh-059.css' | asset_url }}">
+      <link rel="stylesheet" href="{{ 'bs-ab-tlh-061.css' | asset_url }}">
+      <link rel="stylesheet" href="{{ 'bs-ab-tlh-062.css' | asset_url }}">
 
       <script src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
@@ -19,16 +19,30 @@
       <script src="{{ 'bs-ab-tlh-010.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-011.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-025.js' | asset_url }}"></script>
-      <script src="{{ 'bs-ab-tlh-040.js' | asset_url }}"></script>
-      <script src="{{ 'bs-ab-tlh-044.js' | asset_url }}"></script>
-      <script src="{{ 'bs-ab-tlh-051.js' | asset_url }}"></script>
-      <script src="{{ 'bs-ab-tlh-052.js' | asset_url }}"></script>
 	  <script src="{{ 'bs-ab-tlh-053.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-054.js' | asset_url }}"></script>
+      <script src="{{ 'bs-ab-tlh-046.js' | asset_url }}"></script>
       <script src="{{ 'bs-ab-tlh-055.js' | asset_url }}"></script>
+      <script src="{{ 'bs-ab-tlh-059.js' | asset_url }}"></script>
+      <script src="{{ 'bs-ab-tlh-061.js' | asset_url }}"></script>
+      <script src="{{ 'bs-ab-tlh-062.js' | asset_url }}"></script>
       <!-- END BS: AB Scripts -->
 
-      <!-- ABlyft Snippet -->
+	  <!-- ABlyft DE Visitor Audience Setting -->
+	  <script>
+		  fetch('/browsing_context_suggestions.json')
+			  .then(response => response.json())
+			  .then(json => {
+				  if(json.detected_values.country.handle == "DE") {
+					  window.isDeVisitor = true;
+				  } else {
+					  window.isDeVisitor = false;
+				  }
+			  });
+	  </script>
+	  <!-- END ABlyft DE Visitor Audience Setting -->
+
+	  <!-- ABlyft Snippet -->
       <script src="https://cdn.ablyft.com/s/55886406.js"></script>
       <script>
           window['ablyft'] = window['ablyft'] || [];
@@ -60,6 +74,38 @@
       <script src="{{ 'bs-load-third-party-scripts.js' | asset_url }}" defer></script>
       <script src="{{ 'bs-subscription-callout.js' | asset_url }}" defer></script>
       <script src="{{ 'bs-sticky-atc.js' | asset_url }}" defer></script>
+	  <script src="{{ 'bs-mobile-sidebar-nav.js' | asset_url }}" defer></script>
+
+	  <!-- Awin Implementation-->
+	  <script>
+		var AWIN = AWIN || {};
+		AWIN.Tracking = AWIN.Tracking || {};
+		AWIN.Tracking.AdvertiserConsent = false;
+
+		//get Cookie
+		let documentCookies = document.cookie;
+		let prefix = 'CookieConsent' + '=';
+		let begin = documentCookies.indexOf('; ' + prefix);
+		let end;
+
+		if (begin == -1) {
+			begin = documentCookies.indexOf(prefix);
+			if (begin != 0) return null;
+		} else {
+			begin += 2;
+			end = document.cookie.indexOf(';', begin);
+			if (end == -1) {
+				end = documentCookies.length;
+			}
+		}
+		const consentCookie = decodeURI(documentCookies.substring(begin + prefix.length, end));
+		if (consentCookie.includes('necessary:true') && consentCookie.includes('preferences:true') && consentCookie.includes('statistics:true') && consentCookie.includes('marketing:true')) {
+			AWIN.Tracking.Consent.setAdvertiserConsentStatus(true)
+		} else {
+			AWIN.Tracking.Consent.setAdvertiserConsentStatus(false)
+		}
+	  </script>
+      <!-- END: Awin Implementation -->
 
 
     <script type="text/javascript">
@@ -164,11 +210,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {% render 'css-variables' %}
 
     {{ content_for_header }}
+
    {%- comment -%}{% render 'cookie-consent' %}{%- endcomment -%}
+
+  	<link rel="stylesheet" href="{{ 'bs-mobile-sidebar-nav.css' | asset_url }}">
+
     <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
     <link rel="stylesheet" href="{{ 'bs-custom.css' | asset_url }}">
     <link rel="stylesheet" href="{{ 'recommended-search-products.css' | asset_url }}">
-
 
     {%- render 'head-styles', layout: 'theme' -%}
 
@@ -268,6 +317,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <script src="{{ 'theme.min.js' | asset_url }}" defer></script>
     <script src="{{ 'bs-cart-drawer.js' | asset_url }}" defer></script>
     <script src="{{ 'search-manipulation.js' | asset_url }}" defer></script>
+    <script src="{{ 'bs-dentalspray-redirect.js' | asset_url }}"></script>
 
     {%- comment -%}
 <!-- Commented by Vladimir, do not turn on becuse you will have duplications -->
@@ -491,6 +541,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- NextLevel Network Tag tag -->
     <script src="https://www.dwin1.com/86929.js" type="text/javascript" defer="defer"></script>
 <!-- END:NextLevel Network Tag tag -->
-   
+   <script>
+window.addEventListener('jdgm.doneSetup', function(event) {
+  const targetNode = document.body;
+  const config = { childList: true, subtree: true };
+
+  const updateText = function() {
+    const reviewLink = document.querySelector('.jdgm-write-rev-link');
+    if (reviewLink) {
+      reviewLink.textContent = 'Schreib uns eine Bewertung';
+    }
+  };
+
+  const callback = function(mutationsList, observer) {
+    for (let mutation of mutationsList) {
+      if (mutation.type === 'childList') {
+        updateText();
+        observer.disconnect();
+      }
+    }
+  };
+
+  const observer = new MutationObserver(callback);
+  observer.observe(targetNode, config);
+
+  setTimeout(() => {
+    observer.disconnect();
+  }, 500);
+
+  setInterval(() => {
+    updateText(); 
+  }, 1500); 
+});
+
+
+   </script>
 </body>
 </html>

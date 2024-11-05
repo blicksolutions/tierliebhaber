@@ -44,6 +44,8 @@ window.scThemeConfig = {
     },
 };
 
+window.scGiftcodeLength = 7;
+
 let deliveryPriceValue = 0;
 
 window.currentCountry = undefined;
