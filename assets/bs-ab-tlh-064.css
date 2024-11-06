@@ -66,6 +66,7 @@
     border-radius: 8px;
 }
 
+/* bestseller / bundles links */
 .bestseller__link[data-ab-tlh-064="true"] span {
     display: flex;
     flex-wrap: wrap;
