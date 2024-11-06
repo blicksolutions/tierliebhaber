@@ -35,6 +35,7 @@ window.activateAbTlh064C = () => {
     replaceBestsellerLinkAttributes(darmpflegeTarget, 'https://tierliebhaber.de/collections/darmpflege/products/analdrusen-bundle', 'https://tierliebhaber.de/cdn/shop/files/analdruesen_bundle_gzg_1000x.jpg?v=1717012761', 'Analdrüsen');
 
 	adjustHolidayCards();
+    if(!bestsellerTitle) return;
     bestsellerTitle.innerHTML = 'Bundles & Bestseller';
 }
 
