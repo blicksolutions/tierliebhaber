@@ -65,3 +65,24 @@
     background-color: #CCC1E1;
     border-radius: 8px;
 }
+
+.bestseller__link[data-ab-tlh-064="true"] span {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+}
+
+.bestseller__link[data-ab-tlh-064="true"] span::after {
+    content: 'Bundle';
+    position: relative;
+    background: #F5F5F5;
+    color: #1C1B1B;
+    font-size: 10px;
+    line-height: 13px;
+    padding: 0 6px;
+    border-radius: 30px;
+}
+
+.swiper-slide:has(.bestseller__link[data-ab-tlh-064="true"]) .bestseller__link:not([data-ab-tlh-064="true"]) {
+    order: 1;
+}
