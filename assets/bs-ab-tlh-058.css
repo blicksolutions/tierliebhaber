@@ -122,6 +122,7 @@
 	flex-direction: row-reverse;
 	flex-wrap: wrap;
 	justify-content: flex-end;
+	border-radius: 10px;
 }
 
 [data-js-tlh-058="true"] .ProductMeta__Title.Heading.u-h2 {
@@ -193,6 +194,10 @@
 	border-radius: 10px 10px 0 0;
 }
 
+[data-js-tlh-058="true"] .rc-widget-injection-parent .rc-widget .rc-option--active {
+	background: #FDF3F0;
+}
+
 [data-js-tlh-058="true"] .rc-widget-injection-parent .rc-template__radio-group .rc-radio {
 	border-radius: 10px;
 }
@@ -232,6 +237,10 @@
 [data-js-tlh-058="true"] .ProductMeta__PaymentList {
 	margin-bottom: 16px;
 	margin-top: 0px;
+}
+
+[data-js-tlh-058="true"] .ProductMeta__PaymentList .HorizontalList__Item {
+	margin: 0;
 }
 
 [data-js-tlh-058="true"] .BenefitBadgeContainer {
@@ -458,5 +467,13 @@
 		max-width: 70px;
 		flex: 1 1 calc(100% / 7 - 16px);
 		display: flex;
+	}
+
+	[data-js-tlh-058="true"] .flickity-viewport {
+		border-radius: 5px;
+	}
+
+	[data-js-tlh-058="true"] .Product__SlideshowNavImage.AspectRatio > img {
+		border-radius: 5px;
 	}
 }
