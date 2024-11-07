@@ -198,6 +198,12 @@
     color: #525252;
 }
 
+.bs-amount-calculator-popup__image img {
+    width: 135px;
+    height: 135px;
+    aspect-ratio: 1/1;
+}
+
 .bs-amount-calculator-popup__progress-bar {
     display: flex;
     justify-content: space-around;

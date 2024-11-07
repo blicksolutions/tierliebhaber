@@ -66,7 +66,7 @@ window.activateAbTlh060 = () => {
         const insertNewContent = (dailyAmount, months, imageUrl) => {
             amountPerDayValueTarget.innerHTML = dailyAmount;
             monthsTarget.innerHTML = months;
-            imageTarget.innerHTML = imageUrl;
+            imageTarget.innerHTML = `<img src="${imageUrl}" alt="dog">`;
         };
 
         switch(id * 1) {
@@ -81,7 +81,7 @@ window.activateAbTlh060 = () => {
                     monthsValue = monthsValue + ' Monate';
                 }
 
-                insertNewContent(1, monthsValue, 'nein');
+                insertNewContent(1, monthsValue, 'https://cdn.shopify.com/s/files/1/0587/2746/5119/files/20241104_jb_hundegroessen_1.png?v=1730945541');
                 break;
             case 2:
                 monthsValue = Math.round(((quantityPerUnit / 2) / 30));
@@ -94,7 +94,7 @@ window.activateAbTlh060 = () => {
                     monthsValue = monthsValue + ' Monate';
                 }
 
-                insertNewContent(2, monthsValue, 'nein');
+                insertNewContent(2, monthsValue, 'https://cdn.shopify.com/s/files/1/0587/2746/5119/files/20241104_jb_hundegroessen_2.png?v=1730945542');
                 break;
             case 3:
                 monthsValue = Math.round(((quantityPerUnit / 3) / 30));
@@ -107,7 +107,7 @@ window.activateAbTlh060 = () => {
                     monthsValue = monthsValue + ' Monate';
                 }
 
-                insertNewContent(4, monthsValue, 'nein');
+                insertNewContent(4, monthsValue, 'https://cdn.shopify.com/s/files/1/0587/2746/5119/files/20241104_jb_hundegroessen_3.png?v=1730945542');
                 break;
             case 4:
                 monthsValue = Math.round(((quantityPerUnit / 4) / 30));
@@ -120,7 +120,7 @@ window.activateAbTlh060 = () => {
                     monthsValue = monthsValue + ' Monate';
                 }
 
-                insertNewContent(6, monthsValue, 'nein');
+                insertNewContent(6, monthsValue, 'https://cdn.shopify.com/s/files/1/0587/2746/5119/files/20241104_jb_hundegroessen_4.png?v=1730945542');
                 break;
             case 5:
                 monthsValue = Math.round(((quantityPerUnit / 5) / 30));
@@ -133,7 +133,7 @@ window.activateAbTlh060 = () => {
                     monthsValue = monthsValue + ' Monate';
                 }
 
-                insertNewContent(7, monthsValue, 'nein');
+                insertNewContent(7, monthsValue, 'https://cdn.shopify.com/s/files/1/0587/2746/5119/files/20241104_jb_hundegroessen_5.png?v=1730945542');
                 break;
             default:
                 break;
