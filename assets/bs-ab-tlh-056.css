@@ -60,11 +60,12 @@
 	margin: 6px 24px 0;
 	border-radius: 31px;
 	background: #1C1B1B;
+	max-height: 36px;
 }
 
 [data-js-tlh-056="b"] .BlackWeekSale__BadgeContainer .Badge__Icon {
 	position: relative;
-	top: -6px;
+	top: -3px;
 	left: 11px;
 }
 
