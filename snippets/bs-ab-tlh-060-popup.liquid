@@ -1,3 +1,17 @@
+{% assign quantity_per_unit = product.metafields.custom.usage_quantity | default: 40 %}
+{% assign quantity_per_day = 1 %}
+
+{% assign months = quantity_per_unit | divided_by: quantity_per_day | divided_by: 30 | round %}
+
+{% case months %}
+    {% when 0 %}
+        {% assign months_text = "1/2 Monat" %}
+    {% when 1 %}
+        {% assign months_text = "1 Monat" %}
+    {% else %}
+        {% assign months_text = months | append: " Monate" %}
+{% endcase %}
+
 <div class="bs-amount-calculator-popup__bg-container" data-bs-tlh-060-popup>
     <div class="bs-amount-calculator-popup">
         <div class="bs-amount-calculator-popup__header">
@@ -31,7 +45,7 @@
                     <span class="bs-amount-calculator-popup__metrics-card__value"><span>1</span><span class="bs-amount-calculator-popup__metrics-card__unit">Stück</span></span>
                     <span>pro Tag</span>
                 </div>
-                <span class="bs-amount-calculator-popup__metrics-card__info">1 Dose reicht für ca. <span>4 Monate</span></span>
+                <span class="bs-amount-calculator-popup__metrics-card__info">1 Dose reicht für ca. <span>{{ months_text }}</span></span>
             </div>
         </div>
     </div>

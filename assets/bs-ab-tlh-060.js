@@ -69,69 +69,37 @@ window.activateAbTlh060 = () => {
             imageTarget.innerHTML = `<img src="${imageUrl}" alt="dog">`;
         };
 
+        const calculateMonthsText = (quantityPerDay) => {
+            let months = (quantityPerUnit / quantityPerDay) / 30;
+            console.log(months)
+            if (months < 0.75) return '1/2 Monat';
+            if (months === 1) return '1 Monat';
+            return `${Math.round(months)} Monate`;
+        };
+
         switch(id * 1) {
             case 1:
-                monthsValue = Math.round(((quantityPerUnit / 1) / 30));
-
-                if(monthsValue < 1) {
-                    monthsValue = '1/2 Monat';
-                } else if(monthsValue === 1) {
-                    monthsValue = '1 Monat';
-                } else {
-                    monthsValue = monthsValue + ' Monate';
-                }
+                monthsValue = calculateMonthsText(1);
 
                 insertNewContent(1, monthsValue, 'https://cdn.shopify.com/s/files/1/0587/2746/5119/files/20241104_jb_hundegroessen_1.png?v=1730945541');
                 break;
             case 2:
-                monthsValue = Math.round(((quantityPerUnit / 2) / 30));
-
-                if(monthsValue < 1) {
-                    monthsValue = '1/2 Monat';
-                } else if(monthsValue === 1) {
-                    monthsValue = '1 Monat';
-                } else {
-                    monthsValue = monthsValue + ' Monate';
-                }
+                monthsValue = calculateMonthsText(2);
 
                 insertNewContent(2, monthsValue, 'https://cdn.shopify.com/s/files/1/0587/2746/5119/files/20241104_jb_hundegroessen_2.png?v=1730945542');
                 break;
             case 3:
-                monthsValue = Math.round(((quantityPerUnit / 3) / 30));
-
-                if(monthsValue < 1) {
-                    monthsValue = '1/2 Monat';
-                } else if(monthsValue === 1) {
-                    monthsValue = '1 Monat';
-                } else {
-                    monthsValue = monthsValue + ' Monate';
-                }
+                monthsValue = calculateMonthsText(4);
 
                 insertNewContent(4, monthsValue, 'https://cdn.shopify.com/s/files/1/0587/2746/5119/files/20241104_jb_hundegroessen_3.png?v=1730945542');
                 break;
             case 4:
-                monthsValue = Math.round(((quantityPerUnit / 4) / 30));
-
-                if(monthsValue < 1) {
-                    monthsValue = '1/2 Monat';
-                } else if(monthsValue === 1) {
-                    monthsValue = '1 Monat';
-                } else {
-                    monthsValue = monthsValue + ' Monate';
-                }
+                monthsValue = calculateMonthsText(6);
 
                 insertNewContent(6, monthsValue, 'https://cdn.shopify.com/s/files/1/0587/2746/5119/files/20241104_jb_hundegroessen_4.png?v=1730945542');
                 break;
             case 5:
-                monthsValue = Math.round(((quantityPerUnit / 5) / 30));
-
-                if(monthsValue < 1) {
-                    monthsValue = '1/2 Monat';
-                } else if(monthsValue === 1) {
-                    monthsValue = '1 Monat';
-                } else {
-                    monthsValue = monthsValue + ' Monate';
-                }
+                monthsValue = calculateMonthsText(7);
 
                 insertNewContent(7, monthsValue, 'https://cdn.shopify.com/s/files/1/0587/2746/5119/files/20241104_jb_hundegroessen_5.png?v=1730945542');
                 break;
