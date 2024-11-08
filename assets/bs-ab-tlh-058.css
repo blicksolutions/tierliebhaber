@@ -226,9 +226,12 @@
     border-radius: 0px 0px 10px 10px;
 }
 
-[data-js-tlh-058="true"] .rc_popup,
-[data-js-tlh-058="true"] .rc_popup__hover {
-    padding-bottom: 0;
+@media (min-width: 768px) {
+
+    [data-js-tlh-058="true"] .rc_popup,
+    [data-js-tlh-058="true"] .rc_popup__hover {
+        padding-bottom: 0;
+    }
 }
 
 [data-js-tlh-058="true"] .ProductForm__ShippingEta {
