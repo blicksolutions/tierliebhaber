@@ -123,6 +123,7 @@
 	flex-wrap: wrap;
 	justify-content: flex-end;
 	border-radius: 10px;
+	margin-bottom: 7px;
 }
 
 [data-js-tlh-058="true"] .ProductMeta__Title.Heading.u-h2 {
@@ -131,13 +132,18 @@
 	font-style: normal;
 	font-weight: 500;
 	line-height: 30px;
+	margin-bottom: 8px;
+}
+
+.jdgm-widget.jdgm-widget {
+	margin-bottom: 8px;
 }
 
 [data-js-tlh-058="true"] .ProductMeta__PriceList.Heading,
 [data-js-tlh-058="true"] .ProductMeta__UnitPriceMeasurement {
 	display: inline-block !important;
 	text-align: left;
-	margin-top: 0;
+	margin-top: 0 !important;
 }
 
 [data-js-tlh-058="true"] .ProductMeta__PriceList.Heading {
@@ -167,7 +173,13 @@
 	font-style: normal;
 	font-weight: 400;
 	line-height: 15px;
-	margin: 8px 0 15px 0;
+	margin: 4px 0 15px 0;
+}
+
+@media (min-width: 768px) {
+	[data-js-tlh-058="true"] .ProductMeta.Bestseller ~ .ProductForm {
+		margin-top: 24px;
+	}
 }
 
 [data-js-tlh-058="true"] .rc-widget-injection-parent .rc-selling-plans {
@@ -453,7 +465,15 @@
 	}
 }
 
+[data-js-tlh-058="true"] .Product__Gallery {
+	margin-bottom: 14px;
+}
+
 @media screen and (min-width: 1140px) {
+	[data-js-tlh-058="true"] .Product__Gallery {
+		margin-bottom: 65px;
+	}
+
 	[data-js-tlh-058="true"] .Product__Gallery:not(.Product__Gallery--stack).Product__Gallery--withThumbnails .Product__SlideshowNavScroller {
 		max-width: 550px;
 		margin-left: auto;

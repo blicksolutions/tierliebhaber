@@ -36,6 +36,35 @@ window.activateAbTlh058 = () => {
 				title.innerText = 'Verfügbar nur solange der Vorrat reicht!'
 			}
 		})
+
+		const productMeta = document.querySelector('.ProductMeta')
+		if (!productMeta || productMeta.getAttribute('data-js-bestseller') == 'true') return
+
+		const likeBadgeStockBarContainer = document.createElement('div')
+		likeBadgeStockBarContainer.classList.add('like-stock__container')
+
+		const desktopLikeBadge = document.querySelector('.hidden-pocket[data-js-tlh-058-like-badge]')
+		const newDesktopLikeBadge = desktopLikeBadge.cloneNode(true)
+		desktopLikeBadge.remove()
+		
+		const newStockBar = stockBar.cloneNode(true)
+		stockBar.remove()
+
+		likeBadgeStockBarContainer.appendChild(newDesktopLikeBadge)
+		likeBadgeStockBarContainer.appendChild(newStockBar)
+		productMeta.appendChild(likeBadgeStockBarContainer)
+
+		const newStockTitle = newStockBar.querySelector('.acc-pr39-title')
+
+		window.addEventListener('resize',() => {
+			if (window.innerWidth <= 768) {
+				newStockTitle.innerText = 'Nur solange der Vorrat reicht!'
+			}
+			if (window.innerWidth >= 768) {
+				newStockTitle.innerText = 'Verfügbar nur solange der Vorrat reicht!'
+			}
+		})
+
 	})
 
 	const sliderContainer = document.querySelector('[data-js-tlh-058-slider]');
