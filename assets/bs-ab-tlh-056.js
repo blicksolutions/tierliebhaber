@@ -45,5 +45,5 @@ document.addEventListener('DOMContentLoaded',() => {
 	const variant = urlParams.get('testvariant')
 	console.log('variant', variant)
 
-	window.activateAbTlh056(variant)
+	window.activateAbTlh056('b')
 })

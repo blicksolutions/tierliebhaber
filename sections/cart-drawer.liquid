@@ -64,7 +64,7 @@
 	<!-- /Steps message -->
 
 
-	<form class="Cart Drawer__Content" action="{{ routes.cart_url }}" method="POST" novalidate  tlh-056-cart-savings="{{ tlh056_savings |  money_with_currency }}">
+	<form class="Cart Drawer__Content" action="{{ routes.cart_url }}" method="POST" novalidate>
 		<input
 			type="hidden"
 			class="Cart__values"
@@ -79,6 +79,7 @@
 		{% endcomment %}
 		<script>console.log('cart.item_count', {{ cart.item_count | json }})</script>
 		{%- unless cart.item_count == 0 -%}
+		<script>console.log('cart', {{ cart | json }})</script>
 
 
 			{% liquid
@@ -94,6 +95,8 @@
 						endif
 					endfor
 				endfor
+
+				assign tlh056_savings = tlh056_savings | plus: cart.total_discount
 			%}
 
 			<div class="BlackWeekSale__BannerContainer" data-js-tlh-056-banner >
@@ -180,7 +183,7 @@
 				{% endcomment %}
 				{%- unless cart.item_count == 0 -%}
 
-					<div class="BlackWeekSale__BadgeContainer" data-js-tlh-056-badge>
+					<div class="BlackWeekSale__BadgeContainer" data-js-tlh-056-badge tlh-056-cart-savings="{{ tlh056_savings |  money_with_currency }}">
 						<svg class="Badge__Icon" width="36" height="30" viewBox="0 0 36 30" fill="none">
 							<g clip-path="url(#clip0_7107_17)">
 							<mask id="path-1-outside-1_7107_17" maskUnits="userSpaceOnUse" x="0.842169" y="7.92696" width="22.3288" height="22.3288" fill="black">
