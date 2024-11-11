@@ -14,12 +14,12 @@ const replaceBestsellerLinkAttributes = (target, linkUrl, imgUrl, title) => {
         target.setAttribute('href', linkUrl);
         target.setAttribute('data-ab-tlh-064', true);
         target.classList.remove('bestseller__link--highlight');
-        target.innerHTML = `<img class="bestseller__image" src="${imgUrl}" alt="${title}"><span>${title}</span>`
+        target.innerHTML = `<img class="bestseller__image" src="${imgUrl}" alt="${title}"><span>${title}</span>`;
     }
 };
 
 window.activateAbTlh064B = () => {
-	// adjustHolidayCards();
+	adjustHolidayCards();
 }
 
 window.activateAbTlh064C = () => {
@@ -39,7 +39,7 @@ window.activateAbTlh064C = () => {
     bestsellerTitle.innerHTML = 'Bundles & Bestseller';
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-	window.activateAbTlh064B();
-    window.activateAbTlh064C();
-})
+// document.addEventListener("DOMContentLoaded", () => {
+// 	window.activateAbTlh064B();
+//     window.activateAbTlh064C();
+// })
