@@ -207,7 +207,7 @@
 	}
 }
 
-.Recharge__Container[data-js-tlh-046-recharge-container="true"] .Recharge__Heading {
+.Recharge__Container[data-js-tlh-046-recharge-container] .Recharge__Heading {
 	margin: 0;
 	color: #000;
 	font-size: 22px;
