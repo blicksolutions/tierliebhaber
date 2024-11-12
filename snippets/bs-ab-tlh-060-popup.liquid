@@ -12,6 +12,9 @@
         {% assign months_text = months | append: " Monate" %}
 {% endcase %}
 
+{% assign dailyUse = product.metafields.custom.tlh_060_daily_use_small %}            
+{% assign roundedDailyUse = dailyUse | round %}
+
 <div class="bs-amount-calculator-popup__bg-container" data-bs-tlh-060-popup>
     <div class="bs-amount-calculator-popup">
         <div class="bs-amount-calculator-popup__header">
@@ -42,16 +45,7 @@
                     Wir empfehlen dir
                 </h5>
                 <div class="bs-amount-calculator-popup__metrics-card__daily-amount">
-                    <span class="bs-amount-calculator-popup__metrics-card__value"><span>
-                        {% assign dailyUse = product.metafields.custom.tlh_060_daily_use_small %}            
-                        {% assign roundedDailyUse = dailyUse | round %}
-    
-                        {% if dailyUse == roundedDailyUse %}
-                            {{ roundedDailyUse }}
-                        {% else %}
-                            {{ dailyUse }}
-                        {% endif %}
-                    </span><span class="bs-amount-calculator-popup__metrics-card__unit">Stück</span></span>
+                    <span class="bs-amount-calculator-popup__metrics-card__value"><span>{% if dailyUse == roundedDailyUse %}{{ roundedDailyUse }}{% else %}{{ dailyUse }}{% endif %}</span><span class="bs-amount-calculator-popup__metrics-card__unit">Stück</span></span>
                     <span>pro Tag</span>
                 </div>
                 <span class="bs-amount-calculator-popup__metrics-card__info">1 Dose reicht für ca. <span>{{ months_text }}</span></span>

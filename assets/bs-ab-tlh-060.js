@@ -13,7 +13,6 @@ window.activateAbTlh060 = () => {
         const dentalsprayDailyUse = [2,3,4,5,6];
         const gkDropsDailyUse = [2,5,8,12,16];
         const darmwohlSticksDailyUse = [0.25,0.5,1,1.5,2];
-        const anchorValueTarget = document.querySelector('.bs-pdp-anchor__value');
         let currentDailyUse;
         let quantityPerUnit = 40;
 
@@ -33,18 +32,20 @@ window.activateAbTlh060 = () => {
             currentDailyUse = darmwohlSticksDailyUse;
         }
 
-        anchorValueTarget.innerHTML = (Math.trunc((productPrice / (quantityPerUnit * 100)) * 100) / 100) + '€';
-
         // anchor component
         const pdpAnchor = document.querySelector('[data-bs-tlh-060-anchor]');
         const pdpAmountInfo = document.querySelector('[data-bs-tlh-060-amount-info]');
         const popupContainer = document.querySelector('[data-bs-tlh-060-popup]');
         const popupContent = document.querySelector('.bs-amount-calculator-popup');
         const closeButton = document.querySelector('.bs-amount-calculator-popup__header');
+        const anchorValueTarget = document.querySelector('.bs-pdp-anchor__value');
+        let dailyCost = (Math.trunc((productPrice / (quantityPerUnit * 100)) * 100) / 100) * currentDailyUse[0];
 
         if(!pdpAnchor) return;
         if(!pdpAmountInfo) return;
         if(!popupContainer) return;
+
+        anchorValueTarget.innerHTML = dailyCost.toFixed(2) + '€';
 
         pdpAnchor.setAttribute('data-bs-tlh-060-anchor', true);
         pdpAmountInfo.setAttribute('data-bs-tlh-060-amount-info', true);
@@ -146,7 +147,7 @@ window.activateAbTlh060 = () => {
             });
         });
     }
-}
+};
 
 document.addEventListener('DOMContentLoaded', () => {
     window.activateAbTlh060();
