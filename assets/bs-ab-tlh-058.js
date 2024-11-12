@@ -95,4 +95,3 @@ window.activateAbTlh058 = () => {
 		simulateTouch: true
 	  });
 }
-document.addEventListener('DOMContentLoaded', window.activateAbTlh058)
