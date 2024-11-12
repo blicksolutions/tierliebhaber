@@ -8,11 +8,29 @@ window.activateAbTlh060 = () => {
     ];
 
     if (validPaths.some(path => location.pathname.endsWith(path))) {
-        let quantityPerUnit = 40;
+        const chilloutDropsDailyUse = [2,5,8,12,16];
+        const darmpflegeDropsDailyUse = [1,2,2,3,3];
+        const dentalsprayDailyUse = [2,3,4,5,6];
+        const gkDropsDailyUse = [2,5,8,12,16];
+        const darmwohlSticksDailyUse = [0.25,0.5,1,1.5,2];
         const anchorValueTarget = document.querySelector('.bs-pdp-anchor__value');
+        let currentDailyUse;
+        let quantityPerUnit = 40;
 
         if(usageQuantity) {
             quantityPerUnit = usageQuantity;
+        }
+
+        if (location.pathname.endsWith('/products/chillout-drops')) {
+            currentDailyUse = chilloutDropsDailyUse;
+        } else if (location.pathname.endsWith('/products/darmpflege-drops')) {
+            currentDailyUse = darmpflegeDropsDailyUse;
+        } else if (location.pathname.endsWith('/products/dentalspray')) {
+            currentDailyUse = dentalsprayDailyUse;
+        } else if (location.pathname.endsWith('/products/gras-kotfresser-drops-2')) {
+            currentDailyUse = gkDropsDailyUse;
+        } else if (location.pathname.endsWith('/products/darmwohl-sticks')) {
+            currentDailyUse = darmwohlSticksDailyUse;
         }
 
         anchorValueTarget.innerHTML = (Math.trunc((productPrice / (quantityPerUnit * 100)) * 100) / 100) + '€';
@@ -87,29 +105,29 @@ window.activateAbTlh060 = () => {
 
             switch(id * 1) {
                 case 1:
-                    monthsValue = calculateMonthsText(1);
+                    monthsValue = calculateMonthsText(currentDailyUse[0]);
 
-                    insertNewContent(1, monthsValue, 'https://cdn.shopify.com/s/files/1/0587/2746/5119/files/20241104_jb_hundegroessen_1.png?v=1730945541');
+                    insertNewContent(currentDailyUse[0], monthsValue, 'https://cdn.shopify.com/s/files/1/0587/2746/5119/files/20241104_jb_hundegroessen_1.png?v=1730945541');
                     break;
                 case 2:
-                    monthsValue = calculateMonthsText(2);
+                    monthsValue = calculateMonthsText(currentDailyUse[1]);
 
-                    insertNewContent(2, monthsValue, 'https://cdn.shopify.com/s/files/1/0587/2746/5119/files/20241104_jb_hundegroessen_2.png?v=1730945542');
+                    insertNewContent(currentDailyUse[1], monthsValue, 'https://cdn.shopify.com/s/files/1/0587/2746/5119/files/20241104_jb_hundegroessen_2.png?v=1730945542');
                     break;
                 case 3:
-                    monthsValue = calculateMonthsText(4);
+                    monthsValue = calculateMonthsText(currentDailyUse[2]);
 
-                    insertNewContent(4, monthsValue, 'https://cdn.shopify.com/s/files/1/0587/2746/5119/files/20241104_jb_hundegroessen_3.png?v=1730945542');
+                    insertNewContent(currentDailyUse[2], monthsValue, 'https://cdn.shopify.com/s/files/1/0587/2746/5119/files/20241104_jb_hundegroessen_3.png?v=1730945542');
                     break;
                 case 4:
-                    monthsValue = calculateMonthsText(6);
+                    monthsValue = calculateMonthsText(currentDailyUse[3]);
 
-                    insertNewContent(6, monthsValue, 'https://cdn.shopify.com/s/files/1/0587/2746/5119/files/20241104_jb_hundegroessen_4.png?v=1730945542');
+                    insertNewContent(currentDailyUse[3], monthsValue, 'https://cdn.shopify.com/s/files/1/0587/2746/5119/files/20241104_jb_hundegroessen_4.png?v=1730945542');
                     break;
                 case 5:
-                    monthsValue = calculateMonthsText(7);
+                    monthsValue = calculateMonthsText(currentDailyUse[4]);
 
-                    insertNewContent(7, monthsValue, 'https://cdn.shopify.com/s/files/1/0587/2746/5119/files/20241104_jb_hundegroessen_5.png?v=1730945542');
+                    insertNewContent(currentDailyUse[4], monthsValue, 'https://cdn.shopify.com/s/files/1/0587/2746/5119/files/20241104_jb_hundegroessen_5.png?v=1730945542');
                     break;
                 default:
                     break;
@@ -128,7 +146,7 @@ window.activateAbTlh060 = () => {
             });
         });
     }
-};
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     window.activateAbTlh060();
