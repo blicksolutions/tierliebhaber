@@ -11452,21 +11452,21 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 
 #sidebar-cart .Drawer__Footer {
     padding-bottom: 0;
-    height: 362px;
+    height: 337px;
 }
 
 #sidebar-cart.Drawer__Footer__CouponActive .Drawer__Footer {
-    height: 425px;
+    height: 400px;
 }
 
-@media(max-width: 767px) {
+@media(max-width: 600px) {
     #sidebar-cart .Drawer__Footer {
         padding-bottom: 0;
-        height: 385px;
+        height: 347px;
     }
 
     #sidebar-cart.Drawer__Footer__CouponActive .Drawer__Footer {
-        height: 448px;
+        height: 410px;
     }
 }
 
@@ -11548,17 +11548,21 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
     margin: 2px 0 0 0;
 }
 
-#sidebar-cart .Drawer__Footer .scDiscount:not(.scActive) .sc_simple-info {
+/* #sidebar-cart .Drawer__Footer .scDiscount:not(.scActive) .sc_simple-info {
     display: none !important;
-}
+} */
 
 #sidebar-cart .Drawer__Footer .sc_simple-info .sc-tag .code > svg {
     opacity: .75;
 }
 
 #sidebar-cart .Drawer__Footer .sc_simple-info .sc-tag {
-    padding: 9px 2px 8px 11px !important;
+    padding: 8px 8px 8px 11px !important;
     background: #6c6c6c1c !important;
+}
+
+#sidebar-cart .Drawer__Footer .sc_simple-info .sc-tag button {
+	bottom: 2px;
 }
 
 #sidebar-cart .Drawer__Footer .sc_simple-info .sc-tag button svg {
@@ -11628,6 +11632,12 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 #sidebar-cart .Drawer__Footer .sc_simple-container {
     position: relative;
 }
+
+/* 
+#sidebar-cart .Drawer__Footer .sc_simple-container--complete {
+    display: none;
+} */
+
 
 #sidebar-cart .Drawer__Footer .scDiscount.scActive form {
     display: none !important;
@@ -11964,6 +11974,7 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 /* Cart sidebar payment image */
 .CartPayment__Image {
     margin-top: 12px;
+	width: 100%;
 }
 
 /* /Cart sidebar payment image */
@@ -12175,11 +12186,6 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
 
 .CartMessage__StepsLines__Active {
     transition: width 0.2s ease-out;
-}
-
-.CartMessage__Steps__Text {
-    transition: filter 0.1s linear;
-    filter: blur(5px);
 }
 
 .js-giftItemATC {

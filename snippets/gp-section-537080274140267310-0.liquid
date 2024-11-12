@@ -9,14 +9,14 @@
     
         {%- liquid
           if request.page_type == 'product'
-            if 'static' == 'static'
-              if '11434431447308' == 'latest'
+            if 'ACTIVE' == 'static'
+              if '11441805885708' == 'latest'
                 paginate collections.all.products by 100000
                   assign product = collections.all.products | sort: 'created_at' | reverse | first
                 endpaginate
               else
-                assign product = all_products['dentalspray-5']
-                assign productId = '11434431447308' | times: 1
+                assign product = all_products['chilloutsaft-pferd-1']
+                assign productId = '11441805885708' | times: 1
                 if product == empty or product == null
                   paginate collections.all.products by 100000
                     for item in collections.all.products
@@ -29,13 +29,13 @@
               endif
             endif
           else
-            if '11434431447308' == 'latest'
+            if '11441805885708' == 'latest'
               paginate collections.all.products by 100000
                 assign product = collections.all.products | sort: 'created_at'| reverse | first
               endpaginate
             else
-              assign product = all_products['dentalspray-5']
-              assign productId = '11434431447308' | times: 1
+              assign product = all_products['chilloutsaft-pferd-1']
+              assign productId = '11441805885708' | times: 1
               if product == empty or product == null
                 paginate collections.all.products by 100000
                   for item in collections.all.products
@@ -51,7 +51,7 @@
       
 
     {%-if product != empty and product != null -%}
-      {%- assign initVariantId = 53649054990604 -%}
+      {%- assign initVariantId = 53683328352524 -%}
       {%- assign product_form_id = 'product-form-' | append: "gffpwurIwS" -%}
       {%- assign variant = product.variants | where: 'id', initVariantId | first -%}
       {%- assign productSelectedVariant = product.variants | where: 'id', initVariantId | first -%}
@@ -73,11 +73,11 @@
       
     <div
       id="gffpwurIwS" data-id="gffpwurIwS-row"
-        style="--d:grid;--d-tablet:grid;--d-mobile:grid;--bs:solid;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--mt:20px;--pb:10px;--cg:var(--g-s-2xl);--pc:start;--gtc:minmax(0, 12fr);--w:100%;--w-tablet:100%;--w-mobile:90%"
+        style="--bs:solid;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--mt:20px;--pb:10px;--cg:var(--g-s-2xl);--pc:start;--gtc:minmax(0, 12fr);--w:100%;--w-tablet:100%;--w-mobile:90%"
         class="gffpwurIwS gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full"
     >
     <div
-      tag="Col" label="Block" type="component"
+      label="Block" tag="Col" type="component"
       style="--jc:start"
       class="g7vKQoqHvL gp-relative gp-flex gp-flex-col"
     >
@@ -90,12 +90,12 @@
       gp-data='
     {
       "id":"guuOGdhigf",
-      "setting":{"ftDragToScroll":true,"ftNavigationPosition":{"desktop":"none"},"typeDisplay":"all-images","preDisplay":"1st-available-variant","hoverEffect":"none","zoomType":"default","zoom":150,"otherImage":0,"ftClickOpenLightBox":{"desktop":"none"},"ftClickOpenNewTab":false,"ftLoop":{"desktop":false},"ftPauseOnHover":true,"ftSpeed":1,"ftArrowIcon":"<svg width=\"100%\" height=\"100%\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0ZM10.6828 8.13017C10.5266 7.95661 10.2734 7.95661 10.1172 8.13017C9.96095 8.30374 9.96095 8.58515 10.1172 8.75871L13.0343 12L10.1172 15.2413C9.96095 15.4149 9.96095 15.6963 10.1172 15.8698C10.2734 16.0434 10.5266 16.0434 10.6828 15.8698L13.8828 12.3143C14.0391 12.1407 14.0391 11.8593 13.8828 11.6857L10.6828 8.13017Z\" fill=\"currentColor\"/>\n    </svg>","ftArrowIconColor":"#000000","ftArrowNavBorder":{"borderType":"none","border":"none","borderWidth":"1px","width":"1px 1px 1px 1px","isCustom":false},"ftArrowNavRadius":{"btrr":"0px","bblr":"0px","bbrr":"0px","btlr":"0px","radiusType":"none"},"type":{"desktop":"slider"},"galleryHoverEffect":"none","galleryZoomType":"default","galleryZoom":150,"clickOpenLightBox":{"desktop":false},"borderActive":{"borderType":"none","border":"solid","borderWidth":"1px","width":"1px 1px 1px 1px","isCustom":false,"color":"#000000"},"navigationPosition":{"desktop":"inside"},"loop":{"desktop":true},"pauseOnHover":true,"speed":1,"arrowIcon":"<svg width=\"100%\" height=\"100%\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0ZM10.6828 8.13017C10.5266 7.95661 10.2734 7.95661 10.1172 8.13017C9.96095 8.30374 9.96095 8.58515 10.1172 8.75871L13.0343 12L10.1172 15.2413C9.96095 15.4149 9.96095 15.6963 10.1172 15.8698C10.2734 16.0434 10.5266 16.0434 10.6828 15.8698L13.8828 12.3143C14.0391 12.1407 14.0391 11.8593 13.8828 11.6857L10.6828 8.13017Z\" fill=\"currentColor\"/>\n    </svg>","arrowIconColor":"#000000","dragToScroll":true,"arrowNavBorder":{"borderType":"none","border":"none","borderWidth":"1px","width":"1px 1px 1px 1px","isCustom":false},"arrowNavRadius":{"btrr":"0px","bblr":"0px","bbrr":"0px","btlr":"0px","radiusType":"none"},"qualityType":{"desktop":"high"},"preload":false,"qualityPercent":{"desktop":100},"ftDotStyle":{"desktop":"none"},"ftDotSize":{"desktop":12},"ftDotGapToCarousel":{"desktop":16},"ftDotColor":{"desktop":"bg-1"},"ftDotActiveColor":{"desktop":"line-3"}},
-      "styles":{"position":{"desktop":"only-feature","mobile":"only-feature"},"spacing":{"desktop":"var(--g-s-s)","mobile":"var(--g-s-s)"},"ratioLayout":{"desktop":[2,10]},"ratioLayoutRight":{"desktop":[10,2]},"ftShape":{"desktop":{"shape":"custom","shapeValue":"","width":"200%","shapeLinked":false,"gap":"","height":"450px"}},"ftLayout":{"desktop":"cover"},"ftCorner":{"btrr":"0px","bblr":"0px","bbrr":"0px","btlr":"0px","radiusType":"none"},"shape":{"desktop":{"shape":"square","shapeValue":"1/1","width":"100%","shapeLinked":true}},"shapeForFtOnly":{"desktop":{"shape":"square","shapeValue":"1/1","width":"100%","shapeLinked":true}},"shapeForBottom":{"desktop":{"shape":"square","shapeValue":"1/1","width":"20%","shapeLinked":true}},"shapeForInsideBottom":{"desktop":{"shape":"square","shapeValue":"1/1","width":"20%","shapeLinked":true}},"shapeForInside":{"desktop":{"shape":"square","shapeValue":"1/1","width":"20%","shapeLinked":true}},"shapeFor2Col":{"desktop":{"shape":"square","shapeValue":"1/1","width":"50%","shapeLinked":true}},"shapeFor1Col":{"desktop":{"shape":"square","shapeValue":"1/1","width":"100%","shapeLinked":true}},"layout":{"desktop":"cover"},"itemSpacing":{"desktop":"var(--g-s-s)","mobile":"var(--g-s-s)"},"corner":{"btrr":"0px","bblr":"0px","bbrr":"0px","btlr":"0px","radiusType":"none"},"align":{"desktop":"flex-start"}}, "productUrl":{{product.url | json | escape}}, "product":{{product | json | escape}}, "collectionUrl": {{ collection.url | json | escape }}, "collection": {{ collection | json | escape}}
+      "setting":{"arrowIcon":"<svg width=\"100%\" height=\"100%\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0ZM10.6828 8.13017C10.5266 7.95661 10.2734 7.95661 10.1172 8.13017C9.96095 8.30374 9.96095 8.58515 10.1172 8.75871L13.0343 12L10.1172 15.2413C9.96095 15.4149 9.96095 15.6963 10.1172 15.8698C10.2734 16.0434 10.5266 16.0434 10.6828 15.8698L13.8828 12.3143C14.0391 12.1407 14.0391 11.8593 13.8828 11.6857L10.6828 8.13017Z\" fill=\"currentColor\"/>\n    </svg>","arrowIconColor":"#000000","arrowNavBorder":{"border":"none","borderType":"none","borderWidth":"1px","isCustom":false,"width":"1px 1px 1px 1px"},"arrowNavRadius":{"bblr":"0px","bbrr":"0px","btlr":"0px","btrr":"0px","radiusType":"none"},"borderActive":{"border":"solid","borderType":"none","borderWidth":"1px","color":"#000000","isCustom":false,"width":"1px 1px 1px 1px"},"clickOpenLightBox":{"desktop":false},"dragToScroll":true,"ftArrowIcon":"<svg width=\"100%\" height=\"100%\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0ZM10.6828 8.13017C10.5266 7.95661 10.2734 7.95661 10.1172 8.13017C9.96095 8.30374 9.96095 8.58515 10.1172 8.75871L13.0343 12L10.1172 15.2413C9.96095 15.4149 9.96095 15.6963 10.1172 15.8698C10.2734 16.0434 10.5266 16.0434 10.6828 15.8698L13.8828 12.3143C14.0391 12.1407 14.0391 11.8593 13.8828 11.6857L10.6828 8.13017Z\" fill=\"currentColor\"/>\n    </svg>","ftArrowIconColor":"#000000","ftArrowNavBorder":{"border":"none","borderType":"none","borderWidth":"1px","isCustom":false,"width":"1px 1px 1px 1px"},"ftArrowNavRadius":{"bblr":"0px","bbrr":"0px","btlr":"0px","btrr":"0px","radiusType":"none"},"ftClickOpenLightBox":{"desktop":"none"},"ftClickOpenNewTab":false,"ftDotActiveColor":{"desktop":"line-3"},"ftDotColor":{"desktop":"bg-1"},"ftDotGapToCarousel":{"desktop":16},"ftDotSize":{"desktop":12},"ftDotStyle":{"desktop":"none"},"ftDragToScroll":true,"ftLoop":{"desktop":false},"ftNavigationPosition":{"desktop":"none"},"ftPauseOnHover":true,"ftSpeed":1,"galleryHoverEffect":"none","galleryZoom":150,"galleryZoomType":"default","hoverEffect":"none","loop":{"desktop":true},"navigationPosition":{"desktop":"inside"},"otherImage":0,"pauseOnHover":true,"preDisplay":"1st-available-variant","preload":false,"qualityPercent":{"desktop":100},"qualityType":{"desktop":"high"},"speed":1,"type":{"desktop":"slider"},"typeDisplay":"all-images","zoom":150,"zoomType":"default"},
+      "styles":{"align":{"desktop":"flex-start"},"corner":{"bblr":"0px","bbrr":"0px","btlr":"0px","btrr":"0px","radiusType":"none"},"ftCorner":{"bblr":"0px","bbrr":"0px","btlr":"0px","btrr":"0px","radiusType":"none"},"ftLayout":{"desktop":"cover"},"ftShape":{"desktop":{"gap":"","height":"450px","shape":"custom","shapeLinked":false,"shapeValue":"","width":"200%"}},"itemSpacing":{"desktop":"var(--g-s-s)","mobile":"var(--g-s-s)"},"layout":{"desktop":"cover"},"position":{"desktop":"only-feature","mobile":"only-feature"},"ratioLayout":{"desktop":[2,10]},"ratioLayoutRight":{"desktop":[10,2]},"shape":{"desktop":{"shape":"square","shapeLinked":true,"shapeValue":"1/1","width":"100%"}},"shapeFor1Col":{"desktop":{"shape":"square","shapeLinked":true,"shapeValue":"1/1","width":"100%"}},"shapeFor2Col":{"desktop":{"shape":"square","shapeLinked":true,"shapeValue":"1/1","width":"50%"}},"shapeForBottom":{"desktop":{"shape":"square","shapeLinked":true,"shapeValue":"1/1","width":"20%"}},"shapeForFtOnly":{"desktop":{"shape":"square","shapeLinked":true,"shapeValue":"1/1","width":"100%"}},"shapeForInside":{"desktop":{"shape":"square","shapeLinked":true,"shapeValue":"1/1","width":"20%"}},"shapeForInsideBottom":{"desktop":{"shape":"square","shapeLinked":true,"shapeValue":"1/1","width":"20%"}},"spacing":{"desktop":"var(--g-s-s)","mobile":"var(--g-s-s)"}}, "productUrl":{{product.url | json | escape}}, "product":{{product | json | escape}}, "collectionUrl": {{ collection.url | json | escape }}, "collection": {{ collection | json | escape}}
     }
   '
       section-id="{{section.id}}"
-      style="--mb:var(--g-s-l);--pt:5px;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%"
+      style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--displayInitInteraction:true;--op:100%;--mb:var(--g-s-l);--pt:20px"
       data-id="guuOGdhigf"
       class="gp-overflow-hidden"
     >
@@ -236,10 +236,11 @@
       {% when 'video' %}
         {% assign mediaSourceVideo = featureMedia.sources.last.url %}
         
+  <gp-lite-html5-embed>
     
     <video
       id="gp-video-undefined"
-      class="lazy gp-w-full"
+      class=" gp-w-full lazy"
       style="width:100%;max-height:100%"
       controls
       
@@ -248,11 +249,37 @@
       title="{{featureMedia.alt}}"
       preload="none"
       data-src="{{mediaSourceVideo}}"
+      src=""
       poster=""
       playsinline
     >
-      
-    </video>
+    
+  </video>
+    <div
+          style="width:100%;max-height:100%"
+           class="gp-absolute gp-top-0 gp-left-0  gp-w-full gp-thumbnail-video gp-hidden"
+        >
+          <img
+            id="video-thumbnail"
+            src=
+            class="gp-w-full gp-h-full gp-object-cover"
+            alt="Video Thumbnail"
+          ></img>
+          <button
+            type="button"
+            class="gp-absolute gp-left-1/2 gp-top-1/2 gp-flex gp-aspect-[56/32] gp-w-14 -gp-translate-x-1/2 -gp-translate-y-1/2 gp-items-center gp-justify-center gp-rounded gp-bg-black/80 gp-transition-colors hover:gp-bg-[#ef0800]"
+            aria-label="Play"
+          >
+            <svg class="gp-w-5 gp-text-white" viewBox="0 0 24 24">
+              <path
+                fill="currentColor"
+                d="M5 5.274c0-1.707 1.826-2.792 3.325-1.977l12.362 6.726c1.566.853 1.566 3.101 0 3.953L8.325 20.702C6.826 21.518 5 20.432 5 18.726V5.274Z"
+              />
+            </svg>
+          </button>
+        </div>
+        </gp-lite-html5-embed>
+        <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://d2ls1pfffhvy22.cloudfront.net/assets-v2/gp-lite-html5-embed.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>
     <script>
         if(lazyLoadInstance){lazyLoadInstance.update()}else{var lazyLoadInstance = new LazyLoad()}
@@ -330,12 +357,12 @@
     <gp-carousel data-id="gp-carousel-guuOGdhigf" type="gp-feature-image-carousel" product-id="{{product.id}}" product-media="{{product.media.size}}" id="gp-root-carousel-ft-gp-carousel-guuOGdhigf-{{section.id}}-{{product.id}}-{{section.id}}" class="
           gp-px-0 tablet:gp-px-0 mobile:gp-px-0
           gp-flex-1 gp-w-full gp-feature-image-carousel
-          gp-group/carousel gp-flex" gp-data='{"id":"ft-gp-carousel-guuOGdhigf-{{section.id}}-{{product.id}}-{{section.id}}","setting":{"loop":{"desktop":false},"slidesToShow":{"desktop":1},"dotStyle":{"desktop":"none","tablet":"none","mobile":"none"},"dotSize":{"desktop":12},"dotGapToCarousel":{"desktop":16},"dotColor":{"desktop":"bg-1"},"dotActiveColor":{"desktop":"line-3"},"controlOverContent":{"desktop":false,"tablet":false,"mobile":false},"enableDrag":{"desktop":true,"tablet":true,"mobile":true},"arrowCustom":"<svg width=\"100%\" height=\"100%\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0ZM10.6828 8.13017C10.5266 7.95661 10.2734 7.95661 10.1172 8.13017C9.96095 8.30374 9.96095 8.58515 10.1172 8.75871L13.0343 12L10.1172 15.2413C9.96095 15.4149 9.96095 15.6963 10.1172 15.8698C10.2734 16.0434 10.5266 16.0434 10.6828 15.8698L13.8828 12.3143C14.0391 12.1407 14.0391 11.8593 13.8828 11.6857L10.6828 8.13017Z\" fill=\"currentColor\"/>\n    </svg>","arrowCustomColor":"#000000","arrowBorder":{"desktop":{"borderType":"none","border":"none","borderWidth":"1px","width":"1px 1px 1px 1px","isCustom":false}},"roundedArrow":{"desktop":{"btrr":"0px","bblr":"0px","bbrr":"0px","btlr":"0px","radiusType":"none"}},"sneakPeakType":{"desktop":"center"},"arrowGapToEachSide":"16","navigationStyle":{"desktop":"none"},"arrowButtonSize":{"desktop":{"width":"24px","height":"24px"}}},"styles":{"sizeSetting":{"desktop":{"width":"200%","height":"auto"},"tablet":{"width":"200%","height":"auto"},"mobile":{"width":"200%","height":"auto"}},"align":{"desktop":"flex-start","tablet":"flex-start","mobile":"flex-start"}},"isHiddenArrowWhenDisabled":true}' style="--jc:flex-start;--o:0;--o-tablet:0;--o-mobile:0;--d:flex;--d-mobile:flex;--d-tablet:flex">
+          gp-group/carousel gp-flex" gp-data='{"id":"ft-gp-carousel-guuOGdhigf-{{section.id}}-{{product.id}}-{{section.id}}","setting":{"loop":{"desktop":false},"slidesToShow":{"desktop":1},"dotStyle":{"desktop":"none","tablet":"none","mobile":"none"},"dotSize":{"desktop":12},"dotGapToCarousel":{"desktop":16},"dotColor":{"desktop":"bg-1"},"dotActiveColor":{"desktop":"line-3"},"controlOverContent":{"desktop":false,"tablet":false,"mobile":false},"enableDrag":{"desktop":true,"tablet":true,"mobile":true},"arrowCustom":"<svg width=\"100%\" height=\"100%\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0ZM10.6828 8.13017C10.5266 7.95661 10.2734 7.95661 10.1172 8.13017C9.96095 8.30374 9.96095 8.58515 10.1172 8.75871L13.0343 12L10.1172 15.2413C9.96095 15.4149 9.96095 15.6963 10.1172 15.8698C10.2734 16.0434 10.5266 16.0434 10.6828 15.8698L13.8828 12.3143C14.0391 12.1407 14.0391 11.8593 13.8828 11.6857L10.6828 8.13017Z\" fill=\"currentColor\"/>\n    </svg>","arrowCustomColor":"#000000","arrowBorder":{"desktop":{"border":"none","borderType":"none","borderWidth":"1px","isCustom":false,"width":"1px 1px 1px 1px"}},"roundedArrow":{"desktop":{"bblr":"0px","bbrr":"0px","btlr":"0px","btrr":"0px","radiusType":"none"}},"sneakPeakType":{"desktop":"center"},"arrowGapToEachSide":"16","animationMode":"EASE_OUT","navigationStyle":{"desktop":"none"},"arrowButtonSize":{"desktop":{"width":"24px","height":"24px"}}},"styles":{"sizeSetting":{"desktop":{"width":"200%","height":"auto"},"tablet":{"width":"200%","height":"auto"},"mobile":{"width":"200%","height":"auto"}},"align":{"desktop":"flex-start","tablet":"flex-start","mobile":"flex-start"}},"isHiddenArrowWhenDisabled":true}' style="--jc:flex-start;--o:0;--o-tablet:0;--o-mobile:0;--d:flex;--d-mobile:flex;--d-tablet:flex">
       <div class="gp-hidden gp-aspect-square gp-w-[12px] gp-rounded-full gp-shadow-md"></div>
       <div
         
         class="gp-relative gp-my-0 tablet:gp-px-0 gp-max-w-full mobile:gp-px-0 gp-carousel-wrapper mobile:gp-block tablet:gp-block gp-block gp-carousel-guuOGdhigf gp-featured-image-wrapper"
-        style="--w:200%;--w-tablet:200%;--w-mobile:200%;--h:auto;--h-tablet:auto;--h-mobile:auto"
+        style="playSpeed:600;--w:200%;--w-tablet:200%;--w-mobile:200%;--h:auto;--h-tablet:auto;--h-mobile:auto"
       >
         <div
           class="gp-h-full gp-relative gp-mx-auto gp-flex gp-items-center gp-justify-between mobile:!gp-flex-row tablet:!gp-flex-row !gp-flex-row"
@@ -479,6 +506,7 @@
       id="{{section.id}}-{{imageID}}"
       style="width:{{productImageWidth}}px;--minw:calc(100% / 4 - 33px);--minw-tablet:calc(100% / 4 - 33px);--minw-mobile:calc(100% / 4 - 33px);--maxw:calc(100% / 4 - 33px);--maxw-tablet:calc(100% / 4 - 33px);--maxw-mobile:calc(100% / 4 - 33px);outline-color:var(--g-c-brand, brand);--h:450px;--h-tablet:450px;--h-mobile:450px;--ml:0px;--ml-tablet:0px;--ml-mobile:0px"
       class="gem-slider-item gp-w-full gem-slider-item-gp-carousel-guuOGdhigf-{{section.id}}-{{product.id}} gp-child-item-undefined gp-group gp-z-0 gp-flex !gp-min-w-full !gp-max-w-full gp-w-full gp-relative gp-items-start gp-justify-center gp-overflow-hidden gp-outline-1 -gp-outline-offset-1 gp-image-item gp-ft-image-item data-[outline=active]:gp-outline undefined"
+      data-index=""
     >
       
       <div 
@@ -560,10 +588,11 @@
       {% when 'video' %}
         {% assign mediaSourceVideo = featureMedia.sources.last.url %}
         
+  <gp-lite-html5-embed>
     
     <video
       id="gp-video-undefined"
-      class="lazy gp-w-full"
+      class=" gp-w-full lazy"
       style="width:100%;max-height:100%"
       controls
       
@@ -572,11 +601,37 @@
       title="{{featureMedia.alt}}"
       preload="none"
       data-src="{{mediaSourceVideo}}"
+      src=""
       poster=""
       playsinline
     >
-      
-    </video>
+    
+  </video>
+    <div
+          style="width:100%;max-height:100%"
+           class="gp-absolute gp-top-0 gp-left-0  gp-w-full gp-thumbnail-video gp-hidden"
+        >
+          <img
+            id="video-thumbnail"
+            src=
+            class="gp-w-full gp-h-full gp-object-cover"
+            alt="Video Thumbnail"
+          ></img>
+          <button
+            type="button"
+            class="gp-absolute gp-left-1/2 gp-top-1/2 gp-flex gp-aspect-[56/32] gp-w-14 -gp-translate-x-1/2 -gp-translate-y-1/2 gp-items-center gp-justify-center gp-rounded gp-bg-black/80 gp-transition-colors hover:gp-bg-[#ef0800]"
+            aria-label="Play"
+          >
+            <svg class="gp-w-5 gp-text-white" viewBox="0 0 24 24">
+              <path
+                fill="currentColor"
+                d="M5 5.274c0-1.707 1.826-2.792 3.325-1.977l12.362 6.726c1.566.853 1.566 3.101 0 3.953L8.325 20.702C6.826 21.518 5 20.432 5 18.726V5.274Z"
+              />
+            </svg>
+          </button>
+        </div>
+        </gp-lite-html5-embed>
+        <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://d2ls1pfffhvy22.cloudfront.net/assets-v2/gp-lite-html5-embed.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>
     <script>
         if(lazyLoadInstance){lazyLoadInstance.update()}else{var lazyLoadInstance = new LazyLoad()}
@@ -800,12 +855,11 @@
     </gp-product-images-v2>
     <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://d2ls1pfffhvy22.cloudfront.net/assets-v2/gp-product-images-v2.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
   
-     <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://d2ls1pfffhvy22.cloudfront.net/assets-v2/gp-text.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
   <gp-text data-id="gRlVA9on6F">
     <div
       parentTag="Col"
         class="gRlVA9on6F "
-        style="--ta:left;--mb:0px;--mt-mobile:-10px;--mb-mobile:0px;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--mb:0px;--mt-mobile:-10px;--mb-mobile:0px"
       >
       <div class="gp-flex" style="--jc:left">
         <div
@@ -818,12 +872,11 @@
     </div>
     </gp-text>
     
-     <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://d2ls1pfffhvy22.cloudfront.net/assets-v2/gp-text.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
   <gp-text data-id="gzZBr4xnOK">
     <div
       parentTag="Col"
         class="gzZBr4xnOK "
-        style="--ta:left;--mt:-15px;--mb:var(--g-s-l);--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--mt:-15px;--mb:var(--g-s-l)"
       >
       <div class="gp-flex" style="--jc:left">
         <div
@@ -840,21 +893,20 @@
       
     <div
       parentTag="Col" id="gP-U9n3o8a" data-id="gP-U9n3o8a"
-        style="--mb:var(--g-s-l);--d:grid;--d-tablet:grid;--d-mobile:grid;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--cg:8px;--pc:start;--gtc:minmax(0, 6fr) minmax(0, 6fr);--gtc-mobile:minmax(0, 6fr) minmax(0, 6fr);--w:var(--g-ct-w, 1200px);--w-tablet:var(--g-ct-w, 100%);--w-mobile:var(--g-ct-w, 100%);--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--mb:var(--g-s-l);--cg:8px;--pc:start;--gtc:minmax(0, 6fr) minmax(0, 6fr);--gtc-mobile:minmax(0, 6fr) minmax(0, 6fr);--w:var(--g-ct-w, 1200px);--w-tablet:var(--g-ct-w, 100%);--w-mobile:var(--g-ct-w, 100%);--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
         class="gP-U9n3o8a gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full"
     >
     <div
-      tag="Col" label="Block" type="component"
+      label="Block" tag="Col" type="component"
       style="--jc:start"
       class="gOJ81Rk_r3 gp-relative gp-flex gp-flex-col"
     >
       
-     <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://d2ls1pfffhvy22.cloudfront.net/assets-v2/gp-text.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
   <gp-text data-id="g-m9mmz8to">
     <div
       parentTag="Col"
         class="g-m9mmz8to "
-        style="--ta:left;--ml:40px;--ml-mobile:30px;--pt-mobile:2px;--pl-mobile:30px;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--ml:40px;--ml-mobile:30px;--pt-mobile:2px;--pl-mobile:30px"
       >
       <div class="gp-flex" style="--jc:left">
         <div
@@ -868,17 +920,16 @@
     </gp-text>
     
     </div><div
-      tag="Col" label="Block" type="component"
+      label="Block" tag="Col" type="component"
       style="--jc:start"
       class="gxS_hdrbaj gp-relative gp-flex gp-flex-col"
     >
       
-     <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://d2ls1pfffhvy22.cloudfront.net/assets-v2/gp-text.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
   <gp-text data-id="gxkNQrelFG">
     <div
       parentTag="Col"
         class="gxkNQrelFG "
-        style="--ta:left;--ml:0px;--pt:2px;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--ml:0px;--pt:2px"
       >
       <div class="gp-flex" style="--jc:left">
         <div
@@ -899,21 +950,20 @@
       
     <div
       parentTag="Col" id="g21Duiw_kQ" data-id="g21Duiw_kQ"
-        style="--mt:-20px;--mb:var(--g-s-l);--d:grid;--d-tablet:grid;--d-mobile:grid;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--cg:8px;--pc:start;--gtc:minmax(0, 4fr) minmax(0, 4fr) minmax(0, 4fr);--gtc-mobile:minmax(0, 4fr) minmax(0, 4fr) minmax(0, 4fr);--w:var(--g-ct-w, 1200px);--w-tablet:var(--g-ct-w, 100%);--w-mobile:var(--g-ct-w, 100%);--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--mt:-20px;--mb:var(--g-s-l);--cg:8px;--pc:start;--gtc:minmax(0, 4fr) minmax(0, 4fr) minmax(0, 4fr);--gtc-mobile:minmax(0, 4fr) minmax(0, 4fr) minmax(0, 4fr);--w:var(--g-ct-w, 1200px);--w-tablet:var(--g-ct-w, 100%);--w-mobile:var(--g-ct-w, 100%);--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
         class="g21Duiw_kQ gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full"
     >
     <div
-      tag="Col" label="Block" type="component"
+      label="Block" tag="Col" type="component"
       style="--jc:start"
       class="gnRKWPSpPD gp-relative gp-flex gp-flex-col"
     >
       
-     <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://d2ls1pfffhvy22.cloudfront.net/assets-v2/gp-text.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
   <gp-text data-id="gj7PUFfabX">
     <div
       parentTag="Col"
         class="gj7PUFfabX "
-        style="--ta:left;--ml:20px;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--ml:20px"
       >
       <div class="gp-flex" style="--jc:left">
         <div
@@ -927,17 +977,16 @@
     </gp-text>
     
     </div><div
-      tag="Col" label="Block" type="component"
+      label="Block" tag="Col" type="component"
       style="--jc:start"
       class="gyWuLMC2cU gp-relative gp-flex gp-flex-col"
     >
       
-     <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://d2ls1pfffhvy22.cloudfront.net/assets-v2/gp-text.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
   <gp-text data-id="g9-9X2g0tn">
     <div
       parentTag="Col"
         class="g9-9X2g0tn "
-        style="--ta:left;--ml:0px;--pt:1px;--pl:0px;--pb:0px;--pr:0px;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--ml:0px;--pt:1px;--pl:0px;--pb:0px;--pr:0px"
       >
       <div class="gp-flex" style="--jc:left">
         <div
@@ -951,17 +1000,16 @@
     </gp-text>
     
     </div><div
-      tag="Col" label="Block" type="component"
+      label="Block" tag="Col" type="component"
       style="--jc:start"
       class="g2yr-9RnX_ gp-relative gp-flex gp-flex-col"
     >
       
-     <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://d2ls1pfffhvy22.cloudfront.net/assets-v2/gp-text.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
   <gp-text data-id="grpvvVj_r8">
     <div
       parentTag="Col"
         class="grpvvVj_r8 "
-        style="--ta:left;--mt:0px;--ml:0px;--pt:1px;--pr:0px;--mt-mobile:0px;--ml-mobile:-10px;--pt-mobile:1px;--pr-mobile:0px;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--mt:0px;--ml:0px;--pt:1px;--pr:0px;--mt-mobile:0px;--ml-mobile:-10px;--pt-mobile:1px;--pr-mobile:0px"
       >
       <div class="gp-flex" style="--jc:left">
         <div
@@ -977,7 +1025,7 @@
     </div>
     </div>
    
-    <div gp-el-wrapper style="--ml:10px;--mb:var(--g-s-l);--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%" class="goN8GNOiuC ">
+    <div gp-el-wrapper style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--ml:10px;--mb:var(--g-s-l)" class="goN8GNOiuC ">
       
   {% liquid
     assign price = variant.price | times: 1.0
@@ -1010,13 +1058,12 @@
     data-prefix="{{}}"
     data-suffix="{{section.settings.ggoN8GNOiuC_customContent_suffix}}"
   >
-     <div class="gp-inline-flex gp-flex-wrap gp-items-end gp-gap-3">
+     <div class="gp-inline-flex gp-flex-wrap gp-items-end gp-gap-3" >
        <div
-         class="gp-inline-block gp-g-s-tag-medium"
-         style="--bs:solid;--bw:1px 1px 1px 1px;--bc:#151515;--bg:#00000000;--radius:var(--g-radius-large)"
+         class="gp-flex gp-items-center gp-w-full gp-h-full"
+         style="--pl:16px;--pr:16px;--pt:16px;--pb:16px;--pl-tablet:16px;--pr-tablet:16px;--pt-tablet:16px;--pb-tablet:16px;--pl-mobile:16px;--pr-mobile:16px;--pt-mobile:16px;--pb-mobile:16px;--bs:solid;--bw:1px 1px 1px 1px;--bc:#151515;--bg:#00000000;--radius:var(--g-radius-large)"
        >
          
-     <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://d2ls1pfffhvy22.cloudfront.net/assets-v2/gp-text.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
   <gp-text data-id="">
     <div
       id="p-tag-goN8GNOiuC"
@@ -1047,14 +1094,14 @@
     <gp-product-button
       class="gp-product-button"
       gp-data-wrapper="true"
-      gp-data='{"setting":{"actionEffect":"buy-now","errorMessage":"Cannot add product to cart","successMessage":"Add product to cart successfully","enableSuccessMessage":true,"enableErrorMessage":true,"label":"JETZT BESTELLEN","outOfStockLabel":"Out of stock","errorType":"built-in","customURL":{"link":"/cart","target":"_self"}},"styles":{"errorTypo":{"type":"paragraph-2","attrs":{"color":"error"}},"successTypo":{"type":"paragraph-2","attrs":{"color":"success"}}},"disabled":"{{variant.available}}","variantID":"{{variant.id}}","totalVariant":"{{product.variants.size}}"}' 
+      gp-data='{"setting":{"actionEffect":"buy-now","errorMessage":"Cannot add product to cart","successMessage":"Add product to cart successfully","enableSuccessMessage":true,"enableErrorMessage":true,"label":"JETZT BESTELLEN","outOfStockLabel":"Out of stock","errorType":"built-in","customURL":{"link":"/cart","target":"_self"}},"styles":{"errorTypo":{"attrs":{"color":"error"},"type":"paragraph-2"},"successTypo":{"attrs":{"color":"success"},"type":"paragraph-2"}},"disabled":"{{variant.available}}","variantID":"{{variant.id}}","totalVariant":"{{product.variants.size}}"}' 
        gp-href="{{ request.origin }}{{ routes.root_url | split: '/' | join: '/' }}/cart"
        data-variant-selection-required-message="{{section.settings.ggcIxc4H0Rb_variantSelectionRequiredMessage}}"
     >
         
   <gp-button >
   <div
-    style="--mb:var(--g-s-l);--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--ta:left"
+    style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--mb:var(--g-s-l);--ta:left"
     class="{% unless variant.available %} !gp-hidden {% endunless %}"
   >
     <style>
@@ -1113,7 +1160,7 @@
       name="add" gp-data-hidden="{% unless variant.available %}true{% endunless %}"
       data-state="idle"
       class="gcIxc4H0Rb gp-button-base gp-rounded-none gp-max-w-full gp-relative gp-group gp-inline-flex gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-300 disabled:gp-btn-disabled disabled:gp-opacity-30 disabled:gp-pointer-events-none hover:gp-bg-g-highlight gp-text-g-text-3 gp-button-atc tcustomizer-submit-button gp-g-paragraph-1"
-      style="--bg:#a57878;--hvr-bg:var(--g-c-highlight, highlight);--shadow:none;--w:100%;--w-tablet:100%;--w-mobile:100%;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--pl:24px;--pr:24px;--pt:8px;--pb:8px;--pl-mobile:24px;--pr-mobile:24px;--pt-mobile:8px;--pb-mobile:8px;--c:var(--g-c-text-3, text-3);--size:23px;--size-tablet:16px;--size-mobile:25px"
+      style="--hvr-bg:var(--g-c-highlight, highlight);--bg:#a57878;--shadow:none;--w:100%;--w-tablet:100%;--w-mobile:100%;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--pl:24px;--pr:24px;--pt:8px;--pb:8px;--pl-mobile:24px;--pr-mobile:24px;--pt-mobile:8px;--pb-mobile:8px;--c:var(--g-c-text-3, text-3);--size:23px;--size-tablet:16px;--size-mobile:25px"
     >
         <svg
           class="gp-invisible gp-absolute gp-h-5 gp-w-5 group-data-[state=loading]:gp-animate-spin group-data-[state=loading]:gp-visible"
@@ -1159,7 +1206,7 @@
         
   <gp-button >
   <div
-    style="--mb:var(--g-s-l);--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--ta:left"
+    style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--mb:var(--g-s-l);--ta:left"
     class="{% if variant.available %} !gp-hidden {% endif %}"
   >
     <style>
@@ -1218,7 +1265,7 @@
       gp-data-hidden="{% if variant.available %}true{% endif %}"
       data-state="idle"
       class="gcIxc4H0Rb-sold-out gp-button-base gp-rounded-none gp-max-w-full gp-relative gp-group gp-inline-flex gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-300 disabled:gp-btn-disabled disabled:gp-opacity-30 disabled:gp-pointer-events-none hover:gp-bg-g-highlight gp-text-g-text-3 gp-button-sold-out btn-disabled gp-opacity-30 gp-cursor-default gp-g-paragraph-1"
-      style="--bg:#a57878;--hvr-bg:var(--g-c-highlight, highlight);--shadow:none;--w:100%;--w-tablet:100%;--w-mobile:100%;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--pl:24px;--pr:24px;--pt:8px;--pb:8px;--pl-mobile:24px;--pr-mobile:24px;--pt-mobile:8px;--pb-mobile:8px;--c:var(--g-c-text-3, text-3);--size:23px;--size-tablet:16px;--size-mobile:25px"
+      style="--hvr-bg:var(--g-c-highlight, highlight);--bg:#a57878;--shadow:none;--w:100%;--w-tablet:100%;--w-mobile:100%;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--pl:24px;--pr:24px;--pt:8px;--pb:8px;--pl-mobile:24px;--pr-mobile:24px;--pt-mobile:8px;--pb-mobile:8px;--c:var(--g-c-text-3, text-3);--size:23px;--size-tablet:16px;--size-mobile:25px"
     >
       
     <div
@@ -1249,21 +1296,20 @@
       
     <div
       parentTag="Col" id="gf9DF5dPYT" data-id="gf9DF5dPYT"
-        style="--pt:10px;--pl:10px;--d:grid;--d-tablet:grid;--d-mobile:grid;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--cg:8px;--pc:start;--gtc:minmax(0, 6fr) minmax(0, 6fr);--gtc-mobile:minmax(0, 6fr) minmax(0, 6fr);--w:var(--g-ct-w, 1200px);--w-tablet:var(--g-ct-w, 100%);--w-mobile:var(--g-ct-w, 100%);--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--pt:10px;--pl:10px;--cg:8px;--pc:start;--gtc:minmax(0, 6fr) minmax(0, 6fr);--gtc-mobile:minmax(0, 6fr) minmax(0, 6fr);--w:var(--g-ct-w, 1200px);--w-tablet:var(--g-ct-w, 100%);--w-mobile:var(--g-ct-w, 100%);--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
         class="gf9DF5dPYT gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full"
     >
     <div
-      tag="Col" label="Block" type="component"
+      label="Block" tag="Col" type="component"
       style="--jc:start"
       class="gI0vPEbYaa gp-relative gp-flex gp-flex-col"
     >
       
-     <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://d2ls1pfffhvy22.cloudfront.net/assets-v2/gp-text.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
   <gp-text data-id="gU0i8Aj3pB">
     <div
       parentTag="Col"
         class="gU0i8Aj3pB "
-        style="--ta:left;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%"
       >
       <div class="gp-flex" style="--jc:left">
         <h2
@@ -1277,17 +1323,16 @@
     </gp-text>
     
     </div><div
-      tag="Col" label="Block" type="component"
+      label="Block" tag="Col" type="component"
       style="--jc:start"
       class="gtAU2S6VIx gp-relative gp-flex gp-flex-col"
     >
       
-     <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://d2ls1pfffhvy22.cloudfront.net/assets-v2/gp-text.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
   <gp-text data-id="gyzb6O4Rwi">
     <div
       parentTag="Col"
         class="gyzb6O4Rwi "
-        style="--ta:left;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%"
       >
       <div class="gp-flex" style="--jc:left">
         <h2
