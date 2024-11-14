@@ -276,23 +276,23 @@
 }
 
 .bs-amount-calculator-popup__progress-bar__bullet[id="1"]::after {
-    content: 'bis 5kg';
+    content: '5kg';
 }
 
 .bs-amount-calculator-popup__progress-bar__bullet[id="2"]::after {
-    content: 'bis 10kg';
+    content: '10kg';
 }
 
 .bs-amount-calculator-popup__progress-bar__bullet[id="3"]::after {
-    content: 'bis 20kg';
+    content: '20kg';
 }
 
 .bs-amount-calculator-popup__progress-bar__bullet[id="4"]::after {
-    content: 'bis 30kg';
+    content: '30kg';
 }
 
 .bs-amount-calculator-popup__progress-bar__bullet[id="5"]::after {
-    content: 'ab 30kg';
+    content: '40kg';
 }
 
 @media (min-width: 768px) {
