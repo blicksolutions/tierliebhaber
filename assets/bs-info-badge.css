@@ -47,3 +47,10 @@
 		order: unset;
 	}
 }
+
+@media (min-width: 1008px) {
+	.bs-info-badge {
+		display: none;
+		margin: 0;
+	}
+}
