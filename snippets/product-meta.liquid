@@ -42,7 +42,7 @@
         {%- endif -%}
 
         <div class="ProductBadges">
-          {% assign current_url = request.path | append: request.query_string %}
+          {% assign current_url = request.path %}
           
             {% if current_url contains '/chillout-sticks' or current_url contains 'chillout-drops' %}
                 {% render 'bs-info-badge' %}
