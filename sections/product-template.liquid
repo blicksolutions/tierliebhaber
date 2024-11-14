@@ -28,7 +28,7 @@
 {% render 'bs-ab-tlh-060-popup' %}
 
 <section class="Product Product--{{ section.settings.image_size }}" data-section-id="{{ section.id }}" data-section-type="product" data-section-settings='{{ section_settings }}'>
-  <div class="Product__Wrapper">
+  <div class="Product__Wrapper" data-js-tlh-058>
     {%- capture action_list_items -%}
       {%- if section.settings.enable_image_zoom -%}
         <div class="Product__ActionItem hidden-lap-and-up">

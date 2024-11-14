@@ -70,9 +70,7 @@
           "primary_menu": "main-menu",
           "secondary_menu": "",
           "show_social_media": true,
-          "cart_sidebar_upsell_products": [
-
-          ]
+          "cart_sidebar_upsell_products": []
         }
       },
       "announcement": {
@@ -1396,7 +1394,6 @@
       "cart-drawer": {
         "type": "cart-drawer",
         "settings": {
-          "enable_gift_campaign": false,
           "enable_gift": true,
           "gift_min_price": 85,
           "gift_product": "goodie-drops-2",
@@ -1536,8 +1533,7 @@
           "671c09b6-b3af-45dd-a8f0-223c8cd21809",
           "ee8ad1bd-62c9-4911-8f09-2de25b44253f"
         ],
-        "settings": {
-        }
+        "settings": {}
       },
       "ddee7e2a-800b-4859-be96-f251a0f829b6": {
         "type": "bs-usp-mobile",
@@ -1599,8 +1595,7 @@
           "b624e985-eac4-4705-9cab-016c84cbde42",
           "381adaa1-791a-4b86-bd77-e0a432f1ffa3"
         ],
-        "settings": {
-        }
+        "settings": {}
       },
       "page-contact-template": {
         "type": "page-contact-template",
@@ -1617,8 +1612,7 @@
         "block_order": [
           "page-contact-template-0"
         ],
-        "settings": {
-        }
+        "settings": {}
       },
       "slideshow_dKUeWg": {
         "type": "slideshow",
@@ -1676,13 +1670,14 @@
       "bs_hero_banner_XriWJa": {
         "type": "bs-hero-banner",
         "settings": {
-          "title": "Kinderleichte Zahnpflege für Hunde!",
-          "description": "<p>Einfach aufs Futter sprühen und Zahnbelag selbst entfernen… 100% natürlich dank probiotischen Mikroorganismen!</p>",
-          "button_label": "Zum Dentalspray",
-          "button_url": "https://tierliebhaber.de/collections/zahnpflege/products/dentalspray",
-          "testimonial_text": "<p><strong>11.000+ Hundebesitzer</strong> berichten von sichtbaren Verbesserungen <br/> und hervorragender Wirkung</p>",
-          "background_image": "shopify://shop_images/Dental-Spray-5.jpg",
-          "foreground_image": "shopify://shop_images/Vorher_Nachher_TLH_2.png"
+          "title": "So wird Silvester mit Hund entspannt!",
+          "description": "<p>Leckere Snacks mit 100% natürlicher Beruhigungs-Formel, die ängstliche Hunde schonend entspannt… ganz ohne Chemie! </p>",
+          "button_label": "Zu den Chillout Drops!",
+          "button_url": "https://tierliebhaber.de/products/chillout-drops",
+          "testimonial_text": "<p><strong>53.000+ Hundebesitzer</strong> berichten dank Chillout Drops von entspannten Hunden zu Silvester!</p>",
+          "background_image_mobile": "shopify://shop_images/Hero_image_chillout_mobile.webp",
+          "background_image_desktop": "shopify://shop_images/Hero_Image_chillout.webp",
+          "foreground_image": "shopify://shop_images/Vorher_Nachher.png"
         }
       }
     },
@@ -1717,8 +1712,7 @@
       "162859120942cad3d6": {
         "type": "shopify://apps/judge-me-product-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
         "disabled": false,
-        "settings": {
-        }
+        "settings": {}
       },
       "162859120960fa81b2": {
         "type": "shopify://apps/judge-me-product-reviews/blocks/reviews_tab/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
@@ -1730,14 +1724,12 @@
       "33229646823806756": {
         "type": "shopify://apps/dcart-discount-on-cart/blocks/app-embed/731e2611-8bdf-4514-b5e4-f64f1cae3fb7",
         "disabled": false,
-        "settings": {
-        }
+        "settings": {}
       },
       "855628211100114053": {
         "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
         "disabled": false,
-        "settings": {
-        }
+        "settings": {}
       },
       "3667842014806057753": {
         "type": "shopify://apps/one-click-upsell-zipify-ocu/blocks/app-embed/bfe6e378-b73a-4871-b8d3-7d6ede22678e",
@@ -1749,26 +1741,22 @@
       "17398511487517060589": {
         "type": "shopify://apps/admetrics-data-studio/blocks/conversion/95b54974-e3ea-4514-839b-d0c971e19c1c",
         "disabled": false,
-        "settings": {
-        }
+        "settings": {}
       },
       "11724500921838622758": {
         "type": "shopify://apps/frequently-bought/blocks/app-embed-block/b1a8cbea-c844-4842-9529-7c62dbab1b1f",
         "disabled": true,
-        "settings": {
-        }
+        "settings": {}
       },
       "15685250022964305326": {
         "type": "shopify://apps/elevar-conversion-tracking/blocks/dataLayerEmbed/bc30ab68-b15c-4311-811f-8ef485877ad6",
         "disabled": false,
-        "settings": {
-        }
+        "settings": {}
       },
       "6757137876795001004": {
         "type": "shopify://apps/pixoo-outbrain-pixel/blocks/star_rating/7eb7f1da-dc3d-4f59-af0d-5d4efc849789",
         "disabled": true,
-        "settings": {
-        }
+        "settings": {}
       },
       "17151115064775110295": {
         "type": "shopify://apps/recharge-subscriptions/blocks/recharge-theme/371eed76-0b44-4869-9813-730372ea378e",
@@ -1789,8 +1777,12 @@
       "6478312753674380289": {
         "type": "shopify://apps/gempages-builder/blocks/embed-gp-script-head/20b379d4-1b20-474c-a6ca-665c331919f3",
         "disabled": false,
-        "settings": {
-        }
+        "settings": {}
+      },
+      "17676059084223943535": {
+        "type": "shopify://apps/triplewhale/blocks/triple_pixel_snippet/483d496b-3f1a-4609-aea7-8eee3b6b7a2a",
+        "disabled": false,
+        "settings": {}
       }
     }
   },
