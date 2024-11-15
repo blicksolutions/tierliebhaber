@@ -77,9 +77,7 @@
 		{% comment %}
 			TLH-056 code
 		{% endcomment %}
-		<script>console.log('cart.item_count', {{ cart.item_count | json }})</script>
 		{%- unless cart.item_count == 0 -%}
-		<script>console.log('cart', {{ cart | json }})</script>
 
 
 			{% liquid
