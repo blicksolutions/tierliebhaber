@@ -39,11 +39,3 @@ window.activateAbTlh056 = (testVariant) => {
 
 };
 
-document.addEventListener('DOMContentLoaded',() => {
-	const queryString = window.location.search;
-	const urlParams = new URLSearchParams(queryString);
-	const variant = urlParams.get('testvariant')
-	console.log('variant', variant)
-
-	window.activateAbTlh056(variant)
-})
