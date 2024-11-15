@@ -74,7 +74,7 @@
 
 		// Call functions on first load
 		window.unlockCheckoutButton();
-		console.log("unlock in DOMCONTENTLOADED");
+		//console.log("unlock in DOMCONTENTLOADED");
 
 		checkGeoLocation();
 		toggleDCart();
@@ -100,7 +100,7 @@
 					handleFreeGift();
 				} else {
 					window.unlockCheckoutButton();
-					console.log("unlock when Gift if not enabled");
+					//console.log("unlock when Gift if not enabled");
 				}
 
 				observer.disconnect();
@@ -120,25 +120,25 @@
     /******************************************************************/
 
 	window.addEventListener("sc:discount.init", function () {
-		console.log("sc:discount.init");
+		// console.log("sc:discount.init");
 
 		dCartCalculation();
 	});
 
 	window.addEventListener("sc:discount.calculated", () => {
-		console.log("sc:discount.calculated");
+		// console.log("sc:discount.calculated");
 
 		dCartCalculation();
 	});
 
 	window.addEventListener("sc:discount.remove", () => {
-		console.log("sc:discount.remove");
+		// console.log("sc:discount.remove");
 
 		dCartCalculation();
 	});
 
 	window.addEventListener("sc:discount.error", () => {
-		console.log("sc:discount.error");
+		// console.log("sc:discount.error");
 
 		dCartCalculation();
 	});
@@ -220,8 +220,8 @@
 			}
 		});
 
-		console.log("COUNTRY: " + currentCountry);
-		console.log("MINSUBTOTAL: " + minSubtotalPriceValue);
+		// console.log("COUNTRY: " + currentCountry);
+		// console.log("MINSUBTOTAL: " + minSubtotalPriceValue);
 
 		if (hasItemWithDeliveryRequired) {
 			switch (currentCountry) {
@@ -442,7 +442,7 @@
 					updateCart(cartUpdates);
 				} else {
 					window.unlockCheckoutButton();
-					console.log("unlock in handle freegift");
+					// console.log("unlock in handle freegift");
 				}
 			})
 			.catch((error) => {
@@ -492,13 +492,13 @@
 			// Unlock checkout button after timeout
 			setTimeout(() => {
 				window.unlockCheckoutButton();
-				console.log("unlock after updating free gift");
+				// console.log("unlock after updating free gift");
 			}, 1000);
 		} catch (error) {
 			console.error("Error updating the cart:", error);
 			setTimeout(() => {
 				window.unlockCheckoutButton();
-				console.log("unlock after updating free gift");
+				// console.log("unlock after updating free gift");
 			}, 1000);
 		}
 	};

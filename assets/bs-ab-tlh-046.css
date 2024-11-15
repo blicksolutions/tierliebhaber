@@ -121,13 +121,13 @@
 .VariantSelector__List[data-js-tlh-046-variant-selector-list="true"] .VariantSelector__Image:nth-child(odd) {
 	top: 0;
 	left: var(--horizontal-position);
-	z-index: 4;
+	z-index: 3;
 }
 
 .VariantSelector__List[data-js-tlh-046-variant-selector-list="true"] .VariantSelector__Image:nth-child(even) {
 	top: 10px;
 	left: var(--horizontal-position);
-	z-index: 5;
+	z-index: 4;
 }
 
 .VariantSelector__List[data-js-tlh-046-variant-selector-list="true"] .VariantSelector__OptionSavings {
@@ -207,7 +207,7 @@
 	}
 }
 
-.Recharge__Container[data-js-tlh-046-recharge-container="true"] .Recharge__Heading {
+.Recharge__Container[data-js-tlh-046-recharge-container] .Recharge__Heading {
 	margin: 0;
 	color: #000;
 	font-size: 22px;

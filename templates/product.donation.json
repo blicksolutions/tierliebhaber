@@ -1,17 +1,14 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "charity": {
-      "type": "charity",
-      "settings": {
-        "title": "",
-        "heading_prefix": "",
-        "heading_suffix": "an BAWA gespendet im Jahr 2024",
-        "description_heading": "Spende Tierliebe! ❤️🌏",
-        "description_text": "Beim Kauf eines Produkts hast du die Möglichkeit, deinem Einkauf eine Spende hinzuzufügen (an der Kasse). Die Spenden werden wöchentlich an BAWA (Bali Animal Welfare Association) übermittelt und 100% transparent auf Instagram dokumentiert.",
-        "description_disclaimer": "Mit euren Spenden konnten wir in den letzten Monaten schon so vielen Straßenhunden auf Bali helfen. Ob es groß angesetzte Futter- & Sterilisationskampagnen waren oder die Rettung der Hunde von der Straße, mit euren Spenden habt ihr vielen Hunden eine zweite Chance im Leben geschenkt.\n\nNun möchten wir in Zusammenarbeit mit BAWA und Connect for Cause das nächste große Ziel angehen. Mit euren wöchentlichen Spenden werden wir mitten auf Bali die Tierliebhaber Tierklinik für BAWA aufbauen 😍\n\nUnser erstes Ziel haben wir schon erreicht: 3.165€ für den Aufbau der Klinik. Jetzt geht es darum, die laufenden Kosten für Mitarbeiter, Medizin, Miete usw. zu decken.\n\n ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎",
-        "image": "shopify:\/\/shop_images\/WhatsApp_Image_2024-01-19_at_14.18.17.jpg"
-      }
-    },
     "main": {
       "type": "product-template-donations",
       "settings": {
@@ -34,6 +31,18 @@
         "tab_page_2_handle": "",
         "reviews_enabled": false,
         "featured_image_size": "large"
+      }
+    },
+    "charity": {
+      "type": "charity",
+      "settings": {
+        "title": "",
+        "heading_prefix": "",
+        "heading_suffix": "an BAWA gespendet im Jahr 2024",
+        "description_heading": "Spende Tierliebe! ❤️🌏",
+        "description_text": "Beim Kauf eines Produkts hast du die Möglichkeit, deinem Einkauf eine Spende hinzuzufügen (an der Kasse). Die Spenden werden wöchentlich an BAWA (Bali Animal Welfare Association) übermittelt und 100% transparent auf Instagram dokumentiert.",
+        "description_disclaimer": "Mit euren Spenden konnten wir in den letzten Monaten schon so vielen Straßenhunden auf Bali helfen. Ob es groß angesetzte Futter- & Sterilisationskampagnen waren oder die Rettung der Hunde von der Straße, mit euren Spenden habt ihr vielen Hunden eine zweite Chance im Leben geschenkt.\n\nNun möchten wir in Zusammenarbeit mit BAWA und Connect for Cause das nächste große Ziel angehen. Mit euren wöchentlichen Spenden werden wir mitten auf Bali die Tierliebhaber Tierklinik für BAWA aufbauen 😍\n\nUnser erstes Ziel haben wir schon erreicht: 3.165€ für den Aufbau der Klinik. Jetzt geht es darum, die laufenden Kosten für Mitarbeiter, Medizin, Miete usw. zu decken.\n\n ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎",
+        "image": "shopify://shop_images/WhatsApp_Image_2024-01-19_at_14.18.17.jpg"
       }
     },
     "162880489936c4738f": {
@@ -66,8 +75,7 @@
         "aac6c56a-31bd-41a1-b469-8927cbbaa547"
       ],
       "disabled": true,
-      "settings": {
-      }
+      "settings": {}
     },
     "165445487048fdea1c": {
       "type": "socialmedia",
@@ -75,15 +83,15 @@
         "e7e97b23-c66b-4c12-a212-fa0c7f88dc8d": {
           "type": "link",
           "settings": {
-            "link": "https:\/\/www.instagram.com\/",
-            "image": "shopify:\/\/shop_images\/instagram.png"
+            "link": "https://www.instagram.com/",
+            "image": "shopify://shop_images/instagram.png"
           }
         },
         "b0b61cd4-0838-4d37-bfec-1054adbdd1aa": {
           "type": "link",
           "settings": {
-            "link": "https:\/\/www.facebook.com\/",
-            "image": "shopify:\/\/shop_images\/facebook.png"
+            "link": "https://www.facebook.com/",
+            "image": "shopify://shop_images/facebook.png"
           }
         }
       },
@@ -101,20 +109,19 @@
         "6019ae12-5366-4bb0-b0fb-d5360dbf448b": {
           "type": "button",
           "settings": {
-            "image": "shopify:\/\/shop_images\/whatsapp.png",
+            "image": "shopify://shop_images/whatsapp.png",
             "image_alt": "",
             "text": "Per WhatsApp",
             "color": "#43c253",
-            "url": "https:\/\/api.whatsapp.com\/send\/?phone=4917648097026&text=Hey,%20ich%20habe%20eine%20Frage,%20auf%20die%20ich%20keine%20Antworte%20finde%20auf%20eurer%20Seite.%20%E2%98%BA%EF%B8%8F"
+            "url": "https://api.whatsapp.com/send/?phone=4917648097026&text=Hey,%20ich%20habe%20eine%20Frage,%20auf%20die%20ich%20keine%20Antworte%20finde%20auf%20eurer%20Seite.%20%E2%98%BA%EF%B8%8F"
           }
         },
         "7e85fc1c-a467-4500-83c7-3f55b878b381": {
           "type": "button",
-          "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/anruf.png",
+            "image": "shopify://shop_images/anruf.png",
             "image_alt": "",
-            "text": "Ruf uns an",
+            "text": "Ruf uns an (Mo-Fr 11-15 Uhr)",
             "color": "#f1af9e",
             "url": "tel:034149980019"
           }
@@ -122,33 +129,44 @@
         "cd707ae6-291b-4929-8937-dbe7654b243d": {
           "type": "button",
           "settings": {
-            "image": "shopify:\/\/shop_images\/email.png",
+            "image": "shopify://shop_images/email.png",
             "image_alt": "",
             "text": "Per Email",
-            "color": "#dddddd",
+            "color": "#43c253",
             "url": "mailto:info@tierliebhaber.de"
+          }
+        },
+        "button_DLwcyE": {
+          "type": "button",
+          "settings": {
+            "image": "shopify://shop_images/calling_1_1_54bc70a7-8221-4bc8-bedc-0c43bb5ebe7d.png",
+            "image_alt": "",
+            "text": "Produktberatung buchen",
+            "color": "#f1af9e",
+            "url": "https://calendly.com/kundenservice-tierliebhaber/10min"
           }
         }
       },
       "block_order": [
         "6019ae12-5366-4bb0-b0fb-d5360dbf448b",
         "7e85fc1c-a467-4500-83c7-3f55b878b381",
-        "cd707ae6-291b-4929-8937-dbe7654b243d"
+        "cd707ae6-291b-4929-8937-dbe7654b243d",
+        "button_DLwcyE"
       ],
       "settings": {
         "title": "Fragen? Wir sind für dich da...",
-        "subtitle": "<p>Bei Fragen zu einer bestehenden Bestellung, schreib uns einfach eine Nachricht per WhatsApp oder per E-Mail - bitte schicke uns dazu auch deine Bestellnummer.<br\/><\/p>",
-        "image": "shopify:\/\/shop_images\/Design_ohne_Titel_1.png",
+        "subtitle": "<p>Bei Fragen zu einer bestehenden Bestellung, schreib uns einfach eine Nachricht per<br/>WhatsApp oder per E-Mail.</p><p><strong>Hast du Fragen zu unseren Produkten oder kommst bei einer Bestellung nicht weiter?</strong> <br/><br/>Wir sind jederzeit für dich auf WhatsApp erreichbar.</p><p><strong>Du wünschst dir eine Produktberatung oder einen individuellen Rückruf?</strong></p><p>Schreib uns einfach eine Nachricht per<br/>WhatsApp oder per E-Mail mit deiner Telefonnummer und wann es für dich zeitlich<br/>passt, dann melden wir uns sehr gerne bei dir!</p>",
+        "image": "shopify://shop_images/CS_9cdd3aa4-1549-4314-bf79-26b9b40c6ffa.png",
         "image_alt": "",
-        "image_min_width": 260,
+        "image_min_width": 340,
         "cta_title": "Schnell & einfach",
-        "microcopy": "<p><em>Wir melden uns innerhalb eines<\/em><\/p><p><em>Tages mit einer Antwort bei dir zurück!<\/em><\/p>"
+        "microcopy": "<p><em>Wir melden uns in der Regel </em></p><p><em>innerhalb von 1-2 Werktagen mit einer Antwort bei dir!</em></p>"
       }
     }
   },
   "order": [
-    "charity",
     "main",
+    "charity",
     "162880489936c4738f",
     "165445344587f2e456",
     "165445487048fdea1c",
