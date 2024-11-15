@@ -1,0 +1,9 @@
+{{ 'bs-shipping-eta.css' |  asset_url |  stylesheet_tag }}
+<script src="{{ 'bs-shipping-eta.js' |  asset_url }}" defer></script>
+
+<div class="bs-shipping-eta" data-translation-key="Bestelle in den nächsten XX h xx min, um deine Produkte bis übermorgen zu bekommen.">
+    {% render 'bs-icon-clock' %}
+    <p class="bs-shipping-eta__text">
+        Bestelle in den nächsten <span class="bs-shipping-eta__hours"></span> <span>h</span> <span class="bs-shipping-eta__minutes"></span> <span>min</span>, um deine Produkte <span>bis</span> <span class="bs-shipping-eta__delivery-date"></span> zu bekommen.
+    </p>
+</div>
