@@ -36,3 +36,13 @@
 		line-height: 18px;
 	}
 }
+
+@media (min-width: 1008px) {
+	.bs-shipping-eta {
+		display: none;
+	}
+	
+	.bs-shipping-eta + .ProductForm__ShippingEta {
+		display: block;
+	}
+}
