@@ -88,13 +88,13 @@ window.activateAbTlh060 = () => {
         const handleBulletSwitch = (id) => {
             const amountPerDayValueTarget = document.querySelector('.bs-amount-calculator-popup__metrics-card__value span:first-child');
             const monthsTarget = document.querySelector('.bs-amount-calculator-popup__metrics-card__info span');
-            const imageTarget = document.querySelector('.bs-amount-calculator-popup__image');
+            const imageTarget = document.querySelector('.bs-amount-calculator-popup__image img');
             let monthsValue;
 
             const insertNewContent = (dailyAmount, months, imageUrl) => {
                 amountPerDayValueTarget.innerHTML = dailyAmount;
                 monthsTarget.innerHTML = months;
-                imageTarget.innerHTML = `<img src="${imageUrl}" alt="dog">`;
+                imageTarget.src = imageUrl;
             };
 
             const calculateMonthsText = (quantityPerDay) => {
@@ -140,9 +140,13 @@ window.activateAbTlh060 = () => {
                 if(e.currentTarget != currentActiveBullet) {
                     currentActiveBullet.classList.remove('active');
                     progressbarActiveThumb.style.width = `${e.currentTarget.dataset.activeThumbWidth}%`;
-                    handleBulletSwitch(e.currentTarget.attributes.id.value);
                     e.currentTarget.classList.add('active');
                     currentActiveBullet = e.currentTarget;
+                    const id = e.currentTarget.attributes.id.value;
+
+                    setTimeout(() => {
+                        handleBulletSwitch(id);
+                    }, 300);
                 }
             });
         });

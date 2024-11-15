@@ -248,11 +248,11 @@
     border: 1px solid #F1AF9E;
     background: #ffff;
     border-radius: 50%;
+    transition: transform .3s ease;
 }
 
 .bs-amount-calculator-popup__progress-bar__bullet.active::before {
     transform: scale(1.5);
-    transition: transform .3s ease;
 }
 
 .bs-amount-calculator-popup__progress-bar__bullet:hover {
