@@ -42,6 +42,12 @@
         {%- endif -%}
 
         <div class="ProductBadges">
+          {% assign current_url = request.path %}
+          
+            {% if current_url contains '/chillout-sticks' or current_url contains 'chillout-drops' %}
+                {% render 'bs-info-badge' %}
+            {% endif %}
+           
             {%- if product.metafields.badge.text -%}
             {%- render 'product-badge', product: product -%}
             {%- endif -%}

@@ -1,12 +1,15 @@
 {{ "bs-hero-banner.css" |  asset_url |  stylesheet_tag }}
 
+<link rel="preload" href="{{ section.settings.background_image_mobile |  image_url: width: 800 }}" as="image">
+<link rel="preload" href="{{ section.settings.background_image_desktop |  image_url: width: 1920 }}" as="image">
+
 <section id="section-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="hero-banner">
 	<div class="bs-hero-banner">
 		{% if section.settings.background_image_mobile %}
-			{{ section.settings.background_image_mobile |  image_url: width: 2000 |  image_tag: class: "bs-hero-banner__background bs-hero-banner__background--mobile" }}
+			{{ section.settings.background_image_mobile |  image_url: width: 800 |  image_tag: class: "bs-hero-banner__background bs-hero-banner__background--mobile" }}
 		{% endif %}
 		{% if section.settings.background_image_desktop %}
-			{{ section.settings.background_image_desktop |  image_url: width: 2000 |  image_tag: class: "bs-hero-banner__background bs-hero-banner__background--desktop" }}
+			{{ section.settings.background_image_desktop |  image_url: width: 1920 |  image_tag: class: "bs-hero-banner__background bs-hero-banner__background--desktop" }}
 		{% endif %}
 		<div class="bs-hero-banner__content">
 			{% render 'bs-icon-wave-mobile' %}

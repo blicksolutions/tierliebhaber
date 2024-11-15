@@ -486,16 +486,14 @@ $(document).ready(function(){
           endif
       -%}
 
+      {% comment %} bs custom shipping eta calculator {% endcomment %}
+      {% render 'bs-shipping-eta' %}
+
       {% if product.metafields.custom.lieferzeit != blank %}
           <p class="{{ shipping_eta_class }}" data-translation-key="{{ shipping_eta_translation_key }}">{{ shipping_eta_translation_key }}</p>
       {% else %}
           <p class="{{ shipping_eta_class }}" data-translation-key="{{ shipping_eta_translation_key | t }}">{{ shipping_eta_translation_key | t }}</p>
       {% endif %}
-
-      <div class="ProductForm__ShippingEta--version-c" data-translation-key="Bestelle in den nächsten XX h xx min, um deine Produkte bis übermorgen zu bekommen.">
-		{% render 'bs-icon-clock' %}
-		<p class="ProductForm__ShippingEta--version-c__text">Bestelle in den nächsten <span class="ProductForm__ShippingEta--version-c__hours"></span> <span>h</span> <span class="ProductForm__ShippingEta--version-c__minutes"></span> <span>min</span>, um deine Produkte <span>bis</span> <span class="ProductForm__ShippingEta--version-c__delivery-date"></span> zu bekommen.</p>
-      </div>
   {%- endif -%}
   {%- comment -%}
   --------------------------------------------------------------------------------------------------------------------

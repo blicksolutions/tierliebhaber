@@ -6,11 +6,11 @@
       <div class="UspItem">
         <a class="UspItem__Link" href="{{ block.settings.usp_url }}">
           {% if block.settings.usp_image %}
-            {{ block.settings.usp_image | image_url: width: 400 | image_tag: class: 'UspItem__Image Mobile' }}
+            {{ block.settings.usp_image | image_url: width: 120 | image_tag: class: 'UspItem__Image Mobile' }}
           {% endif %}
 
           {% if block.settings.usp_image_desktop %}
-            {{ block.settings.usp_image_desktop | image_url: width: 400 | image_tag: class: 'UspItem__Image Desktop' }}
+            {{ block.settings.usp_image_desktop | image_url: width: 120 | image_tag: class: 'UspItem__Image Desktop' }}
           {% endif %}
           <p class="UspItem__Title">{{ block.settings.usp_title }}</p>
         </a>

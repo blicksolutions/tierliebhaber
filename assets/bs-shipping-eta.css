@@ -1,0 +1,48 @@
+.bs-shipping-eta {
+	display: flex;
+	gap: 7px;
+	margin: 8px 0;
+}
+
+.bs-shipping-eta + .ProductForm__ShippingEta {
+	display: none;
+}
+
+.bs-shipping-eta + .ProductForm__ShippingEta.-Unavailable {
+	display: block;
+}
+
+.bs-shipping-eta:has(+ .ProductForm__ShippingEta.-Unavailable) {
+	display: none;
+}
+
+.bs-shipping-eta svg {
+	min-width: fit-content;
+}
+
+.bs-shipping-eta__text {
+	font-size: 12px;
+	line-height: 15px;
+	color: #1C1B1B;
+}
+
+.bs-shipping-eta__text span {
+	color: #77A464;
+}
+
+@media (min-width: 768px) {
+	.bs-shipping-eta__text {
+		font-size: 14px;
+		line-height: 18px;
+	}
+}
+
+@media (min-width: 1008px) {
+	.bs-shipping-eta {
+		display: none;
+	}
+	
+	.bs-shipping-eta + .ProductForm__ShippingEta {
+		display: block;
+	}
+}
