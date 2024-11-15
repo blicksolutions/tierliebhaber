@@ -38,6 +38,3 @@ window.activateAbTlh056 = (testVariant) => {
 	}
 
 };
-    
-
-
