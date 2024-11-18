@@ -255,6 +255,8 @@
           {{- selected_variant.price | money_without_trailing_zeros -}}
         </span>
       {%- endif -%}
+
+      {% render 'bs-ab-tlh-060-anchor' %}
     </div>
 
     {%- liquid
@@ -337,6 +339,8 @@
         </p>
         {%- endif -%}
     {%- endif -%}
+
+    {% render 'bs-ab-tlh-060-amount-info' %}
 
     {%- if show_like_badge and product.metafields.badge.text == 'Bestseller' -%}
         {%- render 'like-badge', classes: 'hidden-pocket' -%}
