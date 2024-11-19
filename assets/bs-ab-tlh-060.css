@@ -1,0 +1,348 @@
+/* pdp anchor component */
+[data-bs-tlh-060-anchor] {
+    display: none;
+}
+
+[data-bs-tlh-060-anchor="true"] {
+    display: flex;
+}
+
+.ProductMeta__PriceList:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]) {
+    display: flex;
+    align-items: center;
+    gap: 21px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.ProductMeta__PriceList:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]) + .ProductMeta__UnitPriceMeasurement,
+.ProductMeta__PriceList:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]) ~ .ProductMeta__TaxNotice {
+    margin-top: 10px;
+}
+
+.ProductMeta__PriceList:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]) + .ProductMeta__UnitPriceMeasurement *,
+.ProductMeta__PriceList:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]) ~ .ProductMeta__TaxNotice * {
+    font-size: 14px;
+    line-height: 18px;
+    color: #525252;
+    font-weight: 400;
+}
+
+.bs-pdp-anchor {
+    padding: 4px 10px;
+    background: #ABCDBE;
+    border-radius: 6px;
+    align-items: center;
+    width: max-content;
+    font-size: 14px;
+    line-height: 18px;
+    gap: 5px;
+    position: relative;
+}
+
+.bs-pdp-anchor:hover {
+    cursor: pointer;
+}
+
+.bs-pdp-anchor svg:not(.triangle--green) {
+    margin-left: 3px;
+}
+
+.bs-pdp-anchor .triangle--green {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateX(-90%) translateY(-50%);
+}
+
+/* pdp info component */
+[data-bs-tlh-060-amount-info] {
+    display: none;
+}
+
+[data-bs-tlh-060-amount-info="true"] {
+    display: flex;
+}
+
+.bs-amount-info {
+    align-items: center;
+    gap: 4px;
+    padding: 8px 0;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.bs-amount-info:hover {
+    cursor: pointer;
+}
+
+.bs-amount-info__content--desktop {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .bs-amount-info__content--mobile {
+        display: none;
+    }
+    
+    .bs-amount-info__content--desktop {
+        display: inline-block;
+    }
+}
+
+/* popup component */
+.bs-amount-calculator-popup__bg-container {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    background: rgba(68, 63, 63, 0.50);
+    z-index: 20;
+    padding: 16px;
+    display: none;
+}
+
+.bs-amount-calculator-popup__bg-container[data-bs-tlh-060-popup="true"].active {
+    display: flex;
+}
+
+.bs-amount-calculator-popup {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+    background: #F2F8F5;
+    padding: 16px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 595px;
+    border: 1px solid #CCCCCC;
+}
+
+.bs-amount-calculator-popup__header {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #CCCCCC;
+    width: 100%;
+}
+
+.bs-amount-calculator-popup__header svg:hover {
+    cursor: pointer;
+}
+
+.bs-amount-calculator-popup__main {
+    width: 100%;
+}
+
+.bs-amount-calculator-popup__title {
+    margin: 0;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+    color: #525252;
+}
+
+.bs-amount-calculator-popup__main__title {
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 400;
+    color: #1C1B1B;
+    margin-bottom: 10px;
+}
+
+.bs-amount-calculator-popup__metrics-card {
+    background: #ffff;
+    padding: 8px 16px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.bs-amount-calculator-popup__metrics-card__title {
+    font-size: 12px;
+    line-height: 15px;
+    color: #525252;
+    margin: 0;
+}
+
+.bs-amount-calculator-popup__metrics-card__daily-amount {
+    font-size: 24px;
+    line-height: 30px;
+    color: #1C1B1B;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.bs-amount-calculator-popup__metrics-card__value {
+    color: #EBA896;
+    font-weight: 700;
+}
+
+.bs-amount-calculator-popup__metrics-card__unit {
+    margin-left: 5px;
+}
+
+.bs-amount-calculator-popup__metrics-card__info {
+    font-size: 12px;
+    line-height: 15px;
+    color: #525252;
+}
+
+.bs-amount-calculator-popup__image img {
+    width: 135px;
+    height: 135px;
+    aspect-ratio: 1/1;
+}
+
+.bs-amount-calculator-popup__progress-bar {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 461px;
+    position: relative;
+    margin: 10px auto 33px;
+}
+
+.bs-amount-calculator-popup__progress-bar__thumb {
+    position: absolute;
+    width: 100%;
+    height: 7px;
+    background: #CCCCCC;
+    top: 20px;
+    transform: translateY(-50%);
+    border-radius: 50px;
+}
+
+.bs-amount-calculator-popup__progress-bar__thumb-active {
+    background: #F1AF9E;
+    height: 100%;
+    border-radius: 50px;
+    width: 10%;
+    transition: width .3s ease;
+}
+
+.bs-amount-calculator-popup__progress-bar__bullet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 0 25px;
+    width: 20%;
+    position: relative;
+}
+
+.bs-amount-calculator-popup__progress-bar__bullet::before {
+    content: '';
+    position: relative;
+    height: 10px;
+    width: 10px;
+    border: 1px solid #F1AF9E;
+    background: #ffff;
+    border-radius: 50%;
+    transition: transform .3s ease;
+}
+
+.bs-amount-calculator-popup__progress-bar__bullet.active::before {
+    transform: scale(1.5);
+}
+
+.bs-amount-calculator-popup__progress-bar__bullet:hover {
+    cursor: pointer;
+}
+
+.bs-amount-calculator-popup__progress-bar__bullet::after {
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    font-size: 10px;
+    line-height: 12px;
+    white-space: nowrap;
+    transform: translateX(-50%);
+}
+
+.bs-amount-calculator-popup__progress-bar__bullet.active::after {
+    transform: translateX(-50%) scale(1.4);
+    color: #1C1B1B;
+    transition: transform .3s ease;
+}
+
+.bs-amount-calculator-popup__progress-bar__bullet[id="1"]::after {
+    content: '5kg';
+}
+
+.bs-amount-calculator-popup__progress-bar__bullet[id="2"]::after {
+    content: '10kg';
+}
+
+.bs-amount-calculator-popup__progress-bar__bullet[id="3"]::after {
+    content: '20kg';
+}
+
+.bs-amount-calculator-popup__progress-bar__bullet[id="4"]::after {
+    content: '30kg';
+}
+
+.bs-amount-calculator-popup__progress-bar__bullet[id="5"]::after {
+    content: '40kg';
+}
+
+@media (min-width: 768px) {
+    .bs-amount-calculator-popup__title {
+        font-size: 18px;
+        line-height: 23px;
+    }
+
+    .bs-amount-calculator-popup__title {
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    .bs-amount-calculator-popup__progress-bar__bullet:after {
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .bs-amount-calculator-popup__progress-bar {
+        margin: 20px auto 36px;
+    }
+}
+
+@media (min-width: 1008px) {
+    .ProductMeta__PriceList:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]) {
+        justify-content: unset;
+    }
+  
+    .ProductMeta.Bestseller:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]) {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .ProductMeta.Bestseller:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]) .ProductMeta__BestsellerHeader {
+        width: 100%;
+    }
+    
+    .ProductMeta.Bestseller:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]) .ProductMeta__PriceList {
+        width: 100%;
+    }
+    
+    .ProductMeta.Bestseller:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]) .ProductMeta__UnitPriceMeasurement {
+        margin-right: 5px;
+    }
+   
+    .ProductMeta.Bestseller:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]) .ProductMeta__TaxNotice,
+    .ProductMeta.Bestseller:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]) .ProductMeta__UnitPriceMeasurement {
+        margin-top: 6px;
+        margin-bottom: 17px;
+        font-size: 12px;
+        line-height: 14px;
+    }
+}

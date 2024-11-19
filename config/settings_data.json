@@ -150,7 +150,7 @@
             "type": "text",
             "settings": {
               "title": "Erreichbarkeit",
-              "content": "<p>Unser Team ist jederzeit </p><p>über WhatsApp: +49 176 48097026</p><p>per Mail: <a href=\"mailto:info@tierliebhaber.de\">info@tierliebhaber.de</a> </p><p>(Wir melden uns in der Regel innerhalb von 1-2 Werktagen mit einer Antwort bei dir)</p><p>oder telefonisch von Mo - Fr von 11-13 Uhr für dich erreichbar.</p><p>Tel.: +49 34149980019</p><p></p><p><strong>Gern kannst du auch eine </strong><a href=\"https://calendly.com/kundenservice-tierliebhaber/10min\" target=\"_blank\" title=\"https://calendly.com/kundenservice-tierliebhaber/10min\"><strong>Produktberatung bei uns buchen!</strong></a></p>",
+              "content": "<p>Unser Team ist jederzeit </p><p>über WhatsApp: +49 176 48097026</p><p>per Mail: <a href=\"mailto:info@tierliebhaber.de\">info@tierliebhaber.de</a> </p><p>(Wir melden uns in der Regel innerhalb von 1-2 Werktagen mit einer Antwort bei dir)</p><p>oder telefonisch von Mo - Fr von 11-15 Uhr für dich erreichbar.</p><p>Tel.: +49 34149980019</p><p></p><p><strong>Gern kannst du auch eine </strong><a href=\"https://calendly.com/kundenservice-tierliebhaber/10min\" target=\"_blank\" title=\"https://calendly.com/kundenservice-tierliebhaber/10min\"><strong>Produktberatung bei uns buchen!</strong></a></p>",
               "show_social_media": true
             }
           },
@@ -689,7 +689,7 @@
             "settings": {
               "image": "shopify://shop_images/anruf.png",
               "image_alt": "",
-              "text": "Ruf uns an (Mo-Fr 11-13 Uhr)",
+              "text": "Ruf uns an (Mo-Fr 11-15 Uhr)",
               "color": "#f1af9e",
               "url": "tel:034149980019"
             }
@@ -1791,6 +1791,11 @@
       },
       "17676059084223943535": {
         "type": "shopify://apps/triplewhale/blocks/triple_pixel_snippet/483d496b-3f1a-4609-aea7-8eee3b6b7a2a",
+        "disabled": false,
+        "settings": {}
+      },
+      "7625205453299604178": {
+        "type": "shopify://apps/gemx-cro-a-b-testing/blocks/gemx-theme-helper/d5fea089-2b8e-4af7-a4da-76b975b021c7",
         "disabled": false,
         "settings": {}
       }
