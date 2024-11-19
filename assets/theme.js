@@ -2112,7 +2112,7 @@ function _classCallCheck(e, t) {
                         this.delegateElement.on("change", "#cart-note", this._updateCartNote.bind(this)), "page" !== this.options.type ? (this.delegateElement.on("click", '[data-action="update-item-quantity"], [data-action="remove-item"]', this._updateItemQuantity.bind(this)),
                         this.delegateElement.on("change", ".QuantitySelector__CurrentQuantity", this._updateItemQuantity.bind(this))) : this.delegateElement.on("change", ".QuantitySelector__CurrentQuantity", this._reloadPageWithQuantity.bind(this)),
                     this.options.drawer && this.delegateElement.on("click", '[data-action="toggle-cart-note"]', this._toggleCartNote.bind(this)),
-                        this.delegateElement.on("click", '.CartItem__Actions__UpsellBtn', this._addUpsellItem.bind(this)),
+                        this.delegateElement.on("click", '.CartItem__Actions__UpsellBtn', cobnsole.log("Dudde clicked"), this._addUpsellItem.bind(this)),
                         document.addEventListener("product:added", this._onProductAddedListener),
                         this.documentDelegate.on("cart:refresh", this._rerenderCart.bind(this, !1))
                 }

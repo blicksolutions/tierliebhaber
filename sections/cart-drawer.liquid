@@ -247,17 +247,75 @@
             <p class="CartUpsells__Title">
               {{ section.settings.upsell_title }}
             </p>
-			<div class="bs-ab-tlh-068__badge">Perfekt für Silvester!</div>
             <div class="CartUpsells__Items">
               <div class="Drawer__Container">
                 {% render 'cart-upsell-item', line_item: upsell_item: upsell_item %}
-                {% render 'cart-upsell-item', line_item: section.settings.upsell_item_tlh_068_b %}
-                {% render 'cart-upsell-item', line_item: section.settings.upsell_item_tlh_068_c %}
               </div>
             </div>
           </div>
           <!-- /Upsell items -->
         {%- endif -%}
+       
+		<!-- ab 068b code start -->
+		{%- assign upsell_item_ab_068_b = null -%}
+            
+        {%- for line_item in section.settings.upsell_items_tlh_068_b -%}
+          {%- if upsell_item_ab_068_b == null -%}
+            {%- if line_item.available -%}
+              {%- assign upsell_item_ab_068_b_found = false -%}
+      
+              {%- for cart_line_item in cart.items -%}
+            	{%- if cart_line_item.product.title == line_item.title -%}
+                  {%- assign upsell_item_ab_068_b_found = true -%}
+            	{%- endif -%}
+              {%- endfor -%}
+      
+              {%- if upsell_item_ab_068_b_found == false -%}
+                {%- assign upsell_item_ab_068_b = line_item -%}
+      		  {%- endif -%}
+      
+            {%- endif -%}
+          {%- else -%}
+          {%- endif -%}
+        {%- endfor -%}
+		
+		{%- assign upsell_item_ab_068_c = null -%}
+            
+        {%- for line_item in section.settings.upsell_items_tlh_068_c -%}
+          {%- if upsell_item_ab_068_c == null -%}
+            {%- if line_item.available -%}
+              {%- assign upsell_item_ab_068_c_found = false -%}
+      
+              {%- for cart_line_item in cart.items -%}
+            	{%- if cart_line_item.product.title == line_item.title -%}
+                  {%- assign upsell_item_ab_068_c_found = true -%}
+            	{%- endif -%}
+              {%- endfor -%}
+      
+              {%- if upsell_item_ab_068_c_found == false -%}
+                {%- assign upsell_item_ab_068_c = line_item -%}
+      		  {%- endif -%}
+      
+            {%- endif -%}
+          {%- else -%}
+          {%- endif -%}
+        {%- endfor -%}
+      
+        {%- if upsell_item_ab_068_b and upsell_item_ab_068_c -%}
+          <div class="CartUpsells__Container CartUpsells__Container__ab-068-b">
+            <p class="CartUpsells__Title">
+              {{ section.settings.upsell_title }}
+            </p>
+			<div class="bs-ab-tlh-068__badge">Perfekt für Silvester!</div>
+            <div class="CartUpsells__Items">
+              <div class="Drawer__Container">
+                {% render 'cart-upsell-item', line_item: upsell_item_ab_068_b %}
+                {% render 'cart-upsell-item', line_item: upsell_item_ab_068_c %}
+              </div>
+            </div>
+          </div>
+        {%- endif -%}
+		<!-- ab 068b code end -->
       {%- endif -%}
     </div>
 
@@ -480,13 +538,13 @@
 			"limit": 2
 		},
 		{
-			"type": "product",
-			"id": "upsell_item_tlh_068_b",
+			"type": "product_list",
+			"id": "upsell_items_tlh_068_b",
 			"label": "Upsell product TLH 068B"
 		},
 		{
-			"type": "product",
-			"id": "upsell_item_tlh_068_c",
+			"type": "product_list",
+			"id": "upsell_items_tlh_068_c",
 			"label": "Upsell product TLH 068C"
 		},
 		{
