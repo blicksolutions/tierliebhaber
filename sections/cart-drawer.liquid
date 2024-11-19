@@ -247,9 +247,12 @@
             <p class="CartUpsells__Title">
               {{ section.settings.upsell_title }}
             </p>
+			<div class="bs-ab-tlh-068__badge">Perfekt für Silvester!</div>
             <div class="CartUpsells__Items">
               <div class="Drawer__Container">
                 {% render 'cart-upsell-item', line_item: upsell_item: upsell_item %}
+                {% render 'cart-upsell-item', line_item: section.settings.upsell_item_tlh_068_b %}
+                {% render 'cart-upsell-item', line_item: section.settings.upsell_item_tlh_068_c %}
               </div>
             </div>
           </div>
@@ -475,6 +478,16 @@
 			"id": "upsell_items",
 			"label": "Upsell products",
 			"limit": 2
+		},
+		{
+			"type": "product",
+			"id": "upsell_item_tlh_068_b",
+			"label": "Upsell product TLH 068B"
+		},
+		{
+			"type": "product",
+			"id": "upsell_item_tlh_068_c",
+			"label": "Upsell product TLH 068C"
 		},
 		{
 			"type": "header",
