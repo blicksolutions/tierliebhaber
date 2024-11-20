@@ -522,6 +522,22 @@ $(document).ready(function(){
       </button>
     {% endunless %}
 
+	{% comment %}
+		bs-ab-tlh-067 ATC Button
+	{% endcomment %}
+		<div class="Button Button--primary Button--full ProductForm__AddToCart variant-popup__trigger" {% unless selected_variant.available %}disabled="disabled"{% endunless %} data-js-tlh-067-atc-button>
+			{% if selected_variant.available %}
+				In den Warenkorb
+			{% else %}
+				Ausverkauft
+			{% endif %}
+		</div>
+
+	{% comment %}
+		End: bs-ab-tlh-067 ATC Button
+	{% endcomment %}
+
+
     {% if sticky_atc == true %}
 
     <div class="ProductMeta__StickyATC" data-js-sticky-atc-container>
@@ -571,6 +587,8 @@ $(document).ready(function(){
         </div>
       </div>
     {% endif %}
+
+	{% render 'bs-ab-tlh-067' %}
 
   {%- comment -%} Anchor for Klaviyo Back in Stock Script {%- endcomment -%}
   <div id="BackInStockAnchor"></div>
