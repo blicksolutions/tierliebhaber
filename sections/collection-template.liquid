@@ -180,6 +180,11 @@
       {%- capture collection_toolbar -%}
         {%- if show_filters or section.settings.show_sort_by or section.settings.show_layout_switch -%}
           <div class="CollectionToolbar CollectionToolbar--{{ section.settings.toolbar_position }} {% unless section.settings.show_layout_switch and show_filters == false and section.settings.show_sort_by == false %}CollectionToolbar--reverse{% endunless %}">
+            
+            {% comment %} blackweek collection filter start {% endcomment %}
+             {% render 'bs-black-week-collection-filters' %}
+            {% comment %} blackweek collection filter end {% endcomment %}
+
             {%- if show_filters or section.settings.show_sort_by -%}
               <div class="CollectionToolbar__Group">
                 {%- if show_filters -%}
@@ -398,6 +403,7 @@
       {%- endcomment -%}
 
       <div class="CollectionMain">
+        {% render 'bs-black-week-collection-banner' %}
         <div class="subscriptionReminderCallout">
           <span class="subscriptionReminderCallout__head">Abonnieren und 15% sparen</span>
           <div class="subscriptionReminderCallout__bubbles">

@@ -1,0 +1,15 @@
+.bs-black-week-collection-banner {
+    background: #BF92A5;
+    width: 100%;
+    height: 182px;
+}
+
+.bs-black-week-collection-banner + .subscriptionReminderCallout.active {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .bs-black-week-collection-banner {
+        height: 280px;
+    }
+}
