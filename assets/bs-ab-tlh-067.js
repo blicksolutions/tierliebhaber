@@ -1,4 +1,40 @@
 window.activateAbTlh067 = () => {
+	switch (productHandle) {
+		case 'dentalspray-katzen-1':
+			bestseller = true;
+			break;
+		case 'gras-kotfresser-drops-2':
+			bestseller = true;
+			break;
+		case 'darmpflege-drops':
+			bestseller = true;
+			break;
+		case 'hustenkrautersaft-pferd':
+			bestseller = true;
+			break;
+		case 'chillloutsaft-fur-hunde':
+			bestseller = true;
+			break;
+		case 'chillout-drops':
+			bestseller = true;
+			break;
+		case 'gelenk-sticks':
+			bestseller = true;
+			break;
+		case 'gelenkkrautersaft-pferd':
+			bestseller = true;
+			break;
+		case 'chilloutsaft-pferd':
+			bestseller = true;
+			break;
+
+
+		default:
+			bestseller = false;
+			break;
+	}
+	if (bestseller != true) return
+
 	const variantPopup = document.querySelector('[data-js-tlh-067-variant-popup]')
 	if (!variantPopup) return
 
