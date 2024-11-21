@@ -1681,7 +1681,8 @@
         "type": "bs-hero-black-week",
         "settings": {
           "background_image_mobile": "shopify://shop_images/Hintergrundbild_Hell_Mobile.jpg",
-          "background_image_desktop": "shopify://shop_images/Hintergrund_Helle_Version.jpg"
+          "background_image_desktop": "shopify://shop_images/Hintergrund_Helle_Version.jpg",
+          "black_week_headline_image": "shopify://shop_images/Text_Helle_Version.svg"
         }
       }
     },
