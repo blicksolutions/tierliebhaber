@@ -1,3 +1,31 @@
+.bs-hero-black-week__banner {
+	position: relative;
+
+}
+
+.bs-hero-black-week__wrapper {
+	max-width: 1280px;
+	margin: 0 auto;
+}
+
+/******************************************************************/
+/* headline image
+/******************************************************************/
+
+.bs-hero-black-week__info-headline {
+	position: absolute;
+	top: 40px;
+}
+
+
+/******************************************************************/
+/* background image
+/******************************************************************/
+
+.bs-hero-black-week__banner img.bs-hero-black-week__background {
+	width: 100%;
+}
+
 .bs-hero-black-week__background--mobile {
 	display: block;
 }
@@ -10,7 +38,7 @@
 	.bs-hero-black-week__background--mobile {
 		display: none;
 	}
-	
+
 	.bs-hero-black-week__background--desktop {
 		display: block;
 	}

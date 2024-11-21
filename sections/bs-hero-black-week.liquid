@@ -13,40 +13,42 @@
 			{{ section.settings.background_image_desktop |  image_url: width: 1920 |  image_tag: class: "bs-hero-black-week__background bs-hero-black-week__background--desktop" }}
 		{% endif %}
 
-		<div class="bs-hero-black-week-info">
-			{% if section.settings.black_week_headline_image %}
-				<div class="bs-hero-black-week__info-headline">
-					 {{ section.settings.black_week_headline_image |  image_url: width: 500 |  image_tag: class: "bs-hero-black-week__headline" }}
-				</div>
-			{% endif %}
-
-			<div class="bs-hero-black-week__info-countdown">
-				{% comment %} COUNT DOWN {% endcomment %}
-				 COUNTDOWN
+		<div class="bs-hero-black-week__wrapper">
+			<div class="bs-hero-black-week-info">
+				{% if section.settings.black_week_headline_image %}
+					<div class="bs-hero-black-week__info-headline">
+						 {{ section.settings.black_week_headline_image |  image_url: width: 500 |  image_tag: class: "bs-hero-black-week__headline" }}
+					
+						 <div class="bs-hero-black-week__info-countdown">
+							{% comment %} COUNT DOWN {% endcomment %}
+							 COUNTDOWN
+						</div>
+					</div>
+				{% endif %}
 			</div>
-		</div>
-
-		<div class="bs-hero-black-week__content">
-
-			<div class="bs-hero-black-week__swiper swiper">
-				<div class="bs-hero-black-week__swiper-wrapper swiper-wrapper">
-					<div class="swiper-slide">
-					</div>
-					<div class="swiper-slide">
-					</div>
-					<div class="swiper-slide">
-					</div>
-					<div class="swiper-slide">
-					</div>
-					<div class="swiper-slide">
-					</div>
-					<div class="swiper-slide">
-					</div>
-					<div class="swiper-slide">
+	
+			<div class="bs-hero-black-week__content">
+	
+				<div class="bs-hero-black-week__swiper swiper">
+					<div class="bs-hero-black-week__swiper-wrapper swiper-wrapper">
+						<div class="swiper-slide">
+						</div>
+						<div class="swiper-slide">
+						</div>
+						<div class="swiper-slide">
+						</div>
+						<div class="swiper-slide">
+						</div>
+						<div class="swiper-slide">
+						</div>
+						<div class="swiper-slide">
+						</div>
+						<div class="swiper-slide">
+						</div>
 					</div>
 				</div>
+				{% comment %} SWIPER {% endcomment %}
 			</div>
-			{% comment %} SWIPER {% endcomment %}
 		</div>
 	</div>
 </section>
@@ -58,6 +60,11 @@
 		"settings": [
 			{
 				"type": "image_picker",
+				"id": "black_week_headline_image",
+				"label": "Black week headline image"
+			},
+			{
+				"type": "image_picker",
 				"id": "background_image_mobile",
 				"label": "Background image mobile"
 			},
@@ -65,12 +72,7 @@
 				"type": "image_picker",
 				"id": "background_image_desktop",
 				"label": "Background image desktop"
-			},
-			{
-				"type": "image_picker",
-				"id": "black_week_headline_image",
-				"label": "Black week headline image"
-			},
+			}
 		],
 		"presets": [
 			{
