@@ -58,17 +58,22 @@
     padding: 15px;
     width: 100%;
     max-width: 318px;
-    background: #1F1018;
+    background-color: #1F1018;
     border-radius: 5px;
     color: #FFFFFF;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    transition: transform .3s ease, background-color .3s ease;
 }
 
 .bs-black-week-collection-filters__collection:hover {
     cursor: pointer;
+    transform: translateY(-5px);
+    background-color: #1f1018cc;
 }
 
 @media (min-width: 641px) {
@@ -83,6 +88,17 @@
 
     .bs-black-week-collection-filters__collections {
         justify-content: flex-start;
+        gap: 20px;
+    }
+
+    .bs-black-week-collection-filters__title {
+        font-size: 13px;
+        line-height: 16px;
+    }
+
+    .bs-black-week-collection-filters__collection {
+        font-size: 16px;
+        line-height: 20px;
     }
 }
 
