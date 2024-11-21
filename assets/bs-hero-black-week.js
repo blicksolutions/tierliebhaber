@@ -37,9 +37,27 @@
 
 	const blackWeekSwiper = () => {
 		const blackWeek = new Swiper(".bs-hero-black-week__swiper", {
-			slidesPerView: 5,
 			centerInsufficientSlides: true,
-			spaceBetween: 16
+			spaceBetween: 16,
+			navigation: {
+				prevEl: document.querySelector(".bs-hero-black-week__swiper .swiper-button-prev"),
+				nextEl: document.querySelector(".bs-hero-black-week__swiper .swiper-button-next")
+			},
+			scrollbar: {
+				el: document.querySelector(".bs-hero-black-week__swiper .swiper-scrollbar"),
+				draggable: true,
+			},
+			breakpoints: {
+				0: {
+					slidesPerView: 2
+				},
+				768: {
+					slidesPerView: 4
+				},
+				992: {
+					slidesPerView: 5
+				},
+			},
 		});
 	};
 
