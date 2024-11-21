@@ -26,6 +26,7 @@
 		const countdownInterval = setInterval(updateCountdown, 1000);
 	
 		updateCountdown();
+		blackWeekSwiper();
 	
 		countDownCounterElement.classList.add('active');
 	});
@@ -35,11 +36,10 @@
 	/******************************************************************/
 
 	const blackWeekSwiper = () => {
-		const blackWeek = new Swiper(".bestseller__swiper", {
+		const blackWeek = new Swiper(".bs-hero-black-week__swiper", {
 			slidesPerView: 5,
 			centerInsufficientSlides: true,
-			spaceBetween: 10,
-			allowTouchMove: false,
+			spaceBetween: 16
 		});
 	};
 
