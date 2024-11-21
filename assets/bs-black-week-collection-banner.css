@@ -2,6 +2,46 @@
     background: #BF92A5;
     width: 100%;
     height: 182px;
+    padding: 17px 24px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.bs-black-week-collection-banner svg {
+    width: 200px;
+    height: auto;
+}
+
+.bs-black-week-collection-banner__image {
+    width: 255px;
+    height: auto;
+    position: absolute;
+    left: 164px;
+    top: -8px;
+}
+
+.bs-black-week-collection-banner__countdown {
+    background: #FDF3F0;
+    padding: 4px 15px;
+    border-radius: 30px;
+    font-size: 11px;
+    color: #32212B;
+    text-transform: uppercase;
+    font-weight: 600;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1;
+}
+
+.bs-black-week-collection-banner__countdown__counter {
+    font-size: 14px;
+    line-height: 18px;
+    color: #DF4E77;
+    text-transform: none;
 }
 
 .bs-black-week-collection-banner + .subscriptionReminderCallout.active {

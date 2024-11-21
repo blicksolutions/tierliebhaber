@@ -13,7 +13,6 @@
     margin: 0 16px;
     border-bottom: 1px solid var(--border-color);
     position: relative;
-    width: 100%;
 }
 
 .bs-black-week-collection-filters::before {
@@ -84,6 +83,7 @@
     .bs-black-week-collection-filters {
         align-items: flex-start;
         margin: 0 24px;
+        width: 100%;
     }
 
     .bs-black-week-collection-filters__collections {
