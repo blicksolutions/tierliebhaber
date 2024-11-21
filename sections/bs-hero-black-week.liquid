@@ -1,5 +1,7 @@
 {{ "bs-hero-black-week.css" |  asset_url |  stylesheet_tag }}
-{{ "bs-hero-black-week.js" |  asset_url |  stylesheet_tag }}
+
+
+<script src="{{ "bs-hero-black-week.js" |  asset_url }}" defer></script>
 
 <link rel="preload" href="{{ section.settings.background_image_mobile |  image_url: width: 800 }}" as="image">
 <link rel="preload" href="{{ section.settings.background_image_desktop |  image_url: width: 1920 }}" as="image">
@@ -18,11 +20,6 @@
 				{% if section.settings.black_week_headline_image %}
 					<div class="bs-hero-black-week__info-headline">
 						 {{ section.settings.black_week_headline_image |  image_url: width: 500 |  image_tag: class: "bs-hero-black-week__headline" }}
-					
-						 <div class="bs-hero-black-week__info-countdown">
-							{% comment %} COUNT DOWN {% endcomment %}
-							 COUNTDOWN
-						</div>
 
 						<div class="bs-hero-black-week__info-countdown">
 							<span>
