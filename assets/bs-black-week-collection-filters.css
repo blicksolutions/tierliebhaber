@@ -84,6 +84,12 @@
         align-items: flex-start;
         margin: 0 24px;
         width: 100%;
+        border-bottom: none;
+    }
+
+    .bs-black-week-collection-filters::before,
+    .bs-black-week-collection-filters::after {
+        content: none;
     }
 
     .bs-black-week-collection-filters__collections {
