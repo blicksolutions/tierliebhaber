@@ -1,0 +1,54 @@
+{{ "bs-hero-black-week.css" |  asset_url |  stylesheet_tag }}
+{{ "bs-hero-black-week.js" |  asset_url |  stylesheet_tag }}
+
+<link rel="preload" href="{{ section.settings.background_image_mobile |  image_url: width: 800 }}" as="image">
+<link rel="preload" href="{{ section.settings.background_image_desktop |  image_url: width: 1920 }}" as="image">
+
+<section class="bs-hero-black-week">
+	<div class="bs-hero-black-week__banner">
+		{% if section.settings.background_image_mobile %}
+			{{ section.settings.background_image_mobile |  image_url: width: 800 |  image_tag: class: "bs-hero-black-week__background bs-hero-black-week__background--mobile" }}
+		{% endif %}
+		{% if section.settings.background_image_desktop %}
+			{{ section.settings.background_image_desktop |  image_url: width: 1920 |  image_tag: class: "bs-hero-black-week__background bs-hero-black-week__background--desktop" }}
+		{% endif %}
+
+		<div class="bs-hero-black-week-info">
+			<div class="bs-hero-black-week__info-headline">
+				{% comment %} IMG HEADLINES {% endcomment %}
+			</div>
+
+			<div class="bs-hero-black-week__info-countdown">
+				{% comment %} COUNT DOWN {% endcomment %}
+			</div>
+		</div>
+
+		<div class="bs-hero-black-week__content">
+			{% comment %} SWIPER {% endcomment %}
+		</div>
+	</div>
+</section>
+
+
+{% schema %}
+	{
+		"name": "BS Hero Black Week",
+		"settings": [
+			{
+				"type": "image_picker",
+				"id": "background_image_mobile",
+				"label": "Background image mobile"
+			},
+			{
+				"type": "image_picker",
+				"id": "background_image_desktop",
+				"label": "Background image desktop"
+			}
+		],
+		"presets": [
+			{
+				"name": "BS Hero Black Week"
+			}
+		]
+	}
+{% endschema %}
