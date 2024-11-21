@@ -14,10 +14,11 @@
 		{% endif %}
 
 		<div class="bs-hero-black-week-info">
-			<div class="bs-hero-black-week__info-headline">
-				{% comment %} IMG HEADLINES {% endcomment %}
-				 HEADLINE
-			</div>
+			{% if section.settings.black_week_headline_image %}
+				<div class="bs-hero-black-week__info-headline">
+					 {{ section.settings.black_week_headline_image |  image_url: width: 500 |  image_tag: class: "bs-hero-black-week__headline" }}
+				</div>
+			{% endif %}
 
 			<div class="bs-hero-black-week__info-countdown">
 				{% comment %} COUNT DOWN {% endcomment %}
@@ -64,7 +65,12 @@
 				"type": "image_picker",
 				"id": "background_image_desktop",
 				"label": "Background image desktop"
-			}
+			},
+			{
+				"type": "image_picker",
+				"id": "black_week_headline_image",
+				"label": "Black week headline image"
+			},
 		],
 		"presets": [
 			{
