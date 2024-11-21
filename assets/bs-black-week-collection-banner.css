@@ -48,6 +48,12 @@
     color: #DF4E77;
     text-transform: none;
     letter-spacing: normal;
+    opacity: 0;
+    transition: opacity .5s ease;
+}
+
+.bs-black-week-collection-banner__countdown__counter.active {
+    opacity: 1;
 }
 
 .bs-black-week-collection-banner + .subscriptionReminderCallout.active {
