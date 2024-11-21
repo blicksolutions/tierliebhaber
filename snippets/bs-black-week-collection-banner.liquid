@@ -1,17 +1,19 @@
 {{ 'bs-black-week-collection-banner.css' |  asset_url |  stylesheet_tag }}
 
 <div class="bs-black-week-collection-banner">
-    {% render 'bs-icon-black-week-banner-header' %}
-    <img class="bs-black-week-collection-banner__image" width="534" height="534" src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/dog-party.png?v=1732162076" alt="dog-party">
-    <div class="bs-black-week-collection-banner__countdown">
-        <span>
-            Sale endet in
-        </span>
-        <span class="bs-black-week-collection-banner__countdown__counter">
-            <span class="bs-black-week-collection-banner__countdown__counter__days">6d</span> :
-            <span class="bs-black-week-collection-banner__countdown__counter__hours">11h</span> :
-            <span class="bs-black-week-collection-banner__countdown__counter__minutes">7m</span> :
-            <span class="bs-black-week-collection-banner__countdown__counter__seconds">20s</span>
-        </span>
+    <div class="bs-black-week-collection-banner__content">
+        {% render 'bs-icon-black-week-banner-header' %}
+        <img class="bs-black-week-collection-banner__image" width="534" height="534" src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/dog-party.png?v=1732162076" alt="dog-party">
+        <div class="bs-black-week-collection-banner__countdown">
+            <span>
+                Sale endet in
+            </span>
+            <span class="bs-black-week-collection-banner__countdown__counter">
+                <span class="bs-black-week-collection-banner__countdown__counter__days">6d</span> :
+                <span class="bs-black-week-collection-banner__countdown__counter__hours">11h</span> :
+                <span class="bs-black-week-collection-banner__countdown__counter__minutes">7m</span> :
+                <span class="bs-black-week-collection-banner__countdown__counter__seconds">20s</span>
+            </span>
+        </div>
     </div>
 </div>

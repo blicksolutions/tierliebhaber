@@ -4,9 +4,12 @@
     height: 182px;
     padding: 17px 24px;
     position: relative;
+    overflow: hidden;
+}
+
+.bs-black-week-collection-banner__content {
     display: flex;
     flex-direction: column;
-    overflow: hidden;
 }
 
 .bs-black-week-collection-banner svg {
@@ -35,6 +38,8 @@
     align-items: center;
     gap: 10px;
     z-index: 1;
+    position: relative;
+    letter-spacing: 2px;
 }
 
 .bs-black-week-collection-banner__countdown__counter {
@@ -42,14 +47,50 @@
     line-height: 18px;
     color: #DF4E77;
     text-transform: none;
+    letter-spacing: normal;
 }
 
 .bs-black-week-collection-banner + .subscriptionReminderCallout.active {
     display: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 641px) {
     .bs-black-week-collection-banner {
         height: 280px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .bs-black-week-collection-banner__content {
+        position: relative;
+        max-width: 735px;
+        width: 100%;
+    }
+
+    .bs-black-week-collection-banner svg {
+        width: 376px;
+    }
+
+    .bs-black-week-collection-banner__image {
+        width: 534px;
+        top: -45px;
+        right: -100px;
+        left: unset;
+    }
+
+    .bs-black-week-collection-banner__countdown {
+        padding: 5px 19px;
+        font-size: 14px;
+        line-height: 18px;
+        gap: 12px;
+        margin-left: 25px;
+        letter-spacing: 3px;
+    }
+
+    .bs-black-week-collection-banner__countdown__counter {
+        font-size: 18px;
+        line-height: 22px;
+        letter-spacing: normal;
     }
 }
