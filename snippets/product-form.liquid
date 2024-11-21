@@ -571,7 +571,12 @@ $(document).ready(function(){
                             {% endif %}
                         {% endfor %}
         
-                    <li class="VariantSelector__ListItem {% if value == option.selected_value %}VariantSelector__ListItem--selected{% endif %}" data-js-sticky-atc-variant-selector-item data-js-option-value="{{ value | escape }}">
+                    <li 
+						class="VariantSelector__ListItem {% if value == option.selected_value %}VariantSelector__ListItem--selected{% endif %}" 
+						data-js-sticky-atc-variant-selector-item
+						data-js-option-value="{{ value | escape }}"
+						{% if forloop.first %} data-js-first-option {% endif %}
+						>
                             <p class="VariantSelector__Option">
                                 {{ value }}
                             </p>

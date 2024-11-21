@@ -1,4 +1,7 @@
 window.activateAbTlh067 = () => {
+	const productHandle = window.location.pathname.split('/').slice(-1).toString();
+	let bestseller;
+
 	switch (productHandle) {
 		case 'dentalspray-katzen-1':
 			bestseller = true;
@@ -34,6 +37,7 @@ window.activateAbTlh067 = () => {
 			break;
 	}
 	if (bestseller != true) return
+	window.tlh067 = true
 
 	const variantPopup = document.querySelector('[data-js-tlh-067-variant-popup]')
 	if (!variantPopup) return
@@ -67,7 +71,24 @@ window.activateAbTlh067 = () => {
 	}
 
 	const togglePopup = () => {
+		let openPopup = true
 
+		const originalVariantSelectorInputs = document.querySelectorAll('.ProductForm__Variants .ProductForm__Option .SizeSwatchList input[value]');
+		originalVariantSelectorInputs.forEach((input)=>{
+            if (input.checked == true) {
+                const inputValue = input.getAttribute('value')
+                const selectedValue = variantPopup.querySelector(`[data-js-option-value="${inputValue}"]`)
+                console.log('selectedValue', selectedValue)
+                if (selectedValue != null) {
+                    const origianlAtc = document.querySelector('[data-js-atc-button]')
+                    origianlAtc.click()
+                    openPopup = false
+                }
+            }
+		})
+		console.log('openPopup', openPopup)
+		if (openPopup == false) return
+		
 		if (variantPopup.style.display === "none" || !variantPopup.classList.contains('show')) {
 			pageOverlay.classList.add('is-visible')
 
