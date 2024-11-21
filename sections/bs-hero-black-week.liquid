@@ -7,7 +7,7 @@
 <section class="bs-hero-black-week">
 	<div class="bs-hero-black-week__banner">
 		{% if section.settings.background_image_mobile %}
-			{{ section.settings.background_image_mobile |  image_url: width: 800 |  image_tag: class: "bs-hero-black-week__background bs-hero-black-week__background--mobile" }}
+			{{ section.settings.background_image_mobile |  image_url: width: 1920 |  image_tag: class: "bs-hero-black-week__background bs-hero-black-week__background--mobile" }}
 		{% endif %}
 		{% if section.settings.background_image_desktop %}
 			{{ section.settings.background_image_desktop |  image_url: width: 1920 |  image_tag: class: "bs-hero-black-week__background bs-hero-black-week__background--desktop" }}
@@ -16,14 +16,35 @@
 		<div class="bs-hero-black-week-info">
 			<div class="bs-hero-black-week__info-headline">
 				{% comment %} IMG HEADLINES {% endcomment %}
+				 HEADLINE
 			</div>
 
 			<div class="bs-hero-black-week__info-countdown">
 				{% comment %} COUNT DOWN {% endcomment %}
+				 COUNTDOWN
 			</div>
 		</div>
 
 		<div class="bs-hero-black-week__content">
+
+			<div class="bs-hero-black-week__swiper swiper">
+				<div class="bs-hero-black-week__swiper-wrapper swiper-wrapper">
+					<div class="swiper-slide">
+					</div>
+					<div class="swiper-slide">
+					</div>
+					<div class="swiper-slide">
+					</div>
+					<div class="swiper-slide">
+					</div>
+					<div class="swiper-slide">
+					</div>
+					<div class="swiper-slide">
+					</div>
+					<div class="swiper-slide">
+					</div>
+				</div>
+			</div>
 			{% comment %} SWIPER {% endcomment %}
 		</div>
 	</div>

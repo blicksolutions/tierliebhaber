@@ -1,0 +1,17 @@
+.bs-hero-black-week__background--mobile {
+	display: block;
+}
+
+.bs-hero-black-week__background--desktop {
+	display: none;
+}
+
+@media (min-width: 768px) {
+	.bs-hero-black-week__background--mobile {
+		display: none;
+	}
+	
+	.bs-hero-black-week__background--desktop {
+		display: block;
+	}
+}
