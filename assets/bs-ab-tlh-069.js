@@ -6,4 +6,4 @@ window.activateAbTlh069 = () => {
 
 };
 
-document.addEventListener('DOMContentLoaded', window.activateAbTlh069)
+document.addEventListener('readystatechange', window.activateAbTlh069)
