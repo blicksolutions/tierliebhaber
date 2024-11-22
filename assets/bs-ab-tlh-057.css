@@ -341,8 +341,8 @@ img.bs-hero-black-week__headline {
 
 @media(min-width: 768px) {
 	.bs-hero-black-week__product-title {
-		font-size: 28px;
-		line-height: 35px;
+		font-size: 25px;
+		line-height: 30px;
 	}
 
 	.bs-hero-black-week__product-description {
