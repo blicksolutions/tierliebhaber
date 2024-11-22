@@ -5,5 +5,3 @@ window.activateAbTlh069 = () => {
 	announcementBar.setAttribute('data-js-tlh-069', 'true')
 
 };
-
-document.addEventListener('DOMContentLoaded', window.activateAbTlh069)
