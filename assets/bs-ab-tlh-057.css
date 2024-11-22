@@ -190,7 +190,7 @@ img.bs-hero-black-week__headline {
 }
 
 @media (min-width: 768px) {
-	.bs-hero-black-week__swiper .swiper-scrollbar {
+	.bs-hero-black-week__swiper .bs-hero-black-week__swiper-scrollbar.swiper-scrollbar {
 		display: none;
 	}
 }
@@ -203,11 +203,12 @@ img.bs-hero-black-week__headline {
 .bs-hero-black-week .swiper-button-prev,
 .bs-hero-black-week .swiper-button-next {
 	transition: opacity .2s ease-out;
-	top: -245px;
+	top: -275px;
 	display: none;
 }
 
 @media(min-width: 768px) {
+
 	.bs-hero-black-week .swiper-button-prev,
 	.bs-hero-black-week .swiper-button-next {
 		display: block;
@@ -246,6 +247,10 @@ img.bs-hero-black-week__headline {
 /* black hero swiper - product
 /******************************************************************/
 
+.bs-hero-black-week__product-content {
+	flex-grow: 1;
+}
+
 .bs-hero-black-week__discount {
 	position: absolute;
 	top: -38px;
@@ -262,7 +267,8 @@ img.bs-hero-black-week__headline {
 }
 
 .bs-hero-black-week__discount--all img {
-	width: 80%;
+	width: 100%;
+	margin-top: 70px;
 }
 
 .bs-hero-black-week__product.swiper-slide {
@@ -279,7 +285,7 @@ img.bs-hero-black-week__headline {
 
 .bs-hero-black-week__product svg {
 	position: absolute;
-	top: -18px;
+	top: -22px;
 	left: 5px;
 	display: none;
 }
@@ -295,6 +301,7 @@ img.bs-hero-black-week__headline {
 
 .bs-hero-black-week__product-image img {
 	border-radius: 8px;
+	width: 100%;
 }
 
 .bs-hero-black-week__product-reviews {
@@ -342,7 +349,7 @@ img.bs-hero-black-week__headline {
 		font-size: 14px;
 		line-height: 17px;
 	}
-	
+
 	.bs-hero-black-week__product-button a {
 		letter-spacing: 2px;
 		padding: 20px 16px;
@@ -373,13 +380,13 @@ img.bs-hero-black-week__headline {
 @media(min-width: 768px) {
 	.bs-hero-black-week--b .tlh-057--b {
 		display: block;
-	}	
+	}
 
 	.bs-hero-black-week--b .bs-hero-black-week__info-headline {
 		display: flex;
 		flex-direction: column-reverse;
 		padding-top: 12px;
-	}	
+	}
 }
 
 

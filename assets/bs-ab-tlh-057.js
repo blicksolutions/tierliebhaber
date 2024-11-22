@@ -77,7 +77,7 @@ window.activateAbTlh057 = () => {
 };
 
 // TODO: REMOVE
-document.addEventListener('DOMContentLoaded', window.activateAbTlh057);
+//document.addEventListener('DOMContentLoaded', window.activateAbTlh057);
 
 // custom goal (count clicks on product links
 (() => {
