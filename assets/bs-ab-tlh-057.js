@@ -2,17 +2,17 @@
 	document.addEventListener("DOMContentLoaded", () => {
 		const targetDate = new Date('December 1, 2024 23:59:59').getTime();
 		const countDownCounterElement = document.querySelector('.bs-hero-black-week__countdown-counter');
-	
+
 		const updateCountdown = () => {
 			const now = new Date().getTime();
 			const timeRemaining = targetDate - now;
-	
+
 			if (timeRemaining > 0) {
 				const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
 				const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 				const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
 				const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-	
+
 				document.querySelector('.bs-hero-black-week__countdown-counter-days').textContent = `${days}d`;
 				document.querySelector('.bs-hero-black-week__countdown-counter-hours').textContent = `${hours}h`;
 				document.querySelector('.bs-hero-black-week__countdown-counter-minutes').textContent = `${minutes}m`;
@@ -22,12 +22,12 @@
 				clearInterval(countdownInterval);
 			}
 		}
-	
+
 		const countdownInterval = setInterval(updateCountdown, 1000);
-	
+
 		updateCountdown();
 		blackWeekSwiper();
-	
+
 		countDownCounterElement.classList.add('active');
 	});
 
@@ -76,4 +76,22 @@ window.activateAbTlh057 = () => {
 	blackWeekSection.classList.add('bs-hero-black-week--b');
 };
 
+// TODO: REMOVE
 document.addEventListener('DOMContentLoaded', window.activateAbTlh057);
+
+// custom goal (count clicks on product links
+(() => {
+	document.addEventListener("DOMContentLoaded", () => {
+		const blackWeekProductButtons = document.querySelectorAll('.bs-hero-black-week__product-button a');
+
+		blackWeekProductButtons.forEach((link) => {
+			link.addEventListener('click', () => {
+				console.log("TRIGGER tlh057 GOAL")
+				window['ablyft'].push({
+					eventType: 'custom',
+					eventName: 'tlh-057-clicks-on-product-links'
+				});
+			});
+		});
+	});
+})();
