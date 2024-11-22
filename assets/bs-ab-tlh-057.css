@@ -1,6 +1,6 @@
 .bs-hero-black-week__banner {
 	position: relative;
-	height: 850px;
+	height: 860px;
 }
 
 .bs-hero-black-week__wrapper {
@@ -131,11 +131,6 @@ img.bs-hero-black-week__headline {
 		opacity: 0;
 		transition: opacity .5s ease;
 	}
-
-	.bs-hero-black-week__countdown-counter {
-		font-size: 14px;
-		line-height: 18px;
-	}
 }
 
 .bs-hero-black-week__countdown-counter.active {
@@ -170,11 +165,12 @@ img.bs-hero-black-week__headline {
 	opacity: 1;
 }
 
-.bs-hero-black-week__swiper {
+.bs-hero-black-week__swiper.swiper {
 	width: 100%;
 	position: absolute;
 	bottom: 0;
 	padding-bottom: 40px;
+	padding-top: 40px;
 }
 
 .bs-hero-black-week__swiper .swiper-scrollbar {
@@ -199,7 +195,8 @@ img.bs-hero-black-week__headline {
 	}
 }
 
-.bs-hero-black-week .swiper-button-disabled {
+.bs-hero-black-week .swiper-button-prev.swiper-button-disabled,
+.bs-hero-black-week .swiper-button-next.swiper-button-disabled {
 	opacity: 0;
 }
 
@@ -268,7 +265,7 @@ img.bs-hero-black-week__headline {
 	width: 80%;
 }
 
-.bs-hero-black-week__product {
+.bs-hero-black-week__product.swiper-slide {
 	display: flex;
 	flex-wrap: wrap;
 	align-content: space-between;
@@ -282,7 +279,7 @@ img.bs-hero-black-week__headline {
 
 .bs-hero-black-week__product svg {
 	position: absolute;
-	top: -25px;
+	top: -18px;
 	left: 5px;
 	display: none;
 }
@@ -378,6 +375,17 @@ img.bs-hero-black-week__headline {
 
 .bs-hero-black-week--b .bs-hero-black-week__product svg {
 	display: block;
+}
+
+.bs-hero-black-week--b .bs-hero-black-week__info-headline {
+	display: flex;
+	flex-direction: column-reverse;
+	padding-top: 12px;
+}
+
+.bs-hero-black-week__headline.tlh-057--b {
+	margin-left: 20px;
+	width: 380px;
 }
 
 @media (min-width: 768px) {
