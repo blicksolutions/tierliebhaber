@@ -279,6 +279,13 @@ img.bs-hero-black-week__headline {
 	background: linear-gradient(270deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%), #FFF;
 }
 
+.bs-hero-black-week__product svg {
+	position: absolute;
+	top: -25px;
+	left: 5px;
+	display: none;
+}
+
 .bs-hero-black-week__product-image {
 	border-radius: 8px;
 }
