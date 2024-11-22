@@ -1,8 +1,10 @@
 (() => {
 	const reviewsContainer = document.querySelector('#judgeme_product_reviews');
+	if(!reviewsContainer) return;
 
 	const reviews = reviewsContainer.querySelectorAll('.jdgm-widget .jdgm-rev-widg .jdgm-rev-widg__reviews .jdgm-rev');	
 	const testimonialsWrapper = document.querySelector('[data-js-product-testimonials-wrapper]');
+	if(!reviews.length) return;
 
 	const reviewWidget = document.querySelector('.jdgm-rev-widg');
 	const avgRating = reviewWidget.dataset.averageRating;
@@ -111,7 +113,7 @@
 		});
 	});
 
-	const reviewsButton = testimonialsSection.querySelector('[data-js-product-testimonials-button]');
+	const reviewsButton = document.querySelector('[data-js-product-testimonials-button]');
 
 	reviewsButton.addEventListener('click', () => {
 		const element = document.querySelector('#judgeme_product_reviews');
