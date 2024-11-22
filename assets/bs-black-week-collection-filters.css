@@ -66,6 +66,8 @@
     font-weight: 700;
     font-size: 14px;
     line-height: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     transition: transform .3s ease, background-color .3s ease;
 }
 
