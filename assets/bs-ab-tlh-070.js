@@ -54,4 +54,4 @@ window.activateAbTlh070 = () => {
 	}
 };
 
-// document.addEventListener('DOMContentLoaded', window.activateAbTlh070);
+document.addEventListener('DOMContentLoaded', window.activateAbTlh070);
