@@ -29,6 +29,11 @@
 		blackWeekSwiper();
 
 		countDownCounterElement.classList.add('active');
+
+		const urlParams = new URLSearchParams(window.location.search);
+		if (urlParams.has('tlh-057')) {
+			window.activateAbTlh057();
+		}
 	});
 
 	/******************************************************************/
