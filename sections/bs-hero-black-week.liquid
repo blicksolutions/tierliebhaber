@@ -1,40 +1,51 @@
-{{ 'bs-hero-black-week.css' | asset_url | stylesheet_tag }}
-
-<script src="{{ "bs-hero-black-week.js" |  asset_url }}" defer></script>
-
-<link rel="preload" href="{{ section.settings.background_image_mobile |  image_url: width: 800 }}" as="image">
-<link rel="preload" href="{{ section.settings.background_image_desktop |  image_url: width: 1920 }}" as="image">
+<link rel="preload" href="{{ section.settings.background_image_mobile | image_url: width: 800 }}" as="image">
+<link rel="preload" href="{{ section.settings.background_image_desktop | image_url: width: 1920 }}" as="image">
 
 <section class="bs-hero-black-week">
 	<div class="bs-hero-black-week__banner">
 		{% if section.settings.background_image_mobile %}
-			{{ section.settings.background_image_mobile | image_url: width: 1920 | image_tag: class: 'bs-hero-black-week__background bs-hero-black-week__background--mobile' }}
+			{{ section.settings.background_image_mobile | image_url: width: 1920 | image_tag: class: 'bs-hero-black-week__background bs-hero-black-week__background--mobile tlh-057--a' }}
 		{% endif %}
+
 		{% if section.settings.background_image_desktop %}
-			{{ section.settings.background_image_desktop | image_url: width: 1920 | image_tag: class: 'bs-hero-black-week__background bs-hero-black-week__background--desktop' }}
+			{{ section.settings.background_image_desktop | image_url: width: 1920 | image_tag: class: 'bs-hero-black-week__background bs-hero-black-week__background--desktop tlh-057--a' }}
+		{% endif %}
+
+		{% if section.settings.background_image_mobile_b %}
+			{{ section.settings.background_image_mobile_b | image_url: width: 1920 | image_tag: class: 'bs-hero-black-week__background bs-hero-black-week__background--mobile tlh-057--b' }}
+		{% endif %}
+
+		{% if section.settings.background_image_desktop_b %}
+			{{ section.settings.background_image_desktop_b | image_url: width: 1920 | image_tag: class: 'bs-hero-black-week__background bs-hero-black-week__background--desktop tlh-057--b' }}
 		{% endif %}
 
 		<div class="bs-hero-black-week__wrapper">
 			<div class="bs-hero-black-week-info">
-				{% if section.settings.black_week_headline_image %}
-					<div class="bs-hero-black-week__info-headline">
-						{{ section.settings.black_week_headline_image | image_url: width: 500 | image_tag: class: 'bs-hero-black-week__headline' }}
+				<div class="bs-hero-black-week__info-headline">
+					{% if section.settings.black_week_headline_image %}
+						{{ section.settings.black_week_headline_image | image_url: width: 500 | image_tag: class: 'bs-hero-black-week__headline tlh-057--a' }}
+					{% endif %}
+					{% if section.settings.black_week_headline_image_b %}
+						{{ section.settings.black_week_headline_image_b | image_url: width: 500 | image_tag: class: 'bs-hero-black-week__headline tlh-057--b' }}
+					{% endif %}
 
-						<div class="bs-hero-black-week__countdown">
-							<span> Sale endet in </span>
-							<span class="bs-hero-black-week__countdown-counter">
+					<div class="bs-hero-black-week__countdown">
+						<span> Sale endet in </span>
+						<span class="bs-hero-black-week__countdown-counter">
 								<span class="bs-hero-black-week__countdown-counter-days"></span> : <span class="bs-hero-black-week__countdown-counter-hours"></span> : <span class="bs-hero-black-week__countdown-counter-minutes"></span> :
 								<span class="bs-hero-black-week__countdown-counter-seconds"></span>
 							</span>
-						</div>
 					</div>
-				{% endif %}
+				</div>
 			</div>
 
 			<div class="bs-hero-black-week__content">
 				<div class="bs-hero-black-week__swiper swiper">
 					<div class="bs-hero-black-week__swiper-wrapper swiper-wrapper">
 						<div class="swiper-slide bs-hero-black-week__product">
+							<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+								<path d="M17.7432 25.5322L23.8795 29.2435C25.0032 29.9237 26.3783 28.9182 26.0826 27.6466L24.4561 20.6676L29.8826 15.9656C30.8733 15.108 30.341 13.4816 29.0398 13.378L21.8981 12.7718L19.1035 6.17722C18.6008 4.97954 16.8856 4.97954 16.3829 6.17722L13.5883 12.757L6.44664 13.3633C5.14547 13.4668 4.61317 15.0932 5.60383 15.9508L11.0303 20.6528L9.40386 27.6319C9.10814 28.9035 10.4832 29.9089 11.607 29.2287L17.7432 25.5322Z" fill="#F4D056"/>
+							</svg>
 							<div class="bs-hero-black-week__discount">
 								<img src="{{ "black-week-discount-10.svg" | asset_url }}" alt="">
 							</div>
@@ -42,9 +53,15 @@
 								<div class="bs-hero-black-week__product-image">
 									<img class="" src="//tierliebhaber.de/cdn/shop/files/dentalspray_1_vergleich_300x.png?v=1722318868" alt="Dentalspray">
 								</div>
-								<div class="bs-hero-black-week__product-reviews"></div>
-								<div class="bs-hero-black-week__product-title">Titel</div>
-								<div class="bs-hero-black-week__product-description">Das 100% natürliche Leckerchen</div>
+								<div class="bs-hero-black-week__product-reviews">
+
+								</div>
+								<div class="bs-hero-black-week__product-title">
+									Titel
+								</div>
+								<div class="bs-hero-black-week__product-description">
+									Das 100% natürliche Leckerchen
+								</div>
 							</div>
 
 							<div class="bs-hero-black-week__product-button">
@@ -52,6 +69,9 @@
 							</div>
 						</div>
 						<div class="swiper-slide bs-hero-black-week__product">
+							<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+								<path d="M17.7432 25.5322L23.8795 29.2435C25.0032 29.9237 26.3783 28.9182 26.0826 27.6466L24.4561 20.6676L29.8826 15.9656C30.8733 15.108 30.341 13.4816 29.0398 13.378L21.8981 12.7718L19.1035 6.17722C18.6008 4.97954 16.8856 4.97954 16.3829 6.17722L13.5883 12.757L6.44664 13.3633C5.14547 13.4668 4.61317 15.0932 5.60383 15.9508L11.0303 20.6528L9.40386 27.6319C9.10814 28.9035 10.4832 29.9089 11.607 29.2287L17.7432 25.5322Z" fill="#F4D056"/>
+							</svg>
 							<div class="bs-hero-black-week__discount">
 								<img src="{{ "black-week-discount-10.svg" | asset_url }}" alt="">
 							</div>
@@ -59,9 +79,15 @@
 								<div class="bs-hero-black-week__product-image">
 									<img class="" src="//tierliebhaber.de/cdn/shop/files/dentalspray_1_vergleich_300x.png?v=1722318868" alt="Dentalspray">
 								</div>
-								<div class="bs-hero-black-week__product-reviews"></div>
-								<div class="bs-hero-black-week__product-title">Chillout Drops</div>
-								<div class="bs-hero-black-week__product-description">Das 100% natürliche Leckerchen</div>
+								<div class="bs-hero-black-week__product-reviews">
+
+								</div>
+								<div class="bs-hero-black-week__product-title">
+									Chillout Drops
+								</div>
+								<div class="bs-hero-black-week__product-description">
+									Das 100% natürliche Leckerchen
+								</div>
 							</div>
 
 							<div class="bs-hero-black-week__product-button">
@@ -69,6 +95,9 @@
 							</div>
 						</div>
 						<div class="swiper-slide bs-hero-black-week__product">
+							<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+								<path d="M17.7432 25.5322L23.8795 29.2435C25.0032 29.9237 26.3783 28.9182 26.0826 27.6466L24.4561 20.6676L29.8826 15.9656C30.8733 15.108 30.341 13.4816 29.0398 13.378L21.8981 12.7718L19.1035 6.17722C18.6008 4.97954 16.8856 4.97954 16.3829 6.17722L13.5883 12.757L6.44664 13.3633C5.14547 13.4668 4.61317 15.0932 5.60383 15.9508L11.0303 20.6528L9.40386 27.6319C9.10814 28.9035 10.4832 29.9089 11.607 29.2287L17.7432 25.5322Z" fill="#F4D056"/>
+							</svg>
 							<div class="bs-hero-black-week__discount">
 								<img src="{{ "black-week-discount-10.svg" | asset_url }}" alt="">
 							</div>
@@ -76,9 +105,15 @@
 								<div class="bs-hero-black-week__product-image">
 									<img class="" src="//tierliebhaber.de/cdn/shop/files/dentalspray_1_vergleich_300x.png?v=1722318868" alt="Dentalspray">
 								</div>
-								<div class="bs-hero-black-week__product-reviews"></div>
-								<div class="bs-hero-black-week__product-title">Titel</div>
-								<div class="bs-hero-black-week__product-description">Das 100% natürliche Leckerchen</div>
+								<div class="bs-hero-black-week__product-reviews">
+
+								</div>
+								<div class="bs-hero-black-week__product-title">
+									Titel
+								</div>
+								<div class="bs-hero-black-week__product-description">
+									Das 100% natürliche Leckerchen
+								</div>
 							</div>
 
 							<div class="bs-hero-black-week__product-button">
@@ -86,6 +121,9 @@
 							</div>
 						</div>
 						<div class="swiper-slide bs-hero-black-week__product">
+							<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+								<path d="M17.7432 25.5322L23.8795 29.2435C25.0032 29.9237 26.3783 28.9182 26.0826 27.6466L24.4561 20.6676L29.8826 15.9656C30.8733 15.108 30.341 13.4816 29.0398 13.378L21.8981 12.7718L19.1035 6.17722C18.6008 4.97954 16.8856 4.97954 16.3829 6.17722L13.5883 12.757L6.44664 13.3633C5.14547 13.4668 4.61317 15.0932 5.60383 15.9508L11.0303 20.6528L9.40386 27.6319C9.10814 28.9035 10.4832 29.9089 11.607 29.2287L17.7432 25.5322Z" fill="#F4D056"/>
+							</svg>
 							<div class="bs-hero-black-week__discount">
 								<img src="{{ "black-week-discount-10.svg" | asset_url }}" alt="">
 							</div>
@@ -93,9 +131,15 @@
 								<div class="bs-hero-black-week__product-image">
 									<img class="" src="//tierliebhaber.de/cdn/shop/files/dentalspray_1_vergleich_300x.png?v=1722318868" alt="Dentalspray">
 								</div>
-								<div class="bs-hero-black-week__product-reviews"></div>
-								<div class="bs-hero-black-week__product-title">Titel</div>
-								<div class="bs-hero-black-week__product-description">Das 100% natürliche Leckerchen</div>
+								<div class="bs-hero-black-week__product-reviews">
+
+								</div>
+								<div class="bs-hero-black-week__product-title">
+									Titel
+								</div>
+								<div class="bs-hero-black-week__product-description">
+									Das 100% natürliche Leckerchen
+								</div>
 							</div>
 
 							<div class="bs-hero-black-week__product-button">
@@ -103,6 +147,9 @@
 							</div>
 						</div>
 						<div class="swiper-slide bs-hero-black-week__product">
+							<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+								<path d="M17.7432 25.5322L23.8795 29.2435C25.0032 29.9237 26.3783 28.9182 26.0826 27.6466L24.4561 20.6676L29.8826 15.9656C30.8733 15.108 30.341 13.4816 29.0398 13.378L21.8981 12.7718L19.1035 6.17722C18.6008 4.97954 16.8856 4.97954 16.3829 6.17722L13.5883 12.757L6.44664 13.3633C5.14547 13.4668 4.61317 15.0932 5.60383 15.9508L11.0303 20.6528L9.40386 27.6319C9.10814 28.9035 10.4832 29.9089 11.607 29.2287L17.7432 25.5322Z" fill="#F4D056"/>
+							</svg>
 							<div class="bs-hero-black-week__discount">
 								<img src="{{ "black-week-discount-10.svg" | asset_url }}" alt="">
 							</div>
@@ -110,9 +157,15 @@
 								<div class="bs-hero-black-week__product-image">
 									<img class="" src="//tierliebhaber.de/cdn/shop/files/dentalspray_1_vergleich_300x.png?v=1722318868" alt="Dentalspray">
 								</div>
-								<div class="bs-hero-black-week__product-reviews"></div>
-								<div class="bs-hero-black-week__product-title">Titel</div>
-								<div class="bs-hero-black-week__product-description">Das 100% natürliche Leckerchen</div>
+								<div class="bs-hero-black-week__product-reviews">
+
+								</div>
+								<div class="bs-hero-black-week__product-title">
+									Titel
+								</div>
+								<div class="bs-hero-black-week__product-description">
+									Das 100% natürliche Leckerchen
+								</div>
 							</div>
 
 							<div class="bs-hero-black-week__product-button">
@@ -120,6 +173,9 @@
 							</div>
 						</div>
 						<div class="swiper-slide bs-hero-black-week__product bs-hero-black-week__product--all">
+							<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+								<path d="M17.7432 25.5322L23.8795 29.2435C25.0032 29.9237 26.3783 28.9182 26.0826 27.6466L24.4561 20.6676L29.8826 15.9656C30.8733 15.108 30.341 13.4816 29.0398 13.378L21.8981 12.7718L19.1035 6.17722C18.6008 4.97954 16.8856 4.97954 16.3829 6.17722L13.5883 12.757L6.44664 13.3633C5.14547 13.4668 4.61317 15.0932 5.60383 15.9508L11.0303 20.6528L9.40386 27.6319C9.10814 28.9035 10.4832 29.9089 11.607 29.2287L17.7432 25.5322Z" fill="#F4D056"/>
+							</svg>
 							<div class="bs-hero-black-week__discount bs-hero-black-week__discount--all">
 								<img src="{{ "black-week-discount-all.svg" | asset_url }}" alt="">
 							</div>
@@ -145,19 +201,42 @@
 	"name": "BS Hero Black Week",
 	"settings": [
 		{
+			"type": "header",
+			"content": "A Variant"
+		},
+		{
 			"type": "image_picker",
 			"id": "black_week_headline_image",
-			"label": "Black week headline image"
+			"label": "Black week headline image - variant A"
 		},
 		{
 			"type": "image_picker",
 			"id": "background_image_mobile",
-			"label": "Background image mobile"
+			"label": "Background image mobile - variant A"
 		},
 		{
 			"type": "image_picker",
 			"id": "background_image_desktop",
-			"label": "Background image desktop"
+			"label": "Background image desktop - variant A"
+		},
+		{
+			"type": "header",
+			"content": "B Variant"
+		},
+		{
+			"type": "image_picker",
+			"id": "black_week_headline_image_b",
+			"label": "Black week headline image - Variant B"
+		},
+		{
+			"type": "image_picker",
+			"id": "background_image_mobile_b",
+			"label": "Background image mobile - variant B"
+		},
+		{
+			"type": "image_picker",
+			"id": "background_image_desktop_b",
+			"label": "Background image desktop - variant B"
 		}
 	],
 	"presets": [
