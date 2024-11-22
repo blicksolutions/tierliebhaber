@@ -76,9 +76,6 @@ window.activateAbTlh057 = () => {
 	blackWeekSection.classList.add('bs-hero-black-week--b');
 };
 
-// TODO: REMOVE
-//document.addEventListener('DOMContentLoaded', window.activateAbTlh057);
-
 // custom goal (count clicks on product links
 (() => {
 	document.addEventListener("DOMContentLoaded", () => {
