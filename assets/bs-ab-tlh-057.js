@@ -49,7 +49,7 @@
 			},
 			breakpoints: {
 				0: {
-					slidesPerView: 1.9,
+					slidesPerView: 1.95,
 					slidesOffsetBefore: 25,
 					slidesOffsetAfter: 25
 				},

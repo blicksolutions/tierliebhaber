@@ -235,12 +235,12 @@ img.bs-hero-black-week__headline {
 
 .bs-hero-black-week .swiper-button-prev::after {
 	display: block;
-	content: url("./black-week-arrow-right.svg");
-	transform: rotate(180deg)
+	content: url("./black-week-arrow-right.png");
+	transform: rotate(180deg);
 }
 
 .bs-hero-black-week .swiper-button-next::after {
-	content: url("./black-week-arrow-right.svg");
+	content: url("./black-week-arrow-right.png");
 }
 
 /******************************************************************/
@@ -266,9 +266,9 @@ img.bs-hero-black-week__headline {
 	flex-grow: 1;
 }
 
-.bs-hero-black-week__discount--all img {
-	width: 100%;
+.bs-hero-black-week__discount--all object {
 	margin-top: 70px;
+	transform: scale(1.3);
 }
 
 .bs-hero-black-week__product.swiper-slide {
