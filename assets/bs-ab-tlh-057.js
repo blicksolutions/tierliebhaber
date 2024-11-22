@@ -30,6 +30,7 @@
 
 		countDownCounterElement.classList.add('active');
 
+		// only for previewing B Variant
 		const urlParams = new URLSearchParams(window.location.search);
 		if (urlParams.has('tlh-057')) {
 			window.activateAbTlh057();
