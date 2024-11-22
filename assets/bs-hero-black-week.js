@@ -18,7 +18,7 @@
 				document.querySelector('.bs-hero-black-week__countdown-counter-minutes').textContent = `${minutes}m`;
 				document.querySelector('.bs-hero-black-week__countdown-counter-seconds').textContent = `${seconds}s`;
 			} else {
-				document.querySelector('.bs-hero-black-week__info-countdown').innerHTML = '<span>Sale has ended!</span>';
+				document.querySelector('.bs-hero-black-week__countdown').innerHTML = '<span>Sale has ended!</span>';
 				clearInterval(countdownInterval);
 			}
 		}
@@ -40,8 +40,8 @@
 			centerInsufficientSlides: true,
 			spaceBetween: 16,
 			navigation: {
-				prevEl: document.querySelector(".bs-hero-black-week__swiper .swiper-button-prev"),
-				nextEl: document.querySelector(".bs-hero-black-week__swiper .swiper-button-next")
+				prevEl: document.querySelector(".bs-hero-black-week .swiper-button-prev"),
+				nextEl: document.querySelector(".bs-hero-black-week .swiper-button-next")
 			},
 			scrollbar: {
 				el: document.querySelector(".bs-hero-black-week__swiper .swiper-scrollbar"),
@@ -49,10 +49,14 @@
 			},
 			breakpoints: {
 				0: {
-					slidesPerView: 2
+					slidesPerView: 1.9,
+					slidesOffsetBefore: 25,
+					slidesOffsetAfter: 25
 				},
 				768: {
-					slidesPerView: 4
+					slidesPerView: 4,
+					slidesOffsetBefore: 0,
+					slidesOffsetAfter: 0
 				},
 				992: {
 					slidesPerView: 5
