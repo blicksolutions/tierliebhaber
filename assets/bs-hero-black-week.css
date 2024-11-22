@@ -32,10 +32,7 @@
 
 @media (min-width: 768px) {
 	.bs-hero-black-week__info-headline {
-		position: absolute;
 		left: unset;
-		top: 40px;
-		width: 100%;
 		display: block;
 	}
 }
@@ -55,7 +52,6 @@ img.bs-hero-black-week__headline {
 		display: block;
 	}
 }
-
 
 /******************************************************************/
 /* background image
@@ -120,19 +116,8 @@ img.bs-hero-black-week__headline {
 
 @media(min-width: 768px) {
 	.bs-hero-black-week__countdown {
-		background: #FDF3F0;
 		padding: 7px 25px;
-		border-radius: 30px;
 		font-size: 18px;
-		color: #32212B;
-		text-transform: uppercase;
-		font-weight: 600;
-		width: fit-content;
-		display: flex;
-		align-items: center;
-		gap: 10px;
-		z-index: 1;
-		position: relative;
 		letter-spacing: 3;
 		margin-top: -10px;
 	}
@@ -150,11 +135,6 @@ img.bs-hero-black-week__headline {
 	.bs-hero-black-week__countdown-counter {
 		font-size: 14px;
 		line-height: 18px;
-		color: #DF4E77;
-		text-transform: none;
-		letter-spacing: normal;
-		opacity: 0;
-		transition: opacity .5s ease;
 	}
 }
 
@@ -231,7 +211,6 @@ img.bs-hero-black-week__headline {
 }
 
 @media(min-width: 768px) {
-
 	.bs-hero-black-week .swiper-button-prev,
 	.bs-hero-black-week .swiper-button-next {
 		display: block;
@@ -252,10 +231,9 @@ img.bs-hero-black-week__headline {
 	}
 
 	.bs-hero-black-week .swiper-button-next {
-		right: -4px;
+		right: 4px;
 	}
 }
-
 
 .bs-hero-black-week .swiper-button-prev::after {
 	display: block;
@@ -361,16 +339,7 @@ img.bs-hero-black-week__headline {
 	}
 	
 	.bs-hero-black-week__product-button a {
-		display: block;
-		border-radius: 5px;
-		background: #F1AF9E;
-		text-align: center;
-		color: white;
 		letter-spacing: 2px;
-		text-transform: uppercase;
-		font-weight: 700;
-		font-size: 16px;
-		line-height: 20px;
 		padding: 20px 16px;
 	}
 }
