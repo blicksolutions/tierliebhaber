@@ -1,0 +1,236 @@
+<link rel="preload" href="{{ section.settings.background_image_mobile | image_url: width: 800 }}" as="image">
+<link rel="preload" href="{{ section.settings.background_image_desktop | image_url: width: 1920 }}" as="image">
+
+<section class="bs-hero-black-week">
+	<div class="bs-hero-black-week__banner">
+		{% if section.settings.background_image_mobile %}
+			{{ section.settings.background_image_mobile | image_url: width: 800 | image_tag: class: 'bs-hero-black-week__background bs-hero-black-week__background--mobile tlh-057--a' }}
+		{% endif %}
+
+		{% if section.settings.background_image_desktop %}
+			{{ section.settings.background_image_desktop | image_url: width: 1920 | image_tag: class: 'bs-hero-black-week__background bs-hero-black-week__background--desktop tlh-057--a' }}
+		{% endif %}
+
+		{% if section.settings.background_image_mobile_b %}
+			{{ section.settings.background_image_mobile_b | image_url: width: 800 | image_tag: class: 'bs-hero-black-week__background bs-hero-black-week__background--mobile tlh-057--b' }}
+		{% endif %}
+
+		{% if section.settings.background_image_desktop_b %}
+			{{ section.settings.background_image_desktop_b | image_url: width: 1920 | image_tag: class: 'bs-hero-black-week__background bs-hero-black-week__background--desktop tlh-057--b' }}
+		{% endif %}
+
+		<div class="bs-hero-black-week__wrapper">
+			<div class="bs-hero-black-week-info">
+				<div class="bs-hero-black-week__info-headline">
+					{% if section.settings.black_week_headline_image %}
+						{{ section.settings.black_week_headline_image | image_url: width: 500 | image_tag: class: 'bs-hero-black-week__headline tlh-057--a' }}
+					{% endif %}
+					{% if section.settings.black_week_headline_image_b %}
+						{{ section.settings.black_week_headline_image_b | image_url: width: 500 | image_tag: class: 'bs-hero-black-week__headline tlh-057--b' }}
+					{% endif %}
+
+					<div class="bs-hero-black-week__countdown">
+						<span> Sale endet in </span>
+						<span class="bs-hero-black-week__countdown-counter">
+							<span class="bs-hero-black-week__countdown-counter-days"></span> : <span class="bs-hero-black-week__countdown-counter-hours"></span> : <span class="bs-hero-black-week__countdown-counter-minutes"></span> :
+							<span class="bs-hero-black-week__countdown-counter-seconds"></span>
+						</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="bs-hero-black-week__content">
+				<div class="bs-hero-black-week__swiper swiper">
+					<div class="bs-hero-black-week__swiper-wrapper swiper-wrapper">
+						<div class="swiper-slide bs-hero-black-week__product">
+							<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+								<path d="M17.7432 25.5322L23.8795 29.2435C25.0032 29.9237 26.3783 28.9182 26.0826 27.6466L24.4561 20.6676L29.8826 15.9656C30.8733 15.108 30.341 13.4816 29.0398 13.378L21.8981 12.7718L19.1035 6.17722C18.6008 4.97954 16.8856 4.97954 16.3829 6.17722L13.5883 12.757L6.44664 13.3633C5.14547 13.4668 4.61317 15.0932 5.60383 15.9508L11.0303 20.6528L9.40386 27.6319C9.10814 28.9035 10.4832 29.9089 11.607 29.2287L17.7432 25.5322Z" fill="#F4D056"/>
+							</svg>
+							<div class="bs-hero-black-week__discount">
+								<object type="image/svg+xml" data="{{ "black-week-discount-20.svg" | asset_url }}"></object>
+							</div>
+							<div class="bs-hero-black-week__product-content">
+								<div class="bs-hero-black-week__product-image">
+									<img src="//tierliebhaber.de/cdn/shop/files/20240705_Tierliebhaber2408_250x.jpg?v=1724057171" alt="Chillout Drops">
+								</div>
+								<div class="bs-hero-black-week__product-reviews"></div>
+								<div class="bs-hero-black-week__product-title">Chillout Drops</div>
+								<div class="bs-hero-black-week__product-description">Entspannt & angstfrei durchs Silvester Feuerwerk.</div>
+							</div>
+
+							<div class="bs-hero-black-week__product-button">
+								<a href="https://tierliebhaber.de/collections/beruhigung/products/chillout-drops">Zum Produkt</a>
+							</div>
+						</div>
+						<div class="swiper-slide bs-hero-black-week__product">
+							<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+								<path d="M17.7432 25.5322L23.8795 29.2435C25.0032 29.9237 26.3783 28.9182 26.0826 27.6466L24.4561 20.6676L29.8826 15.9656C30.8733 15.108 30.341 13.4816 29.0398 13.378L21.8981 12.7718L19.1035 6.17722C18.6008 4.97954 16.8856 4.97954 16.3829 6.17722L13.5883 12.757L6.44664 13.3633C5.14547 13.4668 4.61317 15.0932 5.60383 15.9508L11.0303 20.6528L9.40386 27.6319C9.10814 28.9035 10.4832 29.9089 11.607 29.2287L17.7432 25.5322Z" fill="#F4D056"/>
+							</svg>
+							<div class="bs-hero-black-week__discount">
+								<object type="image/svg+xml" data="{{ "black-week-discount-20.svg" | asset_url }}"></object>
+							</div>
+							<div class="bs-hero-black-week__product-content">
+								<div class="bs-hero-black-week__product-image">
+									<img src="//tierliebhaber.de/cdn/shop/files/20240705_Tierliebhaber2471_250x.jpg?v=1724057725" alt="Darmpflege Drops">
+								</div>
+								<div class="bs-hero-black-week__product-reviews"></div>
+								<div class="bs-hero-black-week__product-title">Darm&shy;pflege Drops</div>
+								<div class="bs-hero-black-week__product-description">Für festen Kot & regelmäßigen Stuhlgang.</div>
+							</div>
+
+							<div class="bs-hero-black-week__product-button">
+								<a href="https://tierliebhaber.de/collections/darmpflege/products/darmpflege-drops">Zum Produkt</a>
+							</div>
+						</div>
+						<div class="swiper-slide bs-hero-black-week__product">
+							<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+								<path d="M17.7432 25.5322L23.8795 29.2435C25.0032 29.9237 26.3783 28.9182 26.0826 27.6466L24.4561 20.6676L29.8826 15.9656C30.8733 15.108 30.341 13.4816 29.0398 13.378L21.8981 12.7718L19.1035 6.17722C18.6008 4.97954 16.8856 4.97954 16.3829 6.17722L13.5883 12.757L6.44664 13.3633C5.14547 13.4668 4.61317 15.0932 5.60383 15.9508L11.0303 20.6528L9.40386 27.6319C9.10814 28.9035 10.4832 29.9089 11.607 29.2287L17.7432 25.5322Z" fill="#F4D056"/>
+							</svg>
+							<div class="bs-hero-black-week__discount">
+								<object type="image/svg+xml" data="{{ "black-week-discount-15.svg" | asset_url }}"></object>
+							</div>
+							<div class="bs-hero-black-week__product-content">
+								<div class="bs-hero-black-week__product-image">
+									<img class="" src="//tierliebhaber.de/cdn/shop/files/dentalspray_1_vergleich_250x.png?v=1722318868" alt="Dentalspray">
+								</div>
+								<div class="bs-hero-black-week__product-reviews"></div>
+								<div class="bs-hero-black-week__product-title">Dental&shy;spray</div>
+								<div class="bs-hero-black-week__product-description">Entfernt Zahnbelag & Maulgeruch 100% natürlich.</div>
+							</div>
+
+							<div class="bs-hero-black-week__product-button">
+								<a href="https://tierliebhaber.de/collections/zahnpflege/products/dentalspray">Zum Produkt</a>
+							</div>
+						</div>
+						<div class="swiper-slide bs-hero-black-week__product">
+							<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+								<path d="M17.7432 25.5322L23.8795 29.2435C25.0032 29.9237 26.3783 28.9182 26.0826 27.6466L24.4561 20.6676L29.8826 15.9656C30.8733 15.108 30.341 13.4816 29.0398 13.378L21.8981 12.7718L19.1035 6.17722C18.6008 4.97954 16.8856 4.97954 16.3829 6.17722L13.5883 12.757L6.44664 13.3633C5.14547 13.4668 4.61317 15.0932 5.60383 15.9508L11.0303 20.6528L9.40386 27.6319C9.10814 28.9035 10.4832 29.9089 11.607 29.2287L17.7432 25.5322Z" fill="#F4D056"/>
+							</svg>
+							<div class="bs-hero-black-week__discount">
+								<object type="image/svg+xml" data="{{ "black-week-discount-15.svg" | asset_url }}"></object>
+							</div>
+							<div class="bs-hero-black-week__product-content">
+								<div class="bs-hero-black-week__product-image">
+									<img src="//tierliebhaber.de/cdn/shop/files/gk1_39cbb471-f595-4ad2-bff2-5cbf615ed0e7_250x.jpg?v=1716366416" alt="Gras- &amp; Kotfresser Drops">
+								</div>
+								<div class="bs-hero-black-week__product-reviews"></div>
+								<div class="bs-hero-black-week__product-title">Gras- & Kotfresser Drops</div>
+								<div class="bs-hero-black-week__product-description">Beruhigt den Magen bei Sodbrennen.</div>
+							</div>
+
+							<div class="bs-hero-black-week__product-button">
+								<a href="https://tierliebhaber.de/collections/kundenlieblinge/products/gras-kotfresser-drops-2">Zum Produkt</a>
+							</div>
+						</div>
+						<div class="swiper-slide bs-hero-black-week__product">
+							<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+								<path d="M17.7432 25.5322L23.8795 29.2435C25.0032 29.9237 26.3783 28.9182 26.0826 27.6466L24.4561 20.6676L29.8826 15.9656C30.8733 15.108 30.341 13.4816 29.0398 13.378L21.8981 12.7718L19.1035 6.17722C18.6008 4.97954 16.8856 4.97954 16.3829 6.17722L13.5883 12.757L6.44664 13.3633C5.14547 13.4668 4.61317 15.0932 5.60383 15.9508L11.0303 20.6528L9.40386 27.6319C9.10814 28.9035 10.4832 29.9089 11.607 29.2287L17.7432 25.5322Z" fill="#F4D056"/>
+							</svg>
+							<div class="bs-hero-black-week__discount">
+								<object type="image/svg+xml" data="{{ "black-week-discount-10.svg" | asset_url }}"></object>
+							</div>
+							<div class="bs-hero-black-week__product-content">
+								<div class="bs-hero-black-week__product-image">
+									<img src="//tierliebhaber.de/cdn/shop/files/zsn1_cd3565d1-f686-4c6e-9907-937e9c43bf7b_250x.jpg?v=1716364314" alt="Z-Snack">
+								</div>
+								<div class="bs-hero-black-week__product-reviews"></div>
+								<div class="bs-hero-black-week__product-title">Z-Snack</div>
+								<div class="bs-hero-black-week__product-description">Ungestört durch Wiesen und Wälder spazieren.</div>
+							</div>
+
+							<div class="bs-hero-black-week__product-button">
+								<a href="https://tierliebhaber.de/collections/z-produkte/products/z-snack">Zum Produkt</a>
+							</div>
+						</div>
+						<div class="swiper-slide bs-hero-black-week__product">
+							<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+								<path d="M17.7432 25.5322L23.8795 29.2435C25.0032 29.9237 26.3783 28.9182 26.0826 27.6466L24.4561 20.6676L29.8826 15.9656C30.8733 15.108 30.341 13.4816 29.0398 13.378L21.8981 12.7718L19.1035 6.17722C18.6008 4.97954 16.8856 4.97954 16.3829 6.17722L13.5883 12.757L6.44664 13.3633C5.14547 13.4668 4.61317 15.0932 5.60383 15.9508L11.0303 20.6528L9.40386 27.6319C9.10814 28.9035 10.4832 29.9089 11.607 29.2287L17.7432 25.5322Z" fill="#F4D056"/>
+							</svg>
+							<div class="bs-hero-black-week__discount">
+								<object type="image/svg+xml" data="{{ "black-week-discount-10.svg" | asset_url }}"></object>
+							</div>
+							<div class="bs-hero-black-week__product-content">
+								<div class="bs-hero-black-week__product-image">
+									<img src="//tierliebhaber.de/cdn/shop/files/20240705_Tierliebhaber2456_250x.jpg?v=1724057955" alt="Darmwohl Sticks">
+								</div>
+								<div class="bs-hero-black-week__product-reviews"></div>
+								<div class="bs-hero-black-week__product-title">Darmwohl Sticks</div>
+								<div class="bs-hero-black-week__product-description">Natürlicher Darmaufbau & fester Kot.</div>
+							</div>
+
+							<div class="bs-hero-black-week__product-button">
+								<a href="https://tierliebhaber.de/collections/darmpflege/products/darmwohl-sticks">Zum Produkt</a>
+							</div>
+						</div>
+						<div class="swiper-slide bs-hero-black-week__product bs-hero-black-week__product--all">
+							<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+								<path d="M17.7432 25.5322L23.8795 29.2435C25.0032 29.9237 26.3783 28.9182 26.0826 27.6466L24.4561 20.6676L29.8826 15.9656C30.8733 15.108 30.341 13.4816 29.0398 13.378L21.8981 12.7718L19.1035 6.17722C18.6008 4.97954 16.8856 4.97954 16.3829 6.17722L13.5883 12.757L6.44664 13.3633C5.14547 13.4668 4.61317 15.0932 5.60383 15.9508L11.0303 20.6528L9.40386 27.6319C9.10814 28.9035 10.4832 29.9089 11.607 29.2287L17.7432 25.5322Z" fill="#F4D056"/>
+							</svg>
+							<div class="bs-hero-black-week__discount bs-hero-black-week__discount--all">
+	
+								<object type="image/svg+xml" data="{{ "black-week-discount-all.svg" | asset_url }}"></object>
+							</div>
+							<div class="bs-hero-black-week__product-button">
+								<a href="https://tierliebhaber.de/collections/alle-produkte-1">Alle ansehen</a>
+							</div>
+						</div>
+					</div>
+					<div class="bs-hero-black-week__swiper-scrollbar swiper-scrollbar"></div>
+				</div>
+				<div class="swiper-button-prev swiper-button-disabled"></div>
+				<div class="swiper-button-next"></div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% schema %}
+{
+	"name": "BS Hero Black Week",
+	"settings": [
+		{
+			"type": "header",
+			"content": "A Variant"
+		},
+		{
+			"type": "image_picker",
+			"id": "black_week_headline_image",
+			"label": "Black week headline image - variant A"
+		},
+		{
+			"type": "image_picker",
+			"id": "background_image_mobile",
+			"label": "Background image mobile - variant A"
+		},
+		{
+			"type": "image_picker",
+			"id": "background_image_desktop",
+			"label": "Background image desktop - variant A"
+		},
+		{
+			"type": "header",
+			"content": "B Variant"
+		},
+		{
+			"type": "image_picker",
+			"id": "black_week_headline_image_b",
+			"label": "Black week headline image - Variant B"
+		},
+		{
+			"type": "image_picker",
+			"id": "background_image_mobile_b",
+			"label": "Background image mobile - variant B"
+		},
+		{
+			"type": "image_picker",
+			"id": "background_image_desktop_b",
+			"label": "Background image desktop - variant B"
+		}
+	],
+	"presets": [
+		{
+			"name": "BS Hero Black Week"
+		}
+	]
+}
+{% endschema %}
