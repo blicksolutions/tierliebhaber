@@ -173,7 +173,7 @@ img.bs-hero-black-week__headline {
 	padding-top: 40px;
 }
 
-.bs-hero-black-week__swiper .swiper-scrollbar {
+.bs-hero-black-week__swiper .bs-hero-black-week__swiper-scrollbar.swiper-scrollbar {
 	display: block;
 	bottom: 15px;
 	height: 6px;
@@ -361,10 +361,7 @@ img.bs-hero-black-week__headline {
 	display: none;
 }
 
-.bs-hero-black-week--b .tlh-057--b {
-	display: block;
-}
-
+/* images */
 .bs-hero-black-week--b .tlh-057--b.bs-hero-black-week__background--mobile {
 	display: block;
 }
@@ -373,14 +370,32 @@ img.bs-hero-black-week__headline {
 	display: none;
 }
 
+@media(min-width: 768px) {
+	.bs-hero-black-week--b .tlh-057--b {
+		display: block;
+	}	
+
+	.bs-hero-black-week--b .bs-hero-black-week__info-headline {
+		display: flex;
+		flex-direction: column-reverse;
+		padding-top: 12px;
+	}	
+}
+
+
+/* star icon */
 .bs-hero-black-week--b .bs-hero-black-week__product svg {
 	display: block;
 }
 
-.bs-hero-black-week--b .bs-hero-black-week__info-headline {
-	display: flex;
-	flex-direction: column-reverse;
-	padding-top: 12px;
+/* product title */
+.bs-hero-black-week--b .bs-hero-black-week__product-title {
+	margin-bottom: 10px;
+}
+
+/* product description */
+.bs-hero-black-week--b .bs-hero-black-week__product-description {
+	display: none;
 }
 
 .bs-hero-black-week__headline.tlh-057--b {
