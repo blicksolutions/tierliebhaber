@@ -65,3 +65,15 @@
 		});
 	};
 })();
+
+/******************************************************************/
+/* AB TEST
+/******************************************************************/
+
+window.activateAbTlh057 = () => {
+	const blackWeekSection = document.querySelector('section.bs-hero-black-week');
+
+	blackWeekSection.classList.add('bs-hero-black-week--b');
+};
+
+document.addEventListener('DOMContentLoaded', window.activateAbTlh057);

@@ -343,3 +343,41 @@ img.bs-hero-black-week__headline {
 		padding: 20px 16px;
 	}
 }
+
+/******************************************************************/
+/* AB TEST LOGIC
+/******************************************************************/
+
+.bs-hero-black-week .tlh-057--b {
+	display: none;
+}
+
+.bs-hero-black-week--b .tlh-057--a {
+	display: none;
+}
+
+.bs-hero-black-week--b .tlh-057--b {
+	display: block;
+}
+
+.bs-hero-black-week--b .tlh-057--b.bs-hero-black-week__background--mobile {
+	display: block;
+}
+
+.bs-hero-black-week--b .tlh-057--b.bs-hero-black-week__background--desktop {
+	display: none;
+}
+
+.bs-hero-black-week--b .bs-hero-black-week__product svg {
+	display: block;
+}
+
+@media (min-width: 768px) {
+	.bs-hero-black-week--b .tlh-057--b.bs-hero-black-week__background--mobile {
+		display: none;
+	}
+
+	.bs-hero-black-week--b .tlh-057--b.bs-hero-black-week__background--desktop {
+		display: block;
+	}
+}
