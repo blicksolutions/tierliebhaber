@@ -3,6 +3,8 @@
 		const targetDate = new Date('December 1, 2024 23:59:59').getTime();
 		const countDownCounterElement = document.querySelector('.bs-hero-black-week__countdown-counter');
 
+		if(!countDownCounterElement) return;
+
 		const updateCountdown = () => {
 			const now = new Date().getTime();
 			const timeRemaining = targetDate - now;
