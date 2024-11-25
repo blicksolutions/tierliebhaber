@@ -1,0 +1,102 @@
+.bs-black-week-collection-banner {
+    background: #BF92A5;
+    width: 100%;
+    height: 182px;
+    padding: 17px 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+.bs-black-week-collection-banner__content {
+    display: flex;
+    flex-direction: column;
+}
+
+.bs-black-week-collection-banner svg {
+    width: 200px;
+    height: auto;
+}
+
+.bs-black-week-collection-banner__image {
+    width: 255px;
+    height: auto;
+    position: absolute;
+    left: 164px;
+    top: -8px;
+}
+
+.bs-black-week-collection-banner__countdown {
+    background: #FDF3F0;
+    padding: 4px 15px;
+    border-radius: 30px;
+    font-size: 11px;
+    color: #32212B;
+    text-transform: uppercase;
+    font-weight: 600;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1;
+    position: relative;
+    letter-spacing: 2px;
+}
+
+.bs-black-week-collection-banner__countdown__counter {
+    font-size: 14px;
+    line-height: 18px;
+    color: #DF4E77;
+    text-transform: none;
+    letter-spacing: normal;
+    opacity: 0;
+    transition: opacity .5s ease;
+}
+
+.bs-black-week-collection-banner__countdown__counter.active {
+    opacity: 1;
+}
+
+.bs-black-week-collection-banner + .subscriptionReminderCallout.active {
+    display: none;
+}
+
+@media (min-width: 641px) {
+    .bs-black-week-collection-banner {
+        height: 280px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .bs-black-week-collection-banner__content {
+        position: relative;
+        max-width: 735px;
+        width: 100%;
+    }
+
+    .bs-black-week-collection-banner svg {
+        width: 376px;
+    }
+
+    .bs-black-week-collection-banner__image {
+        width: 534px;
+        top: -45px;
+        right: -100px;
+        left: unset;
+    }
+
+    .bs-black-week-collection-banner__countdown {
+        padding: 5px 19px;
+        font-size: 14px;
+        line-height: 18px;
+        gap: 12px;
+        margin-left: 25px;
+        letter-spacing: 3px;
+    }
+
+    .bs-black-week-collection-banner__countdown__counter {
+        font-size: 18px;
+        line-height: 22px;
+        letter-spacing: normal;
+    }
+}

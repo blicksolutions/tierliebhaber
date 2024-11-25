@@ -1,0 +1,117 @@
+.CollectionToolbar:has(.bs-black-week-collection-filters) {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.bs-black-week-collection-filters {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    padding: 16px 0;
+    margin: 0 16px;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+}
+
+.bs-black-week-collection-filters::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50vw;
+    height: calc(100% + 1px);
+    border-bottom: 1px solid var(--border-color);
+    transform: translateX(-100%);
+}
+
+.bs-black-week-collection-filters::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50vw;
+    height: calc(100% + 1px);
+    border-bottom: 1px solid var(--border-color);
+    transform: translateX(100%);
+}
+
+.bs-black-week-collection-filters__title {
+    font-size: 16px;
+    line-height: 20px;
+    color: #525252;
+    font-weight: 500;
+    margin: 0;
+}
+
+.bs-black-week-collection-filters__collections {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.bs-black-week-collection-filters__collection {
+    padding: 15px;
+    width: 100%;
+    max-width: 318px;
+    background-color: #1F1018;
+    border-radius: 5px;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: transform .3s ease, background-color .3s ease;
+}
+
+.bs-black-week-collection-filters__collection:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+    background-color: #1f1018cc;
+}
+
+@media (min-width: 641px) {
+    .CollectionToolbar:has(.bs-black-week-collection-filters) {
+        flex-direction: row;
+    }
+
+    .bs-black-week-collection-filters {
+        align-items: flex-start;
+        margin: 0 24px;
+        width: 100%;
+        border-bottom: none;
+    }
+
+    .bs-black-week-collection-filters::before,
+    .bs-black-week-collection-filters::after {
+        content: none;
+    }
+
+    .bs-black-week-collection-filters__collections {
+        justify-content: flex-start;
+        gap: 20px;
+    }
+
+    .bs-black-week-collection-filters__title {
+        font-size: 13px;
+        line-height: 16px;
+    }
+
+    .bs-black-week-collection-filters__collection {
+        font-size: 16px;
+        line-height: 20px;
+    }
+}
+
+@media (min-width: 1140px) {
+    .bs-black-week-collection-filters {
+        margin: 0 50px;
+    }
+}
