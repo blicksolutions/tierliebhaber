@@ -4,6 +4,8 @@
     const targetDate = new Date('December 1, 2024 23:59:59').getTime();
     const countDownCounterElement = document.querySelector('.bs-black-week-collection-banner__countdown__counter');
 
+    if(!countDownCounterElement) return;
+
     function updateCountdown() {
         const now = new Date().getTime();
         const timeRemaining = targetDate - now;
