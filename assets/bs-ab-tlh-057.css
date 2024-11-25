@@ -205,7 +205,7 @@ img.bs-hero-black-week__headline {
 	transition: opacity .2s ease-out;
 	top: -275px;
 	display: none;
-	z-index: 9;
+	z-index: 4;
 }
 
 @media(min-width: 768px) {
