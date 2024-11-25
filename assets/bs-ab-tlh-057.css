@@ -254,8 +254,12 @@ img.bs-hero-black-week__headline {
 
 .bs-hero-black-week__discount {
 	position: absolute;
-	top: -38px;
-	right: -5px;
+	top: -13px;
+	right: 92px;
+}
+
+.bs-hero-black-week__discount svg {
+	display: block !important;
 }
 
 .bs-hero-black-week__discount--all {
@@ -267,7 +271,8 @@ img.bs-hero-black-week__headline {
 	flex-grow: 1;
 }
 
-.bs-hero-black-week__discount--all img {
+.bs-hero-black-week__discount.bs-hero-black-week__discount--all svg {
+	position: relative;
 	margin-top: 70px;
 	transform: scale(1.3);
 }
