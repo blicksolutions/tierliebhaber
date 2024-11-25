@@ -1577,7 +1577,6 @@
       },
       "bs_hero_black_week_dhdFGE": {
         "type": "bs-hero-black-week",
-        "disabled": true,
         "settings": {
           "black_week_headline_image": "shopify://shop_images/Text_Helle_Version.svg",
           "background_image_mobile": "shopify://shop_images/Hintergrundbild_Hell_Mobile_1.jpg",
@@ -1589,6 +1588,7 @@
       },
       "bs_hero_banner_XriWJa": {
         "type": "bs-hero-banner",
+        "disabled": true,
         "settings": {
           "title": "So wird Silvester mit Hund entspannt!",
           "description": "<p>Leckere Snacks mit 100% natürlicher Beruhigungs-Formel, die ängstliche Hunde schonend entspannt… ganz ohne Chemie! </p>",
