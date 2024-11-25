@@ -9494,7 +9494,7 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
 }
 
 .ProductMeta__Price.Price--compareAt {
-    margin-left: 30px;
+    margin-left: 10px;
 }
 
 .ProductMeta__UnitPriceMeasurement {

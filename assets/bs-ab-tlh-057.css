@@ -205,6 +205,7 @@ img.bs-hero-black-week__headline {
 	transition: opacity .2s ease-out;
 	top: -275px;
 	display: none;
+	z-index: 9;
 }
 
 @media(min-width: 768px) {
@@ -266,7 +267,7 @@ img.bs-hero-black-week__headline {
 	flex-grow: 1;
 }
 
-.bs-hero-black-week__discount--all object {
+.bs-hero-black-week__discount--all img {
 	margin-top: 70px;
 	transform: scale(1.3);
 }
