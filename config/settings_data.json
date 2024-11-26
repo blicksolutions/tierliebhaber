@@ -105,8 +105,8 @@
         ],
         "settings": {
           "enable_bar": true,
-          "enable_advent_bar": true,
-          "enable_black_week_bar": false,
+          "enable_advent_bar": false,
+          "enable_black_week_bar": true,
           "sticky_bar": true,
           "home_page_only": false,
           "enable_trustpilot_widget": false,
