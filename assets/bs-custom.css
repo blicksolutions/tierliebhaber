@@ -1057,10 +1057,45 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 /******************************************************************/
 /* Black week bar
 /******************************************************************/
-@media (max-width: 768px) {
-	#shopify-section-announcement:has(.BlackWeekSale__BannerContainer) + #shopify-section-header {
-		top: 141px !important;
-	}
+
+#shopify-section-announcement:has(.BlackWeekSale__Banner-Link>.BlackWeekSale__BannerContainer) + #shopify-section-header {
+    top: 141px !important;
+}
+
+@media (min-width: 491px) {
+    #shopify-section-announcement:has(.BlackWeekSale__Banner-Link>.BlackWeekSale__BannerContainer) + #shopify-section-header {
+        top: 126px !important;
+    }
+}
+
+@media (min-width: 637px) {
+    #shopify-section-announcement:has(.BlackWeekSale__Banner-Link>.BlackWeekSale__BannerContainer) + #shopify-section-header {
+        top: 111px !important;
+    }
+}
+
+@media (min-width: 767px) {
+    #shopify-section-announcement:has(.BlackWeekSale__Banner-Link>.BlackWeekSale__BannerContainer) + #shopify-section-header {
+        top: 110px !important;
+    }
+}
+
+@media (min-width: 832px) {
+    #shopify-section-announcement:has(.BlackWeekSale__Banner-Link>.BlackWeekSale__BannerContainer) + #shopify-section-header {
+        top: 108px !important;
+    }
+}
+
+@media (min-width: 1023px) {
+    #shopify-section-announcement:has(.BlackWeekSale__Banner-Link>.BlackWeekSale__BannerContainer) + #shopify-section-header {
+        top: 122px !important;
+    }
+}
+
+@media (min-width: 1101px) {
+    #shopify-section-announcement:has(.BlackWeekSale__Banner-Link>.BlackWeekSale__BannerContainer) + #shopify-section-header {
+        top: 108px !important;
+    }
 }
 
 #shopify-section-announcement .BlackWeekSale__BannerContainer {
@@ -1071,6 +1106,12 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 	padding: 10px 16px;
 	gap: 8px;
 	background: #1C1B1B;
+}
+
+@media (min-width: 400px) {
+	#shopify-section-announcement .BlackWeekSale__BannerContainer {
+		justify-content: center;
+	}
 }
 
 @media (min-width: 768px) {
