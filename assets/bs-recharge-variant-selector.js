@@ -1,5 +1,4 @@
 window.replaceVariantSelector = () => {
-    if (window.tlh046 == true) return
 
 	const insertMarkUpFinished = new Event('insertMarkUpFinished');
 
