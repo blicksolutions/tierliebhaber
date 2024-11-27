@@ -47,6 +47,9 @@
 		const blackWeek = new Swiper(".bs-hero-black-week__swiper", {
 			centerInsufficientSlides: true,
 			spaceBetween: 16,
+			preventClicks: true,
+			preventClicksPropagation: true,
+			watchSlidesProgress: true,
 			navigation: {
 				prevEl: document.querySelector(".bs-hero-black-week .swiper-button-prev"),
 				nextEl: document.querySelector(".bs-hero-black-week .swiper-button-next")
