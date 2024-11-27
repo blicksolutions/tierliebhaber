@@ -62,7 +62,7 @@
 	{% endif %}
 
 	{% if section.settings.enable_black_week_bar == true %}
-		{% render 'bs-black-week-bar' %}
+		{% render 'bs-black-week-bar', banner_text: section.settings.black_week_bar_banner_text, announcement_text: section.settings.black_week_bar_text, link: section.settings.black_week_bar_link %}
 	{% endif %}
 
 
@@ -148,7 +148,28 @@
       "type": "url",
       "id": "link",
       "label": "Link"
-    }
+    },
+	{
+		"type": "header",
+		"content": "Black Week bar"
+	},
+	{
+		"type": "text",
+		"id": "black_week_bar_banner_text",
+		"default": "Black Week Sale",
+		"label": "Banner Text"
+	},
+	{
+		"type": "text",
+		"default": "Sichere dir jetzt deinen Rabatt!",
+		"id": "black_week_bar_text",
+		"label": "Announcement Text"
+	},
+	{
+		"type": "url",
+		"id": "black_week_bar_link",
+		"label": "Link"
+	}
   ],
   "blocks": [
     {
