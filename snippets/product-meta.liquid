@@ -44,7 +44,7 @@
         <div class="ProductBadges">
           {% assign current_url = request.path %}
           
-            {% if current_url contains 'chillout' or current_url contains 'laufigkeitssaft' or current_url contains 'rosse-support-saft-pferd' or current_url contains 'chilloutsaft-pferd' %}
+            {% if current_url contains 'chillout' or current_url contains 'chilloutsaft-pferd' %}
                 {% render 'bs-info-badge' %}
             {% endif %}
            
