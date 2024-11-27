@@ -26,6 +26,17 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: -30px;
+}
+
+.ingredients__container.open .ingredients__heading-container {
+    margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+    .ingredients__heading-container {
+        margin-bottom: 0;
+    }
 }
 
 .ingredients__heading {
