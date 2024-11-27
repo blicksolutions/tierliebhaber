@@ -1,6 +1,6 @@
 (() => {
 	document.addEventListener("DOMContentLoaded", () => {
-		const targetDate = new Date('December 1, 2024 23:59:59').getTime();
+		const targetDate = new Date('December 2, 2024 23:59:59').getTime();
 		const countDownCounterElement = document.querySelector('.bs-hero-black-week__countdown-counter');
 
 		if(!countDownCounterElement) return;
