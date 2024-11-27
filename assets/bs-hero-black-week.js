@@ -31,12 +31,6 @@
 		blackWeekSwiper();
 
 		countDownCounterElement.classList.add('active');
-
-		// only for previewing B Variant
-		// const urlParams = new URLSearchParams(window.location.search);
-		// if (urlParams.has('tlh-057')) {
-		// 	window.activateAbTlh057();
-		// }
 	});
 
 	/******************************************************************/
@@ -75,31 +69,4 @@
 			},
 		});
 	};
-})();
-
-/******************************************************************/
-/* AB TEST
-/******************************************************************/
-
-window.activateAbTlh057 = () => {
-	const blackWeekSection = document.querySelector('section.bs-hero-black-week');
-
-	blackWeekSection.classList.add('bs-hero-black-week--b');
-};
-
-// custom goal (count clicks on product links
-(() => {
-	document.addEventListener("DOMContentLoaded", () => {
-		const blackWeekProductButtons = document.querySelectorAll('.bs-hero-black-week__product-button a');
-
-		blackWeekProductButtons.forEach((link) => {
-			link.addEventListener('click', () => {
-				console.log("TRIGGER tlh057 GOAL")
-				window['ablyft'].push({
-					eventType: 'custom',
-					eventName: 'tlh-057-clicks-on-product-links'
-				});
-			});
-		});
-	});
 })();

@@ -1,16 +1,11 @@
-<link rel="preload" href="{{ section.settings.background_image_mobile | image_url: width: 800 }}" as="image">
-<link rel="preload" href="{{ section.settings.background_image_desktop | image_url: width: 1920 }}" as="image">
+<link rel="preload" href="{{ section.settings.background_image_mobile_b | image_url: width: 800 }}" as="image">
+<link rel="preload" href="{{ section.settings.background_image_desktop_b | image_url: width: 1920 }}" as="image">
+
+<script src="{{ 'bs-hero-black-week.js' | asset_url }}"></script>
+<link rel="stylesheet" href="{{ 'bs-hero-black-week.css' | asset_url }}">
 
 <section class="bs-hero-black-week">
-	<div class="bs-hero-black-week__banner">
-		{% if section.settings.background_image_mobile %}
-			{{ section.settings.background_image_mobile | image_url: width: 800 | image_tag: class: 'bs-hero-black-week__background bs-hero-black-week__background--mobile tlh-057--a' }}
-		{% endif %}
-
-		{% if section.settings.background_image_desktop %}
-			{{ section.settings.background_image_desktop | image_url: width: 1920 | image_tag: class: 'bs-hero-black-week__background bs-hero-black-week__background--desktop tlh-057--a' }}
-		{% endif %}
-
+	<div class="bs-hero-black-week__banner bs-hero-black-week--b">
 		{% if section.settings.background_image_mobile_b %}
 			{{ section.settings.background_image_mobile_b | image_url: width: 800 | image_tag: class: 'bs-hero-black-week__background bs-hero-black-week__background--mobile tlh-057--b' }}
 		{% endif %}
@@ -22,9 +17,6 @@
 		<div class="bs-hero-black-week__wrapper">
 			<div class="bs-hero-black-week-info">
 				<div class="bs-hero-black-week__info-headline">
-					{% if section.settings.black_week_headline_image %}
-						{{ section.settings.black_week_headline_image | image_url: width: 500 | image_tag: class: 'bs-hero-black-week__headline tlh-057--a' }}
-					{% endif %}
 					{% if section.settings.black_week_headline_image_b %}
 						{{ section.settings.black_week_headline_image_b | image_url: width: 500 | image_tag: class: 'bs-hero-black-week__headline tlh-057--b' }}
 					{% endif %}
@@ -341,42 +333,19 @@
 	"name": "BS Hero Black Week",
 	"settings": [
 		{
-			"type": "header",
-			"content": "A Variant"
-		},
-		{
-			"type": "image_picker",
-			"id": "black_week_headline_image",
-			"label": "Black week headline image - variant A"
-		},
-		{
-			"type": "image_picker",
-			"id": "background_image_mobile",
-			"label": "Background image mobile - variant A"
-		},
-		{
-			"type": "image_picker",
-			"id": "background_image_desktop",
-			"label": "Background image desktop - variant A"
-		},
-		{
-			"type": "header",
-			"content": "B Variant"
-		},
-		{
 			"type": "image_picker",
 			"id": "black_week_headline_image_b",
-			"label": "Black week headline image - Variant B"
+			"label": "Black week headline image"
 		},
 		{
 			"type": "image_picker",
 			"id": "background_image_mobile_b",
-			"label": "Background image mobile - variant B"
+			"label": "Background image mobile"
 		},
 		{
 			"type": "image_picker",
 			"id": "background_image_desktop_b",
-			"label": "Background image desktop - variant B"
+			"label": "Background image desktop"
 		}
 	],
 	"presets": [
