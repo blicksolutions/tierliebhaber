@@ -291,6 +291,7 @@
 
 .Recharge__Container[data-js-tlh-046-recharge-container="true"] .rc-widget-injection-parent .rc-template__radio-group .rc-radio {
 	width: 100%;
+    height: auto;
 	padding: 15px !important;
 	border-radius: 10px;
 	border-right: 1px solid #CCC;
