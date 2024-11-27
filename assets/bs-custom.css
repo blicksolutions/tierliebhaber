@@ -1053,3 +1053,128 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 	padding: 18px 20px;
 	background-color: #d4c7e7;
 }
+
+/******************************************************************/
+/* Black week bar
+/******************************************************************/
+
+#shopify-section-announcement:has(.BlackWeekSale__Banner-Link>.BlackWeekSale__BannerContainer) + #shopify-section-header {
+    top: 141px !important;
+}
+
+@media (min-width: 491px) {
+    #shopify-section-announcement:has(.BlackWeekSale__Banner-Link>.BlackWeekSale__BannerContainer) + #shopify-section-header {
+        top: 126px !important;
+    }
+}
+
+@media (min-width: 637px) {
+    #shopify-section-announcement:has(.BlackWeekSale__Banner-Link>.BlackWeekSale__BannerContainer) + #shopify-section-header {
+        top: 111px !important;
+    }
+}
+
+@media (min-width: 767px) {
+    #shopify-section-announcement:has(.BlackWeekSale__Banner-Link>.BlackWeekSale__BannerContainer) + #shopify-section-header {
+        top: 110px !important;
+    }
+}
+
+@media (min-width: 832px) {
+    #shopify-section-announcement:has(.BlackWeekSale__Banner-Link>.BlackWeekSale__BannerContainer) + #shopify-section-header {
+        top: 108px !important;
+    }
+}
+
+@media (min-width: 1023px) {
+    #shopify-section-announcement:has(.BlackWeekSale__Banner-Link>.BlackWeekSale__BannerContainer) + #shopify-section-header {
+        top: 122px !important;
+    }
+}
+
+@media (min-width: 1101px) {
+    #shopify-section-announcement:has(.BlackWeekSale__Banner-Link>.BlackWeekSale__BannerContainer) + #shopify-section-header {
+        top: 108px !important;
+    }
+}
+
+#shopify-section-announcement .BlackWeekSale__BannerContainer {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+	padding: 10px 16px;
+	gap: 8px;
+	background: #1C1B1B;
+}
+
+@media (min-width: 400px) {
+	#shopify-section-announcement .BlackWeekSale__BannerContainer {
+		justify-content: center;
+	}
+}
+
+@media (min-width: 768px) {
+	#shopify-section-announcement .BlackWeekSale__BannerContainer {
+		justify-content: center;
+		gap: 20px;
+		padding: 13px 16px;
+	}
+}
+
+#shopify-section-announcement .BlackWeekSale__BannerContainer .BlackWeekSale__Banner-Link {
+	width: 100%;
+}
+
+#shopify-section-announcement .BlackWeekSale__BannerContainer .BlackWeekSale__Banner {
+	position: relative;
+	display: flex;
+	padding: 4px 9px 4px 14px;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	border-radius: 26px;
+	background: linear-gradient(184deg, #F1AF9E 40.16%, #F2E6C1 114.33%);
+	margin-left: 12px;
+}
+
+#shopify-section-announcement .BlackWeekSale__BannerContainer .Banner__Icon {
+	position: absolute;
+	top: -6px;
+	left: -14px;
+	transform: rotate(357deg);
+}
+
+#shopify-section-announcement .BlackWeekSale__BannerContainer .Banner__Text {
+	color: #1C1B1B;
+	text-align: center;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+}
+
+@media (min-width: 768px) {
+	#shopify-section-announcement .BlackWeekSale__BannerContainer .Banner__Text {
+		font-size: 16px;
+		line-height: 20px;
+	}
+}
+
+#shopify-section-announcement .BlackWeekSale__BannerContainer .BlackWeekSale__Text {
+	color: #FDF3F0;
+	text-align: center;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+}
+
+@media (min-width: 768px) {
+	#shopify-section-announcement .BlackWeekSale__BannerContainer .BlackWeekSale__Text {
+		color: #FFF;
+		font-size: 18px;
+		font-weight: 700;
+		line-height: 22.5px;
+	}
+}
