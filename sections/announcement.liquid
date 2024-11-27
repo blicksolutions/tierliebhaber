@@ -57,9 +57,15 @@
       document.documentElement.style.setProperty('--announcement-bar-height', document.getElementById('shopify-section-announcement').offsetHeight + 'px');
     </script>
 
-	{% if section.settings.enable_advent_bar %}
+	{% if section.settings.enable_advent_bar == true and section.settings.enable_black_week_bar == false %}
 		{% render 'bs-advent-bar' %}
 	{% endif %}
+
+	{% if section.settings.enable_black_week_bar == true %}
+		{% render 'bs-black-week-bar' %}
+	{% endif %}
+
+
   {%- endunless -%}
 {%- endif -%}
 
@@ -77,6 +83,12 @@
       "type": "checkbox",
       "id": "enable_advent_bar",
       "label": "Enable advent bar",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_black_week_bar",
+      "label": "Enable Black Week bar",
       "default": true
     },
     {
