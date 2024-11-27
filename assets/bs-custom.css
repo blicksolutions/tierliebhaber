@@ -1178,3 +1178,59 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 		line-height: 22.5px;
 	}
 }
+
+/******************************************************************/
+/* Cart Drawer Black Week Badge
+/******************************************************************/
+
+#sidebar-cart .BlackWeekSale__BadgeContainer {
+	display: flex;
+	flex-direction: row;
+	gap: 5px;
+	align-items: center;
+	justify-content: flex-start;
+	padding: 6px 16px;
+	margin: 6px 24px 0;
+	border-radius: 31px;
+	background: #1C1B1B;
+	max-height: 36px;
+}
+
+#sidebar-cart .BlackWeekSale__BadgeContainer .Badge__Icon {
+	position: relative;
+	top: -3px;
+	left: 11px;
+}
+
+#sidebar-cart .BlackWeekSale__BadgeContainer .Badge__Text {
+	color: #FDF3F0;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+}
+
+@media (min-width: 768px) {
+	#sidebar-cart .BlackWeekSale__BadgeContainer .Badge__Text {
+		font-size: 13px;
+	}
+}
+
+#sidebar-cart .BlackWeekSale__BadgeContainer .Badge__Savings {
+	text-decoration: none;
+	color: #ED866B;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+}
+
+@media (min-width: 768px) {
+	#sidebar-cart .BlackWeekSale__BadgeContainer .Badge__Savings {
+		font-size: 13px;
+	}
+}
+
+/******************************************************************/
+/* End: Cart Drawer Black Week Badge
+/******************************************************************/
