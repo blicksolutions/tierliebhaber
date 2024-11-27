@@ -67,6 +67,12 @@
 	overflow: hidden;
 }
 
+@media (min-width: 768px) {
+	.ingredients__highlights {
+		height: auto;
+	}
+}
+
 .open .ingredients__highlights {
 	height: auto;
 }
@@ -90,13 +96,11 @@
 	align-self: stretch;
 	border-radius: 16px;
 	background: #FFF;
-	min-height: 144px;
 }
 
 @media (min-width: 768px) {
 	.highlights__item {
 		min-width: 434px;
-		min-height: 144px;
 	}
 }
 
