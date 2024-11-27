@@ -229,13 +229,19 @@
 	}
 }
 
-.Recharge__Container[data-js-tlh-046-recharge-container="true"] .rc-widget-injection-parent .rc-radio-group__options {
+.Recharge__Container[data-js-tlh-046-recharge-container="true"] .rc-widget-injection-parent .rc-template__radio-group .rc-radio-group__options {
 	display: flex;
 	align-items: flex-start;
 	flex-wrap: nowrap;
 	flex-direction: column;
 	border: none;
 	padding: 0;
+}
+
+@media (min-width: 768px) {
+	.Recharge__Container[data-js-tlh-046-recharge-container="true"] .rc-widget-injection-parent .rc-template__radio-group .rc-radio-group__options {
+		gap: 0px;
+	}
 }
 
 .Recharge__Container[data-js-tlh-046-recharge-container="true"] .rc-widget-injection-parent .rc-container {
