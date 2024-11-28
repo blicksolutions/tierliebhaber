@@ -558,7 +558,7 @@ $(document).ready(function(){
                 <li 
                     class="VariantSelector__ListItem {% if value == option.selected_value %}VariantSelector__ListItem--selected{% endif %} {% if full_width_options == true or variant_on_sale_counter > 1 %}VariantSelector__ListItem--full-width{% endif %}" 
                     data-js-variant-selector-item data-js-option-value="{{ value | escape }}" 
-                    {% if variant_savings != blank %} data-js-savings="{{ variant_savings | money }}" {% endif %}
+                    {% if variant_savings != blank %} data-js-savings="{{ variant_savings |  money_with_currency }}" {% endif %}
                     {% if free_shipping != blank %} data-js-free-shipping="{{ free_shipping }}" {% endif %}
                     >
                     <p class="VariantSelector__Option">
