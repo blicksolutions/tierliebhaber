@@ -1707,6 +1707,15 @@
         "type": "shopify://apps/gemx-cro-a-b-testing/blocks/gemx-theme-helper/d5fea089-2b8e-4af7-a4da-76b975b021c7",
         "disabled": false,
         "settings": {}
+      },
+      "10830403595879607806": {
+        "type": "shopify://apps/reviews-io/blocks/reviewsio-core/92a082e5-b297-4e88-b428-ac96cbc505f9",
+        "disabled": true,
+        "settings": {
+          "url_key": "tierliebhaber.de",
+          "lang": "auto",
+          "enable_syndication": false
+        }
       }
     }
   },
