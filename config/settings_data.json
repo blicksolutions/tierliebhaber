@@ -9,10 +9,10 @@
  */
 {
   "current": {
-    "donations_amount": 86064,
+    "donations_amount": 88106,
     "donation_goal": 100000,
     "total_text": "",
-    "total_number": "Bisher gespendet seit 2022: €86.064",
+    "total_number": "Bisher gespendet seit 2022: €88.106",
     "heading_color": "#1c1b1b",
     "text_color": "#1c1b1b",
     "text_light_color": "#6a6a6a",
@@ -54,6 +54,7 @@
     "cart_enable_notes": false,
     "cart_show_free_shipping_threshold": true,
     "cart_free_shipping_threshold": "49",
+    "cart_black_week_badge": true,
     "favicon": "shopify://shop_images/Favicon.png",
     "checkout_logo_image": "shopify://shop_images/schriftzug-closeup_1.png",
     "checkout_logo_position": "center",
@@ -105,7 +106,8 @@
         ],
         "settings": {
           "enable_bar": true,
-          "enable_advent_bar": true,
+          "enable_advent_bar": false,
+          "enable_black_week_bar": true,
           "sticky_bar": true,
           "home_page_only": false,
           "enable_trustpilot_widget": false,
@@ -741,112 +743,10 @@
           "microcopy": "<p><em>Wir melden uns in der Regel </em></p><p><em>innerhalb von 1-2 Werktagen mit einer Antwort bei dir!</em></p>"
         }
       },
-      "1628812121ed1d8117": {
-        "type": "collection-list",
-        "blocks": {
-          "1628812121ed1d8117-0": {
-            "type": "collection",
-            "settings": {
-              "collection": "zahnpflege",
-              "image_alignment": "center center",
-              "content_position": "middleCenter",
-              "subheading": "",
-              "title": "Zahnpflege",
-              "button_text": "Mehr entdecken",
-              "button_link": "shopify://collections/zahnpflege",
-              "apply_overlay": true
-            }
-          },
-          "1628812121ed1d8117-1": {
-            "type": "collection",
-            "settings": {
-              "collection": "funktionssnacks",
-              "image": "shopify://shop_images/03_Chillout_Sticks_Deko.jpg",
-              "image_alignment": "center center",
-              "content_position": "middleCenter",
-              "subheading": "",
-              "title": "Funktionssnacks",
-              "button_text": "Mehr entdecken",
-              "button_link": "",
-              "apply_overlay": true
-            }
-          },
-          "1628812121ed1d8117-2": {
-            "type": "collection",
-            "settings": {
-              "collection": "futter",
-              "image_alignment": "center center",
-              "content_position": "middleCenter",
-              "subheading": "",
-              "title": "Futter",
-              "button_text": "Mehr Entdecken",
-              "button_link": "",
-              "apply_overlay": true
-            }
-          },
-          "7d19f54d-a39f-48b3-a852-b8e52c1e4897": {
-            "type": "collection",
-            "settings": {
-              "collection": "belohnung",
-              "image": "shopify://shop_images/03_Goodie_Drops_Deko.jpg",
-              "image_alignment": "center center",
-              "content_position": "middleCenter",
-              "subheading": "",
-              "title": "Belohnung",
-              "button_text": "Mehr Entdecken",
-              "button_link": "",
-              "apply_overlay": true
-            }
-          },
-          "22949072-cddf-4819-9df9-cccbcea00e45": {
-            "type": "collection",
-            "settings": {
-              "collection": "bundles",
-              "image_alignment": "bottom center",
-              "content_position": "middleCenter",
-              "subheading": "",
-              "title": "Angebote",
-              "button_text": "Jetzt sichern!",
-              "button_link": "",
-              "apply_overlay": true
-            }
-          },
-          "245b2951-bb4a-4202-984d-b2d688fd3102": {
-            "type": "collection",
-            "settings": {
-              "collection": "pflege",
-              "image_alignment": "center center",
-              "content_position": "middleCenter",
-              "subheading": "",
-              "title": "Pflege",
-              "button_text": "Jetzt Entdecken",
-              "button_link": "",
-              "apply_overlay": true
-            }
-          }
-        },
-        "block_order": [
-          "1628812121ed1d8117-0",
-          "1628812121ed1d8117-1",
-          "1628812121ed1d8117-2",
-          "7d19f54d-a39f-48b3-a852-b8e52c1e4897",
-          "22949072-cddf-4819-9df9-cccbcea00e45",
-          "245b2951-bb4a-4202-984d-b2d688fd3102"
-        ],
-        "disabled": true,
-        "settings": {
-          "image_size": "small",
-          "add_spacing": true,
-          "expand_collection": false,
-          "stack_on_mobile": false,
-          "text_color": "#ffffff",
-          "button_color": "#363636"
-        }
-      },
       "16288779949bca7a14": {
         "type": "klaviyo-form",
         "settings": {
-          "id": "XEs6zR"
+          "id": "WGyRvv"
         }
       },
       "16294491755c400817": {
@@ -1683,8 +1583,20 @@
           "link_url": ""
         }
       },
+      "bs_hero_black_week_dhdFGE": {
+        "type": "bs-hero-black-week",
+        "settings": {
+          "black_week_headline_image": "shopify://shop_images/Text_Helle_Version.svg",
+          "background_image_mobile": "shopify://shop_images/Hintergrundbild_Hell_Mobile_1.jpg",
+          "background_image_desktop": "shopify://shop_images/Hintergrund_Helle_Version-fotor-20241122135415.jpg",
+          "black_week_headline_image_b": "shopify://shop_images/Text_Dunkle_Version.svg",
+          "background_image_mobile_b": "shopify://shop_images/Hintergrundbild_Dunkel_Mobile_1.jpg",
+          "background_image_desktop_b": "shopify://shop_images/Hintergrund_Dunkel-fotor-20241122135713.jpg"
+        }
+      },
       "bs_hero_banner_XriWJa": {
         "type": "bs-hero-banner",
+        "disabled": true,
         "settings": {
           "title": "So wird Silvester mit Hund entspannt!",
           "description": "<p>Leckere Snacks mit 100% natürlicher Beruhigungs-Formel, die ängstliche Hunde schonend entspannt… ganz ohne Chemie! </p>",
@@ -1698,8 +1610,9 @@
       }
     },
     "content_for_index": [
-      "ddee7e2a-800b-4859-be96-f251a0f829b6",
       "bs_hero_banner_XriWJa",
+      "bs_hero_black_week_dhdFGE",
+      "ddee7e2a-800b-4859-be96-f251a0f829b6",
       "1628785723a639a63d",
       "b19906e5-1981-4bbf-8ce1-d0a2d3727570",
       "1630563614cd6684d8",
@@ -1714,7 +1627,6 @@
       "slideshow_dKUeWg",
       "1652440853255ce756",
       "16294491755c400817",
-      "1628812121ed1d8117",
       "16340327713a2fcd1d",
       "1634649035d2406c63",
       "16346490400a4b1df7",
@@ -1797,6 +1709,11 @@
       },
       "17676059084223943535": {
         "type": "shopify://apps/triplewhale/blocks/triple_pixel_snippet/483d496b-3f1a-4609-aea7-8eee3b6b7a2a",
+        "disabled": false,
+        "settings": {}
+      },
+      "7625205453299604178": {
+        "type": "shopify://apps/gemx-cro-a-b-testing/blocks/gemx-theme-helper/d5fea089-2b8e-4af7-a4da-76b975b021c7",
         "disabled": false,
         "settings": {}
       }
