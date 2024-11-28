@@ -975,25 +975,6 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
     line-height: 125%;
 }
 
-.ProductMeta.Bestseller .ProductMeta__BestsellerHeader .jdgm-prev-badge__text {
-    color: #1C1B1B;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 125%;
-    margin: 0 0 0 5px;
-}
-
-@media (min-width: 768px) {
-    .ProductMeta.Bestseller .ProductMeta__BestsellerHeader .jdgm-prev-badge__text {
-        font-size: 18px;
-    }
-}
-
-.ProductMeta.Bestseller .ProductMeta__BestsellerHeader .jdgm-star {
-    font-size: 20px;
-}
-
 @media (min-width: 768px) {
     .ProductMeta.Bestseller .LikeBadge.hidden-pocket.-Initialized.tlh-035 {
         display: block;

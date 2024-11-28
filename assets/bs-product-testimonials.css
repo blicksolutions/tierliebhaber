@@ -74,12 +74,6 @@
     line-height: 15px;
 }
 
-.bs-product-testimonials .bs-product-testimonials__rating-product .jdgm-rev-widg__summary-stars span {
-    font-size: 21px;
-    display: flex;
-    line-height: normal;
-}
-
 .bs-product-testimonials .bs-product-testimonials__list {
     width: 100%;
 }
@@ -155,20 +149,6 @@
     width: 100%;
 }
 
-.bs-product-testimonials .testimonial__icon .jdgm-rev__icon {
-    width: 100%;
-    height: 62px;
-    margin: 0;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.bs-product-testimonials .testimonial__icon .jdgm-rev__icon::after {
-    content: none;
-}
-
 .bs-product-testimonials .testimonial__rating-time {
     display: flex;
     align-items: center;
@@ -178,10 +158,6 @@
 
 .bs-product-testimonials .testimonial__rating {
     display: flex;
-}
-
-.bs-product-testimonials .testimonial__rating .jdgm-rev__rating {
-    font-size: 9px;
 }
 
 .bs-product-testimonials .testimonial__time {

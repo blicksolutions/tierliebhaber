@@ -1628,18 +1628,6 @@
       "1629465395882c28f0"
     ],
     "blocks": {
-      "162859120942cad3d6": {
-        "type": "shopify://apps/judge-me-product-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-        "disabled": false,
-        "settings": {}
-      },
-      "162859120960fa81b2": {
-        "type": "shopify://apps/judge-me-product-reviews/blocks/reviews_tab/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-        "disabled": true,
-        "settings": {
-          "position": "left"
-        }
-      },
       "33229646823806756": {
         "type": "shopify://apps/dcart-discount-on-cart/blocks/app-embed/731e2611-8bdf-4514-b5e4-f64f1cae3fb7",
         "disabled": false,
