@@ -73,6 +73,13 @@ window.activateAbTlh067 = () => {
 	const togglePopup = () => {
 		let openPopup = true
 
+		const subscriptionBoxSelection = document.querySelector('.rc-widget-injection-parent input:checked')
+		if (subscriptionBoxSelection.classList.contains('rc_widget__option__input--subsave')) {
+			const origianlAtc = document.querySelector('[data-js-atc-button]')
+			origianlAtc.click()
+			openPopup = false
+		}
+
 		const originalVariantSelectorInputs = document.querySelectorAll('.ProductForm__Variants .ProductForm__Option .SizeSwatchList input[value]');
 		originalVariantSelectorInputs.forEach((input)=>{
             if (input.checked == true) {
@@ -86,32 +93,30 @@ window.activateAbTlh067 = () => {
                 }
             }
 		})
-		console.log('openPopup', openPopup)
 		if (openPopup == false) return
 		
 		if (variantPopup.style.display === "none" || !variantPopup.classList.contains('show')) {
 			pageOverlay.classList.add('is-visible')
 
-			// Popup anzeigen mit Animation
-			variantPopup.style.display = "flex";  // Zuerst auf block setzen
+			variantPopup.style.display = "flex"; 
 			setTimeout(() => {
-				variantPopup.classList.add('show');  // Nach kurzer Verzögerung die Animation starten
-			}, 10); // Verzögerung, um sicherzustellen, dass der display-Wert auf "block" gesetzt wurde
+				variantPopup.classList.add('show'); 
+			}, 10); 
 			toggleScroll(false)
 			pageOverlay.addEventListener('click', togglePopup)
 
 		} else {
 
-			// variantPopup ausblenden mit Animation
+			
 			toggleScroll(true)
 			pageOverlay.removeEventListener('click', togglePopup)
 
-			variantPopup.classList.remove('show');  // Animation rückgängig machen
+			variantPopup.classList.remove('show');  
 			setTimeout(() => {
-				variantPopup.style.display = "none";  // Popup auf display: none setzen, nachdem die Animation abgeschlossen ist
+				variantPopup.style.display = "none";  
 				pageOverlay.classList.remove('is-visible')
 
-			}, 300);  // Warten bis die Animation fertig ist
+			}, 300);  
 		}
 	}
 	
@@ -140,9 +145,7 @@ window.activateAbTlh067 = () => {
 
 	const getPrice = (optionElement,amount) => {
 		const optionPrice = optionElement.getAttribute('data-js-price').replace(',', '.')
-
 		const price = parseFloat(optionPrice)
-
 		const pricePerUnit = (price / amount).toFixed(2)
 
 		return pricePerUnit
@@ -220,7 +223,6 @@ window.activateAbTlh067 = () => {
 	optionElements.forEach((optionElement)=>{
 		const amount = getAmount(optionElement)
 		const optionPrefix = optionElement.querySelector('[data-js-option-prefix]')
-		console.log('optionPrefix', optionPrefix)
 		optionPrefix.innerHTML = amount + 'x'
 
 		const pricePerUnit = getPrice(optionElement, amount)
