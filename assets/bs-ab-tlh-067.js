@@ -1,4 +1,6 @@
 window.activateAbTlh067 = () => {
+    window['ablyft'] = window['ablyft'] || [];
+
 	const productHandle = window.location.pathname.split('/').slice(-1).toString();
 	let bestseller;
 
@@ -263,6 +265,12 @@ window.activateAbTlh067 = () => {
 	const confirmUpsell = () => {
 		togglePopup()
 		
+        window['ablyft'].push({
+            eventType: 'custom',
+            eventName: 'tlh-067-clicks-on-offer',
+            eventValue: 1 //optional
+        });
+
 		const originalVariantSelectorInputs = document.querySelectorAll('.ProductForm__Variants .ProductForm__Option .SizeSwatchList input[value]');
 		const selectedValue = confirmButton.getAttribute('data-js-selected-option-value')
 		const origianlAtc = document.querySelector('[data-js-atc-button]')
