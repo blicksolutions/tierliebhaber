@@ -12,6 +12,7 @@
     "main": {
       "type": "product-template",
       "settings": {
+        "meta_info_badge_visibility": true,
         "meta_info_badge_text": "<p>Für die beste Wirkung <strong>4 Wochen vor Silvester</strong> mit der Anwendung beginnen!</p>",
         "show_share_buttons": false,
         "show_vendor": false,
