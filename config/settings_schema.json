@@ -472,7 +472,24 @@
         "label": "Free shipping minimum amount",
         "info": "Only write a number, no letters",
         "default": "50"
-      }
+      },
+	  {
+		"type": "header",
+		"content": "Black Week badge"
+	  },
+	  {
+		"type": "checkbox",
+		"default": false,
+		"id": "cart_black_week_badge",
+		"label": "Enable Black Week badge",
+		"info": "This can only be enabled when Cart Type: Drawer is selected"
+	  },
+	  {
+		"type": "text",
+		"id": "cart_black_week_badge_text",
+		"label": "Badge Text",
+		"default": "Durch den Sale sparst du heute"
+	  }
     ]
   },
   {

@@ -12,6 +12,8 @@
     "main": {
       "type": "product-template",
       "settings": {
+        "meta_info_badge_visibility": true,
+        "meta_info_badge_text": "<p>Für die beste Wirkung <strong>4 Wochen vor Silvester</strong> mit der Anwendung beginnen!</p>",
         "show_share_buttons": false,
         "show_vendor": false,
         "show_sku": false,
@@ -459,7 +461,7 @@
     "fd0c95dc-1c46-4e1d-805a-9959697fdfce": {
       "type": "klaviyo-form",
       "settings": {
-        "id": "XEs6zR"
+        "id": "WGyRvv"
       }
     }
   },
