@@ -316,5 +316,3 @@ window.activateAbTlh067 = () => {
 	const closeButton = variantPopup.querySelector('[data-js-close-button]')
 	closeButton.addEventListener('click', togglePopup)
 };
-
-document.addEventListener('DOMContentLoaded', window.activateAbTlh067)
