@@ -11,5 +11,3 @@ window.activateAbTlh063 = () => {
 		container.classList.toggle('open')
 	})
 };
-
-document.addEventListener('DOMContentLoaded', window.activateAbTlh063)
