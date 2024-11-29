@@ -87,7 +87,6 @@ window.activateAbTlh067 = () => {
             if (input.checked == true) {
                 const inputValue = input.getAttribute('value')
                 const selectedValue = variantPopup.querySelector(`[data-js-option-value="${inputValue}"]`)
-                console.log('selectedValue', selectedValue)
                 if (selectedValue != null) {
                     const origianlAtc = document.querySelector('[data-js-atc-button]')
                     origianlAtc.click()
