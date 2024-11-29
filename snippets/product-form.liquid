@@ -48,6 +48,8 @@ $(document).ready(function(){
 
 {%- form 'product', product, data-productid: product.id, class: 'ProductForm' -%}
 
+{% render 'bs-ab-tlh-060-amount-info' %}
+
   {%- if template.suffix == "standardprodukt-mit-abo" -%}
     <!-- Begin ReCharge code --> 
 		<div class="rc-widget-injection-parent"></div>
@@ -460,7 +462,7 @@ $(document).ready(function(){
   -%}
 
   {%- if selling_points.size > 0 -%}
-    <div class="ProductForm__SellingPoints" style="margin-top: 45px; margin-bottom: 45px;" data-js-tlh-058-selling-points>
+    <div class="ProductForm__SellingPoints" style="margin-top: 45px; margin-bottom: 45px;">
 		<h2 class="SellingPoints__Heading">
 			Vorteile
 		</h2>

@@ -11,7 +11,7 @@
 
 <div class="ProductMeta {% if product.metafields.badge.text == 'Bestseller' %}Bestseller{% endif %}" {% if product.metafields.badge.text == 'Bestseller' %} data-js-bestseller="true" {% endif %}>
     {% if product.metafields.badge.text == 'Bestseller' %}
-        <div class="ProductMeta__BestsellerHeader" data-js-tlh-058-bestseller-header>
+        <div class="ProductMeta__BestsellerHeader">
             {%- if product.metafields.badge.text -%}
                 {%- render 'product-badge', product: product -%}
             {%- endif -%}
@@ -327,8 +327,6 @@
         {%- endif -%}
     {%- endif -%}
 
-    {% render 'bs-ab-tlh-060-amount-info' %}
-
 	{%- if show_like_badge -%}
 		{%- render 'like-badge', classes: 'hidden-pocket' -%}
 	{%- endif-%}
@@ -435,7 +433,7 @@
 
 
         {% unless product.id == 8068154949900 or product.id == 7181458014367  or product.id == 7973987385612 %}
-            <div class="pdp-stock-bar wrapper-center-align" data-js-tlh-058-stock-bar>
+            <div class="pdp-stock-bar wrapper-center-align">
             {% if selected_variant.available %}
                 <div class="acc-tl-pr39-wrapper">
                 <div class="acc-pr39-title">Nur solange der Vorrat reicht!</div>
