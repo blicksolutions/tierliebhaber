@@ -637,4 +637,47 @@
 			});
 		}
 	};
+
+	
+	/******************************************************************/
+	/* Black Week Badge
+    /******************************************************************/
+	const blackWeekBadge = () => {
+		const blackWeekBadgeElement = document.querySelector('[data-js-black-week-badge]')
+		if (!blackWeekBadgeElement) return
+
+		const mutationObserverPrice = new MutationObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.type == 'childList') {
+					if (entry.target.classList.contains('Badge__Savings')) return
+						const cartSavingsElement = document.querySelector('[data-js-black-week-cart-savings]')
+						if (!cartSavingsElement) return
+		
+						const cartSavings = cartSavingsElement.getAttribute('data-js-black-week-cart-savings')
+
+						const badgeSavingsElement = document.querySelector('[data-js-black-week-badge-savings]')
+						if (badgeSavingsElement.innerText != cartSavings) {
+							badgeSavingsElement.innerText = cartSavings
+						}
+					
+				}
+			});
+		});
+
+		const cartDrawer= document.querySelector('#shopify-section-cart-drawer')
+
+		if (cartDrawer != undefined) {
+			mutationObserverPrice.observe(cartDrawer, {
+				childList: true,
+				subtree: true,
+				attributes: true,
+			});
+		}
+	}
+
+	document.addEventListener('DOMContentLoaded', blackWeekBadge)
+	
+	/******************************************************************/
+	/* End: Black Week Badge
+    /******************************************************************/
 })();
