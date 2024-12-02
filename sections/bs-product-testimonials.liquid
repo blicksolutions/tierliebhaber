@@ -2,7 +2,7 @@
 {{ 'bs-product-testimonials.css' |  asset_url |  stylesheet_tag }}
 <script src="{{ 'bs-product-testimonials.js' |  asset_url }}" defer></script>
 
-{% if section.settings.hidden == false and template contains 'product' %}
+{% if template contains 'product' %}
 	<div class="bs-product-testimonials__wrapper">
 		<div class="bs-product-testimonials">
 			<h2 class="bs-product-testimonials__heading">
