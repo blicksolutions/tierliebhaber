@@ -23,6 +23,8 @@
                     <a href="{{ product.url }}">{{ product.title }}</a>
                 {%- endif -%}
             </h1>
+
+            <div class="ruk_rating_snippet" data-sku={{ product.selected_or_first_available_variant.sku }}></div>
     
         </div>
     {% else %}
@@ -88,6 +90,8 @@
             </p>
         {%- endif -%}
         {% endcomment %}
+
+        <div class="ruk_rating_snippet" data-sku={{ product.selected_or_first_available_variant.sku }}></div>
     {% endif %}
 
     {% unless product.metafields.badge.text == 'Bestseller' %}

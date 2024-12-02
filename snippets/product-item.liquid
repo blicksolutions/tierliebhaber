@@ -92,6 +92,7 @@
           <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
         </h2>
 
+        <div class="ruk_rating_snippet" data-sku={{ product.selected_or_first_available_variant.sku }}></div>
 
         {%- if show_color_swatch -%}
           {%- assign color_swatch_list = '' -%}
