@@ -1599,48 +1599,6 @@
           "background_image_desktop": "shopify://shop_images/Hero_Image_chillout.webp",
           "foreground_image": "shopify://shop_images/Vorher_Nachher.png"
         }
-      },
-      "slideshow_cVn38U": {
-        "type": "slideshow",
-        "blocks": {
-          "image_DrHGXY": {
-            "type": "image",
-            "settings": {
-              "image": "shopify://shop_images/Test_Banner_1.png",
-              "mobile_image": "shopify://shop_images/Test_Banner_2000_x_2000_px.png",
-              "apply_overlay": false,
-              "content_offset_mobile_left": 50,
-              "content_offset_mobile_top": 50,
-              "content_offset_desktop_left": 72,
-              "content_offset_desktop_top": 50,
-              "content_position": "middleCenter",
-              "image_link": "shopify://products/chillout-drops",
-              "subheading": "Slide title",
-              "title": "Tell your story",
-              "button_1_text": "Test",
-              "button_1_link": "shopify://products/darmkur-bundle",
-              "button_2_text": "",
-              "button_2_link": "",
-              "button_font": "Poppins",
-              "button_font_size": 35,
-              "button_font_weight": 400,
-              "button_text_color": "#000",
-              "button_background": "#fff"
-            }
-          }
-        },
-        "block_order": [
-          "image_DrHGXY"
-        ],
-        "settings": {
-          "show_fullscreen": false,
-          "show_arrow": false,
-          "autoplay": true,
-          "cycle_speed": 5,
-          "text_color": "#ffffff",
-          "button_color": "#363636",
-          "button_background": "#ffffff"
-        }
       }
     },
     "content_for_index": [
@@ -1648,7 +1606,6 @@
       "bs_hero_black_week_dhdFGE",
       "ddee7e2a-800b-4859-be96-f251a0f829b6",
       "1628785723a639a63d",
-      "slideshow_cVn38U",
       "b19906e5-1981-4bbf-8ce1-d0a2d3727570",
       "1630563614cd6684d8",
       "16288779949bca7a14",
