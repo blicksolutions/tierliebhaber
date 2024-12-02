@@ -159,7 +159,7 @@
 							</svg>
 						
 							<p class="Badge__Text">
-								{{ settings.cart_black_week_badge_text }} <s class="Badge__Savings" data-js-black-week-badge-savings></s>!
+								{{ settings.cart_black_week_badge_text }} <s class="Badge__Savings" data-js-black-week-badge-savings>{{ black_week_savings |  money_with_currency }}</s>!
 							</p>
 						</div>
 					{%- endunless -%}

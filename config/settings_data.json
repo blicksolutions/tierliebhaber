@@ -117,7 +117,13 @@
           "background": "#f2f8f5",
           "text_color": "#6a6a6a",
           "content": "30 Tage Geld-zurück-Garantie auf alle Tierliebhaber-Produkte 🐶",
-          "link": "shopify://collections/alle-tierliebhaber-produkte"
+          "link": "shopify://collections/alle-tierliebhaber-produkte",
+          "black_week_bar_banner_text": "Black Week Sale",
+          "black_week_bar_text": "Sichere dir jetzt deinen Rabatt!",
+          "black_week_bar_link": "https://tierliebhaber.de/collections/alle-tierliebhaber-produkte",
+          "advent_bar_text": "Nur jetzt: Spare 66€ auf deinen",
+          "advent_bar_highlighted_text": "Adventskalender!",
+          "advent_bar_link": ""
         }
       },
       "header": {
@@ -1586,9 +1592,6 @@
       "bs_hero_black_week_dhdFGE": {
         "type": "bs-hero-black-week",
         "settings": {
-          "black_week_headline_image": "shopify://shop_images/Text_Helle_Version.svg",
-          "background_image_mobile": "shopify://shop_images/Hintergrundbild_Hell_Mobile_1.jpg",
-          "background_image_desktop": "shopify://shop_images/Hintergrund_Helle_Version-fotor-20241122135415.jpg",
           "black_week_headline_image_b": "shopify://shop_images/Text_Dunkle_Version.svg",
           "background_image_mobile_b": "shopify://shop_images/Hintergrundbild_Dunkel_Mobile_1.jpg",
           "background_image_desktop_b": "shopify://shop_images/Hintergrund_Dunkel-fotor-20241122135713.jpg"
@@ -1716,6 +1719,15 @@
         "type": "shopify://apps/gemx-cro-a-b-testing/blocks/gemx-theme-helper/d5fea089-2b8e-4af7-a4da-76b975b021c7",
         "disabled": false,
         "settings": {}
+      },
+      "10830403595879607806": {
+        "type": "shopify://apps/reviews-io/blocks/reviewsio-core/92a082e5-b297-4e88-b428-ac96cbc505f9",
+        "disabled": true,
+        "settings": {
+          "url_key": "tierliebhaber.de",
+          "lang": "auto",
+          "enable_syndication": false
+        }
       }
     }
   },

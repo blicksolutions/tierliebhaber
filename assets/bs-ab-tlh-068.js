@@ -13,4 +13,3 @@ window.activateAbTlh068C = () => {
     
     cartDrawer.setAttribute('data-bs-tlh-068c', "");
 };
-
