@@ -107,7 +107,7 @@
         "settings": {
           "enable_bar": true,
           "enable_advent_bar": false,
-          "enable_black_week_bar": true,
+          "enable_black_week_bar": false,
           "sticky_bar": true,
           "home_page_only": false,
           "enable_trustpilot_widget": false,
@@ -1625,8 +1625,8 @@
               "button_font": "Poppins",
               "button_font_size": 35,
               "button_font_weight": 400,
-              "button_text_color": "#000",
-              "button_background": "#fff"
+              "button_text_color": "#000000",
+              "button_background": "#ffffff"
             }
           }
         },
