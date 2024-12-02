@@ -798,6 +798,7 @@
               "content_offset_desktop_left": 55,
               "content_offset_desktop_top": 44,
               "content_position": "middleCenter",
+              "image_link": "",
               "subheading": "",
               "title": "",
               "button_1_text": "Mehr erfahren!",
@@ -1341,19 +1342,6 @@
           "link_url": "https://tierliebhaber.de/products/spende?_pos=1&_sid=bc571c26c&_ss=r"
         }
       },
-      "356a1b79-1388-4224-ad0f-10ec20c026f0": {
-        "type": "text-with-image",
-        "disabled": true,
-        "settings": {
-          "subheading": "",
-          "title": "30 Tage Geld-zurück-Garantie",
-          "image": "shopify://shop_images/Untitled_design_5.png",
-          "image_position": "left",
-          "content": "<h4>100% Wirksamkeits-Garantie: Teste unsere Produkte komplett ohne Risiko. Wir sind so von der Wirksamkeit unserer Produkte überzeugt, dass wir dir das Geld zurückerstatten, falls du nicht zufrieden bist. Wende das Produkt entsprechend der Empfehlung mind. 30 - 90 Tage an. Danach hast du 30 Tage lang Zeit, das Produkt an uns zurückzuschicken.* Wir erstatten dir daraufhin den vollen Kaufpreis. Bitte sei dir jedoch bewusst, dass die Produkte keine Zaubermittel sind :)</h4><h6>*Die Kosten der Rücksendung trägst du selbst. </h6>",
-          "link_text": "",
-          "link_url": ""
-        }
-      },
       "b4edff6c-2010-46ec-a9c1-d1678e7808e8": {
         "type": "featured-collections",
         "blocks": {
@@ -1550,6 +1538,7 @@
               "content_offset_desktop_left": 32,
               "content_offset_desktop_top": 47,
               "content_position": "middleCenter",
+              "image_link": "",
               "subheading": "",
               "title": "",
               "button_1_text": "",
@@ -1610,6 +1599,48 @@
           "background_image_desktop": "shopify://shop_images/Hero_Image_chillout.webp",
           "foreground_image": "shopify://shop_images/Vorher_Nachher.png"
         }
+      },
+      "slideshow_cVn38U": {
+        "type": "slideshow",
+        "blocks": {
+          "image_DrHGXY": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/Test_Banner_1.png",
+              "mobile_image": "shopify://shop_images/Test_Banner_2000_x_2000_px.png",
+              "apply_overlay": false,
+              "content_offset_mobile_left": 50,
+              "content_offset_mobile_top": 50,
+              "content_offset_desktop_left": 72,
+              "content_offset_desktop_top": 50,
+              "content_position": "middleCenter",
+              "image_link": "shopify://products/chillout-drops",
+              "subheading": "Slide title",
+              "title": "Tell your story",
+              "button_1_text": "Test",
+              "button_1_link": "shopify://products/darmkur-bundle",
+              "button_2_text": "",
+              "button_2_link": "",
+              "button_font": "Poppins",
+              "button_font_size": 35,
+              "button_font_weight": 400,
+              "button_text_color": "#000",
+              "button_background": "#fff"
+            }
+          }
+        },
+        "block_order": [
+          "image_DrHGXY"
+        ],
+        "settings": {
+          "show_fullscreen": false,
+          "show_arrow": false,
+          "autoplay": true,
+          "cycle_speed": 5,
+          "text_color": "#ffffff",
+          "button_color": "#363636",
+          "button_background": "#ffffff"
+        }
       }
     },
     "content_for_index": [
@@ -1617,13 +1648,13 @@
       "bs_hero_black_week_dhdFGE",
       "ddee7e2a-800b-4859-be96-f251a0f829b6",
       "1628785723a639a63d",
+      "slideshow_cVn38U",
       "b19906e5-1981-4bbf-8ce1-d0a2d3727570",
       "1630563614cd6684d8",
       "16288779949bca7a14",
       "16282318717ce7acd5",
       "b4edff6c-2010-46ec-a9c1-d1678e7808e8",
       "cfc032c1-c00f-4d3f-827c-a8fdb86b7458",
-      "356a1b79-1388-4224-ad0f-10ec20c026f0",
       "164847561630f9cc4a",
       "b94622a9-dfd5-4703-963d-0b90d3126168",
       "text_with_image_CLJqMt",
