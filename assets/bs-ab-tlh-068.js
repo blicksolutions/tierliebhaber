@@ -1,9 +1,9 @@
 window.activateAbTlh068B = () => {
-const cartDrawer = document.getElementById('sidebar-cart');
+    const cartDrawer = document.getElementById('sidebar-cart');
 
-if(!cartDrawer) return;
+    if(!cartDrawer) return;
 
-cartDrawer.setAttribute('data-bs-tlh-068b', "");
+    cartDrawer.setAttribute('data-bs-tlh-068b', "");
 };
 
 window.activateAbTlh068C = () => {
@@ -13,8 +13,4 @@ window.activateAbTlh068C = () => {
     
     cartDrawer.setAttribute('data-bs-tlh-068c', "");
 };
-
-document.addEventListener("DOMContentLoaded", () => {
-    window.activateAbTlh068B();
-})
 
