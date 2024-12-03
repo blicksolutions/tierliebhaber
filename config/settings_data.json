@@ -54,7 +54,7 @@
     "cart_enable_notes": false,
     "cart_show_free_shipping_threshold": true,
     "cart_free_shipping_threshold": "49",
-    "cart_black_week_badge": true,
+    "cart_black_week_badge": false,
     "favicon": "shopify://shop_images/Favicon.png",
     "checkout_logo_image": "shopify://shop_images/schriftzug-closeup_1.png",
     "checkout_logo_position": "center",
@@ -107,7 +107,7 @@
         "settings": {
           "enable_bar": true,
           "enable_advent_bar": false,
-          "enable_black_week_bar": true,
+          "enable_black_week_bar": false,
           "sticky_bar": true,
           "home_page_only": false,
           "enable_trustpilot_widget": false,
@@ -798,6 +798,7 @@
               "content_offset_desktop_left": 55,
               "content_offset_desktop_top": 44,
               "content_position": "middleCenter",
+              "image_link": "",
               "subheading": "",
               "title": "",
               "button_1_text": "Mehr erfahren!",
@@ -1321,6 +1322,12 @@
           "upsell_items": [
             "darmpflege-drops"
           ],
+          "upsell_items_tlh_068_b": [
+            "chillout-drops"
+          ],
+          "upsell_items_tlh_068_c": [
+            "tl0002-gs"
+          ],
           "payment_image": "shopify://shop_images/Bildschirmfoto_2022-05-14_um_19.25_1_1.png"
         }
       },
@@ -1333,19 +1340,6 @@
           "content": "<p>Gemeinsam können wir noch viel mehr Hunden helfen, doch dafür brauchen wir deine Unterstüzung!</p>",
           "link_text": ">>> JETZT SPENDEN <<<",
           "link_url": "https://tierliebhaber.de/products/spende?_pos=1&_sid=bc571c26c&_ss=r"
-        }
-      },
-      "356a1b79-1388-4224-ad0f-10ec20c026f0": {
-        "type": "text-with-image",
-        "disabled": true,
-        "settings": {
-          "subheading": "",
-          "title": "30 Tage Geld-zurück-Garantie",
-          "image": "shopify://shop_images/Untitled_design_5.png",
-          "image_position": "left",
-          "content": "<h4>100% Wirksamkeits-Garantie: Teste unsere Produkte komplett ohne Risiko. Wir sind so von der Wirksamkeit unserer Produkte überzeugt, dass wir dir das Geld zurückerstatten, falls du nicht zufrieden bist. Wende das Produkt entsprechend der Empfehlung mind. 30 - 90 Tage an. Danach hast du 30 Tage lang Zeit, das Produkt an uns zurückzuschicken.* Wir erstatten dir daraufhin den vollen Kaufpreis. Bitte sei dir jedoch bewusst, dass die Produkte keine Zaubermittel sind :)</h4><h6>*Die Kosten der Rücksendung trägst du selbst. </h6>",
-          "link_text": "",
-          "link_url": ""
         }
       },
       "b4edff6c-2010-46ec-a9c1-d1678e7808e8": {
@@ -1544,6 +1538,7 @@
               "content_offset_desktop_left": 32,
               "content_offset_desktop_top": 47,
               "content_position": "middleCenter",
+              "image_link": "",
               "subheading": "",
               "title": "",
               "button_1_text": "",
@@ -1585,6 +1580,7 @@
       },
       "bs_hero_black_week_dhdFGE": {
         "type": "bs-hero-black-week",
+        "disabled": true,
         "settings": {
           "black_week_headline_image_b": "shopify://shop_images/Text_Dunkle_Version.svg",
           "background_image_mobile_b": "shopify://shop_images/Hintergrundbild_Dunkel_Mobile_1.jpg",
@@ -1593,7 +1589,6 @@
       },
       "bs_hero_banner_XriWJa": {
         "type": "bs-hero-banner",
-        "disabled": true,
         "settings": {
           "title": "So wird Silvester mit Hund entspannt!",
           "description": "<p>Leckere Snacks mit 100% natürlicher Beruhigungs-Formel, die ängstliche Hunde schonend entspannt… ganz ohne Chemie! </p>",
@@ -1604,9 +1599,54 @@
           "background_image_desktop": "shopify://shop_images/Hero_Image_chillout.webp",
           "foreground_image": "shopify://shop_images/Vorher_Nachher.png"
         }
+      },
+      "slideshow_8YErMq": {
+        "type": "slideshow",
+        "blocks": {
+          "image_WiPMGy": {
+            "type": "image",
+            "disabled": true,
+            "settings": {
+              "image": "shopify://shop_images/Test_Banner_1.png",
+              "mobile_image": "shopify://shop_images/Test_Banner_2000_x_2000_px_1.png",
+              "apply_overlay": true,
+              "content_offset_mobile_left": 50,
+              "content_offset_mobile_top": 50,
+              "content_offset_desktop_left": 50,
+              "content_offset_desktop_top": 50,
+              "content_position": "middleCenter",
+              "image_link": "shopify://collections/weihnachten-2024",
+              "subheading": "",
+              "title": "",
+              "button_1_text": "",
+              "button_1_link": "",
+              "button_2_text": "",
+              "button_2_link": "",
+              "button_font": "Poppins",
+              "button_font_size": 35,
+              "button_font_weight": 400,
+              "button_text_color": "#000000",
+              "button_background": "#ffffff"
+            }
+          }
+        },
+        "block_order": [
+          "image_WiPMGy"
+        ],
+        "disabled": true,
+        "settings": {
+          "show_fullscreen": false,
+          "show_arrow": false,
+          "autoplay": true,
+          "cycle_speed": 5,
+          "text_color": "#ffffff",
+          "button_color": "#363636",
+          "button_background": "#ffffff"
+        }
       }
     },
     "content_for_index": [
+      "slideshow_8YErMq",
       "bs_hero_banner_XriWJa",
       "bs_hero_black_week_dhdFGE",
       "ddee7e2a-800b-4859-be96-f251a0f829b6",
@@ -1617,7 +1657,6 @@
       "16282318717ce7acd5",
       "b4edff6c-2010-46ec-a9c1-d1678e7808e8",
       "cfc032c1-c00f-4d3f-827c-a8fdb86b7458",
-      "356a1b79-1388-4224-ad0f-10ec20c026f0",
       "164847561630f9cc4a",
       "b94622a9-dfd5-4703-963d-0b90d3126168",
       "text_with_image_CLJqMt",
