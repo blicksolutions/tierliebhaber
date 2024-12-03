@@ -8,7 +8,7 @@
 }
 
 .features--heading-normal .Product__InfoWrapper .ProductMeta__PriceList:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]).Heading {
-    display: flex;
+    display: flex !important;
 	justify-content: flex-start;
 	align-items: baseline;
 	gap: 12px;
