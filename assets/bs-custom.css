@@ -1521,7 +1521,7 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 
 .features--heading-normal .Product__InfoWrapper .ProductMeta__PriceList.Heading,
 .Product__InfoWrapper .ProductMeta__UnitPriceMeasurement {
-	display: inline-block;
+	display: inline-block !important;
 	text-align: left;
 	margin-top: 0;
 }
