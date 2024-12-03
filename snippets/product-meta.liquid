@@ -42,10 +42,12 @@
         {%- endif -%}
 
         <div class="ProductBadges">
-          {% assign current_url = request.path %}
-          
-            {% if current_url contains '/chillout-sticks' or current_url contains 'chillout-drops' %}
-                {% render 'bs-info-badge' %}
+            {% if meta_badge_visibility %}
+              {% assign current_url = request.path %}
+            
+              {% if current_url contains 'chillout' or current_url contains 'chilllout' or current_url contains 'chilloutsaft-pferd' %}
+                  {% render 'bs-info-badge', meta_badge_text: meta_badge_text %}
+              {% endif %}
             {% endif %}
            
             {%- if product.metafields.badge.text -%}
