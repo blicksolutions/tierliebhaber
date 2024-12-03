@@ -352,7 +352,6 @@
       "blocks": {
         "reviews_io_reviewsio_polaris_RYcMjN": {
           "type": "shopify://apps/reviews-io/blocks/reviewsio-polaris/92a082e5-b297-4e88-b428-ac96cbc505f9",
-          "disabled": true,
           "settings": {
             "star": "#000000",
             "review_type": "product_review,questions",
@@ -385,7 +384,6 @@
       "block_order": [
         "reviews_io_reviewsio_polaris_RYcMjN"
       ],
-      "disabled": true,
       "settings": {}
     },
     "recommendations": {
