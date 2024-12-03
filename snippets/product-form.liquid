@@ -386,6 +386,22 @@ $(document).ready(function(){
       </button>
     {% endunless %}
 
+	{% comment %}
+		bs-ab-tlh-067 ATC Button
+	{% endcomment %}
+		<div class="Button Button--primary Button--full ProductForm__AddToCart variant-popup__trigger" {% unless selected_variant.available %}disabled="disabled"{% endunless %} data-js-tlh-067-atc-button>
+			{% if selected_variant.available %}
+				In den Warenkorb
+			{% else %}
+				Ausverkauft
+			{% endif %}
+		</div>
+
+	{% comment %}
+		End: bs-ab-tlh-067 ATC Button
+	{% endcomment %}
+
+
     {% if sticky_atc == true %}
 
     <div class="ProductMeta__StickyATC" data-js-sticky-atc-container>
@@ -419,7 +435,12 @@ $(document).ready(function(){
                             {% endif %}
                         {% endfor %}
         
-                    <li class="VariantSelector__ListItem {% if value == option.selected_value %}VariantSelector__ListItem--selected{% endif %}" data-js-sticky-atc-variant-selector-item data-js-option-value="{{ value | escape }}">
+                    <li 
+						class="VariantSelector__ListItem {% if value == option.selected_value %}VariantSelector__ListItem--selected{% endif %}" 
+						data-js-sticky-atc-variant-selector-item
+						data-js-option-value="{{ value | escape }}"
+						{% if forloop.first %} data-js-first-option {% endif %}
+						>
                             <p class="VariantSelector__Option">
                                 {{ value }}
                             </p>
@@ -435,6 +456,8 @@ $(document).ready(function(){
         </div>
       </div>
     {% endif %}
+
+	{% render 'bs-ab-tlh-067' %}
 
   {%- comment -%} Anchor for Klaviyo Back in Stock Script {%- endcomment -%}
   <div id="BackInStockAnchor"></div>

@@ -1,0 +1,43 @@
+.CartUpsells__Container-ab-068,
+.CartUpsells__Container-ab-068 .Cart__ItemList {
+    display: none;
+}
+
+.bs-ab-tlh-068__badge {
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 500;
+    color: #1C1B1B;
+    background: #D2C7E5;
+    padding: 7px 63px 7px 15px;
+    border-radius: 50px;
+    width: fit-content;
+    position: relative;
+    margin: 0 30px;
+    overflow: hidden;
+}
+
+.bs-ab-tlh-068__badge::before {
+    content: "🎉";
+    position: absolute;
+    right: 17px;
+    bottom: 0;
+    font-size: 32px;
+}
+
+.Drawer[data-bs-tlh-068b] .CartUpsells__Container:not(.CartUpsells__Container-ab-068),
+.Drawer[data-bs-tlh-068c] .CartUpsells__Container:not(.CartUpsells__Container-ab-068) {
+    display: none;
+}
+
+.Drawer[data-bs-tlh-068b] .CartUpsells__Container-ab-068,
+.Drawer[data-bs-tlh-068c] .CartUpsells__Container-ab-068,
+.Drawer[data-bs-tlh-068b] .CartUpsells__Container-ab-068 .Cart__ItemList:nth-of-type(1),
+.Drawer[data-bs-tlh-068c] .CartUpsells__Container-ab-068 .Cart__ItemList:nth-of-type(2) {
+    display: block;
+}
+
+.Drawer[data-bs-tlh-068b] .CartUpsells__Title,
+.Drawer[data-bs-tlh-068c] .CartUpsells__Title {
+    margin-bottom: 10px;
+}
