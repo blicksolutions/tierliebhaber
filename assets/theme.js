@@ -757,7 +757,7 @@ function _classCallCheck(e, t) {
                         var i = this.element.querySelector(".ProductMeta__UnitPriceMeasurement");
                         if(i === null) return;
                         if (e.hasOwnProperty("unit_price")) {
-                            i.style.display = "block", i.querySelector(".UnitPriceMeasurement__Price").innerHTML = r.default.formatMoney(e.unit_price, window.theme.moneyFormat), i.querySelector(".UnitPriceMeasurement__ReferenceUnit").textContent = e.unit_price_measurement.reference_unit;
+                            i.style.display = "inline-block", i.querySelector(".UnitPriceMeasurement__Price").innerHTML = r.default.formatMoney(e.unit_price, window.theme.moneyFormat), i.querySelector(".UnitPriceMeasurement__ReferenceUnit").textContent = e.unit_price_measurement.reference_unit;
                             var n = i.querySelector(".UnitPriceMeasurement__ReferenceValue");
                             n.textContent = e.unit_price_measurement.reference_value, n.style.display = 1 === e.unit_price_measurement.reference_value ? "none" : "inline"
                         } else i.style.display = "none"

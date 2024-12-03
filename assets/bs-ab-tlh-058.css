@@ -141,7 +141,7 @@
 
 [data-js-tlh-058="true"] .ProductMeta__PriceList.Heading,
 [data-js-tlh-058="true"] .ProductMeta__UnitPriceMeasurement {
-	display: inline-block !important;
+	display: inline-block;
 	text-align: left;
 	margin-top: 0 !important;
 }
