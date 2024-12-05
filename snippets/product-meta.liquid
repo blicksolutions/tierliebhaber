@@ -255,7 +255,7 @@
       endunless
     -%}
 
-    <div class="ProductMeta__UnitPriceMeasurement" style="display: {%- if reference_product_selected_variant.unit_price_measurement -%}block{% else %}none{% endif %}">
+    <div class="ProductMeta__UnitPriceMeasurement" style="display: {%- if reference_product_selected_variant.unit_price_measurement -%}inline-block{% else %}none{% endif %}">
       <div class="UnitPriceMeasurement Heading u-h6 Text--subdued">
         <span class="UnitPriceMeasurement__Price" data-alt-price="{{ reference_product_selected_variant.unit_price }}">{{ reference_product_selected_variant.unit_price | money_without_trailing_zeros }}</span>
         <span class="UnitPriceMeasurement__Separator">/ </span>
