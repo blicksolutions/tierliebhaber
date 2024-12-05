@@ -48,6 +48,8 @@ $(document).ready(function(){
 
 {%- form 'product', product, data-productid: product.id, class: 'ProductForm' -%}
 
+{% render 'bs-ab-tlh-060-amount-info' %}
+
   {%- if template.suffix == "standardprodukt-mit-abo" -%}
     <!-- Begin ReCharge code --> 
 		<div class="rc-widget-injection-parent"></div>
@@ -483,7 +485,7 @@ $(document).ready(function(){
   -%}
 
   {%- if selling_points.size > 0 -%}
-    <div class="ProductForm__SellingPoints" style="margin-top: 45px; margin-bottom: 45px;" data-js-tlh-058-selling-points>
+    <div class="ProductForm__SellingPoints" style="margin-top: 45px; margin-bottom: 45px;">
 		<h2 class="SellingPoints__Heading">
 			Vorteile
 		</h2>
@@ -581,7 +583,7 @@ $(document).ready(function(){
                 <li 
                     class="VariantSelector__ListItem {% if value == option.selected_value %}VariantSelector__ListItem--selected{% endif %} {% if full_width_options == true or variant_on_sale_counter > 1 %}VariantSelector__ListItem--full-width{% endif %}" 
                     data-js-variant-selector-item data-js-option-value="{{ value | escape }}" 
-                    {% if variant_savings != blank %} data-js-savings="{{ variant_savings | money }}" {% endif %}
+                    {% if variant_savings != blank %} data-js-savings="{{ variant_savings |  money_with_currency }}" {% endif %}
                     {% if free_shipping != blank %} data-js-free-shipping="{{ free_shipping }}" {% endif %}
                     >
                     <p class="VariantSelector__Option">
