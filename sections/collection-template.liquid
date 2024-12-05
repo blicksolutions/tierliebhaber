@@ -181,7 +181,7 @@
         {%- if show_filters or section.settings.show_sort_by or section.settings.show_layout_switch -%}
           <div class="CollectionToolbar CollectionToolbar--{{ section.settings.toolbar_position }} {% unless section.settings.show_layout_switch and show_filters == false and section.settings.show_sort_by == false %}CollectionToolbar--reverse{% endunless %}">
             
-          {% if collection.handle == 'alle-produkte-1' or collection.handle == 'alle-tierliebhaber-produkte' or collection.handle == '20' or collection.handle == '30' or collection.handle == '40' %}
+		  {% if section.settings.show_black_week_banner == true and collection.handle == 'alle-produkte-1' or section.settings.show_black_week_banner == true and collection.handle == 'alle-tierliebhaber-produkte' or section.settings.show_black_week_banner == true and collection.handle == '20' or section.settings.show_black_week_banner == true and collection.handle == '30' or collection.handle == '40' %}
             {% comment %} blackweek collection filter start {% endcomment %}
              {% render 'bs-black-week-collection-filters' %}
             {% comment %} blackweek collection filter end {% endcomment %}
@@ -406,7 +406,7 @@
 
       <div class="CollectionMain">
 
-        {% if collection.handle == 'alle-produkte-1' or collection.handle == 'alle-tierliebhaber-produkte' or collection.handle == '20' or collection.handle == '30' or collection.handle == '40' %}
+        {% if section.settings.show_black_week_banner == true and collection.handle == 'alle-produkte-1' or section.settings.show_black_week_banner == true and collection.handle == 'alle-tierliebhaber-produkte' or section.settings.show_black_week_banner == true and collection.handle == '20' or section.settings.show_black_week_banner == true and collection.handle == '30' or collection.handle == '40' %}
           {% comment %} blackweek collection filter start {% endcomment %}
             {% render 'bs-black-week-collection-banner' %}
           {% comment %} blackweek collection filter end {% endcomment %}
@@ -494,6 +494,12 @@
       "info": "This can improve text visibility.",
       "default": true
     },
+	{
+		"type": "checkbox",
+		"default": false,
+		"id": "show_black_week_banner",
+		"label": "Show black week banner"
+	},
     {
       "type": "checkbox",
       "id": "show_color_swatch",
@@ -647,7 +653,8 @@
       "max": 4,
       "id": "grid_desktop_items_per_row",
       "label": "Products per row (desktop)",
-      "default": 4
+      "default": 4,
+	  "step": 1
     }
   ]
 }
