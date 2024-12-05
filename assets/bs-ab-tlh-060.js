@@ -152,5 +152,3 @@ window.activateAbTlh060 = () => {
         });
     }
 };
-
-document.addEventListener('DOMContentLoaded', window.activateAbTlh060)
