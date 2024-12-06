@@ -4,5 +4,3 @@ window.activateAbTlh065 = () => {
 
 	aboutUsContainer.setAttribute('data-js-tlh-065', 'true')
 };
-
-document.addEventListener('DOMContentLoaded', window.activateAbTlh065)
