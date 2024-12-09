@@ -17,6 +17,25 @@
 	window.cartDrawerGiftVariantId = {{ section.settings.gift_product.selected_or_first_available_variant.id }};
 	window.cartDrawerGiftPrice = parseInt({{ section.settings.gift_product.selected_or_first_available_variant.price }}) / 100;
 	{% comment %} window.cartDrawerEnableGiftCampaign = {{ section.settings.enable_gift_campaign }}; {% endcomment %}
+
+	/******************************************************************/
+	/* DEFINE SHIPPING RATES
+    /******************************************************************/
+
+	window.shippingrates = {
+		de: {
+			minSubtotalPriceValue: {{ section.settings.cart_shipping_min_value_free_shipping_de }},
+			priceValue: {{ section.settings.cart_shipping_rate_de }},
+		},
+		at: {
+			minSubtotalPriceValue: {{ section.settings.cart_shipping_min_value_free_shipping_at }},
+			priceValue: {{ section.settings.cart_shipping_rate_at }},
+		},
+		ch: {
+			minSubtotalPriceValue: {{ section.settings.cart_shipping_min_value_free_shipping_ch }},
+			priceValue: {{ section.settings.cart_shipping_rate_ch }},
+		}
+	};
 </script>
 
 <div id="sidebar-cart" class="Drawer Drawer--fromRight" aria-hidden="true" selected_variant data-section-id="cart" data-section-type="cart" data-section-settings='{{ section_settings }}' data-js-tlh-052>
@@ -512,6 +531,49 @@
 			"type": "image_picker",
 			"id": "payment_image",
 			"label": "Payment image"
+		},
+		{
+			"type": "header",
+			"content": "MBW and Shippingrates"
+		},
+		{
+			"type": "text",
+			"id": "cart_shipping_min_value_free_shipping_de",
+			"label": "Free shipping minimum amount (DE)",
+			"default": "49"
+		},
+		{
+			"type": "text",
+			"id": "cart_shipping_rate_de",
+			"label": "Shipping rate (DE)",
+			"default": "4.9",
+			"info": "Decimals only with dots, not with commas"
+		},
+		{
+			"type": "text",
+			"id": "cart_shipping_min_value_free_shipping_at",
+			"label": "Free shipping minimum amount (AT)",
+			"default": "69"
+		},
+		{
+			"type": "text",
+			"id": "cart_shipping_rate_at",
+			"label": "Shipping rate (AT)",
+			"default": "6.9",
+			"info": "Decimals only with dots, not with commas"
+		},
+		{
+			"type": "text",
+			"id": "cart_shipping_min_value_free_shipping_ch",
+			"label": "Free shipping minimum amount (CH)",
+			"default": "129",
+		},
+		{
+			"type": "text",
+			"id": "cart_shipping_rate_ch",
+			"label": "Shipping rate (CH)",
+			"default": "12.9",
+			"info": "Decimals only with dots, not with commas"
 		}
 	]
 }
