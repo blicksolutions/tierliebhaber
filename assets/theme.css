@@ -12379,3 +12379,20 @@ span.price-difference.ajax {
     align-items: center;
     margin-left: 16px;
 }
+
+/* reviewsio widget styles */
+div:has(>reviewsio-product-reviews-widget) {
+    padding: 0 24px;
+}
+
+@media (min-width: 641px) {
+    div:has(>reviewsio-product-reviews-widget) {
+        padding: 0 50px;
+    }
+}
+
+@media (min-width: 1140px) {
+    div:has(>reviewsio-product-reviews-widget) {
+        padding: 0 80px;
+    }
+}

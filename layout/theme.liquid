@@ -312,7 +312,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {%- render 'head-scripts', layout: 'theme' -%}
 
     {% render 'microdata-schema' %}
-    {% include 'judgeme_core' %}
     {% include 'ufe-offer' %}
 
     {%- comment -%}
@@ -495,40 +494,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- NextLevel Network Tag tag -->
     <script src="https://www.dwin1.com/86929.js" type="text/javascript" defer="defer"></script>
 <!-- END:NextLevel Network Tag tag -->
-   <script>
-window.addEventListener('jdgm.doneSetup', function(event) {
-  const targetNode = document.body;
-  const config = { childList: true, subtree: true };
 
-  const updateText = function() {
-    const reviewLink = document.querySelector('.jdgm-write-rev-link');
-    if (reviewLink) {
-      reviewLink.textContent = 'Schreib uns eine Bewertung';
-    }
-  };
-
-  const callback = function(mutationsList, observer) {
-    for (let mutation of mutationsList) {
-      if (mutation.type === 'childList') {
-        updateText();
-        observer.disconnect();
-      }
-    }
-  };
-
-  const observer = new MutationObserver(callback);
-  observer.observe(targetNode, config);
-
-  setTimeout(() => {
-    observer.disconnect();
-  }, 500);
-
-  setInterval(() => {
-    updateText(); 
-  }, 1500); 
+// reviews io
+<script src="https://widget.reviews.io/rating-snippet/dist.js"></script>
+<link rel="stylesheet" href="https://widget.reviews.io/rating-snippet/dist.css"/>
+<script>
+ratingSnippet("ruk_rating_snippet", {
+  store: "tierliebhaber.de",
+  mode: "default",
+  color: "#fbd343",
+  linebreak: false,
+  text: "Reviews",
+  singularText: "Review",
+  lang: "en",
+  usePolaris: true,
+  showEmptyStars: false,
 });
-
-
-   </script>
+</script>
 </body>
 </html>

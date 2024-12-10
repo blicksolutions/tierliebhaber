@@ -75,31 +75,6 @@
     }
 }
 
-.Search .search-result__bestseller-container .search-result__bestseller-products .ProductItem .jdgm-widget.jdgm-preview-badge {
-    margin: 0 0 5px 0;
-}
-
-@media screen and (min-width: 640px) {
-    .Search .search-result__bestseller-container .search-result__bestseller-products .ProductItem .jdgm-widget.jdgm-preview-badge {
-        margin: 0 0 10px 0;
-    }
-}
-
-.Search .search-result__bestseller-container .search-result__bestseller-products .ProductItem .jdgm-prev-badge__text {
-    color: #1C1B1B;
-    font-size: 10px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 12.5px;
-}
-
-@media screen and (min-width: 640px) {
-    .Search .search-result__bestseller-container .search-result__bestseller-products .ProductItem .jdgm-prev-badge__text {
-        font-size: 12px;
-        line-height: 15px;
-    }
-}
-
 .Search .search-result__bestseller-container .search-result__bestseller-products .ProductItem .ProductItem__PriceList.Heading {
     color: #525252;
     font-size: 18px;

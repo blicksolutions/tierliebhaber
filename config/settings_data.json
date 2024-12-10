@@ -1673,18 +1673,6 @@
       "1629465395882c28f0"
     ],
     "blocks": {
-      "162859120942cad3d6": {
-        "type": "shopify://apps/judge-me-product-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-        "disabled": false,
-        "settings": {}
-      },
-      "162859120960fa81b2": {
-        "type": "shopify://apps/judge-me-product-reviews/blocks/reviews_tab/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-        "disabled": true,
-        "settings": {
-          "position": "left"
-        }
-      },
       "33229646823806756": {
         "type": "shopify://apps/dcart-discount-on-cart/blocks/app-embed/731e2611-8bdf-4514-b5e4-f64f1cae3fb7",
         "disabled": false,
@@ -1755,11 +1743,28 @@
       },
       "10830403595879607806": {
         "type": "shopify://apps/reviews-io/blocks/reviewsio-core/92a082e5-b297-4e88-b428-ac96cbc505f9",
-        "disabled": true,
+        "disabled": false,
         "settings": {
           "url_key": "tierliebhaber.de",
           "lang": "auto",
           "enable_syndication": false
+        }
+      },
+      "15316669992541710076": {
+        "type": "shopify://apps/reviews-io/blocks/reviewsio-rating-snippet/92a082e5-b297-4e88-b428-ac96cbc505f9",
+        "disabled": true,
+        "settings": {
+          "star": "#000",
+          "text_color": "#333",
+          "snippet_mode": "default",
+          "text": "Reviews",
+          "line_break": false,
+          "listen_for_changes": false,
+          "rating_without_brackets": false,
+          "format_review_count": false,
+          "show_popup": true,
+          "anchor_to_reviews_widget": false,
+          "show_empty_stars": false
         }
       }
     }
