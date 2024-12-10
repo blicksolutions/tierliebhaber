@@ -180,11 +180,14 @@
 
 	const handleOtherLocations = () => {
 		document.querySelector("#sidebar-cart .CartMessage__Steps").style.display = "none";
-		document.querySelector("#sidebar-cart .Drawer__Footer").style.height = "259px";
-		document.querySelector("#sidebar-cart .Drawer__Footer__Total").style.display = "none";
-		document.querySelector("#sidebar-cart .Drawer__Footer__Delivery").innerHTML = "* Die Versandkosten werden im Checkout berechnet."
-		document.querySelector("#sidebar-cart .Drawer__Footer__Delivery").style.bottom = "32px";
-		document.querySelector("#sidebar-cart .Drawer__Footer__Delivery").style.lineHeight = "20px";
+
+		if (document.querySelector("#sidebar-cart .Drawer__Footer") !== null) {
+			document.querySelector("#sidebar-cart .Drawer__Footer").style.height = "259px";
+			document.querySelector("#sidebar-cart .Drawer__Footer__Total").style.display = "none";
+			document.querySelector("#sidebar-cart .Drawer__Footer__Delivery").innerHTML = "* Die Versandkosten werden im Checkout berechnet."
+			document.querySelector("#sidebar-cart .Drawer__Footer__Delivery").style.bottom = "32px";
+			document.querySelector("#sidebar-cart .Drawer__Footer__Delivery").style.lineHeight = "20px";	
+		}
 	}
 
 	/******************************************************************/
