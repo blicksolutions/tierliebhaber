@@ -11459,6 +11459,10 @@ body[data-drawer-id-opened] div[id^="trustbadge-container"] {
     height: 400px;
 }
 
+#sidebar-cart.Drawer__Footer__CouponActive.Drawer__Footer__CouponActive--other-location .Drawer__Footer {
+    height: 322px !important;
+}
+
 @media(max-width: 600px) {
     #sidebar-cart .Drawer__Footer {
         padding-bottom: 0;
