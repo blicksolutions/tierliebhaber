@@ -7,15 +7,17 @@
     display: flex;
 }
 
-.ProductMeta__PriceList:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]) {
-    display: flex;
-    align-items: center;
-    gap: 21px;
-    flex-wrap: wrap;
-    justify-content: center;
+.features--heading-normal .Product__InfoWrapper .ProductMeta__PriceList:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]).Heading {
+    display: flex !important;
+	justify-content: flex-start;
+	align-items: baseline;
+	gap: 12px;
 }
 
-.ProductMeta__PriceList:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]) + .ProductMeta__UnitPriceMeasurement,
+.ProductMeta__PriceList:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]) + .ProductMeta__UnitPriceMeasurement {
+	margin-left: 0;
+}
+
 .ProductMeta__PriceList:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]) ~ .ProductMeta__TaxNotice {
     margin-top: 10px;
 }
@@ -26,6 +28,36 @@
     line-height: 18px;
     color: #525252;
     font-weight: 400;
+}
+
+.ProductMeta__PriceList:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]) .pricing-newvisitor {
+	display: flex;
+	flex-direction: row-reverse;
+  	align-items: baseline;
+  	gap: 8px;
+  	justify-content: flex-end;
+}
+
+.ProductMeta__PriceList:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]) .pricing-retvisitor {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	flex-direction: row-reverse;
+	gap: 4px;
+	margin-top: 0;
+	width: 136px;
+}
+
+.ProductMeta__PriceList:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]) .pricing-retvisitor .price-difference {
+	margin-left: 0;
+}
+
+.ProductMeta__PriceList:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]) .ProductMeta__Price.Price--compareAt {
+	margin-left: 0;
+}
+.ProductMeta__PriceList:has(.bs-pdp-anchor[data-bs-tlh-060-anchor="true"]) .ProductMeta__Price.Price--compareAt::before {
+	left: -.1em;
+  	width: calc(100% + 0.2em);
 }
 
 .bs-pdp-anchor {

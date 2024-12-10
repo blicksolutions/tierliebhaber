@@ -11,7 +11,7 @@
 
 <div class="ProductMeta {% if product.metafields.badge.text == 'Bestseller' %}Bestseller{% endif %}" {% if product.metafields.badge.text == 'Bestseller' %} data-js-bestseller="true" {% endif %}>
     {% if product.metafields.badge.text == 'Bestseller' %}
-        <div class="ProductMeta__BestsellerHeader" data-js-tlh-058-bestseller-header>
+        <div class="ProductMeta__BestsellerHeader">
             {%- if product.metafields.badge.text -%}
                 {%- render 'product-badge', product: product -%}
             {%- endif -%}
@@ -66,10 +66,6 @@
         </div>
 
 		{% render 'bs-ab-tlh-062', classes: 'hidden-pocket' %}
-
-        {%- if show_like_badge -%}
-            {%- render 'like-badge', classes: 'hidden-pocket' -%}
-        {%- endif-%}
 
         <h1 class="ProductMeta__Title Heading u-h2">
             {%- if template.name == 'product' -%}
@@ -179,19 +175,8 @@
             }
         </style>
 
-        {% unless product.id == 8068154949900 or product.id == 7181458014367  or product.id == 7973987385612 %}
-            <div class="pdp-stock-bar wrapper-center-align" data-js-tlh-058-stock-bar>
-            {% if selected_variant.available %}
-                <div class="acc-tl-pr39-wrapper">
-                <div class="acc-pr39-title">Nur solange der Vorrat reicht!</div>
-                <div class="acc-pr39-percentage-wrapper">
-                    <span class="acc-pr39-percentage"></span>
-                    <div class="acc-pr39-progress-bar"></div>
-                </div>
-                </div>
-            {% endif %}
-            </div>
-        {% endunless %}
+
+
 
         <script>
         /* Function to calculate and update price difference */
@@ -231,7 +216,7 @@
         </script>
     {% endunless %}
 
-  {%- if product.template_suffix != 'coming-soon' and show_price -%}
+	{%- if product.template_suffix != 'coming-soon' and show_price -%}
     <div class="ProductMeta__PriceList Heading">
       {%- if selected_variant.compare_at_price > selected_variant.price -%}
         {% assign price_difference = selected_variant.compare_at_price | minus: selected_variant.price %}
@@ -270,7 +255,7 @@
       endunless
     -%}
 
-    <div class="ProductMeta__UnitPriceMeasurement" style="display: {%- if reference_product_selected_variant.unit_price_measurement -%}block{% else %}none{% endif %}">
+    <div class="ProductMeta__UnitPriceMeasurement" style="display: {%- if reference_product_selected_variant.unit_price_measurement -%}inline-block{% else %}none{% endif %}">
       <div class="UnitPriceMeasurement Heading u-h6 Text--subdued">
         <span class="UnitPriceMeasurement__Price" data-alt-price="{{ reference_product_selected_variant.unit_price }}">{{ reference_product_selected_variant.unit_price | money_without_trailing_zeros }}</span>
         <span class="UnitPriceMeasurement__Separator">/ </span>
@@ -342,11 +327,24 @@
         {%- endif -%}
     {%- endif -%}
 
-    {% render 'bs-ab-tlh-060-amount-info' %}
+	{%- if show_like_badge -%}
+		{%- render 'like-badge', classes: 'hidden-pocket' -%}
+	{%- endif-%}
 
-    {%- if show_like_badge and product.metafields.badge.text == 'Bestseller' -%}
-        {%- render 'like-badge', classes: 'hidden-pocket' -%}
-    {%- endif-%}
+	{% unless product.id == 8068154949900 or product.id == 7181458014367  or product.id == 7973987385612 or  product.metafields.badge.text == 'Bestseller' %}
+		<div class="pdp-stock-bar wrapper-center-align">
+		{% if selected_variant.available %}
+			<div class="acc-tl-pr39-wrapper">
+			<div class="acc-pr39-title hidden-lap-and-up">Nur solange der Vorrat reicht!</div>
+			<div class="acc-pr39-title hidden-pocket">Verfügbar nur solange der Vorrat reicht!</div>
+			<div class="acc-pr39-percentage-wrapper">
+				<span class="acc-pr39-percentage"></span>
+				<div class="acc-pr39-progress-bar"></div>
+			</div>
+			</div>
+		{% endif %}
+		</div>
+	{% endunless %}
 
     {% if product.metafields.badge.text == 'Bestseller' %}
         <script>
@@ -433,8 +431,9 @@
             }
         </style>
 
+
         {% unless product.id == 8068154949900 or product.id == 7181458014367  or product.id == 7973987385612 %}
-            <div class="pdp-stock-bar wrapper-center-align" data-js-tlh-058-stock-bar>
+            <div class="pdp-stock-bar wrapper-center-align">
             {% if selected_variant.available %}
                 <div class="acc-tl-pr39-wrapper">
                 <div class="acc-pr39-title">Nur solange der Vorrat reicht!</div>
