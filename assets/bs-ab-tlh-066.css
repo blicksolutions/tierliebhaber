@@ -1,0 +1,84 @@
+/* keypoints component */
+.bs-keypoints.Container[data-bs-ab-tlh-066] {
+    display: block;
+}
+
+.bs-keypoints.Container {
+    overflow: hidden;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    display: none;
+}
+
+.bs-keypoints__swiper.swiper {
+    overflow: visible;
+}
+
+.bs-keypoints__card {
+    background: #ABCDBE99;
+    padding: 16px 11px 24px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
+.bs-keypoints__card__title {
+    font-size: 16px;
+    line-height: 20px;
+    color: #1C1B1B;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 0;
+    padding: 0 1px;
+}
+
+.bs-keypoints__card__description {
+    font-size: 16px;
+    line-height: 20px;
+    color: #1C1B1B;
+    margin: 0;
+}
+
+ul.bs-keypoints__card__description {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+}
+
+.bs-keypoints__card__description li {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.bs-keypoints__card__description li span {
+    display: flex;
+}
+
+.bs-keypoints__card > svg:last-child {
+    margin-top: 6px;
+}
+
+@media (min-width: 641px) {
+    .bs-keypoints__swiper .swiper-wrapper {
+        align-items: center !important;
+    }
+}
+
+@media (min-width: 1140px) {
+    .bs-keypoints__card__title {
+        font-size: 18px;
+        line-height: 23px;
+        margin-bottom: 10px;
+    }
+
+    .bs-keypoints__card > svg:last-child {
+        display: none;
+    }
+}
