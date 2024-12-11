@@ -8,6 +8,7 @@
     margin-top: 32px;
     margin-bottom: 32px;
     display: none;
+    max-width: 1440px;
 }
 
 .bs-keypoints__swiper.swiper {
@@ -72,6 +73,11 @@ ul.bs-keypoints__card__description {
 }
 
 @media (min-width: 1140px) {
+    .bs-keypoints.Container {
+        margin-top: 24px;
+        margin-bottom: 48px;
+    }
+
     .bs-keypoints__card__title {
         font-size: 18px;
         line-height: 23px;
