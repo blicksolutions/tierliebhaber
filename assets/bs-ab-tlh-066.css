@@ -71,6 +71,42 @@ ul.bs-keypoints__card__description {
     background: #F5F5F5;
 }
 
+.shopify-section--footer[data-bs-ab-tlh-066] .Footer__Title {
+    font-size: 18px;
+    line-height: 22px;
+    color: #1C1B1B;
+    font-weight: 500;
+}
+
+.shopify-section--footer[data-bs-ab-tlh-066] .Footer__Aside {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 48px;
+}
+
+.shopify-section--footer[data-bs-ab-tlh-066] .Footer__PaymentList {
+    padding-top: 0;
+    margin: 0 0 24px;
+    padding-bottom: 48px;
+    border-top: none;
+    border-bottom: 1px solid #CCCCCC;
+    text-align: start;
+}
+
+.shopify-section--footer[data-bs-ab-tlh-066] .Footer__PaymentList::before {
+    content: 'Zahlungsarten';
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 500;
+    color: #1C1B1B;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.shopify-section--footer[data-bs-ab-tlh-066] .HorizontalList__Item {
+    margin: 0 10px 10px 0;
+}
+
 .Footer__Block--reachability,
 .Footer__Block--socials,
 .Footer__Block--awards,
@@ -88,6 +124,17 @@ ul.bs-keypoints__card__description {
 
 .shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--links {
     margin-top: 20px;
+}
+
+.shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--reachability,
+.shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--reachability + .Footer__Block--links {
+    margin-bottom: 0;
+    transition: margin-bottom .3s ease;
+}
+
+.shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--reachability.active,
+.shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--reachability + .Footer__Block--links.active {
+    margin-bottom: 48px;
 }
 
 .shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--reachability .Footer__Title,
@@ -177,6 +224,30 @@ ul.bs-keypoints__card__description {
 /* links card */
 .shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--links .Linklist__Item {
     margin-bottom: 16px;
+}
+
+/* socials card */
+.Footer__socials {
+    display: flex;
+    gap: 16px;
+}
+
+.Footer__socials a {
+    height: fit-content;
+}
+
+/* awards card */
+.Footer__awards {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+.Footer__awards__award {
+    padding: 6px;
+    background: #fff;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
 }
 
 @media (min-width: 641px) {
