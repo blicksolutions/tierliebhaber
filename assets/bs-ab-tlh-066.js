@@ -1,4 +1,10 @@
 window.activateAbTlh066 = () => {
+    const footer = document.querySelector(".shopify-section.shopify-section--footer");
+
+    if(!footer) return;
+
+    footer.setAttribute("data-bs-ab-tlh-066", "");
+
     const initiateKeypoints = () => {
         const keypointsComponent = document.querySelector(".bs-keypoints");
 

@@ -66,6 +66,119 @@ ul.bs-keypoints__card__description {
     margin-top: 6px;
 }
 
+/* footer adjustments */
+.shopify-section--footer[data-bs-ab-tlh-066] footer {
+    background: #F5F5F5;
+}
+
+.Footer__Block--reachability,
+.Footer__Block--socials,
+.Footer__Block--awards,
+.Footer__Block--shipping,
+.shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--text {
+    display: none;
+}
+
+.shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--reachability,
+.shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--socials,
+.shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--awards,
+.shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--shipping {
+    display: block;
+}
+
+.shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--links {
+    margin-top: 20px;
+}
+
+.shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--reachability .Footer__Title,
+.shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--links .Footer__Title {
+    width: 100%;
+    padding: 12px 16px;
+    background: #fff;
+    border-radius: 8px;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--reachability .Footer__Title::after,
+.shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--links .Footer__Title::after {
+  content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none"><g clip-path="url(%23clip0_8054_1133)"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.2365 16.3614C13.0411 16.5567 12.7762 16.6664 12.5 16.6664C12.2238 16.6664 11.9589 16.5567 11.7636 16.3614L5.87087 10.4687C5.77138 10.3726 5.69202 10.2577 5.63743 10.1306C5.58283 10.0035 5.5541 9.86683 5.5529 9.72851C5.55169 9.5902 5.57805 9.45304 5.63043 9.32502C5.6828 9.197 5.76015 9.0807 5.85795 8.98289C5.95576 8.88509 6.07206 8.80774 6.20008 8.75536C6.3281 8.70299 6.46526 8.67663 6.60357 8.67783C6.74189 8.67904 6.87857 8.70777 7.00566 8.76237C7.13275 8.81696 7.24769 8.89631 7.34378 8.9958L12.5 14.1521L17.6563 8.9958C17.8527 8.80606 18.1159 8.70106 18.389 8.70343C18.6621 8.70581 18.9234 8.81536 19.1165 9.00849C19.3096 9.20163 19.4192 9.46289 19.4216 9.73601C19.4239 10.0091 19.3189 10.2723 19.1292 10.4687L13.2365 16.3614Z" fill="%231C1B1B"/></g><defs><clipPath id="clip0_8054_1133"><rect width="25" height="25" fill="white"/></clipPath></defs></svg>');
+  line-height: 1px;
+  transform: rotate(0deg);
+  transition: transform .3s ease;
+}
+
+.shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--reachability.active .Footer__Title::after,
+.shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--links.active .Footer__Title::after {
+    transform: rotate(180deg);
+}
+
+.shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--reachability .Footer__Content,
+.shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--links .Linklist {
+    max-height: 0;
+    height: 100%;
+    overflow: hidden;
+    opacity: 0;
+    margin-top: 0;
+    padding-left: 16px;
+    transition: max-height .3s ease, opacity .5s ease, margin-top .3s ease;
+}
+
+.shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--reachability.active .Footer__Content,
+.shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--links.active .Linklist {
+    max-height: 500px;
+    opacity: 1;
+    margin-top: 16px;
+    overflow: visible;
+}
+
+/* reachability card */
+.Footer__Content__reachability {
+    background: #FFFFFF99;
+    padding: 15px 16px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 16px;
+}
+
+.Footer__Content__reachability a {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+.Footer__Content__reachability span {
+    line-height: 1px;
+}
+
+.Footer__Content__reachability-text {
+    color: #525252;
+}
+
+.Footer__Content__reachability-text p {
+    margin-bottom: 16px;
+}
+
+.Footer__Content__reachability-text p:last-of-type {
+    color: #1C1B1B;
+    font-weight: 500;
+}
+
+.Footer__Content__reachability-text p:last-of-type a {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+/* links card */
+.shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--links .Linklist__Item {
+    margin-bottom: 16px;
+}
+
 @media (min-width: 641px) {
     .bs-keypoints__swiper .swiper-wrapper {
         align-items: center !important;
