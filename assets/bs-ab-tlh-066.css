@@ -208,6 +208,7 @@ ul.bs-keypoints__card__description {
 
 .Footer__Content__reachability-text {
     color: #525252;
+    line-height: 18px;
 }
 
 .Footer__Content__reachability-text p {
@@ -353,6 +354,10 @@ ul.bs-keypoints__card__description {
         display: none;
     }
 
+    .Footer__Content__reachability {
+        padding: 10px 16px;
+    }
+
     /* accordion cards */
     .shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--reachability .Footer__Title,
     .shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--links .Footer__Title {
@@ -392,5 +397,38 @@ ul.bs-keypoints__card__description {
 
     .bs-keypoints__card>svg:last-child {
         display: none;
+    }
+
+    .shopify-section--footer[data-bs-ab-tlh-066] .Footer__Inner {
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 32px;
+        row-gap: 37px;
+    }
+
+    .shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--reachability {
+        grid-row: 1 / 3;
+        
+    }
+
+    .shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--links:nth-of-type(4) {
+        grid-row: 1 / 3;
+    }
+
+    .shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--awards {
+        grid-column: span 2;
+    }
+
+    .Footer__Content__reachability-text p {
+        margin-bottom: 20px;
+    }
+
+    .Footer__Content__reachability-text {
+        margin-top: 20px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .shopify-section--footer[data-bs-ab-tlh-066] .Footer__Inner {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 }
