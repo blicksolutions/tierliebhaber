@@ -71,11 +71,26 @@ ul.bs-keypoints__card__description {
     background: #F5F5F5;
 }
 
+.shopify-section--footer[data-bs-ab-tlh-066] .Container {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
 .shopify-section--footer[data-bs-ab-tlh-066] .Footer__Title {
     font-size: 18px;
     line-height: 22px;
     color: #1C1B1B;
     font-weight: 500;
+}
+
+.shopify-section--footer[data-bs-ab-tlh-066] .Footer__StoreName {
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 500;
+}
+
+.shopify-section--footer[data-bs-ab-tlh-066] .Footer__ThemeAuthor {
+    margin-top: 0;
 }
 
 .shopify-section--footer[data-bs-ab-tlh-066] .Footer__Inner {
@@ -109,6 +124,7 @@ ul.bs-keypoints__card__description {
 
 .shopify-section--footer[data-bs-ab-tlh-066] .HorizontalList__Item {
     margin: 0 10px 10px 0;
+    width: 35px;
 }
 
 .Footer__Block--reachability,
@@ -254,6 +270,8 @@ ul.bs-keypoints__card__description {
     border-radius: 5px;
     display: flex;
     align-items: center;
+    height: auto;
+    aspect-ratio: 1 / 1;
 }
 
 /* footer blocks order */
@@ -286,6 +304,10 @@ ul.bs-keypoints__card__description {
         align-items: center !important;
     }
 
+    .shopify-section--footer[data-bs-ab-tlh-066] .Footer__StoreName {
+        font-size: 14px;
+    }
+
     .shopify-section--footer[data-bs-ab-tlh-066] .Footer__Inner {
         margin-left: unset;
         margin-right: unset;
@@ -300,6 +322,15 @@ ul.bs-keypoints__card__description {
         padding-left: 0;
         padding-right: 0;
         margin-bottom: 0;
+        margin-top: 48px;
+    }
+
+    .shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--links {
+        margin-top: 20px;
+    }
+
+    .shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--reachability {
+        margin-top: 0;
     }
 }
 
@@ -407,11 +438,12 @@ ul.bs-keypoints__card__description {
 
     .shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--reachability {
         grid-row: 1 / 3;
-        
+
     }
 
     .shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--links:nth-of-type(4) {
         grid-row: 1 / 3;
+        margin-left: 30px;
     }
 
     .shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--awards {
@@ -429,6 +461,10 @@ ul.bs-keypoints__card__description {
 
 @media (min-width: 1200px) {
     .shopify-section--footer[data-bs-ab-tlh-066] .Footer__Inner {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 0.65fr 0.5fr;
+    }
+
+    .shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--reachability {
+        max-width: 296px;
     }
 }
