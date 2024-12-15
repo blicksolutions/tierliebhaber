@@ -356,15 +356,15 @@
             "star": "#fbd343",
             "review_type": "product_review,questions",
             "per_page": 8,
-            "primary_btn_bg_color": "#000",
-            "primary_btn_border_color": "#000",
-            "primary_btn_text_color": "#fff",
-            "secondary_btn_border_color": "#000",
-            "secondary_btn_text_color": "#000",
-            "border_color": "rgba(0,0,0,0.15)",
-            "heading_text_color": "#000",
+            "primary_btn_bg_color": "#000000",
+            "primary_btn_border_color": "#000000",
+            "primary_btn_text_color": "#ffffff",
+            "secondary_btn_border_color": "#000000",
+            "secondary_btn_text_color": "#000000",
+            "border_color": "#000000",
+            "heading_text_color": "#000000",
             "heading_font": "helvetica_n4",
-            "body_text_color": "#000",
+            "body_text_color": "#000000",
             "badge_icon_color": "#519c7d",
             "badge_text_color": "#ffffff",
             "enable_rich_snippets": true,
@@ -487,6 +487,10 @@
       "settings": {
         "id": "XEs6zR"
       }
+    },
+    "bs_product_testimonials_PJz8kx": {
+      "type": "bs-product-testimonials",
+      "settings": {}
     }
   },
   "order": [
@@ -494,6 +498,7 @@
     "bundles",
     "1628804794af0431f7",
     "16288047979ee0ca29",
+    "bs_product_testimonials_PJz8kx",
     "16288473445aa6c049",
     "1652874593f2ea11e0",
     "1733229697fef3339c",
