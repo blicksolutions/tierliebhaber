@@ -67,8 +67,15 @@ ul.bs-keypoints__card__description {
 }
 
 /* footer adjustments */
+footer .klaviyo-form-XEs6zR {
+    display: none;
+}
+
 .shopify-section--footer[data-bs-ab-tlh-066] footer {
     background: #F5F5F5;
+    padding: 0;
+    border-top: none;
+    overflow: hidden;
 }
 
 .shopify-section--footer[data-bs-ab-tlh-066] .Container {
@@ -91,6 +98,45 @@ ul.bs-keypoints__card__description {
 
 .shopify-section--footer[data-bs-ab-tlh-066] .Footer__ThemeAuthor {
     margin-top: 0;
+}
+
+.shopify-section--footer[data-bs-ab-tlh-066] .klaviyo-form-XEs6zR {
+    margin-bottom: 40px;
+    display: block;
+    background: #fff;
+    position: relative;
+    padding-bottom: 40px;
+    padding-top: 32px;
+    border-bottom: 1px solid #CCCCCC;
+}
+
+.shopify-section--footer[data-bs-ab-tlh-066] .klaviyo-form-XEs6zR::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #fff;
+    transform: translateX(-100%);
+    width: 40vw;
+    height: calc(100% + 1px);
+    border-bottom: 1px solid #CCCCCC;
+}
+
+.shopify-section--footer[data-bs-ab-tlh-066] .klaviyo-form-XEs6zR::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: #fff;
+    transform: translateX(100%);
+    width: 40vw;
+    height: calc(100% + 1px);
+    border-bottom: 1px solid #CCCCCC;
+}
+
+.shopify-section--footer[data-bs-ab-tlh-066] .klaviyo-form-XEs6zR>div {
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .shopify-section--footer[data-bs-ab-tlh-066] .Footer__Inner {
@@ -337,6 +383,20 @@ ul.bs-keypoints__card__description {
 @media (min-width: 768px) {
     .shopify-section--footer[data-bs-ab-tlh-066] footer {
         padding: 60px 0 50px;
+        border-top: 1px solid var(--border-color);
+    }
+
+    .shopify-section--footer[data-bs-ab-tlh-066] .klaviyo-form-XEs6zR {
+        margin-bottom: 68px;
+        border-bottom: none;
+        padding-bottom: 0;
+        padding-top: 0;
+        background: none;
+    }
+
+    .shopify-section--footer[data-bs-ab-tlh-066] .klaviyo-form-XEs6zR::before,
+    .shopify-section--footer[data-bs-ab-tlh-066] .klaviyo-form-XEs6zR::after {
+        content: none;
     }
 
     .shopify-section--footer[data-bs-ab-tlh-066] .Footer__Inner {

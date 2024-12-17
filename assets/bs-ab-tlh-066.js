@@ -40,6 +40,12 @@ window.activateAbTlh066 = () => {
 
     initiateKeypoints();
     initiateFooterAccordions();
+
+    const klaviyoForm = document.querySelector(".shopify-section:has(.klaviyo-form-XEs6zR):not(:has(footer))");
+
+    if(klaviyoForm) {
+        klaviyoForm.style.display = "none";
+    }
 };
 
 document.addEventListener("DOMContentLoaded", () => {
