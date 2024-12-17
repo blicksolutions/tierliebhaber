@@ -1,0 +1,13 @@
+.PageHeader__ImageWrapper--mobile + .PageHeader__ImageWrapper--desktop {
+    display: none;
+}
+
+@media (min-width: 641px) {
+    .PageHeader__ImageWrapper--mobile {
+        display: none;
+    }
+
+    .PageHeader__ImageWrapper--mobile + .PageHeader__ImageWrapper--desktop {
+        display: block;
+    }
+}
