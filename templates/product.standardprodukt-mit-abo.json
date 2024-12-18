@@ -347,8 +347,43 @@
         "slider-subline": "Vom Versand bis zum Kundenservice steckt jede menge ❤️ drin!"
       }
     },
-    "16288048826c658212": {
-      "type": "product-reviews",
+    "1733229697fef3339c": {
+      "type": "apps",
+      "blocks": {
+        "reviews_io_reviewsio_polaris_RqtcWN": {
+          "type": "shopify://apps/reviews-io/blocks/reviewsio-polaris/92a082e5-b297-4e88-b428-ac96cbc505f9",
+          "settings": {
+            "star": "#fbd343",
+            "review_type": "product_review,questions",
+            "per_page": 8,
+            "primary_btn_bg_color": "#000",
+            "primary_btn_border_color": "#000",
+            "primary_btn_text_color": "#fff",
+            "secondary_btn_border_color": "#000",
+            "secondary_btn_text_color": "#000",
+            "border_color": "rgba(0,0,0,0.15)",
+            "heading_text_color": "#000",
+            "heading_font": "helvetica_n4",
+            "body_text_color": "#000",
+            "badge_icon_color": "#519c7d",
+            "badge_text_color": "#ffffff",
+            "enable_rich_snippets": true,
+            "show_location": true,
+            "show_tab_selector": false,
+            "show_dates": true,
+            "show_avatar": true,
+            "enable_sentiment_analysis": false,
+            "enable_replies": false,
+            "widget_spacing": 0,
+            "capitalise_headers_and_buttons": false,
+            "show_review_title": false,
+            "default_sort": "date_desc"
+          }
+        }
+      },
+      "block_order": [
+        "reviews_io_reviewsio_polaris_RqtcWN"
+      ],
       "settings": {}
     },
     "recommendations": {
@@ -461,7 +496,7 @@
     "16288047979ee0ca29",
     "16288473445aa6c049",
     "1652874593f2ea11e0",
-    "16288048826c658212",
+    "1733229697fef3339c",
     "recommendations",
     "1635243951ca87a38d",
     "recently-viewed-products",

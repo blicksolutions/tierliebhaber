@@ -23,8 +23,9 @@
                     <a href="{{ product.url }}">{{ product.title }}</a>
                 {%- endif -%}
             </h1>
+
+            <div class="ruk_rating_snippet" data-sku={{ product.selected_or_first_available_variant.sku }}></div>
     
-            {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', concierge_install: true, product: product %}
         </div>
     {% else %}
         {%- if section.settings.show_vendor and product.vendor != blank -%}
@@ -85,9 +86,8 @@
             </p>
         {%- endif -%}
         {% endcomment %}
-        {% comment %}Start automatically added Judge.me widget{% endcomment %}
-        {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', concierge_install: true, product: product %}
-        {% comment %}End automatically added Judge.me widget{% endcomment %}
+
+        <div class="ruk_rating_snippet" data-sku={{ product.selected_or_first_available_variant.sku }}></div>
     {% endif %}
 
     {% unless product.metafields.badge.text == 'Bestseller' %}

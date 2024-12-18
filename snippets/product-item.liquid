@@ -91,10 +91,8 @@
         <h2 class="ProductItem__Title Heading">
           <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
         </h2>
-{% comment %}Start automatically added Judge.me widget{% endcomment %}
-  {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', concierge_install: true, product: product %}
-{% comment %}End automatically added Judge.me widget{% endcomment %}
 
+        <div class="ruk_rating_snippet" data-sku={{ product.selected_or_first_available_variant.sku }}></div>
 
         {%- if show_color_swatch -%}
           {%- assign color_swatch_list = '' -%}

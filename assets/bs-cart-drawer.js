@@ -19,33 +19,6 @@
 	const deliveryIcon = document.querySelector(".CartMessage__StepsLines__Delivery");
 
 	/******************************************************************/
-	/* DEFINE SHIPPING RATES
-    /******************************************************************/
-
-	window.shippingrates = {
-		de: {
-			minSubtotalPriceValue: 49,
-			priceValue: 4.9,
-		},
-		at: {
-			minSubtotalPriceValue: 69,
-			priceValue: 6.9,
-		},
-		ch: {
-			minSubtotalPriceValue: 129,
-			priceValue: 12.9,
-		},
-		otherLocations: {
-			country: null,
-			minSubtotalPriceValue: 170,
-			priceValue: 15.9,
-			price: null,
-			freeShipping: false,
-			message: null,
-		},
-	};
-
-	/******************************************************************/
 	/* PLACE DCART
     /******************************************************************/
 
@@ -101,6 +74,11 @@
 				} else {
 					window.unlockCheckoutButton();
 					//console.log("unlock when Gift if not enabled");
+				}
+
+				// handle other locations
+				if (currentCountry !== "DE" && currentCountry !== "AT" && currentCountry !== "CH") {
+					handleOtherLocations();
 				}
 
 				observer.disconnect();
@@ -187,14 +165,30 @@
 						shippingPrice = window.shippingrates.ch.priceValue;
 						break;
 					default:
-						minSubtotalPriceValue = window.shippingrates.otherLocations.minSubtotalPriceValue;
-						shippingPrice = window.shippingrates.otherLocations.priceValue;
+						minSubtotalPriceValue = 0;
+						shippingPrice = 0;
 						break;
 				}
 
 				cheeringBar();
 			});
 	};
+
+	/******************************************************************/
+	/* HANDLE OTHER LOCATIONS
+    /******************************************************************/
+
+	const handleOtherLocations = () => {
+		document.querySelector("#sidebar-cart .CartMessage__Steps").style.display = "none";
+
+		if (document.querySelector("#sidebar-cart .Drawer__Footer") !== null) {
+			document.querySelector("#sidebar-cart .Drawer__Footer").style.height = "259px";
+			document.querySelector("#sidebar-cart .Drawer__Footer__Total").style.display = "none";
+			document.querySelector("#sidebar-cart .Drawer__Footer__Delivery").innerHTML = "* Die Versandkosten werden im Checkout berechnet."
+			document.querySelector("#sidebar-cart .Drawer__Footer__Delivery").style.bottom = "32px";
+			document.querySelector("#sidebar-cart .Drawer__Footer__Delivery").style.lineHeight = "20px";	
+		}
+	}
 
 	/******************************************************************/
 	/* CHEERING BAR
@@ -597,6 +591,10 @@
 
 			couponTitle.addEventListener("click", () => {
 				document.querySelector("#sidebar-cart").classList.toggle("Drawer__Footer__CouponActive");
+
+				if (currentCountry !== "DE" && currentCountry !== "AT" && currentCountry !== "CH") {
+					document.querySelector("#sidebar-cart").classList.toggle("Drawer__Footer__CouponActive--other-location");
+				}
 			});
 		}
 	};
@@ -637,11 +635,11 @@
 			});
 		}
 	};
-
 	
 	/******************************************************************/
 	/* Black Week Badge
     /******************************************************************/
+
 	const blackWeekBadge = () => {
 		const blackWeekBadgeElement = document.querySelector('[data-js-black-week-badge]')
 		if (!blackWeekBadgeElement) return
@@ -651,12 +649,13 @@
 				if (entry.type == 'childList') {
 					if (entry.target.classList.contains('Badge__Savings')) return
 						const cartSavingsElement = document.querySelector('[data-js-black-week-cart-savings]')
+						
 						if (!cartSavingsElement) return
 		
 						const cartSavings = cartSavingsElement.getAttribute('data-js-black-week-cart-savings')
-
 						const badgeSavingsElement = document.querySelector('[data-js-black-week-badge-savings]')
-						if (badgeSavingsElement.innerText != cartSavings) {
+						
+					if (badgeSavingsElement.innerText != cartSavings) {
 							badgeSavingsElement.innerText = cartSavings
 						}
 					
