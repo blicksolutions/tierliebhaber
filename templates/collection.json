@@ -74,8 +74,8 @@
     "main": {
       "type": "collection-template",
       "settings": {
-        "show_collection_info": true,
-        "collection_title_color": "#fff",
+        "show_collection_info": false,
+        "collection_title_color": "#ffffff",
         "show_collection_image": true,
         "collection_image_desktop": "shopify://shop_images/website_desktop_cb7232bf-debe-4cdf-bd58-afc42a8b2466.jpg",
         "collection_image_mobile": "shopify://shop_images/Test_Banner_2000_x_2000_px.png",
@@ -83,7 +83,7 @@
         "show_black_week_banner": false,
         "show_color_swatch": false,
         "show_vendor": false,
-        "collection_image_size": "normal",
+        "collection_image_size": "small",
         "show_sort_by": true,
         "show_layout_switch": false,
         "toolbar_position": "top",
