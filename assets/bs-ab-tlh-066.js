@@ -27,7 +27,7 @@ window.activateAbTlh066 = () => {
             },
             grabCursor: true
         });
-    }
+    };
 
     const initiateFooterAccordions = () => {
         const targetFooterBlocks = Array.from(document.querySelectorAll(".Footer__Block.Footer__Block--links h2"));
@@ -36,7 +36,7 @@ window.activateAbTlh066 = () => {
         targetFooterBlocks.forEach((targetFooterBlock) => {
             targetFooterBlock.addEventListener("click", (e) => e.currentTarget.parentElement.classList.toggle("active"));
         })
-    }
+    };
 
     initiateKeypoints();
     initiateFooterAccordions();
@@ -48,6 +48,6 @@ window.activateAbTlh066 = () => {
     }
 };
 
-document.addEventListener("DOMContentLoaded", () => {
-    window.activateAbTlh066();
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//     window.activateAbTlh066();
+// });
