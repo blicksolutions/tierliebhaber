@@ -124,7 +124,7 @@
 					behavior: 'smooth',
 				});
 			});
-		},1000)
+		},2000)
 
 		observer.disconnect();
 	});
