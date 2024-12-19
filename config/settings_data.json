@@ -148,6 +148,10 @@
       "footer": {
         "type": "footer",
         "blocks": {
+          "reachability_bzMyFr": {
+            "type": "reachability",
+            "settings": {}
+          },
           "88a5d640-3e4f-40b1-b3d3-a1c104c1b203": {
             "type": "links",
             "settings": {
@@ -158,7 +162,7 @@
             "type": "text",
             "settings": {
               "title": "Erreichbarkeit",
-              "content": "<p>Unser Team ist jederzeit </p><p>über WhatsApp: +49 176 48097026</p><p>per Mail: <a href=\"mailto:info@tierliebhaber.de\">info@tierliebhaber.de</a> </p><p>(Wir melden uns in der Regel innerhalb von 1-2 Werktagen mit einer Antwort bei dir)</p><p>oder telefonisch von Mo - Fr von 11-15 Uhr für dich erreichbar.</p><p>Tel.: +49 34149980019</p><p></p><p><strong>Gern kannst du auch eine </strong><a href=\"https://calendly.com/kundenservice-tierliebhaber/10min\" target=\"_blank\" title=\"https://calendly.com/kundenservice-tierliebhaber/10min\"><strong>Produktberatung bei uns buchen!</strong></a></p>",
+              "content": "<p>Unser Team ist jederzeit </p><p>über WhatsApp: +49 176 48097026</p><p>per Mail: <a href=\"mailto:info@tierliebhaber.de\">info@tierliebhaber.de</a> </p><p>(Wir melden uns in der Regel innerhalb von 1-2 Werktagen mit einer Antwort bei dir)</p><p>oder telefonisch von Mo - Fr von 11-15 Uhr für dich erreichbar.</p><p>Tel.: +49 34149980019</p><p><strong>Gern kannst du auch eine </strong><a href=\"https://calendly.com/kundenservice-tierliebhaber/10min\" target=\"_blank\" title=\"https://calendly.com/kundenservice-tierliebhaber/10min\"><strong>Produktberatung bei uns buchen!</strong></a></p><p>---------------------</p><p>Animagus GmbH<br/>Göhrenzer Straße 1<br/>04420 Markranstädt</p>",
               "show_social_media": true
             }
           },
@@ -167,12 +171,28 @@
             "settings": {
               "menu": "tierliebhaber-erfahrungen"
             }
+          },
+          "socials_RtEKcT": {
+            "type": "socials",
+            "settings": {}
+          },
+          "awards_WfAAU9": {
+            "type": "awards",
+            "settings": {}
+          },
+          "shipping_biDXCz": {
+            "type": "shipping",
+            "settings": {}
           }
         },
         "block_order": [
+          "reachability_bzMyFr",
           "88a5d640-3e4f-40b1-b3d3-a1c104c1b203",
           "0da56aee-cab5-49e3-b45e-18ae26df1ab7",
-          "7ff79c18-ac19-4d6c-a5b3-4476b0da541f"
+          "7ff79c18-ac19-4d6c-a5b3-4476b0da541f",
+          "socials_RtEKcT",
+          "awards_WfAAU9",
+          "shipping_biDXCz"
         ],
         "settings": {
           "show_payment_methods": true,
@@ -1311,12 +1331,6 @@
           "upsell_title": "Probier´s doch mal:",
           "upsell_items": [
             "darmpflege-drops"
-          ],
-          "upsell_items_tlh_068_b": [
-            "chillout-drops"
-          ],
-          "upsell_items_tlh_068_c": [
-            "tl0002-gs"
           ],
           "payment_image": "shopify://shop_images/Bildschirmfoto_2022-05-14_um_19.25_1_1.png",
           "cart_shipping_min_value_free_shipping_de": "49",
