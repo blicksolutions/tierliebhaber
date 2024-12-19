@@ -193,7 +193,7 @@
 }
 
 .bs-product-testimonials .testimonial__time {
-    font-size: 12px;
+    font-size: 10px;
     color: #1C1B1B;
     font-weight: 400;
     line-height: 15px;
@@ -282,6 +282,10 @@
 
     .bs-product-testimonials .bs-product-testimonials__button[data-js-bs-product-testimonials-button] {
         bottom: 50px;
+    }
+
+    .bs-product-testimonials .testimonial__time {
+        font-size: 12px;
     }
 }
 
