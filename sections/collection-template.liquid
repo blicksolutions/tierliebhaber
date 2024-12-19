@@ -1,5 +1,12 @@
 {{ 'bs-collection-template.css' |  asset_url |  stylesheet_tag }}
 
+<style>
+  :root {
+    --banner-height-mobile: {{ section.settings.banner_height_mobile }}px;
+    --banner-height-desktop: {{ section.settings.banner_height_desktop }}px;
+  }
+</style>
+
 {%- if section.settings.show_layout_switch -%}
   {%- assign desktop_items_per_row = cart.attributes.collection_desktop_items_per_row | default: section.settings.grid_desktop_items_per_row | times: 1 -%}
   {%- assign mobile_items_per_row  = cart.attributes.collection_mobile_items_per_row | default: section.settings.grid_mobile_items_per_row | times: 1 -%}
@@ -100,7 +107,7 @@
         {% endif %}
 
         <div class="FlexboxIeFix">
-          <header class="PageHeader PageHeader--withBackground {% if section.settings.collection_image_size != 'normal' %}PageHeader--{{ section.settings.collection_image_size }}{% endif %}" style="background: url({{ image | img_url: '1x1', format: 'jpg' }})">
+          <header class="PageHeader PageHeader--withBackground" style="background: url({{ image | img_url: '1x1', format: 'jpg' }})">
             {% if section.settings.collection_image_mobile %}
               <div class="PageHeader__ImageWrapper PageHeader__ImageWrapper--mobile Image--lazyLoad Image--fadeIn {% if section.settings.apply_overlay %}Image--contrast{% endif %}"
                 data-optimumx="1.2"
@@ -546,24 +553,24 @@
       "default": false
     },
     {
-      "type": "select",
-      "id": "collection_image_size",
-      "label": "Collection image size",
-      "options": [
-        {
-          "value": "small",
-          "label": "Small"
-        },
-        {
-          "value": "normal",
-          "label": "Normal"
-        },
-        {
-          "value": "large",
-          "label": "Large"
-        }
-      ],
-      "default": "normal"
+      "type": "range",
+      "id": "banner_height_mobile",
+      "label": "Banner height mobile",
+      "min": 50,
+      "max": 500,
+      "step": 10,
+      "unit": "px",
+      "default": 450
+    },
+    {
+      "type": "range",
+      "id": "banner_height_desktop",
+      "label": "Banner height desktop",
+      "min": 50,
+      "max": 750,
+      "step": 10,
+      "unit": "px",
+      "default": 450
     },
     {
       "type": "header",

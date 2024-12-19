@@ -2,6 +2,10 @@
     display: none;
 }
 
+[data-section-type="collection"] .PageHeader {
+    min-height: var(--banner-height-mobile);
+}
+
 @media (min-width: 641px) {
     .PageHeader__ImageWrapper--mobile {
         display: none;
@@ -9,5 +13,9 @@
 
     .PageHeader__ImageWrapper--mobile + .PageHeader__ImageWrapper--desktop {
         display: block;
+    }
+
+    [data-section-type="collection"] .PageHeader {
+        min-height: var(--banner-height-desktop);
     }
 }
