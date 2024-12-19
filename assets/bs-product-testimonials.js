@@ -1,5 +1,5 @@
 (() => {
-	const targetNode = document.getElementById("shopify-block-AakhxSTZPb0RqS3FIa__reviews_io_reviewsio_polaris_RqtcWN");
+	const targetNode = document.querySelector(".shopify-section:has(.section-polaroid-slider) + .shopify-section:has(.shopify-app-block)");
 
 	if(!targetNode) return;
 
@@ -124,7 +124,7 @@
 					behavior: 'smooth',
 				});
 			});
-		},2000)
+		},1000)
 
 		observer.disconnect();
 	});
