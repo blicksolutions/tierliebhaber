@@ -74,6 +74,38 @@
     line-height: 15px;
 }
 
+.bs-product-testimonials .R-AvatarThumbnail__inner {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    margin: 0 auto;
+    aspect-ratio: 1 / 1;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #0E1311;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.bs-product-testimonials .R-AvatarThumbnail__inner .R-TextHeading {
+    color: inherit;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+.bs-product-testimonials .R-RatingStars {
+    line-height: 0;
+    color: #fbd343;
+}
+
+.bs-product-testimonials .bs-product-testimonials__rating-product .R-RatingStars i {
+    font-size: 22px;
+}
+
 .bs-product-testimonials .bs-product-testimonials__list {
     width: 100%;
 }
