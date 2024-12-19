@@ -2,7 +2,7 @@
     display: none;
 }
 
-[data-section-type="collection"] .PageHeader {
+[data-section-type="collection"] .PageHeader:has(.PageHeader__ImageWrapper) {
     min-height: var(--banner-height-mobile);
 }
 
@@ -15,7 +15,7 @@
         display: block;
     }
 
-    [data-section-type="collection"] .PageHeader {
+    [data-section-type="collection"] .PageHeader:has(.PageHeader__ImageWrapper) {
         min-height: var(--banner-height-desktop);
     }
 }
