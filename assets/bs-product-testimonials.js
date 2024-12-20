@@ -1,5 +1,5 @@
 (() => {
-	const targetNode = document.querySelector(".shopify-section:has(.section-polaroid-slider) + .shopify-section:has(.shopify-app-block)");
+	const targetNode = document.querySelector("reviewsio-product-reviews-widget");
 
 	if(!targetNode) return;
 
