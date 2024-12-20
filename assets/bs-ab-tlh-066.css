@@ -288,6 +288,17 @@ footer .klaviyo-form-XEs6zR {
     text-underline-offset: 2px;
 }
 
+.Footer__Content__reachability-address {
+    margin-top: 28px;
+    padding-top: 24px;
+    width: max-content;
+    border-top-style: dashed;
+}
+
+.Footer__Content__reachability-address p {
+    margin-bottom: 0;
+}
+
 /* links card */
 .shopify-section--footer[data-bs-ab-tlh-066] .Footer__Block--links .Linklist__Item {
     margin-bottom: 16px;
