@@ -69,7 +69,7 @@
 				const rating = review.querySelector('.R-RatingStars').innerHTML;
 				const author = review.querySelector('.cssVar-authorName').innerText;
 				const text = review.querySelector('.item__inner div div div div + div:nth-of-type(3)').innerText;
-				const timestamp = review.querySelector('.item__inner > div:nth-of-type(2) > div:nth-of-type(2)').innerHTML;
+				const timestamp = review.querySelector('.item__inner > div:last-of-type > div:nth-of-type(2)').innerHTML;
 
 				reviewSlide.innerHTML = `
 					<div class="testimonial__icon">

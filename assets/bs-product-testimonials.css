@@ -1,6 +1,11 @@
 .bs-product-testimonials__wrapper {
 	width: 100%;
 	overflow: hidden;
+    display: none;
+}
+
+.bs-product-testimonials__wrapper:has(.bs-product-testimonials__card) {
+    display: block;
 }
 
 .bs-product-testimonials {
@@ -282,10 +287,6 @@
 
     .bs-product-testimonials .bs-product-testimonials__button[data-js-bs-product-testimonials-button] {
         bottom: 50px;
-    }
-
-    .bs-product-testimonials .testimonial__time {
-        font-size: 12px;
     }
 }
 
