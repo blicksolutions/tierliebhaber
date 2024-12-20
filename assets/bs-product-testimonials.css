@@ -1,6 +1,11 @@
 .bs-product-testimonials__wrapper {
 	width: 100%;
 	overflow: hidden;
+    display: none;
+}
+
+.bs-product-testimonials__wrapper:has(.bs-product-testimonials__card) {
+    display: block;
 }
 
 .bs-product-testimonials {
@@ -72,6 +77,38 @@
 .bs-product-testimonials .bs-product-testimonials__rating-product span {
     font-size: 12px;
     line-height: 15px;
+}
+
+.bs-product-testimonials .R-AvatarThumbnail__inner {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    margin: 0 auto;
+    aspect-ratio: 1 / 1;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #0E1311;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.bs-product-testimonials .R-AvatarThumbnail__inner .R-TextHeading {
+    color: inherit;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+.bs-product-testimonials .R-RatingStars {
+    line-height: 0;
+    color: #fbd343;
+}
+
+.bs-product-testimonials .bs-product-testimonials__rating-product .R-RatingStars i {
+    font-size: 22px;
 }
 
 .bs-product-testimonials .bs-product-testimonials__list {
@@ -161,7 +198,7 @@
 }
 
 .bs-product-testimonials .testimonial__time {
-    font-size: 12px;
+    font-size: 10px;
     color: #1C1B1B;
     font-weight: 400;
     line-height: 15px;
