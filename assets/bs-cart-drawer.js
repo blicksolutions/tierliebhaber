@@ -399,8 +399,6 @@
     /******************************************************************/
 
 	const handleFreeGift = async () => {
-		console.log("handleFreeGift")
-
 		const cartItems = document.querySelectorAll(".Drawer__Container .CartItemWrapper[data-price]");
 		let subtotalPrice = parseFloat(document.querySelector(".Cart__values").dataset.cartTotalPriceFloat);
 		let noDeliveryItemsTotalPrice = 0;
@@ -424,15 +422,14 @@
 				const triggeringItemsSet = [];
 
 				triggeringCartItems.forEach((triggerItem) => {
-					let triggerItemQty = parseInt(triggerItem.querySelector('.QuantitySelector__CurrentQuantity').value);
-					let triggeredGiftId = parseInt(triggerItem.dataset.triggers);
-
+					const triggerItemQty = parseInt(triggerItem.querySelector('.QuantitySelector__CurrentQuantity').value);
+					const triggeredGiftId = parseInt(triggerItem.dataset.triggers);
 					const existingItem = triggeringItemsSet.find(item => item.id === triggeredGiftId);
 
 					if (existingItem) {
 						existingItem.qty += triggerItemQty;
 					} else {
-						triggeringItemsSet.push({ id: triggeredGiftId, qty: triggerItemQty });
+						triggeringItemsSet.push({id: triggeredGiftId, qty: triggerItemQty});
 					}
 				});
 
@@ -441,10 +438,10 @@
 
 				giftItems.forEach((giftItem) => {
 					const giftItemVariantId = parseInt(giftItem.dataset.variantId);
-					const triggerItem = document.querySelector('.CartItemWrapper[data-triggers="'+ giftItemVariantId +'"]');
+					const triggerItem = document.querySelector('.CartItemWrapper[data-triggers="' + giftItemVariantId + '"]');
 
 					if (triggerItem == null && giftItemVariantId != parseInt(window.cartDrawerGiftVariantId)) {
-						triggeringItemsSet.push({ id: giftItemVariantId, qty: 0 });
+						triggeringItemsSet.push({id: giftItemVariantId, qty: 0});
 					}
 				});
 
@@ -500,8 +497,6 @@
 			.catch((error) => {
 				console.error("Error fetching cart:", error);
 			});
-
-
 	};
 
 	/******************************************************************/
