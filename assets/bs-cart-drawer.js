@@ -735,9 +735,8 @@
 	/* End: Black Week Badge
     /******************************************************************/
 
-
 	// TESTING: OPEN CART
-	setTimeout(() => {
-		document.querySelector('.Header__Icon[data-action="open-drawer"][data-drawer-id="sidebar-cart"]').click()
-	}, 1000);
+	// setTimeout(() => {
+	// 	document.querySelector('.Header__Icon[data-action="open-drawer"][data-drawer-id="sidebar-cart"]').click()
+	// }, 1000);
 })();
