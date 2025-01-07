@@ -54,6 +54,9 @@
         data-req-shipping="{{ line_item.requires_shipping }}"
         data-variant-id="{{ line_item.id }}"
         data-product-id="{{ line_item.product.id }}"
+		{% unless line_item.variant.metafields.blicksolutions.product-specific-gift.value.id == blank %}
+			data-triggers="{{ line_item.variant.metafields.blicksolutions.product-specific-gift.value.id }}"
+		{% endunless %}
       >
     {%- endif -%}
 
@@ -164,6 +167,23 @@
 
           {% if line_item.product.tags contains 'free-gift' %}
               <span class="gift__text">Dein Geschenk</span>
+
+			  {% if line_item.quantity > 1 %}
+				  <div class="CartItem__QuantitySelector">
+					  <div class="QuantitySelector QuantitySelector--small QuantitySelector--Disabled">
+
+						  <input
+							  type="text"
+							  name="updates[]"
+							  class="QuantitySelector__CurrentQuantity"
+							  pattern="[0-9]*"
+							  min="0" max="1"
+							  data-line="{{ forloop.index }}"
+							  value="{% if line_item.variant.metafields.limit.quantity %}{{ line_item.variant.metafields.limit.quantity | prepend: 'max. ' }}{% else %}{{ line_item.quantity }}{% endif %}"
+						  >
+					  </div>
+				  </div>
+			  {% endif %}
           {% endif %}
 
         {%- capture item_actions -%}
