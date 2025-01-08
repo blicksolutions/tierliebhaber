@@ -937,6 +937,57 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
     }
 }
 
+@media screen and (min-width: 642px) {
+
+	.template-index #shopify-section-header .Search {
+		padding: 0;
+		visibility: visible;
+		opacity: 1;
+		pointer-events: auto;
+		transform: translateY(0);
+	  }
+	
+	.template-index #shopify-section-header .Search .Search__Inner {
+		border-radius: 0;
+		border: none;
+		padding: 16px 15px;
+		box-shadow: none;
+	}
+
+	
+	body:not(.template-index) main#main {
+		margin-top: 52px;
+	}
+	
+	div#shopify-section-announcement:has(.AnnouncementBar) + #shopify-section-header {
+		top: 0 !important;
+	}
+	div#shopify-section-announcement:has(.AnnouncementBar) + #shopify-section-header button.Search__Close {
+		display: none;
+	}
+	div#shopify-section-announcement:has(.AnnouncementBar) + #shopify-section-header input.Search__Input {
+		order: -1;
+	}
+	div#shopify-section-announcement:has(.AnnouncementBar) + #shopify-section-header input.Search__Input::-moz-placeholder {
+		color: #000;
+		font-family: "Work Sans";
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 18.77px;
+	}
+	div#shopify-section-announcement:has(.AnnouncementBar) + #shopify-section-header input.Search__Input::placeholder {
+		color: #000;
+		font-family: "Work Sans";
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 18.77px;
+	}
+	div#shopify-section-announcement:has(.AnnouncementBar) + #shopify-section-header button.Header__Icon[data-action=toggle-search] {
+		display: none;
+	}
+}
+
+
 @media (min-width: 768px) {
 	.ProductMeta.Bestseller ~ .ProductForm {
 		margin-top: 24px;

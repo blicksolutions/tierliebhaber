@@ -28,8 +28,10 @@
             <div id="new_topbar">
               {% for block in section.blocks %}
                 <div class="topbar_inner">
-                  {{ block.settings.top_svg }}
-                  <span> {{ block.settings.title }} </span>
+					<div class="announcement__wrapper">
+						{{ block.settings.top_svg }}
+						<span> {{ block.settings.title }} </span>
+					</div>
                 </div>
               {% endfor %}
             </div>
