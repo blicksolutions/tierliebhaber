@@ -899,7 +899,7 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
     z-index: 11;
 }
 
-@media screen and (max-width: 641px) {
+@media screen and (max-width: 1024px) {
     .template-index #shopify-section-header .Header__Icon[data-action="toggle-search"] {
         display: none;
     }
@@ -910,8 +910,12 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
         z-index: 5;
     }
 
+	div#shopify-section-announcement:has(.AnnouncementBar) + #shopify-section-header button.Search__Close {
+		display: none;
+	  }
+
     .template-index #shopify-section-header .Search {
-        padding: 10px 16px;
+        padding: 0;
         position: relative;
         border-bottom: 1px solid var(--Special-Stroke, #CCC);
         background: var(--Background-Variation, #F5F5F5);
@@ -921,20 +925,52 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
         transform: translateY(0);
     }
 
+	div#shopify-section-announcement:has(.AnnouncementBar) + #shopify-section-header input.Search__Input::-moz-placeholder {
+		color: #000;
+		font-family: "Work Sans";
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 18.77px;
+	  }
+	  div#shopify-section-announcement:has(.AnnouncementBar) + #shopify-section-header input.Search__Input::placeholder {
+		color: #000;
+		font-family: "Work Sans";
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 18.77px;
+	  }
+
     .template-index #shopify-section-header .Search .Search__Inner {
-        padding: 10px 15px;
-        border-radius: 25px;
-        border: 1px solid var(--Special-Stroke, #CCC);
+        padding: 16px 15px;
+        border-radius: 0;
+        border: none;
         background: var(--Static-White, #FFF);
-        box-shadow: 0px -2px 0px 0px #EEE inset, 0px 2px 0px 0px #F4F4F4 inset;
+        box-shadow: none;
     }
 
     .template-index #shopify-section-header .Search .Search__Inner .Search__Input {
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 20px;
+		color: #000;
+		font-family: "Work Sans";
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 18.77px;
+		order: -1
     }
+
+	div#shopify-section-announcement:has(.AnnouncementBar) + #shopify-section-header input.Search__Input::-moz-placeholder {
+		color: #000;
+		font-family: "Work Sans";
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 18.77px;
+	  }
+	  div#shopify-section-announcement:has(.AnnouncementBar) + #shopify-section-header input.Search__Input::placeholder {
+		color: #000;
+		font-family: "Work Sans";
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 18.77px;
+	  }
 }
 
 @media (min-width: 768px) {
