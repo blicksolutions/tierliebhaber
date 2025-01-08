@@ -77,10 +77,3 @@ section:has(.AnnouncementBar) {
         font-size: 10px !important;
     }
 }
-
-.AnnouncementBar .topbar_inner .announcement__wrapper {
-	display: flex;
-	width: 110px;
-	gap: 2px;
-	align-items: center;
-}
