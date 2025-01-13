@@ -1,14 +1,8 @@
 (() => {
 	// code for TLH-068
 	setTimeout(()=>{
-		let atcButton
-		if (window.tlh067 == true) {
-			atcButton = document.querySelector('[data-js-tlh-067-atc-button]');
-			if (atcButton.getAttribute('disabled') == 'disabled') return;
-		} else {
-			atcButton = document.querySelector('[data-js-atc-button]');
-			if (atcButton.getAttribute('disabled') == 'disabled') return;
-		}
+		let atcButton = document.querySelector('[data-js-atc-button]')
+		if (atcButton.getAttribute('disabled') == 'disabled') return;
 
 		const productInfo = document.querySelector('.Product__Info');
 		if (!productInfo) return;
