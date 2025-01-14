@@ -28,3 +28,8 @@
 #sidebar-cart .Cart__Checkout {
 	margin-top: -10px;
 }
+
+.QuantitySelector--small {
+	width: 40px !important;
+	min-width: 40px !important;
+}

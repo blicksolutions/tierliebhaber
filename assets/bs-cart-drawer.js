@@ -186,7 +186,7 @@
 			document.querySelector("#sidebar-cart .Drawer__Footer__Total").style.display = "none";
 			document.querySelector("#sidebar-cart .Drawer__Footer__Delivery").innerHTML = "* Die Versandkosten werden im Checkout berechnet."
 			document.querySelector("#sidebar-cart .Drawer__Footer__Delivery").style.bottom = "32px";
-			document.querySelector("#sidebar-cart .Drawer__Footer__Delivery").style.lineHeight = "20px";	
+			document.querySelector("#sidebar-cart .Drawer__Footer__Delivery").style.lineHeight = "20px";
 		}
 	}
 
@@ -416,24 +416,79 @@
 			.then((cart) => {
 				const giftContained = cart.items.some((cartItem) => cartItem.variant_id === parseInt(window.cartDrawerGiftVariantId));
 
+				/** PRODUCT SPECIFIC GIFTS **/
+				// CREATE ARRAY OF GIFTS TO ADD
+				const triggeringCartItems = document.querySelectorAll('.CartItemWrapper[data-triggers]');
+				const triggeringItemsSet = [];
+
+				triggeringCartItems.forEach((triggerItem) => {
+					const triggerItemQty = parseInt(triggerItem.querySelector('.QuantitySelector__CurrentQuantity').value);
+					const triggeredGiftId = parseInt(triggerItem.dataset.triggers);
+					const existingItem = triggeringItemsSet.find(item => item.id === triggeredGiftId);
+
+					if (existingItem) {
+						existingItem.qty += triggerItemQty;
+					} else {
+						triggeringItemsSet.push({id: triggeredGiftId, qty: triggerItemQty});
+					}
+				});
+
+				// CHECK WHETHER THERE ARE GIFTS WHICH SHOULDN'T BE ADDED BECAUSE A TRIGGER ITEM IS MISSING
+				const giftItems = document.querySelectorAll('.CartItemWrapper.cartGiftItem');
+
+				giftItems.forEach((giftItem) => {
+					const giftItemVariantId = parseInt(giftItem.dataset.variantId);
+					const triggerItem = document.querySelector('.CartItemWrapper[data-triggers="' + giftItemVariantId + '"]');
+
+					if (triggerItem == null && giftItemVariantId != parseInt(window.cartDrawerGiftVariantId)) {
+						triggeringItemsSet.push({id: giftItemVariantId, qty: 0});
+					}
+				});
+
+				/** END PRODUCT SPECIFIC GIFTS **/
+
 				if (subtotalPrice < window.cartDrawerMinPriceForGift && giftContained) {
 					// console.log("REMOVE GIFT")
+
 					const cartUpdates = {
 						updates: {
 							[window.cartDrawerGiftVariantId]: 0,
 						},
 					};
 
+					triggeringItemsSet.forEach((item) => {
+						cartUpdates.updates[item.id] = item.qty;
+					});
+
 					updateCart(cartUpdates);
 				} else if (!giftContained && subtotalPrice >= window.cartDrawerMinPriceForGift) {
 					// console.log("ADD GIFT")
+
 					const cartUpdates = {
 						updates: {
 							[window.cartDrawerGiftVariantId]: 1,
 						},
 					};
 
+					triggeringItemsSet.forEach((item) => {
+						cartUpdates.updates[item.id] = item.qty;
+					});
+
 					updateCart(cartUpdates);
+				} else if (Object.keys(triggeringItemsSet).length > 0) {
+					// console.log("ELSE ONLY CHECK OTHER GIFTS")
+
+					const cartUpdates = {
+						updates: {},
+					};
+
+					triggeringItemsSet.forEach((item) => {
+						cartUpdates.updates[item.id] = item.qty;
+					});
+
+					if (Object.keys(cartUpdates).length > 0) {
+						updateCart(cartUpdates);
+					}
 				} else {
 					window.unlockCheckoutButton();
 					// console.log("unlock in handle freegift");
@@ -635,7 +690,7 @@
 			});
 		}
 	};
-	
+
 	/******************************************************************/
 	/* Black Week Badge
     /******************************************************************/
@@ -648,22 +703,22 @@
 			entries.forEach((entry) => {
 				if (entry.type == 'childList') {
 					if (entry.target.classList.contains('Badge__Savings')) return
-						const cartSavingsElement = document.querySelector('[data-js-black-week-cart-savings]')
-						
-						if (!cartSavingsElement) return
-		
-						const cartSavings = cartSavingsElement.getAttribute('data-js-black-week-cart-savings')
-						const badgeSavingsElement = document.querySelector('[data-js-black-week-badge-savings]')
-						
+					const cartSavingsElement = document.querySelector('[data-js-black-week-cart-savings]')
+
+					if (!cartSavingsElement) return
+
+					const cartSavings = cartSavingsElement.getAttribute('data-js-black-week-cart-savings')
+					const badgeSavingsElement = document.querySelector('[data-js-black-week-badge-savings]')
+
 					if (badgeSavingsElement.innerText != cartSavings) {
-							badgeSavingsElement.innerText = cartSavings
-						}
-					
+						badgeSavingsElement.innerText = cartSavings
+					}
+
 				}
 			});
 		});
 
-		const cartDrawer= document.querySelector('#shopify-section-cart-drawer')
+		const cartDrawer = document.querySelector('#shopify-section-cart-drawer')
 
 		if (cartDrawer != undefined) {
 			mutationObserverPrice.observe(cartDrawer, {
@@ -675,8 +730,13 @@
 	}
 
 	document.addEventListener('DOMContentLoaded', blackWeekBadge)
-	
+
 	/******************************************************************/
 	/* End: Black Week Badge
     /******************************************************************/
+
+	// TESTING: OPEN CART
+	// setTimeout(() => {
+	// 	document.querySelector('.Header__Icon[data-action="open-drawer"][data-drawer-id="sidebar-cart"]').click()
+	// }, 1000);
 })();
