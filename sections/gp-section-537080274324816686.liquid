@@ -1,6 +1,6 @@
 
 
-<style>.gps-537080274324816686 .gp-g-paragraph-1{font-family:var(--g-p1-ff);font-size:var(--g-p1-size);font-style:var(--g-p1-fs);font-weight:var(--g-p1-weight);letter-spacing:var(--g-p1-ls);line-height:var(--g-p1-lh)}.gps-537080274324816686 .gp-relative{position:relative}.gps-537080274324816686 .gp-mx-auto{margin-left:auto;margin-right:auto}.gps-537080274324816686 .gp-mb-0{margin-bottom:0}.gps-537080274324816686 .gp-flex{display:flex}.gps-537080274324816686 .gp-grid{display:grid}.gps-537080274324816686 .\!gp-hidden{display:none!important}.gps-537080274324816686 .gp-hidden{display:none}.gps-537080274324816686 .gp-max-w-full{max-width:100%}.gps-537080274324816686 .gp-flex-col{flex-direction:column}.gps-537080274324816686 .gp-gap-y-0{row-gap:0}.gps-537080274324816686 .gp-transition-colors{transition-duration:.15s;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-537080274324816686 .gp-duration-200{transition-duration:.2s}.gps-537080274324816686 .gp-ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}@media (max-width:1023px){.gps-537080274324816686 .tablet\:\!gp-hidden{display:none!important}.gps-537080274324816686 .tablet\:gp-hidden{display:none}}@media (max-width:767px){.gps-537080274324816686 .mobile\:\!gp-hidden{display:none!important}.gps-537080274324816686 .mobile\:gp-hidden{display:none}}.gps-537080274324816686 .\[\&_\*\]\:gp-max-w-full *{max-width:100%}.gps-537080274324816686 .\[\&_p\]\:gp-inline p{display:inline}.gps-537080274324816686 .\[\&_p\]\:after\:gp-whitespace-pre-wrap p:after{content:var(--tw-content);white-space:pre-wrap}.gps-537080274324816686 .\[\&_p\]\:after\:gp-content-\[\'\\A\'\] p:after{--tw-content:"\A";content:var(--tw-content)}</style>
+<style>.gps-537080274324816686 .gp-g-paragraph-1{font-family:var(--g-p1-ff);font-size:var(--g-p1-size);font-style:var(--g-p1-fs);font-weight:var(--g-p1-weight);letter-spacing:var(--g-p1-ls);line-height:var(--g-p1-lh)}.gps-537080274324816686 .gp-relative{position:relative}.gps-537080274324816686 .gp-mx-auto{margin-left:auto;margin-right:auto}.gps-537080274324816686 .gp-mb-0{margin-bottom:0}.gps-537080274324816686 .gp-flex{display:flex}.gps-537080274324816686 .gp-grid{display:grid}.gps-537080274324816686 .\!gp-hidden{display:none!important}.gps-537080274324816686 .gp-hidden{display:none}.gps-537080274324816686 .gp-max-w-full{max-width:100%}.gps-537080274324816686 .gp-flex-col{flex-direction:column}.gps-537080274324816686 .gp-gap-y-0{row-gap:0}.gps-537080274324816686 .gp-transition-colors{transition-duration:.15s;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-537080274324816686 .gp-duration-200{transition-duration:.2s}.gps-537080274324816686 .gp-ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}@media (max-width:1024px){.gps-537080274324816686 .tablet\:\!gp-hidden{display:none!important}.gps-537080274324816686 .tablet\:gp-hidden{display:none}}@media (max-width:767px){.gps-537080274324816686 .mobile\:\!gp-hidden{display:none!important}.gps-537080274324816686 .mobile\:gp-hidden{display:none}}.gps-537080274324816686 .\[\&_\*\]\:gp-max-w-full *{max-width:100%}.gps-537080274324816686 .\[\&_p\]\:gp-inline p{display:inline}.gps-537080274324816686 .\[\&_p\]\:after\:gp-whitespace-pre-wrap p:after{content:var(--tw-content);white-space:pre-wrap}.gps-537080274324816686 .\[\&_p\]\:after\:gp-content-\[\'\\A\'\] p:after{--tw-content:"\A";content:var(--tw-content)}</style>
 
        
       
@@ -20,6 +20,7 @@
       class="gaVRImfmfB gp-relative gp-flex gp-flex-col"
     >
       
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
   <gp-text data-id="g3eTrFcUqM">
     <div
       enableLazyloadImage="true" parentTag="Col"
@@ -32,11 +33,12 @@
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-g-paragraph-1 gp-text"
           style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--size:25px;--size-tablet:16px;--size-mobile:14px;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
-        >{{ section.settings.gg3eTrFcUqM_text }}</div>
+        >{{ section.settings.gg3eTrFcUqM_text | replace: '$locationOrigin', locationOrigin }}</div>
       </div>
     </div>
     </gp-text>
     
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
   <gp-text data-id="gkAIqs3KtO">
     <div
       enableLazyloadImage="true" parentTag="Col"
@@ -49,11 +51,12 @@
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-g-paragraph-1 gp-text"
           style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
-        >{{ section.settings.ggkAIqs3KtO_text }}</div>
+        >{{ section.settings.ggkAIqs3KtO_text | replace: '$locationOrigin', locationOrigin }}</div>
       </div>
     </div>
     </gp-text>
     
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
   <gp-text data-id="gdfChdPVZC">
     <div
       enableLazyloadImage="true" parentTag="Col"
@@ -66,11 +69,12 @@
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-g-paragraph-1 gp-text"
           style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
-        >{{ section.settings.ggdfChdPVZC_text }}</div>
+        >{{ section.settings.ggdfChdPVZC_text | replace: '$locationOrigin', locationOrigin }}</div>
       </div>
     </div>
     </gp-text>
     
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
   <gp-text data-id="gBTx7qIJH9">
     <div
       enableLazyloadImage="true" parentTag="Col"
@@ -83,11 +87,12 @@
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-g-paragraph-1 gp-text"
           style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
-        >{{ section.settings.ggBTx7qIJH9_text }}</div>
+        >{{ section.settings.ggBTx7qIJH9_text | replace: '$locationOrigin', locationOrigin }}</div>
       </div>
     </div>
     </gp-text>
     
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
   <gp-text data-id="gkkPC-Vkte">
     <div
       enableLazyloadImage="true" parentTag="Col"
@@ -100,11 +105,12 @@
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-g-paragraph-1 gp-text"
           style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
-        >{{ section.settings.ggkkPC-Vkte_text }}</div>
+        >{{ section.settings.ggkkPC-Vkte_text | replace: '$locationOrigin', locationOrigin }}</div>
       </div>
     </div>
     </gp-text>
     
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
   <gp-text data-id="geKJbA5NO6">
     <div
       enableLazyloadImage="true" parentTag="Col"
@@ -117,11 +123,12 @@
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-g-paragraph-1 gp-text"
           style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
-        >{{ section.settings.ggeKJbA5NO6_text }}</div>
+        >{{ section.settings.ggeKJbA5NO6_text | replace: '$locationOrigin', locationOrigin }}</div>
       </div>
     </div>
     </gp-text>
     
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
   <gp-text data-id="ghIben76NL">
     <div
       enableLazyloadImage="true" parentTag="Col"
@@ -134,7 +141,7 @@
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-g-paragraph-1 gp-text"
           style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
-        >{{ section.settings.gghIben76NL_text }}</div>
+        >{{ section.settings.gghIben76NL_text | replace: '$locationOrigin', locationOrigin }}</div>
       </div>
     </div>
     </gp-text>
@@ -150,7 +157,7 @@
 {% schema %}
   {
     
-    "name": "Section 16",
+    "name": "Section 15",
     "tag": "section",
     "class": "gps-537080274324816686 gps gpsi",
     "settings": [{"type":"paragraph","content":"Section design by GemPages. [Click here to start design](https://admin.shopify.com/store/tierliebhaber-animagus/apps/gempages-cro/app/shopify/edit?pageType=GP_FUNNEL_PAGE&editorId=537080273989272366&sectionId=537080274324816686)"},{"type":"select","label":"Section Preload","id":"section_preload","options":[{"label":"On","value":"true"},{"label":"Off","value":"false"},{"label":"Off Lazy Script","value":"off_lazy_script"}],"default":"off_lazy_script"},{"type":"text","label":"Checksum","id":"checksum"},{"type":"html","id":"gg3eTrFcUqM_text","label":"gg3eTrFcUqM_text","default":"<p><span style=\"color:#000000;\"><strong>Zahlungsmethoden</strong></span></p>"},{"type":"html","id":"ggkAIqs3KtO_text","label":"ggkAIqs3KtO_text","default":"<p><span style=\"color:#000000;\"><strong>Auf Rechnung</strong></span><span style=\"background-color:rgb(255,255,255);color:#000000;font-size:16px;\"> (zahle erst in 30 Tagen)</span></p>"},{"type":"html","id":"ggdfChdPVZC_text","label":"ggdfChdPVZC_text","default":"<p><span style=\"color:#0F0F0F;\"><strong>PayPal </strong></span><span style=\"background-color:rgb(255,255,255);color:#0F0F0F;font-size:16px;\">(einfach mit Email Adresse)</span></p>"},{"type":"html","id":"ggBTx7qIJH9_text","label":"ggBTx7qIJH9_text","default":"<p><span style=\"color:#000000;\"><strong>Kredit- &amp; Debitkarte </strong></span><span style=\"background-color:rgb(255,255,255);color:#000000;font-size:16px;\">(Visa, Mastercard)</span></p>"},{"type":"html","id":"ggkkPC-Vkte_text","label":"ggkkPC-Vkte_text","default":"<p><span style=\"color:#000000;\"><strong>Sofortüberweisung </strong></span><span style=\"background-color:rgb(255,255,255);color:#000000;font-size:16px;\">(per Klarna)</span></p>"},{"type":"html","id":"ggeKJbA5NO6_text","label":"ggeKJbA5NO6_text","default":"<p><span style=\"color:#000000;\"><strong>Ratenzahlung </strong></span><span style=\"background-color:rgb(255,255,255);color:#000000;font-size:16px;\">(bis zu 12 Raten)</span></p>"},{"type":"html","id":"gghIben76NL_text","label":"gghIben76NL_text","default":"<p><span style=\"color:#000000;\"><strong>Apple Pay</strong></span><span style=\"background-color:rgb(255,255,255);color:#000000;font-size:16px;\"> (schnell mit wallet zahlen)</span></p>"}],
