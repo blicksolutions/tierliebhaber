@@ -8,308 +8,113 @@
  * ------------------------------------------------------------
  */
 {
+  "order": [
+    "main",
+    "bundles",
+    "1628804794af0431f7",
+    "16288047979ee0ca29",
+    "16288473445aa6c049",
+    "1652874593f2ea11e0",
+    "17327877609a579677",
+    "recommendations",
+    "1635243951ca87a38d",
+    "recently-viewed-products",
+    "162880489936c4738f",
+    "16288049026c8dd7d1",
+    "c7c87d8f-88cc-46cd-abd3-120e8779b1bc",
+    "fd0c95dc-1c46-4e1d-805a-9959697fdfce"
+  ],
   "sections": {
-    "main": {
-      "type": "product-template",
-      "settings": {
-        "meta_info_badge_visibility": false,
-        "meta_info_badge_text": "<p>Für die beste Wirkung <strong>4 Wochen vor Silvester<\/strong> mit der Anwendung beginnen!<\/p>",
-        "show_share_buttons": false,
-        "show_vendor": false,
-        "show_sku": false,
-        "show_taxes_included": true,
-        "selector_mode": "block",
-        "show_color_swatch": false,
-        "show_color_carousel": false,
-        "show_quantity_selector": false,
-        "show_inventory_quantity": false,
-        "inventory_quantity_threshold": 0,
-        "show_price_in_button": false,
-        "show_payment_button": false,
-        "payment_providers": "paypal, klarna, master, visa, sofort, apple_pay",
-        "show_pickup_availability": false,
-        "image_size": "medium",
-        "stack_images": false,
-        "show_thumbnails": true,
-        "enable_image_zoom": false,
-        "enable_video_looping": false,
-        "tab_page_1_handle": "",
-        "tab_page_2_handle": "",
-        "reviews_enabled": false,
-        "featured_image_size": "large",
-        "benefit_item_1_image": "shopify:\/\/shop_images\/icons8-benutzergruppe-mann-frau-80.png",
-        "benefit_item_1_title": "Über 310.000 glückliche Kunden",
-        "benefit_item_2_image": "shopify:\/\/shop_images\/image_8.png",
-        "benefit_item_2_title": "Versandkostenfrei ab 49€ in DE"
-      }
-    },
-    "bundles": {
-      "type": "bundles",
-      "settings": {
-        "heading_text": "Passt perfekt dazu:",
-        "banner_text": "im Bundle",
-        "atc_text": "Im Bundle kaufen!",
-        "tile_background_color": "#f7f5f2",
-        "banner_bg_color": "#fef3ef",
-        "banner_font_color": "#e6b2a1",
-        "banner_border_color": "#e6b2a1",
-        "offer_price_font_color": "#027c09",
-        "ppu_font_color": "#8e8e8e",
-        "swiper_nav_icon_prev": "shopify:\/\/shop_images\/icon_2.png",
-        "swiper_nav_icon_next": "shopify:\/\/shop_images\/icon.png"
-      }
-    },
     "1628804794af0431f7": {
-      "type": "benefits",
       "settings": {
         "title": "Vorteile"
-      }
+      },
+      "type": "benefits"
     },
     "16288047979ee0ca29": {
-      "type": "content-accordion",
-      "settings": {}
+      "settings": {},
+      "type": "content-accordion"
     },
-    "16288473445aa6c049": {
-      "type": "image-with-text",
-      "settings": {}
+    "162880489936c4738f": {
+      "settings": {
+        "seo_content": "{{ product.metafields.content.seo.value }}"
+      },
+      "type": "seo-content"
     },
-    "1652874593f2ea11e0": {
-      "type": "polaroid-slider",
+    "16288049026c8dd7d1": {
+      "block_order": [
+        "6019ae12-5366-4bb0-b0fb-d5360dbf448b",
+        "7e85fc1c-a467-4500-83c7-3f55b878b381",
+        "cd707ae6-291b-4929-8937-dbe7654b243d",
+        "button_DX3KpP"
+      ],
       "blocks": {
-        "5431d682-ffc0-4388-a307-b5b313d167cb": {
-          "type": "item",
+        "6019ae12-5366-4bb0-b0fb-d5360dbf448b": {
           "settings": {
-            "image": "shopify:\/\/shop_images\/1.png",
-            "item-headline": "Tierliebhaber zu sein verbindet.",
-            "item-subline": "Marcel"
-          }
+            "color": "#43c253",
+            "image": "shopify://shop_images/whatsapp.png",
+            "image_alt": "",
+            "text": "Per WhatsApp",
+            "url": "https://api.whatsapp.com/send/?phone=4917648097026&text=Hey,%20ich%20habe%20eine%20Frage,%20auf%20die%20ich%20keine%20Antworte%20finde%20auf%20eurer%20Seite.%20%E2%98%BA%EF%B8%8F"
+          },
+          "type": "button"
         },
-        "6c5e3c34-c10d-4537-b368-bb17dce45a0f": {
-          "type": "item",
+        "7e85fc1c-a467-4500-83c7-3f55b878b381": {
           "settings": {
-            "image": "shopify:\/\/shop_images\/2.png",
-            "item-headline": "diese Liebe für mich bedingungslos ist.",
-            "item-subline": "Mona"
-          }
+            "color": "#f1af9e",
+            "image": "shopify://shop_images/anruf.png",
+            "image_alt": "",
+            "text": "Ruf uns an (Mo-Fr 11-15 Uhr)",
+            "url": "tel:034149980019"
+          },
+          "type": "button"
         },
-        "1bca3c10-3277-4ee6-94b0-07eb9688229c": {
-          "type": "item",
+        "button_DX3KpP": {
           "settings": {
-            "image": "shopify:\/\/shop_images\/CINDY.png",
-            "item-headline": "Weil Tiere die treuesten Seelen sind und Liebe statt Leid verdienen. ",
-            "item-subline": "Cindy"
-          }
+            "color": "#f1af9e",
+            "image": "shopify://shop_images/calling_1_1.png",
+            "image_alt": "",
+            "text": "Produktberatung buchen",
+            "url": "https://calendly.com/kundenservice-tierliebhaber/10min"
+          },
+          "type": "button"
         },
-        "aa6287a9-7958-40c0-9ab4-7576b9d68445": {
-          "type": "item",
+        "cd707ae6-291b-4929-8937-dbe7654b243d": {
           "settings": {
-            "image": "shopify:\/\/shop_images\/49d7040a-10b5-421e-beb4-308e2c0def28.jpg",
-            "item-headline": "Tiere immer gute Laune verbreiten",
-            "item-subline": "Vanessa"
-          }
-        },
-        "c9fde5be-c56a-492d-9528-3c600992cc46": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/20230918135323908.jpg",
-            "item-headline": "Tiere unsere besten, treusten und ehrlichsten Freunde sind.",
-            "item-subline": "Fränzi"
-          }
-        },
-        "26d1a347-5bc1-4516-bd1b-39399a14a5de": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Foto_Julia.jpg",
-            "item-headline": "weil jede Tierseele seinen ganz eigenen besonderen Wert hat.",
-            "item-subline": "Julia"
-          }
-        },
-        "3773d6e3-28c8-421d-ba50-bdbc8c8dd1d7": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/11.png",
-            "item-headline": "Tiere einfach unheimlich viel Wärme zurückgeben!",
-            "item-subline": "Thomas"
-          }
-        },
-        "7b367471-f160-49c4-8ea9-092c54d181aa": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/8.png",
-            "item-headline": "Tierliebe verbindet und meine Sprotte mich immer zum Lächeln bringt.",
-            "item-subline": "Katharina"
-          }
-        },
-        "a22cd147-6aa3-4be7-9e45-caeeb8f09135": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/10.png",
-            "item-headline": "meine Hunde für jeden Spaß zu haben sind.",
-            "item-subline": "Evelyn"
-          }
-        },
-        "03931279-b774-4f46-85d3-4ab9b5cc60a3": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/3.png",
-            "item-headline": "jedes Tier Inspiration birgt.",
-            "item-subline": "Jonas"
-          }
-        },
-        "419089b6-7656-4b0f-9666-86eeabacd780": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Luise_cfe1d698-bc16-4dda-84bd-667a681abb53.png",
-            "item-headline": "Von den Tieren können wir noch so viel lernen.",
-            "item-subline": "Luise"
-          }
-        },
-        "cb1c90d6-9720-4f2f-8c46-04ff25052d36": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Dagmar.jpg",
-            "item-headline": "Weil mir Tiere das geben, was so mancher Mensch nicht vermag.",
-            "item-subline": "DAGMAR"
-          }
-        },
-        "f947fbb9-61ed-455b-9221-cfa2d6aa76b2": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Leila.jpg",
-            "item-headline": "Tiere einfach herzensgut sind.",
-            "item-subline": "LEILA"
-          }
-        },
-        "d0e09e61-6965-49ef-b293-ee583ff60dfa": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/WhatsApp_Image_2023-05-22_at_13.10.34.jpg",
-            "item-headline": "Es mir wichtig ist, dass es allen Tieren unserer Kunden gut geht.",
-            "item-subline": "ALMUTH"
-          }
-        },
-        "aa787ddd-1736-408b-ac8a-ab45102c86a8": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/WhatsApp_Image_2023-06-07_at_11.54.06.jpg",
-            "item-headline": "Weil der Sabber meines Hundes besser ist als jede Gesichtsmaske dieser Welt.",
-            "item-subline": "CLARISSA"
-          }
-        },
-        "36266460-939a-485c-ad4a-1417671fdab1": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/WhatsApp_Image_2023-06-07_at_11.54.19.jpg",
-            "item-headline": "Weil Tiere einen auch ohne Worte verstehen.",
-            "item-subline": "STEFFI"
-          }
-        },
-        "bb325c33-eda2-4eb8-ade4-6a0601777c1e": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/WhatsApp_Image_2023-06-07_at_13.39.57.jpg",
-            "item-headline": "Weil Tiere die treusten Seelen sind",
-            "item-subline": "ANNABELL"
-          }
-        },
-        "9b7ef714-1300-4425-8f3d-f81205caad65": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/WhatsApp_Image_2023-06-07_at_16.32.05.jpg",
-            "item-headline": "Weil es mit Kuscheln anfängt und mit unendlicher Liebe 💘 endet. LG Kristin",
-            "item-subline": "KRISTIN"
-          }
-        },
-        "a9cb5d6d-5045-491e-9ccd-933fdca3ce13": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/WhatsApp_Image_2023-06-08_at_08.39.31.jpg",
-            "item-headline": "Weil meine Liebe zu Tieren nie endet❤️",
-            "item-subline": "LUISE"
-          }
-        },
-        "385bcca8-8cec-49b0-ab5f-4e87b918c8c0": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Franzi.jpg",
-            "item-headline": "Weil die Liebe eines Tieres bedingungslos und einzigartig ist.",
-            "item-subline": "FRANZI"
-          }
-        },
-        "a75900a6-d4e3-4003-ab66-f88f96f1e519": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Micha.png",
-            "item-headline": "Weil es zum Menschsein dazugehört.",
-            "item-subline": "MICHA"
-          }
-        },
-        "e4b4030f-dfd4-480a-9b22-99923054c7b7": {
-          "type": "item",
-          "disabled": true,
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Tina.png",
-            "item-headline": "Tiere so feinfühlig sind, dass sie bereits am Morgen wissen, wie es mir geht.",
-            "item-subline": "TINA"
-          }
-        },
-        "item_4Wc7hB": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Bildschirmfoto_2024-01-15_um_10.34.35.png",
-            "item-headline": "Wir sind Tierliebhaber, weil Tiere die eigene Lebensqualität ins Unermessliche steigern.",
-            "item-subline": "FELIX"
-          }
-        },
-        "item_wTCFte": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Kai.png",
-            "item-headline": "Weil sie mir täglich ein Lächeln aufs Gesicht zaubern können.",
-            "item-subline": "KAI"
-          }
-        },
-        "item_FmGaTN": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Lysann.jpg",
-            "item-headline": "Weil Tiere wie beste Freunde sind.",
-            "item-subline": "Lysann"
-          }
-        },
-        "item_yEfwMP": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Sophia.jpg",
-            "item-headline": "SOPHIA",
-            "item-subline": "Weil Tiere einfach wunderbare Seelen sind."
-          }
-        },
-        "item_gbyaT6": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/WhatsApp_Bild_2024-04-08_um_12.18.01_2afa9a40.jpg",
-            "item-headline": "Weil mir meine Hündin Hopey jeden Tag aufs Neue in die Seele schaut und mir neue Erkenntnisse über mich selbst beibringt.",
-            "item-subline": "CONNY"
-          }
-        },
-        "item_dQXWJH": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Artjom.png",
-            "item-headline": "Weil Tiere uns zu besseren Menschen machen.",
-            "item-subline": "ARTJOM"
-          }
-        },
-        "item_6p4ncr": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Bianka.png",
-            "item-headline": "Weil Tiere einfach liebenswert sind.",
-            "item-subline": "BIANCA"
-          }
+            "color": "#43c253",
+            "image": "shopify://shop_images/email.png",
+            "image_alt": "",
+            "text": "Per Email",
+            "url": "mailto:info@tierliebhaber.de"
+          },
+          "type": "button"
         }
       },
+      "settings": {
+        "cta_title": "Schnell & einfach",
+        "image": "shopify://shop_images/CS.png",
+        "image_alt": "",
+        "image_min_width": 340,
+        "microcopy": "<p><em>Wir melden uns innerhalb von 1-2 Werktagen mit einer Antwort bei dir zurück!</em></p>",
+        "subtitle": "<p>Bei Fragen zu einer bestehenden Bestellung, schreib uns einfach eine Nachricht per<br/>WhatsApp oder per E-Mail.</p><p><strong>Hast du Fragen zu unseren Produkten oder kommst bei einer Bestellung nicht weiter?</strong> <br/><br/>Wir sind jederzeit für dich auf WhatsApp erreichbar.</p><p><strong>Du wünschst dir eine Produktberatung oder einen individuellen Rückruf?</strong></p><p>Schreib uns einfach eine Nachricht per WhatsApp oder per E-Mail mit deiner Telefonnummer und wann es für dich zeitlich passt, dann melden wir uns sehr gerne bei dir!</p>",
+        "title": "Fragen? Wir sind für dich da..."
+      },
+      "type": "contact"
+    },
+    "16288473445aa6c049": {
+      "settings": {},
+      "type": "image-with-text"
+    },
+    "1635243951ca87a38d": {
+      "disabled": true,
+      "settings": {
+        "html": "<!-- TrustBox widget - Quote -->\n<div class=\"trustpilot-widget\" data-locale=\"de-DE\" data-template-id=\"54d0e1d8764ea9078c79e6ee\" data-businessunit-id=\"60d5db8ab6c75b0001a3a5e3\" data-style-height=\"300px\" data-style-width=\"100%\" data-theme=\"light\" data-stars=\"4,5\" data-review-languages=\"de\">\n  <a href=\"https://de.trustpilot.com/review/tierliebhaber.de\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>\n<!-- End TrustBox widget -->",
+        "subheading": "Auf Trustpilot",
+        "title": "Meinungen anderer Kunden"
+      },
+      "type": "custom-html"
+    },
+    "1652874593f2ea11e0": {
       "block_order": [
         "5431d682-ffc0-4388-a307-b5b313d167cb",
         "6c5e3c34-c10d-4537-b368-bb17dce45a0f",
@@ -341,179 +146,374 @@
         "item_dQXWJH",
         "item_6p4ncr"
       ],
+      "blocks": {
+        "03931279-b774-4f46-85d3-4ab9b5cc60a3": {
+          "settings": {
+            "image": "shopify://shop_images/3.png",
+            "item-headline": "jedes Tier Inspiration birgt.",
+            "item-subline": "Jonas"
+          },
+          "type": "item"
+        },
+        "1bca3c10-3277-4ee6-94b0-07eb9688229c": {
+          "settings": {
+            "image": "shopify://shop_images/CINDY.png",
+            "item-headline": "Weil Tiere die treuesten Seelen sind und Liebe statt Leid verdienen. ",
+            "item-subline": "Cindy"
+          },
+          "type": "item"
+        },
+        "26d1a347-5bc1-4516-bd1b-39399a14a5de": {
+          "settings": {
+            "image": "shopify://shop_images/Foto_Julia.jpg",
+            "item-headline": "weil jede Tierseele seinen ganz eigenen besonderen Wert hat.",
+            "item-subline": "Julia"
+          },
+          "type": "item"
+        },
+        "36266460-939a-485c-ad4a-1417671fdab1": {
+          "settings": {
+            "image": "shopify://shop_images/WhatsApp_Image_2023-06-07_at_11.54.19.jpg",
+            "item-headline": "Weil Tiere einen auch ohne Worte verstehen.",
+            "item-subline": "STEFFI"
+          },
+          "type": "item"
+        },
+        "3773d6e3-28c8-421d-ba50-bdbc8c8dd1d7": {
+          "settings": {
+            "image": "shopify://shop_images/11.png",
+            "item-headline": "Tiere einfach unheimlich viel Wärme zurückgeben!",
+            "item-subline": "Thomas"
+          },
+          "type": "item"
+        },
+        "385bcca8-8cec-49b0-ab5f-4e87b918c8c0": {
+          "settings": {
+            "image": "shopify://shop_images/Franzi.jpg",
+            "item-headline": "Weil die Liebe eines Tieres bedingungslos und einzigartig ist.",
+            "item-subline": "FRANZI"
+          },
+          "type": "item"
+        },
+        "419089b6-7656-4b0f-9666-86eeabacd780": {
+          "settings": {
+            "image": "shopify://shop_images/Luise_cfe1d698-bc16-4dda-84bd-667a681abb53.png",
+            "item-headline": "Von den Tieren können wir noch so viel lernen.",
+            "item-subline": "Luise"
+          },
+          "type": "item"
+        },
+        "5431d682-ffc0-4388-a307-b5b313d167cb": {
+          "settings": {
+            "image": "shopify://shop_images/1.png",
+            "item-headline": "Tierliebhaber zu sein verbindet.",
+            "item-subline": "Marcel"
+          },
+          "type": "item"
+        },
+        "6c5e3c34-c10d-4537-b368-bb17dce45a0f": {
+          "settings": {
+            "image": "shopify://shop_images/2.png",
+            "item-headline": "diese Liebe für mich bedingungslos ist.",
+            "item-subline": "Mona"
+          },
+          "type": "item"
+        },
+        "7b367471-f160-49c4-8ea9-092c54d181aa": {
+          "settings": {
+            "image": "shopify://shop_images/8.png",
+            "item-headline": "Tierliebe verbindet und meine Sprotte mich immer zum Lächeln bringt.",
+            "item-subline": "Katharina"
+          },
+          "type": "item"
+        },
+        "9b7ef714-1300-4425-8f3d-f81205caad65": {
+          "settings": {
+            "image": "shopify://shop_images/WhatsApp_Image_2023-06-07_at_16.32.05.jpg",
+            "item-headline": "Weil es mit Kuscheln anfängt und mit unendlicher Liebe 💘 endet. LG Kristin",
+            "item-subline": "KRISTIN"
+          },
+          "type": "item"
+        },
+        "a22cd147-6aa3-4be7-9e45-caeeb8f09135": {
+          "settings": {
+            "image": "shopify://shop_images/10.png",
+            "item-headline": "meine Hunde für jeden Spaß zu haben sind.",
+            "item-subline": "Evelyn"
+          },
+          "type": "item"
+        },
+        "a75900a6-d4e3-4003-ab66-f88f96f1e519": {
+          "settings": {
+            "image": "shopify://shop_images/Micha.png",
+            "item-headline": "Weil es zum Menschsein dazugehört.",
+            "item-subline": "MICHA"
+          },
+          "type": "item"
+        },
+        "a9cb5d6d-5045-491e-9ccd-933fdca3ce13": {
+          "settings": {
+            "image": "shopify://shop_images/WhatsApp_Image_2023-06-08_at_08.39.31.jpg",
+            "item-headline": "Weil meine Liebe zu Tieren nie endet❤️",
+            "item-subline": "LUISE"
+          },
+          "type": "item"
+        },
+        "aa6287a9-7958-40c0-9ab4-7576b9d68445": {
+          "settings": {
+            "image": "shopify://shop_images/49d7040a-10b5-421e-beb4-308e2c0def28.jpg",
+            "item-headline": "Tiere immer gute Laune verbreiten",
+            "item-subline": "Vanessa"
+          },
+          "type": "item"
+        },
+        "aa787ddd-1736-408b-ac8a-ab45102c86a8": {
+          "settings": {
+            "image": "shopify://shop_images/WhatsApp_Image_2023-06-07_at_11.54.06.jpg",
+            "item-headline": "Weil der Sabber meines Hundes besser ist als jede Gesichtsmaske dieser Welt.",
+            "item-subline": "CLARISSA"
+          },
+          "type": "item"
+        },
+        "bb325c33-eda2-4eb8-ade4-6a0601777c1e": {
+          "settings": {
+            "image": "shopify://shop_images/WhatsApp_Image_2023-06-07_at_13.39.57.jpg",
+            "item-headline": "Weil Tiere die treusten Seelen sind",
+            "item-subline": "ANNABELL"
+          },
+          "type": "item"
+        },
+        "c9fde5be-c56a-492d-9528-3c600992cc46": {
+          "settings": {
+            "image": "shopify://shop_images/20230918135323908.jpg",
+            "item-headline": "Tiere unsere besten, treusten und ehrlichsten Freunde sind.",
+            "item-subline": "Fränzi"
+          },
+          "type": "item"
+        },
+        "cb1c90d6-9720-4f2f-8c46-04ff25052d36": {
+          "settings": {
+            "image": "shopify://shop_images/Dagmar.jpg",
+            "item-headline": "Weil mir Tiere das geben, was so mancher Mensch nicht vermag.",
+            "item-subline": "DAGMAR"
+          },
+          "type": "item"
+        },
+        "d0e09e61-6965-49ef-b293-ee583ff60dfa": {
+          "settings": {
+            "image": "shopify://shop_images/WhatsApp_Image_2023-05-22_at_13.10.34.jpg",
+            "item-headline": "Es mir wichtig ist, dass es allen Tieren unserer Kunden gut geht.",
+            "item-subline": "ALMUTH"
+          },
+          "type": "item"
+        },
+        "e4b4030f-dfd4-480a-9b22-99923054c7b7": {
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Tina.png",
+            "item-headline": "Tiere so feinfühlig sind, dass sie bereits am Morgen wissen, wie es mir geht.",
+            "item-subline": "TINA"
+          },
+          "type": "item"
+        },
+        "f947fbb9-61ed-455b-9221-cfa2d6aa76b2": {
+          "settings": {
+            "image": "shopify://shop_images/Leila.jpg",
+            "item-headline": "Tiere einfach herzensgut sind.",
+            "item-subline": "LEILA"
+          },
+          "type": "item"
+        },
+        "item_4Wc7hB": {
+          "settings": {
+            "image": "shopify://shop_images/Bildschirmfoto_2024-01-15_um_10.34.35.png",
+            "item-headline": "Wir sind Tierliebhaber, weil Tiere die eigene Lebensqualität ins Unermessliche steigern.",
+            "item-subline": "FELIX"
+          },
+          "type": "item"
+        },
+        "item_6p4ncr": {
+          "settings": {
+            "image": "shopify://shop_images/Bianka.png",
+            "item-headline": "Weil Tiere einfach liebenswert sind.",
+            "item-subline": "BIANCA"
+          },
+          "type": "item"
+        },
+        "item_FmGaTN": {
+          "settings": {
+            "image": "shopify://shop_images/Lysann.jpg",
+            "item-headline": "Weil Tiere wie beste Freunde sind.",
+            "item-subline": "Lysann"
+          },
+          "type": "item"
+        },
+        "item_dQXWJH": {
+          "settings": {
+            "image": "shopify://shop_images/Artjom.png",
+            "item-headline": "Weil Tiere uns zu besseren Menschen machen.",
+            "item-subline": "ARTJOM"
+          },
+          "type": "item"
+        },
+        "item_gbyaT6": {
+          "settings": {
+            "image": "shopify://shop_images/WhatsApp_Bild_2024-04-08_um_12.18.01_2afa9a40.jpg",
+            "item-headline": "Weil mir meine Hündin Hopey jeden Tag aufs Neue in die Seele schaut und mir neue Erkenntnisse über mich selbst beibringt.",
+            "item-subline": "CONNY"
+          },
+          "type": "item"
+        },
+        "item_wTCFte": {
+          "settings": {
+            "image": "shopify://shop_images/Kai.png",
+            "item-headline": "Weil sie mir täglich ein Lächeln aufs Gesicht zaubern können.",
+            "item-subline": "KAI"
+          },
+          "type": "item"
+        },
+        "item_yEfwMP": {
+          "settings": {
+            "image": "shopify://shop_images/Sophia.jpg",
+            "item-headline": "SOPHIA",
+            "item-subline": "Weil Tiere einfach wunderbare Seelen sind."
+          },
+          "type": "item"
+        }
+      },
       "settings": {
         "background-color": "#ffffff",
         "slider-headline": "Wir sind Tierliebhaber",
         "slider-subline": "Vom Versand bis zum Kundenservice steckt jede menge ❤️ drin!"
-      }
+      },
+      "type": "polaroid-slider"
     },
     "17327877609a579677": {
-      "type": "apps",
+      "block_order": [
+        "reviews_io_reviewsio_polaris_hda3tE"
+      ],
       "blocks": {
         "reviews_io_reviewsio_polaris_hda3tE": {
-          "type": "shopify:\/\/apps\/reviews-io\/blocks\/reviewsio-polaris\/92a082e5-b297-4e88-b428-ac96cbc505f9",
           "settings": {
-            "star": "#fbd343",
-            "review_type": "product_review,questions",
+            "badge_icon_color": "#519c7d",
+            "badge_text_color": "#ffffff",
+            "body_text_color": "#000000",
+            "border_color": "#000000",
+            "capitalise_headers_and_buttons": false,
+            "default_sort": "date_desc",
+            "enable_replies": false,
+            "enable_rich_snippets": true,
+            "enable_sentiment_analysis": false,
+            "heading_font": "helvetica_n4",
+            "heading_text_color": "#000000",
             "per_page": 8,
             "primary_btn_bg_color": "#000000",
             "primary_btn_border_color": "#000000",
             "primary_btn_text_color": "#ffffff",
+            "review_type": "product_review,questions",
             "secondary_btn_border_color": "#000000",
             "secondary_btn_text_color": "#000000",
-            "border_color": "#000000",
-            "heading_text_color": "#000000",
-            "heading_font": "helvetica_n4",
-            "body_text_color": "#000000",
-            "badge_icon_color": "#519c7d",
-            "badge_text_color": "#ffffff",
-            "enable_rich_snippets": true,
-            "show_location": true,
-            "show_tab_selector": false,
-            "show_dates": true,
             "show_avatar": true,
-            "enable_sentiment_analysis": false,
-            "enable_replies": false,
-            "widget_spacing": 0,
-            "capitalise_headers_and_buttons": false,
+            "show_dates": true,
+            "show_location": true,
             "show_review_title": false,
-            "default_sort": "date_desc"
-          }
+            "show_tab_selector": false,
+            "star": "#fbd343",
+            "widget_spacing": 0
+          },
+          "type": "shopify://apps/reviews-io/blocks/reviewsio-polaris/92a082e5-b297-4e88-b428-ac96cbc505f9"
         }
       },
-      "block_order": [
-        "reviews_io_reviewsio_polaris_hda3tE"
-      ],
-      "settings": {}
+      "settings": {},
+      "type": "apps"
     },
-    "recommendations": {
-      "type": "product-recommendations",
+    "bundles": {
       "settings": {
-        "show_product_recommendations": true,
-        "heading": "Das könnte dir auch gefallen",
-        "show_product_info": true,
-        "show_vendor": false,
-        "show_color_swatch": false
-      }
-    },
-    "1635243951ca87a38d": {
-      "type": "custom-html",
-      "disabled": true,
-      "settings": {
-        "subheading": "Auf Trustpilot",
-        "title": "Meinungen anderer Kunden",
-        "html": "<!-- TrustBox widget - Quote -->\n<div class=\"trustpilot-widget\" data-locale=\"de-DE\" data-template-id=\"54d0e1d8764ea9078c79e6ee\" data-businessunit-id=\"60d5db8ab6c75b0001a3a5e3\" data-style-height=\"300px\" data-style-width=\"100%\" data-theme=\"light\" data-stars=\"4,5\" data-review-languages=\"de\">\n  <a href=\"https:\/\/de.trustpilot.com\/review\/tierliebhaber.de\" target=\"_blank\" rel=\"noopener\">Trustpilot<\/a>\n<\/div>\n<!-- End TrustBox widget -->"
-      }
-    },
-    "recently-viewed-products": {
-      "type": "recently-viewed-products",
-      "disabled": true,
-      "settings": {
-        "show_section": true,
-        "title": "Recently viewed",
-        "show_product_info": true,
-        "show_vendor": false,
-        "show_color_swatch": false
-      }
-    },
-    "162880489936c4738f": {
-      "type": "seo-content",
-      "settings": {
-        "seo_content": "{{ product.metafields.content.seo.value }}"
-      }
-    },
-    "16288049026c8dd7d1": {
-      "type": "contact",
-      "blocks": {
-        "6019ae12-5366-4bb0-b0fb-d5360dbf448b": {
-          "type": "button",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/whatsapp.png",
-            "image_alt": "",
-            "text": "Per WhatsApp",
-            "color": "#43c253",
-            "url": "https:\/\/api.whatsapp.com\/send\/?phone=4917648097026&text=Hey,%20ich%20habe%20eine%20Frage,%20auf%20die%20ich%20keine%20Antworte%20finde%20auf%20eurer%20Seite.%20%E2%98%BA%EF%B8%8F"
-          }
-        },
-        "7e85fc1c-a467-4500-83c7-3f55b878b381": {
-          "type": "button",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/anruf.png",
-            "image_alt": "",
-            "text": "Ruf uns an (Mo-Fr 11-15 Uhr)",
-            "color": "#f1af9e",
-            "url": "tel:034149980019"
-          }
-        },
-        "cd707ae6-291b-4929-8937-dbe7654b243d": {
-          "type": "button",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/email.png",
-            "image_alt": "",
-            "text": "Per Email",
-            "color": "#43c253",
-            "url": "mailto:info@tierliebhaber.de"
-          }
-        },
-        "button_DX3KpP": {
-          "type": "button",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/calling_1_1.png",
-            "image_alt": "",
-            "text": "Produktberatung buchen",
-            "color": "#f1af9e",
-            "url": "https:\/\/calendly.com\/kundenservice-tierliebhaber\/10min"
-          }
-        }
+        "atc_text": "Im Bundle kaufen!",
+        "banner_bg_color": "#fef3ef",
+        "banner_border_color": "#e6b2a1",
+        "banner_font_color": "#e6b2a1",
+        "banner_text": "im Bundle",
+        "heading_text": "Passt perfekt dazu:",
+        "offer_price_font_color": "#027c09",
+        "ppu_font_color": "#8e8e8e",
+        "swiper_nav_icon_next": "shopify://shop_images/icon.png",
+        "swiper_nav_icon_prev": "shopify://shop_images/icon_2.png",
+        "tile_background_color": "#f7f5f2"
       },
-      "block_order": [
-        "6019ae12-5366-4bb0-b0fb-d5360dbf448b",
-        "7e85fc1c-a467-4500-83c7-3f55b878b381",
-        "cd707ae6-291b-4929-8937-dbe7654b243d",
-        "button_DX3KpP"
-      ],
-      "settings": {
-        "title": "Fragen? Wir sind für dich da...",
-        "subtitle": "<p>Bei Fragen zu einer bestehenden Bestellung, schreib uns einfach eine Nachricht per<br\/>WhatsApp oder per E-Mail.<\/p><p><strong>Hast du Fragen zu unseren Produkten oder kommst bei einer Bestellung nicht weiter?<\/strong> <br\/><br\/>Wir sind jederzeit für dich auf WhatsApp erreichbar.<\/p><p><strong>Du wünschst dir eine Produktberatung oder einen individuellen Rückruf?<\/strong><\/p><p>Schreib uns einfach eine Nachricht per WhatsApp oder per E-Mail mit deiner Telefonnummer und wann es für dich zeitlich passt, dann melden wir uns sehr gerne bei dir!<\/p>",
-        "image": "shopify:\/\/shop_images\/CS.png",
-        "image_alt": "",
-        "image_min_width": 340,
-        "cta_title": "Schnell & einfach",
-        "microcopy": "<p><em>Wir melden uns innerhalb von 1-2 Werktagen mit einer Antwort bei dir zurück!<\/em><\/p>"
-      }
+      "type": "bundles"
     },
     "c7c87d8f-88cc-46cd-abd3-120e8779b1bc": {
-      "type": "custom-html",
       "custom_css": [
         ".Section--spacingNormal {display: none;}"
       ],
       "settings": {
+        "html": "<script>\nwindow.addEventListener('load', function() {\nvar _learnq = window._learnq || [];\nfunction addedToCart() {\n  fetch(`${window.location.origin}/cart.js`)\n  .then(res => res.clone().json().then(data => {\n    var cart = {\n      total_price: data.total_price/100,\n      $value: data.total_price/100,\n      total_discount: data.total_discount,\n      original_total_price: data.original_total_price/100,\n      items: data.items\n    }\n    if (item !== 'undefined') {\n      cart = Object.assign(cart, item)\n    }\n    if (klAjax) {\n        _learnq.push(['track', 'Added to Cart', cart]);\n        klAjax = false;\n      }\n  }))\n};\n(function (ns, fetch) {\n  ns.fetch = function() {\n    const response = fetch.apply(this, arguments);\n    response.then(res => {\n      if (`${window.location.origin}/cart/add.js`\n      \t.includes(res.url)) {\n        \taddedToCart()\n      }\n    });\n    return response\n  }\n}(window, window.fetch));\nvar klAjax = true;\nvar atcButtons = document.querySelectorAll(\"form[action*='/cart/add'] button[type='submit']\");\nfor (var i = 0; i < atcButtons.length; i++) {\n    atcButtons[i].addEventListener(\"click\", function() {\n      if (klAjax) {\n        _learnq.push(['track', 'Added to Cart', item]);\n        klAjax = false;\n      }\n    })\n}\n});\n</script>",
         "subheading": "",
-        "title": "",
-        "html": "<script>\nwindow.addEventListener('load', function() {\nvar _learnq = window._learnq || [];\nfunction addedToCart() {\n  fetch(`${window.location.origin}\/cart.js`)\n  .then(res => res.clone().json().then(data => {\n    var cart = {\n      total_price: data.total_price\/100,\n      $value: data.total_price\/100,\n      total_discount: data.total_discount,\n      original_total_price: data.original_total_price\/100,\n      items: data.items\n    }\n    if (item !== 'undefined') {\n      cart = Object.assign(cart, item)\n    }\n    if (klAjax) {\n        _learnq.push(['track', 'Added to Cart', cart]);\n        klAjax = false;\n      }\n  }))\n};\n(function (ns, fetch) {\n  ns.fetch = function() {\n    const response = fetch.apply(this, arguments);\n    response.then(res => {\n      if (`${window.location.origin}\/cart\/add.js`\n      \t.includes(res.url)) {\n        \taddedToCart()\n      }\n    });\n    return response\n  }\n}(window, window.fetch));\nvar klAjax = true;\nvar atcButtons = document.querySelectorAll(\"form[action*='\/cart\/add'] button[type='submit']\");\nfor (var i = 0; i < atcButtons.length; i++) {\n    atcButtons[i].addEventListener(\"click\", function() {\n      if (klAjax) {\n        _learnq.push(['track', 'Added to Cart', item]);\n        klAjax = false;\n      }\n    })\n}\n});\n<\/script>"
-      }
+        "title": ""
+      },
+      "type": "custom-html"
     },
     "fd0c95dc-1c46-4e1d-805a-9959697fdfce": {
-      "type": "klaviyo-form",
       "settings": {
         "id": "XEs6zR"
-      }
+      },
+      "type": "klaviyo-form"
+    },
+    "main": {
+      "settings": {
+        "benefit_item_1_image": "shopify://shop_images/icons8-benutzergruppe-mann-frau-80.png",
+        "benefit_item_1_title": "Über 310.000 glückliche Kunden",
+        "benefit_item_2_image": "shopify://shop_images/image_8.png",
+        "benefit_item_2_title": "Versandkostenfrei ab 49€ in DE",
+        "enable_image_zoom": false,
+        "enable_video_looping": false,
+        "featured_image_size": "large",
+        "image_size": "medium",
+        "inventory_quantity_threshold": 0,
+        "meta_info_badge_text": "<p>Für die beste Wirkung <strong>4 Wochen vor Silvester</strong> mit der Anwendung beginnen!</p>",
+        "meta_info_badge_visibility": false,
+        "payment_providers": "paypal, klarna, master, visa, sofort, apple_pay",
+        "reviews_enabled": false,
+        "selector_mode": "block",
+        "show_color_carousel": false,
+        "show_color_swatch": false,
+        "show_inventory_quantity": false,
+        "show_payment_button": false,
+        "show_pickup_availability": false,
+        "show_price_in_button": false,
+        "show_quantity_selector": false,
+        "show_share_buttons": false,
+        "show_sku": false,
+        "show_taxes_included": true,
+        "show_thumbnails": true,
+        "show_vendor": false,
+        "stack_images": false,
+        "tab_page_1_handle": "",
+        "tab_page_2_handle": ""
+      },
+      "type": "product-template"
+    },
+    "recently-viewed-products": {
+      "disabled": true,
+      "settings": {
+        "show_color_swatch": false,
+        "show_product_info": true,
+        "show_section": true,
+        "show_vendor": false,
+        "title": "Recently viewed"
+      },
+      "type": "recently-viewed-products"
+    },
+    "recommendations": {
+      "settings": {
+        "heading": "Das könnte dir auch gefallen",
+        "show_color_swatch": false,
+        "show_product_info": true,
+        "show_product_recommendations": true,
+        "show_vendor": false
+      },
+      "type": "product-recommendations"
     }
-  },
-  "order": [
-    "main",
-    "bundles",
-    "1628804794af0431f7",
-    "16288047979ee0ca29",
-    "16288473445aa6c049",
-    "1652874593f2ea11e0",
-    "17327877609a579677",
-    "recommendations",
-    "1635243951ca87a38d",
-    "recently-viewed-products",
-    "162880489936c4738f",
-    "16288049026c8dd7d1",
-    "c7c87d8f-88cc-46cd-abd3-120e8779b1bc",
-    "fd0c95dc-1c46-4e1d-805a-9959697fdfce"
-  ]
+  }
 }

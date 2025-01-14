@@ -104,6 +104,11 @@
     "main": {
       "settings": {
         "apply_overlay": true,
+        "banner_height_desktop": 450,
+        "banner_height_mobile": 450,
+        "collection_image_desktop": "shopify://shop_images/website_desktop_cb7232bf-debe-4cdf-bd58-afc42a8b2466.jpg",
+        "collection_image_mobile": "shopify://shop_images/Test_Banner_2000_x_2000_px.png",
+        "collection_title_color": "#ffffff",
         "filter_menu": "",
         "filter_mode": "hidden",
         "filter_position": "sidebar",
