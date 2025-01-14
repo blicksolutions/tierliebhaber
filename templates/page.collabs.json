@@ -15,7 +15,16 @@
         "cdf8f11c-9f86-4c63-9ded-3d2a0d8a8507": {
           "type": "shopify://apps/collabs/blocks/application-page/54758706-9f25-4fa9-a553-64720a4c998b",
           "settings": {
-            "heading": "Join the Tierliebhaber community"
+            "heading": "Willkommen bei Tierliebhaber – Deinem Creator- und Affiliate-Portal! 🐾 Wir freuen uns riesig, die Möglichkeit zu haben, mit dir zusammenzuarbeiten! Unser Ziel ist es, eine echte Community für Tierliebhaber zu schaffen – einen Ort, an dem du ein unverzichtbarer Teil einer dynamischen, stetig wachsenden Gemeinschaft wirst.Doch das ist nur der Anfang: Unsere Produkte werden von prominenten Persönlichkeiten, bekannten Tierexperten und angesehenen Tierärzten geschätzt. Als Teil unserer Community hast du die Chance, sie bei exklusiven Veranstaltungen zu treffen und dich auszutauschen.Zusätzlich zur attraktiven Partnervergütung bieten wir dir spannende Möglichkeiten, wie die Zusammenarbeit an nutzergenerierten Inhalten (UGC) und anderen kreativen Projekten.Werde Teil von Tierliebhaber und hilf uns, das Leben von Tieren und ihren Menschen besser zu machen – gemeinsam! 💙",
+            "show_square_logo": false,
+            "show_partnership_info": true,
+            "button_text": "Bewirb dich jetzt",
+            "number_of_images": "4",
+            "logo_position": "above",
+            "corner_style": "square",
+            "button_background_color": "#f94c43",
+            "button_label_color": "#ffffff",
+            "link_color": "#2c6ecb"
           }
         }
       },
