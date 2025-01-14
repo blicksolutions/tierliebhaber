@@ -1691,13 +1691,6 @@
         "disabled": false,
         "settings": {}
       },
-      "3667842014806057753": {
-        "type": "shopify://apps/one-click-upsell-zipify-ocu/blocks/app-embed/bfe6e378-b73a-4871-b8d3-7d6ede22678e",
-        "disabled": false,
-        "settings": {
-          "allowed_templates": ""
-        }
-      },
       "17398511487517060589": {
         "type": "shopify://apps/admetrics-data-studio/blocks/conversion/95b54974-e3ea-4514-839b-d0c971e19c1c",
         "disabled": false,
@@ -1744,11 +1737,6 @@
         "disabled": false,
         "settings": {}
       },
-      "7625205453299604178": {
-        "type": "shopify://apps/gemx-cro-a-b-testing/blocks/gemx-theme-helper/d5fea089-2b8e-4af7-a4da-76b975b021c7",
-        "disabled": false,
-        "settings": {}
-      },
       "10830403595879607806": {
         "type": "shopify://apps/reviews-io/blocks/reviewsio-core/92a082e5-b297-4e88-b428-ac96cbc505f9",
         "disabled": false,
@@ -1773,6 +1761,18 @@
           "show_popup": true,
           "anchor_to_reviews_widget": false,
           "show_empty_stars": false
+        }
+      },
+      "7625205453299604178": {
+        "type": "shopify://apps/gemx-cro-a-b-testing/blocks/gemx-theme-helper/d5fea089-2b8e-4af7-a4da-76b975b021c7",
+        "disabled": true,
+        "settings": {}
+      },
+      "3667842014806057753": {
+        "type": "shopify://apps/one-click-upsell/blocks/app-embed/bfe6e378-b73a-4871-b8d3-7d6ede22678e",
+        "disabled": true,
+        "settings": {
+          "allowed_templates": ""
         }
       }
     }
