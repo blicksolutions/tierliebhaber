@@ -34,7 +34,11 @@
 
                     // scroll to newsletter signup
                     if (newsletterEl) {
-                        newsletterEl.scrollIntoView({block: 'center'});
+                        if(document.querySelector('.shopify-section[style="display: none;"]:has(.KlaviyoForm)')) {
+                            document.querySelector('footer').scrollIntoView({block: 'start'});
+                        } else {
+                            newsletterEl.scrollIntoView({block: 'center'});
+                        }
                     } else {
                         sessionStorage.setItem('newsSearch', 'true');
                         window.location = '/';
