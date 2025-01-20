@@ -34,7 +34,19 @@
 
                     // scroll to newsletter signup
                     if (newsletterEl) {
-                        newsletterEl.scrollIntoView({block: 'center'});
+                        if(document.querySelector('.shopify-section[style="display: none;"]:has(.KlaviyoForm)')) {
+                            const footerEl = document.querySelector('footer');
+                            const headerHeight = document.querySelector('header').offsetHeight;
+
+                            const scrollOffset = footerEl.getBoundingClientRect().top + window.scrollY - headerHeight;
+
+                            window.scrollTo({
+                            top: scrollOffset,
+                            behavior: 'smooth'
+                            });
+                        } else {
+                            newsletterEl.scrollIntoView({block: 'center'});
+                        }
                     } else {
                         sessionStorage.setItem('newsSearch', 'true');
                         window.location = '/';
