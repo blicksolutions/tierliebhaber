@@ -33,3 +33,162 @@
 	width: 40px !important;
 	min-width: 40px !important;
 }
+
+
+#shopify-section-cart-drawer #sidebar-cart .Cart__ItemList {
+    border-top: 1px solid rgba(0, 0, 0, 0.0784313725);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.0784313725);
+}
+#shopify-section-cart-drawer #sidebar-cart .Cart__ItemList .AspectRatio {
+    height: 100px;
+}
+#shopify-section-cart-drawer #sidebar-cart .Cart__ItemList .CartItem__Info {
+    padding-left: 10px;
+    position: relative;
+}
+#shopify-section-cart-drawer #sidebar-cart .Cart__ItemList .CartItem__Title {
+    font-family: Work Sans;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: left;
+    color: #1C1B1B;
+}
+#shopify-section-cart-drawer #sidebar-cart .Cart__ItemList .CartItem__Variant-label {
+    font-family: Work Sans;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+    text-align: left;
+    color: #6A6A6A;
+}
+#shopify-section-cart-drawer #sidebar-cart .Cart__ItemList .CartItem__Variant {
+    font-family: Work Sans;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
+    color: #6A6A6A;
+}
+#shopify-section-cart-drawer #sidebar-cart .Cart__ItemList .CartItem__Actions {
+    width: 100%;
+}
+#shopify-section-cart-drawer #sidebar-cart .Cart__ItemList .CartItem__UnitPriceMeasurement {
+    display: none;
+}
+#shopify-section-cart-drawer #sidebar-cart .Cart__ItemList .CartItem__Price__Wrapper span {
+    font-family: Work Sans;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: center;
+    color: black;
+}
+#shopify-section-cart-drawer #sidebar-cart .Cart .Price--compareAt+.CartItem__Price {
+	color: var(--product-sale-price-color);
+}
+#shopify-section-cart-drawer #sidebar-cart .Cart__ItemList .CartItem__Price__Wrapper span.Price--compareAt{
+	color: #6a6b6a;
+}
+#shopify-section-cart-drawer #sidebar-cart .Cart__ItemList .CartItem__Remove {
+    margin: 16px 0 0 0;
+}
+#shopify-section-cart-drawer #sidebar-cart .CartUpsells__Container .CartUpsells__Title {
+    padding-left: 24px;
+    font-family: Work Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: left;
+    margin-bottom: 0;
+}
+#shopify-section-cart-drawer #sidebar-cart .CartUpsells__Container  .Cart__ItemList {
+	border: none;
+}
+#shopify-section-cart-drawer #sidebar-cart .CartUpsells__Container .CartItem {
+    padding: 12px;
+    background: #FAE9E4;
+    border: 1px solid #E6B2A1;
+}
+#shopify-section-cart-drawer #sidebar-cart .CartUpsells__Container .CartItem__Info {
+    padding-left: 10px;
+    position: relative;
+}
+#shopify-section-cart-drawer #sidebar-cart .CartUpsells__Container .CartItem__Title {
+    font-family: Work Sans;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: left;
+    color: #1C1B1B;
+}
+#shopify-section-cart-drawer #sidebar-cart .CartUpsells__Container .CartItem__Meta {
+    font-family: Work Sans;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: left;
+    color: #6A6A6A;
+}
+#shopify-section-cart-drawer #sidebar-cart .CartUpsells__Container .CartItem__Actions {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-right: 8px;
+}
+#shopify-section-cart-drawer #sidebar-cart .CartUpsells__Container .CartItem__Actions__UpsellBtn {
+    height: 32px;
+    width: 180px;
+    border-radius: 8px;
+    padding: 8px;
+    border: 1px solid #6A6A6A;
+    font-family: Work Sans;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+    text-align: center;
+    color: #1C1B1B;
+}
+#shopify-section-cart-drawer #sidebar-cart .Drawer__Footer {
+    height: 330px;
+}
+#shopify-section-cart-drawer #sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon-title {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding-top: 0;
+}
+#shopify-section-cart-drawer #sidebar-cart .Drawer__Footer .Drawer__Footer__Delivery {
+    bottom: 60px;
+}
+#shopify-section-cart-drawer #sidebar-cart .Drawer__Footer .Drawer__Footer__Subtotal small, #shopify-section-cart-drawer #sidebar-cart .Drawer__Footer .Drawer__Footer__Subtotal span, #shopify-section-cart-drawer #sidebar-cart .Drawer__Footer .Drawer__Footer__Delivery small, #shopify-section-cart-drawer #sidebar-cart .Drawer__Footer .Drawer__Footer__Delivery span {
+    font-family: Work Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: left;
+    color: #6A6A6A;
+}
+#shopify-section-cart-drawer #sidebar-cart .Drawer__Footer .Drawer__Footer__Delivery span {
+    color: #9DC6B6;
+}
+#shopify-section-cart-drawer #sidebar-cart .Drawer__Footer .Cart__Checkout {
+    font-family: Work Sans;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16px;
+    text-align: center;
+}
+
+#sidebar-cart.Drawer__Footer__CouponActive .Drawer__Footer {
+    height: 400px;
+}
+
+@media (min-width: 641px) {
+    #shopify-section-cart-drawer #sidebar-cart .Cart__ItemList .AspectRatio {
+        height: 111px;
+    }
+    #shopify-section-cart-drawer #sidebar-cart .CartUpsells__Items .Cart__ItemList .AspectRatio {
+        height: 120px;
+    }
+}
