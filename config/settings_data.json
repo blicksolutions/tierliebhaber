@@ -1102,6 +1102,7 @@
           },
           "fbc8d66f-53c5-48bf-97bc-18660c2decc3": {
             "type": "item",
+            "disabled": true,
             "settings": {
               "image": "shopify://shop_images/3.png",
               "item-headline": "jedes Tier Inspiration birgt.",
@@ -1250,8 +1251,8 @@
             "type": "item",
             "settings": {
               "image": "shopify://shop_images/Sophia.jpg",
-              "item-headline": "SOPHIA",
-              "item-subline": "Weil Tiere einfach wunderbare Seelen sind."
+              "item-headline": "Weil Tiere einfach wunderbare Seelen sind.",
+              "item-subline": "SOPHIA"
             }
           },
           "item_nFaVHA": {
