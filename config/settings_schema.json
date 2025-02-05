@@ -592,7 +592,7 @@
 			"default": 30,
 			"id": "superchat_delay",
 			"label": "Superchat delay",
-			"info": "time by wich the loading of the Superchat is delayed",
+			"info": "Time delay of Superchat",
 			"min": 0,
 			"max": 100,
 			"step": 1,
