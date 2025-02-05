@@ -33,10 +33,12 @@
             window.addEventListener("touchstart", addThirdPartyScripts);
         }, 1000);
 
-		setTimeout(()=>{
-			const thirdPartyScript = document.createElement("script");
-			thirdPartyScript.src = superChatScriptPath;
-			document.head.appendChild(thirdPartyScript);
-		},30000)
+		if (window.enable_superchat == true) {
+			setTimeout(()=>{
+				const thirdPartyScript = document.createElement("script");
+				thirdPartyScript.src = superChatScriptPath;
+				document.head.appendChild(thirdPartyScript);
+			},window.superchat_delay)
+		}
     });
 })();

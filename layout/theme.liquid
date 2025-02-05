@@ -155,6 +155,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       };
     </script>
 
+	<script>
+		window.enable_superchat = {{ settings.enable_superchat }};
+		window.superchat_delay = {{ settings.superchat_delay | times: 1000 }}
+	</script>
+
     {% render 'social-meta-tags' %}
     {% render 'css-variables' %}
 

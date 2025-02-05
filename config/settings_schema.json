@@ -577,5 +577,27 @@
         "info": "96 x 96px .png recommended"
       }
     ]
+  },
+  {
+    "name": "Superchat",
+    "settings": [
+		{
+			"type": "checkbox",
+			"default": true,
+			"id": "enable_superchat",
+			"label": "Enable Superchat"
+		},
+		{
+			"type": "range",
+			"default": 30,
+			"id": "superchat_delay",
+			"label": "Superchat Delay",
+			"info": "time by wich the loading of the Superchat is delayed",
+			"min": 0,
+			"max": 100,
+			"step": 1,
+			"unit": "s"
+		}
+    ]
   }
 ]
