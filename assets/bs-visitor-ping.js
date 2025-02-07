@@ -22,7 +22,7 @@
 			sessionStorage.setItem(`recent-buy-${productTitle.toLowerCase()}`, randomNumber);
 		}
 
-        spanTarget.innerHTML = randomNumber;
+        spanTarget.innerHTML = randomNumber + ' Mal';
         visitorPingComponent.classList.add('active');
 	}
 })();
