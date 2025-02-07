@@ -291,6 +291,10 @@
     <div class="Product__InfoWrapper">
       <div class="Product__Info {% if media_count == 0 %}Product__Info--noGallery{% endif %}">
         <div class="Container">
+          {% if section.settings.show_visitor_ping %}
+            {% render 'bs-visitor-ping' %}
+          {% endif %}
+
           {%- render 'product-meta', product: product, show_description: true, meta_badge_text: section.settings.meta_info_badge_text, meta_badge_visibility: section.settings.meta_info_badge_visibility -%}
 
           {%- if product.template_suffix != 'coming-soon' -%}
@@ -441,6 +445,12 @@ This is the root container for the zoom functionality. Must not be removed, as o
   "name": "Product page",
   "class": "shopify-section--bordered",
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_visitor_ping",
+      "label": "Display visitor ping",
+      "default": true
+    },
     {
       "type": "checkbox",
       "id": "meta_info_badge_visibility",
