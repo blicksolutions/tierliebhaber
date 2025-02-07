@@ -4,6 +4,12 @@
 	gap: 8px;
 	margin-bottom: 10px;
 	justify-content: center;
+    opacity: 0;
+    transition: opacity .5s ease;
+}
+
+.ProductMeta__visitor-ping.active {
+    opacity: 1;
 }
 
 .ProductMeta__visitor-ping__icon {
