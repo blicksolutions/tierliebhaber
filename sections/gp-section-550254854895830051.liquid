@@ -124,6 +124,22 @@
         .needsclick.kl-private-reset-css-Xuajs1, #superchat-widget {
     display: none !important;
 }
+.needsclick.kl-private-reset-css-Xuajs1, 
+#superchat-widget, 
+button[aria-label="Open Smile.io Rewards Program"], 
+button[style*="background-color:#F1AF9E"], 
+div[id*="smile"], /* Falls Smile.io in einem div steckt */
+iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    height: 0 !important;
+    width: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+}
+
       </style>
     
     </div>
