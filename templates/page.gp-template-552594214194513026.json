@@ -8,6 +8,7 @@
  * ------------------------------------------------------------
  */
 {
+  "layout": "theme.gempages.blank",
   "sections": {
     "gp_section_553312972424873057": {
       "type": "gp-section-553312972424873057",
@@ -19,7 +20,7 @@
     "gp_section_552728812329108421": {
       "type": "gp-section-552728812329108421",
       "settings": {
-        "checksum": "92918802e487e1f9694278d0af84e082f39fb5bccc20276363a974618929bfb7_0_1"
+        "checksum": "96dda8f62379ce55474bfd490381c1ccacf5b647806a8895014c3a382f5179df_0_1"
       }
     },
     "gp_section_552728841370469317": {
@@ -180,6 +181,5 @@
     "gp_section_553315043521856609",
     "gp_section_553315043941286719",
     "gp_section_553315069660759190"
-  ],
-  "layout": "theme.gempages.blank"
+  ]
 }
