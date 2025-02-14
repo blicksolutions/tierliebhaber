@@ -6,11 +6,11 @@
 }
 
 .ingredients__container.ingredients__container--hidden,
-.ingredients__container.ingredients__container--hidden {
+[data-effect-of-ingredient-container="true"].ingredients__container.ingredients__container--hidden {
 	display: none;
 }
 
-.ingredients__container {
+[data-effect-of-ingredient-container="true"].ingredients__container {
 	display: flex;
 }
 
@@ -183,6 +183,11 @@
 	font-weight: 400;
 	line-height: 125%;
 	max-width: 790px;
+}
+
+.ingredients__container .highlights__item img {
+	object-fit: contain;
+	object-position: top;
 }
 
 @media (min-width: 768px) {

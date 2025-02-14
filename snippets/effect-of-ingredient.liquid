@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="{{ 'bs-effect-of-ingredient.css' | asset_url }}">
-<script src="{{ 'bs-effect-of-ingredient.js' | asset_url }}"></script>
+<script src="{{ 'bs-effect-of-ingredient.js' | asset_url }}" defer></script>
 
 {% capture ingredients %}
 	{% case product.id %}
@@ -486,7 +486,7 @@
 	{% endcase %}
 {% endcapture %}
 
-<div class="ingredients__container open {% if ingredients == blank or ingredients_summary == blank %}ingredients__container--hidden{% endif %}" data-effect-of-ingredient.liquid-container>
+<div class="ingredients__container open {% if ingredients == blank or ingredients_summary == blank %}ingredients__container--hidden{% endif %}" data-effect-of-ingredient-container>
 	<div class="ingredients__heading-container">
 		<h2 class="ingredients__heading">
 			Highlight-Inhaltsstoffe

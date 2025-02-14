@@ -1,13 +1,18 @@
-window.activateAbTlh063 = () => {
+(() => {
+	console.log("GO")
 	const container = document.querySelector('[data-effect-of-ingredient-container]')
-	if(!container) return
+	console.log(container)
+	if (!container) return
 
-	container.setAttribute('data-js-tlh-063-container', 'true')
+	container.setAttribute('data-effect-of-ingredient-container', 'true')
 
 	const button = container.querySelector('[data-effect-of-ingredient-button]')
-	if(!button) return
+	if (!button) return
 
-	button.addEventListener('click', ()=>{
+	console.log(container)
+	console.log(button)
+
+	button.addEventListener('click', () => {
 		container.classList.toggle('open')
 	})
-};
+})();
