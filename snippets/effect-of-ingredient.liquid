@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="{{ 'bs-effect-of-ingredient.css' | asset_url }}">
+<script src="{{ 'bs-effect-of-ingredient.js' | asset_url }}" defer></script>
+
 {% capture ingredients %}
 	{% case product.id %}
 	
@@ -483,12 +486,12 @@
 	{% endcase %}
 {% endcapture %}
 
-<div class="ingredients__container open {% if ingredients == blank or ingredients_summary == blank %}ingredients__container--hidden{% endif %}" data-js-tlh-063-container>
+<div class="ingredients__container open {% if ingredients == blank or ingredients_summary == blank %}ingredients__container--hidden{% endif %}" data-effect-of-ingredient-container>
 	<div class="ingredients__heading-container">
 		<h2 class="ingredients__heading">
 			Highlight-Inhaltsstoffe
 		</h2>
-		<svg class="ingredients__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" data-js-tlh-063-button>
+		<svg class="ingredients__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" data-effect-of-ingredient-button>
 			<path d="M5 15L12 8L19 15" stroke="#262626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 		</svg>
 	</div>
