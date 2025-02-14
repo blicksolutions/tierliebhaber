@@ -347,7 +347,7 @@
 }
 
 .cta-mobile-button {
-  display: none !important;
+  display: none;
 }
 
       </style>
@@ -367,7 +367,7 @@
 
   if (triggerPosition <= windowHeight) {
     if (isMobile) {
-      mobileButton.style.display = 'block';
+      mobileButton.style.display = 'flex'; // Falls dein Button Flex ist
       desktopRow.style.display = 'none';
     } else {
       desktopRow.style.display = 'grid';
@@ -378,6 +378,7 @@
     mobileButton.style.display = 'none';
   }
 });
+
         } catch(err){}
       </script>
     
