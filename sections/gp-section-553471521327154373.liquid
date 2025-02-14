@@ -324,6 +324,34 @@
 }
       </style>
     
+  
+    <div
+      
+      style="--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--mb:16px;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--ta:left"
+      data-keep-class="true"
+      class="guuQEX3JUx "
+    ><div><div id="cta-trigger"></div></div></div>
+  
+      <script id="custom-js-guuQEX3JUx">
+        try {
+          window.addEventListener('scroll', function () {
+  const trigger = document.getElementById('cta-trigger');
+  const stickyBox = document.getElementById('sticky-box');
+
+  if (!trigger || !stickyBox) return; // Falls etwas fehlt, abbrechen
+
+  const triggerPosition = trigger.getBoundingClientRect().top;
+  const windowHeight = window.innerHeight;
+
+  if (triggerPosition <= windowHeight) {
+    stickyBox.style.display = 'block';
+  } else {
+    stickyBox.style.display = 'none';
+  }
+});
+        } catch(err){}
+      </script>
+    
   {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
   <gp-text data-id="gdQbwnaGKp">
     <div
