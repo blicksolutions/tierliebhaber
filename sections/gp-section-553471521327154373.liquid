@@ -337,7 +337,7 @@
           window.addEventListener('scroll', function () {
   const trigger = document.getElementById('cta-trigger');
   const desktopRow = document.getElementById('grGWMc1cGs');
-  const mobileButton = document.getElementById('cta-mobile-button');
+  const mobileButton = document.querySelector('.cta-mobile-button');
 
   if (!trigger) return;
 
@@ -348,7 +348,7 @@
   if (triggerPosition <= windowHeight) {
     if (isMobile) {
       mobileButton.style.display = 'block';
-      desktopRow.style.display = 'none'; // Sicherheitshalber aus
+      desktopRow.style.display = 'none';
     } else {
       desktopRow.style.display = 'grid';
       mobileButton.style.display = 'none';
