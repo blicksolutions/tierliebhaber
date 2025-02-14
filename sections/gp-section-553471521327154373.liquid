@@ -332,6 +332,52 @@
       class="guuQEX3JUx "
     ><div><div id="cta-trigger"></div></div></div>
   
+      <style id="custom-css-guuQEX3JUx">
+        .cta-mobile-button {
+  visibility: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  z-index: 999;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+      </style>
+    
+      <script id="custom-js-guuQEX3JUx">
+        try {
+          window.addEventListener('scroll', function () {
+  const trigger = document.getElementById('cta-trigger');
+  const desktopRow = document.getElementById('grGWMc1cGs');
+  const mobileButton = document.querySelector('.cta-mobile-button');
+
+  if (!trigger) return;
+
+  const triggerPosition = trigger.getBoundingClientRect().top;
+  const windowHeight = window.innerHeight;
+  const isMobile = window.innerWidth <= 768;
+
+  const offset = 400; // Verzögerung in Pixel (hier 100px)
+
+  if (triggerPosition <= windowHeight - offset) {
+    if (isMobile) {
+      mobileButton.style.visibility = 'visible';
+      desktopRow.style.display = 'none';
+    } else {
+      desktopRow.style.display = 'grid';
+      mobileButton.style.visibility = 'hidden';
+    }
+  } else {
+    desktopRow.style.display = 'none';
+    mobileButton.style.visibility = 'hidden';
+  }
+});
+        } catch(err){}
+      </script>
+    
   {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
   <gp-text data-id="gdQbwnaGKp">
     <div
