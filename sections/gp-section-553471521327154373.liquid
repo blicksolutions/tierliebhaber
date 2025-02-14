@@ -331,24 +331,36 @@
       data-keep-class="true"
       class="g3BLJ6aB-r "
     ><div><div id="cta-trigger"></div>
-<p>Die Zahnpflege-Formel des Dentalsprays besteht aus...</p></div></div>
+<p>Die Zahnpflege-Formel des Dentalsprays besteht aus einer Kombination der probiotischen Mikroorganismen...</p></div></div>
   
+      <style id="custom-css-g3BLJ6aB-r">
+        #sticky-box {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  display: none;
+  transition: opacity 0.5s ease;
+  z-index: 999;
+}
+      </style>
+    
       <script id="custom-js-g3BLJ6aB-r">
         try {
-          const stickyBox = document.getElementById('sticky-box');
-const trigger = document.getElementById('cta-trigger');
+          window.addEventListener('scroll', function () {
+  const trigger = document.getElementById('cta-trigger');
+  const stickyBox = document.getElementById('sticky-box');
 
-function checkVisibility() {
   const triggerPosition = trigger.getBoundingClientRect().top;
-  if (triggerPosition <= window.innerHeight) {
+  const windowHeight = window.innerHeight;
+
+  if (triggerPosition <= windowHeight) {
     stickyBox.style.display = 'block';
   } else {
     stickyBox.style.display = 'none';
   }
-}
-
-window.addEventListener('scroll', checkVisibility);
-window.addEventListener('resize', checkVisibility);
+});
         } catch(err){}
       </script>
     
