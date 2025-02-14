@@ -334,7 +334,7 @@
   
       <style id="custom-css-guuQEX3JUx">
         .cta-mobile-button {
-  display: none;
+  visibility: hidden;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -344,10 +344,6 @@
   padding: 12px;
   text-align: center;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.cta-mobile-button {
-  display: none;
 }
 
       </style>
@@ -367,17 +363,18 @@
 
   if (triggerPosition <= windowHeight) {
     if (isMobile) {
-      mobileButton.style.display = 'flex'; // Falls dein Button Flex ist
+      mobileButton.style.visibility = 'visible';
       desktopRow.style.display = 'none';
     } else {
       desktopRow.style.display = 'grid';
-      mobileButton.style.display = 'none';
+      mobileButton.style.visibility = 'hidden';
     }
   } else {
     desktopRow.style.display = 'none';
-    mobileButton.style.display = 'none';
+    mobileButton.style.visibility = 'hidden';
   }
 });
+
 
         } catch(err){}
       </script>
