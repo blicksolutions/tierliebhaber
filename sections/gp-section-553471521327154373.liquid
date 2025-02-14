@@ -324,46 +324,6 @@
 }
       </style>
     
-  
-    <div
-      
-      style="--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--mb:16px;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--ta:left"
-      data-keep-class="true"
-      class="g3BLJ6aB-r "
-    ><div><div id="cta-trigger"></div>
-<p>Die Zahnpflege-Formel des Dentalsprays besteht aus einer Kombination der probiotischen Mikroorganismen...</p></div></div>
-  
-      <style id="custom-css-g3BLJ6aB-r">
-        #sticky-box {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: #fff;
-  display: none;
-  transition: opacity 0.5s ease;
-  z-index: 999;
-}
-      </style>
-    
-      <script id="custom-js-g3BLJ6aB-r">
-        try {
-          window.addEventListener('scroll', function () {
-  const trigger = document.getElementById('cta-trigger');
-  const stickyBox = document.getElementById('sticky-box');
-
-  const triggerPosition = trigger.getBoundingClientRect().top;
-  const windowHeight = window.innerHeight;
-
-  if (triggerPosition <= windowHeight) {
-    stickyBox.style.display = 'block';
-  } else {
-    stickyBox.style.display = 'none';
-  }
-});
-        } catch(err){}
-      </script>
-    
   {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
   <gp-text data-id="gdQbwnaGKp">
     <div
@@ -1798,11 +1758,18 @@
       class="gaD4Ty6Q4_ gp-relative gp-flex gp-flex-col"
     >
       
+  <gp-animation
+    gp-interaction-wrapper
+    display-init="hide"
+    gp-data='{"tag":"Row","opacity":{"desktop":"100%","mobile":"100%"},"notEnableAnimationWhenInit":true}'
+    style="display:contents"
+  >
+    <div style="--v:visible;--v-tablet:visible;--v-mobile:visible;display:contents">
        
       
     <div
       enableLazyloadImage="true" parentTag="Col" id="grGWMc1cGs" data-id="grGWMc1cGs"
-        style="--bs:solid;--bw:2px 2px 2px 2px;--bc:#2d2d2c;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--op-mobile:100%;--pos:sticky;--pos-mobile:static;--right:0px;--bblr:6px;--bbrr:6px;--btlr:6px;--btrr:6px;--pt:var(--g-s-xl);--pl:var(--g-s-xl);--pb:var(--g-s-xl);--pr:var(--g-s-xl);--top:32px;--cg:8px;--pc:start;--gtc:minmax(0, 12fr);--w:var(--g-ct-w, 1200px);--w-tablet:var(--g-ct-w, 100%);--w-mobile:var(--g-ct-w, 100%);--bgc:#FFFFFF;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        style="--bs:solid;--bw:2px 2px 2px 2px;--bc:#2d2d2c;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--op-mobile:100%;--pos:sticky;--pos-mobile:static;--right:0px;--bblr:6px;--bbrr:6px;--btlr:6px;--btrr:6px;--pt:var(--g-s-xl);--pl:var(--g-s-xl);--pb:var(--g-s-xl);--pr:var(--g-s-xl);--top:32px;--hasAnimationInteraction:true;--cg:8px;--pc:start;--gtc:minmax(0, 12fr);--w:var(--g-ct-w, 1200px);--w-tablet:var(--g-ct-w, 100%);--w-mobile:var(--g-ct-w, 100%);--bgc:#FFFFFF;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
         class="grGWMc1cGs gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full"
     >
     <div
@@ -2343,7 +2310,10 @@
     </div>
     </div>
    
-    
+    </div>
+  </gp-animation>
+  <script src="https://d2ls1pfffhvy22.cloudfront.net/assets-v2/gp-animation.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+  
     </div>
     </div>
    
