@@ -335,17 +335,20 @@
   
       <script id="custom-js-g3BLJ6aB-r">
         try {
-          window.addEventListener('scroll', function () {
-  const stickyBox = document.getElementById('sticky-box');
-  const trigger = document.getElementById('cta-trigger');
-  const triggerPosition = trigger.getBoundingClientRect().top;
+          const stickyBox = document.getElementById('sticky-box');
+const trigger = document.getElementById('cta-trigger');
 
+function checkVisibility() {
+  const triggerPosition = trigger.getBoundingClientRect().top;
   if (triggerPosition <= window.innerHeight) {
     stickyBox.style.display = 'block';
   } else {
     stickyBox.style.display = 'none';
   }
-});
+}
+
+window.addEventListener('scroll', checkVisibility);
+window.addEventListener('resize', checkVisibility);
         } catch(err){}
       </script>
     
