@@ -336,17 +336,17 @@
         try {
           window.addEventListener('scroll', function () {
   const trigger = document.getElementById('cta-trigger');
-  const stickyBox = document.getElementById('sticky-box');
+  const desktopRow = document.getElementById('grGWMc1cGs'); // Desktop CTA Row
 
-  if (!trigger || !stickyBox) return; // Falls etwas fehlt, abbrechen
+  if (!trigger || !desktopRow) return;
 
   const triggerPosition = trigger.getBoundingClientRect().top;
   const windowHeight = window.innerHeight;
 
   if (triggerPosition <= windowHeight) {
-    stickyBox.style.display = 'block';
+    desktopRow.style.display = 'grid'; // Original-Display-Wert laut deinem Code
   } else {
-    stickyBox.style.display = 'none';
+    desktopRow.style.display = 'none';
   }
 });
         } catch(err){}
