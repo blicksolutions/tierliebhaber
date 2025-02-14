@@ -1,18 +1,13 @@
 (() => {
-	console.log("GO")
-	const container = document.querySelector('[data-effect-of-ingredient-container]')
-	console.log(container)
-	if (!container) return
+	const container = document.querySelector('[data-effect-of-ingredient-container]');
+	if (!container) return;
 
-	container.setAttribute('data-effect-of-ingredient-container', 'true')
+	container.setAttribute('data-effect-of-ingredient-container', 'true');
 
-	const button = container.querySelector('[data-effect-of-ingredient-button]')
-	if (!button) return
-
-	console.log(container)
-	console.log(button)
+	const button = container.querySelector('[data-effect-of-ingredient-button]');
+	if (!button) return;
 
 	button.addEventListener('click', () => {
-		container.classList.toggle('open')
-	})
+		container.classList.toggle('open');
+	});
 })();
