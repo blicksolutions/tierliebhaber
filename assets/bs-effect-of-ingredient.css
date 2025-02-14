@@ -1,5 +1,4 @@
 .ingredients__container {
-	display: none;
 	flex-direction: column;
 	padding: 10px 24px 30px;
 	background: #F5F5F5;
@@ -7,11 +6,11 @@
 }
 
 .ingredients__container.ingredients__container--hidden,
-[data-js-tlh-063-container="true"].ingredients__container.ingredients__container--hidden {
+.ingredients__container.ingredients__container--hidden {
 	display: none;
 }
 
-[data-js-tlh-063-container="true"].ingredients__container {
+.ingredients__container {
 	display: flex;
 }
 
