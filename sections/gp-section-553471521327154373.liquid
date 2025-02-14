@@ -361,7 +361,9 @@
   const windowHeight = window.innerHeight;
   const isMobile = window.innerWidth <= 768;
 
-  if (triggerPosition <= windowHeight) {
+  const offset = 400; // Verzögerung in Pixel (hier 100px)
+
+  if (triggerPosition <= windowHeight - offset) {
     if (isMobile) {
       mobileButton.style.visibility = 'visible';
       desktopRow.style.display = 'none';
@@ -374,8 +376,6 @@
     mobileButton.style.visibility = 'hidden';
   }
 });
-
-
         } catch(err){}
       </script>
     
