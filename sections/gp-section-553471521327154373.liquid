@@ -334,17 +334,21 @@
   
       <style id="custom-css-guuQEX3JUx">
         .cta-mobile-button {
-  visibility: hidden;
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #fff;
+  background-color: #52c41a;
   z-index: 999;
   padding: 12px;
   text-align: center;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
+
       </style>
     
       <script id="custom-js-guuQEX3JUx">
@@ -354,30 +358,28 @@
   const desktopRow = document.getElementById('grGWMc1cGs');
   const mobileButton = document.querySelector('.cta-mobile-button');
 
-  if (!trigger) return;
+  if (!trigger || !mobileButton) return;
 
   const triggerBottom = trigger.getBoundingClientRect().bottom;
   const windowHeight = window.innerHeight;
   const isMobile = window.innerWidth <= 768;
 
-  const offset = 100; // Sanfterer Offset, nicht zu hoch
+  const offset = 150; // Verzögerung ab Trigger
 
   if (triggerBottom <= windowHeight - offset) {
     if (isMobile) {
-      mobileButton.style.visibility = 'visible';
       mobileButton.style.opacity = '1';
-      desktopRow.style.display = 'none';
+      mobileButton.style.visibility = 'visible';
     } else {
       desktopRow.style.display = 'grid';
-      mobileButton.style.visibility = 'hidden';
-      mobileButton.style.opacity = '0';
     }
   } else {
-    desktopRow.style.display = 'none';
-    mobileButton.style.visibility = 'hidden';
     mobileButton.style.opacity = '0';
+    mobileButton.style.visibility = 'hidden';
+    desktopRow.style.display = 'none';
   }
 });
+
 
         } catch(err){}
       </script>
