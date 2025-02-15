@@ -342,10 +342,11 @@
   z-index: 999;
   padding: 12px;
   text-align: center;
-  display: block;
-  opacity: 1;
-  visibility: visible;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
+
 
 
       </style>
@@ -354,30 +355,28 @@
         try {
           window.addEventListener('scroll', function () {
   const trigger = document.getElementById('cta-trigger');
-  const desktopRow = document.getElementById('grGWMc1cGs');
   const mobileButton = document.querySelector('.cta-mobile-button');
 
   if (!trigger || !mobileButton) return;
 
-  const triggerBottom = trigger.getBoundingClientRect().bottom;
+  const triggerPosition = trigger.getBoundingClientRect().top;
   const windowHeight = window.innerHeight;
-  const isMobile = window.innerWidth <= 768;
 
-  const offset = 150; // Verzögerung ab Trigger
+  console.log('Trigger Position:', triggerPosition);
+  console.log('Window Height:', windowHeight);
 
-  if (triggerBottom <= windowHeight - offset) {
-    if (isMobile) {
-      mobileButton.style.opacity = '1';
-      mobileButton.style.visibility = 'visible';
-    } else {
-      desktopRow.style.display = 'grid';
-    }
+  if (triggerPosition <= windowHeight) {
+    console.log('Zeige Button!');
+    mobileButton.style.backgroundColor = 'red'; // nur zum Test
+    mobileButton.style.visibility = 'visible';
+    mobileButton.style.opacity = '1';
   } else {
-    mobileButton.style.opacity = '0';
+    console.log('Verstecke Button!');
     mobileButton.style.visibility = 'hidden';
-    desktopRow.style.display = 'none';
+    mobileButton.style.opacity = '0';
   }
 });
+
 
 
         } catch(err){}
