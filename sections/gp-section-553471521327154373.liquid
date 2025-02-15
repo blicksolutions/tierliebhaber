@@ -356,25 +356,29 @@
 
   if (!trigger) return;
 
-  const triggerPosition = trigger.getBoundingClientRect().top;
+  const triggerBottom = trigger.getBoundingClientRect().bottom;
   const windowHeight = window.innerHeight;
   const isMobile = window.innerWidth <= 768;
 
-  const offset = 400; // Verzögerung in Pixel (hier 100px)
+  const offset = 100; // Sanfterer Offset, nicht zu hoch
 
-  if (triggerPosition <= windowHeight - offset) {
+  if (triggerBottom <= windowHeight - offset) {
     if (isMobile) {
       mobileButton.style.visibility = 'visible';
+      mobileButton.style.opacity = '1';
       desktopRow.style.display = 'none';
     } else {
       desktopRow.style.display = 'grid';
       mobileButton.style.visibility = 'hidden';
+      mobileButton.style.opacity = '0';
     }
   } else {
     desktopRow.style.display = 'none';
     mobileButton.style.visibility = 'hidden';
+    mobileButton.style.opacity = '0';
   }
 });
+
         } catch(err){}
       </script>
     
