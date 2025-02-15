@@ -354,28 +354,14 @@
       <script id="custom-js-guuQEX3JUx">
         try {
           window.addEventListener('scroll', function () {
-  const trigger = document.getElementById('cta-trigger');
   const mobileButton = document.querySelector('.cta-mobile-button');
-
-  if (!trigger || !mobileButton) return;
-
-  const triggerPosition = trigger.getBoundingClientRect().top;
-  const windowHeight = window.innerHeight;
-
-  console.log('Trigger Position:', triggerPosition);
-  console.log('Window Height:', windowHeight);
-
-  if (triggerPosition <= windowHeight) {
-    console.log('Zeige Button!');
-    mobileButton.style.backgroundColor = 'red'; // nur zum Test
+  if (mobileButton) {
     mobileButton.style.visibility = 'visible';
     mobileButton.style.opacity = '1';
-  } else {
-    console.log('Verstecke Button!');
-    mobileButton.style.visibility = 'hidden';
-    mobileButton.style.opacity = '0';
+    mobileButton.style.backgroundColor = 'green'; // Test
   }
 });
+
 
 
 
