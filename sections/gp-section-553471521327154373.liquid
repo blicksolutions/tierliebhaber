@@ -327,7 +327,7 @@
   
     <div
       
-      style="--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--mb:16px;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--ta:left"
+      style="--d:block;--d-tablet:block;--d-mobile:none;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--mb:16px;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--ta:left"
       data-keep-class="true"
       class="guuQEX3JUx "
     ><div><div id="cta-trigger"></div></div></div>
@@ -367,6 +367,25 @@
   } else {
     mobileButton.style.visibility = 'hidden';
     mobileButton.style.opacity = '0';
+  }
+});
+
+
+window.addEventListener('scroll', function () {
+  const desktopBox = document.getElementById('grGWMc1cGs');
+  if (!desktopBox) return;
+
+  const scrollPosition = window.scrollY || window.pageYOffset;
+  const showAfter = 800;
+
+  if (scrollPosition > showAfter) {
+    desktopBox.style.opacity = '1';
+    desktopBox.style.visibility = 'visible';
+    desktopBox.style.display = 'grid'; // Falls du sicher bist, dass es grid sein soll
+  } else {
+    desktopBox.style.opacity = '0';
+    desktopBox.style.visibility = 'hidden';
+    desktopBox.style.display = 'none';
   }
 });
 
