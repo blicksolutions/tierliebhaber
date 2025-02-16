@@ -349,6 +349,11 @@
 
 
 
+#grGWMc1cGs {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
 
       </style>
     
@@ -356,36 +361,29 @@
         try {
           window.addEventListener('scroll', function () {
   const mobileButton = document.querySelector('.cta-mobile-button');
-  if (!mobileButton) return;
-
-  const scrollPosition = window.scrollY || window.pageYOffset;
-  const showAfter = 4900; // Ab 800px Scrollhöhe anzeigen – anpassen nach Wunsch
-
-  if (scrollPosition > showAfter) {
-    mobileButton.style.visibility = 'visible';
-    mobileButton.style.opacity = '1';
-  } else {
-    mobileButton.style.visibility = 'hidden';
-    mobileButton.style.opacity = '0';
-  }
-});
-
-
-window.addEventListener('scroll', function () {
   const desktopBox = document.getElementById('grGWMc1cGs');
-  if (!desktopBox) return;
 
   const scrollPosition = window.scrollY || window.pageYOffset;
-  const showAfter = 800;
+  const isMobile = window.innerWidth <= 768;
 
-  if (scrollPosition > showAfter) {
-    desktopBox.style.opacity = '1';
-    desktopBox.style.visibility = 'visible';
-    desktopBox.style.display = 'grid'; // Falls du sicher bist, dass es grid sein soll
+  if (isMobile) {
+    const mobileShowAfter = 4900; // Mobile-Button ab 4900px
+    if (scrollPosition > mobileShowAfter) {
+      mobileButton.style.visibility = 'visible';
+      mobileButton.style.opacity = '1';
+    } else {
+      mobileButton.style.visibility = 'hidden';
+      mobileButton.style.opacity = '0';
+    }
   } else {
-    desktopBox.style.opacity = '0';
-    desktopBox.style.visibility = 'hidden';
-    desktopBox.style.display = 'none';
+    const desktopShowAfter = 2400; // Desktop-Box ab 2400px – anpassen nach Wunsch
+    if (scrollPosition > desktopShowAfter) {
+      desktopBox.style.visibility = 'visible';
+      desktopBox.style.opacity = '1';
+    } else {
+      desktopBox.style.visibility = 'hidden';
+      desktopBox.style.opacity = '0';
+    }
   }
 });
 
