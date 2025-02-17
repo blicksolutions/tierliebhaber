@@ -11,6 +11,11 @@
     margin: 0 auto;
 }
 
+.shopify-section--footer footer .Container:not(:has(.klaviyo-form-XEs6zR)) {
+    padding-top: 40px;
+    border-top: 1px solid #CCCCCC;
+}
+
 .shopify-section--footer .Footer__Title {
     font-size: 18px;
     line-height: 22px;
@@ -314,6 +319,11 @@
     .shopify-section--footer footer {
         padding: 60px 0 50px;
         border-top: 1px solid var(--border-color);
+    }
+
+    .shopify-section--footer footer .Container:not(:has(.klaviyo-form-XEs6zR)) {
+        padding-top: unset;
+        border-top: unset;
     }
 
     .shopify-section--footer .klaviyo-form-XEs6zR {
