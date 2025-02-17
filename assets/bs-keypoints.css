@@ -1,0 +1,104 @@
+.bs-keypoints.Container {
+    overflow: hidden;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    max-width: 1440px;
+}
+
+.bs-keypoints__swiper.swiper {
+    overflow: visible;
+}
+
+.bs-keypoints__card {
+    background: #ABCDBE99;
+    padding: 16px 11px 24px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
+.bs-keypoints__card__icon {
+    height: 25px;
+    width: auto;
+} 
+
+.bs-keypoints__card__title {
+    font-size: 16px;
+    line-height: 20px;
+    color: #1C1B1B;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 0;
+    padding: 0 1px;
+}
+
+.bs-keypoints__card__description {
+    font-size: 16px;
+    line-height: 20px;
+    color: #1C1B1B;
+    margin: 0;
+}
+
+.bs-keypoints__card__description ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+}
+
+.bs-keypoints__card__description li {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.bs-keypoints__card__description ul li::before {
+    content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none"><circle cx="8" cy="8.25244" r="8" fill="%238ABAA5"></circle><path d="M6.66306 11.1478L3.95215 8.43688L4.3416 8.04797L6.66306 10.3694L11.6572 5.37524L12.0461 5.76415L6.66306 11.1478Z" fill="white" stroke="white" stroke-width="1.04167"></path></svg>');
+    line-height: 0;
+}
+
+.bs-keypoints__card__description li span {
+    display: flex;
+}
+
+.bs-keypoints__card__bullets-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    justify-content: center;
+    margin-top: 6px;
+}
+
+.bs-keypoints__card__bullet {
+    height: 8px;
+    width: 8px;
+    background: #BBBBBB;
+    border-radius: 50%;
+}
+
+.bs-keypoints__card__bullet.active {
+    background: #F5F5F5;
+}
+
+@media (min-width: 1140px) {
+    .bs-keypoints.Container {
+        margin-top: 24px;
+        margin-bottom: 48px;
+    }
+
+    .bs-keypoints__card__title {
+        font-size: 18px;
+        line-height: 23px;
+        margin-bottom: 10px;
+    }
+
+    .bs-keypoints__card__bullets-container {
+        display: none;
+    }
+}
