@@ -12,6 +12,7 @@
     "main": {
       "type": "product-template",
       "settings": {
+        "show_visitor_ping": true,
         "meta_info_badge_visibility": false,
         "meta_info_badge_text": "<p>Für die beste Wirkung <strong>4 Wochen vor Silvester</strong> mit der Anwendung beginnen!</p>",
         "show_share_buttons": false,
@@ -114,6 +115,7 @@
         },
         "c9fde5be-c56a-492d-9528-3c600992cc46": {
           "type": "item",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/CINDY.png",
             "item-headline": "Weil Tiere die treuesten Seelen sind und Liebe statt Leid verdienen. ",
@@ -445,7 +447,7 @@
           "settings": {
             "image": "shopify://shop_images/anruf.png",
             "image_alt": "",
-            "text": "Ruf uns an (Mo-Fr 11-15 Uhr)",
+            "text": "Ruf uns an (Mo-Fr 10-16 Uhr)",
             "color": "#f1af9e",
             "url": "tel:034149980019"
           }
@@ -479,7 +481,7 @@
       ],
       "settings": {
         "title": "Fragen? Wir sind für dich da...",
-        "subtitle": "<p>Bei Fragen zu einer bestehenden Bestellung, schreib uns einfach eine Nachricht per<br/>WhatsApp oder per E-Mail.</p><p><strong>Hast du Fragen zu unseren Produkten oder kommst bei einer Bestellung nicht weiter?</strong> <br/><br/>Wir sind jederzeit für dich auf WhatsApp erreichbar.</p><p><strong>Du wünschst dir eine Produktberatung oder einen individuellen Rückruf?</strong></p><p>Schreib uns einfach eine Nachricht per WhatsApp oder per E-Mail mit deiner Telefonnummer und wann es für dich zeitlich passt, dann melden wir uns sehr gerne bei dir!</p>",
+        "subtitle": "<p>Bei Fragen zu einer bestehenden Bestellung, schreib uns einfach eine Nachricht per<br/>WhatsApp oder per E-Mail.</p><p><strong>Hast du Fragen zu unseren Produkten, möchtest du lieber persönlich bestellen oder kommst bei einer Bestellung nicht weiter?</strong><br/><br/>Wir sind jederzeit für dich telefonisch (werktags), per E-Mail oder auf WhatsApp erreichbar.</p><p><strong>Du wünschst dir eine Produktberatung oder einen individuellen Rückruf?</strong></p><p>Dann buch dir gerne deine persönliche Produktberatung oder schreib uns einfach eine Nachricht per WhatsApp oder per E-Mail mit deiner Telefonnummer und wann es für dich zeitlich passt, dann melden wir uns sehr gerne bei dir!</p>",
         "image": "shopify://shop_images/CS.png",
         "image_alt": "",
         "image_min_width": 340,

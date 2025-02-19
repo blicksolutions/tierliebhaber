@@ -9,10 +9,10 @@
  */
 {
   "current": {
-    "donations_amount": 99212,
-    "donation_goal": 150000,
+    "donations_amount": 101691,
+    "donation_goal": 200000,
     "total_text": "",
-    "total_number": "Bisher gespendet seit 2022: €99.212",
+    "total_number": "Bisher gespendet seit 2022: €101.691",
     "heading_color": "#1c1b1b",
     "text_color": "#1c1b1b",
     "text_light_color": "#6a6a6a",
@@ -169,6 +169,14 @@
             "type": "links",
             "settings": {
               "menu": "rechtliches"
+            }
+          },
+          "0da56aee-cab5-49e3-b45e-18ae26df1ab7": {
+            "type": "text",
+            "settings": {
+              "title": "Erreichbarkeit",
+              "content": "<p>Unser Team ist jederzeit </p><p>über WhatsApp: +49 155 63186151<br/></p><p>per Mail: <a href=\"mailto:info@tierliebhaber.de\">info@tierliebhaber.de</a> </p><p>(Wir melden uns in der Regel innerhalb von 1-2 Werktagen mit einer Antwort bei dir)</p><p>oder telefonisch von Mo - Fr von 10-16 Uhr für dich erreichbar.</p><p>Tel.: +49 34149980019</p><p><strong>Gern kannst du auch eine </strong><a href=\"https://calendly.com/kundenservice-tierliebhaber/10min\" target=\"_blank\" title=\"https://calendly.com/kundenservice-tierliebhaber/10min\"><strong>Produktberatung bei uns buchen!</strong></a></p><p>---------------------</p><p>Animagus GmbH<br/>Göhrenzer Straße 1<br/>04420 Markranstädt</p>",
+              "show_social_media": true
             }
           },
           "7ff79c18-ac19-4d6c-a5b3-4476b0da541f": {
@@ -741,7 +749,7 @@
             "settings": {
               "image": "shopify://shop_images/anruf.png",
               "image_alt": "",
-              "text": "Ruf uns an (Mo-Fr 11-15 Uhr)",
+              "text": "Ruf uns an (Mo-Fr 10-16 Uhr)",
               "color": "#f1af9e",
               "url": "tel:034149980019"
             }
@@ -775,7 +783,7 @@
         ],
         "settings": {
           "title": "Bei Fragen sind wir immer da!",
-          "subtitle": "<p>Bei Fragen zu einer bestehenden Bestellung, schreib uns einfach eine Nachricht per<br/>WhatsApp oder per E-Mail.</p><p><strong>Hast du Fragen zu unseren Produkten oder kommst bei einer Bestellung nicht weiter?</strong> <br/><br/>Wir sind jederzeit für dich auf WhatsApp erreichbar.</p><p><strong>Du wünschst dir eine Produktberatung oder einen individuellen Rückruf?</strong></p><p>Schreib uns einfach eine Nachricht per<br/>WhatsApp oder per E-Mail mit deiner Telefonnummer und wann es für dich zeitlich<br/>passt, dann melden wir uns sehr gerne bei dir!</p>",
+          "subtitle": "<p>Bei Fragen zu einer bestehenden Bestellung, schreib uns einfach eine Nachricht per<br/>WhatsApp oder per E-Mail.</p><p><strong>Hast du Fragen zu unseren Produkten, möchtest du lieber persönlich bestellen oder kommst bei einer Bestellung nicht weiter?</strong><br/><br/>Wir sind jederzeit für dich telefonisch (werktags), per E-Mail oder auf WhatsApp erreichbar.</p><p><strong>Du wünschst dir eine Produktberatung oder einen individuellen Rückruf?</strong></p><p>Dann buch dir gerne deine persönliche Produktberatung oder schreib uns einfach eine Nachricht per WhatsApp oder per E-Mail mit deiner Telefonnummer und wann es für dich zeitlich passt, dann melden wir uns sehr gerne bei dir!</p>",
           "image": "shopify://shop_images/CS.png",
           "image_alt": "",
           "image_min_width": 340,
@@ -787,20 +795,6 @@
         "type": "klaviyo-form",
         "settings": {
           "id": "XEs6zR"
-        }
-      },
-      "16294491755c400817": {
-        "type": "image-with-text-overlay",
-        "disabled": true,
-        "settings": {
-          "section_size": "normal",
-          "image": "shopify://shop_images/Design_ohne_Titel_4.jpg",
-          "text_color": "#ffffff",
-          "overlay_color": "#363636",
-          "overlay_opacity": 43,
-          "subheading": "",
-          "title": "Tierliebhaber Mission",
-          "content": "<p>Als Tierliebhaber möchten wir für ein gesundes, leichtes und bewusstes Zusammenleben mit unseren Hunden sorgen. Das ist unsere Mission, die wir gemeinsam mit anderen Tierliebhabern erreichen möchten.</p><p>Liebe Grüße, Josefine Schmidt (Gründerin von Tierliebhaber)</p>"
         }
       },
       "1629450062a372f406": {
@@ -1013,18 +1007,6 @@
           "title": "Andere tierliebe Marken"
         }
       },
-      "1634649035d2406c63": {
-        "type": "featured-video",
-        "disabled": true,
-        "settings": {
-          "section_size": "large",
-          "text_color": "#ffffff",
-          "subheading": "",
-          "title": "Tierliebhaber wird 5 Jahre alt.",
-          "image": "shopify://shop_images/Bildschirmfoto_2021-10-19_um_15.05.33.png",
-          "video_url": "https://youtu.be/YGQ02suvvSs"
-        }
-      },
       "16346490400a4b1df7": {
         "type": "custom-html",
         "disabled": true,
@@ -1095,6 +1077,7 @@
           },
           "e7da5d0b-e6f2-4dc8-bb17-43e7d2427a0a": {
             "type": "item",
+            "disabled": true,
             "settings": {
               "image": "shopify://shop_images/CINDY.png",
               "item-headline": "Weil Tiere die treuesten Seelen sind und Liebe statt Leid verdienen.",
@@ -1696,9 +1679,7 @@
       "text_with_image_CLJqMt",
       "slideshow_dKUeWg",
       "1652440853255ce756",
-      "16294491755c400817",
       "16340327713a2fcd1d",
-      "1634649035d2406c63",
       "16346490400a4b1df7",
       "1629450062a372f406",
       "1630396737d0d511a7",
@@ -1796,13 +1777,13 @@
           "allowed_templates": ""
         }
       },
-      "6174324309569838175": {
-        "type": "shopify://apps/smile-io/blocks/smile-shopify-app/2fae4e25-1841-4ea2-bc02-bd548478c4f6",
-        "disabled": true,
-        "settings": {}
-      },
       "7625205453299604178": {
         "type": "shopify://apps/gemx-cro-a-b-testing/blocks/gemx-theme-helper/d5fea089-2b8e-4af7-a4da-76b975b021c7",
+        "disabled": false,
+        "settings": {}
+      },
+      "6174324309569838175": {
+        "type": "shopify://apps/smile-io/blocks/smile-shopify-app/2fae4e25-1841-4ea2-bc02-bd548478c4f6",
         "disabled": false,
         "settings": {}
       }
