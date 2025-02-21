@@ -1,0 +1,26 @@
+{{ 'bs-keypoints.css' |  asset_url |  stylesheet_tag }}
+<script src="{{ 'bs-keypoints.js' |  asset_url }}" defer></script>
+
+<div class="bs-keypoints Container">
+    <div class="swiper bs-keypoints__swiper">
+        <div class="swiper-wrapper">
+            {% for keypoint in block.settings.keypoints %}
+                {% assign currentIndex = forloop.index %}
+                <div class="swiper-slide bs-keypoints__card">
+                    {{ keypoint.icon |  image_url: height: 60 |  image_tag: class: "bs-keypoints__card__icon" }}
+                    <h4 class="bs-keypoints__card__title">
+                        {{ keypoint.title }}
+                    </h4>
+                    <div class="bs-keypoints__card__description">
+                        {{ keypoint.description |  metafield_tag }}
+                    </div>
+                    <div class="bs-keypoints__card__bullets-container">
+                        {% for keypoint in block.settings.keypoints %}
+                            <div class="bs-keypoints__card__bullet {% if forloop.index == currentIndex %}active{% endif %}"></div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
