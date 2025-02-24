@@ -60,7 +60,7 @@
         .angebot-banner h1 {
             font-size: 1.5rem;
             font-weight: bold;
-            margin: 0 auto;
+            margin: 0 auto 15px;
             line-height: 1.5;
             max-width: 85%;
             text-transform: uppercase;
@@ -72,22 +72,42 @@
             font-style: italic;
         }
 
-        .countdown-timer {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #D32F2F;
+        .countdown-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
             margin-top: 10px;
-            background-color: #fff;
-            padding: 5px 10px;
-            border-radius: 5px;
-            display: inline-block;
-            border: 2px solid #D32F2F;
+        }
+
+        .countdown-box {
+            text-align: center;
+            background-color: #ffffff;
+            border: 2px solid #880E4F;
+            padding: 10px 0;
+            border-radius: 8px;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .countdown-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #880E4F;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            color: #880E4F;
         }
 
         /* Mobiles Styling */
         @media (max-width: 600px) {
             .angebot-banner h1 {
-                font-size: 1.3rem;
+                font-size: 1.1rem;
                 max-width: 90%;
                 line-height: 1.4;
             }
@@ -101,6 +121,20 @@
                 left: 0;
                 width: 100%;
             }
+            .countdown-wrapper {
+                gap: 4px;
+            }
+            .countdown-box {
+                width: 65px;
+                height: 65px;
+                padding: 6px 0;
+            }
+            .countdown-number {
+                font-size: 1.4rem;
+            }
+            .countdown-label {
+                font-size: 0.7rem;
+            }
         }
     </style>
 </head>
@@ -108,8 +142,13 @@
     <div class="angebot-banner-wrapper">
         <div class="angebot-banner">
             <h1 id="angebot-text">EINMALIGES ANGEBOT</h1>
+            <div class="countdown-wrapper">
+                <div class="countdown-box"><div id="days" class="countdown-number">01</div><div class="countdown-label">TAGE</div></div>
+                <div class="countdown-box"><div id="hours" class="countdown-number">15</div><div class="countdown-label">STUNDEN</div></div>
+                <div class="countdown-box"><div id="minutes" class="countdown-number">51</div><div class="countdown-label">MINUTEN</div></div>
+                <div class="countdown-box"><div id="seconds" class="countdown-number">48</div><div class="countdown-label">SEKUNDEN</div></div>
+            </div>
             <p>*NUR SOLANGE DER VORRAT REICHT</p>
-            <div id="countdown" class="countdown-timer"></div>
         </div>
     </div>
 
@@ -129,32 +168,117 @@
             const angebotText = `EINMALIGES ${monate[monday.getMonth()]}-ANGEBOT VON ${formatDate(monday)} BIS ${formatDate(sunday)}`;
             document.getElementById('angebot-text').innerText = angebotText;
 
-            // Countdown Timer - Fixe Startwerte
-            const countdownElement = document.getElementById('countdown');
-            const targetTime = new Date();
-            targetTime.setDate(targetTime.getDate() + 1);
-            targetTime.setHours(15, 51, 48, 0);
+            const countdownDate = new Date();
+            countdownDate.setDate(countdownDate.getDate() + 1);
+            countdownDate.setHours(countdownDate.getHours() + 15);
+            countdownDate.setMinutes(countdownDate.getMinutes() + 51);
+            countdownDate.setSeconds(countdownDate.getSeconds() + 48);
 
             function updateCountdown() {
                 const now = new Date().getTime();
-                const distance = targetTime - now;
+                const distance = countdownDate - now;
 
-                if (distance <= 0) {
-                    countdownElement.innerText = 'Angebot abgelaufen';
-                    return;
-                }
+                if (distance <= 0) return;
 
                 const days = Math.floor(distance / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-                countdownElement.innerText = `${String(days).padStart(2, '0')}-TAGE ${String(hours).padStart(2, '0')}-STUNDEN ${String(minutes).padStart(2, '0')}-MINUTEN ${String(seconds).padStart(2, '0')}-SEKUNDEN`;
+                document.getElementById('days').innerText = String(days).padStart(2, '0');
+                document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+                document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
             }
 
             updateCountdown();
             setInterval(updateCountdown, 1000);
         })();
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobiles Burger-Menü</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .menu-container {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #3E2764;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1100;
+        }
+        .menu-icon {
+            font-size: 1.5rem;
+        }
+        .menu-links {
+            position: absolute;
+            top: 50px;
+            right: 10px;
+            background-color: #3E2764;
+            border-radius: 5px;
+            padding: 10px 0;
+            display: none;
+            flex-direction: column;
+            width: 180px;
+            z-index: 1100;
+        }
+        .menu-links a {
+            padding: 12px 15px;
+            text-decoration: none;
+            color: white;
+            display: block;
+            text-align: left;
+        }
+        .menu-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .menu-links.show {
+            display: flex;
+        }
+
+        /* Sicherstellen, dass das Menü über dem Banner liegt */
+        .menu-container, .menu-links {
+            position: fixed;
+            z-index: 2000; /* Höhere Priorität setzen */
+        }
+
+        /* Nur auf mobilen Geräten anzeigen */
+        @media (min-width: 768px) {
+            .menu-container {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-container" onclick="toggleMenu()">
+        <div class="menu-icon">☰</div>
+    </div>
+    <div class="menu-links" id="menuLinks">
+        <a href="#angebot">Angebot</a>
+        <a href="#resultate">Resultate</a>
+        <a href="#fragen">Häufige Fragen</a>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menuLinks');
+            menu.classList.toggle('show');
+        }
     </script>
 </body>
 </html></div></div>
