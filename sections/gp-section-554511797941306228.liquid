@@ -330,46 +330,39 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
       <style id="custom-css-g0YP7qEvSv">
         .sticky-button {
     position: fixed;
-    bottom: -100px; /* Startposition außerhalb des Sichtbereichs */
+    bottom: -100px; /* Startet außerhalb des Bildschirms */
     left: 50%;
     transform: translateX(-50%);
-    width: 100%;
-    max-width: 100%;
+    width: 80%; /* Reduziert die Breite des Buttons */
+    max-width: 400px; /* Setzt ein Limit für die maximale Breite */
+    height: 50px; /* Standardhöhe */
     background: black;
     color: white;
     text-align: center;
     font-size: 16px;
     font-weight: bold;
-    border-radius: 0;
+    border-radius: 8px; /* Macht den Button etwas moderner */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    transition: bottom 0.3s ease-in-out, background 0.2s;
+    transition: bottom 0.3s ease-in-out;
     z-index: 9999;
     cursor: pointer;
     display: flex;
     justify-content: center;
-    align-items: center; /* Sorgt für vertikale Zentrierung */
-    height: 60px; /* Höhe des Buttons */
-    line-height: 60px; /* Stellt sicher, dass der Text vertikal mittig ist */
+    align-items: center;
 }
 
-/* Sicherstellen, dass der gesamte Button klickbar ist */
+/* Klickbarkeit sicherstellen */
 .sticky-button a {
-    width: 100%;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 100%;
     text-decoration: none;
     color: white;
 }
 
-/* Kein Farbwechsel beim Hover */
-.sticky-button:hover {
-    background: black;
-    color: white;
-}
-
-/* Wenn der User scrollt, wird der Button eingeblendet */
+/* Einblenden des Buttons nach Scroll */
 .show-sticky {
     bottom: 20px !important;
 }
@@ -377,11 +370,13 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
 /* Mobile Optimierung */
 @media (max-width: 768px) {
     .sticky-button {
+        width: 90%; /* Etwas breiter auf Mobile */
+        max-width: 350px;
+        height: 45px; /* Kleinere Höhe */
         font-size: 14px;
-        height: 50px; /* Kleinere Höhe auf mobilen Geräten */
-        line-height: 50px;
     }
 }
+
 
       </style>
     
@@ -389,7 +384,7 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
         try {
           document.addEventListener("DOMContentLoaded", function () {
     let stickyButton = document.querySelector(".sticky-button");
-    let scrollTrigger = 500; // Ab wie vielen Pixeln der Button erscheinen soll
+    let scrollTrigger = 500; // Ab wann der Button erscheinen soll
 
     function toggleStickyButton() {
         if (window.scrollY > scrollTrigger) {
@@ -401,6 +396,7 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
 
     window.addEventListener("scroll", toggleStickyButton);
 });
+
 
 
 
