@@ -328,7 +328,9 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
     ><div></div></div>
   
       <style id="custom-css-g0YP7qEvSv">
-        .sticky-button {
+        /* Grundlegende Styling für beide Buttons */
+.sticky-button-desktop, 
+.sticky-button-mobile {
     position: fixed;
     bottom: -100px; /* Startet außerhalb des Bildschirms */
     left: 50%;
@@ -351,33 +353,36 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
     align-items: center;
 }
 
-/* Sicherstellen, dass der gesamte Button-Bereich klickbar ist */
-.sticky-button a {
-    display: block;
+/* Klickbare Fläche über den gesamten Button */
+.sticky-button-desktop a, 
+.sticky-button-mobile a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100%;
     text-decoration: none;
     color: white;
-    line-height: 50px; /* Text vertikal ausrichten */
 }
 
-/* Einblenden nach Scroll */
+/* Button sichtbar machen, wenn nach unten gescrollt wurde */
 .show-sticky {
     bottom: 20px !important;
 }
 
 /* Mobile Optimierung */
 @media (max-width: 768px) {
-    .sticky-button {
-        width: 90%;
-        max-width: 350px;
-        height: 45px;
-        font-size: 14px;
-    }
-    .sticky-button a {
-        line-height: 45px; /* Anpassung für kleinere Höhe */
+    .sticky-button-desktop {
+        display: none; /* Desktop-Button auf Mobile verstecken */
     }
 }
+
+@media (min-width: 769px) {
+    .sticky-button-mobile {
+        display: none; /* Mobile-Button auf Desktop verstecken */
+    }
+}
+
 
 
 
@@ -386,23 +391,22 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
       <script id="custom-js-g0YP7qEvSv">
         try {
           document.addEventListener("DOMContentLoaded", function () {
-    let stickyButton = document.querySelector(".sticky-button");
-    let scrollTrigger = 500;
+    let desktopButton = document.querySelector(".sticky-button-desktop");
+    let mobileButton = document.querySelector(".sticky-button-mobile");
+    let scrollTrigger = 500; // Scroll-Höhe, ab wann der Button erscheint
 
     function toggleStickyButton() {
         if (window.scrollY > scrollTrigger) {
-            stickyButton.classList.add("show-sticky");
+            if (desktopButton) desktopButton.classList.add("show-sticky");
+            if (mobileButton) mobileButton.classList.add("show-sticky");
         } else {
-            stickyButton.classList.remove("show-sticky");
+            if (desktopButton) desktopButton.classList.remove("show-sticky");
+            if (mobileButton) mobileButton.classList.remove("show-sticky");
         }
     }
 
     window.addEventListener("scroll", toggleStickyButton);
 });
-
-
-
-
 
         } catch(err){}
       </script>
