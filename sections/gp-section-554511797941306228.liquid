@@ -368,27 +368,16 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    width: calc(100% - 20px); /* Automatische Anpassung für mobile Screens */
-    max-width: 90vw; /* Falls "width" nicht greift, mit Viewport-Width arbeiten */
-    height: 40px;
+    width: 90vw; /* Statt 90%, weil vw sich auf die gesamte Viewport-Breite bezieht */
+    max-width: 400px; /* Optional, falls es auf großen Screens zu breit wird */
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: black;
-    color: white;
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: 10px;
-    z-index: 9999;
-    padding: 10px 15px;
-    box-sizing: border-box; /* Verhindert, dass Padding die Breite beeinflusst */
-}
-
-.sticky-button-mobile p {
-    margin: 0;
-    padding: 0;
-    line-height: normal; /* Keine Verzerrung der Schrift */
-    white-space: nowrap; /* Verhindert, dass die Schrift auf schmalen Screens umbricht */
+    font-size: 16px;
+    line-height: 1.2;
+    box-sizing: border-box; /* Damit Padding nicht die Breite beeinflusst */
+    padding: 10px;
 }
 
 
