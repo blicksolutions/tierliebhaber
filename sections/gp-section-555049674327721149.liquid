@@ -881,12 +881,14 @@
       data-keep-class="true"
       class="gikXnFORJZ "
     ><div><div id="angebot-row-text" style="font-size: 30px; font-weight: bold; text-align: center; line-height: 1.2; color: black;">
-  <span id="angebot-title" style="color: black;">TESTTEXT: Limitiertes Angebot</span><span style="color: black;">*</span><br>
+  <span id="angebot-title" style="color: black;">TESTTEXT</span><span style="color: black;">*</span><br>
   <span style="font-size: 16px; font-weight: normal; color: black;">*Nur so lange der Vorrat reicht</span>
 </div>
 
 <script>
   (function() {
+    console.log("✅ Skript geladen!"); // Prüfen, ob das Skript läuft
+
     // Monatsnamen definieren
     const monateRow = [
       "Januar", "Februar", "März", "April", "Mai", "Juni",
@@ -895,15 +897,18 @@
     
     // Aktuellen Monat abrufen
     const aktuellerMonatRow = monateRow[new Date().getMonth()];
+    console.log("📅 Aktueller Monat:", aktuellerMonatRow); // Gibt den Monat in der Konsole aus
 
     // Element holen
     const angebotTitleElement = document.getElementById("angebot-title");
-    
+    console.log("🔍 Element gefunden?", angebotTitleElement);
+
     // Falls das Element existiert, den Text setzen
     if (angebotTitleElement) {
       angebotTitleElement.innerText = `Limitiertes ${aktuellerMonatRow} Angebot`;
+      console.log("✅ Text erfolgreich gesetzt!");
     } else {
-      console.error("Element mit ID 'angebot-title' nicht gefunden!");
+      console.error("❌ Element mit ID 'angebot-title' nicht gefunden!");
     }
   })();
 </script></div></div>
