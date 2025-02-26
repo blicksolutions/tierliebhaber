@@ -418,7 +418,7 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
           document.addEventListener("DOMContentLoaded", function() {
     let desktopButton = document.querySelector(".sticky-button-desktop");
     let mobileButton = document.querySelector(".sticky-button-mobile");
-    let scrollThreshold = 500; // Höhe in Pixeln, ab der der Button erscheinen soll
+    let scrollThreshold = 4000; // Höhe in Pixeln, ab der der Button erscheinen soll
 
     function toggleButtonVisibility() {
         if (window.scrollY > scrollThreshold) {
