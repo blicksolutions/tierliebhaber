@@ -880,29 +880,33 @@
       style="--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--mb:30px;--bgc:#00000000;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--ta:left"
       data-keep-class="true"
       class="gikXnFORJZ "
-    ><div><div id="angebot-row-text" style="font-size: 30px; font-weight: bold; text-align: center; line-height: 1.2;">
-  <span id="angebot-title"></span><span>*</span><br>
-  <span style="font-size: 16px; font-weight: normal;">*Nur so lange der Vorrat reicht</span>
-</div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const monateRow = [
-      "Januar", "Februar", "März", "April", "Mai", "Juni",
-      "Juli", "August", "September", "Oktober", "November", "Dezember"
-    ];
-    
-    const aktuellerMonatRow = monateRow[new Date().getMonth()];
-    const angebotTitleElement = document.getElementById("angebot-title");
-
-    if (angebotTitleElement) {
-      angebotTitleElement.innerText = `Limitiertes ${aktuellerMonatRow} Angebot`;
-    } else {
-      console.error("Element #angebot-title nicht gefunden!");
-    }
-  });
-</script></div></div>
+    ><div></div></div>
   
+      <script id="custom-js-gikXnFORJZ">
+        try {
+          document.addEventListener("DOMContentLoaded", function() {
+    console.log("DOM ist geladen!");
+
+    const monateRow = [
+        "Januar", "Februar", "März", "April", "Mai", "Juni", 
+        "Juli", "August", "September", "Oktober", "November", "Dezember"
+    ];
+
+    const aktuellerMonatRow = monateRow[new Date().getMonth()];
+    console.log("Aktueller Monat:", aktuellerMonatRow);
+
+    const angebotTitleElement = document.getElementById("angebot-title");
+    if (angebotTitleElement) {
+        angebotTitleElement.innerText = `Limitiertes ${aktuellerMonatRow} Angebot`;
+        console.log("Text gesetzt:", angebotTitleElement.innerText);
+    } else {
+        console.log("Element 'angebot-title' nicht gefunden!");
+    }
+});
+
+        } catch(err){}
+      </script>
+    
   {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
   <gp-text data-id="gYI-cXIaC2">
     <div
