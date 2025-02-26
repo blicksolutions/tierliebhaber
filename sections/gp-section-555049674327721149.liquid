@@ -914,31 +914,6 @@
   })();
 </script></div></div>
   
-      <script id="custom-js-gikXnFORJZ">
-        try {
-          document.addEventListener("DOMContentLoaded", function() {
-    console.log("DOM ist geladen!");
-
-    const monateRow = [
-        "Januar", "Februar", "März", "April", "Mai", "Juni", 
-        "Juli", "August", "September", "Oktober", "November", "Dezember"
-    ];
-
-    const aktuellerMonatRow = monateRow[new Date().getMonth()];
-    console.log("Aktueller Monat:", aktuellerMonatRow);
-
-    const angebotTitleElement = document.getElementById("angebot-title");
-    if (angebotTitleElement) {
-        angebotTitleElement.innerText = `Limitiertes ${aktuellerMonatRow} Angebot`;
-        console.log("Text gesetzt:", angebotTitleElement.innerText);
-    } else {
-        console.log("Element 'angebot-title' nicht gefunden!");
-    }
-});
-
-        } catch(err){}
-      </script>
-    
   {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
   <gp-text data-id="gYI-cXIaC2">
     <div
