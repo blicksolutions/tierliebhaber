@@ -886,32 +886,21 @@
 </div>
 
 <script>
-  (function() {
-    // Monatsnamen definieren
+  document.addEventListener("DOMContentLoaded", function() {
     const monateRow = [
-      "Januar",
-      "Februar",
-      "März",
-      "April",
-      "Mai",
-      "Juni",
-      "Juli",
-      "August",
-      "September",
-      "Oktober",
-      "November",
-      "Dezember"
+      "Januar", "Februar", "März", "April", "Mai", "Juni",
+      "Juli", "August", "September", "Oktober", "November", "Dezember"
     ];
     
-    // Aktuellen Monat abrufen
     const aktuellerMonatRow = monateRow[new Date().getMonth()];
-
-    // Text in das spezifische span einsetzen
     const angebotTitleElement = document.getElementById("angebot-title");
+
     if (angebotTitleElement) {
       angebotTitleElement.innerText = `Limitiertes ${aktuellerMonatRow} Angebot`;
+    } else {
+      console.error("Element #angebot-title nicht gefunden!");
     }
-  })();
+  });
 </script></div></div>
   
   {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
