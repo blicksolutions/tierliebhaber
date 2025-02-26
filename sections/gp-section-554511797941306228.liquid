@@ -333,42 +333,53 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
     bottom: -100px; /* Startposition außerhalb des Sichtbereichs */
     left: 50%;
     transform: translateX(-50%);
-    width: 90%; /* Für Mobile optimiert */
-    max-width: 600px; /* Begrenzung für Desktop */
+    width: 100%;
+    max-width: 100%;
     background: black;
     color: white;
     text-align: center;
-    padding: 15px 20px;
     font-size: 16px;
     font-weight: bold;
-    border-radius: 8px;
+    border-radius: 0;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     transition: bottom 0.3s ease-in-out, background 0.2s;
-    z-index: 1000;
+    z-index: 9999;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Sorgt für vertikale Zentrierung */
+    height: 60px; /* Höhe des Buttons */
+    line-height: 60px; /* Stellt sicher, dass der Text vertikal mittig ist */
+}
+
+/* Sicherstellen, dass der gesamte Button klickbar ist */
+.sticky-button a {
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
-}
-
-/* Hover-Farbe bleibt gleich */
-.sticky-button:hover {
-    background: black; /* Kein Farbwechsel */
     color: white;
 }
 
-/* Scroll-Trigger */
+/* Kein Farbwechsel beim Hover */
+.sticky-button:hover {
+    background: black;
+    color: white;
+}
+
+/* Wenn der User scrollt, wird der Button eingeblendet */
 .show-sticky {
-    bottom: 20px !important; /* Button wird sichtbar */
+    bottom: 20px !important;
 }
 
 /* Mobile Optimierung */
 @media (max-width: 768px) {
     .sticky-button {
-        width: 95%;
         font-size: 14px;
-        padding: 12px;
+        height: 50px; /* Kleinere Höhe auf mobilen Geräten */
+        line-height: 50px;
     }
 }
 
@@ -378,7 +389,7 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
         try {
           document.addEventListener("DOMContentLoaded", function () {
     let stickyButton = document.querySelector(".sticky-button");
-    let scrollTrigger = 500; // Scroll-Höhe für Sichtbarkeit
+    let scrollTrigger = 500; // Ab wie vielen Pixeln der Button erscheinen soll
 
     function toggleStickyButton() {
         if (window.scrollY > scrollTrigger) {
@@ -390,6 +401,7 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
 
     window.addEventListener("scroll", toggleStickyButton);
 });
+
 
 
         } catch(err){}
