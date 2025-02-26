@@ -24,7 +24,7 @@
       
     <div
       enableLazyloadImage="true" parentTag="Col" id="gpQIJEKLxK" data-id="gpQIJEKLxK"
-        style="--mb:0px;--d:grid;--d-tablet:grid;--d-mobile:grid;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--cg:8px;--pc:start;--gtc:minmax(0, 2fr) minmax(0, 8fr) minmax(0, 2fr);--gtc-mobile:minmax(0, 12fr);--w:var(--g-ct-w, 1200px);--w-tablet:var(--g-ct-w, 100%);--w-mobile:var(--g-ct-w, 100%);--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        style="--mb:0px;--d:grid;--d-tablet:grid;--d-mobile:none;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--cg:8px;--pc:start;--gtc:minmax(0, 2fr) minmax(0, 8fr) minmax(0, 2fr);--gtc-mobile:minmax(0, 12fr);--w:var(--g-ct-w, 1200px);--w-tablet:var(--g-ct-w, 100%);--w-mobile:var(--g-ct-w, 100%);--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
         class="gpQIJEKLxK gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full"
     >
     <div
@@ -880,48 +880,42 @@
       style="--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--mb:30px;--bgc:#00000000;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--ta:left"
       data-keep-class="true"
       class="gikXnFORJZ "
-    ><div><div id="angebot-row-text" style="font-size: 30px; font-weight: bold; text-align: center; line-height: 1.2; color: black;">
-  <span id="angebot-title" style="color: black;">TESTTEXT</span><span style="color: black;">*</span><br>
-  <span style="font-size: 16px; font-weight: normal; color: black;">*Nur so lange der Vorrat reicht</span>
+    ><div><div id="angebot-row-text" style="font-size: 30px; font-weight: bold; text-align: center; line-height: 1.2;">
+  <span id="angebot-title"></span><span>*</span><br>
+  <span style="font-size: 16px; font-weight: normal;">*Nur so lange der Vorrat reicht</span>
 </div>
 
 <script>
   (function() {
-    console.log("✅ Skript geladen!"); // Prüfen, ob das Skript läuft
-
     // Monatsnamen definieren
     const monateRow = [
-      "Januar", "Februar", "März", "April", "Mai", "Juni",
-      "Juli", "August", "September", "Oktober", "November", "Dezember"
+      "Januar",
+      "Februar",
+      "März",
+      "April",
+      "Mai",
+      "Juni",
+      "Juli",
+      "August",
+      "September",
+      "Oktober",
+      "November",
+      "Dezember"
     ];
     
     // Aktuellen Monat abrufen
     const aktuellerMonatRow = monateRow[new Date().getMonth()];
-    console.log("📅 Aktueller Monat:", aktuellerMonatRow); // Gibt den Monat in der Konsole aus
 
-    // Element holen
+    // Text in das spezifische span einsetzen
     const angebotTitleElement = document.getElementById("angebot-title");
-    console.log("🔍 Element gefunden?", angebotTitleElement);
-
-    // Falls das Element existiert, den Text setzen
     if (angebotTitleElement) {
       angebotTitleElement.innerText = `Limitiertes ${aktuellerMonatRow} Angebot`;
-      console.log("✅ Text erfolgreich gesetzt!");
-    } else {
-      console.error("❌ Element mit ID 'angebot-title' nicht gefunden!");
     }
   })();
 </script></div></div>
   
       <style id="custom-css-gikXnFORJZ">
-        #angebot-title {
-    color: black;
-    visibility: visible;
-    display: block;
-    z-index: 9999;
-    position: relative;
-    font-size: 30px;
-}
+        
 
       </style>
     
