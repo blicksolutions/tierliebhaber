@@ -328,60 +328,40 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
     ><div></div></div>
   
       <style id="custom-css-g0YP7qEvSv">
-        /* Gemeinsames Styling für beide Buttons */
-.sticky-button-desktop, 
-.sticky-button-mobile {
+        /* Stellt sicher, dass das gesamte Div klickbar ist */
+.sticky-button-desktop {
     position: fixed;
-    bottom: -100px; /* Startet außerhalb des Bildschirms */
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     width: 80%;
     max-width: 400px;
     height: 50px;
-    background: black;
-    color: white;
-    text-align: center;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    transition: bottom 0.3s ease-in-out;
-    z-index: 9999;
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
+    z-index: 9999;
 }
 
-/* Klickbare Fläche auf den ganzen Button ausdehnen */
-.sticky-button-desktop a, 
-.sticky-button-mobile a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Stellt sicher, dass das Button-Element die gesamte Fläche nutzt */
+.sticky-button-desktop button {
     width: 100%;
     height: 100%;
-    text-decoration: none;
-    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Button sichtbar machen, wenn nach unten gescrollt wurde */
-.show-sticky {
-    bottom: 20px !important;
+/* Stellt sicher, dass der Text vertikal zentriert ist */
+.sticky-button-desktop span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    line-height: normal; /* Verhindert komisches Spacing */
 }
 
-/* Mobile Optimierung */
-@media (max-width: 768px) {
-    .sticky-button-desktop {
-        display: none; /* Desktop-Button auf Mobile verstecken */
-    }
-}
-
-@media (min-width: 769px) {
-    .sticky-button-mobile {
-        display: none; /* Mobile-Button auf Desktop verstecken */
-    }
-}
 
 
 
