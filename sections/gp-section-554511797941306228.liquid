@@ -319,6 +319,68 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
 
       </style>
     
+  
+    <div
+      
+      style="--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--ta:left"
+      data-keep-class="true"
+      class="g0YP7qEvSv "
+    ><div></div></div>
+  
+      <style id="custom-css-g0YP7qEvSv">
+        .sticky-button {
+    position: fixed;
+    bottom: -100px; /* Startet außerhalb des Viewports */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%; /* Für Mobile optimiert */
+    max-width: 600px; /* Begrenzung für Desktop */
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: bottom 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+/* Scroll-Trigger */
+.show-sticky {
+    bottom: 20px !important; /* Sichtbar ab Scroll-Tiefe */
+}
+
+/* Mobile Anpassung */
+@media (max-width: 768px) {
+    .sticky-button {
+        width: 95%;
+        font-size: 14px;
+        padding: 12px;
+    }
+}
+      </style>
+    
+      <script id="custom-js-g0YP7qEvSv">
+        try {
+          document.addEventListener("DOMContentLoaded", function () {
+    let stickyButton = document.querySelector(".sticky-button");
+    let scrollTrigger = 500; // Pixel-Tiefe für Anzeige
+
+    function toggleStickyButton() {
+        if (window.scrollY > scrollTrigger) {
+            stickyButton.classList.add("show-sticky");
+        } else {
+            stickyButton.classList.remove("show-sticky");
+        }
+    }
+
+    window.addEventListener("scroll", toggleStickyButton);
+});
+
+        } catch(err){}
+      </script>
+    
     </div>
     </div>
   
@@ -330,7 +392,7 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
 {% schema %}
   {
     
-    "name": "Section 1",
+    "name": "Section 2",
     "tag": "section",
     "class": "gps-554511797941306228 gps gpsi",
     "settings": [{"type":"paragraph","content":"Section design by GemPages. [Click here to start design](https://admin.shopify.com/store/tierliebhaber-animagus/apps/gempages-cro/app/shopify/edit?pageType=GP_STATIC&editorId=554511797822948212&sectionId=554511797941306228)"},{"type":"select","label":"Section Preload","id":"section_preload","options":[{"label":"On","value":"true"},{"label":"Off","value":"false"},{"label":"Off Lazy Script","value":"off_lazy_script"}],"default":"off_lazy_script"},{"type":"text","label":"Checksum","id":"checksum"}],
