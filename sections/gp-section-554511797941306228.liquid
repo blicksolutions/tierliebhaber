@@ -395,28 +395,42 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
     height: 40px;  /* Falls das nicht klappt, auf 50px erhöhen und testen */
 }
 
+.sticky-button-desktop,
+.sticky-button-mobile {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.sticky-button-desktop.visible,
+.sticky-button-mobile.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+
 
 
       </style>
     
       <script id="custom-js-g0YP7qEvSv">
         try {
-          document.addEventListener("DOMContentLoaded", function () {
+          document.addEventListener("DOMContentLoaded", function() {
     let desktopButton = document.querySelector(".sticky-button-desktop");
     let mobileButton = document.querySelector(".sticky-button-mobile");
-    let scrollTrigger = 500; // Scroll-Höhe, ab wann der Button erscheint
+    let scrollThreshold = 500; // Höhe in Pixeln, ab der der Button erscheinen soll
 
-    function toggleStickyButton() {
-        if (window.scrollY > scrollTrigger) {
-            if (desktopButton) desktopButton.classList.add("show-sticky");
-            if (mobileButton) mobileButton.classList.add("show-sticky");
+    function toggleButtonVisibility() {
+        if (window.scrollY > scrollThreshold) {
+            desktopButton?.classList.add("visible");
+            mobileButton?.classList.add("visible");
         } else {
-            if (desktopButton) desktopButton.classList.remove("show-sticky");
-            if (mobileButton) mobileButton.classList.remove("show-sticky");
+            desktopButton?.classList.remove("visible");
+            mobileButton?.classList.remove("visible");
         }
     }
 
-    window.addEventListener("scroll", toggleStickyButton);
+    window.addEventListener("scroll", toggleButtonVisibility);
 });
 
         } catch(err){}
