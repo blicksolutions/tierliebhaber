@@ -396,11 +396,9 @@
     
       <script id="custom-js-gGt7Nsrdoi">
         try {
-          // Funktion zum Scrollen zu einer Section & Menü schließen
-function scrollToSection(sectionClass) {
+          function scrollToSection(sectionClass) {
     const target = document.querySelector(sectionClass);
     if (target) {
-        console.log("Scrolling zu:", sectionClass);
         const headerElement = document.querySelector('.angebot-banner');
         const headerOffset = headerElement ? headerElement.offsetHeight : 0;
         const elementPosition = target.getBoundingClientRect().top + window.scrollY; // Absolute Position der Section
@@ -414,11 +412,8 @@ function scrollToSection(sectionClass) {
         // Menü schließen nach Klick (nur wenn vorhanden)
         const menuLinks = document.getElementById('menuLinks');
         if (menuLinks) {
-            console.log("Burger-Menü wird geschlossen.");
             menuLinks.classList.remove('show');
         }
-    } else {
-        console.log("⚠️ Ziel-Sektion nicht gefunden:", sectionClass);
     }
 }
 
@@ -436,7 +431,7 @@ function closePopup() {
     document.getElementById("overlay").style.display = "none";
 }
 
-// Funktion zum Scrollen zur Angebots-Sektion & Pop-up schließen
+// Funktion zum Scrollen zur Angebots-Sektion & Pop-up schließen (Mobile & Desktop)
 function scrollToOffer(event) {
     event.preventDefault(); // Verhindert das Springen der Seite
     console.log("Zum Angebot-Button wurde geklickt!");
@@ -445,17 +440,18 @@ function scrollToOffer(event) {
     console.log("Popup wurde geschlossen!");
 
     setTimeout(() => {
-        const target = document.querySelector(".Angebot, .angebot-desktop"); // Mobile + Desktop
+        let target;
+        if (window.innerWidth > 1024) { 
+            // Desktop-Version
+            target = document.querySelector(".angebot-desktop");
+        } else {
+            // Mobile-Version
+            target = document.querySelector(".Angebot");
+        }
+
         if (target) {
             console.log("Ziel-Sektion gefunden:", target);
             target.scrollIntoView({ behavior: "smooth", block: "start" });
-
-            // Falls das Burger-Menü offen ist, schließen
-            const menuLinks = document.getElementById('menuLinks');
-            if (menuLinks && menuLinks.classList.contains('show')) {
-                console.log("Burger-Menü wird geschlossen nach Scroll.");
-                menuLinks.classList.remove('show');
-            }
         } else {
             console.log("⚠️ Ziel-Sektion nicht gefunden! Prüfe die CSS-Klassen.");
         }
@@ -493,21 +489,11 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("⚠️ Kein Element mit Klasse 'offer-btn' gefunden!");
     }
 
-    // Event-Listener für Burger-Menü-Links setzen
-    const menuLinks = document.querySelectorAll("#menuLinks a");
-    if (menuLinks.length > 0) {
-        menuLinks.forEach(link => {
-            link.addEventListener("click", function(event) {
-                const sectionClass = this.getAttribute("href");
-                if (sectionClass.startsWith("#")) {
-                    event.preventDefault();
-                    scrollToSection(sectionClass);
-                }
-            });
-        });
-        console.log("EventListener für Burger-Menü-Links gesetzt.");
-    } else {
-        console.log("⚠️ Keine Links im Burger-Menü gefunden!");
+    // **Neues Feature:** Popup schließen, wenn man ins Leere klickt (Overlay)
+    var overlay = document.getElementById("overlay");
+    if (overlay) {
+        overlay.addEventListener("click", closePopup);
+        console.log("EventListener für Overlay-Klick gesetzt.");
     }
 });
 
