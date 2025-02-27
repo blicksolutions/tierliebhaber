@@ -394,11 +394,19 @@
     }
 }
 
+// Funktion zum Öffnen des Popups
+function openPopup() {
+    document.getElementById('popup').style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
+}
+
+// Funktion zum Schließen des Popups
 function closePopup() {
     document.getElementById('popup').style.display = 'none';
     document.getElementById('overlay').style.display = 'none';
 }
 
+// Funktion zum Schließen & Scrollen zur Angebots-Sektion
 function scrollToOffer() {
     closePopup(); // Erst das Pop-up schließen
     setTimeout(() => {
@@ -406,8 +414,16 @@ function scrollToOffer() {
         if (target) {
             target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-    }, 300); // 300ms Verzögerung für flüssige UX
+    }, 300); // 300ms Delay für eine angenehme UX
 }
+
+// Sicherstellen, dass das Event auch bei später geladenen Elementen funktioniert
+document.addEventListener("DOMContentLoaded", function() {
+    var boosterText = document.querySelector(".clickable");
+    if (boosterText) {
+        boosterText.addEventListener("click", openPopup);
+    }
+});
 
         } catch(err){}
       </script>
