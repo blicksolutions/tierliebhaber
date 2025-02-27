@@ -184,6 +184,7 @@
         <a onclick="scrollToSection('Angebot')">Angebot</a>
         <a onclick="scrollToSection('Resultate')">Resultate</a>
         <a onclick="scrollToSection('HäufigeFragen')">Häufige Fragen</a>
+
     </div>
 
     <!-- 🔥 ANGEBOT & COUNTDOWN -->
@@ -241,6 +242,21 @@
 </body>
 </html></div></div>
   
+      <script id="custom-js-gGt7Nsrdoi">
+        try {
+          function scrollToSection(className) {
+    const section = document.querySelector(`.${className}`);
+    if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(() => toggleMenu(), 500);
+    } else {
+        console.error(`Section mit der Klasse '${className}' nicht gefunden.`);
+    }
+}
+
+        } catch(err){}
+      </script>
+    
   
     <div
       
