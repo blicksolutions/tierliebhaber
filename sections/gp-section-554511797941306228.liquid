@@ -256,13 +256,12 @@
           function scrollToSection(sectionClass) {
     const target = document.querySelector(sectionClass);
     if (target) {
-        // Exakte Scroll-Position bestimmen, unabhängig von der aktuellen Position
-        const yOffset = document.querySelector('.angebot-banner').offsetHeight + 10; 
-        const y = target.offsetTop - yOffset;
+        const yOffset = -document.querySelector('.angebot-banner').offsetHeight; // Header-Höhe berechnen
+        const y = target.getBoundingClientRect().top + window.scrollY + yOffset;
 
         window.scrollTo({ top: y, behavior: 'smooth' });
 
-        // Menü schließen nach dem Klick
+        // Menü schließen nach Klick
         document.getElementById('menuLinks').classList.remove('show');
     }
 }
