@@ -53,7 +53,6 @@
             text-align: center;
             background: linear-gradient(to right, #FBE9EB, #F9F3E5);
             color: #880E4F;
-            font-family: Arial, sans-serif;
             z-index: 10;
             box-sizing: border-box;
         }
@@ -61,23 +60,36 @@
         .angebot-banner h1 {
             font-size: 1.5rem;
             font-weight: bold;
-            margin: 0 auto 15px;
+            margin: 0 auto 10px;
             line-height: 1.5;
             max-width: 85%;
             text-transform: uppercase;
-            word-spacing: -2px;
         }
 
-        /* ✅ Fix für "von" → Springt auf die nächste Zeile vor dem Datum (Mobile) */
-        .angebot-banner .von {
-            display: inline;
-            margin-right: 3px;
+        .angebot-banner .datum-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-top: 5px;
         }
 
+        .angebot-banner .datum-container span {
+            display: inline-block;
+        }
+
+        /* ✅ "von" in neue Zeile NUR auf Mobile */
         @media (max-width: 600px) {
+            .angebot-banner h1 {
+                font-size: 1.1rem;
+                max-width: 90%;
+                line-height: 1.4;
+            }
+
             .angebot-banner .von {
                 display: block;
-                margin-bottom: -5px;
+                margin-bottom: 3px;
             }
         }
 
@@ -113,30 +125,7 @@
             color: #880E4F;
         }
 
-        /* Mobiles Styling */
-        @media (max-width: 600px) {
-            .angebot-banner h1 {
-                font-size: 1.1rem;
-                max-width: 90%;
-                line-height: 1.4;
-            }
-            .countdown-wrapper {
-                gap: 4px;
-            }
-            .countdown-box {
-                width: 65px;
-                height: 65px;
-                padding: 6px 0;
-            }
-            .countdown-number {
-                font-size: 1.4rem;
-            }
-            .countdown-label {
-                font-size: 0.7rem;
-            }
-        }
-
-        /* 🔹 Burger-Menü */
+        /* 🔥 BURGER-MENÜ STYLES */
         .menu-container {
             position: fixed;
             top: 10px;
@@ -146,13 +135,11 @@
             padding: 10px 15px;
             border-radius: 5px;
             cursor: pointer;
-            z-index: 2000;
+            z-index: 1100;
         }
-
         .menu-icon {
             font-size: 1.5rem;
         }
-
         .menu-links {
             position: absolute;
             top: 50px;
@@ -163,9 +150,8 @@
             display: none;
             flex-direction: column;
             width: 180px;
-            z-index: 2000;
+            z-index: 1100;
         }
-
         .menu-links a {
             padding: 12px 15px;
             text-decoration: none;
@@ -173,16 +159,20 @@
             display: block;
             text-align: left;
         }
-
         .menu-links a:hover {
             background-color: rgba(255, 255, 255, 0.2);
         }
-
         .menu-links.show {
             display: flex;
         }
 
-        /* Burger-Menü nur auf mobilen Geräten anzeigen */
+        /* Menü über Banner legen */
+        .menu-container, .menu-links {
+            position: fixed;
+            z-index: 2000;
+        }
+
+        /* Burger Menü nur auf Mobile */
         @media (min-width: 768px) {
             .menu-container {
                 display: none;
@@ -191,8 +181,7 @@
     </style>
 </head>
 <body>
-
-    <!-- 🔹 Burger-Menü -->
+    <!-- 🔥 BURGER MENÜ -->
     <div class="menu-container" onclick="toggleMenu()">
         <div class="menu-icon">☰</div>
     </div>
@@ -202,13 +191,14 @@
         <a href="#fragen">Häufige Fragen</a>
     </div>
 
-    <!-- 🔹 Banner mit Countdown -->
+    <!-- 🔥 ANGEBOT & COUNTDOWN -->
     <div class="angebot-banner-wrapper">
         <div class="angebot-banner">
-            <h1 id="angebot-text">
-                EINMALIGES <span id="monat-name">MONAT</span>-ANGEBOT  
-                <span class="von">von</span> <span id="start-datum"></span> BIS <span id="end-datum"></span>
-            </h1>
+            <h1 id="angebot-text">EINMALIGES FEBRUAR-ANGEBOT</h1>
+            <div class="datum-container">
+                <span class="von">von</span>
+                <span id="datum-text"></span>
+            </div>
             <div class="countdown-wrapper">
                 <div class="countdown-box"><div id="days" class="countdown-number">01</div><div class="countdown-label">TAGE</div></div>
                 <div class="countdown-box"><div id="hours" class="countdown-number">15</div><div class="countdown-label">STUNDEN</div></div>
@@ -220,11 +210,13 @@
     </div>
 
     <script>
+        // 🔥 BURGER MENÜ FUNKTION
         function toggleMenu() {
             const menu = document.getElementById('menuLinks');
             menu.classList.toggle('show');
         }
 
+        // 🔥 ANGEBOT + COUNTDOWN
         (function() {
             const today = new Date();
             const dayOfWeek = today.getDay();
@@ -235,18 +227,21 @@
 
             const monate = ["JANUAR", "FEBRUAR", "MÄRZ", "APRIL", "MAI", "JUNI", "JULI", "AUGUST", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DEZEMBER"];
 
-            document.getElementById("monat-name").innerText = monate[monday.getMonth()];
-            document.getElementById("start-datum").innerText = `${monday.getDate()}.${monate[monday.getMonth()]}`;
-            document.getElementById("end-datum").innerText = `${sunday.getDate()}.${monate[sunday.getMonth()]}`;
+            const formatDate = (date) => `${String(date.getDate()).padStart(2, '0')}. ${monate[date.getMonth()]}`;
+
+            document.getElementById('datum-text').innerText = `${formatDate(monday)} BIS ${formatDate(sunday)}`;
 
             const countdownDate = new Date();
             countdownDate.setDate(countdownDate.getDate() + 1);
+            countdownDate.setHours(countdownDate.getHours() + 15);
+            countdownDate.setMinutes(countdownDate.getMinutes() + 51);
+            countdownDate.setSeconds(countdownDate.getSeconds() + 48);
 
             function updateCountdown() {
                 const now = new Date().getTime();
                 const distance = countdownDate - now;
                 if (distance <= 0) return;
-                
+
                 document.getElementById('days').innerText = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0');
                 document.getElementById('hours').innerText = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
                 document.getElementById('minutes').innerText = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
@@ -257,7 +252,6 @@
             setInterval(updateCountdown, 1000);
         })();
     </script>
-
 </body>
 </html></div></div>
   
