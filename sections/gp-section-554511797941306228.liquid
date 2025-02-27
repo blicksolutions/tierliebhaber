@@ -76,10 +76,6 @@
             font-size: 0.9rem;
         }
 
-        .datum-container span {
-            white-space: nowrap;
-        }
-
         .countdown-wrapper {
             display: flex;
             justify-content: center;
@@ -201,53 +197,60 @@
                 <span id="datum-text"></span>
             </div>
             <div class="countdown-wrapper">
-                <div class="countdown-box"><div id="days" class="countdown-number">00</div><div class="countdown-label">TAGE</div></div>
-                <div class="countdown-box"><div id="hours" class="countdown-number">00</div><div class="countdown-label">STUNDEN</div></div>
-                <div class="countdown-box"><div id="minutes" class="countdown-number">00</div><div class="countdown-label">MINUTEN</div></div>
-                <div class="countdown-box"><div id="seconds" class="countdown-number">00</div><div class="countdown-label">SEKUNDEN</div></div>
+                <div class="countdown-box"><div id="days" class="countdown-number">01</div><div class="countdown-label">TAGE</div></div>
+                <div class="countdown-box"><div id="hours" class="countdown-number">15</div><div class="countdown-label">STUNDEN</div></div>
+                <div class="countdown-box"><div id="minutes" class="countdown-number">51</div><div class="countdown-label">MINUTEN</div></div>
+                <div class="countdown-box"><div id="seconds" class="countdown-number">48</div><div class="countdown-label">SEKUNDEN</div></div>
             </div>
             <p>*NUR SOLANGE DER VORRAT REICHT</p>
         </div>
     </div>
 
     <script>
-        // 🔥 DATUMSFUNKTION (Montag - Sonntag der aktuellen Woche)
-        function updateDate() {
-            const today = new Date();
-            const dayOfWeek = today.getDay();
-            const monday = new Date(today);
-            monday.setDate(today.getDate() - dayOfWeek + (dayOfWeek === 0 ? -6 : 1));
-            const sunday = new Date(monday);
-            sunday.setDate(monday.getDate() + 6);
+        function toggleMenu() {
+            const menu = document.getElementById('menuLinks');
+            menu.classList.toggle('show');
+        }
+
+        function scrollToSection(sectionClass) {
+            const target = document.querySelector(sectionClass);
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                document.getElementById('menuLinks').classList.remove('show'); // 🔥 Menü klappt zu
+            }
+        }
+
+        (function() {
+            const now = new Date();
+            const firstDayOfYear = new Date(now.getFullYear(), 0, 1);
+            const daysPast = Math.floor((now - firstDayOfYear) / (24 * 60 * 60 * 1000));
+            const kw = Math.ceil((daysPast + firstDayOfYear.getDay() + 1) / 7);
 
             const monate = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+            document.getElementById('datum-text').innerText = `KW ${kw} ${monate[now.getMonth()]}`;
 
-            document.getElementById('datum-text').innerText = `${monday.getDate()}. ${monate[monday.getMonth()]} bis ${sunday.getDate()}. ${monate[sunday.getMonth()]}`;
-        }
-        updateDate();
+            const countdownDate = new Date();
+            countdownDate.setHours(countdownDate.getHours() + 8);
+            countdownDate.setMinutes(countdownDate.getMinutes() + 13);
+            countdownDate.setSeconds(countdownDate.getSeconds() + 59);
 
-        // 🔥 COUNTDOWN FUNKTION (bis Sonntag 23:59)
-        function updateCountdown() {
-            const now = new Date();
-            const sunday = new Date();
-            sunday.setDate(sunday.getDate() + (7 - sunday.getDay()));
-            sunday.setHours(23, 59, 59, 999);
-
-            function refreshCountdown() {
-                const distance = sunday - new Date();
-
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = countdownDate - now;
                 if (distance <= 0) return;
 
-                document.getElementById('days').innerText = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0');
-                document.getElementById('hours').innerText = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
-                document.getElementById('minutes').innerText = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
-                document.getElementById('seconds').innerText = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
+                document.getElementById('days').innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+                document.getElementById('hours').innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                document.getElementById('minutes').innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                document.getElementById('seconds').innerText = Math.floor((distance % (1000 * 60)) / 1000);
             }
 
-            refreshCountdown();
-            setInterval(refreshCountdown, 1000);
-        }
-        updateCountdown();
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        })();
     </script>
 </body>
 </html></div></div>
