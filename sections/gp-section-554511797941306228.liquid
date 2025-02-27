@@ -396,23 +396,25 @@
     
       <script id="custom-js-gGt7Nsrdoi">
         try {
-          function scrollToSection(sectionClass) {
+          // Funktion zum Scrollen zur Section (Mobile + Desktop)
+function scrollToSection(sectionClass) {
     const target = document.querySelector(sectionClass);
     if (target) {
         const headerElement = document.querySelector('.angebot-banner');
         const headerOffset = headerElement ? headerElement.offsetHeight : 0;
-        const elementPosition = target.getBoundingClientRect().top + window.scrollY; // Absolute Position der Section
-        const offsetPosition = elementPosition - headerOffset - 10; // 10px extra für Abstand
+        const elementPosition = target.getBoundingClientRect().top + window.scrollY;
+        const offsetPosition = elementPosition - headerOffset - 10;
 
         window.scrollTo({
             top: offsetPosition,
             behavior: 'smooth'
         });
 
-        // Menü schließen nach Klick (nur wenn vorhanden)
+        // 🚀 Bugfix: Nur Menü schließen, wenn es wirklich offen ist
         const menuLinks = document.getElementById('menuLinks');
-        if (menuLinks) {
+        if (menuLinks && menuLinks.classList.contains('show')) {
             menuLinks.classList.remove('show');
+            console.log("Burger-Menü geschlossen.");
         }
     }
 }
@@ -455,17 +457,17 @@ function scrollToOffer(event) {
         } else {
             console.log("⚠️ Ziel-Sektion nicht gefunden! Prüfe die CSS-Klassen.");
         }
-    }, 200); // 200ms Verzögerung für eine flüssige UX
+    }, 200);
 
-    // 🚀 **Bugfix:** Burger-Menü wieder richtig schließen!
+    // 🚀 Bugfix: Nur Burger-Menü schließen, wenn es offen ist
     const menuLinks = document.getElementById("menuLinks");
-    if (menuLinks) {
+    if (menuLinks && menuLinks.classList.contains("show")) {
         menuLinks.classList.remove("show");
         console.log("Burger-Menü geschlossen.");
     }
 }
 
-// Sicherstellen, dass Event-Listener nur ausgeführt werden, wenn die Elemente existieren
+// Event-Listener nur ausführen, wenn die Elemente existieren
 document.addEventListener("DOMContentLoaded", function() {
     console.log("DOM vollständig geladen!");
 
@@ -496,7 +498,7 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("⚠️ Kein Element mit Klasse 'offer-btn' gefunden!");
     }
 
-    // **Bugfix:** Popup auf Desktop schließen, wenn ins Leere (Overlay) geklickt wird!
+    // 🚀 **Bugfix:** Popup auf Desktop schließen, wenn ins Leere (Overlay) geklickt wird!
     var overlay = document.getElementById("overlay");
     if (overlay) {
         overlay.addEventListener("click", function() {
@@ -504,8 +506,11 @@ document.addEventListener("DOMContentLoaded", function() {
             closePopup();
         });
         console.log("EventListener für Overlay-Klick gesetzt.");
+    } else {
+        console.log("⚠️ Kein Element mit ID 'overlay' gefunden!");
     }
 });
+
 
         } catch(err){}
       </script>
