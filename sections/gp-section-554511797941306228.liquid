@@ -269,73 +269,16 @@
 </div></div></div>
   
       <style id="custom-css-gGt7Nsrdoi">
-        .popup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 20px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    border-radius: 16px;
-    z-index: 1000;
-    width: 340px;
-    max-width: 90%;
-    text-align: center;
-    font-family: 'Arial', sans-serif;
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-.popup h2 {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.popup p {
-    font-size: 14px;
-    color: #555;
-    line-height: 1.4;
-}
-
-.popup-price {
-    font-size: 16px;
-    font-weight: bold;
-    margin-top: 15px;
-}
-
-.price-label {
-    color: #333;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.old-price {
-    text-decoration: line-through;
-    color: #888;
-    font-size: 18px; /* Jetzt größer */
-    font-weight: bold;
-    margin-left: 5px;
-}
-
-.new-price {
-    color: #ff3b30;
-    font-size: 16px;
-    font-weight: bold;
-    margin-left: 5px;
-}
-
-.popup-buttons {
+        .popup-buttons {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
     gap: 10px; /* Abstand zwischen den Buttons */
 }
 
+/* Schließen-Button bleibt grau mit dunkler Schrift */
 .close-btn {
-    background: #ddd; /* Grau */
+    background-color: #ddd; /* Grauer Hintergrund */
     color: #333; /* Dunkelgraue Schrift */
     padding: 12px 20px;
     border: none;
@@ -344,20 +287,20 @@
     font-size: 14px;
     flex: 1;
     text-align: center;
-    transition: background 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .close-btn:hover {
-    background: #bbb; /* Dunkleres Grau beim Hover */
+    background-color: #bbb; /* Dunkleres Grau beim Hover */
 }
 
+/* Zum-Angebot-Button ist rot mit weißer Schrift */
 .offer-btn {
-    background: #ff6f61; /* Rot */
+    background-color: #ff6f61; /* Rot */
     color: white; /* Weiße Schrift */
     padding: 12px 20px;
     border-radius: 8px;
     font-size: 16px;
-    text-decoration: none;
     text-align: center;
     flex: 1;
     min-width: 140px;
@@ -367,16 +310,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.3s ease-in-out, transform 0.1s ease-in-out;
+    transition: background 0.3s ease-in-out, transform 0.1s ease-in-out, color 0.3s ease-in-out;
 }
 
-.offer-btn:hover {
-    background: #e05b50; /* Dunkleres Rot beim Hover */
-}
-
+/* Sicherstellen, dass die Schriftfarbe weiß bleibt */
+.offer-btn:hover,
 .offer-btn:focus,
 .offer-btn:active {
-    background: #e05b50;
+    background-color: #e05b50; /* Dunkleres Rot beim Hover und Klicken */
+    color: white; /* Weiße Schrift bleibt */
     transform: scale(0.98);
     outline: none;
 }
