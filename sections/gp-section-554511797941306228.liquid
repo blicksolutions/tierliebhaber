@@ -346,7 +346,7 @@
     flex: 1;
     text-align: center;
     transition: background 0.3s ease-in-out;
-    min-width: 130px; /* Größere Mindestbreite */
+    min-width: 130px;
 }
 
 .close-btn:hover {
@@ -355,15 +355,15 @@
 
 /* "Zum Angebot"-Button bleibt rot mit weißer Schrift & richtiger Größe */
 .offer-btn {
-    background-color: #ff6f61;
-    color: white !important;
-    padding: 14px 20px; /* Größerer Padding für breiteren Button */
+    background-color: #ff6f61 !important; /* Immer rot */
+    color: white !important; /* Schrift immer weiß */
+    padding: 14px 20px;
     border-radius: 8px;
     font-size: 16px;
     text-decoration: none;
     text-align: center;
     flex: 1;
-    min-width: 160px; /* Button jetzt breiter */
+    min-width: 160px;
     border: none;
     font-weight: bold;
     cursor: pointer;
@@ -371,15 +371,21 @@
     align-items: center;
     justify-content: center;
     transition: background 0.3s ease-in-out, transform 0.1s ease-in-out;
+    visibility: visible !important; /* Falls externe Styles ihn verstecken */
+    opacity: 1 !important; /* Falls Transparenz geändert wurde */
 }
 
+/* Fix: Button bleibt rot & Schrift weiß beim Hover */
 .offer-btn:hover {
-    background-color: #e05b50;
+    background-color: #e05b50 !important; /* Dunkleres Rot */
+    color: white !important;
 }
 
+/* Fix: Auch beim Klicken bleibt alles korrekt */
 .offer-btn:focus,
 .offer-btn:active {
-    background-color: #e05b50;
+    background-color: #e05b50 !important;
+    color: white !important;
     transform: scale(0.98);
     outline: none;
 }
