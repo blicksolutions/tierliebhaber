@@ -146,6 +146,7 @@
             color: white;
             display: block;
             text-align: left;
+            cursor: pointer;
         }
         .menu-links a:hover {
             background-color: rgba(255, 255, 255, 0.2);
@@ -188,9 +189,9 @@
         <div class="menu-icon">☰</div>
     </div>
     <div class="menu-links" id="menuLinks">
-        <a href="#" onclick="scrollToSection('.Angebot')">Angebot</a>
-        <a href="#" onclick="scrollToSection('.Resultate')">Resultate</a>
-        <a href="#" onclick="scrollToSection('.HäufigeFragen')">Häufige Fragen</a>
+        <a onclick="scrollToSection('.Angebot')">Angebot</a>
+        <a onclick="scrollToSection('.Resultate')">Resultate</a>
+        <a onclick="scrollToSection('.HäufigeFragen')">Häufige Fragen</a>
     </div>
 
     <!-- 🔥 ANGEBOT & COUNTDOWN -->
@@ -219,8 +220,15 @@
         }
 
         function scrollToSection(sectionClass) {
-            document.querySelector(sectionClass).scrollIntoView({ behavior: "smooth" });
-            document.getElementById('menuLinks').classList.remove('show'); // Menü schließt sich nach Klick
+            const section = document.querySelector(sectionClass);
+            if (section) {
+                const headerHeight = document.querySelector('.angebot-banner').offsetHeight;
+                window.scrollTo({
+                    top: section.offsetTop - headerHeight - 10, // Perfekte Höhe abziehen
+                    behavior: "smooth"
+                });
+                document.getElementById('menuLinks').classList.remove('show'); // Menü schließt sich nach Klick
+            }
         }
 
         // 🔥 AUTOMATISCHE DATUMSANZEIGE (Kalenderwoche + Monat)
