@@ -256,13 +256,20 @@
           function scrollToSection(sectionClass) {
     const target = document.querySelector(sectionClass);
     if (target) {
-        const yOffset = -document.querySelector('.angebot-banner').offsetHeight; // Header-Höhe berechnen
-        const y = target.getBoundingClientRect().top + window.scrollY + yOffset;
+        const headerOffset = document.querySelector('.angebot-banner').offsetHeight; // Dynamische Header-Höhe berechnen
+        const elementPosition = target.getBoundingClientRect().top + window.scrollY; // Absolute Position der Section
+        const offsetPosition = elementPosition - headerOffset - 10; // 10px extra für Abstand
 
-        window.scrollTo({ top: y, behavior: 'smooth' });
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
 
         // Menü schließen nach Klick
         document.getElementById('menuLinks').classList.remove('show');
+
+        // Verhindert das automatische Hochspringen durch den Klick auf den Anker
+        event.preventDefault();
     }
 }
 
