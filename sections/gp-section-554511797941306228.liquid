@@ -352,17 +352,16 @@
     background-color: #bbb; /* Dunkleres Grau beim Hover */
 }
 
-/* "Zum Angebot"-Button bleibt Rot mit weißer Schrift */
 .offer-btn {
-    background-color: #ff6f61; /* Fixierte Rot-Ton */
-    color: white; /* Fixierte weiße Schrift */
+    background-color: #ff6f61; /* Rote Hintergrundfarbe bleibt */
+    color: white !important; /* Schrift bleibt sicher weiß */
     padding: 12px 20px;
     border-radius: 8px;
     font-size: 16px;
     text-decoration: none;
     text-align: center;
     flex: 1;
-    min-width: 140px; /* Mindestbreite für einheitliche Größe */
+    min-width: 140px;
     border: none;
     font-weight: bold;
     cursor: pointer;
@@ -374,11 +373,13 @@
 
 .offer-btn:hover {
     background-color: #e05b50; /* Dunkleres Rot beim Hover */
+    color: white !important; /* Auch beim Hover bleibt Schrift weiß */
 }
 
 .offer-btn:focus,
 .offer-btn:active {
     background-color: #e05b50;
+    color: white !important; /* Auch beim Klicken bleibt Schrift weiß */
     transform: scale(0.98);
     outline: none;
 }
