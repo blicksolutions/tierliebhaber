@@ -188,6 +188,8 @@
 .ingredients__container .highlights__item img {
 	object-fit: contain;
 	object-position: top;
+	height: 100%;
+	width: 100%;
 }
 
 @media (min-width: 768px) {
