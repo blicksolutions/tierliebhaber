@@ -331,35 +331,36 @@
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+    gap: 10px; /* Abstand zwischen den Buttons */
 }
 
 .close-btn {
-    background: #ddd;
-    color: #333;
-    padding: 10px 15px;
+    background: #ddd; /* Grau */
+    color: #333; /* Dunkelgraue Schrift */
+    padding: 12px 20px;
     border: none;
     cursor: pointer;
     border-radius: 8px;
     font-size: 14px;
     flex: 1;
-    margin-right: 10px;
     text-align: center;
     transition: background 0.3s ease-in-out;
 }
 
 .close-btn:hover {
-    background: #bbb;
+    background: #bbb; /* Dunkleres Grau beim Hover */
 }
+
 .offer-btn {
-    background: #ff6f61; /* Original Rot */
-    color: white; /* Schriftfarbe Weiß */
-    padding: 12px 20px; /* Mehr Padding für größere Fläche */
+    background: #ff6f61; /* Rot */
+    color: white; /* Weiße Schrift */
+    padding: 12px 20px;
     border-radius: 8px;
-    font-size: 16px; /* Größere Schrift für bessere Lesbarkeit */
+    font-size: 16px;
     text-decoration: none;
     text-align: center;
     flex: 1;
-    min-width: 140px; /* Mindestbreite, damit der Button nicht zu schmal wird */
+    min-width: 140px;
     border: none;
     font-weight: bold;
     cursor: pointer;
@@ -375,9 +376,9 @@
 
 .offer-btn:focus,
 .offer-btn:active {
-    background: #e05b50; /* Gleiche dunklere Farbe beim Klicken */
-    transform: scale(0.98); /* Leichter Klick-Effekt */
-    outline: none; /* Verhindert unschöne Ränder beim Klicken */
+    background: #e05b50;
+    transform: scale(0.98);
+    outline: none;
 }
 
       </style>
