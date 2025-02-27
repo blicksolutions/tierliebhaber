@@ -419,42 +419,68 @@
 
 // Funktion zum Öffnen des Popups
 function openPopup() {
-    document.getElementById('popup').style.display = 'block';
-    document.getElementById('overlay').style.display = 'block';
+    console.log("Popup wird geöffnet...");
+    document.getElementById("popup").style.display = "block";
+    document.getElementById("overlay").style.display = "block";
 }
 
 // Funktion zum Schließen des Popups
 function closePopup() {
-    document.getElementById('popup').style.display = 'none';
-    document.getElementById('overlay').style.display = 'none';
+    console.log("Popup wird geschlossen...");
+    document.getElementById("popup").style.display = "none";
+    document.getElementById("overlay").style.display = "none";
 }
 
-// Funktion zum Schließen des Popups & Scrollen zur Angebots-Sektion
+// Funktion zum Scrollen zur Angebots-Sektion & Pop-up schließen
 function scrollToOffer(event) {
-    event.preventDefault(); // Verhindert unerwünschte Button-Markierung
-    closePopup(); // Erst Popup schließen
+    event.preventDefault(); // Verhindert das Springen der Seite
+    console.log("Zum Angebot-Button wurde geklickt!");
+    
+    closePopup(); // Erst das Popup schließen
+    console.log("Popup wurde geschlossen!");
 
-    // Nach 200ms zur richtigen Sektion scrollen
     setTimeout(() => {
-        const sectionClass = window.innerWidth > 768 ? ".angebot-desktop" : ".Angebot"; // Desktop vs. Mobile
-        scrollToSection(sectionClass);
-    }, 200);
+        const target = document.querySelector(".Angebot, .angebot-desktop"); // Mobile + Desktop
+        if (target) {
+            console.log("Ziel-Sektion gefunden:", target);
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+        } else {
+            console.log("⚠️ Ziel-Sektion nicht gefunden! Prüfe die CSS-Klassen.");
+        }
+    }, 200); // 200ms Verzögerung für eine flüssige UX
 }
 
-// Sicherstellen, dass das Event auch bei später geladenen Elementen funktioniert
+// Sicherstellen, dass Event-Listener nur ausgeführt werden, wenn die Elemente existieren
 document.addEventListener("DOMContentLoaded", function() {
-    var boosterText = document.querySelector(".clickable");
-    var offerButton = document.getElementById("offer-btn");
+    console.log("DOM vollständig geladen!");
 
+    // Klick-Event für "Wirkungsbooster" Text
+    var boosterText = document.querySelector(".clickable");
     if (boosterText) {
         boosterText.addEventListener("click", openPopup);
+        console.log("EventListener für 'Wirkungsbooster' gesetzt.");
+    } else {
+        console.log("⚠️ Kein Element mit Klasse 'clickable' gefunden!");
     }
 
+    // Klick-Event für den "Schließen"-Button
+    var closeButton = document.querySelector(".close-btn");
+    if (closeButton) {
+        closeButton.addEventListener("click", closePopup);
+        console.log("EventListener für 'Schließen' gesetzt.");
+    } else {
+        console.log("⚠️ Kein Element mit Klasse 'close-btn' gefunden!");
+    }
+
+    // Klick-Event für den "Zum Angebot"-Button
+    var offerButton = document.querySelector(".offer-btn");
     if (offerButton) {
         offerButton.addEventListener("click", scrollToOffer);
+        console.log("EventListener für 'Zum Angebot' gesetzt.");
+    } else {
+        console.log("⚠️ Kein Element mit Klasse 'offer-btn' gefunden!");
     }
 });
-
 
         } catch(err){}
       </script>
