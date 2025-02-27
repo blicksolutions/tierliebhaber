@@ -251,6 +251,22 @@
 </body>
 </html></div></div>
   
+      <script id="custom-js-gGt7Nsrdoi">
+        try {
+          function scrollToSection(sectionClass) {
+    const target = document.querySelector(sectionClass);
+    if (target) {
+        const offset = target.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top: offset, behavior: 'smooth' });
+
+        // Menü nach Klick schließen
+        document.getElementById('menuLinks').classList.remove('show');
+    }
+}
+
+        } catch(err){}
+      </script>
+    
   
     <div
       
