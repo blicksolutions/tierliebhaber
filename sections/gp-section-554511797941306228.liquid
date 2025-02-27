@@ -41,7 +41,6 @@
             scroll-behavior: smooth;
         }
 
-        /* 🔥 ANGEBOT + TIMER DESIGN */
         .angebot-banner-wrapper {
             position: relative;
         }
@@ -80,6 +79,15 @@
             white-space: nowrap;
         }
 
+        @media (max-width: 600px) {
+            .datum-container {
+                flex-wrap: wrap;
+            }
+            .datum-container span {
+                display: inline;
+            }
+        }
+
         .countdown-wrapper {
             display: flex;
             justify-content: center;
@@ -112,7 +120,7 @@
             color: #880E4F;
         }
 
-        /* 🔥 BURGER-MENÜ DESIGN */
+        /* 🔥 BURGER-MENÜ STYLES */
         .menu-container {
             position: fixed;
             top: 10px;
@@ -122,13 +130,11 @@
             padding: 10px 15px;
             border-radius: 5px;
             cursor: pointer;
-            z-index: 1100;
+            z-index: 2000;
         }
-
         .menu-icon {
             font-size: 1.5rem;
         }
-
         .menu-links {
             position: absolute;
             top: 50px;
@@ -139,62 +145,43 @@
             display: none;
             flex-direction: column;
             width: 180px;
-            z-index: 1100;
+            z-index: 2000;
         }
-
         .menu-links a {
             padding: 12px 15px;
             text-decoration: none;
             color: white;
             display: block;
             text-align: left;
+            cursor: pointer;
         }
-
         .menu-links a:hover {
             background-color: rgba(255, 255, 255, 0.2);
         }
-
         .menu-links.show {
             display: flex;
         }
 
-        .menu-container, .menu-links {
-            position: fixed;
-            z-index: 2000;
-        }
-
+        /* Menü nur auf Mobile */
         @media (min-width: 768px) {
             .menu-container {
                 display: none;
             }
         }
-
-        /* 🔥 SECTION-STYLING FÜR SCROLL-ZIELE */
-        section {
-            height: 800px;
-            padding: 50px;
-            text-align: center;
-            font-size: 2rem;
-        }
-
-        .Angebot { background-color: #FFD1D1; }
-        .Resultate { background-color: #C8E6C9; }
-        .HäufigeFragen { background-color: #BBDEFB; }
     </style>
 </head>
 <body>
-
     <!-- 🔥 BURGER MENÜ -->
     <div class="menu-container" onclick="toggleMenu()">
         <div class="menu-icon">☰</div>
     </div>
     <div class="menu-links" id="menuLinks">
-        <a href="#" data-target="Angebot">Angebot</a>
-        <a href="#" data-target="Resultate">Resultate</a>
-        <a href="#" data-target="HäufigeFragen">Häufige Fragen</a>
+        <a onclick="scrollToSection('Angebot')">Angebot</a>
+        <a onclick="scrollToSection('Resultate')">Resultate</a>
+        <a onclick="scrollToSection('HäufigeFragen')">Häufige Fragen</a>
     </div>
 
-    <!-- 🔥 ANGEBOT + COUNTDOWN -->
+    <!-- 🔥 ANGEBOT & COUNTDOWN -->
     <div class="angebot-banner-wrapper">
         <div class="angebot-banner">
             <h1 id="angebot-text">EINMALIGES FEBRUAR-ANGEBOT</h1>
@@ -203,66 +190,53 @@
                 <span id="datum-text"></span>
             </div>
             <div class="countdown-wrapper">
-                <div class="countdown-box"><div id="days" class="countdown-number"></div><div class="countdown-label">TAGE</div></div>
-                <div class="countdown-box"><div id="hours" class="countdown-number"></div><div class="countdown-label">STUNDEN</div></div>
-                <div class="countdown-box"><div id="minutes" class="countdown-number"></div><div class="countdown-label">MINUTEN</div></div>
-                <div class="countdown-box"><div id="seconds" class="countdown-number"></div><div class="countdown-label">SEKUNDEN</div></div>
+                <div class="countdown-box"><div id="days" class="countdown-number">00</div><div class="countdown-label">TAGE</div></div>
+                <div class="countdown-box"><div id="hours" class="countdown-number">00</div><div class="countdown-label">STUNDEN</div></div>
+                <div class="countdown-box"><div id="minutes" class="countdown-number">00</div><div class="countdown-label">MINUTEN</div></div>
+                <div class="countdown-box"><div id="seconds" class="countdown-number">00</div><div class="countdown-label">SEKUNDEN</div></div>
             </div>
             <p>*NUR SOLANGE DER VORRAT REICHT</p>
         </div>
     </div>
-
-    <!-- 🔥 SECTIONS -->
-    <section class="Angebot">Angebot</section>
-    <section class="Resultate">Resultate</section>
-    <section class="HäufigeFragen">Häufige Fragen</section>
 
     <script>
         function toggleMenu() {
             document.getElementById('menuLinks').classList.toggle('show');
         }
 
-        // 🔥 SCROLL FUNKTION MIT FESTEN PIXEL-WERTEN
-        document.querySelectorAll(".menu-links a").forEach(link => {
-            link.addEventListener("click", function(event) {
-                event.preventDefault();
+        function scrollToSection(sectionClass) {
+            const section = document.querySelector('.' + sectionClass);
+            if (section) {
+                window.scrollTo({
+                    top: section.offsetTop - 80, // 80px für Abstand zur oberen Leiste
+                    behavior: 'smooth'
+                });
+            }
+        }
 
-                const scrollPositions = {
-                    "Angebot": 800,        
-                    "Resultate": 1600,     
-                    "HäufigeFragen": 2400  
-                };
-
-                const target = this.getAttribute("data-target");
-
-                if (scrollPositions[target]) {
-                    window.scrollTo({ top: scrollPositions[target], behavior: "smooth" });
-                }
-            });
-        });
-
-        // 🔥 COUNTDOWN FUNKTION
         (function() {
-            const countdownDate = new Date();
-            countdownDate.setHours(23, 59, 59, 999); // Setzt das Ziel auf Mitternacht
+            const today = new Date();
+            const monday = new Date(today);
+            monday.setDate(today.getDate() - today.getDay() + (today.getDay() === 0 ? -6 : 1));
+            const sunday = new Date(monday);
+            sunday.setDate(monday.getDate() + 6);
+            const monate = ["JANUAR", "FEBRUAR", "MÄRZ", "APRIL", "MAI", "JUNI", "JULI", "AUGUST", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DEZEMBER"];
+            const formatDate = (date) => `${String(date.getDate()).padStart(2, '0')}. ${monate[date.getMonth()]}`;
+            document.getElementById('datum-text').innerText = `${formatDate(monday)} BIS ${formatDate(sunday)}`;
 
             function updateCountdown() {
                 const now = new Date().getTime();
-                const distance = countdownDate - now;
-
+                const distance = new Date().setHours(23, 59, 59, 999) - now;
                 if (distance <= 0) return;
-
-                document.getElementById('days').innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
-                document.getElementById('hours').innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                document.getElementById('minutes').innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                document.getElementById('seconds').innerText = Math.floor((distance % (1000 * 60)) / 1000);
+                document.getElementById('days').innerText = String(Math.floor(distance / 86400000)).padStart(2, '0');
+                document.getElementById('hours').innerText = String(Math.floor((distance % 86400000) / 3600000)).padStart(2, '0');
+                document.getElementById('minutes').innerText = String(Math.floor((distance % 3600000) / 60000)).padStart(2, '0');
+                document.getElementById('seconds').innerText = String(Math.floor((distance % 60000) / 1000)).padStart(2, '0');
             }
-
             updateCountdown();
             setInterval(updateCountdown, 1000);
         })();
     </script>
-
 </body>
 </html></div></div>
   
