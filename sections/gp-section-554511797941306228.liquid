@@ -255,7 +255,10 @@
         const targetElement = document.querySelector(`.${targetClass}`);
 
         if (targetElement) {
-            targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+            const yOffset = -50; // Falls die Sticky-Navigation überlappt, anpassen
+            const y = targetElement.getBoundingClientRect().top + window.scrollY + yOffset;
+
+            window.scrollTo({ top: y, behavior: "smooth" });
         }
     });
 });
