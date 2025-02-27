@@ -248,14 +248,16 @@
   
       <script id="custom-js-gGt7Nsrdoi">
         try {
-          function scrollToSection(className) {
-    const section = document.querySelector(`.${className}`);
-    if (section) {
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        setTimeout(() => toggleMenu(), 500);
-    } else {
-        console.error(`Section mit der Klasse '${className}' nicht gefunden.`);
-    }
+          function scrollToSection(sectionClass) {
+    setTimeout(() => {
+        const section = document.querySelector(`.${sectionClass}`);
+        if (section) {
+            section.scrollIntoView({ behavior: "smooth", block: "start" });
+            toggleMenu(); // Menü nach dem Scrollen schließen
+        } else {
+            console.error("Section nicht gefunden:", sectionClass);
+        }
+    }, 200); // Verzögerung, falls Page-Builder Inhalte später lädt
 }
 
         } catch(err){}
