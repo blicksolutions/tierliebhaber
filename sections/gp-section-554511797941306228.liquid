@@ -256,10 +256,12 @@
           function scrollToSection(sectionClass) {
     const target = document.querySelector(sectionClass);
     if (target) {
-        const offset = target.offsetTop - 80; // Exakter Abstand zur Section
-        window.scrollTo({ top: offset, behavior: 'smooth' });
+        const yOffset = -80; // Höhe des Headers berücksichtigen
+        const y = target.getBoundingClientRect().top + window.scrollY + yOffset;
+        
+        window.scrollTo({ top: y, behavior: 'smooth' });
 
-        // Menü nach Klick schließen
+        // Menü schließen nach dem Klick
         document.getElementById('menuLinks').classList.remove('show');
     }
 }
