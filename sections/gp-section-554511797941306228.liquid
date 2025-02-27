@@ -153,6 +153,7 @@
             color: white;
             display: block;
             text-align: left;
+            cursor: pointer;
         }
         .menu-links a:hover {
             background-color: rgba(255, 255, 255, 0.2);
@@ -180,9 +181,9 @@
         <div class="menu-icon">☰</div>
     </div>
     <div class="menu-links" id="menuLinks">
-        <a href="#" onclick="scrollToSection('Angebot')">Angebot</a>
-        <a href="#" onclick="scrollToSection('Resultate')">Resultate</a>
-        <a href="#" onclick="scrollToSection('Häufige Fragen')">Häufige Fragen</a>
+        <a onclick="scrollToSection('Angebot')">Angebot</a>
+        <a onclick="scrollToSection('Resultate')">Resultate</a>
+        <a onclick="scrollToSection('HäufigeFragen')">Häufige Fragen</a>
     </div>
 
     <!-- 🔥 ANGEBOT & COUNTDOWN -->
@@ -210,14 +211,14 @@
             menu.classList.toggle('show');
         }
 
-        // 🔥 SCROLL FUNKTION - Korrektur für Gempages Sections
-        function scrollToSection(sectionClass) {
-            const section = document.querySelector(`.${sectionClass}`);
+        // 🔥 SCROLL FUNKTION - FIX für GemPages Sections
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
             if (section) {
                 section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                toggleMenu(); // Menü ausblenden nach Klick
+                setTimeout(() => toggleMenu(), 500); // Menü schließen nach Klick
             } else {
-                console.error(`Section mit der Klasse ${sectionClass} nicht gefunden.`);
+                console.error(`Section mit der ID '${sectionId}' nicht gefunden.`);
             }
         }
 
