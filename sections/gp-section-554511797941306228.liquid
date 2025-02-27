@@ -38,9 +38,10 @@
             padding: 0;
             width: 100%;
             font-family: Arial, sans-serif;
-            scroll-behavior: smooth; /* ✅ Sanftes Scrollen */
+            scroll-behavior: smooth; /* Sanftes Scrollen */
         }
 
+        /* 🔥 ANGEBOT + COUNTDOWN DESIGN */
         .angebot-banner-wrapper {
             position: relative;
         }
@@ -79,6 +80,7 @@
             white-space: nowrap;
         }
 
+        /* ✅ Sicherstellen, dass "von" & Datum in einer Zeile bleiben */
         @media (max-width: 600px) {
             .datum-container {
                 flex-wrap: wrap;
@@ -120,7 +122,7 @@
             color: #880E4F;
         }
 
-        /* 🔥 BURGER-MENÜ STYLES */
+        /* 🔥 BURGER-MENÜ DESIGN */
         .menu-container {
             position: fixed;
             top: 10px;
@@ -130,11 +132,13 @@
             padding: 10px 15px;
             border-radius: 5px;
             cursor: pointer;
-            z-index: 1100;
+            z-index: 2000;
         }
+
         .menu-icon {
             font-size: 1.5rem;
         }
+
         .menu-links {
             position: absolute;
             top: 50px;
@@ -145,28 +149,26 @@
             display: none;
             flex-direction: column;
             width: 180px;
-            z-index: 1100;
+            z-index: 2000;
         }
+
         .menu-links a {
             padding: 12px 15px;
             text-decoration: none;
             color: white;
             display: block;
             text-align: left;
-            cursor: pointer;
         }
+
         .menu-links a:hover {
             background-color: rgba(255, 255, 255, 0.2);
         }
+
         .menu-links.show {
             display: flex;
         }
 
-        .menu-container, .menu-links {
-            position: fixed;
-            z-index: 2000;
-        }
-
+        /* Burger-Menü nur auf Mobile */
         @media (min-width: 768px) {
             .menu-container {
                 display: none;
@@ -175,16 +177,14 @@
     </style>
 </head>
 <body>
-
     <!-- 🔥 BURGER MENÜ -->
     <div class="menu-container" onclick="toggleMenu()">
         <div class="menu-icon">☰</div>
     </div>
     <div class="menu-links" id="menuLinks">
-        <a onclick="scrollToSection('Angebot')">Angebot</a>
-        <a onclick="scrollToSection('Resultate')">Resultate</a>
-        <a onclick="scrollToSection('HäufigeFragen')">Häufige Fragen</a>
-
+        <a href="javascript:void(0);" onclick="scrollToSection('Angebot')">Angebot</a>
+        <a href="javascript:void(0);" onclick="scrollToSection('Resultate')">Resultate</a>
+        <a href="javascript:void(0);" onclick="scrollToSection('HäufigeFragen')">Häufige Fragen</a>
     </div>
 
     <!-- 🔥 ANGEBOT & COUNTDOWN -->
@@ -212,14 +212,14 @@
             menu.classList.toggle('show');
         }
 
-        // 🔥 SCROLL FUNKTION - FIX für GemPages Sections
-        function scrollToSection(sectionId) {
-            const section = document.getElementById(sectionId);
+        // 🔥 SCROLL-FUNKTION FÜR DAS MENÜ
+        function scrollToSection(className) {
+            const section = document.querySelector(`.${className}`);
             if (section) {
                 section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                setTimeout(() => toggleMenu(), 500); // Menü schließen nach Klick
+                setTimeout(() => toggleMenu(), 500);
             } else {
-                console.error(`Section mit der ID '${sectionId}' nicht gefunden.`);
+                console.error(`Section mit der Klasse '${className}' nicht gefunden.`);
             }
         }
 
@@ -235,10 +235,12 @@
             const monate = ["JANUAR", "FEBRUAR", "MÄRZ", "APRIL", "MAI", "JUNI", "JULI", "AUGUST", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DEZEMBER"];
 
             const formatDate = (date) => `${String(date.getDate()).padStart(2, '0')}. ${monate[date.getMonth()]}`;
+
             document.getElementById('datum-text').innerText = `${formatDate(monday)} BIS ${formatDate(sunday)}`;
+
+            setInterval(() => updateCountdown(), 1000);
         })();
     </script>
-
 </body>
 </html></div></div>
   
