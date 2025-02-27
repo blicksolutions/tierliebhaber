@@ -254,14 +254,17 @@
 <div class="overlay" id="overlay" onclick="closePopup()"></div>
 <div class="popup" id="popup">
     <h2>Zahnfee Pulver</h2>
-    <p>Verstärkt die Wirkung, indem es überschüssige Säuren neutralisiert und Bakterien den Nährboden entzieht – ganz ohne chemische Zusätze!</p>
+    <p>Verstärkt die Wirkung, indem es überschüssige Säuren neutralisiert und Bakterien den Nährboden entzieht – ganz ohne chemische Zusätze.</p>
     
     <p style="font-size: 16px; font-weight: bold; margin-top: 10px;">
         Regulärer Preis: <span style="text-decoration: line-through; color: #888;">39,90€</span>
         <span style="color: #ff6f61;"> GRATIS in der Jahreskur enthalten!</span>
     </p>
 
-    <button onclick="closePopup()">Schließen</button>
+    <div class="popup-buttons">
+        <button onclick="closePopup()" class="close-btn">Schließen</button>
+        <a href="DEIN-ANGEBOTSLINK" class="offer-btn">Zum Angebot</a>
+    </div>
 </div></div></div>
   
       <style id="custom-css-gGt7Nsrdoi">
@@ -327,6 +330,46 @@
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+
+.popup-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.close-btn {
+    background: #ddd;
+    color: #333;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 14px;
+    flex: 1;
+    margin-right: 10px;
+    text-align: center;
+    transition: background 0.3s ease-in-out;
+}
+
+.close-btn:hover {
+    background: #bbb;
+}
+
+.offer-btn {
+    background: #ff6f61;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    text-decoration: none;
+    text-align: center;
+    flex: 1;
+    transition: background 0.3s ease-in-out;
+}
+
+.offer-btn:hover {
+    background: #e05b50;
 }
 
       </style>
