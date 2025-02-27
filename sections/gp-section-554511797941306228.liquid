@@ -38,6 +38,7 @@
             padding: 0;
             width: 100%;
             font-family: Arial, sans-serif;
+            scroll-behavior: smooth; /* Sanftes Scrollen */
         }
 
         .angebot-banner-wrapper {
@@ -130,11 +131,13 @@
             padding: 10px 15px;
             border-radius: 5px;
             cursor: pointer;
-            z-index: 1100;
+            z-index: 2000;
         }
+
         .menu-icon {
             font-size: 1.5rem;
         }
+
         .menu-links {
             position: absolute;
             top: 50px;
@@ -145,8 +148,9 @@
             display: none;
             flex-direction: column;
             width: 180px;
-            z-index: 1100;
+            z-index: 2000;
         }
+
         .menu-links a {
             padding: 12px 15px;
             text-decoration: none;
@@ -154,9 +158,11 @@
             display: block;
             text-align: left;
         }
+
         .menu-links a:hover {
             background-color: rgba(255, 255, 255, 0.2);
         }
+
         .menu-links.show {
             display: flex;
         }
@@ -173,17 +179,30 @@
                 display: none;
             }
         }
+
+        /* === Beispiel-Sections === */
+        section {
+            height: 100vh; /* Beispiel: Vollbildhöhe */
+            padding: 50px;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        #angebot { background-color: #f8d7da; }
+        #resultate { background-color: #d4edda; }
+        #fragen { background-color: #cce5ff; }
     </style>
 </head>
 <body>
+
     <!-- 🔥 BURGER MENÜ -->
     <div class="menu-container" onclick="toggleMenu()">
         <div class="menu-icon">☰</div>
     </div>
     <div class="menu-links" id="menuLinks">
-        <a href="#angebot">Angebot</a>
-        <a href="#resultate">Resultate</a>
-        <a href="#fragen">Häufige Fragen</a>
+        <a href="#angebot" onclick="closeMenu()">Angebot</a>
+        <a href="#resultate" onclick="closeMenu()">Resultate</a>
+        <a href="#fragen" onclick="closeMenu()">Häufige Fragen</a>
     </div>
 
     <!-- 🔥 ANGEBOT & COUNTDOWN -->
@@ -204,11 +223,20 @@
         </div>
     </div>
 
+    <!-- 🔥 Beispiel-Sections -->
+    <section id="angebot">Angebot</section>
+    <section id="resultate">Resultate</section>
+    <section id="fragen">Häufige Fragen</section>
+
     <script>
         // 🔥 BURGER MENÜ FUNKTION
         function toggleMenu() {
             const menu = document.getElementById('menuLinks');
             menu.classList.toggle('show');
+        }
+
+        function closeMenu() {
+            document.getElementById('menuLinks').classList.remove('show');
         }
 
         // 🔥 ANGEBOT + COUNTDOWN
@@ -223,30 +251,11 @@
             const monate = ["JANUAR", "FEBRUAR", "MÄRZ", "APRIL", "MAI", "JUNI", "JULI", "AUGUST", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DEZEMBER"];
 
             const formatDate = (date) => `${String(date.getDate()).padStart(2, '0')}. ${monate[date.getMonth()]}`;
-
             document.getElementById('datum-text').innerText = `${formatDate(monday)} BIS ${formatDate(sunday)}`;
 
-            const countdownDate = new Date();
-            countdownDate.setDate(countdownDate.getDate() + 1);
-            countdownDate.setHours(countdownDate.getHours() + 15);
-            countdownDate.setMinutes(countdownDate.getMinutes() + 51);
-            countdownDate.setSeconds(countdownDate.getSeconds() + 48);
-
-            function updateCountdown() {
-                const now = new Date().getTime();
-                const distance = countdownDate - now;
-                if (distance <= 0) return;
-
-                document.getElementById('days').innerText = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0');
-                document.getElementById('hours').innerText = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
-                document.getElementById('minutes').innerText = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
-                document.getElementById('seconds').innerText = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
-            }
-
-            updateCountdown();
-            setInterval(updateCountdown, 1000);
         })();
     </script>
+
 </body>
 </html></div></div>
   
@@ -414,7 +423,7 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
 {% schema %}
   {
     
-    "name": "Section 1",
+    "name": "Section 2",
     "tag": "section",
     "class": "gps-554511797941306228 gps gpsi",
     "settings": [{"type":"paragraph","content":"Section design by GemPages. [Click here to start design](https://admin.shopify.com/store/tierliebhaber-animagus/apps/gempages-cro/app/shopify/edit?pageType=GP_STATIC&editorId=554511797822948212&sectionId=554511797941306228)"},{"type":"select","label":"Section Preload","id":"section_preload","options":[{"label":"On","value":"true"},{"label":"Off","value":"false"},{"label":"Off Lazy Script","value":"off_lazy_script"}],"default":"off_lazy_script"},{"type":"text","label":"Checksum","id":"checksum"}],
