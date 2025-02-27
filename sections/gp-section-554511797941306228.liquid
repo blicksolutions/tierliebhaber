@@ -256,13 +256,15 @@
     <h2>Zahnfee Pulver</h2>
     <p>Verstärkt die Wirkung, indem es überschüssige Säuren neutralisiert und Bakterien den Nährboden entzieht – ganz ohne chemische Zusätze.</p>
     
-    <p class="popup-price">
-        <span class="old-price">39,90€</span> <span class="new-price">GRATIS in der Jahreskur enthalten!</span>
+    <p style="font-size: 16px; font-weight: bold; margin-top: 10px;">
+        <span style="color: #333;">Regulärer Preis:</span> 
+        <span class="old-price">39,90€</span>  
+        <span class="new-price">GRATIS in der Jahreskur enthalten!</span>
     </p>
 
     <div class="popup-buttons">
         <button onclick="closePopup()" class="close-btn">Schließen</button>
-        <a href="DEIN-ANGEBOTSLINK" class="offer-btn">Zum Angebot</a>
+        <button onclick="scrollToOffer()" class="offer-btn">Zum Angebot</button>
     </div>
 </div></div></div>
   
@@ -340,15 +342,25 @@
 }
 
 .offer-btn {
-    background: #ff6f61;
-    color: white;
+    background: white;
+    color: #ff3b30;
     padding: 10px 15px;
     border-radius: 8px;
     font-size: 14px;
     text-decoration: none;
     text-align: center;
     flex: 1;
-    transition: background 0.3s ease-in-out;
+    border: 2px solid #ff3b30;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.offer-btn:hover {
+    background: #ff3b30;
+    color: white;
+}
+
 }
 
 .offer-btn:hover {
@@ -384,6 +396,16 @@ function openPopup() {
 }
 function closePopup() {
     document.getElementById('popup').style.display = 'none';
+}
+
+function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
+}
+
+function scrollToOffer() {
+    closePopup(); // Erst das Pop-up schließen
+    document.getElementById('angebot-section').scrollIntoView({ behavior: 'smooth' });
 }
 
         } catch(err){}
