@@ -171,16 +171,6 @@
                 display: none;
             }
         }
-
-        /* ✨ Sicherstellen, dass jede Section erkennbar ist */
-        .section {
-            padding: 100px 20px;
-            text-align: center;
-            font-size: 2rem;
-        }
-        .angebot { background-color: #F8D7DA; }
-        .resultate { background-color: #D4EDDA; }
-        .fragen { background-color: #D1ECF1; }
     </style>
 </head>
 <body>
@@ -213,11 +203,6 @@
         </div>
     </div>
 
-    <!-- ✨ SECTIONS -->
-    <div class="section angebot" id="Angebot">Angebot</div>
-    <div class="section resultate" id="Resultate">Resultate</div>
-    <div class="section fragen" id="Häufige Fragen">Häufige Fragen</div>
-
     <script>
         // 🔥 BURGER MENÜ FUNKTION
         function toggleMenu() {
@@ -225,12 +210,14 @@
             menu.classList.toggle('show');
         }
 
-        // 🔥 SCROLL FUNKTION
+        // 🔥 SCROLL FUNKTION - Korrektur für Gempages Sections
         function scrollToSection(sectionClass) {
             const section = document.querySelector(`.${sectionClass}`);
             if (section) {
                 section.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 toggleMenu(); // Menü ausblenden nach Klick
+            } else {
+                console.error(`Section mit der Klasse ${sectionClass} nicht gefunden.`);
             }
         }
 
