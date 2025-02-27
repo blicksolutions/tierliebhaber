@@ -331,14 +331,14 @@
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
-    gap: 10px; /* Abstand zwischen den Buttons */
+    gap: 12px; /* Abstand zwischen Buttons */
 }
 
-/* Schließen-Button bleibt grau mit dunkler Schrift */
+/* "Schließen"-Button bleibt grau mit richtiger Größe */
 .close-btn {
-    background-color: #ddd; /* Grau */
-    color: #333; /* Dunkelgraue Schrift */
-    padding: 12px 20px;
+    background-color: #ddd;
+    color: #333;
+    padding: 14px 20px;
     border: none;
     cursor: pointer;
     border-radius: 8px;
@@ -346,22 +346,24 @@
     flex: 1;
     text-align: center;
     transition: background 0.3s ease-in-out;
+    min-width: 130px; /* Größere Mindestbreite */
 }
 
 .close-btn:hover {
-    background-color: #bbb; /* Dunkleres Grau beim Hover */
+    background-color: #bbb;
 }
 
+/* "Zum Angebot"-Button bleibt rot mit weißer Schrift & richtiger Größe */
 .offer-btn {
-    background-color: #ff6f61 !important; /* Rot bleibt sicher */
-    color: white !important; /* Schrift bleibt weiß */
-    padding: 12px 20px;
+    background-color: #ff6f61;
+    color: white !important;
+    padding: 14px 20px; /* Größerer Padding für breiteren Button */
     border-radius: 8px;
     font-size: 16px;
     text-decoration: none;
     text-align: center;
     flex: 1;
-    min-width: 140px;
+    min-width: 160px; /* Button jetzt breiter */
     border: none;
     font-weight: bold;
     cursor: pointer;
@@ -369,19 +371,15 @@
     align-items: center;
     justify-content: center;
     transition: background 0.3s ease-in-out, transform 0.1s ease-in-out;
-    visibility: visible !important; /* Falls GemPages den Button versteckt */
-    opacity: 1 !important; /* Falls die Transparenz geändert wurde */
 }
 
 .offer-btn:hover {
-    background-color: #e05b50 !important; /* Dunkleres Rot beim Hover */
-    color: white !important;
+    background-color: #e05b50;
 }
 
 .offer-btn:focus,
 .offer-btn:active {
-    background-color: #e05b50 !important;
-    color: white !important;
+    background-color: #e05b50;
     transform: scale(0.98);
     outline: none;
 }
