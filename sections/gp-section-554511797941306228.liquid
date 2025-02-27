@@ -352,8 +352,8 @@
 }
 
 .offer-btn {
-    background: #ff6f61 !important; /* Fixierte Rot-Ton wie in deinem Screenshot */
-    color: white !important; /* Weiße Schrift, bleibt stabil */
+    background: #ff6f61; /* Original Rot */
+    color: white; /* Schriftfarbe Weiß */
     padding: 10px 15px;
     border-radius: 8px;
     font-size: 14px;
@@ -363,16 +363,21 @@
     border: none;
     font-weight: bold;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: background 0.3s ease-in-out, transform 0.1s ease-in-out;
 }
 
 .offer-btn:hover {
-    background: #e05b50 !important; /* Dunkleres Rot beim Hover */
+    background: #e05b50; /* Etwas dunkler beim Hover */
 }
 
+.offer-btn:focus,
 .offer-btn:active {
-    background: #e05b50 !important;
+    background: #e05b50; /* Gleiche dunklere Farbe beim Klicken */
     transform: scale(0.98); /* Leichter Klick-Effekt */
+    outline: none; /* Verhindert unschöne Ränder beim Klicken */
 }
 
       </style>
