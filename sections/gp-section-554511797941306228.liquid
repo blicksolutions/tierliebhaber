@@ -446,7 +446,7 @@
         event.preventDefault(); // Verhindert unerwünschte Button-Markierung
         closePopup(); // Erst Popup schließen
         setTimeout(() => {
-            const sectionClass = window.innerWidth > 768 ? ".angebot-desktop" : ".angebot"; // Desktop vs. Mobile
+            const sectionClass = window.innerWidth > 768 ? ".angebot-desktop" : ".Angebot"; // Desktop vs. Mobile (mit korrekter Großschreibung!)
             scrollToSection(sectionClass);
         }, 200); // 200ms Verzögerung für sauberes UX-Gefühl
     }
