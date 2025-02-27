@@ -281,7 +281,31 @@
         }
     </script>
 </body>
-</html></div></div>
+</html>
+
+<style>
+    @media (max-width: 768px) {
+        #angebot-text {
+            display: block;
+            word-break: break-word;
+            max-width: 90%; /* Damit der Text sich flexibel anpasst */
+            margin: 0 auto;
+        }
+    }
+</style>
+
+<div class="angebot-banner-wrapper">
+    <div class="angebot-banner">
+        <h1 id="angebot-text">EINMALIGES ANGEBOT<br> VON 24. FEBRUAR BIS 02. MÄRZ</h1>
+        <div class="countdown-wrapper">
+            <div class="countdown-box"><div id="days" class="countdown-number">01</div><div class="countdown-label">TAGE</div></div>
+            <div class="countdown-box"><div id="hours" class="countdown-number">15</div><div class="countdown-label">STUNDEN</div></div>
+            <div class="countdown-box"><div id="minutes" class="countdown-number">51</div><div class="countdown-label">MINUTEN</div></div>
+            <div class="countdown-box"><div id="seconds" class="countdown-number">48</div><div class="countdown-label">SEKUNDEN</div></div>
+        </div>
+        <p>*NUR SOLANGE DER VORRAT REICHT</p>
+    </div>
+</div></div></div>
   
   
     <div
@@ -447,7 +471,7 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
 {% schema %}
   {
     
-    "name": "Section 2",
+    "name": "Section 1",
     "tag": "section",
     "class": "gps-554511797941306228 gps gpsi",
     "settings": [{"type":"paragraph","content":"Section design by GemPages. [Click here to start design](https://admin.shopify.com/store/tierliebhaber-animagus/apps/gempages-cro/app/shopify/edit?pageType=GP_STATIC&editorId=554511797822948212&sectionId=554511797941306228)"},{"type":"select","label":"Section Preload","id":"section_preload","options":[{"label":"On","value":"true"},{"label":"Off","value":"false"},{"label":"Off Lazy Script","value":"off_lazy_script"}],"default":"off_lazy_script"},{"type":"text","label":"Checksum","id":"checksum"}],
