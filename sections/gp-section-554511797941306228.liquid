@@ -68,14 +68,16 @@
             word-spacing: -2px;
         }
 
-        /* ✅ Fix für "von" – es springt in der mobilen Ansicht in die nächste Zeile vor dem Datum */
+        /* ✅ Fix für "von" → Springt auf die nächste Zeile vor dem Datum (Mobile) */
         .angebot-banner .von {
             display: inline;
+            margin-right: 3px;
         }
 
         @media (max-width: 600px) {
             .angebot-banner .von {
                 display: block;
+                margin-bottom: -5px;
             }
         }
 
@@ -204,8 +206,8 @@
     <div class="angebot-banner-wrapper">
         <div class="angebot-banner">
             <h1 id="angebot-text">
-                EINMALIGES <span id="monat-name">MONAT</span>-ANGEBOT <span class="von">von</span>  
-                <span id="start-datum"></span> BIS <span id="end-datum"></span>
+                EINMALIGES <span id="monat-name">MONAT</span>-ANGEBOT  
+                <span class="von">von</span> <span id="start-datum"></span> BIS <span id="end-datum"></span>
             </h1>
             <div class="countdown-wrapper">
                 <div class="countdown-box"><div id="days" class="countdown-number">01</div><div class="countdown-label">TAGE</div></div>
