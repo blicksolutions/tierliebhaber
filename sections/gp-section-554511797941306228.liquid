@@ -33,21 +33,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monatliches Angebot mit Timer & Burger-Menü</title>
     <style>
-        /* Basis Styles */
         body, html {
             margin: 0;
             padding: 0;
             width: 100%;
             font-family: Arial, sans-serif;
-            scroll-behavior: smooth;
-            background-color: #ffffff; /* Standard Hintergrundfarbe */
-            color: #000; /* Standard Schriftfarbe */
+            scroll-behavior: smooth; /* ✅ Sanftes Scrollen */
         }
 
-        /* Banner Styling */
         .angebot-banner-wrapper {
             position: relative;
-            background: linear-gradient(to right, #FBE9EB, #F9F3E5);
         }
 
         .angebot-banner {
@@ -57,6 +52,7 @@
             width: 100%;
             padding: 20px 0;
             text-align: center;
+            background: linear-gradient(to right, #FBE9EB, #F9F3E5);
             color: #880E4F;
             z-index: 10;
             box-sizing: border-box;
@@ -83,7 +79,6 @@
             white-space: nowrap;
         }
 
-        /* ✅ Sicherstellen, dass "von" und Datum in einer Zeile bleiben */
         @media (max-width: 600px) {
             .datum-container {
                 flex-wrap: wrap;
@@ -93,7 +88,6 @@
             }
         }
 
-        /* Countdown Styling */
         .countdown-wrapper {
             display: flex;
             justify-content: center;
@@ -136,13 +130,11 @@
             padding: 10px 15px;
             border-radius: 5px;
             cursor: pointer;
-            z-index: 2000;
+            z-index: 1100;
         }
-
         .menu-icon {
             font-size: 1.5rem;
         }
-
         .menu-links {
             position: absolute;
             top: 50px;
@@ -153,9 +145,8 @@
             display: none;
             flex-direction: column;
             width: 180px;
-            z-index: 2000;
+            z-index: 1100;
         }
-
         .menu-links a {
             padding: 12px 15px;
             text-decoration: none;
@@ -163,38 +154,33 @@
             display: block;
             text-align: left;
         }
-
         .menu-links a:hover {
             background-color: rgba(255, 255, 255, 0.2);
         }
-
         .menu-links.show {
             display: flex;
         }
 
-        /* Menü über Banner legen */
         .menu-container, .menu-links {
             position: fixed;
             z-index: 2000;
         }
 
-        /* Burger Menü nur auf Mobile */
         @media (min-width: 768px) {
             .menu-container {
                 display: none;
             }
         }
 
-        /* === Sections Styling === */
-        section {
-            padding: 50px;
+        /* ✨ Sicherstellen, dass jede Section erkennbar ist */
+        .section {
+            padding: 100px 20px;
             text-align: center;
             font-size: 2rem;
         }
-
-        #angebot { background-color: #f8d7da; }
-        #resultate { background-color: #d4edda; }
-        #fragen { background-color: #cce5ff; }
+        .angebot { background-color: #F8D7DA; }
+        .resultate { background-color: #D4EDDA; }
+        .fragen { background-color: #D1ECF1; }
     </style>
 </head>
 <body>
@@ -204,9 +190,9 @@
         <div class="menu-icon">☰</div>
     </div>
     <div class="menu-links" id="menuLinks">
-        <a href="#angebot" onclick="closeMenu()">Angebot</a>
-        <a href="#resultate" onclick="closeMenu()">Resultate</a>
-        <a href="#fragen" onclick="closeMenu()">Häufige Fragen</a>
+        <a href="#" onclick="scrollToSection('Angebot')">Angebot</a>
+        <a href="#" onclick="scrollToSection('Resultate')">Resultate</a>
+        <a href="#" onclick="scrollToSection('Häufige Fragen')">Häufige Fragen</a>
     </div>
 
     <!-- 🔥 ANGEBOT & COUNTDOWN -->
@@ -227,10 +213,10 @@
         </div>
     </div>
 
-    <!-- 🔥 Beispiel-Sections -->
-    <section id="angebot">Angebot</section>
-    <section id="resultate">Resultate</section>
-    <section id="fragen">Häufige Fragen</section>
+    <!-- ✨ SECTIONS -->
+    <div class="section angebot" id="Angebot">Angebot</div>
+    <div class="section resultate" id="Resultate">Resultate</div>
+    <div class="section fragen" id="Häufige Fragen">Häufige Fragen</div>
 
     <script>
         // 🔥 BURGER MENÜ FUNKTION
@@ -239,18 +225,28 @@
             menu.classList.toggle('show');
         }
 
-        function closeMenu() {
-            document.getElementById('menuLinks').classList.remove('show');
+        // 🔥 SCROLL FUNKTION
+        function scrollToSection(sectionClass) {
+            const section = document.querySelector(`.${sectionClass}`);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                toggleMenu(); // Menü ausblenden nach Klick
+            }
         }
 
         // 🔥 ANGEBOT + COUNTDOWN
         (function() {
             const today = new Date();
+            const dayOfWeek = today.getDay();
+            const monday = new Date(today);
+            monday.setDate(today.getDate() - dayOfWeek + (dayOfWeek === 0 ? -6 : 1));
+            const sunday = new Date(monday);
+            sunday.setDate(monday.getDate() + 6);
+
             const monate = ["JANUAR", "FEBRUAR", "MÄRZ", "APRIL", "MAI", "JUNI", "JULI", "AUGUST", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DEZEMBER"];
 
             const formatDate = (date) => `${String(date.getDate()).padStart(2, '0')}. ${monate[date.getMonth()]}`;
-            document.getElementById('datum-text').innerText = `24. FEBRUAR BIS 02. MÄRZ`;
-
+            document.getElementById('datum-text').innerText = `${formatDate(monday)} BIS ${formatDate(sunday)}`;
         })();
     </script>
 
