@@ -334,8 +334,9 @@
     gap: 10px; /* Abstand zwischen den Buttons */
 }
 
+/* Schließen-Button bleibt grau mit dunkler Schrift */
 .close-btn {
-    background: #ddd; /* Grau */
+    background-color: #ddd; /* Grau */
     color: #333; /* Dunkelgraue Schrift */
     padding: 12px 20px;
     border: none;
@@ -348,19 +349,20 @@
 }
 
 .close-btn:hover {
-    background: #bbb; /* Dunkleres Grau beim Hover */
+    background-color: #bbb; /* Dunkleres Grau beim Hover */
 }
 
+/* "Zum Angebot"-Button bleibt Rot mit weißer Schrift */
 .offer-btn {
-    background: #ff6f61; /* Rot */
-    color: white; /* Weiße Schrift */
+    background-color: #ff6f61; /* Fixierte Rot-Ton */
+    color: white; /* Fixierte weiße Schrift */
     padding: 12px 20px;
     border-radius: 8px;
     font-size: 16px;
     text-decoration: none;
     text-align: center;
     flex: 1;
-    min-width: 140px;
+    min-width: 140px; /* Mindestbreite für einheitliche Größe */
     border: none;
     font-weight: bold;
     cursor: pointer;
@@ -371,16 +373,15 @@
 }
 
 .offer-btn:hover {
-    background: #e05b50; /* Dunkleres Rot beim Hover */
+    background-color: #e05b50; /* Dunkleres Rot beim Hover */
 }
 
 .offer-btn:focus,
 .offer-btn:active {
-    background: #e05b50;
+    background-color: #e05b50;
     transform: scale(0.98);
     outline: none;
 }
-
 
       </style>
     
