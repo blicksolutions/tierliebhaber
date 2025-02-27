@@ -363,11 +363,16 @@
     border: none;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out, transform 0.1s ease-in-out;
 }
 
 .offer-btn:hover {
     background: #e02d26;
+}
+
+.offer-btn:active {
+    background: #e02d26;
+    transform: scale(0.98); /* Kleiner Klick-Effekt */
 }
 
       </style>
@@ -406,15 +411,16 @@ function closePopup() {
     document.getElementById('overlay').style.display = 'none';
 }
 
-// Funktion zum Schließen & Scrollen zur Angebots-Sektion
-function scrollToOffer() {
+// Funktion zum Scrollen zur Angebots-Sektion & Pop-up schließen
+function scrollToOffer(event) {
+    event.preventDefault(); // Verhindert Farbhinterlegung des Buttons
     closePopup(); // Erst das Pop-up schließen
     setTimeout(() => {
         const target = document.getElementById('angebot-section');
         if (target) {
             target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-    }, 300); // 300ms Delay für eine angenehme UX
+    }, 200); // 200ms Verzögerung für flüssige UX
 }
 
 // Sicherstellen, dass das Event auch bei später geladenen Elementen funktioniert
