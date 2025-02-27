@@ -353,8 +353,8 @@
 }
 
 .offer-btn {
-    background-color: #ff6f61; /* Rote Hintergrundfarbe bleibt */
-    color: white !important; /* Schrift bleibt sicher weiß */
+    background-color: #ff6f61 !important; /* Rot bleibt sicher */
+    color: white !important; /* Schrift bleibt weiß */
     padding: 12px 20px;
     border-radius: 8px;
     font-size: 16px;
@@ -369,17 +369,19 @@
     align-items: center;
     justify-content: center;
     transition: background 0.3s ease-in-out, transform 0.1s ease-in-out;
+    visibility: visible !important; /* Falls GemPages den Button versteckt */
+    opacity: 1 !important; /* Falls die Transparenz geändert wurde */
 }
 
 .offer-btn:hover {
-    background-color: #e05b50; /* Dunkleres Rot beim Hover */
-    color: white !important; /* Auch beim Hover bleibt Schrift weiß */
+    background-color: #e05b50 !important; /* Dunkleres Rot beim Hover */
+    color: white !important;
 }
 
 .offer-btn:focus,
 .offer-btn:active {
-    background-color: #e05b50;
-    color: white !important; /* Auch beim Klicken bleibt Schrift weiß */
+    background-color: #e05b50 !important;
+    color: white !important;
     transform: scale(0.98);
     outline: none;
 }
