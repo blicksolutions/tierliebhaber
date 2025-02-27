@@ -263,6 +263,18 @@
 						{% comment %}End: Set free delivery if a product in the "0% Steuer" collection{% endcomment %}
 					{%- endif -%}
 
+					<!-- Cart sidebar coupon -->
+					<div class="Drawer__Footer__Coupon">
+						<div class="Drawer__Footer__Coupon-title">
+							{{ 'cart.sidebar.coupon.title' | t }}
+						</div>
+						<div class="Drawer__Footer__Coupon-content">
+							<div class="Drawer__Footer__Coupon-dcart"></div>
+							<div class="Drawer__Footer__Coupon-percentage"></div>
+						</div>
+					</div>
+					<!-- /Cart sidebar coupon -->
+
 					<!-- Subtotal -->
 					<div class="Drawer__Footer__Subtotal">
 						<small class="Drawer__Footer__SubtotalLabel">{{ 'cart.general.subtotal' | t }}</small>
@@ -296,18 +308,6 @@
 						>
 					</span>
 					<!-- /Scroll button -->
-
-					<!-- Cart sidebar coupon -->
-					<div class="Drawer__Footer__Coupon">
-						<div class="Drawer__Footer__Coupon-title">
-							{{ 'cart.sidebar.coupon.title' | t }}
-						</div>
-						<div class="Drawer__Footer__Coupon-content">
-							<div class="Drawer__Footer__Coupon-dcart"></div>
-							<div class="Drawer__Footer__Coupon-percentage"></div>
-						</div>
-					</div>
-					<!-- /Cart sidebar coupon -->
 				</div>
 
 				{%- if settings.cart_enable_notes or shipping_and_taxes_notice != blank -%}
