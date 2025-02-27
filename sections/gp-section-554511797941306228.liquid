@@ -396,57 +396,77 @@
     
       <script id="custom-js-gGt7Nsrdoi">
         try {
-          function scrollToSection(sectionClass) {
-    const target = document.querySelector(sectionClass);
-    if (target) {
-        const headerOffset = document.querySelector('.angebot-banner').offsetHeight; // Dynamische Header-Höhe berechnen
-        const elementPosition = target.getBoundingClientRect().top + window.scrollY; // Absolute Position der Section
-        const offsetPosition = elementPosition - headerOffset - 10; // 10px extra für Abstand
+          document.addEventListener("DOMContentLoaded", function () {
+    // Elemente abrufen
+    const popup = document.getElementById("popup");
+    const overlay = document.getElementById("overlay");
+    const closeBtn = document.getElementById("close-btn");
+    const offerBtn = document.getElementById("offer-btn");
+    const boosterText = document.querySelector(".clickable"); // "Wirkungsbooster"-Text
+    const menuLinks = document.getElementById('menuLinks'); // Burger-Menü
 
-        window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-        });
-
-        // Menü schließen nach Klick
-        document.getElementById('menuLinks').classList.remove('show');
-
-        // Verhindert das automatische Hochspringen durch den Klick auf den Anker
-        event.preventDefault();
-    }
-}
-
-// Funktion zum Öffnen des Popups
-function openPopup() {
-    document.getElementById('popup').style.display = 'block';
-    document.getElementById('overlay').style.display = 'block';
-}
-
-// Funktion zum Schließen des Popups
-function closePopup() {
-    document.getElementById('popup').style.display = 'none';
-    document.getElementById('overlay').style.display = 'none';
-}
-
-// Funktion zum Scrollen zur Angebots-Sektion & Pop-up schließen
-function scrollToOffer(event) {
-    event.preventDefault(); // Verhindert Farbhinterlegung des Buttons
-    closePopup(); // Erst das Pop-up schließen
-    setTimeout(() => {
-        const target = document.getElementById('angebot-section');
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Funktion zum Öffnen des Popups
+    function openPopup() {
+        if (popup && overlay) {
+            popup.style.display = "block";
+            overlay.style.display = "block";
         }
-    }, 200); // 200ms Verzögerung für flüssige UX
-}
+    }
 
-// Sicherstellen, dass das Event auch bei später geladenen Elementen funktioniert
-document.addEventListener("DOMContentLoaded", function() {
-    var boosterText = document.querySelector(".clickable");
+    // Funktion zum Schließen des Popups
+    function closePopup() {
+        if (popup && overlay) {
+            popup.style.display = "none";
+            overlay.style.display = "none";
+        }
+    }
+
+    // Funktion zum Scrollen zur Angebots-Sektion (mit Header-Abstand)
+    function scrollToSection(sectionClass) {
+        const target = document.querySelector(sectionClass);
+        if (target) {
+            const headerOffset = document.querySelector('.angebot-banner')?.offsetHeight || 0; // Dynamische Header-Höhe
+            const elementPosition = target.getBoundingClientRect().top + window.scrollY;
+            const offsetPosition = elementPosition - headerOffset - 10; // 10px extra Abstand
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+
+            // Menü schließen nach Klick (nur falls es existiert)
+            if (menuLinks) {
+                menuLinks.classList.remove('show');
+            }
+        }
+    }
+
+    // Funktion zum Schließen des Popups & Scrollen zur Angebots-Sektion
+    function scrollToOffer(event) {
+        event.preventDefault(); // Verhindert unerwünschte Button-Markierung
+        closePopup(); // Erst Popup schließen
+        setTimeout(() => {
+            const sectionClass = window.innerWidth > 768 ? ".angebot-desktop" : ".angebot"; // Desktop vs. Mobile
+            scrollToSection(sectionClass);
+        }, 200); // 200ms Verzögerung für sauberes UX-Gefühl
+    }
+
+    // Event-Listener für "Wirkungsbooster" (Popup öffnen)
     if (boosterText) {
         boosterText.addEventListener("click", openPopup);
     }
+
+    // Event-Listener für "Schließen"-Button (Popup schließen)
+    if (closeBtn) {
+        closeBtn.addEventListener("click", closePopup);
+    }
+
+    // Event-Listener für "Zum Angebot"-Button (Popup schließen + Scroll)
+    if (offerBtn) {
+        offerBtn.addEventListener("click", scrollToOffer);
+    }
 });
+
 
         } catch(err){}
       </script>
