@@ -403,8 +403,8 @@ function scrollToSection(sectionClass) {
         console.log("Scrolling zu:", sectionClass);
         const headerElement = document.querySelector('.angebot-banner');
         const headerOffset = headerElement ? headerElement.offsetHeight : 0;
-        const elementPosition = target.getBoundingClientRect().top + window.scrollY; // Absolute Position der Section
-        const offsetPosition = elementPosition - headerOffset - 10; // 10px extra für Abstand
+        const elementPosition = target.getBoundingClientRect().top + window.scrollY;
+        const offsetPosition = elementPosition - headerOffset - 10;
 
         window.scrollTo({
             top: offsetPosition,
@@ -413,7 +413,7 @@ function scrollToSection(sectionClass) {
 
         // Menü schließen nach Klick (nur wenn vorhanden)
         const menuLinks = document.getElementById('menuLinks');
-        if (menuLinks) {
+        if (menuLinks && menuLinks.classList.contains('show')) {
             console.log("Burger-Menü wird geschlossen.");
             menuLinks.classList.remove('show');
         }
@@ -436,26 +436,39 @@ function closePopup() {
     document.getElementById("overlay").style.display = "none";
 }
 
-// Funktion zum Scrollen zur Angebots-Sektion & Pop-up schließen
+// Funktion zum Scrollen zur Angebots-Sektion & Pop-up schließen (Mobile & Desktop)
 function scrollToOffer(event) {
     event.preventDefault(); // Verhindert das Springen der Seite
     console.log("Zum Angebot-Button wurde geklickt!");
-    
+
     closePopup(); // Erst das Popup schließen
     console.log("Popup wurde geschlossen!");
 
     setTimeout(() => {
-        const target = document.querySelector(".Angebot, .angebot-desktop"); // Mobile + Desktop
+        let target;
+        if (window.innerWidth > 1024) { 
+            // Desktop-Version explizit ansprechen
+            target = document.querySelector(".angebot-desktop");
+        } else {
+            // Mobile-Version bleibt unverändert
+            target = document.querySelector(".Angebot");
+        }
+
         if (target) {
             console.log("Ziel-Sektion gefunden:", target);
-            target.scrollIntoView({ behavior: "smooth", block: "start" });
+            
+            // Desktop: Sicherstellen, dass der Header berücksichtigt wird
+            const headerElement = document.querySelector('.angebot-banner');
+            const headerOffset = headerElement ? headerElement.offsetHeight : 0;
+            const elementPosition = target.getBoundingClientRect().top + window.scrollY;
+            const offsetPosition = elementPosition - headerOffset - 10;
 
-            // Falls das Burger-Menü offen ist, schließen
-            const menuLinks = document.getElementById('menuLinks');
-            if (menuLinks && menuLinks.classList.contains('show')) {
-                console.log("Burger-Menü wird geschlossen nach Scroll.");
-                menuLinks.classList.remove('show');
-            }
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+
+            console.log("Seite wurde gescrollt.");
         } else {
             console.log("⚠️ Ziel-Sektion nicht gefunden! Prüfe die CSS-Klassen.");
         }
