@@ -256,7 +256,7 @@
           function scrollToSection(sectionClass) {
     const target = document.querySelector(sectionClass);
     if (target) {
-        const offset = target.getBoundingClientRect().top + window.scrollY - 80;
+        const offset = target.offsetTop - 80; // Exakter Abstand zur Section
         window.scrollTo({ top: offset, behavior: 'smooth' });
 
         // Menü nach Klick schließen
