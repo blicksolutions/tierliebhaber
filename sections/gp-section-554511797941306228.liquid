@@ -456,6 +456,13 @@ function scrollToOffer(event) {
             console.log("⚠️ Ziel-Sektion nicht gefunden! Prüfe die CSS-Klassen.");
         }
     }, 200); // 200ms Verzögerung für eine flüssige UX
+
+    // 🚀 **Bugfix:** Burger-Menü wieder richtig schließen!
+    const menuLinks = document.getElementById("menuLinks");
+    if (menuLinks) {
+        menuLinks.classList.remove("show");
+        console.log("Burger-Menü geschlossen.");
+    }
 }
 
 // Sicherstellen, dass Event-Listener nur ausgeführt werden, wenn die Elemente existieren
@@ -489,10 +496,13 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("⚠️ Kein Element mit Klasse 'offer-btn' gefunden!");
     }
 
-    // **Neues Feature:** Popup schließen, wenn man ins Leere klickt (Overlay)
+    // **Bugfix:** Popup auf Desktop schließen, wenn ins Leere (Overlay) geklickt wird!
     var overlay = document.getElementById("overlay");
     if (overlay) {
-        overlay.addEventListener("click", closePopup);
+        overlay.addEventListener("click", function() {
+            console.log("Overlay wurde geklickt – Popup wird geschlossen.");
+            closePopup();
+        });
         console.log("EventListener für Overlay-Klick gesetzt.");
     }
 });
