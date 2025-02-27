@@ -256,9 +256,10 @@
           function scrollToSection(sectionClass) {
     const target = document.querySelector(sectionClass);
     if (target) {
-        const yOffset = -80; // Höhe des Headers berücksichtigen
-        const y = target.getBoundingClientRect().top + window.scrollY + yOffset;
-        
+        // Exakte Scroll-Position bestimmen, unabhängig von der aktuellen Position
+        const yOffset = document.querySelector('.angebot-banner').offsetHeight + 10; 
+        const y = target.offsetTop - yOffset;
+
         window.scrollTo({ top: y, behavior: 'smooth' });
 
         // Menü schließen nach dem Klick
