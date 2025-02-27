@@ -66,30 +66,25 @@
             text-transform: uppercase;
         }
 
-        .angebot-banner .datum-container {
+        .datum-container {
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
             font-weight: bold;
             margin-top: 5px;
+            flex-wrap: wrap;
         }
 
-        .angebot-banner .datum-container span {
-            display: inline-block;
+        .datum-container span {
+            white-space: nowrap;
         }
 
-        /* ✅ "von" in neue Zeile NUR auf Mobile */
+        /* ✅ Sicherstellen, dass "von" und Datum in einer Zeile bleiben */
         @media (max-width: 600px) {
-            .angebot-banner h1 {
-                font-size: 1.1rem;
-                max-width: 90%;
-                line-height: 1.4;
+            .datum-container {
+                flex-wrap: wrap;
             }
-
-            .angebot-banner .von {
-                display: block;
-                margin-bottom: 3px;
+            .datum-container span {
+                display: inline;
             }
         }
 
@@ -196,7 +191,7 @@
         <div class="angebot-banner">
             <h1 id="angebot-text">EINMALIGES FEBRUAR-ANGEBOT</h1>
             <div class="datum-container">
-                <span class="von">von</span>
+                <span>von&nbsp;</span>
                 <span id="datum-text"></span>
             </div>
             <div class="countdown-wrapper">
