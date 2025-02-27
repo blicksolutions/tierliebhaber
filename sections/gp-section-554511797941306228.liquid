@@ -31,12 +31,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monatliches Angebot mit Timer</title>
+    <title>Monatliches Angebot mit Timer & Burger-Menü</title>
     <style>
         body, html {
             margin: 0;
             padding: 0;
             width: 100%;
+            font-family: Arial, sans-serif;
         }
 
         .angebot-banner-wrapper {
@@ -64,12 +65,15 @@
             line-height: 1.5;
             max-width: 85%;
             text-transform: uppercase;
+            word-spacing: -2px;
         }
 
-        /* ✅ FIX: Damit "von" in die nächste Zeile rutscht */
+        /* ✅ Fix für "von" – es springt in der mobilen Ansicht in die nächste Zeile */
         @media (max-width: 600px) {
             .angebot-banner h1 .von {
-                display: block;
+                display: inline-block;
+                width: 100%;
+                text-align: center;
             }
         }
 
@@ -128,7 +132,7 @@
             }
         }
 
-        /* Burger Menü Styling */
+        /* 🔹 Burger-Menü */
         .menu-container {
             position: fixed;
             top: 10px;
@@ -155,7 +159,7 @@
             display: none;
             flex-direction: column;
             width: 180px;
-            z-index: 1100;
+            z-index: 2000;
         }
 
         .menu-links a {
@@ -174,7 +178,7 @@
             display: flex;
         }
 
-        /* Nur auf mobilen Geräten anzeigen */
+        /* Burger-Menü nur auf mobilen Geräten anzeigen */
         @media (min-width: 768px) {
             .menu-container {
                 display: none;
@@ -183,7 +187,8 @@
     </style>
 </head>
 <body>
-    <!-- Burger Menü -->
+
+    <!-- 🔹 Burger-Menü -->
     <div class="menu-container" onclick="toggleMenu()">
         <div class="menu-icon">☰</div>
     </div>
@@ -193,11 +198,11 @@
         <a href="#fragen">Häufige Fragen</a>
     </div>
 
-    <!-- Angebots-Banner -->
+    <!-- 🔹 Banner mit Countdown -->
     <div class="angebot-banner-wrapper">
         <div class="angebot-banner">
             <h1 id="angebot-text">
-                EINMALIGES <span id="monat-name">MONAT</span>-ANGEBOT <span class="von">von</span> <br> 
+                EINMALIGES <span id="monat-name">MONAT</span>-ANGEBOT <span class="von">von</span>  
                 <span id="start-datum"></span> BIS <span id="end-datum"></span>
             </h1>
             <div class="countdown-wrapper">
@@ -248,6 +253,7 @@
             setInterval(updateCountdown, 1000);
         })();
     </script>
+
 </body>
 </html></div></div>
   
