@@ -38,10 +38,9 @@
             padding: 0;
             width: 100%;
             font-family: Arial, sans-serif;
-            scroll-behavior: smooth; /* Sanftes Scrollen */
+            scroll-behavior: smooth; /* Sanftes Scrollen aktivieren */
         }
 
-        /* 🔥 ANGEBOT + COUNTDOWN DESIGN */
         .angebot-banner-wrapper {
             position: relative;
         }
@@ -80,7 +79,6 @@
             white-space: nowrap;
         }
 
-        /* ✅ Sicherstellen, dass "von" & Datum in einer Zeile bleiben */
         @media (max-width: 600px) {
             .datum-container {
                 flex-wrap: wrap;
@@ -122,7 +120,7 @@
             color: #880E4F;
         }
 
-        /* 🔥 BURGER-MENÜ DESIGN */
+        /* 🔥 BURGER-MENÜ STYLES */
         .menu-container {
             position: fixed;
             top: 10px;
@@ -132,13 +130,11 @@
             padding: 10px 15px;
             border-radius: 5px;
             cursor: pointer;
-            z-index: 2000;
+            z-index: 1100;
         }
-
         .menu-icon {
             font-size: 1.5rem;
         }
-
         .menu-links {
             position: absolute;
             top: 50px;
@@ -149,9 +145,8 @@
             display: none;
             flex-direction: column;
             width: 180px;
-            z-index: 2000;
+            z-index: 1100;
         }
-
         .menu-links a {
             padding: 12px 15px;
             text-decoration: none;
@@ -159,16 +154,20 @@
             display: block;
             text-align: left;
         }
-
         .menu-links a:hover {
             background-color: rgba(255, 255, 255, 0.2);
         }
-
         .menu-links.show {
             display: flex;
         }
 
-        /* Burger-Menü nur auf Mobile */
+        /* Menü über Banner legen */
+        .menu-container, .menu-links {
+            position: fixed;
+            z-index: 2000;
+        }
+
+        /* Burger Menü nur auf Mobile */
         @media (min-width: 768px) {
             .menu-container {
                 display: none;
@@ -182,9 +181,9 @@
         <div class="menu-icon">☰</div>
     </div>
     <div class="menu-links" id="menuLinks">
-        <a href="javascript:void(0);" onclick="scrollToSection('Angebot')">Angebot</a>
-        <a href="javascript:void(0);" onclick="scrollToSection('Resultate')">Resultate</a>
-        <a href="javascript:void(0);" onclick="scrollToSection('HäufigeFragen')">Häufige Fragen</a>
+        <a href="#" onclick="scrollToSection('Angebot')">Angebot</a>
+        <a href="#" onclick="scrollToSection('Resultate')">Resultate</a>
+        <a href="#" onclick="scrollToSection('HäufigeFragen')">Häufige Fragen</a>
     </div>
 
     <!-- 🔥 ANGEBOT & COUNTDOWN -->
@@ -205,6 +204,11 @@
         </div>
     </div>
 
+    <!-- 🔥 SECTIONS -->
+    <section class="Angebot"></section>
+    <section class="Resultate"></section>
+    <section class="HäufigeFragen"></section>
+
     <script>
         // 🔥 BURGER MENÜ FUNKTION
         function toggleMenu() {
@@ -212,14 +216,12 @@
             menu.classList.toggle('show');
         }
 
-        // 🔥 SCROLL-FUNKTION FÜR DAS MENÜ
-        function scrollToSection(className) {
-            const section = document.querySelector(`.${className}`);
+        // 🔥 SCROLL TO FUNCTION
+        function scrollToSection(sectionClass) {
+            const section = document.querySelector(`.${sectionClass}`);
             if (section) {
-                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                setTimeout(() => toggleMenu(), 500);
-            } else {
-                console.error(`Section mit der Klasse '${className}' nicht gefunden.`);
+                section.scrollIntoView({ behavior: "smooth", block: "start" });
+                toggleMenu(); // Menü schließen nach Klick
             }
         }
 
@@ -238,7 +240,7 @@
 
             document.getElementById('datum-text').innerText = `${formatDate(monday)} BIS ${formatDate(sunday)}`;
 
-            setInterval(() => updateCountdown(), 1000);
+            setInterval(updateCountdown, 1000);
         })();
     </script>
 </body>
