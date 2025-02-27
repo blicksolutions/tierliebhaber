@@ -399,7 +399,8 @@
           function scrollToSection(sectionClass) {
     const target = document.querySelector(sectionClass);
     if (target) {
-        const headerOffset = document.querySelector('.angebot-banner').offsetHeight; // Dynamische Header-Höhe berechnen
+        const headerElement = document.querySelector('.angebot-banner');
+        const headerOffset = headerElement ? headerElement.offsetHeight : 0;
         const elementPosition = target.getBoundingClientRect().top + window.scrollY; // Absolute Position der Section
         const offsetPosition = elementPosition - headerOffset - 10; // 10px extra für Abstand
 
@@ -408,11 +409,11 @@
             behavior: 'smooth'
         });
 
-        // Menü schließen nach Klick
-        document.getElementById('menuLinks').classList.remove('show');
-
-        // Verhindert das automatische Hochspringen durch den Klick auf den Anker
-        event.preventDefault();
+        // Menü schließen nach Klick (nur wenn vorhanden)
+        const menuLinks = document.getElementById('menuLinks');
+        if (menuLinks) {
+            menuLinks.classList.remove('show');
+        }
     }
 }
 
@@ -428,25 +429,32 @@ function closePopup() {
     document.getElementById('overlay').style.display = 'none';
 }
 
-// Funktion zum Scrollen zur Angebots-Sektion & Pop-up schließen
+// Funktion zum Schließen des Popups & Scrollen zur Angebots-Sektion
 function scrollToOffer(event) {
-    event.preventDefault(); // Verhindert Farbhinterlegung des Buttons
-    closePopup(); // Erst das Pop-up schließen
+    event.preventDefault(); // Verhindert unerwünschte Button-Markierung
+    closePopup(); // Erst Popup schließen
+
+    // Nach 200ms zur richtigen Sektion scrollen
     setTimeout(() => {
-        const target = document.getElementById('angebot-section');
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    }, 200); // 200ms Verzögerung für flüssige UX
+        const sectionClass = window.innerWidth > 768 ? ".angebot-desktop" : ".Angebot"; // Desktop vs. Mobile
+        scrollToSection(sectionClass);
+    }, 200);
 }
 
 // Sicherstellen, dass das Event auch bei später geladenen Elementen funktioniert
 document.addEventListener("DOMContentLoaded", function() {
     var boosterText = document.querySelector(".clickable");
+    var offerButton = document.getElementById("offer-btn");
+
     if (boosterText) {
         boosterText.addEventListener("click", openPopup);
     }
+
+    if (offerButton) {
+        offerButton.addEventListener("click", scrollToOffer);
+    }
 });
+
 
         } catch(err){}
       </script>
