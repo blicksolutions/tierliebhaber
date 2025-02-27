@@ -68,12 +68,14 @@
             word-spacing: -2px;
         }
 
-        /* ✅ Fix für "von" – es springt in der mobilen Ansicht in die nächste Zeile */
+        /* ✅ Fix für "von" – es springt in der mobilen Ansicht in die nächste Zeile vor dem Datum */
+        .angebot-banner .von {
+            display: inline;
+        }
+
         @media (max-width: 600px) {
-            .angebot-banner h1 .von {
-                display: inline-block;
-                width: 100%;
-                text-align: center;
+            .angebot-banner .von {
+                display: block;
             }
         }
 
