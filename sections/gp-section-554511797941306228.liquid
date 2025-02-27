@@ -38,7 +38,7 @@
             padding: 0;
             width: 100%;
             font-family: Arial, sans-serif;
-            scroll-behavior: smooth; /* Automatisches weiches Scrollen */
+            scroll-behavior: smooth;
         }
 
         /* ✅ Kompakter Header */
@@ -194,7 +194,6 @@
         <div class="angebot-banner">
             <h1 id="angebot-text">EINMALIGES FEBRUAR-ANGEBOT</h1>
             <div class="datum-container">
-                <span>von&nbsp;</span>
                 <span id="datum-text"></span>
             </div>
             <div class="countdown-wrapper">
@@ -217,28 +216,26 @@
             const target = document.querySelector(sectionClass);
             if (target) {
                 window.scrollTo({
-                    top: target.offsetTop - 80,
+                    top: target.getBoundingClientRect().top + window.scrollY - 80,
                     behavior: 'smooth'
                 });
-                document.getElementById('menuLinks').classList.remove('show'); // 🔥 Menü klappt zu
+                document.getElementById('menuLinks').classList.remove('show');
             }
         }
 
         (function() {
             const now = new Date();
-            const firstThursday = new Date(now.getFullYear(), 0, 4);
-            const currentThursday = new Date(now);
-            currentThursday.setDate(now.getDate() - ((now.getDay() + 6) % 7) + 3);
-            const kw = Math.ceil(((currentThursday - firstThursday) / (7 * 24 * 60 * 60 * 1000)) + 1);
+            const monday = new Date(now.setDate(now.getDate() - now.getDay() + 1));
+            const sunday = new Date(monday);
+            sunday.setDate(sunday.getDate() + 6);
 
             const monate = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
-            document.getElementById('datum-text').innerText = `KW ${kw} ${monate[now.getMonth()]}`;
+            document.getElementById('datum-text').innerText = `vom ${monday.getDate()}. ${monate[monday.getMonth()]} bis ${sunday.getDate()}. ${monate[sunday.getMonth()]}`;
 
             function updateCountdown() {
                 const countdownDate = new Date();
                 countdownDate.setHours(23, 59, 59, 999);
-                const now = new Date();
-                const distance = countdownDate - now;
+                const distance = countdownDate - new Date();
                 if (distance <= 0) return;
 
                 document.getElementById('days').innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -252,8 +249,120 @@
         })();
     </script>
 </body>
-</html></div></div>
+</html>
+
+<div class="overlay" id="overlay" onclick="closePopup()"></div>
+<div class="popup" id="popup">
+    <h2>Zahnfee Pulver</h2>
+    <p>Das Zahnfee Pulver unterstützt die natürliche Zahnreinigung deines Hundes und sorgt für frischen Atem – ganz ohne chemische Zusätze.</p>
+    
+    <p style="font-size: 16px; font-weight: bold; margin-top: 10px;">
+        Regulärer Preis: <span style="text-decoration: line-through; color: #888;">39,90€</span>
+        <span style="color: #ff6f61;"> GRATIS in der Jahreskur enthalten!</span>
+    </p>
+
+    <button onclick="closePopup()">Schließen</button>
+</div></div></div>
   
+      <style id="custom-css-gGt7Nsrdoi">
+        .popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    z-index: 1000;
+    width: 320px;
+    max-width: 90%;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.popup h2 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.popup p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.4;
+}
+
+.popup button {
+    margin-top: 12px;
+    padding: 8px 12px;
+    border: none;
+    background: #ff6f61;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.3s ease-in-out;
+}
+
+.popup button:hover {
+    background: #e05b50;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+      </style>
+    
+      <script id="custom-js-gGt7Nsrdoi">
+        try {
+          function scrollToSection(sectionClass) {
+    const target = document.querySelector(sectionClass);
+    if (target) {
+        const headerOffset = document.querySelector('.angebot-banner').offsetHeight; // Dynamische Header-Höhe berechnen
+        const elementPosition = target.getBoundingClientRect().top + window.scrollY; // Absolute Position der Section
+        const offsetPosition = elementPosition - headerOffset - 10; // 10px extra für Abstand
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
+
+        // Menü schließen nach Klick
+        document.getElementById('menuLinks').classList.remove('show');
+
+        // Verhindert das automatische Hochspringen durch den Klick auf den Anker
+        event.preventDefault();
+    }
+}
+
+function openPopup() {
+    document.getElementById('popup').style.display = 'block';
+}
+function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+}
+
+        } catch(err){}
+      </script>
+    
   
     <div
       
