@@ -442,32 +442,17 @@ function scrollToOffer(event) {
     console.log("Popup wurde geschlossen!");
 
     setTimeout(() => {
-        let target;
-        if (window.innerWidth > 1024) { 
-            // Desktop-Version
-            target = document.querySelector(".angebot-desktop");
-        } else {
-            // Mobile-Version
-            target = document.querySelector(".Angebot");
-        }
-
+        const target = document.querySelector(".Angebot, .angebot-desktop"); // Mobile + Desktop
         if (target) {
             console.log("Ziel-Sektion gefunden:", target);
             target.scrollIntoView({ behavior: "smooth", block: "start" });
         } else {
             console.log("⚠️ Ziel-Sektion nicht gefunden! Prüfe die CSS-Klassen.");
         }
-    }, 200);
-
-    // 🚀 Bugfix: Nur Burger-Menü schließen, wenn es offen ist
-    const menuLinks = document.getElementById("menuLinks");
-    if (menuLinks && menuLinks.classList.contains("show")) {
-        menuLinks.classList.remove("show");
-        console.log("Burger-Menü geschlossen.");
-    }
+    }, 200); // 200ms Verzögerung für eine flüssige UX
 }
 
-// Event-Listener nur ausführen, wenn die Elemente existieren
+// Sicherstellen, dass Event-Listener nur ausgeführt werden, wenn die Elemente existieren
 document.addEventListener("DOMContentLoaded", function() {
     console.log("DOM vollständig geladen!");
 
@@ -497,20 +482,7 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
         console.log("⚠️ Kein Element mit Klasse 'offer-btn' gefunden!");
     }
-
-    // 🚀 **Bugfix:** Popup auf Desktop schließen, wenn ins Leere (Overlay) geklickt wird!
-    var overlay = document.getElementById("overlay");
-    if (overlay) {
-        overlay.addEventListener("click", function() {
-            console.log("Overlay wurde geklickt – Popup wird geschlossen.");
-            closePopup();
-        });
-        console.log("EventListener für Overlay-Klick gesetzt.");
-    } else {
-        console.log("⚠️ Kein Element mit ID 'overlay' gefunden!");
-    }
 });
-
 
         } catch(err){}
       </script>
