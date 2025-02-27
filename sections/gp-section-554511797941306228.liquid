@@ -38,10 +38,9 @@
             padding: 0;
             width: 100%;
             font-family: Arial, sans-serif;
-            scroll-behavior: smooth;
         }
 
-        /* 🔥 Kompakter Header */
+        /* ✅ Kompakter Header */
         .angebot-banner-wrapper {
             position: relative;
         }
@@ -146,7 +145,6 @@
             color: white;
             display: block;
             text-align: left;
-            cursor: pointer;
         }
         .menu-links a:hover {
             background-color: rgba(255, 255, 255, 0.2);
@@ -189,15 +187,15 @@
         <div class="menu-icon">☰</div>
     </div>
     <div class="menu-links" id="menuLinks">
-        <a onclick="scrollToSection('.Angebot')">Angebot</a>
-        <a onclick="scrollToSection('.Resultate')">Resultate</a>
-        <a onclick="scrollToSection('.HäufigeFragen')">Häufige Fragen</a>
+        <a href="#" onclick="scrollToSection('.Angebot')">Angebot</a>
+        <a href="#" onclick="scrollToSection('.Resultate')">Resultate</a>
+        <a href="#" onclick="scrollToSection('.HäufigeFragen')">Häufige Fragen</a>
     </div>
 
     <!-- 🔥 ANGEBOT & COUNTDOWN -->
     <div class="angebot-banner-wrapper">
         <div class="angebot-banner">
-            <h1>EINMALIGES <span id="monat-name"></span>-ANGEBOT</h1>
+            <h1 id="angebot-text">EINMALIGES FEBRUAR-ANGEBOT</h1>
             <div class="datum-container">
                 <span>von&nbsp;</span>
                 <span id="datum-text"></span>
@@ -213,35 +211,56 @@
     </div>
 
     <script>
-        // 🔥 BURGER-MENÜ FUNKTION
+        // 🔥 BURGER MENÜ FUNKTION
         function toggleMenu() {
             const menu = document.getElementById('menuLinks');
             menu.classList.toggle('show');
         }
 
+        // 🔥 SCROLL FUNKTION
         function scrollToSection(sectionClass) {
-            const section = document.querySelector(sectionClass);
-            if (section) {
-                const headerHeight = document.querySelector('.angebot-banner').offsetHeight;
+            const target = document.querySelector(sectionClass);
+            if (target) {
                 window.scrollTo({
-                    top: section.offsetTop - headerHeight - 10, // Perfekte Höhe abziehen
-                    behavior: "smooth"
+                    top: target.offsetTop - 80, // Abstand anpassen
+                    behavior: 'smooth'
                 });
-                document.getElementById('menuLinks').classList.remove('show'); // Menü schließt sich nach Klick
             }
+            toggleMenu(); // Menü schließen nach Klick
         }
 
-        // 🔥 AUTOMATISCHE DATUMSANZEIGE (Kalenderwoche + Monat)
-        (function() {
+        // 🔥 DATUMSFUNKTION (Automatische KW & Monat)
+        function updateDate() {
             const today = new Date();
-            const monate = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
-            const firstDayOfYear = new Date(today.getFullYear(), 0, 1);
-            const pastDays = Math.floor((today - firstDayOfYear) / 86400000);
-            const calendarWeek = Math.ceil((pastDays + firstDayOfYear.getDay() + 1) / 7);
+            const yearStart = new Date(today.getFullYear(), 0, 1);
+            const days = Math.floor((today - yearStart) / (24 * 60 * 60 * 1000));
+            const weekNumber = Math.ceil((days + yearStart.getDay() + 1) / 7);
+            const monthNames = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+            document.getElementById('datum-text').innerText = `KW ${weekNumber} ${monthNames[today.getMonth()]}`;
+        }
+        updateDate();
 
-            document.getElementById('monat-name').innerText = monate[today.getMonth()];
-            document.getElementById('datum-text').innerText = `KW ${calendarWeek} ${monate[today.getMonth()]}`;
-        })();
+        // 🔥 COUNTDOWN FUNKTION
+        function updateCountdown() {
+            const countdownDate = new Date();
+            countdownDate.setHours(23, 59, 59, 999);
+
+            function refreshCountdown() {
+                const now = new Date().getTime();
+                const distance = countdownDate - now;
+
+                if (distance <= 0) return;
+
+                document.getElementById('days').innerText = "00";
+                document.getElementById('hours').innerText = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+                document.getElementById('minutes').innerText = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+                document.getElementById('seconds').innerText = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
+            }
+
+            refreshCountdown();
+            setInterval(refreshCountdown, 1000);
+        }
+        updateCountdown();
     </script>
 </body>
 </html></div></div>
