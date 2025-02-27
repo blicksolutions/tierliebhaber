@@ -211,47 +211,34 @@
     </div>
 
     <script>
-        // 🔥 BURGER MENÜ FUNKTION
-        function toggleMenu() {
-            const menu = document.getElementById('menuLinks');
-            menu.classList.toggle('show');
-        }
-
-        // 🔥 SCROLL FUNKTION
-        function scrollToSection(sectionClass) {
-            const target = document.querySelector(sectionClass);
-            if (target) {
-                window.scrollTo({
-                    top: target.offsetTop - 80, // Abstand anpassen
-                    behavior: 'smooth'
-                });
-            }
-            toggleMenu(); // Menü schließen nach Klick
-        }
-
-        // 🔥 DATUMSFUNKTION (Automatische KW & Monat)
+        // 🔥 DATUMSFUNKTION (Montag - Sonntag der aktuellen Woche)
         function updateDate() {
             const today = new Date();
-            const yearStart = new Date(today.getFullYear(), 0, 1);
-            const days = Math.floor((today - yearStart) / (24 * 60 * 60 * 1000));
-            const weekNumber = Math.ceil((days + yearStart.getDay() + 1) / 7);
-            const monthNames = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
-            document.getElementById('datum-text').innerText = `KW ${weekNumber} ${monthNames[today.getMonth()]}`;
+            const dayOfWeek = today.getDay();
+            const monday = new Date(today);
+            monday.setDate(today.getDate() - dayOfWeek + (dayOfWeek === 0 ? -6 : 1));
+            const sunday = new Date(monday);
+            sunday.setDate(monday.getDate() + 6);
+
+            const monate = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+
+            document.getElementById('datum-text').innerText = `${monday.getDate()}. ${monate[monday.getMonth()]} bis ${sunday.getDate()}. ${monate[sunday.getMonth()]}`;
         }
         updateDate();
 
-        // 🔥 COUNTDOWN FUNKTION
+        // 🔥 COUNTDOWN FUNKTION (bis Sonntag 23:59)
         function updateCountdown() {
-            const countdownDate = new Date();
-            countdownDate.setHours(23, 59, 59, 999);
+            const now = new Date();
+            const sunday = new Date();
+            sunday.setDate(sunday.getDate() + (7 - sunday.getDay()));
+            sunday.setHours(23, 59, 59, 999);
 
             function refreshCountdown() {
-                const now = new Date().getTime();
-                const distance = countdownDate - now;
+                const distance = sunday - new Date();
 
                 if (distance <= 0) return;
 
-                document.getElementById('days').innerText = "00";
+                document.getElementById('days').innerText = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0');
                 document.getElementById('hours').innerText = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
                 document.getElementById('minutes').innerText = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
                 document.getElementById('seconds').innerText = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
