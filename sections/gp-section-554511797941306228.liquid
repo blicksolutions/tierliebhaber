@@ -38,9 +38,10 @@
             padding: 0;
             width: 100%;
             font-family: Arial, sans-serif;
-            scroll-behavior: smooth; /* Sanftes Scrollen aktivieren */
+            scroll-behavior: smooth;
         }
 
+        /* 🔥 ANGEBOT + TIMER DESIGN */
         .angebot-banner-wrapper {
             position: relative;
         }
@@ -79,15 +80,6 @@
             white-space: nowrap;
         }
 
-        @media (max-width: 600px) {
-            .datum-container {
-                flex-wrap: wrap;
-            }
-            .datum-container span {
-                display: inline;
-            }
-        }
-
         .countdown-wrapper {
             display: flex;
             justify-content: center;
@@ -120,7 +112,7 @@
             color: #880E4F;
         }
 
-        /* 🔥 BURGER-MENÜ STYLES */
+        /* 🔥 BURGER-MENÜ DESIGN */
         .menu-container {
             position: fixed;
             top: 10px;
@@ -132,9 +124,11 @@
             cursor: pointer;
             z-index: 1100;
         }
+
         .menu-icon {
             font-size: 1.5rem;
         }
+
         .menu-links {
             position: absolute;
             top: 50px;
@@ -147,6 +141,7 @@
             width: 180px;
             z-index: 1100;
         }
+
         .menu-links a {
             padding: 12px 15px;
             text-decoration: none;
@@ -154,39 +149,52 @@
             display: block;
             text-align: left;
         }
+
         .menu-links a:hover {
             background-color: rgba(255, 255, 255, 0.2);
         }
+
         .menu-links.show {
             display: flex;
         }
 
-        /* Menü über Banner legen */
         .menu-container, .menu-links {
             position: fixed;
             z-index: 2000;
         }
 
-        /* Burger Menü nur auf Mobile */
         @media (min-width: 768px) {
             .menu-container {
                 display: none;
             }
         }
+
+        /* 🔥 SECTION-STYLING FÜR SCROLL-ZIELE */
+        section {
+            height: 800px;
+            padding: 50px;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        .Angebot { background-color: #FFD1D1; }
+        .Resultate { background-color: #C8E6C9; }
+        .HäufigeFragen { background-color: #BBDEFB; }
     </style>
 </head>
 <body>
+
     <!-- 🔥 BURGER MENÜ -->
     <div class="menu-container" onclick="toggleMenu()">
         <div class="menu-icon">☰</div>
     </div>
     <div class="menu-links" id="menuLinks">
-        <a href="#" onclick="scrollToSection('Angebot')">Angebot</a>
-        <a href="#" onclick="scrollToSection('Resultate')">Resultate</a>
-        <a href="#" onclick="scrollToSection('HäufigeFragen')">Häufige Fragen</a>
+        <a href="#" data-target="Angebot">Angebot</a>
+        <a href="#" data-target="Resultate">Resultate</a>
+        <a href="#" data-target="HäufigeFragen">Häufige Fragen</a>
     </div>
 
-    <!-- 🔥 ANGEBOT & COUNTDOWN -->
+    <!-- 🔥 ANGEBOT + COUNTDOWN -->
     <div class="angebot-banner-wrapper">
         <div class="angebot-banner">
             <h1 id="angebot-text">EINMALIGES FEBRUAR-ANGEBOT</h1>
@@ -195,83 +203,69 @@
                 <span id="datum-text"></span>
             </div>
             <div class="countdown-wrapper">
-                <div class="countdown-box"><div id="days" class="countdown-number">01</div><div class="countdown-label">TAGE</div></div>
-                <div class="countdown-box"><div id="hours" class="countdown-number">15</div><div class="countdown-label">STUNDEN</div></div>
-                <div class="countdown-box"><div id="minutes" class="countdown-number">51</div><div class="countdown-label">MINUTEN</div></div>
-                <div class="countdown-box"><div id="seconds" class="countdown-number">48</div><div class="countdown-label">SEKUNDEN</div></div>
+                <div class="countdown-box"><div id="days" class="countdown-number"></div><div class="countdown-label">TAGE</div></div>
+                <div class="countdown-box"><div id="hours" class="countdown-number"></div><div class="countdown-label">STUNDEN</div></div>
+                <div class="countdown-box"><div id="minutes" class="countdown-number"></div><div class="countdown-label">MINUTEN</div></div>
+                <div class="countdown-box"><div id="seconds" class="countdown-number"></div><div class="countdown-label">SEKUNDEN</div></div>
             </div>
             <p>*NUR SOLANGE DER VORRAT REICHT</p>
         </div>
     </div>
 
     <!-- 🔥 SECTIONS -->
-    <section class="Angebot"></section>
-    <section class="Resultate"></section>
-    <section class="HäufigeFragen"></section>
+    <section class="Angebot">Angebot</section>
+    <section class="Resultate">Resultate</section>
+    <section class="HäufigeFragen">Häufige Fragen</section>
 
     <script>
-        // 🔥 BURGER MENÜ FUNKTION
         function toggleMenu() {
-            const menu = document.getElementById('menuLinks');
-            menu.classList.toggle('show');
+            document.getElementById('menuLinks').classList.toggle('show');
         }
 
-        // 🔥 SCROLL TO FUNCTION
-        function scrollToSection(sectionClass) {
-            const section = document.querySelector(`.${sectionClass}`);
-            if (section) {
-                section.scrollIntoView({ behavior: "smooth", block: "start" });
-                toggleMenu(); // Menü schließen nach Klick
-            }
-        }
+        // 🔥 SCROLL FUNKTION MIT FESTEN PIXEL-WERTEN
+        document.querySelectorAll(".menu-links a").forEach(link => {
+            link.addEventListener("click", function(event) {
+                event.preventDefault();
 
-        // 🔥 ANGEBOT + COUNTDOWN
+                const scrollPositions = {
+                    "Angebot": 800,        
+                    "Resultate": 1600,     
+                    "HäufigeFragen": 2400  
+                };
+
+                const target = this.getAttribute("data-target");
+
+                if (scrollPositions[target]) {
+                    window.scrollTo({ top: scrollPositions[target], behavior: "smooth" });
+                }
+            });
+        });
+
+        // 🔥 COUNTDOWN FUNKTION
         (function() {
-            const today = new Date();
-            const dayOfWeek = today.getDay();
-            const monday = new Date(today);
-            monday.setDate(today.getDate() - dayOfWeek + (dayOfWeek === 0 ? -6 : 1));
-            const sunday = new Date(monday);
-            sunday.setDate(monday.getDate() + 6);
+            const countdownDate = new Date();
+            countdownDate.setHours(23, 59, 59, 999); // Setzt das Ziel auf Mitternacht
 
-            const monate = ["JANUAR", "FEBRUAR", "MÄRZ", "APRIL", "MAI", "JUNI", "JULI", "AUGUST", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DEZEMBER"];
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = countdownDate - now;
 
-            const formatDate = (date) => `${String(date.getDate()).padStart(2, '0')}. ${monate[date.getMonth()]}`;
+                if (distance <= 0) return;
 
-            document.getElementById('datum-text').innerText = `${formatDate(monday)} BIS ${formatDate(sunday)}`;
+                document.getElementById('days').innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+                document.getElementById('hours').innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                document.getElementById('minutes').innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                document.getElementById('seconds').innerText = Math.floor((distance % (1000 * 60)) / 1000);
+            }
 
+            updateCountdown();
             setInterval(updateCountdown, 1000);
         })();
     </script>
+
 </body>
 </html></div></div>
   
-      <script id="custom-js-gGt7Nsrdoi">
-        try {
-          document.querySelectorAll(".menu-links a").forEach(link => {
-    link.addEventListener("click", function(event) {
-        event.preventDefault();
-        
-        // Hier die Scroll-Werte für jede Kategorie definieren (in Pixel)
-        const scrollPositions = {
-            "Angebot": 800,        // Passe diesen Wert an
-            "Resultate": 1600,     // Passe diesen Wert an
-            "HäufigeFragen": 2400  // Passe diesen Wert an
-        };
-
-        // Die ID bzw. Klasse der angeklickten Kategorie abrufen
-        const targetClass = this.getAttribute("href").substring(1);
-        
-        // Falls die Kategorie existiert, zur passenden Position scrollen
-        if (scrollPositions[targetClass]) {
-            window.scrollTo({ top: scrollPositions[targetClass], behavior: "smooth" });
-        }
-    });
-});
-
-        } catch(err){}
-      </script>
-    
   
     <div
       
