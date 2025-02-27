@@ -31,7 +31,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monatliches Angebot mit Timer & Burger-Menü</title>
+    <title>Monatliches Angebot mit Timer</title>
     <style>
         body, html {
             margin: 0;
@@ -54,6 +54,7 @@
             text-align: center;
             background: linear-gradient(to right, #FBE9EB, #F9F3E5);
             color: #880E4F;
+            font-weight: bold;
             z-index: 10;
             box-sizing: border-box;
         }
@@ -65,7 +66,6 @@
             line-height: 1.5;
             max-width: 85%;
             text-transform: uppercase;
-            word-break: break-word;
         }
 
         .angebot-banner p {
@@ -74,6 +74,7 @@
             font-style: italic;
         }
 
+        /* Countdown */
         .countdown-wrapper {
             display: flex;
             justify-content: center;
@@ -104,46 +105,6 @@
         .countdown-label {
             font-size: 0.9rem;
             color: #880E4F;
-        }
-
-        /* Mobiles Styling */
-        @media (max-width: 600px) {
-            .angebot-banner h1 {
-                font-size: 1.1rem;
-                max-width: 90%;
-                line-height: 1.4;
-                word-wrap: break-word;
-                white-space: normal;
-            }
-
-            .angebot-banner-wrapper::before {
-                content: '';
-                display: block;
-                height: 4px;
-                background-color: #D32F2F;
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-            }
-
-            .countdown-wrapper {
-                gap: 4px;
-            }
-
-            .countdown-box {
-                width: 65px;
-                height: 65px;
-                padding: 6px 0;
-            }
-
-            .countdown-number {
-                font-size: 1.4rem;
-            }
-
-            .countdown-label {
-                font-size: 0.7rem;
-            }
         }
 
         /* Burger-Menü */
@@ -192,14 +153,50 @@
             display: flex;
         }
 
-        /* Menü höher als das Banner setzen */
+        /* Sicherstellen, dass das Menü über dem Banner liegt */
         .menu-container, .menu-links {
             position: fixed;
-            z-index: 2000;
+            z-index: 2000; /* Höhere Priorität setzen */
         }
 
-        /* Menü nur auf mobilen Geräten anzeigen */
-        @media (min-width: 768px) {
+        /* Responsive Fix: Wort "von" soll umgebrochen werden */
+        @media (max-width: 600px) {
+            .angebot-banner h1 {
+                font-size: 1.1rem;
+                max-width: 90%;
+                line-height: 1.4;
+                word-wrap: break-word;
+                white-space: normal;
+            }
+
+            /* Hier wird das Wort "von" in die nächste Zeile geschoben */
+            .angebot-banner h1 span.von {
+                display: block;
+            }
+
+            /* Countdown verkleinern */
+            .countdown-wrapper {
+                gap: 4px;
+            }
+            .countdown-box {
+                width: 65px;
+                height: 65px;
+                padding: 6px 0;
+            }
+            .countdown-number {
+                font-size: 1.4rem;
+            }
+            .countdown-label {
+                font-size: 0.7rem;
+            }
+
+            /* Burger-Menü nur auf Mobil sichtbar */
+            .menu-container {
+                display: block;
+            }
+        }
+
+        @media (min-width: 601px) {
             .menu-container {
                 display: none;
             }
@@ -208,7 +205,7 @@
 </head>
 <body>
 
-    <!-- Burger-Menü -->
+    <!-- Burger Menü -->
     <div class="menu-container" onclick="toggleMenu()">
         <div class="menu-icon">☰</div>
     </div>
@@ -218,10 +215,13 @@
         <a href="#fragen">Häufige Fragen</a>
     </div>
 
-    <!-- Angebot Banner -->
+    <!-- Angebot-Banner mit "von"-Fix -->
     <div class="angebot-banner-wrapper">
         <div class="angebot-banner">
-            <h1 id="angebot-text">EINMALIGES ANGEBOT</h1>
+            <h1 id="angebot-text">
+                EINMALIGES FEBRUAR-ANGEBOT 
+                <span class="von">VON</span> 24.FEBRUAR BIS 02.MÄRZ
+            </h1>
             <div class="countdown-wrapper">
                 <div class="countdown-box"><div id="days" class="countdown-number">01</div><div class="countdown-label">TAGE</div></div>
                 <div class="countdown-box"><div id="hours" class="countdown-number">15</div><div class="countdown-label">STUNDEN</div></div>
@@ -233,28 +233,21 @@
     </div>
 
     <script>
-        // Burger-Menü Funktion
+        // Burger-Menü Umschalten
         function toggleMenu() {
             const menu = document.getElementById('menuLinks');
             menu.classList.toggle('show');
         }
 
-        // Angebots-Text dynamisch setzen
+        // Angebotstext Dynamisch Anpassen
         (function() {
             const today = new Date();
-            const dayOfWeek = today.getDay();
-            const monday = new Date(today);
-            monday.setDate(today.getDate() - dayOfWeek + (dayOfWeek === 0 ? -6 : 1));
-            const sunday = new Date(monday);
-            sunday.setDate(monday.getDate() + 6);
-
             const monate = ["JANUAR", "FEBRUAR", "MÄRZ", "APRIL", "MAI", "JUNI", "JULI", "AUGUST", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DEZEMBER"];
-            const formatDate = (date) => `${String(date.getDate()).padStart(2, '0')}.${monate[date.getMonth()]}`;
+            document.getElementById('angebot-text').innerText = `EINMALIGES ${monate[today.getMonth()]}-ANGEBOT`;
+        })();
 
-            const angebotText = `EINMALIGES ${monate[monday.getMonth()]}-ANGEBOT VON\n${formatDate(monday)} BIS ${formatDate(sunday)}`;
-            document.getElementById('angebot-text').innerText = angebotText;
-
-            // Countdown Timer
+        // Countdown Timer
+        (function() {
             const countdownDate = new Date();
             countdownDate.setDate(countdownDate.getDate() + 1);
             countdownDate.setHours(countdownDate.getHours() + 15);
@@ -276,27 +269,10 @@
             setInterval(updateCountdown, 1000);
         })();
     </script>
+
 </body>
 </html></div></div>
   
-      <style id="custom-css-gGt7Nsrdoi">
-        @media (max-width: 600px) {
-    .angebot-banner h1 {
-        font-size: 1.1rem;
-        max-width: 90%;
-        line-height: 1.4;
-        word-wrap: break-word;
-        white-space: normal;
-    }
-
-    /* Speziell das Wort "von" soll umbrochen werden */
-    .angebot-banner h1 span.von {
-        display: block;  /* Bringt "von" automatisch in eine neue Zeile */
-    }
-}
-
-      </style>
-    
   
     <div
       
