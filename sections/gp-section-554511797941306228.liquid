@@ -506,18 +506,21 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("⚠️ Kein Element mit Klasse 'offer-btn' gefunden!");
     }
 
-    // **Bugfix: Popup auf Desktop schließen, wenn ins Leere (Overlay) geklickt wird!**
-    var overlay = document.getElementById("overlay");
-    if (overlay) {
-        overlay.addEventListener("click", function(event) {
-            if (event.target === overlay) { // Sicherstellen, dass nicht das Popup selbst geklickt wurde
-                console.log("Overlay wurde geklickt – Popup wird geschlossen.");
-                closePopup();
-            }
+    // Event-Listener für Burger-Menü-Links setzen
+    const menuLinks = document.querySelectorAll("#menuLinks a");
+    if (menuLinks.length > 0) {
+        menuLinks.forEach(link => {
+            link.addEventListener("click", function(event) {
+                const sectionClass = this.getAttribute("href");
+                if (sectionClass.startsWith("#")) {
+                    event.preventDefault();
+                    scrollToSection(sectionClass);
+                }
+            });
         });
-        console.log("EventListener für Overlay-Klick gesetzt.");
+        console.log("EventListener für Burger-Menü-Links gesetzt.");
     } else {
-        console.log("⚠️ Kein Element mit ID 'overlay' gefunden!");
+        console.log("⚠️ Keine Links im Burger-Menü gefunden!");
     }
 });
 
