@@ -38,6 +38,7 @@
             padding: 0;
             width: 100%;
             font-family: Arial, sans-serif;
+            scroll-behavior: smooth; /* Automatisches weiches Scrollen */
         }
 
         /* ✅ Kompakter Header */
@@ -197,10 +198,10 @@
                 <span id="datum-text"></span>
             </div>
             <div class="countdown-wrapper">
-                <div class="countdown-box"><div id="days" class="countdown-number">01</div><div class="countdown-label">TAGE</div></div>
-                <div class="countdown-box"><div id="hours" class="countdown-number">15</div><div class="countdown-label">STUNDEN</div></div>
-                <div class="countdown-box"><div id="minutes" class="countdown-number">51</div><div class="countdown-label">MINUTEN</div></div>
-                <div class="countdown-box"><div id="seconds" class="countdown-number">48</div><div class="countdown-label">SEKUNDEN</div></div>
+                <div class="countdown-box"><div id="days" class="countdown-number">00</div><div class="countdown-label">TAGE</div></div>
+                <div class="countdown-box"><div id="hours" class="countdown-number">00</div><div class="countdown-label">STUNDEN</div></div>
+                <div class="countdown-box"><div id="minutes" class="countdown-number">00</div><div class="countdown-label">MINUTEN</div></div>
+                <div class="countdown-box"><div id="seconds" class="countdown-number">00</div><div class="countdown-label">SEKUNDEN</div></div>
             </div>
             <p>*NUR SOLANGE DER VORRAT REICHT</p>
         </div>
@@ -225,27 +226,25 @@
 
         (function() {
             const now = new Date();
-            const firstDayOfYear = new Date(now.getFullYear(), 0, 1);
-            const daysPast = Math.floor((now - firstDayOfYear) / (24 * 60 * 60 * 1000));
-            const kw = Math.ceil((daysPast + firstDayOfYear.getDay() + 1) / 7);
+            const firstThursday = new Date(now.getFullYear(), 0, 4);
+            const currentThursday = new Date(now);
+            currentThursday.setDate(now.getDate() - ((now.getDay() + 6) % 7) + 3);
+            const kw = Math.ceil(((currentThursday - firstThursday) / (7 * 24 * 60 * 60 * 1000)) + 1);
 
             const monate = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
             document.getElementById('datum-text').innerText = `KW ${kw} ${monate[now.getMonth()]}`;
 
-            const countdownDate = new Date();
-            countdownDate.setHours(countdownDate.getHours() + 8);
-            countdownDate.setMinutes(countdownDate.getMinutes() + 13);
-            countdownDate.setSeconds(countdownDate.getSeconds() + 59);
-
             function updateCountdown() {
-                const now = new Date().getTime();
+                const countdownDate = new Date();
+                countdownDate.setHours(23, 59, 59, 999);
+                const now = new Date();
                 const distance = countdownDate - now;
                 if (distance <= 0) return;
 
                 document.getElementById('days').innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
-                document.getElementById('hours').innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                document.getElementById('minutes').innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                document.getElementById('seconds').innerText = Math.floor((distance % (1000 * 60)) / 1000);
+                document.getElementById('hours').innerText = new Date(distance).getUTCHours();
+                document.getElementById('minutes').innerText = new Date(distance).getUTCMinutes();
+                document.getElementById('seconds').innerText = new Date(distance).getUTCSeconds();
             }
 
             updateCountdown();
