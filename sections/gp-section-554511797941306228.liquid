@@ -334,52 +334,49 @@
     gap: 12px; /* Abstand zwischen Buttons */
 }
 
-/* "Schließen"-Button mit fixierter Breite */
+/* "Schließen"-Button bleibt grau & bekommt gleiche Höhe wie "Zum Angebot" */
 .close-btn {
-    background-color: #ddd !important;
-    color: #333 !important;
-    padding: 14px 25px !important; /* Exakt gleiche Höhe wie Angebot-Button */
+    background-color: #ddd;
+    color: #333;
+    padding: 14px 25px; /* Etwas breiter */
     border: none;
     cursor: pointer;
     border-radius: 8px;
     font-size: 14px;
     flex: 1;
-    min-width: 140px !important; /* Fixierte Mindestbreite */
+    min-width: 140px; /* Breiter als vorher */
     text-align: center;
     transition: background 0.3s ease-in-out;
 }
 
 .close-btn:hover {
-    background-color: #bbb !important;
+    background-color: #bbb;
 }
 
-/* "Zum Angebot"-Button mit fixierter Breite & Farbgarantie */
+/* "Zum Angebot"-Button bleibt rot mit weißer Schrift & bekommt mehr Breite */
 .offer-btn {
-    background-color: #ff6f61 !important; /* Garantiert Rot */
-    color: white !important; /* Garantiert weiße Schrift */
-    padding: 14px 25px !important; /* Exakte Größe */
+    background-color: #ff6f61 !important; /* Button bleibt rot */
+    color: white !important; /* Schrift bleibt weiß */
+    padding: 14px 25px; /* Größerer Button */
     border-radius: 8px;
-    font-size: 16px !important;
+    font-size: 16px;
     text-decoration: none;
     text-align: center;
     flex: 1;
-    min-width: 180px !important; /* Mindestbreite größer */
-    max-width: 220px !important; /* Fixierte maximale Breite */
+    min-width: 160px; /* Exakte Breite wie früher */
+    max-width: 180px; /* Verhindert zu schmale Darstellung */
     border: none;
-    font-weight: bold !important;
+    font-weight: bold;
     cursor: pointer;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: background 0.3s ease-in-out, transform 0.1s ease-in-out;
-    visibility: visible !important;
-    opacity: 1 !important;
 }
 
-/* Hover- & Klick-Verhalten bleibt stabil */
+/* Hover- & Klick-Verhalten beibehalten */
 .offer-btn:hover {
-    background-color: #e05b50 !important;
-    color: white !important;
+    background-color: #e05b50 !important; /* Etwas dunkler beim Hover */
 }
 
 .offer-btn:focus,
