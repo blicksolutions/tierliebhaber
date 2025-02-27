@@ -31,14 +31,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monatliches Angebot mit Timer</title>
+    <title>Monatliches Angebot mit Timer & Burger-Menü</title>
     <style>
         body, html {
             margin: 0;
             padding: 0;
             width: 100%;
+            font-family: Arial, sans-serif;
         }
 
+        /* Angebot Banner */
         .angebot-banner-wrapper {
             position: relative;
         }
@@ -52,7 +54,6 @@
             text-align: center;
             background: linear-gradient(to right, #FBE9EB, #F9F3E5);
             color: #880E4F;
-            font-family: Arial, sans-serif;
             z-index: 10;
             box-sizing: border-box;
         }
@@ -64,6 +65,7 @@
             line-height: 1.5;
             max-width: 85%;
             text-transform: uppercase;
+            word-break: break-word;
         }
 
         .angebot-banner p {
@@ -110,7 +112,10 @@
                 font-size: 1.1rem;
                 max-width: 90%;
                 line-height: 1.4;
+                word-wrap: break-word;
+                white-space: normal;
             }
+
             .angebot-banner-wrapper::before {
                 content: '';
                 display: block;
@@ -121,24 +126,99 @@
                 left: 0;
                 width: 100%;
             }
+
             .countdown-wrapper {
                 gap: 4px;
             }
+
             .countdown-box {
                 width: 65px;
                 height: 65px;
                 padding: 6px 0;
             }
+
             .countdown-number {
                 font-size: 1.4rem;
             }
+
             .countdown-label {
                 font-size: 0.7rem;
+            }
+        }
+
+        /* Burger-Menü */
+        .menu-container {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #3E2764;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1100;
+        }
+
+        .menu-icon {
+            font-size: 1.5rem;
+        }
+
+        .menu-links {
+            position: absolute;
+            top: 50px;
+            right: 10px;
+            background-color: #3E2764;
+            border-radius: 5px;
+            padding: 10px 0;
+            display: none;
+            flex-direction: column;
+            width: 180px;
+            z-index: 1100;
+        }
+
+        .menu-links a {
+            padding: 12px 15px;
+            text-decoration: none;
+            color: white;
+            display: block;
+            text-align: left;
+        }
+
+        .menu-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .menu-links.show {
+            display: flex;
+        }
+
+        /* Menü höher als das Banner setzen */
+        .menu-container, .menu-links {
+            position: fixed;
+            z-index: 2000;
+        }
+
+        /* Menü nur auf mobilen Geräten anzeigen */
+        @media (min-width: 768px) {
+            .menu-container {
+                display: none;
             }
         }
     </style>
 </head>
 <body>
+
+    <!-- Burger-Menü -->
+    <div class="menu-container" onclick="toggleMenu()">
+        <div class="menu-icon">☰</div>
+    </div>
+    <div class="menu-links" id="menuLinks">
+        <a href="#angebot">Angebot</a>
+        <a href="#resultate">Resultate</a>
+        <a href="#fragen">Häufige Fragen</a>
+    </div>
+
+    <!-- Angebot Banner -->
     <div class="angebot-banner-wrapper">
         <div class="angebot-banner">
             <h1 id="angebot-text">EINMALIGES ANGEBOT</h1>
@@ -153,6 +233,13 @@
     </div>
 
     <script>
+        // Burger-Menü Funktion
+        function toggleMenu() {
+            const menu = document.getElementById('menuLinks');
+            menu.classList.toggle('show');
+        }
+
+        // Angebots-Text dynamisch setzen
         (function() {
             const today = new Date();
             const dayOfWeek = today.getDay();
@@ -162,12 +249,12 @@
             sunday.setDate(monday.getDate() + 6);
 
             const monate = ["JANUAR", "FEBRUAR", "MÄRZ", "APRIL", "MAI", "JUNI", "JULI", "AUGUST", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DEZEMBER"];
-
             const formatDate = (date) => `${String(date.getDate()).padStart(2, '0')}.${monate[date.getMonth()]}`;
 
-            const angebotText = `EINMALIGES ${monate[monday.getMonth()]}-ANGEBOT VON ${formatDate(monday)} BIS ${formatDate(sunday)}`;
+            const angebotText = `EINMALIGES ${monate[monday.getMonth()]}-ANGEBOT VON\n${formatDate(monday)} BIS ${formatDate(sunday)}`;
             document.getElementById('angebot-text').innerText = angebotText;
 
+            // Countdown Timer
             const countdownDate = new Date();
             countdownDate.setDate(countdownDate.getDate() + 1);
             countdownDate.setHours(countdownDate.getHours() + 15);
@@ -177,18 +264,12 @@
             function updateCountdown() {
                 const now = new Date().getTime();
                 const distance = countdownDate - now;
-
                 if (distance <= 0) return;
 
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                document.getElementById('days').innerText = String(days).padStart(2, '0');
-                document.getElementById('hours').innerText = String(hours).padStart(2, '0');
-                document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
-                document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+                document.getElementById('days').innerText = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0');
+                document.getElementById('hours').innerText = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+                document.getElementById('minutes').innerText = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+                document.getElementById('seconds').innerText = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
             }
 
             updateCountdown();
@@ -196,116 +277,7 @@
         })();
     </script>
 </body>
-</html>
-
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobiles Burger-Menü</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-        .menu-container {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            background-color: #3E2764;
-            color: white;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            z-index: 1100;
-        }
-        .menu-icon {
-            font-size: 1.5rem;
-        }
-        .menu-links {
-            position: absolute;
-            top: 50px;
-            right: 10px;
-            background-color: #3E2764;
-            border-radius: 5px;
-            padding: 10px 0;
-            display: none;
-            flex-direction: column;
-            width: 180px;
-            z-index: 1100;
-        }
-        .menu-links a {
-            padding: 12px 15px;
-            text-decoration: none;
-            color: white;
-            display: block;
-            text-align: left;
-        }
-        .menu-links a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-        .menu-links.show {
-            display: flex;
-        }
-
-        /* Sicherstellen, dass das Menü über dem Banner liegt */
-        .menu-container, .menu-links {
-            position: fixed;
-            z-index: 2000; /* Höhere Priorität setzen */
-        }
-
-        /* Nur auf mobilen Geräten anzeigen */
-        @media (min-width: 768px) {
-            .menu-container {
-                display: none;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="menu-container" onclick="toggleMenu()">
-        <div class="menu-icon">☰</div>
-    </div>
-    <div class="menu-links" id="menuLinks">
-        <a href="#angebot">Angebot</a>
-        <a href="#resultate">Resultate</a>
-        <a href="#fragen">Häufige Fragen</a>
-    </div>
-
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('menuLinks');
-            menu.classList.toggle('show');
-        }
-    </script>
-</body>
-</html>
-
-<style>
-    @media (max-width: 768px) {
-        #angebot-text {
-            display: block;
-            word-break: break-word;
-            max-width: 90%; /* Damit der Text sich flexibel anpasst */
-            margin: 0 auto;
-        }
-    }
-</style>
-
-<div class="angebot-banner-wrapper">
-    <div class="angebot-banner">
-        <h1 id="angebot-text">EINMALIGES ANGEBOT<br> VON 24. FEBRUAR BIS 02. MÄRZ</h1>
-        <div class="countdown-wrapper">
-            <div class="countdown-box"><div id="days" class="countdown-number">01</div><div class="countdown-label">TAGE</div></div>
-            <div class="countdown-box"><div id="hours" class="countdown-number">15</div><div class="countdown-label">STUNDEN</div></div>
-            <div class="countdown-box"><div id="minutes" class="countdown-number">51</div><div class="countdown-label">MINUTEN</div></div>
-            <div class="countdown-box"><div id="seconds" class="countdown-number">48</div><div class="countdown-label">SEKUNDEN</div></div>
-        </div>
-        <p>*NUR SOLANGE DER VORRAT REICHT</p>
-    </div>
-</div></div></div>
+</html></div></div>
   
   
     <div
