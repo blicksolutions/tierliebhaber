@@ -102,7 +102,7 @@
 	display: flex;
 	flex: 1 0 0;
 	padding: 15px;
-	align-items: flex-start;
+	align-items: center;
 	gap: 8px;
 	align-self: stretch;
 	border-radius: 16px;
@@ -187,7 +187,10 @@
 
 .ingredients__container .highlights__item img {
 	object-fit: contain;
-	object-position: top;
+	object-position: center;
+	height: 100%;
+	width: 100%;
+	margin: auto;
 }
 
 @media (min-width: 768px) {
