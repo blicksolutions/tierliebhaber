@@ -1,21 +1,39 @@
 <div
       enableLazyloadImage="true" tag="Col" label="Block" type="component"
       style="--jc:start"
-      class="gz5XE2ZJBA gp-relative gp-flex gp-flex-col"
+      class="g3nVLnUybX gp-relative gp-flex gp-flex-col"
     >
       
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="gZI2GKqu7M">
+    <div
+      enableLazyloadImage="true" parentTag="Col"
+        class="gZI2GKqu7M "
+        style="--ta:left;--mb:0px;--pl:50px;--pr:50px;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--shadow:none;--op:100%"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ts:none;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:19px;--size-tablet:16px;--size-mobile:14px;--lh:150%;--lh-tablet:180%;--lh-mobile:180%;--c:#151515;word-break:break-word;--bgc:#FECA06;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;overflow:hidden"
+        >{{ section.settings.ggZI2GKqu7M_text | replace: '$locationOrigin', locationOrigin }}</div>
+      </div>
+    </div>
+    </gp-text>
+    
     {%- assign gpBkProduct = product -%}
     
         {%- liquid
           if request.page_type == 'product'
             if 'static' == 'static'
-              if '11434433249548' == 'latest'
+              if '11505642012940' == 'latest'
                 paginate collections.all.products by 100000
                   assign product = collections.all.products | sort: 'created_at' | reverse | first
                 endpaginate
               else
-                assign product = all_products['dentalspray-4']
-                assign productId = '11434433249548' | times: 1
+                assign product = all_products['dental-cfo-v2']
+                assign productId = '11505642012940' | times: 1
                 if product == empty or product == null
                   paginate collections.all.products by 100000
                     for item in collections.all.products
@@ -28,13 +46,13 @@
               endif
             endif
           else
-            if '11434433249548' == 'latest'
+            if '11505642012940' == 'latest'
               paginate collections.all.products by 100000
                 assign product = collections.all.products | sort: 'created_at'| reverse | first
               endpaginate
             else
-              assign product = all_products['dentalspray-4']
-              assign productId = '11434433249548' | times: 1
+              assign product = all_products['dental-cfo-v2']
+              assign productId = '11505642012940' | times: 1
               if product == empty or product == null
                 paginate collections.all.products by 100000
                   for item in collections.all.products
@@ -50,17 +68,17 @@
       
 
     {%-if product != empty and product != null -%}
-      {%- assign initVariantId = 53649074946316 -%}
-      {%- assign product_form_id = 'product-form-' | append: "gMr4L8_cSJ" -%}
-      {%- assign variant = product.variants | where: 'id', initVariantId | first -%}
-      {%- assign productSelectedVariant = product.variants | where: 'id', initVariantId | first -%}
+      {%- assign initVariantId =  -%}
+      {%- assign product_form_id = 'product-form-' | append: "gXpt7wsogW" -%}
+      {%- assign variant = product.selected_or_first_available_variant -%}
+      {%- assign productSelectedVariant = product.selected_or_first_available_variant -%}
       {%-if productSelectedVariant == empty or productSelectedVariant == null -%}
         {%- assign productSelectedVariant = product.selected_or_first_available_variant -%}
       {%- endif -%}
       {%-if variant == empty or variant == null -%}
         {%- assign variant = product.selected_or_first_available_variant -%}
       {%- endif -%}
-      <gp-product data-uid="gMr4L8_cSJ" data-id="gMr4L8_cSJ"   gp-context='{"productId": {{ product.id }}, "preSelectedOptionIds": [8649119006988], "isSyncProduct": "true", "variantSelected": {{ variant | json | escape }}, "inventoryQuantity": {{ variant.inventory_quantity }}, "quantity": 1, "formId": "{{ product_form_id }}" }'
+      <gp-product data-uid="gXpt7wsogW" data-id="gXpt7wsogW"   gp-context='{"productId": {{ product.id }}, "preSelectedOptionIds": [], "isSyncProduct": "true", "variantSelected": {{ variant | json | escape }}, "inventoryQuantity": {{ variant.inventory_quantity }}, "quantity": 1, "formId": "{{ product_form_id }}" }'
         gp-data='{"variantSelected": {{ variant | json | escape }}, "quantity": 1, "productUrl":{{ product.url | json | escape }}, "productHandle":{{ product.handle | json | escape }}, "collectionUrl": {{ collection.url | json | escape }}, "collectionHandle": {{ collection.handle | json | escape }}}'>
         <product-form class="product-form">
           {%- form 'product', product, id: product_form_id, class: 'form contents', data-type: 'add-to-cart-form', autocomplete: 'off'  -%}
@@ -71,30 +89,43 @@
        
       
     <div
-      id="gMr4L8_cSJ" data-id="gMr4L8_cSJ-row"
-        style="--d:grid;--d-tablet:grid;--d-mobile:grid;--bs:solid;--bw:2px 2px 2px 2px;--bc:#121212;--shadow:none;--op:100%;--mt:32px;--pt:0px;--cg:30px;--pc:start;--gtc:minmax(0, 12fr);--w:600px;--w-tablet:100%;--w-mobile:100%"
-        class="gMr4L8_cSJ gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full"
+      id="gXpt7wsogW" data-id="gXpt7wsogW-row"
+        style="--d:grid;--d-tablet:grid;--d-mobile:grid;--bs:solid;--bw:3px 3px 3px 3px;--bc:#fdca06;--shadow:none;--op:100%;--cg:30px;--pc:start;--gtc:minmax(0, 12fr);--w:600px;--w-tablet:100%;--w-mobile:100%"
+        class="gXpt7wsogW gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full"
     >
     <div
       enableLazyloadImage="true" tag="Col" label="Block" type="component"
       style="--jc:start"
-      class="gqu1X5lVlI gp-relative gp-flex gp-flex-col"
+      class="gIwN1ukr6p gp-relative gp-flex gp-flex-col"
+    >
+      
+       
+      
+    <div
+      enableLazyloadImage="true" parentTag="Col" id="gRi4ijsSUA" data-id="gRi4ijsSUA"
+        style="--mb:0px;--d:grid;--d-tablet:grid;--d-mobile:grid;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--cg:8px;--pc:center;--gtc:minmax(0, 12fr);--gtc-mobile:minmax(0, 12fr);--w:var(--g-ct-w, 1200px);--w-tablet:var(--g-ct-w, 100%);--w-mobile:var(--g-ct-w, 100%);--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        class="gRi4ijsSUA gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full"
+    >
+    <div
+      enableLazyloadImage="true" tag="Col" label="Block" type="component"
+      style="--jc:start"
+      class="gSi-KJrRZn gp-relative gp-flex gp-flex-col"
     >
       
   {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
-  <gp-text data-id="g1exv8SQ15">
+  <gp-text data-id="ggWVsvGOFO">
     <div
       enableLazyloadImage="true" parentTag="Col"
-        class="g1exv8SQ15 "
-        style="--ta:left;--mb:var(--g-s-l);--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%"
+        class="ggWVsvGOFO "
+        style="--ta:left;--mb:0px;--pt:5px;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%"
       >
       <div class="gp-flex" style="--jc:left">
         <div
           
           data-gp-text
-          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-g-subheading-2 gp-text"
-          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--size:32px;--size-tablet:18px;--size-mobile:16px;--weight:bold;--c:#151515;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
-        >{{ section.settings.gg1exv8SQ15_text | replace: '$locationOrigin', locationOrigin }}</div>
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ts:none;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--size:32px;--size-tablet:16px;--size-mobile:14px;--lh:100%;--lh-tablet:180%;--lh-mobile:180%;--weight:bold;--c:#151515;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
+        >{{ section.settings.gggWVsvGOFO_text | replace: '$locationOrigin', locationOrigin }}</div>
       </div>
     </div>
     </gp-text>
@@ -102,27 +133,66 @@
        
       
     <div
-      enableLazyloadImage="true" parentTag="Col" id="ghmMj7KhbC" data-id="ghmMj7KhbC"
-        style="--mb:var(--g-s-l);--d:grid;--d-tablet:grid;--d-mobile:none;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--cg:8px;--pc:center;--gtc:minmax(0, auto) minmax(0, auto);--gtc-mobile:minmax(0, auto) minmax(0, auto);--w:100%;--w-tablet:var(--g-ct-w, 100%);--w-mobile:var(--g-ct-w, 100%);--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
-        class="ghmMj7KhbC gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full"
+      enableLazyloadImage="true" parentTag="Col" id="g-_Wn3fP5K" data-id="g-_Wn3fP5K"
+        style="--d:grid;--d-tablet:grid;--d-mobile:grid;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--cg:8px;--pc:center;--gtc:minmax(0, auto);--gtc-mobile:minmax(0, auto);--w:var(--g-ct-w, 1200px);--w-tablet:var(--g-ct-w, 100%);--w-mobile:var(--g-ct-w, 100%);--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        class="g-_Wn3fP5K gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full"
+    >
+    <div
+      enableLazyloadImage="true" tag="Col" label="Block" type="component"
+      style="--jc:start"
+      class="gqPjJFZAZc gp-relative gp-flex gp-flex-col"
+    >
+      
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="gh4oeoZDc6">
+    <div
+      enableLazyloadImage="true" parentTag="Col"
+        class="gh4oeoZDc6 "
+        style="--ta:left;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ts:none;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:19px;--size-tablet:16px;--size-mobile:14px;--lh:100%;--lh-tablet:180%;--lh-mobile:180%;--c:#151515;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
+        >{{ section.settings.ggh4oeoZDc6_text | replace: '$locationOrigin', locationOrigin }}</div>
+      </div>
+    </div>
+    </gp-text>
+    
+    </div>
+    </div>
+   
+    
+    </div>
+    </div>
+   
+    
+       
+      
+    <div
+      enableLazyloadImage="true" parentTag="Col" id="gW5RXm4nyC" data-id="gW5RXm4nyC"
+        style="--mt:0px;--mb:var(--g-s-l);--d:grid;--d-tablet:grid;--d-mobile:none;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--cg:8px;--pc:center;--gtc:minmax(0, auto) minmax(0, auto);--gtc-mobile:minmax(0, auto) minmax(0, auto);--w:100%;--w-tablet:var(--g-ct-w, 100%);--w-mobile:var(--g-ct-w, 100%);--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        class="gW5RXm4nyC gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full"
     >
     <div
       enableLazyloadImage="true" tag="Col" label="Block" type="component"
       style="--jc:center;--o:1"
-      class="gag9WkJhtI gp-relative gp-flex gp-flex-col"
+      class="gDVZCHaNib gp-relative gp-flex gp-flex-col"
     >
       
     
     <div
-    data-id="gy-_fegrcS"
+    data-id="gdPJs4TwAd"
       
-      data-id="gy-_fegrcS"
+      data-id="gdPJs4TwAd"
       style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--ml:0px;--mr:0px;--ml-mobile:0px;--mb-mobile:0px;--mr-mobile:0px;--pr-mobile:0px;--bgc:#00000000;--bgc-mobile:#00000000;--bgi:url();--bgi-mobile:url();--bgp:50% 50%;--bgp-mobile:50% 50%;--bgs:cover;--bgs-mobile:cover;--bgr:no-repeat;--bgr-mobile:no-repeat;--bga:scroll;--bga-mobile:scroll">
 
     <div
             class="gp-flex gp-flex-wrap"
             style="--cg:1px;--jc:left;--ai:center">
-            <div gp-el-wrapper style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%" class="gzHpMHHgYp ">
+            <div gp-el-wrapper style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%" class="gwcjnjv_WQ ">
       
     <div 
       
@@ -132,10 +202,10 @@
   <div
       
       style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--ta:left"
-      class="gp-leading-[0] gwVhbW6Tv0"
+      class="gp-leading-[0] gkJ-Vs4EfQ"
     >
       <div 
-      data-id="gwVhbW6Tv0"
+      data-id="gkJ-Vs4EfQ"
       class="icon-wrapper gp-inline-flex gp-overflow-hidden"
       style="--bs:none;--bw:1px 1px 1px 1px;--bc:#000000"
       >
@@ -152,7 +222,7 @@
     
     </div>
   
-      </div><div gp-el-wrapper style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%" class="gNALHO1EyL ">
+      </div><div gp-el-wrapper style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%" class="g8i23NqzQ1 ">
       
     <div 
       
@@ -162,10 +232,10 @@
   <div
       
       style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--ml-mobile:0px;--ta:left"
-      class="gp-leading-[0] grf-V9rvvN"
+      class="gp-leading-[0] gkts72ZWMa"
     >
       <div 
-      data-id="grf-V9rvvN"
+      data-id="gkts72ZWMa"
       class="icon-wrapper gp-inline-flex gp-overflow-hidden"
       style="--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:#00000000"
       >
@@ -182,7 +252,7 @@
     
     </div>
   
-      </div><div gp-el-wrapper style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%" class="gt5kAtaXIt ">
+      </div><div gp-el-wrapper style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%" class="gMHdcfgC7l ">
       
     <div 
       
@@ -192,10 +262,10 @@
   <div
       
       style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--ta:left"
-      class="gp-leading-[0] guUAED_Ef9"
+      class="gp-leading-[0] g01AfopPUU"
     >
       <div 
-      data-id="guUAED_Ef9"
+      data-id="g01AfopPUU"
       class="icon-wrapper gp-inline-flex gp-overflow-hidden"
       style="--bs:none;--bw:1px 1px 1px 1px;--bc:#000000"
       >
@@ -212,7 +282,7 @@
     
     </div>
   
-      </div><div gp-el-wrapper style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%" class="gLq7KZUr5b ">
+      </div><div gp-el-wrapper style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%" class="g1reUVILhI ">
       
     <div 
       
@@ -222,10 +292,10 @@
   <div
       
       style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--ta:left"
-      class="gp-leading-[0] gHmRY7OSTm"
+      class="gp-leading-[0] gVI67qB5pb"
     >
       <div 
-      data-id="gHmRY7OSTm"
+      data-id="gVI67qB5pb"
       class="icon-wrapper gp-inline-flex gp-overflow-hidden"
       style="--bs:none;--bw:2px 2px 2px 2px;--bc:#000000"
       >
@@ -242,7 +312,7 @@
     
     </div>
   
-      </div><div gp-el-wrapper style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%" class="gsIg8bdqR_ ">
+      </div><div gp-el-wrapper style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%" class="gTZkMXtVSZ ">
       
     <div 
       
@@ -252,10 +322,10 @@
   <div
       
       style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--mb:0px;--ta:left"
-      class="gp-leading-[0] gZl1QnBnLa"
+      class="gp-leading-[0] gBRFOtQxFH"
     >
       <div 
-      data-id="gZl1QnBnLa"
+      data-id="gBRFOtQxFH"
       class="icon-wrapper gp-inline-flex gp-overflow-hidden"
       style="--bs:none;--bw:1px 1px 1px 1px;--bc:#000000"
       >
@@ -279,14 +349,14 @@
     </div><div
       enableLazyloadImage="true" tag="Col" label="Block" type="component"
       style="--jc:center;--o:0"
-      class="gQa9dICPWB gp-relative gp-flex gp-flex-col"
+      class="gFWimR1G7T gp-relative gp-flex gp-flex-col"
     >
       
   {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
-  <gp-text data-id="gTFilOuddT">
+  <gp-text data-id="g84xfoKuwS">
     <div
       enableLazyloadImage="true" parentTag="Col"
-        class="gTFilOuddT "
+        class="g84xfoKuwS "
         style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--ml:0px;--mr:0px;--pt:0px;--ml-mobile:5px;--mr-mobile:45px;--pt-mobile:0px;--pb-mobile:0px;--pr-mobile:0px"
       >
       <div class="gp-flex" style="--jc:left">
@@ -295,7 +365,7 @@
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-g-paragraph-1 gp-text"
           style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--size:14px;--size-tablet:16px;--size-mobile:11px;--weight:bold;--c:#000000;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
-        >{{ section.settings.ggTFilOuddT_text | replace: '$locationOrigin', locationOrigin }}</div>
+        >{{ section.settings.gg84xfoKuwS_text | replace: '$locationOrigin', locationOrigin }}</div>
       </div>
     </div>
     </gp-text>
@@ -311,7 +381,7 @@
     <gp-product-images-v2
       gp-data='
     {
-      "id":"gUbFgec-E-",
+      "id":"gbX5E8aIQ7",
       "pageContext": {"numberOfProductOfProductList":0,"isPreviewing":false,"pageType":"GP_STATIC","hasCollectionHandle":true,"isTranslateWithLocale":false,"sectionName":"gp-section-555625622949724961"},
       "setting":{"ftDragToScroll":true,"ftNavigationPosition":{"desktop":"none"},"ftClickOpenLightBox":{"desktop":"product-link"},"typeDisplay":"all-images","preDisplay":"1st-available-variant","hoverEffect":"none","zoomType":"default","zoom":150,"otherImage":0,"ftClickOpenNewTab":false,"ftLoop":{"desktop":false},"ftPauseOnHover":true,"ftAnimationSpeed":500,"ftAnimationMode":"ease-out","ftArrowIcon":"<svg width=\"100%\" height=\"100%\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0ZM10.6828 8.13017C10.5266 7.95661 10.2734 7.95661 10.1172 8.13017C9.96095 8.30374 9.96095 8.58515 10.1172 8.75871L13.0343 12L10.1172 15.2413C9.96095 15.4149 9.96095 15.6963 10.1172 15.8698C10.2734 16.0434 10.5266 16.0434 10.6828 15.8698L13.8828 12.3143C14.0391 12.1407 14.0391 11.8593 13.8828 11.6857L10.6828 8.13017Z\" fill=\"currentColor\"/>\n    </svg>","ftArrowIconColor":"#000000","ftArrowNavBorder":{"borderType":"none","border":"none","borderWidth":"1px","width":"1px 1px 1px 1px","isCustom":false},"ftArrowNavRadius":{"btrr":"0px","bblr":"0px","bbrr":"0px","btlr":"0px","radiusType":"none"},"type":{"desktop":"slider"},"galleryHoverEffect":"none","galleryZoomType":"default","galleryZoom":150,"clickOpenLightBox":{"desktop":false},"borderActive":{"borderType":"none","border":"solid","borderWidth":"1px","width":"1px 1px 1px 1px","isCustom":false,"color":"#000000"},"navigationPosition":{"desktop":"inside"},"loop":{"desktop":true},"pauseOnHover":true,"speed":1,"arrowIcon":"<svg width=\"100%\" height=\"100%\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0ZM10.6828 8.13017C10.5266 7.95661 10.2734 7.95661 10.1172 8.13017C9.96095 8.30374 9.96095 8.58515 10.1172 8.75871L13.0343 12L10.1172 15.2413C9.96095 15.4149 9.96095 15.6963 10.1172 15.8698C10.2734 16.0434 10.5266 16.0434 10.6828 15.8698L13.8828 12.3143C14.0391 12.1407 14.0391 11.8593 13.8828 11.6857L10.6828 8.13017Z\" fill=\"currentColor\"/>\n    </svg>","arrowIconColor":"#000000","dragToScroll":true,"arrowNavBorder":{"borderType":"none","border":"none","borderWidth":"1px","width":"1px 1px 1px 1px","isCustom":false},"arrowNavRadius":{"btrr":"0px","bblr":"0px","bbrr":"0px","btlr":"0px","radiusType":"none"},"qualityType":{"desktop":"high"},"preload":false,"qualityPercent":{"desktop":100},"ftDotStyle":{"desktop":"none"},"ftDotSize":{"desktop":12},"ftDotGapToCarousel":{"desktop":16},"ftDotColor":{"desktop":"bg-1"},"ftDotActiveColor":{"desktop":"line-3"}},
       "styles":{"position":{"desktop":"only-feature","mobile":"bottom-center"},"spacing":{"desktop":"var(--g-s-s)","mobile":"var(--g-s-s)"},"ratioLayout":{"desktop":[2,10]},"ratioLayoutRight":{"desktop":[10,2]},"ftShape":{"desktop":{"shape":"square","shapeValue":"1/1","width":"100%","shapeLinked":true}},"ftLayout":{"desktop":"cover"},"ftCorner":{"btrr":"0px","bblr":"0px","bbrr":"0px","btlr":"0px","radiusType":"none"},"shape":{"desktop":{"shape":"square","shapeValue":"1/1","width":"100%","shapeLinked":true}},"shapeForFtOnly":{"desktop":{"shape":"square","shapeValue":"1/1","width":"100%","shapeLinked":true}},"shapeForBottom":{"desktop":{"shape":"square","shapeValue":"1/1","width":"20%","shapeLinked":true}},"shapeForInsideBottom":{"desktop":{"shape":"square","shapeValue":"1/1","width":"20%","shapeLinked":true}},"shapeForInside":{"desktop":{"shape":"square","shapeValue":"1/1","width":"20%","shapeLinked":true}},"shapeFor2Col":{"desktop":{"shape":"square","shapeValue":"1/1","width":"50%","shapeLinked":true}},"shapeFor1Col":{"desktop":{"shape":"square","shapeValue":"1/1","width":"100%","shapeLinked":true}},"layout":{"desktop":"cover"},"itemSpacing":{"desktop":"var(--g-s-s)","mobile":"var(--g-s-s)"},"corner":{"btrr":"0px","bblr":"0px","bbrr":"0px","btlr":"0px","radiusType":"none"},"align":{"desktop":"flex-start"}}, "productUrl":{{product.url | json | escape}}, "product":{{product | json | escape}}, "collectionUrl": {{ collection.url | json | escape }}, "collection": {{ collection | json | escape}}
@@ -319,8 +389,8 @@
   '
       section-id="{{section.id}}"
       style="--mb:var(--g-s-l);--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%"
-      data-id="gUbFgec-E-"
-      class="gUbFgec-E- gp-overflow-hidden"
+      data-id="gbX5E8aIQ7"
+      class="gbX5E8aIQ7 gp-overflow-hidden"
     >
       <div
         class="{%- if product.media.size > 1 -%} gp-grid gp-w-full !gp-m-0 gp-relative {%- else -%} gp-w-full !gp-m-0 gp-relative {%- endif -%}"
@@ -529,14 +599,14 @@
     {% if product.media.size > 1 %}
       
       
-    <gp-carousel data-id="gp-carousel-gUbFgec-E-" type="gp-feature-image-carousel" product-id="{{product.id}}" product-media="{{product.media.size}}" id="gp-root-carousel-ft-gp-carousel-gUbFgec-E--{{section.id}}-{{product.id}}-{{section.id}}" class="
+    <gp-carousel data-id="gp-carousel-gbX5E8aIQ7" type="gp-feature-image-carousel" product-id="{{product.id}}" product-media="{{product.media.size}}" id="gp-root-carousel-ft-gp-carousel-gbX5E8aIQ7-{{section.id}}-{{product.id}}-{{section.id}}" class="
           gp-px-0 tablet:gp-px-0 mobile:gp-px-0
           gp-flex-1 gp-w-full gp-feature-image-carousel
-          gp-group/carousel gp-flex" gp-data='{"id":"ft-gp-carousel-gUbFgec-E--{{section.id}}-{{product.id}}-{{section.id}}","setting":{"loop":{"desktop":false},"slidesToShow":{"desktop":1},"dotStyle":{"desktop":"none","tablet":"none","mobile":"none"},"dotSize":{"desktop":12},"dotGapToCarousel":{"desktop":16},"dotColor":{"desktop":"bg-1"},"dotActiveColor":{"desktop":"line-3"},"controlOverContent":{"desktop":false,"tablet":false,"mobile":false},"enableDrag":{"desktop":true,"tablet":true,"mobile":true},"arrowCustom":"<svg width=\"100%\" height=\"100%\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0ZM10.6828 8.13017C10.5266 7.95661 10.2734 7.95661 10.1172 8.13017C9.96095 8.30374 9.96095 8.58515 10.1172 8.75871L13.0343 12L10.1172 15.2413C9.96095 15.4149 9.96095 15.6963 10.1172 15.8698C10.2734 16.0434 10.5266 16.0434 10.6828 15.8698L13.8828 12.3143C14.0391 12.1407 14.0391 11.8593 13.8828 11.6857L10.6828 8.13017Z\" fill=\"currentColor\"/>\n    </svg>","arrowCustomColor":"#000000","arrowBorder":{"desktop":{"borderType":"none","border":"none","borderWidth":"1px","width":"1px 1px 1px 1px","isCustom":false}},"roundedArrow":{"desktop":{"btrr":"0px","bblr":"0px","bbrr":"0px","btlr":"0px","radiusType":"none"}},"sneakPeakType":{"desktop":"center"},"arrowGapToEachSide":"16","animationMode":"ease-out","navigationStyle":{"desktop":"none"},"arrowButtonSize":{"desktop":{"width":"24px","height":"24px"}}},"styles":{"playSpeed":500,"sizeSetting":{"desktop":{"width":"100%","height":"auto"},"tablet":{"width":"100%","height":"auto"},"mobile":{"width":"100%","height":"auto"}},"align":{"desktop":"flex-start","tablet":"flex-start","mobile":"flex-start"}},"isHiddenArrowWhenDisabled":true}' style="--jc:flex-start;--o:0;--o-tablet:0;--o-mobile:0;--d:flex;--d-mobile:flex;--d-tablet:flex">
+          gp-group/carousel gp-flex" gp-data='{"id":"ft-gp-carousel-gbX5E8aIQ7-{{section.id}}-{{product.id}}-{{section.id}}","setting":{"loop":{"desktop":false},"slidesToShow":{"desktop":1},"dotStyle":{"desktop":"none","tablet":"none","mobile":"none"},"dotSize":{"desktop":12},"dotGapToCarousel":{"desktop":16},"dotColor":{"desktop":"bg-1"},"dotActiveColor":{"desktop":"line-3"},"controlOverContent":{"desktop":false,"tablet":false,"mobile":false},"enableDrag":{"desktop":true,"tablet":true,"mobile":true},"arrowCustom":"<svg width=\"100%\" height=\"100%\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0ZM10.6828 8.13017C10.5266 7.95661 10.2734 7.95661 10.1172 8.13017C9.96095 8.30374 9.96095 8.58515 10.1172 8.75871L13.0343 12L10.1172 15.2413C9.96095 15.4149 9.96095 15.6963 10.1172 15.8698C10.2734 16.0434 10.5266 16.0434 10.6828 15.8698L13.8828 12.3143C14.0391 12.1407 14.0391 11.8593 13.8828 11.6857L10.6828 8.13017Z\" fill=\"currentColor\"/>\n    </svg>","arrowCustomColor":"#000000","arrowBorder":{"desktop":{"borderType":"none","border":"none","borderWidth":"1px","width":"1px 1px 1px 1px","isCustom":false}},"roundedArrow":{"desktop":{"btrr":"0px","bblr":"0px","bbrr":"0px","btlr":"0px","radiusType":"none"}},"sneakPeakType":{"desktop":"center"},"arrowGapToEachSide":"16","animationMode":"ease-out","navigationStyle":{"desktop":"none"},"arrowButtonSize":{"desktop":{"width":"24px","height":"24px"}}},"styles":{"playSpeed":500,"sizeSetting":{"desktop":{"width":"100%","height":"auto"},"tablet":{"width":"100%","height":"auto"},"mobile":{"width":"100%","height":"auto"}},"align":{"desktop":"flex-start","tablet":"flex-start","mobile":"flex-start"}},"isHiddenArrowWhenDisabled":true}' style="--jc:flex-start;--o:0;--o-tablet:0;--o-mobile:0;--d:flex;--d-mobile:flex;--d-tablet:flex">
       <div class="gp-hidden gp-aspect-square gp-w-[12px] gp-rounded-full gp-shadow-md"></div>
       <div
         
-        class="gp-relative gp-my-0 tablet:gp-px-0 gp-max-w-full mobile:gp-px-0 gp-carousel-wrapper mobile:gp-block tablet:gp-block gp-block gp-carousel-gUbFgec-E- gp-featured-image-wrapper"
+        class="gp-relative gp-my-0 tablet:gp-px-0 gp-max-w-full mobile:gp-px-0 gp-carousel-wrapper mobile:gp-block tablet:gp-block gp-block gp-carousel-gbX5E8aIQ7 gp-featured-image-wrapper"
         style="--w:100%;--w-tablet:100%;--w-mobile:100%;--h:auto;--h-tablet:auto;--h-mobile:auto"
       >
         <div
@@ -547,7 +617,7 @@
     <button
       type="button"
       aria-label='Carousel Back Arrow'
-      class="gp-z-1 ft-gp-carousel-gUbFgec-E--{{section.id}}-{{product.id}} gp-carousel-action-back gem-slider-previous ft-gp-carousel-gUbFgec-E--{{section.id}}-{{product.id}}-{{section.id}} gp-carousel-arrow-gp-carousel-gUbFgec-E- gp-items-center gp-justify-center gp-overflow-hidden gp-shrink-0  gp-cursor-pointer gp-text-gray-500 !gp-hidden tablet:!gp-hidden mobile:!gp-hidden"
+      class="gp-z-1 ft-gp-carousel-gbX5E8aIQ7-{{section.id}}-{{product.id}} gp-carousel-action-back gem-slider-previous ft-gp-carousel-gbX5E8aIQ7-{{section.id}}-{{product.id}}-{{section.id}} gp-carousel-arrow-gp-carousel-gbX5E8aIQ7 gp-items-center gp-justify-center gp-overflow-hidden gp-shrink-0  gp-cursor-pointer gp-text-gray-500 !gp-hidden tablet:!gp-hidden mobile:!gp-hidden"
       style="--left:initial;--top:initial;--right:initial;--bottom:;--left-tablet:initial;--top-tablet:initial;--right-tablet:initial;--bottom-tablet:;--left-mobile:initial;--top-mobile:initial;--right-mobile:initial;--bottom-mobile:;--d:none;--d-tablet:none;--d-mobile:none;background-color:;--w:24px;--h:24px"
       onClick={onClick}
       
@@ -561,7 +631,7 @@
     </svg>
     </div>
       <style>
-    .ft-gp-carousel-gUbFgec-E--{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gUbFgec-E- {
+    .ft-gp-carousel-gbX5E8aIQ7-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gbX5E8aIQ7 {
       
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
@@ -569,7 +639,7 @@
       border-top-right-radius: 0px;
       
     }
-    .ft-gp-carousel-gUbFgec-E--{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gUbFgec-E-::before {
+    .ft-gp-carousel-gbX5E8aIQ7-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gbX5E8aIQ7::before {
       content: '';
       height: 100%;
       width: 100%;
@@ -588,7 +658,7 @@
       
     }
     @media only screen and (max-width: 1024px) and (min-width: 768px) {
-      .ft-gp-carousel-gUbFgec-E--{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gUbFgec-E- {
+      .ft-gp-carousel-gbX5E8aIQ7-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gbX5E8aIQ7 {
         
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
@@ -596,7 +666,7 @@
       border-top-right-radius: 0px;
       
       }
-      .ft-gp-carousel-gUbFgec-E--{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gUbFgec-E-::before {
+      .ft-gp-carousel-gbX5E8aIQ7-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gbX5E8aIQ7::before {
         border-style: none;
   border-width: 1px 1px 1px 1px;
   
@@ -610,7 +680,7 @@
       }
     }
     @media only screen and (max-width: 768px) {
-      .ft-gp-carousel-gUbFgec-E--{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gUbFgec-E- {
+      .ft-gp-carousel-gbX5E8aIQ7-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gbX5E8aIQ7 {
         
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
@@ -618,7 +688,7 @@
       border-top-right-radius: 0px;
       
       }
-      .ft-gp-carousel-gUbFgec-E--{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gUbFgec-E-::before {
+      .ft-gp-carousel-gbX5E8aIQ7-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gbX5E8aIQ7::before {
         border-style: none;
   border-width: 1px 1px 1px 1px;
   
@@ -634,7 +704,7 @@
   </style>
     </button>
   
-          <div id="gp-carousel-ft-gp-carousel-gUbFgec-E--{{section.id}}-{{product.id}}-{{section.id}}" class="gem-slider gp-h-full gp-overflow-hidden gp-select-none mobile:!gp-flex-nowrap tablet:!gp-flex-nowrap !gp-flex-nowrap mobile:!gp-min-h-full tablet:!gp-min-h-full !gp-min-h-full"
+          <div id="gp-carousel-ft-gp-carousel-gbX5E8aIQ7-{{section.id}}-{{product.id}}-{{section.id}}" class="gem-slider gp-h-full gp-overflow-hidden gp-select-none mobile:!gp-flex-nowrap tablet:!gp-flex-nowrap !gp-flex-nowrap mobile:!gp-min-h-full tablet:!gp-min-h-full !gp-min-h-full"
           style="--cg-mobile:undefinedpx;--cg-tablet:undefinedpx;--cg:undefinedpx">
           
           {%- if product.media.size > 0 -%}
@@ -680,7 +750,7 @@
       
       id="{{section.id}}-{{imageID}}"
       style="width:{{productImageWidth}}px;--minw:calc(100% / 4 - 33px);--minw-tablet:calc(100% / 4 - 33px);--minw-mobile:calc(100% / 4 - 33px);--maxw:calc(100% / 4 - 33px);--maxw-tablet:calc(100% / 4 - 33px);--maxw-mobile:calc(100% / 4 - 33px);outline-color:var(--g-c-brand, brand);--h:auto;--h-tablet:auto;--h-mobile:auto;--ml:0px;--ml-tablet:0px;--ml-mobile:0px"
-      class="gem-slider-item gp-w-full gem-slider-item-gp-carousel-gUbFgec-E--{{section.id}}-{{product.id}} gp-child-item-undefined gp-group gp-z-0 gp-flex !gp-min-w-full !gp-max-w-full gp-w-full gp-relative gp-items-start gp-justify-center gp-overflow-hidden gp-outline-1 -gp-outline-offset-1 gp-image-item gp-ft-image-item data-[outline=active]:gp-outline undefined"
+      class="gem-slider-item gp-w-full gem-slider-item-gp-carousel-gbX5E8aIQ7-{{section.id}}-{{product.id}} gp-child-item-undefined gp-group gp-z-0 gp-flex !gp-min-w-full !gp-max-w-full gp-w-full gp-relative gp-items-start gp-justify-center gp-overflow-hidden gp-outline-1 -gp-outline-offset-1 gp-image-item gp-ft-image-item data-[outline=active]:gp-outline undefined"
       data-index=""
     >
       <div
@@ -856,7 +926,7 @@
     <button
       type="button"
       aria-label='Carousel Next Arrow'
-      class="gp-z-1 ft-gp-carousel-gUbFgec-E--{{section.id}}-{{product.id}} gp-carousel-action-next gem-slider-next ft-gp-carousel-gUbFgec-E--{{section.id}}-{{product.id}}-{{section.id}} gp-carousel-arrow-gp-carousel-gUbFgec-E- gp-items-center gp-justify-center gp-overflow-hidden gp-shrink-0  gp-cursor-pointer gp-text-gray-500 !gp-hidden tablet:!gp-hidden mobile:!gp-hidden"
+      class="gp-z-1 ft-gp-carousel-gbX5E8aIQ7-{{section.id}}-{{product.id}} gp-carousel-action-next gem-slider-next ft-gp-carousel-gbX5E8aIQ7-{{section.id}}-{{product.id}}-{{section.id}} gp-carousel-arrow-gp-carousel-gbX5E8aIQ7 gp-items-center gp-justify-center gp-overflow-hidden gp-shrink-0  gp-cursor-pointer gp-text-gray-500 !gp-hidden tablet:!gp-hidden mobile:!gp-hidden"
       style="--left:initial;--top:;--right:initial;--bottom:initial;--left-tablet:initial;--top-tablet:;--right-tablet:initial;--bottom-tablet:initial;--left-mobile:initial;--top-mobile:;--right-mobile:initial;--bottom-mobile:initial;--d:none;--d-tablet:none;--d-mobile:none;background-color:;--w:24px;--h:24px"
       onClick={onClick}
       
@@ -870,7 +940,7 @@
     </svg>
     </div>
       <style>
-    .ft-gp-carousel-gUbFgec-E--{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gUbFgec-E- {
+    .ft-gp-carousel-gbX5E8aIQ7-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gbX5E8aIQ7 {
       
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
@@ -878,7 +948,7 @@
       border-top-right-radius: 0px;
       
     }
-    .ft-gp-carousel-gUbFgec-E--{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gUbFgec-E-::before {
+    .ft-gp-carousel-gbX5E8aIQ7-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gbX5E8aIQ7::before {
       content: '';
       height: 100%;
       width: 100%;
@@ -897,7 +967,7 @@
       
     }
     @media only screen and (max-width: 1024px) and (min-width: 768px) {
-      .ft-gp-carousel-gUbFgec-E--{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gUbFgec-E- {
+      .ft-gp-carousel-gbX5E8aIQ7-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gbX5E8aIQ7 {
         
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
@@ -905,7 +975,7 @@
       border-top-right-radius: 0px;
       
       }
-      .ft-gp-carousel-gUbFgec-E--{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gUbFgec-E-::before {
+      .ft-gp-carousel-gbX5E8aIQ7-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gbX5E8aIQ7::before {
         border-style: none;
   border-width: 1px 1px 1px 1px;
   
@@ -919,7 +989,7 @@
       }
     }
     @media only screen and (max-width: 768px) {
-      .ft-gp-carousel-gUbFgec-E--{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gUbFgec-E- {
+      .ft-gp-carousel-gbX5E8aIQ7-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gbX5E8aIQ7 {
         
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
@@ -927,7 +997,7 @@
       border-top-right-radius: 0px;
       
       }
-      .ft-gp-carousel-gUbFgec-E--{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gUbFgec-E-::before {
+      .ft-gp-carousel-gbX5E8aIQ7-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gbX5E8aIQ7::before {
         border-style: none;
   border-width: 1px 1px 1px 1px;
   
@@ -945,7 +1015,7 @@
   
         </div>
         <div
-    class="gp-items-center gp-justify-center gp-gap-2 gp-text-center gp-carousel-dot-container gp-carousel-dot-container-ft-gp-carousel-gUbFgec-E--{{section.id}}-{{product.id}}-{{section.id}} gp-static gp-flex-row gp-left-0 gp-right-0 tablet:gp-static tablet:gp-flex-row tablet:gp-left-0 tablet:gp-right-0 mobile:gp-static mobile:gp-flex-row mobile:gp-left-0 mobile:gp-right-0"
+    class="gp-items-center gp-justify-center gp-gap-2 gp-text-center gp-carousel-dot-container gp-carousel-dot-container-ft-gp-carousel-gbX5E8aIQ7-{{section.id}}-{{product.id}}-{{section.id}} gp-static gp-flex-row gp-left-0 gp-right-0 tablet:gp-static tablet:gp-flex-row tablet:gp-left-0 tablet:gp-right-0 mobile:gp-static mobile:gp-flex-row mobile:gp-left-0 mobile:gp-right-0"
     style="--bottom:16px;--bottom-tablet:16px;--bottom-mobile:16px;--d:none;--d-tablet:none;--d-mobile:none"
  ></div>
       </div>
@@ -966,7 +1036,7 @@
               data-only-image="{%- if product.media.size > 1 -%}false{%- else -%}true{%- endif -%}"
             >
               <style>
-    .gem-slider-item-gUbFgec-E--{{product.id}}.gp-gallery-image-item::after, .gem-slider-item-gp-gallery-gUbFgec-E--{{product.id}}.gp-gallery-image-item::after {
+    .gem-slider-item-gbX5E8aIQ7-{{product.id}}.gp-gallery-image-item::after, .gem-slider-item-gp-gallery-gbX5E8aIQ7-{{product.id}}.gp-gallery-image-item::after {
       content: "";
       height: 100%;
       width: 100%;
@@ -985,17 +1055,17 @@
       border-top-right-radius: 0px;
       
     }
-    .gem-slider-item-gUbFgec-E--{{product.id}}.gp-gallery-image-item[data-outline=active]:after, .gem-slider-item-gp-gallery-gUbFgec-E--{{product.id}}.gp-gallery-image-item[data-outline=active]:after {
+    .gem-slider-item-gbX5E8aIQ7-{{product.id}}.gp-gallery-image-item[data-outline=active]:after, .gem-slider-item-gp-gallery-gbX5E8aIQ7-{{product.id}}.gp-gallery-image-item[data-outline=active]:after {
       pointer-events: none;
     }
   </style>
               
     
-    <gp-carousel data-id="gp-gallery-gUbFgec-E-" type="grid-carousel" product-media="{{product.media.size}}" id="gp-root-carousel-gp-gallery-gUbFgec-E--{{product.id}}-{{section.id}}" class="gp-flex-1 gp-w-full carousel-gallery gp-px-0 tablet:gp-px-0 mobile:gp-px-0  gp-group/carousel gp-flex" gp-data='{"id":"gp-gallery-gUbFgec-E--{{product.id}}-{{section.id}}","setting":{"loop":{"desktop":true},"itemNumber":{"desktop":"auto","tablet":"auto","mobile":5},"dot":{"desktop":false,"tablet":false,"mobile":false},"dotStyle":{"desktop":"none","tablet":"none","mobile":"none"},"controlOverContent":{"desktop":true,"tablet":true,"mobile":true},"enableDrag":{"desktop":true,"tablet":true,"mobile":true},"vertical":{"desktop":false,"mobile":false,"tablet":false},"arrowCustom":"<svg width=\"100%\" height=\"100%\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0ZM10.6828 8.13017C10.5266 7.95661 10.2734 7.95661 10.1172 8.13017C9.96095 8.30374 9.96095 8.58515 10.1172 8.75871L13.0343 12L10.1172 15.2413C9.96095 15.4149 9.96095 15.6963 10.1172 15.8698C10.2734 16.0434 10.5266 16.0434 10.6828 15.8698L13.8828 12.3143C14.0391 12.1407 14.0391 11.8593 13.8828 11.6857L10.6828 8.13017Z\" fill=\"currentColor\"/>\n    </svg>","arrowCustomColor":"#000000","arrowBorder":{"desktop":{"borderType":"none","border":"none","borderWidth":"1px","width":"1px 1px 1px 1px","isCustom":false}},"roundedArrow":{"desktop":{"btrr":"0px","bblr":"0px","bbrr":"0px","btlr":"0px","radiusType":"none"}},"sneakPeakType":{"desktop":"center"},"arrowGapToEachSide":"16","navigationStyle":{"desktop":"inside"},"arrowButtonSize":{"desktop":{"width":"24px","height":"24px"}}},"styles":{"sizeSetting":{"desktop":{"width":"100%","height":"auto"},"tablet":{"width":"100%","height":"auto"},"mobile":{"width":"100%","height":"auto"}},"spacing":{"desktop":5,"tablet":5,"mobile":5}},"isHiddenArrowWhenDisabled":true}' style="--d:none;--d-mobile:flex;--d-tablet:none">
+    <gp-carousel data-id="gp-gallery-gbX5E8aIQ7" type="grid-carousel" product-media="{{product.media.size}}" id="gp-root-carousel-gp-gallery-gbX5E8aIQ7-{{product.id}}-{{section.id}}" class="gp-flex-1 gp-w-full carousel-gallery gp-px-0 tablet:gp-px-0 mobile:gp-px-0  gp-group/carousel gp-flex" gp-data='{"id":"gp-gallery-gbX5E8aIQ7-{{product.id}}-{{section.id}}","setting":{"loop":{"desktop":true},"itemNumber":{"desktop":"auto","tablet":"auto","mobile":5},"dot":{"desktop":false,"tablet":false,"mobile":false},"dotStyle":{"desktop":"none","tablet":"none","mobile":"none"},"controlOverContent":{"desktop":true,"tablet":true,"mobile":true},"enableDrag":{"desktop":true,"tablet":true,"mobile":true},"vertical":{"desktop":false,"mobile":false,"tablet":false},"arrowCustom":"<svg width=\"100%\" height=\"100%\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0ZM10.6828 8.13017C10.5266 7.95661 10.2734 7.95661 10.1172 8.13017C9.96095 8.30374 9.96095 8.58515 10.1172 8.75871L13.0343 12L10.1172 15.2413C9.96095 15.4149 9.96095 15.6963 10.1172 15.8698C10.2734 16.0434 10.5266 16.0434 10.6828 15.8698L13.8828 12.3143C14.0391 12.1407 14.0391 11.8593 13.8828 11.6857L10.6828 8.13017Z\" fill=\"currentColor\"/>\n    </svg>","arrowCustomColor":"#000000","arrowBorder":{"desktop":{"borderType":"none","border":"none","borderWidth":"1px","width":"1px 1px 1px 1px","isCustom":false}},"roundedArrow":{"desktop":{"btrr":"0px","bblr":"0px","bbrr":"0px","btlr":"0px","radiusType":"none"}},"sneakPeakType":{"desktop":"center"},"arrowGapToEachSide":"16","navigationStyle":{"desktop":"inside"},"arrowButtonSize":{"desktop":{"width":"24px","height":"24px"}}},"styles":{"sizeSetting":{"desktop":{"width":"100%","height":"auto"},"tablet":{"width":"100%","height":"auto"},"mobile":{"width":"100%","height":"auto"}},"spacing":{"desktop":5,"tablet":5,"mobile":5}},"isHiddenArrowWhenDisabled":true}' style="--d:none;--d-mobile:flex;--d-tablet:none">
       <div class="gp-hidden gp-aspect-square gp-w-[12px] gp-rounded-full gp-shadow-md"></div>
       <div
         
-        class="gp-relative gp-my-0 tablet:gp-px-0 gp-max-w-full mobile:gp-px-0 gp-carousel-wrapper mobile:gp-block tablet:gp-block gp-block gp-gallery-gUbFgec-E-  gp-py-0 tablet:gp-py-0 mobile:gp-py-0"
+        class="gp-relative gp-my-0 tablet:gp-px-0 gp-max-w-full mobile:gp-px-0 gp-carousel-wrapper mobile:gp-block tablet:gp-block gp-block gp-gallery-gbX5E8aIQ7  gp-py-0 tablet:gp-py-0 mobile:gp-py-0"
         style="--w:100%;--w-tablet:100%;--w-mobile:100%;--h:auto;--h-tablet:auto;--h-mobile:auto"
       >
         <div
@@ -1006,7 +1076,7 @@
     <button
       type="button"
       aria-label='Carousel Back Arrow'
-      class="gp-z-1 gp-gallery-gUbFgec-E--{{product.id}} gp-carousel-action-back gem-slider-previous gp-gallery-gUbFgec-E--{{product.id}}-{{section.id}} gp-carousel-arrow-gp-gallery-gUbFgec-E- gp-items-center gp-justify-center gp-overflow-hidden gp-shrink-0  gp-cursor-pointer gp-text-gray-500 !gp-flex !gp-absolute gp-z-2 tablet:!gp-flex tablet:!gp-absolute tablet:gp-z-2 mobile:!gp-flex mobile:!gp-absolute mobile:gp-z-2"
+      class="gp-z-1 gp-gallery-gbX5E8aIQ7-{{product.id}} gp-carousel-action-back gem-slider-previous gp-gallery-gbX5E8aIQ7-{{product.id}}-{{section.id}} gp-carousel-arrow-gp-gallery-gbX5E8aIQ7 gp-items-center gp-justify-center gp-overflow-hidden gp-shrink-0  gp-cursor-pointer gp-text-gray-500 !gp-flex !gp-absolute gp-z-2 tablet:!gp-flex tablet:!gp-absolute tablet:gp-z-2 mobile:!gp-flex mobile:!gp-absolute mobile:gp-z-2"
       style="--left:16px;--top:initial;--right:initial;--bottom:;--left-tablet:16px;--top-tablet:initial;--right-tablet:initial;--bottom-tablet:;--left-mobile:16px;--top-mobile:initial;--right-mobile:initial;--bottom-mobile:;--d:flex;--d-tablet:flex;--d-mobile:flex;background-color:;--w:24px;--h:24px"
       onClick={onClick}
       
@@ -1020,7 +1090,7 @@
     </svg>
     </div>
       <style>
-    .gp-gallery-gUbFgec-E--{{product.id}}.gp-carousel-arrow-gp-gallery-gUbFgec-E- {
+    .gp-gallery-gbX5E8aIQ7-{{product.id}}.gp-carousel-arrow-gp-gallery-gbX5E8aIQ7 {
       
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
@@ -1028,7 +1098,7 @@
       border-top-right-radius: 0px;
       
     }
-    .gp-gallery-gUbFgec-E--{{product.id}}.gp-carousel-arrow-gp-gallery-gUbFgec-E-::before {
+    .gp-gallery-gbX5E8aIQ7-{{product.id}}.gp-carousel-arrow-gp-gallery-gbX5E8aIQ7::before {
       content: '';
       height: 100%;
       width: 100%;
@@ -1047,7 +1117,7 @@
       
     }
     @media only screen and (max-width: 1024px) and (min-width: 768px) {
-      .gp-gallery-gUbFgec-E--{{product.id}}.gp-carousel-arrow-gp-gallery-gUbFgec-E- {
+      .gp-gallery-gbX5E8aIQ7-{{product.id}}.gp-carousel-arrow-gp-gallery-gbX5E8aIQ7 {
         
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
@@ -1055,7 +1125,7 @@
       border-top-right-radius: 0px;
       
       }
-      .gp-gallery-gUbFgec-E--{{product.id}}.gp-carousel-arrow-gp-gallery-gUbFgec-E-::before {
+      .gp-gallery-gbX5E8aIQ7-{{product.id}}.gp-carousel-arrow-gp-gallery-gbX5E8aIQ7::before {
         border-style: none;
   border-width: 1px 1px 1px 1px;
   
@@ -1069,7 +1139,7 @@
       }
     }
     @media only screen and (max-width: 768px) {
-      .gp-gallery-gUbFgec-E--{{product.id}}.gp-carousel-arrow-gp-gallery-gUbFgec-E- {
+      .gp-gallery-gbX5E8aIQ7-{{product.id}}.gp-carousel-arrow-gp-gallery-gbX5E8aIQ7 {
         
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
@@ -1077,7 +1147,7 @@
       border-top-right-radius: 0px;
       
       }
-      .gp-gallery-gUbFgec-E--{{product.id}}.gp-carousel-arrow-gp-gallery-gUbFgec-E-::before {
+      .gp-gallery-gbX5E8aIQ7-{{product.id}}.gp-carousel-arrow-gp-gallery-gbX5E8aIQ7::before {
         border-style: none;
   border-width: 1px 1px 1px 1px;
   
@@ -1093,7 +1163,7 @@
   </style>
     </button>
   
-          <div id="gp-carousel-gp-gallery-gUbFgec-E--{{product.id}}-{{section.id}}" class="gem-slider gp-h-full gp-overflow-hidden gp-select-none mobile:!gp-flex-nowrap tablet:!gp-flex-nowrap !gp-flex-nowrap mobile:!gp-min-h-full tablet:!gp-min-h-full !gp-min-h-full"
+          <div id="gp-carousel-gp-gallery-gbX5E8aIQ7-{{product.id}}-{{section.id}}" class="gem-slider gp-h-full gp-overflow-hidden gp-select-none mobile:!gp-flex-nowrap tablet:!gp-flex-nowrap !gp-flex-nowrap mobile:!gp-min-h-full tablet:!gp-min-h-full !gp-min-h-full"
           style="--cg-mobile:5px;--cg-tablet:5px;--cg:5px">
           
     {%- if product.media.size > 1 -%}
@@ -1130,7 +1200,7 @@
       data-outline="active"
       id="{{imageID}}"
       style="--minw:100%;--minw-tablet:100%;--minw-mobile:calc(20% - 4px);--maxw:calc(100% / 4 - 33px);--maxw-tablet:calc(100% / 4 - 33px);--maxw-mobile:calc(100% / 4 - 33px);maxWidth:100%;--w:100%;--w-tablet:100%;--w-mobile:100%;--h:auto;--h-tablet:auto;--h-mobile:auto;--ml:0px;--ml-tablet:0px;--ml-mobile:0px"
-      class="gem-slider-item gp-w-full gem-slider-item-gp-gallery-gUbFgec-E--{{product.id}} gp-child-item-undefined gp-group gp-flex gp-w-full gp-relative gp-items-center gp-justify-center gp-overflow-hidden gp-image-item gp-gallery-image-item gp-cursor-pointer active data-[outline=deactive]:after:!gp-border-transparent"
+      class="gem-slider-item gp-w-full gem-slider-item-gp-gallery-gbX5E8aIQ7-{{product.id}} gp-child-item-undefined gp-group gp-flex gp-w-full gp-relative gp-items-center gp-justify-center gp-overflow-hidden gp-image-item gp-gallery-image-item gp-cursor-pointer active data-[outline=deactive]:after:!gp-border-transparent"
       data-index=""
     >
       <div
@@ -1220,7 +1290,7 @@
       data-outline="deactive"
       id="{{imageID}}"
       style="--minw:100%;--minw-tablet:100%;--minw-mobile:calc(20% - 4px);--maxw:calc(100% / 4 - 33px);--maxw-tablet:calc(100% / 4 - 33px);--maxw-mobile:calc(100% / 4 - 33px);maxWidth:100%;--w:100%;--w-tablet:100%;--w-mobile:100%;--h:auto;--h-tablet:auto;--h-mobile:auto;--ml:0px;--ml-tablet:0px;--ml-mobile:0px"
-      class="gem-slider-item gp-w-full gem-slider-item-gp-gallery-gUbFgec-E--{{product.id}} gp-child-item-undefined gp-group gp-flex gp-w-full gp-relative gp-items-center gp-justify-center gp-overflow-hidden gp-image-item gp-gallery-image-item gp-cursor-pointer undefined data-[outline=deactive]:after:!gp-border-transparent"
+      class="gem-slider-item gp-w-full gem-slider-item-gp-gallery-gbX5E8aIQ7-{{product.id}} gp-child-item-undefined gp-group gp-flex gp-w-full gp-relative gp-items-center gp-justify-center gp-overflow-hidden gp-image-item gp-gallery-image-item gp-cursor-pointer undefined data-[outline=deactive]:after:!gp-border-transparent"
       data-index=""
     >
       <div
@@ -1297,7 +1367,7 @@
     <button
       type="button"
       aria-label='Carousel Next Arrow'
-      class="gp-z-1 gp-gallery-gUbFgec-E--{{product.id}} gp-carousel-action-next gem-slider-next gp-gallery-gUbFgec-E--{{product.id}}-{{section.id}} gp-carousel-arrow-gp-gallery-gUbFgec-E- gp-items-center gp-justify-center gp-overflow-hidden gp-shrink-0  gp-cursor-pointer gp-text-gray-500 !gp-flex !gp-absolute gp-z-2 tablet:!gp-flex tablet:!gp-absolute tablet:gp-z-2 mobile:!gp-flex mobile:!gp-absolute mobile:gp-z-2"
+      class="gp-z-1 gp-gallery-gbX5E8aIQ7-{{product.id}} gp-carousel-action-next gem-slider-next gp-gallery-gbX5E8aIQ7-{{product.id}}-{{section.id}} gp-carousel-arrow-gp-gallery-gbX5E8aIQ7 gp-items-center gp-justify-center gp-overflow-hidden gp-shrink-0  gp-cursor-pointer gp-text-gray-500 !gp-flex !gp-absolute gp-z-2 tablet:!gp-flex tablet:!gp-absolute tablet:gp-z-2 mobile:!gp-flex mobile:!gp-absolute mobile:gp-z-2"
       style="--left:initial;--top:;--right:16px;--bottom:initial;--left-tablet:initial;--top-tablet:;--right-tablet:16px;--bottom-tablet:initial;--left-mobile:initial;--top-mobile:;--right-mobile:16px;--bottom-mobile:initial;--d:flex;--d-tablet:flex;--d-mobile:flex;background-color:;--w:24px;--h:24px"
       onClick={onClick}
       
@@ -1311,7 +1381,7 @@
     </svg>
     </div>
       <style>
-    .gp-gallery-gUbFgec-E--{{product.id}}.gp-carousel-arrow-gp-gallery-gUbFgec-E- {
+    .gp-gallery-gbX5E8aIQ7-{{product.id}}.gp-carousel-arrow-gp-gallery-gbX5E8aIQ7 {
       
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
@@ -1319,7 +1389,7 @@
       border-top-right-radius: 0px;
       
     }
-    .gp-gallery-gUbFgec-E--{{product.id}}.gp-carousel-arrow-gp-gallery-gUbFgec-E-::before {
+    .gp-gallery-gbX5E8aIQ7-{{product.id}}.gp-carousel-arrow-gp-gallery-gbX5E8aIQ7::before {
       content: '';
       height: 100%;
       width: 100%;
@@ -1338,7 +1408,7 @@
       
     }
     @media only screen and (max-width: 1024px) and (min-width: 768px) {
-      .gp-gallery-gUbFgec-E--{{product.id}}.gp-carousel-arrow-gp-gallery-gUbFgec-E- {
+      .gp-gallery-gbX5E8aIQ7-{{product.id}}.gp-carousel-arrow-gp-gallery-gbX5E8aIQ7 {
         
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
@@ -1346,7 +1416,7 @@
       border-top-right-radius: 0px;
       
       }
-      .gp-gallery-gUbFgec-E--{{product.id}}.gp-carousel-arrow-gp-gallery-gUbFgec-E-::before {
+      .gp-gallery-gbX5E8aIQ7-{{product.id}}.gp-carousel-arrow-gp-gallery-gbX5E8aIQ7::before {
         border-style: none;
   border-width: 1px 1px 1px 1px;
   
@@ -1360,7 +1430,7 @@
       }
     }
     @media only screen and (max-width: 768px) {
-      .gp-gallery-gUbFgec-E--{{product.id}}.gp-carousel-arrow-gp-gallery-gUbFgec-E- {
+      .gp-gallery-gbX5E8aIQ7-{{product.id}}.gp-carousel-arrow-gp-gallery-gbX5E8aIQ7 {
         
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
@@ -1368,7 +1438,7 @@
       border-top-right-radius: 0px;
       
       }
-      .gp-gallery-gUbFgec-E--{{product.id}}.gp-carousel-arrow-gp-gallery-gUbFgec-E-::before {
+      .gp-gallery-gbX5E8aIQ7-{{product.id}}.gp-carousel-arrow-gp-gallery-gbX5E8aIQ7::before {
         border-style: none;
   border-width: 1px 1px 1px 1px;
   
@@ -1386,7 +1456,7 @@
   
         </div>
         <div
-    class="gp-items-center gp-justify-center gp-gap-2 gp-text-center gp-carousel-dot-container gp-carousel-dot-container-gp-gallery-gUbFgec-E--{{product.id}}-{{section.id}} gp-static gp-flex-row gp-left-0 gp-right-0 tablet:gp-static tablet:gp-flex-row tablet:gp-left-0 tablet:gp-right-0 mobile:gp-static mobile:gp-flex-row mobile:gp-left-0 mobile:gp-right-0"
+    class="gp-items-center gp-justify-center gp-gap-2 gp-text-center gp-carousel-dot-container gp-carousel-dot-container-gp-gallery-gbX5E8aIQ7-{{product.id}}-{{section.id}} gp-static gp-flex-row gp-left-0 gp-right-0 tablet:gp-static tablet:gp-flex-row tablet:gp-left-0 tablet:gp-right-0 mobile:gp-static mobile:gp-flex-row mobile:gp-left-0 mobile:gp-right-0"
     style="--bottom:0px;--bottom-tablet:0px;--bottom-mobile:0px;--d:none;--d-tablet:none;--d-mobile:none"
  ></div>
       </div>
@@ -1434,7 +1504,7 @@
       external-id="{{media.external_id}}"
       grid-index="{{forloop.index}}"
       data-outline="active"
-      class="active gem-slider-item-gUbFgec-E--{{product.id}} gp-group gp-relative gp-overflow-hidden gp-cursor-pointer gp-image-item gp-gallery-image-item data-[outline=deactive]:after:!gp-border-transparent"
+      class="active gem-slider-item-gbX5E8aIQ7-{{product.id}} gp-group gp-relative gp-overflow-hidden gp-cursor-pointer gp-image-item gp-gallery-image-item data-[outline=deactive]:after:!gp-border-transparent"
       style="max-width: 100%;--w: calc(100% - var(--g-s-s) * 0 / 1);--w-tablet: calc(100% - var(--g-s-s) * 0 / 1);--w-mobile: calc(20% - var(--g-s-s) * 4 / 5);--h: auto;--h-tablet: auto;--h-mobile: auto;"
       >
       <div class="gp-h-full" style="{% if media == null or media.media_type == 'image' %} display: block !important; {% endif %} --d: block;--d-tablet: block;--d-mobile: block;">
@@ -1642,7 +1712,7 @@
       external-id="{{media.external_id}}"
       grid-index="{{forloop.index}}"
       data-outline="deactive"
-      class="gem-slider-item-gUbFgec-E--{{product.id}} gp-group gp-relative gp-overflow-hidden gp-cursor-pointer gp-image-item gp-gallery-image-item data-[outline=deactive]:after:!gp-border-transparent"
+      class="gem-slider-item-gbX5E8aIQ7-{{product.id}} gp-group gp-relative gp-overflow-hidden gp-cursor-pointer gp-image-item gp-gallery-image-item data-[outline=deactive]:after:!gp-border-transparent"
       style="max-width: 100%;--w: calc(100% - var(--g-s-s) * 0 / 1);--w-tablet: calc(100% - var(--g-s-s) * 0 / 1);--w-mobile: calc(20% - var(--g-s-s) * 4 / 5);--h: auto;--h-tablet: auto;--h-mobile: auto;"
       >
       <div class="gp-h-full" style="{% if media == null or media.media_type == 'image' %} display: block !important; {% endif %} --d: block;--d-tablet: block;--d-mobile: block;">
@@ -1857,7 +1927,7 @@
       external-id="{{media.external_id}}"
       grid-index="{{forloop.index}}"
       data-outline="deactive"
-      class="gem-slider-item-gUbFgec-E--{{product.id}} gp-group gp-relative gp-overflow-hidden gp-cursor-pointer gp-image-item gp-gallery-image-item data-[outline=deactive]:after:!gp-border-transparent"
+      class="gem-slider-item-gbX5E8aIQ7-{{product.id}} gp-group gp-relative gp-overflow-hidden gp-cursor-pointer gp-image-item gp-gallery-image-item data-[outline=deactive]:after:!gp-border-transparent"
       style="max-width: 100%;--w: calc(100% - var(--g-s-s) * 0 / 1);--w-tablet: calc(100% - var(--g-s-s) * 0 / 1);--w-mobile: calc(20% - var(--g-s-s) * 4 / 5);--h: auto;--h-tablet: auto;--h-mobile: auto;"
       >
       <div class="gp-h-full" style="{% if media == null or media.media_type == 'image' %} display: block !important; {% endif %} --d: block;--d-tablet: block;--d-mobile: block;">
@@ -2053,34 +2123,47 @@
     </div><div
       enableLazyloadImage="true" tag="Col" label="Block" type="component"
       style="--jc:start"
-      class="gOTed5QNg9 gp-relative gp-flex gp-flex-col"
+      class="ggceiPT-OK gp-relative gp-flex gp-flex-col"
     >
       
   {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
-  <gp-text data-id="gcgm8YWDXL">
+  <gp-text data-id="gnaVXd-CCB">
     <div
       enableLazyloadImage="true" parentTag="Col"
-        class="gcgm8YWDXL "
-        style="--ta:left;--mb:var(--g-s-l);--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%"
+        class="gnaVXd-CCB "
+        style="--ta:left;--mb:10px;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%"
       >
       <div class="gp-flex" style="--jc:left">
         <div
           
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
-          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ts:none;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-heading, heading);--ls:2px;--size:30px;--size-tablet:25px;--size-mobile:23px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--weight:bold;--c:#151515;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
-        >{{ section.settings.ggcgm8YWDXL_text | replace: '$locationOrigin', locationOrigin }}</div>
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ts:none;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-heading, heading);--ls:2px;--size:32px;--size-tablet:25px;--size-mobile:23px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--weight:bold;--c:#151515;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
+        >{{ section.settings.ggnaVXd-CCB_text | replace: '$locationOrigin', locationOrigin }}</div>
       </div>
     </div>
     </gp-text>
-    <div gp-el-wrapper  class="gLkc0s-_eL ">
+    
+       
+      
+    <div
+      enableLazyloadImage="true" parentTag="Col" id="g_ser-1lUq" data-id="g_ser-1lUq"
+        style="--mb:var(--g-s-l);--d:grid;--d-tablet:grid;--d-mobile:grid;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--cg:8px;--pc:start;--gtc:minmax(0, 12fr);--gtc-mobile:minmax(0, 12fr);--w:var(--g-ct-w, 1200px);--w-tablet:var(--g-ct-w, 100%);--w-mobile:var(--g-ct-w, 100%);--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        class="g_ser-1lUq gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full"
+    >
+    <div
+      enableLazyloadImage="true" tag="Col" label="Block" type="component"
+      style="--jc:start"
+      class="gbdnoWsmlW gp-relative gp-flex gp-flex-col"
+    >
+      <div gp-el-wrapper  class="gyBobRjn6n ">
       
     {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
     <gp-icon-list
-      uid="gLkc0s-_eL"
-      data-id="gLkc0s-_eL"
+      uid="gyBobRjn6n"
+      data-id="gyBobRjn6n"
       gp-data='{"position":{"desktop":"center","tablet":"center","mobile":"center"},"iconWidth":{"desktop":25,"tablet":16,"mobile":16}}'
-       style="--mb:6px;--pl:20px;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll">
+       style="--mb:8px;--pl:20px;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll">
      
       <div class="gp-flex" style="--jc:left">
         <div
@@ -2088,7 +2171,7 @@
         style="--rg:8px">
         
            <div
-            class="gp-icon-list-wrapper gp-flex gp-child-item-gLkc0s-_eL"
+            class="gp-icon-list-wrapper gp-flex gp-child-item-gyBobRjn6n"
             style="--cg:8px;--ai:center;--ai-tablet:center;--ai-mobile:center"
             data-index="0"
           >
@@ -2097,15 +2180,15 @@
                 class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--size-desktop)] tablet:[&>svg]:!gp-h-[var(--size-tablet)] mobile:[&>svg]:!gp-h-[var(--size-mobile)] [&>svg]:!gp-w-[var(--size-desktop)] tablet:[&>svg]:!gp-w-[var(--size-tablet)] mobile:[&>svg]:!gp-w-[var(--size-mobile)]"
                 style="--c:#00C853;--w:100%;--h:100%;--size-desktop:25px;--size-tablet:16px;--size-mobile:16px"
               >
-               <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" data-id="508414807831544168"><path fill="currentColor" strokelinecap="round" strokelinejoin="round" d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+               <svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6"  viewBox="0 0 512 512" fill="currentColor"><path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z" /></svg>
               </span>
             </div>
-             <div class="gp-g-paragraph-1 gp-text-left gp-icon-list-text" style="--c:#121212">
-                {{ section.settings.ggLkc0s-_eL_childItem_0 | replace: '$locationOrigin', locationOrigin }}
+             <div class="gp-g-paragraph-1 gp-text-left gp-icon-list-text" style="--size:13px;--size-tablet:16px;--size-mobile:14px;--c:#121212">
+                {{ section.settings.ggyBobRjn6n_childItem_0 | replace: '$locationOrigin', locationOrigin }}
             </div>
             </div> 
            <div
-            class="gp-icon-list-wrapper gp-flex gp-child-item-gLkc0s-_eL"
+            class="gp-icon-list-wrapper gp-flex gp-child-item-gyBobRjn6n"
             style="--cg:8px;--ai:center;--ai-tablet:center;--ai-mobile:center"
             data-index="1"
           >
@@ -2114,11 +2197,28 @@
                 class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--size-desktop)] tablet:[&>svg]:!gp-h-[var(--size-tablet)] mobile:[&>svg]:!gp-h-[var(--size-mobile)] [&>svg]:!gp-w-[var(--size-desktop)] tablet:[&>svg]:!gp-w-[var(--size-tablet)] mobile:[&>svg]:!gp-w-[var(--size-mobile)]"
                 style="--c:#00C853;--w:100%;--h:100%;--size-desktop:25px;--size-tablet:16px;--size-mobile:16px"
               >
-               <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" data-id="508414807831544168"><path fill="currentColor" strokelinecap="round" strokelinejoin="round" d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+               <svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6"  viewBox="0 0 512 512" fill="currentColor"><path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z" /></svg>
               </span>
             </div>
-             <div class="gp-g-paragraph-1 gp-text-left gp-icon-list-text" style="--c:#121212">
-                {{ section.settings.ggLkc0s-_eL_childItem_1 | replace: '$locationOrigin', locationOrigin }}
+             <div class="gp-g-paragraph-1 gp-text-left gp-icon-list-text" style="--size:13px;--size-tablet:16px;--size-mobile:14px;--c:#121212">
+                {{ section.settings.ggyBobRjn6n_childItem_1 | replace: '$locationOrigin', locationOrigin }}
+            </div>
+            </div> 
+           <div
+            class="gp-icon-list-wrapper gp-flex gp-child-item-gyBobRjn6n"
+            style="--cg:8px;--ai:center;--ai-tablet:center;--ai-mobile:center"
+            data-index="2"
+          >
+            <div class="gp-icon-list-icon gp-inline-flex gp-shrink-0 gp-overflow-hidden" style="--pl:0px;--pr:0px;--pt:0px;--pb:0px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:transparent;--pos:relative;--pos-tablet:relative;--pos-mobile:relative;--top:inherit;--top-tablet:inherit;--top-mobile:inherit">
+              <span
+                class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--size-desktop)] tablet:[&>svg]:!gp-h-[var(--size-tablet)] mobile:[&>svg]:!gp-h-[var(--size-mobile)] [&>svg]:!gp-w-[var(--size-desktop)] tablet:[&>svg]:!gp-w-[var(--size-tablet)] mobile:[&>svg]:!gp-w-[var(--size-mobile)]"
+                style="--c:#00C853;--w:100%;--h:100%;--size-desktop:25px;--size-tablet:16px;--size-mobile:16px"
+              >
+               <svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6"  viewBox="0 0 512 512" fill="currentColor"><path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z" /></svg>
+              </span>
+            </div>
+             <div class="gp-g-paragraph-1 gp-text-left gp-icon-list-text" style="--size:13px;--size-tablet:16px;--size-mobile:14px;--c:#121212">
+                {{ section.settings.ggyBobRjn6n_childItem_2 | replace: '$locationOrigin', locationOrigin }}
             </div>
             </div>
       </div>
@@ -2126,14 +2226,40 @@
     </gp-icon-list>
     <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://d2ls1pfffhvy22.cloudfront.net/assets-v2/gp-icon-list.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
   
-      </div><div gp-el-wrapper  class="ge8FidHqGK ">
+      </div>
+       
+      
+    <div
+      enableLazyloadImage="true" parentTag="Col" id="gldtM9J01G" data-id="gldtM9J01G"
+        style="--d:grid;--d-tablet:grid;--d-mobile:grid;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--cg:8px;--pc:start;--gtc:minmax(0, 12fr);--gtc-mobile:minmax(0, 12fr);--w:var(--g-ct-w, 1200px);--w-tablet:var(--g-ct-w, 100%);--w-mobile:var(--g-ct-w, 100%);--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        class="gldtM9J01G gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full"
+    >
+    <div
+      enableLazyloadImage="true" tag="Col" label="Block" type="component"
+      style="--jc:start"
+      class="g4MyK7rfBv gp-relative gp-flex gp-flex-col"
+    >
+      
+       
+      
+    <div
+      enableLazyloadImage="true" parentTag="Col" id="gzHfdxjCog" data-id="gzHfdxjCog"
+        style="--mb:5px;--d:grid;--d-tablet:grid;--d-mobile:grid;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--cg:8px;--pc:start;--gtc:minmax(0, 9fr) minmax(0, 3fr);--gtc-mobile:minmax(0, 12fr);--w:var(--g-ct-w, 1200px);--w-tablet:var(--g-ct-w, 100%);--w-mobile:var(--g-ct-w, 100%);--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        class="gzHfdxjCog gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full"
+    >
+    <div
+      enableLazyloadImage="true" tag="Col" label="Block" type="component"
+      style="--jc:start"
+      class="gLI7ZYEkUS gp-relative gp-flex gp-flex-col"
+    >
+      <div gp-el-wrapper  class="ga_X8ea4Mi ">
       
     {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
     <gp-icon-list
-      uid="ge8FidHqGK"
-      data-id="ge8FidHqGK"
+      uid="ga_X8ea4Mi"
+      data-id="ga_X8ea4Mi"
       gp-data='{"position":{"desktop":"center","tablet":"center","mobile":"center"},"iconWidth":{"desktop":25,"tablet":16,"mobile":16}}'
-       style="--mb:133px;--pl:20px;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll">
+       style="--pl:20px;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll">
      
       <div class="gp-flex" style="--jc:left">
         <div
@@ -2141,39 +2267,20 @@
         style="--rg:8px">
         
            <div
-            class="gp-icon-list-wrapper gp-flex gp-child-item-ge8FidHqGK"
+            class="gp-icon-list-wrapper gp-flex gp-child-item-ga_X8ea4Mi"
             style="--cg:8px;--ai:center;--ai-tablet:center;--ai-mobile:center"
             data-index="0"
           >
             <div class="gp-icon-list-icon gp-inline-flex gp-shrink-0 gp-overflow-hidden" style="--pl:0px;--pr:0px;--pt:0px;--pb:0px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:transparent;--pos:relative;--pos-tablet:relative;--pos-mobile:relative;--top:inherit;--top-tablet:inherit;--top-mobile:inherit">
               <span
                 class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--size-desktop)] tablet:[&>svg]:!gp-h-[var(--size-tablet)] mobile:[&>svg]:!gp-h-[var(--size-mobile)] [&>svg]:!gp-w-[var(--size-desktop)] tablet:[&>svg]:!gp-w-[var(--size-tablet)] mobile:[&>svg]:!gp-w-[var(--size-mobile)]"
-                style="--c:#d63837;--w:100%;--h:100%;--size-desktop:25px;--size-tablet:16px;--size-mobile:16px"
+                style="--c:#00C853;--w:100%;--h:100%;--size-desktop:25px;--size-tablet:16px;--size-mobile:16px"
               >
-               <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817766391349608">
-              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm37.66,130.34a8,8,0,0,1-11.32,11.32L128,139.31l-26.34,26.35a8,8,0,0,1-11.32-11.32L116.69,128,90.34,101.66a8,8,0,0,1,11.32-11.32L128,116.69l26.34-26.35a8,8,0,0,1,11.32,11.32L139.31,128Z" /></svg>
+               <svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6"  viewBox="0 0 512 512" fill="currentColor"><path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z" /></svg>
               </span>
             </div>
-             <div class="gp-g-paragraph-1 gp-text-left gp-icon-list-text" style="--c:#121212">
-                {{ section.settings.gge8FidHqGK_childItem_0 | replace: '$locationOrigin', locationOrigin }}
-            </div>
-            </div> 
-           <div
-            class="gp-icon-list-wrapper gp-flex gp-child-item-ge8FidHqGK"
-            style="--cg:8px;--ai:center;--ai-tablet:center;--ai-mobile:center"
-            data-index="1"
-          >
-            <div class="gp-icon-list-icon gp-inline-flex gp-shrink-0 gp-overflow-hidden" style="--pl:0px;--pr:0px;--pt:0px;--pb:0px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:transparent;--pos:relative;--pos-tablet:relative;--pos-mobile:relative;--top:inherit;--top-tablet:inherit;--top-mobile:inherit">
-              <span
-                class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--size-desktop)] tablet:[&>svg]:!gp-h-[var(--size-tablet)] mobile:[&>svg]:!gp-h-[var(--size-mobile)] [&>svg]:!gp-w-[var(--size-desktop)] tablet:[&>svg]:!gp-w-[var(--size-tablet)] mobile:[&>svg]:!gp-w-[var(--size-mobile)]"
-                style="--c:#d63837;--w:100%;--h:100%;--size-desktop:25px;--size-tablet:16px;--size-mobile:16px"
-              >
-               <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817766391349608">
-              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm37.66,130.34a8,8,0,0,1-11.32,11.32L128,139.31l-26.34,26.35a8,8,0,0,1-11.32-11.32L116.69,128,90.34,101.66a8,8,0,0,1,11.32-11.32L128,116.69l26.34-26.35a8,8,0,0,1,11.32,11.32L139.31,128Z" /></svg>
-              </span>
-            </div>
-             <div class="gp-g-paragraph-1 gp-text-left gp-icon-list-text" style="--c:#121212">
-                {{ section.settings.gge8FidHqGK_childItem_1 | replace: '$locationOrigin', locationOrigin }}
+             <div class="gp-g-paragraph-1 gp-text-left gp-icon-list-text" style="--size:12px;--size-tablet:16px;--size-mobile:14px;--c:#121212">
+                {{ section.settings.gga_X8ea4Mi_childItem_0 | replace: '$locationOrigin', locationOrigin }}
             </div>
             </div>
       </div>
@@ -2182,12 +2289,202 @@
     <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://d2ls1pfffhvy22.cloudfront.net/assets-v2/gp-icon-list.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
   
       </div>
+    </div><div
+      enableLazyloadImage="true" tag="Col" label="Block" type="component"
+      style="--jc:start"
+      class="gf526jib6q gp-relative gp-flex gp-flex-col"
+    >
+      
   {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
-  <gp-text data-id="gCRkxe13xc">
+  <gp-text data-id="gkctPwmfMc">
     <div
       enableLazyloadImage="true" parentTag="Col"
-        class="gCRkxe13xc "
-        style="--ta:left;--mb:40px;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%"
+        class="gkctPwmfMc "
+        style="--ta:right;--pr:10px;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%"
+      >
+      <div class="gp-flex" style="--jc:right">
+        <div
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-g-paragraph-1 gp-text"
+          style="--w:Auto;--w-tablet:Auto;--w-mobile:Auto;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--size:14px;--size-tablet:16px;--size-mobile:14px;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
+        >{{ section.settings.ggkctPwmfMc_text | replace: '$locationOrigin', locationOrigin }}</div>
+      </div>
+    </div>
+    </gp-text>
+    
+    </div>
+    </div>
+   
+    
+       
+      
+    <div
+      enableLazyloadImage="true" parentTag="Col" id="geX1emYDZ_" data-id="geX1emYDZ_"
+        style="--mb:6px;--d:grid;--d-tablet:grid;--d-mobile:grid;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--cg:8px;--pc:start;--gtc:minmax(0, 8fr) minmax(0, 4fr);--gtc-mobile:minmax(0, 12fr);--w:var(--g-ct-w, 1200px);--w-tablet:var(--g-ct-w, 100%);--w-mobile:var(--g-ct-w, 100%);--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        class="geX1emYDZ_ gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full"
+    >
+    <div
+      enableLazyloadImage="true" tag="Col" label="Block" type="component"
+      style="--jc:start"
+      class="gEOqF4ceti gp-relative gp-flex gp-flex-col"
+    >
+      <div gp-el-wrapper  class="gSREmAKbVc ">
+      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <gp-icon-list
+      uid="gSREmAKbVc"
+      data-id="gSREmAKbVc"
+      gp-data='{"position":{"desktop":"center","tablet":"center","mobile":"center"},"iconWidth":{"desktop":25,"tablet":16,"mobile":16}}'
+       style="--pl:20px;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll">
+     
+      <div class="gp-flex" style="--jc:left">
+        <div
+        class="gp-inline-flex gp-flex-col "
+        style="--rg:8px">
+        
+           <div
+            class="gp-icon-list-wrapper gp-flex gp-child-item-gSREmAKbVc"
+            style="--cg:8px;--ai:center;--ai-tablet:center;--ai-mobile:center"
+            data-index="0"
+          >
+            <div class="gp-icon-list-icon gp-inline-flex gp-shrink-0 gp-overflow-hidden" style="--pl:0px;--pr:0px;--pt:0px;--pb:0px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:transparent;--pos:relative;--pos-tablet:relative;--pos-mobile:relative;--top:inherit;--top-tablet:inherit;--top-mobile:inherit">
+              <span
+                class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--size-desktop)] tablet:[&>svg]:!gp-h-[var(--size-tablet)] mobile:[&>svg]:!gp-h-[var(--size-mobile)] [&>svg]:!gp-w-[var(--size-desktop)] tablet:[&>svg]:!gp-w-[var(--size-tablet)] mobile:[&>svg]:!gp-w-[var(--size-mobile)]"
+                style="--c:#00C853;--w:100%;--h:100%;--size-desktop:25px;--size-tablet:16px;--size-mobile:16px"
+              >
+               <svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6"  viewBox="0 0 512 512" fill="currentColor"><path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z" /></svg>
+              </span>
+            </div>
+             <div class="gp-g-paragraph-1 gp-text-left gp-icon-list-text" style="--size:12px;--size-tablet:16px;--size-mobile:14px;--c:#121212">
+                {{ section.settings.ggSREmAKbVc_childItem_0 | replace: '$locationOrigin', locationOrigin }}
+            </div>
+            </div>
+      </div>
+      </div>
+    </gp-icon-list>
+    <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://d2ls1pfffhvy22.cloudfront.net/assets-v2/gp-icon-list.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+  
+      </div>
+    </div><div
+      enableLazyloadImage="true" tag="Col" label="Block" type="component"
+      style="--jc:start"
+      class="gSaurXHIiN gp-relative gp-flex gp-flex-col"
+    >
+      
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="gVPhD-Yz6d">
+    <div
+      enableLazyloadImage="true" parentTag="Col"
+        class="gVPhD-Yz6d "
+        style="--ta:left;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-g-paragraph-1 gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--size:14px;--size-tablet:16px;--size-mobile:14px;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
+        >{{ section.settings.ggVPhD-Yz6d_text | replace: '$locationOrigin', locationOrigin }}</div>
+      </div>
+    </div>
+    </gp-text>
+    
+    </div>
+    </div>
+   
+    
+       
+      
+    <div
+      enableLazyloadImage="true" parentTag="Col" id="gqD13CzJdp" data-id="gqD13CzJdp"
+        style="--d:grid;--d-tablet:grid;--d-mobile:grid;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--cg:8px;--pc:start;--gtc:minmax(0, 8fr) minmax(0, 4fr);--gtc-mobile:minmax(0, 12fr);--w:var(--g-ct-w, 1200px);--w-tablet:var(--g-ct-w, 100%);--w-mobile:var(--g-ct-w, 100%);--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        class="gqD13CzJdp gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full"
+    >
+    <div
+      enableLazyloadImage="true" tag="Col" label="Block" type="component"
+      style="--jc:start"
+      class="gAFn0x1CMq gp-relative gp-flex gp-flex-col"
+    >
+      <div gp-el-wrapper  class="guq_HrSXr2 ">
+      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <gp-icon-list
+      uid="guq_HrSXr2"
+      data-id="guq_HrSXr2"
+      gp-data='{"position":{"desktop":"center","tablet":"center","mobile":"center"},"iconWidth":{"desktop":25,"tablet":16,"mobile":16}}'
+       style="--pl:20px;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll">
+     
+      <div class="gp-flex" style="--jc:left">
+        <div
+        class="gp-inline-flex gp-flex-col "
+        style="--rg:8px">
+        
+           <div
+            class="gp-icon-list-wrapper gp-flex gp-child-item-guq_HrSXr2"
+            style="--cg:8px;--ai:center;--ai-tablet:center;--ai-mobile:center"
+            data-index="0"
+          >
+            <div class="gp-icon-list-icon gp-inline-flex gp-shrink-0 gp-overflow-hidden" style="--pl:0px;--pr:0px;--pt:0px;--pb:0px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:transparent;--pos:relative;--pos-tablet:relative;--pos-mobile:relative;--top:inherit;--top-tablet:inherit;--top-mobile:inherit">
+              <span
+                class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--size-desktop)] tablet:[&>svg]:!gp-h-[var(--size-tablet)] mobile:[&>svg]:!gp-h-[var(--size-mobile)] [&>svg]:!gp-w-[var(--size-desktop)] tablet:[&>svg]:!gp-w-[var(--size-tablet)] mobile:[&>svg]:!gp-w-[var(--size-mobile)]"
+                style="--c:#00C853;--w:100%;--h:100%;--size-desktop:25px;--size-tablet:16px;--size-mobile:16px"
+              >
+               <svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6"  viewBox="0 0 512 512" fill="currentColor"><path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z" /></svg>
+              </span>
+            </div>
+             <div class="gp-g-paragraph-1 gp-text-left gp-icon-list-text" style="--size:12px;--size-tablet:16px;--size-mobile:14px;--c:#121212">
+                {{ section.settings.gguq_HrSXr2_childItem_0 | replace: '$locationOrigin', locationOrigin }}
+            </div>
+            </div>
+      </div>
+      </div>
+    </gp-icon-list>
+    <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://d2ls1pfffhvy22.cloudfront.net/assets-v2/gp-icon-list.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+  
+      </div>
+    </div><div
+      enableLazyloadImage="true" tag="Col" label="Block" type="component"
+      style="--jc:start"
+      class="gtborArLl8 gp-relative gp-flex gp-flex-col"
+    >
+      
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="gjeruh48ao">
+    <div
+      enableLazyloadImage="true" parentTag="Col"
+        class="gjeruh48ao "
+        style="--ta:left;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-g-paragraph-1 gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--size:14px;--size-tablet:16px;--size-mobile:14px;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
+        >{{ section.settings.ggjeruh48ao_text | replace: '$locationOrigin', locationOrigin }}</div>
+      </div>
+    </div>
+    </gp-text>
+    
+    </div>
+    </div>
+   
+    
+    </div>
+    </div>
+   
+    
+    </div>
+    </div>
+   
+    
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="gxCOnamt92">
+    <div
+      enableLazyloadImage="true" parentTag="Col"
+        class="gxCOnamt92 "
+        style="--ta:left;--mb:7px;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%"
       >
       <div class="gp-flex" style="--jc:left">
         <div
@@ -2195,7 +2492,25 @@
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
           style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ts:none;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--size:24px;--size-tablet:16px;--size-mobile:14px;--lh:120%;--lh-tablet:180%;--lh-mobile:180%;--weight:bold;--c:#D30000;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
-        >{{ section.settings.ggCRkxe13xc_text | replace: '$locationOrigin', locationOrigin }}</div>
+        >{{ section.settings.ggxCOnamt92_text | replace: '$locationOrigin', locationOrigin }}</div>
+      </div>
+    </div>
+    </gp-text>
+    
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="gNF8PyrFVk">
+    <div
+      enableLazyloadImage="true" parentTag="Col"
+        class="gNF8PyrFVk "
+        style="--ta:left;--mb:7px;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ts:none;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--size:18px;--size-tablet:16px;--size-mobile:14px;--lh:120%;--lh-tablet:180%;--lh-mobile:180%;--weight:bold;--c:#151515;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
+        >{{ section.settings.ggNF8PyrFVk_text | replace: '$locationOrigin', locationOrigin }}</div>
       </div>
     </div>
     </gp-text>
@@ -2206,18 +2521,18 @@
     <gp-product-button
       class="gp-product-button"
       gp-data-wrapper="true"
-      gp-data='{"setting":{"actionEffect":"go-to-url","errorMessage":"Cannot add product to cart","successMessage":"Add product to cart successfully","enableSuccessMessage":true,"enableErrorMessage":true,"label":"JETZT BESTELLEN","outOfStockLabel":"Out of stock","errorType":"built-in","customURL":{"link":"https://tierliebhaber-animagus.myshopify.com/cart/53649054957836:1?channel=buy_button","target":"_self"}},"styles":{"errorTypo":{"type":"paragraph-2","attrs":{"color":"error"}},"successTypo":{"type":"paragraph-2","attrs":{"color":"success"}}},"disabled":"{{variant.available}}","variantID":"{{variant.id}}","totalVariant":"{{product.variants.size}}"}' 
-       gp-href="https://tierliebhaber-animagus.myshopify.com/cart/53649054957836:1?channel=buy_button"
-       data-variant-selection-required-message="{{section.settings.gggmp4sayU6_variantSelectionRequiredMessage}}"
+      gp-data='{"setting":{"actionEffect":"go-to-url","errorMessage":"Cannot add product to cart","successMessage":"Add product to cart successfully","enableSuccessMessage":true,"enableErrorMessage":true,"label":"JETZT BESTELLEN","outOfStockLabel":"Out of stock","errorType":"built-in","customURL":{"link":"https://tierliebhaber-animagus.myshopify.com/cart/53978715291916:1,53978717290764:1,45707655577868:1?channel=buy_button","target":"_self"}},"styles":{"errorTypo":{"type":"paragraph-2","attrs":{"color":"error"}},"successTypo":{"type":"paragraph-2","attrs":{"color":"success"}}},"disabled":"{{variant.available}}","variantID":"{{variant.id}}","totalVariant":"{{product.variants.size}}"}' 
+       gp-href="https://tierliebhaber-animagus.myshopify.com/cart/53978715291916:1,53978717290764:1,45707655577868:1?channel=buy_button"
+       data-variant-selection-required-message="{{section.settings.ggwFJYods-M_variantSelectionRequiredMessage}}"
     >
         
   <gp-button >
   <div
-    style="--mb:9px;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--ta:left"
+    style="--mb:6px;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--ta:left"
     class="{% unless variant.available %} !gp-hidden {% endunless %}"
   >
     <style>
-    .ggmp4sayU6.gp-button-base::before {
+    .gwFJYods-M.gp-button-base::before {
       content: "";
       height: 100%;
       width: 100%;
@@ -2235,7 +2550,7 @@
       
     }
 
-    .ggmp4sayU6:hover::before {
+    .gwFJYods-M:hover::before {
       border-style: none;
   border-width: 1px 1px 1px 1px;
   
@@ -2243,36 +2558,36 @@
       
     }
 
-    .ggmp4sayU6:hover .gp-button-icon {
+    .gwFJYods-M:hover .gp-button-icon {
       color: undefined;
     }
 
-     .ggmp4sayU6 .gp-button-icon {
-      color: var(--g-c-text-3, text-3);
+     .gwFJYods-M .gp-button-icon {
+      color: #151515;
     }
 
-    .ggmp4sayU6:hover .gp-button-price {
+    .gwFJYods-M:hover .gp-button-price {
       color: undefined;
     }
 
-    .ggmp4sayU6 .gp-button-price {
-      color: var(--g-c-text-3, text-3);
+    .gwFJYods-M .gp-button-price {
+      color: #151515;
     }
 
-    .ggmp4sayU6 .gp-product-dot-price {
-       color: var(--g-c-text-3, text-3);
+    .gwFJYods-M .gp-product-dot-price {
+       color: #151515;
     }
 
-    .ggmp4sayU6:hover .gp-product-dot-price {
+    .gwFJYods-M:hover .gp-product-dot-price {
       color: undefined;
     }
   </style>
     <button
-      type="submit" data-id="ggmp4sayU6" aria-label="JETZT BESTELLEN"
+      type="submit" data-id="gwFJYods-M" aria-label="JETZT BESTELLEN"
       name="add" gp-data-hidden="{% unless variant.available %}true{% endunless %}"
       data-state="idle"
-      class="ggmp4sayU6 gp-button-base gp-group/button gp-rounded-none gp-max-w-full gp-relative gp-inline-flex gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-300 disabled:gp-btn-disabled disabled:gp-opacity-30 disabled:gp-pointer-events-none hover:gp-bg-g-highlight gp-text-g-text-3 gp-button-atc tcustomizer-submit-button gp-g-paragraph-1"
-      style="--bg:#7D7D7D;--hvr-bg:var(--g-c-highlight, highlight);--shadow:none;--w:100%;--w-tablet:100%;--w-mobile:100%;--h:60px;--h-tablet:60px;--h-mobile:60px;--pl:24px;--pr:24px;--pt:8px;--pb:8px;--c:var(--g-c-text-3, text-3);--size:22px;--size-tablet:16px;--size-mobile:14px"
+      class="gwFJYods-M gp-button-base gp-group/button gp-rounded-none gp-max-w-full gp-relative gp-inline-flex gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-300 disabled:gp-btn-disabled disabled:gp-opacity-30 disabled:gp-pointer-events-none gp-button-atc tcustomizer-submit-button gp-g-paragraph-1"
+      style="--bg:#FDCA06;--hvr-bg:#E89810;--shadow:none;--w:100%;--w-tablet:100%;--w-mobile:100%;--h:60px;--h-tablet:60px;--h-mobile:60px;--pl:24px;--pr:24px;--pt:8px;--pb:8px;--c:#151515;--size:22px;--size-tablet:16px;--size-mobile:14px"
     >
         <svg
           class="gp-invisible gp-absolute gp-h-5 gp-w-5 group-data-[state=loading]:gp-animate-spin group-data-[state=loading]:gp-visible"
@@ -2301,9 +2616,9 @@
         data-gp-text
         class="group-hover/button:!gp-text-inherit gp-button-text-only gp-break-words group-data-[state=loading]:gp-invisible [&_p]:gp-whitespace-pre-line gp-z-1 gp-h-full gp-flex gp-items-center gp-overflow-hidden 
         "
-        style="--size:22px;--size-tablet:16px;--size-mobile:14px;--c:var(--g-c-text-3, text-3)"
+        style="--size:22px;--size-tablet:16px;--size-mobile:14px;--c:#151515"
       >
-        {{ section.settings.gggmp4sayU6_label }}
+        {{ section.settings.ggwFJYods-M_label }}
       </span>
       </div>
     
@@ -2314,11 +2629,11 @@
         
   <gp-button >
   <div
-    style="--mb:9px;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--ta:left"
+    style="--mb:6px;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--ta:left"
     class="{% if variant.available %} !gp-hidden {% endif %}"
   >
     <style>
-    .ggmp4sayU6-sold-out.gp-button-base::before {
+    .gwFJYods-M-sold-out.gp-button-base::before {
       content: "";
       height: 100%;
       width: 100%;
@@ -2336,7 +2651,7 @@
       
     }
 
-    .ggmp4sayU6-sold-out:hover::before {
+    .gwFJYods-M-sold-out:hover::before {
       border-style: none;
   border-width: 1px 1px 1px 1px;
   
@@ -2344,36 +2659,36 @@
       
     }
 
-    .ggmp4sayU6-sold-out:hover .gp-button-icon {
+    .gwFJYods-M-sold-out:hover .gp-button-icon {
       color: undefined;
     }
 
-     .ggmp4sayU6-sold-out .gp-button-icon {
-      color: var(--g-c-text-3, text-3);
+     .gwFJYods-M-sold-out .gp-button-icon {
+      color: #151515;
     }
 
-    .ggmp4sayU6-sold-out:hover .gp-button-price {
+    .gwFJYods-M-sold-out:hover .gp-button-price {
       color: undefined;
     }
 
-    .ggmp4sayU6-sold-out .gp-button-price {
-      color: var(--g-c-text-3, text-3);
+    .gwFJYods-M-sold-out .gp-button-price {
+      color: #151515;
     }
 
-    .ggmp4sayU6-sold-out .gp-product-dot-price {
-       color: var(--g-c-text-3, text-3);
+    .gwFJYods-M-sold-out .gp-product-dot-price {
+       color: #151515;
     }
 
-    .ggmp4sayU6-sold-out:hover .gp-product-dot-price {
+    .gwFJYods-M-sold-out:hover .gp-product-dot-price {
       color: undefined;
     }
   </style>
     <button
-      type="button" data-id="ggmp4sayU6" aria-label="Out of stock"
+      type="button" data-id="gwFJYods-M" aria-label="Out of stock"
       gp-data-hidden="{% if variant.available %}true{% endif %}"
       data-state="idle"
-      class="ggmp4sayU6-sold-out gp-button-base gp-group/button gp-rounded-none gp-max-w-full gp-relative gp-inline-flex gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-300 disabled:gp-btn-disabled disabled:gp-opacity-30 disabled:gp-pointer-events-none hover:gp-bg-g-highlight gp-text-g-text-3 gp-button-sold-out btn-disabled gp-opacity-30 gp-cursor-default gp-g-paragraph-1"
-      style="--bg:#7D7D7D;--hvr-bg:var(--g-c-highlight, highlight);--shadow:none;--w:100%;--w-tablet:100%;--w-mobile:100%;--h:60px;--h-tablet:60px;--h-mobile:60px;--pl:24px;--pr:24px;--pt:8px;--pb:8px;--c:var(--g-c-text-3, text-3);--size:22px;--size-tablet:16px;--size-mobile:14px"
+      class="gwFJYods-M-sold-out gp-button-base gp-group/button gp-rounded-none gp-max-w-full gp-relative gp-inline-flex gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-300 disabled:gp-btn-disabled disabled:gp-opacity-30 disabled:gp-pointer-events-none gp-button-sold-out btn-disabled gp-opacity-30 gp-cursor-default gp-g-paragraph-1"
+      style="--bg:#FDCA06;--hvr-bg:#E89810;--shadow:none;--w:100%;--w-tablet:100%;--w-mobile:100%;--h:60px;--h-tablet:60px;--h-mobile:60px;--pl:24px;--pr:24px;--pt:8px;--pb:8px;--c:#151515;--size:22px;--size-tablet:16px;--size-mobile:14px"
     >
       
     <div
@@ -2383,9 +2698,9 @@
         data-gp-text
         class="group-hover/button:!gp-text-inherit gp-button-text-only gp-break-words group-data-[state=loading]:gp-invisible [&_p]:gp-whitespace-pre-line gp-z-1 gp-h-full gp-flex gp-items-center gp-overflow-hidden 
         "
-        style="--size:22px;--size-tablet:16px;--size-mobile:14px;--c:var(--g-c-text-3, text-3)"
+        style="--size:22px;--size-tablet:16px;--size-mobile:14px;--c:#151515"
       >
-        {{ section.settings.gggmp4sayU6_outOfStockLabel }}
+        {{ section.settings.ggwFJYods-M_outOfStockLabel }}
       </span>
       </div>
     
@@ -2397,11 +2712,11 @@
     <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://d2ls1pfffhvy22.cloudfront.net/assets-v2/gp-product-button.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
   
   {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
-  <gp-text data-id="gR6XGNAwFq">
+  <gp-text data-id="gW7Be3hofy">
     <div
       enableLazyloadImage="true" parentTag="Col"
-        class="gR6XGNAwFq "
-        style="--ta:left;--mb:6px;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%"
+        class="gW7Be3hofy "
+        style="--ta:left;--mb:8px;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%"
       >
       <div class="gp-flex" style="--jc:left">
         <div
@@ -2409,7 +2724,7 @@
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
           style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ts:none;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:17px;--size-tablet:16px;--size-mobile:14px;--lh:120%;--lh-tablet:180%;--lh-mobile:180%;--c:#151515;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
-        >{{ section.settings.ggR6XGNAwFq_text | replace: '$locationOrigin', locationOrigin }}</div>
+        >{{ section.settings.ggW7Be3hofy_text | replace: '$locationOrigin', locationOrigin }}</div>
       </div>
     </div>
     </gp-text>
@@ -2426,5 +2741,35 @@
       <div class="gp-text-center">{{ "gempages.Product.product_not_found" | t }}</div>
     {%- endif -%}
      <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://d2ls1pfffhvy22.cloudfront.net/assets-v2/gp-product.v2.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+  <div
+    
+     data-id="gcw-8x_JVC"
+    role="presentation"
+    class="gp-group/image gcw-8x_JVC"
+    style="--d:none;--d-tablet:none;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--ta:center"
+    >
+      <a
+        class="pointer-events-auto h-full gp-flex"
+        href="https://tierliebhaber-animagus.myshopify.com/cart/53649054957836:1?channel=buy_button" target="_self" title
+        class="gp-h-full gp-w-full"
+        style="--shadow:none;border-radius:inherit;--jc:center"
+      >
+        
+  <picture style="border-radius: inherit" class="gp-contents">
   
+      <source media="(max-width: 767px)" data-srcSet="{{ "gempages_534104955091420133-e80c0cee-d92f-4fa5-ab9e-7c002a4449d2_768x.png" | file_url }}" srcset="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjcwMCIgaGVpZ2h0PSI2MDUwIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGRlZnM+CiAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZy0yNzAwLTYwNTAiPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iMjAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNTAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNzAlIiAvPgogICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPC9kZWZzPgogICAgPHJlY3Qgd2lkdGg9IjI3MDAiIGhlaWdodD0iNjA1MCIgZmlsbD0icmdiYSg1MSwgNTEsIDUxLCAwKSIgLz4KICAgIDxyZWN0IGlkPSJyIiB3aWR0aD0iMjcwMCIgaGVpZ2h0PSI2MDUwIiBmaWxsPSJ1cmwoI2ctMjcwMC02MDUwKSIgLz4KICAgIDxhbmltYXRlIHhsaW5rOmhyZWY9IiNyIiBhdHRyaWJ1dGVOYW1lPSJ4IiBmcm9tPSItMjcwMCIgdG89IjI3MDAiIGR1cj0iMXMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAgLz4KICA8L3N2Zz4=" />
+      <source media="(max-width: 1024px)" data-srcSet="{{ "gempages_534104955091420133-9e9a9fcd-93c2-4b99-ba46-7687daf6ba6b_1024x.png" | file_url }}" srcset="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTc1NSIgaGVpZ2h0PSIzNjA4IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGRlZnM+CiAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZy0xNzU1LTM2MDgiPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iMjAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNTAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNzAlIiAvPgogICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPC9kZWZzPgogICAgPHJlY3Qgd2lkdGg9IjE3NTUiIGhlaWdodD0iMzYwOCIgZmlsbD0icmdiYSg1MSwgNTEsIDUxLCAwKSIgLz4KICAgIDxyZWN0IGlkPSJyIiB3aWR0aD0iMTc1NSIgaGVpZ2h0PSIzNjA4IiBmaWxsPSJ1cmwoI2ctMTc1NS0zNjA4KSIgLz4KICAgIDxhbmltYXRlIHhsaW5rOmhyZWY9IiNyIiBhdHRyaWJ1dGVOYW1lPSJ4IiBmcm9tPSItMTc1NSIgdG89IjE3NTUiIGR1cj0iMXMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAgLz4KICA8L3N2Zz4=" />
+      <img
+        
+        class="gp-h-full gp-max-w-full gp-flex gp_lazyload"
+        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTc1NSIgaGVpZ2h0PSIzNjA4IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGRlZnM+CiAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZy0xNzU1LTM2MDgiPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iMjAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNTAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNzAlIiAvPgogICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPC9kZWZzPgogICAgPHJlY3Qgd2lkdGg9IjE3NTUiIGhlaWdodD0iMzYwOCIgZmlsbD0icmdiYSg1MSwgNTEsIDUxLCAwKSIgLz4KICAgIDxyZWN0IGlkPSJyIiB3aWR0aD0iMTc1NSIgaGVpZ2h0PSIzNjA4IiBmaWxsPSJ1cmwoI2ctMTc1NS0zNjA4KSIgLz4KICAgIDxhbmltYXRlIHhsaW5rOmhyZWY9IiNyIiBhdHRyaWJ1dGVOYW1lPSJ4IiBmcm9tPSItMTc1NSIgdG89IjE3NTUiIGR1cj0iMXMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAgLz4KICA8L3N2Zz4="
+        data-src="{{ "gempages_534104955091420133-9e9a9fcd-93c2-4b99-ba46-7687daf6ba6b.png" | file_url }}"
+        width="100%"
+        alt=""
+        style="--aspect:auto;--aspect-tablet:auto;--aspect-mobile:auto;--objf:cover;--w:500px;--w-tablet:500px;--w-mobile:400px;--h:auto;--h-tablet:auto;--h-mobile:auto;--b:none;--bc:#000000;--bw:1px 1px 1px 1px;--radiusType:none;--shadow:none"
+      />
+    
+  </picture>
+      </a>
+  </div>
     </div>
