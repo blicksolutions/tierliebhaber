@@ -1,0 +1,702 @@
+
+
+<style>.gps-555625622949856033 .gp-relative{position:relative}.gps-555625622949856033 .gp-mx-auto{margin-left:auto;margin-right:auto}.gps-555625622949856033 .gp-mb-0{margin-bottom:0}.gps-555625622949856033 .gp-flex{display:flex}.gps-555625622949856033 .gp-grid{display:grid}.gps-555625622949856033 .\!gp-hidden{display:none!important}.gps-555625622949856033 .gp-hidden{display:none}.gps-555625622949856033 .gp-max-w-full{max-width:100%}.gps-555625622949856033 .gp-flex-col{flex-direction:column}.gps-555625622949856033 .gp-gap-y-0{row-gap:0}.gps-555625622949856033 .gp-transition-colors{transition-duration:.15s;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-555625622949856033 .gp-duration-200{transition-duration:.2s}.gps-555625622949856033 .gp-ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}@media (max-width:1024px){.gps-555625622949856033 .tablet\:\!gp-hidden{display:none!important}.gps-555625622949856033 .tablet\:gp-hidden{display:none}}@media (max-width:767px){.gps-555625622949856033 .mobile\:\!gp-hidden{display:none!important}.gps-555625622949856033 .mobile\:gp-hidden{display:none}}.gps-555625622949856033 .\[\&_\*\]\:gp-max-w-full *{max-width:100%}</style>
+
+       
+      
+            <section
+              class="gp-mx-auto gp-max-w-full {% if section.settings.section_preload == "false" %}gps-lazy {% endif %}"
+              style="--w:100%;--w-tablet:100%;--w-mobile:100%;--pl:0px;--pl-tablet:0px;--pl-mobile:0px;--pr:0px;--pr-tablet:0px;--pr-mobile:0px"
+            >
+              
+    <div
+      enableLazyloadImage="true" id="gitGewezjf" data-id="gitGewezjf"
+        style="--blockPadding:base;--pt:0px;--pb:0px;--d:grid;--d-tablet:grid;--d-mobile:grid;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--cg:32px;--pc:start;--gtc:minmax(0, 12fr);--w:100%;--w-tablet:100%;--w-mobile:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        class="gitGewezjf gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full"
+    >
+    <div
+      enableLazyloadImage="true" tag="Col" label="Block" type="component"
+      style="--jc:start"
+      class="gtrYbguGCL gp-relative gp-flex gp-flex-col"
+    >
+      
+  
+    <div
+      
+      style="--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--ta:left"
+      data-keep-class="true"
+      class="gGt7Nsrdoi "
+    ><div><!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monatliches Angebot mit Timer & Burger-Menü</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* ✅ Kompakter Header */
+        .angebot-banner-wrapper {
+            position: relative;
+        }
+
+        .angebot-banner {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+            background: linear-gradient(to right, #FBE9EB, #F9F3E5);
+            color: #880E4F;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+
+        .angebot-banner h1 {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin: 0 auto 5px;
+            line-height: 1.3;
+            max-width: 85%;
+            text-transform: uppercase;
+        }
+
+        .datum-container {
+            display: flex;
+            justify-content: center;
+            font-weight: bold;
+            margin-top: 3px;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+        }
+
+        .countdown-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-top: 5px;
+        }
+
+        .countdown-box {
+            text-align: center;
+            background-color: #ffffff;
+            border: 2px solid #880E4F;
+            padding: 6px 0;
+            border-radius: 8px;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .countdown-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #880E4F;
+        }
+
+        .countdown-label {
+            font-size: 0.8rem;
+            color: #880E4F;
+        }
+
+        /* 🔥 BURGER-MENÜ */
+        .menu-container {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #3E2764;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 2000;
+        }
+        .menu-icon {
+            font-size: 1.5rem;
+        }
+        .menu-links {
+            position: absolute;
+            top: 50px;
+            right: 10px;
+            background-color: #3E2764;
+            border-radius: 5px;
+            padding: 10px 0;
+            display: none;
+            flex-direction: column;
+            width: 180px;
+            z-index: 2000;
+        }
+        .menu-links a {
+            padding: 12px 15px;
+            text-decoration: none;
+            color: white;
+            display: block;
+            text-align: left;
+        }
+        .menu-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .menu-links.show {
+            display: flex;
+        }
+
+        /* Menü über Banner legen */
+        .menu-container, .menu-links {
+            position: fixed;
+            z-index: 3000;
+        }
+
+        /* Mobile Anpassung */
+        @media (max-width: 600px) {
+            .angebot-banner h1 {
+                font-size: 1.1rem;
+            }
+            .datum-container {
+                font-size: 0.8rem;
+            }
+            .countdown-box {
+                width: 60px;
+                height: 60px;
+                padding: 5px 0;
+            }
+            .countdown-number {
+                font-size: 1.2rem;
+            }
+            .countdown-label {
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 🔥 BURGER MENÜ -->
+    <div class="menu-container" onclick="toggleMenu()">
+        <div class="menu-icon">☰</div>
+    </div>
+    <div class="menu-links" id="menuLinks">
+        <a href="#" onclick="scrollToSection('.Angebot')">Angebot</a>
+        <a href="#" onclick="scrollToSection('.Resultate')">Resultate</a>
+        <a href="#" onclick="scrollToSection('.HäufigeFragen')">Häufige Fragen</a>
+    </div>
+
+    <!-- 🔥 ANGEBOT & COUNTDOWN -->
+    <div class="angebot-banner-wrapper">
+        <div class="angebot-banner">
+            <h1 id="angebot-text">EINMALIGES FEBRUAR-ANGEBOT</h1>
+            <div class="datum-container">
+                <span id="datum-text"></span>
+            </div>
+            <div class="countdown-wrapper">
+                <div class="countdown-box"><div id="days" class="countdown-number">00</div><div class="countdown-label">TAGE</div></div>
+                <div class="countdown-box"><div id="hours" class="countdown-number">00</div><div class="countdown-label">STUNDEN</div></div>
+                <div class="countdown-box"><div id="minutes" class="countdown-number">00</div><div class="countdown-label">MINUTEN</div></div>
+                <div class="countdown-box"><div id="seconds" class="countdown-number">00</div><div class="countdown-label">SEKUNDEN</div></div>
+            </div>
+            <p>*NUR SOLANGE DER VORRAT REICHT</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menuLinks');
+            menu.classList.toggle('show');
+        }
+
+        function scrollToSection(sectionClass) {
+            const target = document.querySelector(sectionClass);
+            if (target) {
+                window.scrollTo({
+                    top: target.getBoundingClientRect().top + window.scrollY - 80,
+                    behavior: 'smooth'
+                });
+                document.getElementById('menuLinks').classList.remove('show');
+            }
+        }
+
+        (function() {
+            const now = new Date();
+            const monday = new Date(now.setDate(now.getDate() - now.getDay() + 1));
+            const sunday = new Date(monday);
+            sunday.setDate(sunday.getDate() + 6);
+
+            const monate = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+            document.getElementById('datum-text').innerText = `vom ${monday.getDate()}. ${monate[monday.getMonth()]} bis ${sunday.getDate()}. ${monate[sunday.getMonth()]}`;
+
+            function updateCountdown() {
+                const countdownDate = new Date();
+                countdownDate.setHours(23, 59, 59, 999);
+                const distance = countdownDate - new Date();
+                if (distance <= 0) return;
+
+                document.getElementById('days').innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+                document.getElementById('hours').innerText = new Date(distance).getUTCHours();
+                document.getElementById('minutes').innerText = new Date(distance).getUTCMinutes();
+                document.getElementById('seconds').innerText = new Date(distance).getUTCSeconds();
+            }
+
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        })();
+    </script>
+</body>
+</html>
+
+<div class="overlay" id="overlay" onclick="closePopup()"></div>
+<div class="popup" id="popup">
+    <h2>Zahnfee Pulver</h2>
+    <p>Verstärkt die Wirkung, indem es überschüssige Säuren neutralisiert und Bakterien den Nährboden entzieht – ganz ohne chemische Zusätze.</p>
+    
+    <p class="popup-price">
+        <span class="price-label">Regulärer Preis:</span> 
+        <span class="old-price">39,90€</span>  
+        <span class="new-price">GRATIS in der Jahreskur enthalten!</span>
+    </p>
+
+    <div class="popup-buttons">
+        <button onclick="closePopup()" class="close-btn">Schließen</button>
+        <button onclick="scrollToOffer()" class="offer-btn">Zum Angebot</button>
+    </div>
+</div></div></div>
+  
+      <style id="custom-css-gGt7Nsrdoi">
+        @media (min-width: 768px) {
+    .menu-container {
+        display: none !important;
+    }
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    z-index: 1000;
+    width: 340px;
+    max-width: 90%;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.popup h2 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.popup p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.4;
+}
+
+.popup-price {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.price-label {
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #888;
+    font-size: 18px; /* Jetzt größer */
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.new-price {
+    color: #ff3b30;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.popup-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 12px; /* Abstand zwischen Buttons */
+}
+
+/* "Schließen"-Button bleibt grau & bekommt gleiche Höhe wie "Zum Angebot" */
+.close-btn {
+    background-color: #ddd;
+    color: #333;
+    padding: 14px 25px; /* Etwas breiter */
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 14px;
+    flex: 1;
+    min-width: 140px; /* Breiter als vorher */
+    text-align: center;
+    transition: background 0.3s ease-in-out;
+}
+
+.close-btn:hover {
+    background-color: #bbb;
+}
+
+/* "Zum Angebot"-Button bleibt rot mit weißer Schrift & bekommt mehr Breite */
+.offer-btn {
+    background-color: #ff6f61 !important; /* Button bleibt rot */
+    color: white !important; /* Schrift bleibt weiß */
+    padding: 14px 25px; /* Größerer Button */
+    border-radius: 8px;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+    flex: 1;
+    min-width: 160px; /* Exakte Breite wie früher */
+    max-width: 180px; /* Verhindert zu schmale Darstellung */
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease-in-out, transform 0.1s ease-in-out;
+}
+
+/* Hover- & Klick-Verhalten beibehalten */
+.offer-btn:hover {
+    background-color: #e05b50 !important; /* Etwas dunkler beim Hover */
+}
+
+.offer-btn:focus,
+.offer-btn:active {
+    background-color: #e05b50 !important;
+    transform: scale(0.98);
+    outline: none;
+}
+
+      </style>
+    
+      <script id="custom-js-gGt7Nsrdoi">
+        try {
+          // Funktion zum Scrollen zu einer Section & Menü schließen
+function scrollToSection(sectionClass) {
+    const target = document.querySelector(sectionClass);
+    if (target) {
+        console.log("Scrolling zu:", sectionClass);
+        const headerElement = document.querySelector('.angebot-banner');
+        const headerOffset = headerElement ? headerElement.offsetHeight : 0;
+        const elementPosition = target.getBoundingClientRect().top + window.scrollY;
+        const offsetPosition = elementPosition - headerOffset - 10;
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
+
+        // Menü schließen nach Klick (nur wenn vorhanden)
+        const menuLinks = document.getElementById('menuLinks');
+        if (menuLinks && menuLinks.classList.contains('show')) {
+            console.log("Burger-Menü wird geschlossen.");
+            menuLinks.classList.remove('show');
+        }
+    } else {
+        console.log("⚠️ Ziel-Sektion nicht gefunden:", sectionClass);
+    }
+}
+
+// Funktion zum Öffnen des Popups
+function openPopup() {
+    console.log("Popup wird geöffnet...");
+    document.getElementById("popup").style.display = "block";
+    document.getElementById("overlay").style.display = "block";
+}
+
+// Funktion zum Schließen des Popups
+function closePopup() {
+    console.log("Popup wird geschlossen...");
+    document.getElementById("popup").style.display = "none";
+    document.getElementById("overlay").style.display = "none";
+}
+
+// Funktion zum Scrollen zur Angebots-Sektion & Pop-up schließen (Mobile & Desktop)
+function scrollToOffer(event) {
+    event.preventDefault(); // Verhindert das Springen der Seite
+    console.log("Zum Angebot-Button wurde geklickt!");
+
+    closePopup(); // Erst das Popup schließen
+    console.log("Popup wurde geschlossen!");
+
+    setTimeout(() => {
+        let target;
+        if (window.innerWidth > 1024) { 
+            // Desktop-Version explizit ansprechen
+            target = document.querySelector(".angebot-desktop");
+        } else {
+            // Mobile-Version bleibt unverändert
+            target = document.querySelector(".Angebot");
+        }
+
+        if (target) {
+            console.log("Ziel-Sektion gefunden:", target);
+            
+            // Desktop: Sicherstellen, dass der Header berücksichtigt wird
+            const headerElement = document.querySelector('.angebot-banner');
+            const headerOffset = headerElement ? headerElement.offsetHeight : 0;
+            const elementPosition = target.getBoundingClientRect().top + window.scrollY;
+            const offsetPosition = elementPosition - headerOffset - 10;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+
+            console.log("Seite wurde gescrollt.");
+        } else {
+            console.log("⚠️ Ziel-Sektion nicht gefunden! Prüfe die CSS-Klassen.");
+        }
+    }, 200); // 200ms Verzögerung für eine flüssige UX
+}
+
+// Sicherstellen, dass Event-Listener nur ausgeführt werden, wenn die Elemente existieren
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("DOM vollständig geladen!");
+
+    // Klick-Event für "Wirkungsbooster" Text
+    var boosterText = document.querySelector(".clickable");
+    if (boosterText) {
+        boosterText.addEventListener("click", openPopup);
+        console.log("EventListener für 'Wirkungsbooster' gesetzt.");
+    } else {
+        console.log("⚠️ Kein Element mit Klasse 'clickable' gefunden!");
+    }
+
+    // Klick-Event für den "Schließen"-Button
+    var closeButton = document.querySelector(".close-btn");
+    if (closeButton) {
+        closeButton.addEventListener("click", closePopup);
+        console.log("EventListener für 'Schließen' gesetzt.");
+    } else {
+        console.log("⚠️ Kein Element mit Klasse 'close-btn' gefunden!");
+    }
+
+    // Klick-Event für den "Zum Angebot"-Button
+    var offerButton = document.querySelector(".offer-btn");
+    if (offerButton) {
+        offerButton.addEventListener("click", scrollToOffer);
+        console.log("EventListener für 'Zum Angebot' gesetzt.");
+    } else {
+        console.log("⚠️ Kein Element mit Klasse 'offer-btn' gefunden!");
+    }
+
+    // Event-Listener für Burger-Menü-Links setzen
+    const menuLinks = document.querySelectorAll("#menuLinks a");
+    if (menuLinks.length > 0) {
+        menuLinks.forEach(link => {
+            link.addEventListener("click", function(event) {
+                const sectionClass = this.getAttribute("href");
+                if (sectionClass.startsWith("#")) {
+                    event.preventDefault();
+                    scrollToSection(sectionClass);
+                }
+            });
+        });
+        console.log("EventListener für Burger-Menü-Links gesetzt.");
+    } else {
+        console.log("⚠️ Keine Links im Burger-Menü gefunden!");
+    }
+});
+
+
+        } catch(err){}
+      </script>
+    
+  
+    <div
+      
+      style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--ta:left"
+      data-keep-class="true"
+      class="gcLRATmg4I "
+    ><div><script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "q5ud1tat60");
+</script></div></div>
+  
+      <style id="custom-css-gcLRATmg4I">
+        .needsclick.kl-private-reset-css-Xuajs1, #superchat-widget {
+    display: none !important;
+}
+.needsclick.kl-private-reset-css-Xuajs1, 
+#superchat-widget, 
+button[aria-label="Open Smile.io Rewards Program"], 
+button[style*="background-color:#F1AF9E"], 
+div[id*="smile"], /* Falls Smile.io in einem div steckt */
+iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    height: 0 !important;
+    width: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+}
+
+      </style>
+    
+  
+    <div
+      
+      style="--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--ta:left"
+      data-keep-class="true"
+      class="g0YP7qEvSv "
+    ><div></div></div>
+  
+      <style id="custom-css-g0YP7qEvSv">
+        /* Stellt sicher, dass das gesamte Div klickbar ist */
+.sticky-button-desktop {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 400px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    min-width: 280px;
+}
+
+/* Stellt sicher, dass das Button-Element die gesamte Fläche nutzt */
+.sticky-button-desktop button {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Stellt sicher, dass der Text vertikal zentriert ist */
+.sticky-button-desktop span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    line-height: normal; /* Verhindert komisches Spacing */
+}
+
+
+.sticky-button-mobile {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90vw; /* Statt 90%, damit es sich auf den Viewport bezieht */
+    max-width: 400px; /* Optional, falls es auf größeren Screens zu breit wird */
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.2;
+    box-sizing: border-box; /* Damit Padding nicht die Breite beeinflusst */
+    padding: 8px 24px;
+}
+
+.sticky-button-mobile p {
+    margin: 0; /* Verhindert zusätzlichen Abstand */
+    text-align: center;
+}
+
+.sticky-button-mobile {
+    display: flex;
+    align-items: center;  /* Zentriert den Text vertikal */
+    justify-content: center;  /* Zentriert den Text horizontal */
+    width: 100%;  /* Damit er wirklich über die gesamte Breite geht */
+    height: 40px;  /* Falls das nicht klappt, auf 50px erhöhen und testen */
+}
+
+.sticky-button-desktop,
+.sticky-button-mobile {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.sticky-button-desktop.visible,
+.sticky-button-mobile.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+
+      </style>
+    
+      <script id="custom-js-g0YP7qEvSv">
+        try {
+          document.addEventListener("DOMContentLoaded", function() {
+    let desktopButton = document.querySelector(".sticky-button-desktop");
+    let mobileButton = document.querySelector(".sticky-button-mobile");
+    let scrollThreshold = 8000; // Höhe in Pixeln, ab der der Button erscheinen soll
+
+    function toggleButtonVisibility() {
+        if (window.scrollY > scrollThreshold) {
+            if (desktopButton) desktopButton.classList.add("visible");
+            if (mobileButton) mobileButton.classList.add("visible");
+        } else {
+            if (desktopButton) desktopButton.classList.remove("visible");
+            if (mobileButton) mobileButton.classList.remove("visible");
+        }
+    }
+
+    window.addEventListener("scroll", toggleButtonVisibility);
+});
+
+        } catch(err){}
+      </script>
+    
+    </div>
+    </div>
+  
+            </section>
+           
+    
+
+
+{% schema %}
+  {
+    
+    "name": "Section 2",
+    "tag": "section",
+    "class": "gps-555625622949856033 gps gpsi",
+    "settings": [{"type":"paragraph","content":"Section design by GemPages. [Click here to start design](https://admin.shopify.com/store/tierliebhaber-animagus/apps/gempages-cro/app/shopify/edit?pageType=GP_STATIC&editorId=555625622831891233&sectionId=555625622949856033)"},{"type":"select","label":"Section Preload","id":"section_preload","options":[{"label":"On","value":"true"},{"label":"Off","value":"false"},{"label":"Off Lazy Script","value":"off_lazy_script"}],"default":"off_lazy_script"},{"type":"text","label":"Checksum","id":"checksum"}],
+    "blocks": [{"type": "@app"}],
+    "locales": {}
+  }
+{% endschema %}
