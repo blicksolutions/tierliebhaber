@@ -660,6 +660,12 @@
 		const dCartObserver = new MutationObserver((mutationsList, observer) => {
 			scData = JSON.parse(sessionStorage.getItem("scDiscountData"));
 
+			if (scData?.code) {
+				cartDrawerElement.classList.add('Drawer--hasCoupon');
+			} else {
+				cartDrawerElement.classList.remove('Drawer--hasCoupon');
+			}
+
 			// do calculation only if discount is added
 			if ((scData.stage === "complete" && scData.subtotalCents > 0) || (scData.stage === "initial" && scData.subtotalCents > 0)) {
 				const couponPercentage = document.querySelector("#sidebar-cart .Drawer__Footer__Coupon-percentage");

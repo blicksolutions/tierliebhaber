@@ -160,7 +160,11 @@
 }
 
 #shopify-section-cart-drawer #sidebar-cart.Drawer__Footer__CouponActive .Drawer__Footer {
-    height: 451px;
+	height: 406px;
+}
+
+#sidebar-cart.Drawer__Footer__CouponActive.Drawer--hasCoupon .Drawer__Footer {
+	height: 461px !important;
 }
 
 #shopify-section-cart-drawer .sc_simple-info .sc_simple-info__tag {
@@ -173,7 +177,11 @@
 	}
 
 	#shopify-section-cart-drawer #sidebar-cart.Drawer__Footer__CouponActive .Drawer__Footer {
-		height: 431px;
+		height: 386px;
+	}
+
+	#sidebar-cart.Drawer__Footer__CouponActive.Drawer--hasCoupon .Drawer__Footer {
+		height: 441px !important;
 	}
 }
 
