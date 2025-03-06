@@ -230,7 +230,7 @@
             sunday.setDate(sunday.getDate() + 6);
 
             const monate = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
-            document.getElementById('datum-text').innerText = vom ${monday.getDate()}. ${monate[monday.getMonth()]} bis ${sunday.getDate()}. ${monate[sunday.getMonth()]};
+            document.getElementById('datum-text').innerText = `vom ${monday.getDate()}. ${monate[monday.getMonth()]} bis ${sunday.getDate()}. ${monate[sunday.getMonth()]}`;
 
             function updateCountdown() {
                 const countdownDate = new Date();
@@ -266,7 +266,9 @@
         <button onclick="closePopup()" class="close-btn">Schließen</button>
         <button onclick="scrollToOffer()" class="offer-btn">Zum Angebot</button>
     </div>
-</div></div></div>
+</div>
+
+<a href="#" onclick="openPopup(); return false;">Wirkungsbooster</a></div></div>
   
       <style id="custom-css-gGt7Nsrdoi">
         @media (min-width: 768px) {
@@ -524,26 +526,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    var boosterLinks = document.querySelectorAll("a[href='#']");
-    boosterLinks.forEach(function(link) {
-        link.addEventListener("click", function(event) {
-            if (link.innerText.includes("Wirkungsbooster")) { // Sicherstellen, dass es sich um den richtigen Link handelt
-                event.preventDefault();
-                openPopup();
-            }
-        });
-    });
-});
 
-
-document.addEventListener("DOMContentLoaded", function() {
-    document.querySelectorAll('a[href="#"]').forEach(link => {
-        if (!link.closest("u")) {  // Nur entfernen, wenn es nicht innerhalb von <u> steht
-            link.style.display = "none";
-        }
-    });
-});
         } catch(err){}
       </script>
     
