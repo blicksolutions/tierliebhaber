@@ -10,11 +10,14 @@
           {% if block.settings.max_width > 0 %}style="max-width: {{ block.settings.max_width }}px;"{% endif %}
           >
           {%- if block.type == 'image' -%}
-            <img 
+             <img 
               class="Image"
-              src="{{ block.settings.image | img_url: 'master' }}"
+              src="{{ block.settings.image | img_url: '600x' }}"
+              srcset="{{ block.settings.image | img_url: '400x' }} 400w, {{ block.settings.image | img_url: '600x' }} 800w"
+              sizes="(max-width: 600px) 400px, 600px"
               alt="{{ block.settings.image_alt | escape }}"
-              loading="lazy"
+              loading="eager"
+              style="max-width: 100%; height: auto;"
             >
           {%- else -%}
             {{ block.settings.html }}

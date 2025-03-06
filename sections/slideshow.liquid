@@ -34,11 +34,15 @@
 					style="{% unless section.settings.show_fullscreen %}--aspect-ratio: {{ mobile_image.aspect_ratio }};{% endunless %} background-image: url({{ mobile_image | img_url: '1x1', format: 'jpg' }})">
 
 
-					<img class="Slideshow__Image"
-						src="{{ block.settings.mobile_image | img_url: 'x800'}}"
-						alt="{{ mobile_image.alt | escape }}"
-						loading="lazy"
-						>
+					 <img 
+                  class="Slideshow__Image"
+                  src="{{ block.settings.mobile_image | img_url: '800x' }}"
+                  srcset="{{ block.settings.mobile_image | img_url: '400x' }} 400w, {{ block.settings.mobile_image | img_url: '800x' }} 800w"
+                  sizes="(max-width: 600px) 400px, 800px"
+                  alt="{{ mobile_image.alt | escape }}"
+                  loading="eager"
+                  style="max-width: 100%; height: auto;"
+            >
 
 					<noscript>
 					<img class="Slideshow__Image" src="{{ mobile_image | img_url: 'x800' }}" alt="{{ mobile_image.alt | escape }}">
