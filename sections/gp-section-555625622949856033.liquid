@@ -32,10 +32,153 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monatliches Angebot mit Timer & Burger-Menü</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* ✅ Kompakter Header */
+        .angebot-banner-wrapper {
+            position: relative;
+        }
+
+        .angebot-banner {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+            background: linear-gradient(to right, #FBE9EB, #F9F3E5);
+            color: #880E4F;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+
+        .angebot-banner h1 {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin: 0 auto 5px;
+            line-height: 1.3;
+            max-width: 85%;
+            text-transform: uppercase;
+        }
+
+        .datum-container {
+            display: flex;
+            justify-content: center;
+            font-weight: bold;
+            margin-top: 3px;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+        }
+
+        .countdown-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-top: 5px;
+        }
+
+        .countdown-box {
+            text-align: center;
+            background-color: #ffffff;
+            border: 2px solid #880E4F;
+            padding: 6px 0;
+            border-radius: 8px;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .countdown-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #880E4F;
+        }
+
+        .countdown-label {
+            font-size: 0.8rem;
+            color: #880E4F;
+        }
+
+        /* 🔥 BURGER-MENÜ */
+        .menu-container {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #3E2764;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 2000;
+        }
+        .menu-icon {
+            font-size: 1.5rem;
+        }
+        .menu-links {
+            position: absolute;
+            top: 50px;
+            right: 10px;
+            background-color: #3E2764;
+            border-radius: 5px;
+            padding: 10px 0;
+            display: none;
+            flex-direction: column;
+            width: 180px;
+            z-index: 2000;
+        }
+        .menu-links a {
+            padding: 12px 15px;
+            text-decoration: none;
+            color: white;
+            display: block;
+            text-align: left;
+        }
+        .menu-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .menu-links.show {
+            display: flex;
+        }
+
+        /* Menü über Banner legen */
+        .menu-container, .menu-links {
+            position: fixed;
+            z-index: 3000;
+        }
+
+        /* Mobile Anpassung */
+        @media (max-width: 600px) {
+            .angebot-banner h1 {
+                font-size: 1.1rem;
+            }
+            .datum-container {
+                font-size: 0.8rem;
+            }
+            .countdown-box {
+                width: 60px;
+                height: 60px;
+                padding: 5px 0;
+            }
+            .countdown-number {
+                font-size: 1.2rem;
+            }
+            .countdown-label {
+                font-size: 0.7rem;
+            }
+        }
+    </style>
 </head>
 <body>
-
     <!-- 🔥 BURGER MENÜ -->
     <div class="menu-container" onclick="toggleMenu()">
         <div class="menu-icon">☰</div>
@@ -63,31 +206,69 @@
         </div>
     </div>
 
-    <!-- 🔥 POPUP OVERLAY -->
-    <div class="overlay" id="overlay" onclick="closePopup()"></div>
-    <div class="popup" id="popup">
-        <h2>Zahnfee Pulver</h2>
-        <p>Verstärkt die Wirkung, indem es überschüssige Säuren neutralisiert und Bakterien den Nährboden entzieht – ganz ohne chemische Zusätze.</p>
-        
-        <p class="popup-price">
-            <span class="price-label">Regulärer Preis:</span> 
-            <span class="old-price">39,90€</span>  
-            <span class="new-price">GRATIS in der Jahreskur enthalten!</span>
-        </p>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menuLinks');
+            menu.classList.toggle('show');
+        }
 
-        <div class="popup-buttons">
-            <button onclick="closePopup()" class="close-btn">Schließen</button>
-            <button onclick="scrollToOffer()" class="offer-btn">Zum Angebot</button>
-        </div>
-    </div>
+        function scrollToSection(sectionClass) {
+            const target = document.querySelector(sectionClass);
+            if (target) {
+                window.scrollTo({
+                    top: target.getBoundingClientRect().top + window.scrollY - 80,
+                    behavior: 'smooth'
+                });
+                document.getElementById('menuLinks').classList.remove('show');
+            }
+        }
 
-    <!-- 🔥 KORREKTES WORT "WIRKUNGSBOOSTER" -->
-    <p>Jetzt mit <u class="clickable" onclick="openPopup()">Wirkungsbooster</u> in der Jahreskur!</p>
+        (function() {
+            const now = new Date();
+            const monday = new Date(now.setDate(now.getDate() - now.getDay() + 1));
+            const sunday = new Date(monday);
+            sunday.setDate(sunday.getDate() + 6);
 
-    <script src="script.js"></script>
+            const monate = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+            document.getElementById('datum-text').innerText = vom ${monday.getDate()}. ${monate[monday.getMonth()]} bis ${sunday.getDate()}. ${monate[sunday.getMonth()]};
 
+            function updateCountdown() {
+                const countdownDate = new Date();
+                countdownDate.setHours(23, 59, 59, 999);
+                const distance = countdownDate - new Date();
+                if (distance <= 0) return;
+
+                document.getElementById('days').innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+                document.getElementById('hours').innerText = new Date(distance).getUTCHours();
+                document.getElementById('minutes').innerText = new Date(distance).getUTCMinutes();
+                document.getElementById('seconds').innerText = new Date(distance).getUTCSeconds();
+            }
+
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        })();
+    </script>
 </body>
-</html></div></div>
+</html>
+
+<div class="overlay" id="overlay" onclick="closePopup()"></div>
+<div class="popup" id="popup">
+    <h2>Zahnfee Pulver</h2>
+    <p>Verstärkt die Wirkung, indem es überschüssige Säuren neutralisiert und Bakterien den Nährboden entzieht – ganz ohne chemische Zusätze.</p>
+    
+    <p class="popup-price">
+        <span class="price-label">Regulärer Preis:</span> 
+        <span class="old-price">39,90€</span>  
+        <span class="new-price">GRATIS in der Jahreskur enthalten!</span>
+    </p>
+
+    <div class="popup-buttons">
+        <button onclick="closePopup()" class="close-btn">Schließen</button>
+        <button onclick="scrollToOffer()" class="offer-btn">Zum Angebot</button>
+    </div>
+</div>
+
+<a href="#" onclick="openPopup(); return false;">Wirkungsbooster</a></div></div>
   
       <style id="custom-css-gGt7Nsrdoi">
         @media (min-width: 768px) {
@@ -127,23 +308,51 @@
     line-height: 1.4;
 }
 
+.popup-price {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.price-label {
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #888;
+    font-size: 18px; /* Jetzt größer */
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.new-price {
+    color: #ff3b30;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
 .popup-buttons {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
-    gap: 12px;
+    gap: 12px; /* Abstand zwischen Buttons */
 }
 
+/* "Schließen"-Button bleibt grau & bekommt gleiche Höhe wie "Zum Angebot" */
 .close-btn {
     background-color: #ddd;
     color: #333;
-    padding: 14px 25px;
+    padding: 14px 25px; /* Etwas breiter */
     border: none;
     cursor: pointer;
     border-radius: 8px;
     font-size: 14px;
     flex: 1;
-    min-width: 140px;
+    min-width: 140px; /* Breiter als vorher */
     text-align: center;
     transition: background 0.3s ease-in-out;
 }
@@ -152,17 +361,18 @@
     background-color: #bbb;
 }
 
+/* "Zum Angebot"-Button bleibt rot mit weißer Schrift & bekommt mehr Breite */
 .offer-btn {
-    background-color: #ff6f61;
-    color: white;
-    padding: 14px 25px;
+    background-color: #ff6f61 !important; /* Button bleibt rot */
+    color: white !important; /* Schrift bleibt weiß */
+    padding: 14px 25px; /* Größerer Button */
     border-radius: 8px;
     font-size: 16px;
     text-decoration: none;
     text-align: center;
     flex: 1;
-    min-width: 160px;
-    max-width: 180px;
+    min-width: 160px; /* Exakte Breite wie früher */
+    max-width: 180px; /* Verhindert zu schmale Darstellung */
     border: none;
     font-weight: bold;
     cursor: pointer;
@@ -172,18 +382,17 @@
     transition: background 0.3s ease-in-out, transform 0.1s ease-in-out;
 }
 
+/* Hover- & Klick-Verhalten beibehalten */
 .offer-btn:hover {
-    background-color: #e05b50;
+    background-color: #e05b50 !important; /* Etwas dunkler beim Hover */
 }
 
 .offer-btn:focus,
 .offer-btn:active {
-    background-color: #e05b50;
+    background-color: #e05b50 !important;
     transform: scale(0.98);
     outline: none;
 }
-
-
 
       </style>
     
@@ -315,22 +524,28 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
         console.log("⚠️ Keine Links im Burger-Menü gefunden!");
     }
+});
 
-    // Entfernt das unerwünschte "Wirkungsbooster" oben links
-    document.querySelectorAll('a[href="#"]').forEach(link => {
-        if (!link.closest("p") && !link.classList.contains("clickable")) {  
-            link.style.display = "none"; // Entfernt nur das falsche Element
-        }
-    });
-
-    // Falls es weitere "Wirkungsbooster"-Links gibt, stelle sicher, dass nur das richtige bleibt
-    document.querySelectorAll("a[href='#']").forEach(link => {
-        if (link.innerText.includes("Wirkungsbooster") && !link.classList.contains("clickable")) {
-            link.remove(); // Löscht das unerwünschte Element
-        }
+document.addEventListener("DOMContentLoaded", function() {
+    var boosterLinks = document.querySelectorAll("a[href='#']");
+    boosterLinks.forEach(function(link) {
+        link.addEventListener("click", function(event) {
+            if (link.innerText.includes("Wirkungsbooster")) { // Sicherstellen, dass es sich um den richtigen Link handelt
+                event.preventDefault();
+                openPopup();
+            }
+        });
     });
 });
 
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll('a[href="#"]').forEach(link => {
+        if (!link.closest("u")) {  // Nur entfernen, wenn es nicht innerhalb von <u> steht
+            link.style.display = "none";
+        }
+    });
+});
         } catch(err){}
       </script>
     
