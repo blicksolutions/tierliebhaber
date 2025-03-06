@@ -394,11 +394,6 @@
     outline: none;
 }
 
-a[href="#"] {
-    display: none;
-}
-
-
       </style>
     
       <script id="custom-js-gGt7Nsrdoi">
@@ -543,6 +538,14 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll('a[href="#"]').forEach(link => {
+        if (!link.closest("u")) {  // Nur entfernen, wenn es nicht innerhalb von <u> steht
+            link.style.display = "none";
+        }
+    });
+});
 
         } catch(err){}
       </script>
