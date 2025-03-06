@@ -268,7 +268,7 @@
     </div>
 </div>
 
-<u class="clickable" onclick="openPopup(); return false;">Wirkungsbooster</u></div></div>
+<a href="#" onclick="openPopup(); return false;">Wirkungsbooster</a></div></div>
   
       <style id="custom-css-gGt7Nsrdoi">
         @media (min-width: 768px) {
@@ -392,10 +392,6 @@
     background-color: #e05b50 !important;
     transform: scale(0.98);
     outline: none;
-}
-
-a[href="#"]:not(.clickable) {
-    display: none;
 }
 
       </style>
@@ -528,14 +524,6 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
         console.log("⚠️ Keine Links im Burger-Menü gefunden!");
     }
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    document.querySelectorAll('a[href="#"]').forEach(link => {
-        if (!link.classList.contains("clickable")) {  
-            link.remove(); // Löscht das falsche „Wirkungsbooster“
-        }
-    });
 });
 
 
