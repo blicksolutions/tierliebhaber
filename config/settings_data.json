@@ -1077,6 +1077,7 @@
           },
           "7bbe8948-4bae-40bb-8b62-2707d411df05": {
             "type": "item",
+            "disabled": true,
             "settings": {
               "image": "shopify://shop_images/Foto_Julia.jpg",
               "item-headline": "weil jede Tierseele seinen ganz eigenen besonderen Wert hat.",
@@ -1686,11 +1687,6 @@
       },
       "855628211100114053": {
         "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
-        "disabled": false,
-        "settings": {}
-      },
-      "17398511487517060589": {
-        "type": "shopify://apps/admetrics-data-studio/blocks/conversion/95b54974-e3ea-4514-839b-d0c971e19c1c",
         "disabled": false,
         "settings": {}
       },
