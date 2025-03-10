@@ -429,15 +429,6 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
     </div>
     {{ tracking_code }}
-    <script>    
-      document.querySelector('.breadcrumb').innerHTML += `<li class="breadcrumb__item">
-        <a class="breadcrumb__text">Fertig</a>
-      </li>`;
-      document.querySelectorAll('.breadcrumb .breadcrumb__item.breadcrumb__item--completed').forEach(elem => {
-        elem.addEventListener("click", (e) => {
-          elem.querySelector(".breadcrumb__link").click();
-        });
-      });
-    </script>
+    
   </body>
 </html>
