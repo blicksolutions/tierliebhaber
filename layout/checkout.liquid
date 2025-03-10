@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="{{ locale }}" dir="{{ direction }}" class="{{ checkout_html_classes }}">
   <head>
-    <script>window.Shopify.checkout.order_id = {{id}};</script>
+    <script>window.Shopify.checkout.order_id = {{order.id}};</script>
 <script src="{{ 'bs-ab-tlh004.js' | asset_url }}" defer></script>
 <link rel="stylesheet" href="{{ 'bs-ab-tlh004.css' | asset_url }}">
     {%- comment -%}
