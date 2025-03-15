@@ -31,7 +31,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neukunden Angebot – Jetzt sichern!</title>
+    <title>Monatliches Angebot mit Timer & Burger-Menü</title>
     <style>
         body, html {
             margin: 0;
@@ -39,6 +39,74 @@
             width: 100%;
             font-family: Arial, sans-serif;
             scroll-behavior: smooth;
+        }
+
+        /* ✅ Kompakter Header */
+        .angebot-banner-wrapper {
+            position: relative;
+        }
+
+        .angebot-banner {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+            background: linear-gradient(to right, #FBE9EB, #F9F3E5);
+            color: #880E4F;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+
+        .angebot-banner h1 {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin: 0 auto 5px;
+            line-height: 1.3;
+            max-width: 85%;
+            text-transform: uppercase;
+        }
+
+        .datum-container {
+            display: flex;
+            justify-content: center;
+            font-weight: bold;
+            margin-top: 3px;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+        }
+
+        .countdown-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-top: 5px;
+        }
+
+        .countdown-box {
+            text-align: center;
+            background-color: #ffffff;
+            border: 2px solid #880E4F;
+            padding: 6px 0;
+            border-radius: 8px;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .countdown-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #880E4F;
+        }
+
+        .countdown-label {
+            font-size: 0.8rem;
+            color: #880E4F;
         }
 
         /* 🔥 BURGER-MENÜ */
@@ -53,11 +121,9 @@
             cursor: pointer;
             z-index: 2000;
         }
-
         .menu-icon {
             font-size: 1.5rem;
         }
-
         .menu-links {
             position: absolute;
             top: 50px;
@@ -70,7 +136,6 @@
             width: 180px;
             z-index: 2000;
         }
-
         .menu-links a {
             padding: 12px 15px;
             text-decoration: none;
@@ -78,101 +143,130 @@
             display: block;
             text-align: left;
         }
-
         .menu-links a:hover {
             background-color: rgba(255, 255, 255, 0.2);
         }
-
         .menu-links.show {
             display: flex;
         }
 
-        /* Menü über andere Elemente legen */
+        /* Menü über Banner legen */
         .menu-container, .menu-links {
             position: fixed;
             z-index: 3000;
         }
+
+        /* Mobile Anpassung */
+        @media (max-width: 600px) {
+            .angebot-banner h1 {
+                font-size: 1.1rem;
+            }
+            .datum-container {
+                font-size: 0.8rem;
+            }
+            .countdown-box {
+                width: 60px;
+                height: 60px;
+                padding: 5px 0;
+            }
+            .countdown-number {
+                font-size: 1.2rem;
+            }
+            .countdown-label {
+                font-size: 0.7rem;
+            }
+        }
     </style>
 </head>
 <body>
-
-    <!-- 🔥 BURGER-MENÜ -->
+    <!-- 🔥 BURGER MENÜ -->
     <div class="menu-container" onclick="toggleMenu()">
         <div class="menu-icon">☰</div>
     </div>
     <div class="menu-links" id="menuLinks">
-        <a href="#angebot" onclick="scrollToSection('.Angebot')">Angebot</a>
-        <a href="#resultate" onclick="scrollToSection('.Resultate')">Resultate</a>
-        <a href="#fragen" onclick="scrollToSection('.HäufigeFragen')">Häufige Fragen</a>
+        <a href="#" onclick="scrollToSection('.Angebot')">Angebot</a>
+        <a href="#" onclick="scrollToSection('.Resultate')">Resultate</a>
+        <a href="#" onclick="scrollToSection('.HäufigeFragen')">Häufige Fragen</a>
+    </div>
+
+    <!-- 🔥 ANGEBOT & COUNTDOWN -->
+    <div class="angebot-banner-wrapper">
+        <div class="angebot-banner">
+            <h1 id="angebot-text">EINMALIGES FEBRUAR-ANGEBOT</h1>
+            <div class="datum-container">
+                <span id="datum-text"></span>
+            </div>
+            <div class="countdown-wrapper">
+                <div class="countdown-box"><div id="days" class="countdown-number">00</div><div class="countdown-label">TAGE</div></div>
+                <div class="countdown-box"><div id="hours" class="countdown-number">00</div><div class="countdown-label">STUNDEN</div></div>
+                <div class="countdown-box"><div id="minutes" class="countdown-number">00</div><div class="countdown-label">MINUTEN</div></div>
+                <div class="countdown-box"><div id="seconds" class="countdown-number">00</div><div class="countdown-label">SEKUNDEN</div></div>
+            </div>
+            <p>*NUR SOLANGE DER VORRAT REICHT</p>
+        </div>
     </div>
 
     <script>
-        // Funktion zum Öffnen/Schließen des Burger-Menüs
         function toggleMenu() {
             const menu = document.getElementById('menuLinks');
-            if (menu) {
-                menu.classList.toggle('show');
-                console.log(menu.classList.contains('show') ? "Burger-Menü geöffnet" : "Burger-Menü geschlossen");
-            } else {
-                console.log("⚠️ Menü-Container nicht gefunden!");
-            }
+            menu.classList.toggle('show');
         }
 
-        // Funktion zum Scrollen zu einer Sektion & Menü schließen
         function scrollToSection(sectionClass) {
             const target = document.querySelector(sectionClass);
             if (target) {
-                console.log("Scrolling zu:", sectionClass);
                 window.scrollTo({
                     top: target.getBoundingClientRect().top + window.scrollY - 80,
                     behavior: 'smooth'
                 });
-
-                // Menü schließen nach Klick
-                const menuLinks = document.getElementById('menuLinks');
-                if (menuLinks && menuLinks.classList.contains('show')) {
-                    console.log("Burger-Menü wird geschlossen.");
-                    menuLinks.classList.remove('show');
-                }
-            } else {
-                console.log("⚠️ Ziel-Sektion nicht gefunden:", sectionClass);
+                document.getElementById('menuLinks').classList.remove('show');
             }
         }
 
-        // Event-Listener für Burger-Menü setzen
-        document.addEventListener("DOMContentLoaded", function () {
-            console.log("DOM vollständig geladen!");
+        (function() {
+            const now = new Date();
+            const monday = new Date(now.setDate(now.getDate() - now.getDay() + 1));
+            const sunday = new Date(monday);
+            sunday.setDate(sunday.getDate() + 6);
 
-            // Burger-Menü Button
-            const burgerButton = document.querySelector(".menu-container");
-            if (burgerButton) {
-                burgerButton.addEventListener("click", toggleMenu);
-                console.log("EventListener für Burger-Menü gesetzt.");
-            } else {
-                console.log("⚠️ Kein Element mit Klasse 'menu-container' gefunden!");
+            const monate = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+            document.getElementById('datum-text').innerText = `vom ${monday.getDate()}. ${monate[monday.getMonth()]} bis ${sunday.getDate()}. ${monate[sunday.getMonth()]}`;
+
+            function updateCountdown() {
+                const countdownDate = new Date();
+                countdownDate.setHours(23, 59, 59, 999);
+                const distance = countdownDate - new Date();
+                if (distance <= 0) return;
+
+                document.getElementById('days').innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+                document.getElementById('hours').innerText = new Date(distance).getUTCHours();
+                document.getElementById('minutes').innerText = new Date(distance).getUTCMinutes();
+                document.getElementById('seconds').innerText = new Date(distance).getUTCSeconds();
             }
 
-            // Menü-Links
-            const menuLinks = document.querySelectorAll("#menuLinks a");
-            if (menuLinks.length > 0) {
-                menuLinks.forEach(link => {
-                    link.addEventListener("click", function (event) {
-                        const sectionClass = this.getAttribute("href");
-                        if (sectionClass.startsWith("#")) {
-                            event.preventDefault();
-                            scrollToSection(sectionClass);
-                        }
-                    });
-                });
-                console.log("EventListener für Burger-Menü-Links gesetzt.");
-            } else {
-                console.log("⚠️ Keine Links im Burger-Menü gefunden!");
-            }
-        });
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        })();
     </script>
-
 </body>
-</html></div></div>
+</html>
+
+<div class="overlay" id="overlay" onclick="closePopup()"></div>
+<div class="popup" id="popup">
+    <h2>Zahnfee Pulver</h2>
+    <p>Verstärkt die Wirkung, indem es überschüssige Säuren neutralisiert und Bakterien den Nährboden entzieht – ganz ohne chemische Zusätze.</p>
+    
+    <p class="popup-price">
+        <span class="price-label">Regulärer Preis:</span> 
+        <span class="old-price">39,90€</span>  
+        <span class="new-price">GRATIS in der Jahreskur enthalten!</span>
+    </p>
+
+    <div class="popup-buttons">
+        <button onclick="closePopup()" class="close-btn">Schließen</button>
+        <button onclick="scrollToOffer()" class="offer-btn">Zum Angebot</button>
+    </div>
+</div></div></div>
   
       <style id="custom-css-gGt7Nsrdoi">
         @media (min-width: 768px) {
@@ -302,18 +396,7 @@
     
       <script id="custom-js-gGt7Nsrdoi">
         try {
-          // Funktion zum Öffnen/Schließen des Burger-Menüs
-function toggleMenu() {
-    const menu = document.getElementById('menuLinks');
-    if (menu) {
-        menu.classList.toggle('show');
-        console.log(menu.classList.contains('show') ? "Burger-Menü geöffnet" : "Burger-Menü geschlossen");
-    } else {
-        console.log("⚠️ Menü-Container nicht gefunden!");
-    }
-}
-
-// Funktion zum Scrollen zu einer Sektion & Menü schließen
+          // Funktion zum Scrollen zu einer Section & Menü schließen
 function scrollToSection(sectionClass) {
     const target = document.querySelector(sectionClass);
     if (target) {
@@ -328,7 +411,7 @@ function scrollToSection(sectionClass) {
             behavior: 'smooth'
         });
 
-        // Menü schließen nach Klick
+        // Menü schließen nach Klick (nur wenn vorhanden)
         const menuLinks = document.getElementById('menuLinks');
         if (menuLinks && menuLinks.classList.contains('show')) {
             console.log("Burger-Menü wird geschlossen.");
@@ -339,24 +422,95 @@ function scrollToSection(sectionClass) {
     }
 }
 
-// Event-Listener für Burger-Menü setzen
-document.addEventListener("DOMContentLoaded", function () {
+// Funktion zum Öffnen des Popups
+function openPopup() {
+    console.log("Popup wird geöffnet...");
+    document.getElementById("popup").style.display = "block";
+    document.getElementById("overlay").style.display = "block";
+}
+
+// Funktion zum Schließen des Popups
+function closePopup() {
+    console.log("Popup wird geschlossen...");
+    document.getElementById("popup").style.display = "none";
+    document.getElementById("overlay").style.display = "none";
+}
+
+// Funktion zum Scrollen zur Angebots-Sektion & Pop-up schließen (Mobile & Desktop)
+function scrollToOffer(event) {
+    event.preventDefault(); // Verhindert das Springen der Seite
+    console.log("Zum Angebot-Button wurde geklickt!");
+
+    closePopup(); // Erst das Popup schließen
+    console.log("Popup wurde geschlossen!");
+
+    setTimeout(() => {
+        let target;
+        if (window.innerWidth > 1024) { 
+            // Desktop-Version explizit ansprechen
+            target = document.querySelector(".angebot-desktop");
+        } else {
+            // Mobile-Version bleibt unverändert
+            target = document.querySelector(".Angebot");
+        }
+
+        if (target) {
+            console.log("Ziel-Sektion gefunden:", target);
+            
+            // Desktop: Sicherstellen, dass der Header berücksichtigt wird
+            const headerElement = document.querySelector('.angebot-banner');
+            const headerOffset = headerElement ? headerElement.offsetHeight : 0;
+            const elementPosition = target.getBoundingClientRect().top + window.scrollY;
+            const offsetPosition = elementPosition - headerOffset - 10;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+
+            console.log("Seite wurde gescrollt.");
+        } else {
+            console.log("⚠️ Ziel-Sektion nicht gefunden! Prüfe die CSS-Klassen.");
+        }
+    }, 200); // 200ms Verzögerung für eine flüssige UX
+}
+
+// Sicherstellen, dass Event-Listener nur ausgeführt werden, wenn die Elemente existieren
+document.addEventListener("DOMContentLoaded", function() {
     console.log("DOM vollständig geladen!");
 
-    // Burger-Menü Button
-    const burgerButton = document.querySelector(".menu-container");
-    if (burgerButton) {
-        burgerButton.addEventListener("click", toggleMenu);
-        console.log("EventListener für Burger-Menü gesetzt.");
+    // Klick-Event für "Wirkungsbooster" Text
+    var boosterText = document.querySelector(".clickable");
+    if (boosterText) {
+        boosterText.addEventListener("click", openPopup);
+        console.log("EventListener für 'Wirkungsbooster' gesetzt.");
     } else {
-        console.log("⚠️ Kein Element mit Klasse 'menu-container' gefunden!");
+        console.log("⚠️ Kein Element mit Klasse 'clickable' gefunden!");
     }
 
-    // Menü-Links
+    // Klick-Event für den "Schließen"-Button
+    var closeButton = document.querySelector(".close-btn");
+    if (closeButton) {
+        closeButton.addEventListener("click", closePopup);
+        console.log("EventListener für 'Schließen' gesetzt.");
+    } else {
+        console.log("⚠️ Kein Element mit Klasse 'close-btn' gefunden!");
+    }
+
+    // Klick-Event für den "Zum Angebot"-Button
+    var offerButton = document.querySelector(".offer-btn");
+    if (offerButton) {
+        offerButton.addEventListener("click", scrollToOffer);
+        console.log("EventListener für 'Zum Angebot' gesetzt.");
+    } else {
+        console.log("⚠️ Kein Element mit Klasse 'offer-btn' gefunden!");
+    }
+
+    // Event-Listener für Burger-Menü-Links setzen
     const menuLinks = document.querySelectorAll("#menuLinks a");
     if (menuLinks.length > 0) {
         menuLinks.forEach(link => {
-            link.addEventListener("click", function (event) {
+            link.addEventListener("click", function(event) {
                 const sectionClass = this.getAttribute("href");
                 if (sectionClass.startsWith("#")) {
                     event.preventDefault();
@@ -369,6 +523,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("⚠️ Keine Links im Burger-Menü gefunden!");
     }
 });
+
 
 
 
