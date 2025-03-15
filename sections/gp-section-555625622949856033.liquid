@@ -31,7 +31,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monatliches Angebot</title>
+    <title>Monatliches Angebot mit Timer & Burger-Menü</title>
     <style>
         body, html {
             margin: 0;
@@ -40,10 +40,145 @@
             font-family: Arial, sans-serif;
             scroll-behavior: smooth;
         }
+
+        /* ✅ Kompakter Header */
+        .angebot-banner-wrapper {
+            position: relative;
+        }
+
+        .angebot-banner {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+            background: linear-gradient(to right, #FBE9EB, #F9F3E5);
+            color: #880E4F;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+
+        .angebot-banner h1 {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin: 0 auto 5px;
+            line-height: 1.3;
+            max-width: 85%;
+            text-transform: uppercase;
+        }
+
+        .datum-container {
+            display: flex;
+            justify-content: center;
+            font-weight: bold;
+            margin-top: 3px;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+        }
+
+        .countdown-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-top: 5px;
+        }
+
+        .countdown-box {
+            text-align: center;
+            background-color: #ffffff;
+            border: 2px solid #880E4F;
+            padding: 6px 0;
+            border-radius: 8px;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .countdown-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #880E4F;
+        }
+
+        .countdown-label {
+            font-size: 0.8rem;
+            color: #880E4F;
+        }
+
+        /* 🔥 BURGER-MENÜ */
+        .menu-container {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #3E2764;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 2000;
+        }
+        .menu-icon {
+            font-size: 1.5rem;
+        }
+        .menu-links {
+            position: absolute;
+            top: 50px;
+            right: 10px;
+            background-color: #3E2764;
+            border-radius: 5px;
+            padding: 10px 0;
+            display: none;
+            flex-direction: column;
+            width: 180px;
+            z-index: 2000;
+        }
+        .menu-links a {
+            padding: 12px 15px;
+            text-decoration: none;
+            color: white;
+            display: block;
+            text-align: left;
+        }
+        .menu-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .menu-links.show {
+            display: flex;
+        }
+
+        /* Menü über Banner legen */
+        .menu-container, .menu-links {
+            position: fixed;
+            z-index: 3000;
+        }
+
+        /* Mobile Anpassung */
+        @media (max-width: 600px) {
+            .angebot-banner h1 {
+                font-size: 1.1rem;
+            }
+            .datum-container {
+                font-size: 0.8rem;
+            }
+            .countdown-box {
+                width: 60px;
+                height: 60px;
+                padding: 5px 0;
+            }
+            .countdown-number {
+                font-size: 1.2rem;
+            }
+            .countdown-label {
+                font-size: 0.7rem;
+            }
+        }
     </style>
 </head>
 <body>
-
     <!-- 🔥 BURGER MENÜ -->
     <div class="menu-container" onclick="toggleMenu()">
         <div class="menu-icon">☰</div>
@@ -54,7 +189,22 @@
         <a href="#" onclick="scrollToSection('.HäufigeFragen')">Häufige Fragen</a>
     </div>
 
-    <!-- ❌ Countdown & roter Bereich entfernt -->
+    <!-- 🔥 ANGEBOT & COUNTDOWN -->
+    <div class="angebot-banner-wrapper">
+        <div class="angebot-banner">
+            <h1 id="angebot-text">EINMALIGES FEBRUAR-ANGEBOT</h1>
+            <div class="datum-container">
+                <span id="datum-text"></span>
+            </div>
+            <div class="countdown-wrapper">
+                <div class="countdown-box"><div id="days" class="countdown-number">00</div><div class="countdown-label">TAGE</div></div>
+                <div class="countdown-box"><div id="hours" class="countdown-number">00</div><div class="countdown-label">STUNDEN</div></div>
+                <div class="countdown-box"><div id="minutes" class="countdown-number">00</div><div class="countdown-label">MINUTEN</div></div>
+                <div class="countdown-box"><div id="seconds" class="countdown-number">00</div><div class="countdown-label">SEKUNDEN</div></div>
+            </div>
+            <p>*NUR SOLANGE DER VORRAT REICHT</p>
+        </div>
+    </div>
 
     <script>
         function toggleMenu() {
@@ -72,11 +222,35 @@
                 document.getElementById('menuLinks').classList.remove('show');
             }
         }
+
+        (function() {
+            const now = new Date();
+            const monday = new Date(now.setDate(now.getDate() - now.getDay() + 1));
+            const sunday = new Date(monday);
+            sunday.setDate(sunday.getDate() + 6);
+
+            const monate = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+            document.getElementById('datum-text').innerText = `vom ${monday.getDate()}. ${monate[monday.getMonth()]} bis ${sunday.getDate()}. ${monate[sunday.getMonth()]}`;
+
+            function updateCountdown() {
+                const countdownDate = new Date();
+                countdownDate.setHours(23, 59, 59, 999);
+                const distance = countdownDate - new Date();
+                if (distance <= 0) return;
+
+                document.getElementById('days').innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+                document.getElementById('hours').innerText = new Date(distance).getUTCHours();
+                document.getElementById('minutes').innerText = new Date(distance).getUTCMinutes();
+                document.getElementById('seconds').innerText = new Date(distance).getUTCSeconds();
+            }
+
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        })();
     </script>
 </body>
 </html>
 
-<!-- Popup bleibt erhalten -->
 <div class="overlay" id="overlay" onclick="closePopup()"></div>
 <div class="popup" id="popup">
     <h2>Zahnfee Pulver</h2>
