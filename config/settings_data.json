@@ -1652,6 +1652,18 @@
           "button_color": "#363636",
           "button_background": "#ffffff"
         }
+      },
+      "text_with_image_DUmNND": {
+        "type": "text-with-image",
+        "settings": {
+          "subheading": "",
+          "title": "Unsere Geld zurück-Garantie für dich!*",
+          "image": "shopify://shop_images/Untitled_design_5_4d87ef1e-5d95-4bc1-98cd-b66722616ec7.png",
+          "image_position": "left",
+          "content": "<p>Teste unsere Produkte komplett ohne Risiko. Wir sind von der Wirksamkeit unserer Produkte überzeugt, sodass wir dir das Geld zurückerstatten, falls du mit der Wirksamkeit nicht zufrieden bist.</p><p>Wende das Produkt entsprechend der Empfehlung mind. 30-90 Tage an. Danach hast du 30 Tage lang Zeit, das Produkt an uns zurückzuschicken.**   Wir erstatten dir daraufhin den vollen Kaufpreis. </p><p>Bitte sei dir jedoch bewusst, dass die Produkte keine Zaubermittel sind :)</p><p>* Wirksamkeits-Garantie</p><p>** Die Kosten der Rücksendung trägst du selbst</p>",
+          "link_text": "",
+          "link_url": ""
+        }
       }
     },
     "content_for_index": [
@@ -1666,6 +1678,7 @@
       "16282318717ce7acd5",
       "b4edff6c-2010-46ec-a9c1-d1678e7808e8",
       "cfc032c1-c00f-4d3f-827c-a8fdb86b7458",
+      "text_with_image_DUmNND",
       "164847561630f9cc4a",
       "b94622a9-dfd5-4703-963d-0b90d3126168",
       "text_with_image_CLJqMt",
