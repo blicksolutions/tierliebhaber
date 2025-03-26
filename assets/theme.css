@@ -6030,7 +6030,8 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
 
 .ArticleNav {
     padding: 75px 0;
-    background: var(--secondary-elements-background);
+    /*background: var(--secondary-elements-background);*/
+    background: #ee7bae;
     color: var(--secondary-elements-text-color);
 }
 
