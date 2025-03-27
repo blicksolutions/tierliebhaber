@@ -43,13 +43,13 @@
         {%- liquid
           if request.page_type == 'product'
             if 'static' == 'static'
-              if '11505642012940' == 'latest'
+              if '11526571819276' == 'latest'
                 paginate collections.all.products by 100000
                   assign product = collections.all.products | sort: 'created_at' | reverse | first
                 endpaginate
               else
-                assign product = all_products['dental-cfo-v2']
-                assign productId = '11505642012940' | times: 1
+                assign product = all_products['z-paket']
+                assign productId = '11526571819276' | times: 1
                 if product == empty or product == null
                   paginate collections.all.products by 100000
                     for item in collections.all.products
@@ -62,13 +62,13 @@
               endif
             endif
           else
-            if '11505642012940' == 'latest'
+            if '11526571819276' == 'latest'
               paginate collections.all.products by 100000
                 assign product = collections.all.products | sort: 'created_at'| reverse | first
               endpaginate
             else
-              assign product = all_products['dental-cfo-v2']
-              assign productId = '11505642012940' | times: 1
+              assign product = all_products['z-paket']
+              assign productId = '11526571819276' | times: 1
               if product == empty or product == null
                 paginate collections.all.products by 100000
                   for item in collections.all.products
@@ -676,7 +676,7 @@
       gp-data-wrapper="true"
       gp-label-out-of-stock="{{section.settings.gggFVJdyP52_outOfStockLabel}}"
       gp-label-unavailable="{{section.settings.gggFVJdyP52_unavailableLabel}}"
-      gp-data='{"setting":{"actionEffect":"go-to-url","errorMessage":"Cannot add product to cart","successMessage":"Add product to cart successfully","enableSuccessMessage":true,"enableErrorMessage":true,"label":"JETZT BESTELLEN","outOfStockLabel":"Out of stock","errorType":"built-in","customURL":{"link":"https://tierliebhaber-animagus.myshopify.com/cart/53978715652364:1,53978718077196:1,45707655577868:1?channel=buy_button","target":"_self"}},"styles":{"errorTypo":{"type":"paragraph-2","attrs":{"color":"error"}},"successTypo":{"type":"paragraph-2","attrs":{"color":"success"}}},"disabled":"{{variant.available}}","variantID":"{{variant.id}}","totalVariant":"{{product.variants.size}}"}' 
+      gp-data='{"setting":{"actionEffect":"buy-now","errorMessage":"Cannot add product to cart","successMessage":"Add product to cart successfully","enableSuccessMessage":true,"enableErrorMessage":true,"label":"JETZT BESTELLEN","outOfStockLabel":"Out of stock","errorType":"built-in","customURL":{"link":"https://tierliebhaber-animagus.myshopify.com/cart/53978715652364:1,53978718077196:1,45707655577868:1?channel=buy_button","target":"_self"}},"styles":{"errorTypo":{"type":"paragraph-2","attrs":{"color":"error"}},"successTypo":{"type":"paragraph-2","attrs":{"color":"success"}}},"disabled":"{{variant.available}}","variantID":"{{variant.id}}","totalVariant":"{{product.variants.size}}"}' 
        gp-href="https://tierliebhaber-animagus.myshopify.com/cart/53978715652364:1,53978718077196:1,45707655577868:1?channel=buy_button"
        data-variant-selection-required-message="{{section.settings.gggFVJdyP52_variantSelectionRequiredMessage}}"
     >
@@ -902,13 +902,13 @@
         {%- liquid
           if request.page_type == 'product'
             if 'static' == 'static'
-              if '11434433249548' == 'latest'
+              if '7031057088671' == 'latest'
                 paginate collections.all.products by 100000
                   assign product = collections.all.products | sort: 'created_at' | reverse | first
                 endpaginate
               else
-                assign product = all_products['dentalspray-4']
-                assign productId = '11434433249548' | times: 1
+                assign product = all_products['z-snack']
+                assign productId = '7031057088671' | times: 1
                 if product == empty or product == null
                   paginate collections.all.products by 100000
                     for item in collections.all.products
@@ -921,13 +921,13 @@
               endif
             endif
           else
-            if '11434433249548' == 'latest'
+            if '7031057088671' == 'latest'
               paginate collections.all.products by 100000
                 assign product = collections.all.products | sort: 'created_at'| reverse | first
               endpaginate
             else
-              assign product = all_products['dentalspray-4']
-              assign productId = '11434433249548' | times: 1
+              assign product = all_products['z-snack']
+              assign productId = '7031057088671' | times: 1
               if product == empty or product == null
                 paginate collections.all.products by 100000
                   for item in collections.all.products
@@ -943,17 +943,17 @@
       
 
     {%-if product != empty and product != null -%}
-      {%- assign initVariantId = 53649074946316 -%}
+      {%- assign initVariantId =  -%}
       {%- assign product_form_id = 'product-form-' | append: "geLOEq0u2D" -%}
-      {%- assign variant = product.variants | where: 'id', initVariantId | first -%}
-      {%- assign productSelectedVariant = product.variants | where: 'id', initVariantId | first -%}
+      {%- assign variant = product.selected_or_first_available_variant -%}
+      {%- assign productSelectedVariant = product.selected_or_first_available_variant -%}
       {%-if productSelectedVariant == empty or productSelectedVariant == null -%}
         {%- assign productSelectedVariant = product.selected_or_first_available_variant -%}
       {%- endif -%}
       {%-if variant == empty or variant == null -%}
         {%- assign variant = product.selected_or_first_available_variant -%}
       {%- endif -%}
-      <gp-product data-uid="geLOEq0u2D" data-id="geLOEq0u2D"   gp-context='{"productId": {{ product.id }}, "preSelectedOptionIds": [8649119006988], "isSyncProduct": "true", "variantSelected": {{ variant | json | escape }}, "inventoryQuantity": {{ variant.inventory_quantity }}, "quantity": 1, "formId": "{{ product_form_id }}" }'
+      <gp-product data-uid="geLOEq0u2D" data-id="geLOEq0u2D"   gp-context='{"productId": {{ product.id }}, "preSelectedOptionIds": [], "isSyncProduct": "true", "variantSelected": {{ variant | json | escape }}, "inventoryQuantity": {{ variant.inventory_quantity }}, "quantity": 1, "formId": "{{ product_form_id }}" }'
         gp-data='{"variantSelected": {{ variant | json | escape }}, "quantity": 1, "productUrl":{{ product.url | json | escape }}, "productHandle":{{ product.handle | json | escape }}, "collectionUrl": {{ collection.url | json | escape }}, "collectionHandle": {{ collection.handle | json | escape }}}'>
         <product-form class="product-form">
           {%- form 'product', product, id: product_form_id, class: 'form contents', data-type: 'add-to-cart-form', autocomplete: 'off'  -%}
@@ -1518,7 +1518,7 @@
       gp-data-wrapper="true"
       gp-label-out-of-stock="{{section.settings.gg2pTuR_dE8_outOfStockLabel}}"
       gp-label-unavailable="{{section.settings.gg2pTuR_dE8_unavailableLabel}}"
-      gp-data='{"setting":{"actionEffect":"go-to-url","errorMessage":"Cannot add product to cart","successMessage":"Add product to cart successfully","enableSuccessMessage":true,"enableErrorMessage":true,"label":"JETZT BESTELLEN","outOfStockLabel":"Out of stock","errorType":"built-in","customURL":{"link":"https://tierliebhaber-animagus.myshopify.com/cart/54132721615116:1,45707655577868:1?channel=buy_button","target":"_self"}},"styles":{"errorTypo":{"type":"paragraph-2","attrs":{"color":"error"}},"successTypo":{"type":"paragraph-2","attrs":{"color":"success"}}},"disabled":"{{variant.available}}","variantID":"{{variant.id}}","totalVariant":"{{product.variants.size}}"}' 
+      gp-data='{"setting":{"actionEffect":"buy-now","errorMessage":"Cannot add product to cart","successMessage":"Add product to cart successfully","enableSuccessMessage":true,"enableErrorMessage":true,"label":"JETZT BESTELLEN","outOfStockLabel":"Out of stock","errorType":"built-in","customURL":{"link":"https://tierliebhaber-animagus.myshopify.com/cart/54132721615116:1,45707655577868:1?channel=buy_button","target":"_self"}},"styles":{"errorTypo":{"type":"paragraph-2","attrs":{"color":"error"}},"successTypo":{"type":"paragraph-2","attrs":{"color":"success"}}},"disabled":"{{variant.available}}","variantID":"{{variant.id}}","totalVariant":"{{product.variants.size}}"}' 
        gp-href="https://tierliebhaber-animagus.myshopify.com/cart/54132721615116:1,45707655577868:1?channel=buy_button"
        data-variant-selection-required-message="{{section.settings.gg2pTuR_dE8_variantSelectionRequiredMessage}}"
     >
@@ -1744,13 +1744,13 @@
         {%- liquid
           if request.page_type == 'product'
             if 'static' == 'static'
-              if '11434433249548' == 'latest'
+              if '7031057088671' == 'latest'
                 paginate collections.all.products by 100000
                   assign product = collections.all.products | sort: 'created_at' | reverse | first
                 endpaginate
               else
-                assign product = all_products['dentalspray-4']
-                assign productId = '11434433249548' | times: 1
+                assign product = all_products['z-snack']
+                assign productId = '7031057088671' | times: 1
                 if product == empty or product == null
                   paginate collections.all.products by 100000
                     for item in collections.all.products
@@ -1763,13 +1763,13 @@
               endif
             endif
           else
-            if '11434433249548' == 'latest'
+            if '7031057088671' == 'latest'
               paginate collections.all.products by 100000
                 assign product = collections.all.products | sort: 'created_at'| reverse | first
               endpaginate
             else
-              assign product = all_products['dentalspray-4']
-              assign productId = '11434433249548' | times: 1
+              assign product = all_products['z-snack']
+              assign productId = '7031057088671' | times: 1
               if product == empty or product == null
                 paginate collections.all.products by 100000
                   for item in collections.all.products
@@ -1785,17 +1785,17 @@
       
 
     {%-if product != empty and product != null -%}
-      {%- assign initVariantId = 53649074946316 -%}
+      {%- assign initVariantId =  -%}
       {%- assign product_form_id = 'product-form-' | append: "gvcBr5IQzd" -%}
-      {%- assign variant = product.variants | where: 'id', initVariantId | first -%}
-      {%- assign productSelectedVariant = product.variants | where: 'id', initVariantId | first -%}
+      {%- assign variant = product.selected_or_first_available_variant -%}
+      {%- assign productSelectedVariant = product.selected_or_first_available_variant -%}
       {%-if productSelectedVariant == empty or productSelectedVariant == null -%}
         {%- assign productSelectedVariant = product.selected_or_first_available_variant -%}
       {%- endif -%}
       {%-if variant == empty or variant == null -%}
         {%- assign variant = product.selected_or_first_available_variant -%}
       {%- endif -%}
-      <gp-product data-uid="gvcBr5IQzd" data-id="gvcBr5IQzd"   gp-context='{"productId": {{ product.id }}, "preSelectedOptionIds": [8649119006988], "isSyncProduct": "true", "variantSelected": {{ variant | json | escape }}, "inventoryQuantity": {{ variant.inventory_quantity }}, "quantity": 1, "formId": "{{ product_form_id }}" }'
+      <gp-product data-uid="gvcBr5IQzd" data-id="gvcBr5IQzd"   gp-context='{"productId": {{ product.id }}, "preSelectedOptionIds": [], "isSyncProduct": "true", "variantSelected": {{ variant | json | escape }}, "inventoryQuantity": {{ variant.inventory_quantity }}, "quantity": 1, "formId": "{{ product_form_id }}" }'
         gp-data='{"variantSelected": {{ variant | json | escape }}, "quantity": 1, "productUrl":{{ product.url | json | escape }}, "productHandle":{{ product.handle | json | escape }}, "collectionUrl": {{ collection.url | json | escape }}, "collectionHandle": {{ collection.handle | json | escape }}}'>
         <product-form class="product-form">
           {%- form 'product', product, id: product_form_id, class: 'form contents', data-type: 'add-to-cart-form', autocomplete: 'off'  -%}
@@ -2360,7 +2360,7 @@
       gp-data-wrapper="true"
       gp-label-out-of-stock="{{section.settings.ggewW5ujGqT_outOfStockLabel}}"
       gp-label-unavailable="{{section.settings.ggewW5ujGqT_unavailableLabel}}"
-      gp-data='{"setting":{"actionEffect":"go-to-url","errorMessage":"Cannot add product to cart","successMessage":"Add product to cart successfully","enableSuccessMessage":true,"enableErrorMessage":true,"label":"JETZT BESTELLEN","outOfStockLabel":"Out of stock","errorType":"built-in","customURL":{"link":"https://tierliebhaber-animagus.myshopify.com/cart/53649054957836:1?channel=buy_button","target":"_self"}},"styles":{"errorTypo":{"type":"paragraph-2","attrs":{"color":"error"}},"successTypo":{"type":"paragraph-2","attrs":{"color":"success"}}},"disabled":"{{variant.available}}","variantID":"{{variant.id}}","totalVariant":"{{product.variants.size}}"}' 
+      gp-data='{"setting":{"actionEffect":"buy-now","errorMessage":"Cannot add product to cart","successMessage":"Add product to cart successfully","enableSuccessMessage":true,"enableErrorMessage":true,"label":"JETZT BESTELLEN","outOfStockLabel":"Out of stock","errorType":"built-in","customURL":{"link":"https://tierliebhaber-animagus.myshopify.com/cart/53649054957836:1?channel=buy_button","target":"_self"}},"styles":{"errorTypo":{"type":"paragraph-2","attrs":{"color":"error"}},"successTypo":{"type":"paragraph-2","attrs":{"color":"success"}}},"disabled":"{{variant.available}}","variantID":"{{variant.id}}","totalVariant":"{{product.variants.size}}"}' 
        gp-href="https://tierliebhaber-animagus.myshopify.com/cart/53649054957836:1?channel=buy_button"
        data-variant-selection-required-message="{{section.settings.ggewW5ujGqT_variantSelectionRequiredMessage}}"
     >
