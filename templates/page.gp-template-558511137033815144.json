@@ -10,17 +10,11 @@
 {
   "layout": "theme.gempages.blank",
   "sections": {
-    "gp_section_558511137151255656": {
-      "type": "gp-section-558511137151255656",
-      "settings": {
-        "section_preload": "true",
-        "checksum": "3ade857234fe5998b1c6e620168cd142982646c30899777ea21dd1009fb989e2_0_1"
-      }
-    },
     "gp_section_558511137152500840": {
       "type": "gp-section-558511137152500840",
       "settings": {
-        "checksum": "e6dbde39014c607389d447a0f599dafd40c11ed98fb53b457afb67fd38dd4596_0_1"
+        "section_preload": "true",
+        "checksum": "0a06dda8f6c929c208a2a9f610ac25dbafdbcfbdaddb4aeeb4f8d91427775da5_0_1"
       }
     },
     "gp_section_558511137152435304": {
@@ -157,7 +151,6 @@
     }
   },
   "order": [
-    "gp_section_558511137151255656",
     "gp_section_558511137152500840",
     "gp_section_558511137152435304",
     "gp_section_558511137152042088",
