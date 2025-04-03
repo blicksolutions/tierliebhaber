@@ -889,7 +889,7 @@
           );
 
           subTotalPriceEl.textContent = subtotalPriceFormatted;
-          if (deliveryCostEl && subtotalPriceWithoutNoShippingItems >= parseFloat(minSubtotalPriceValue)) {
+          if (deliveryCostEl ) {
             deliveryCostEl.textContent = deliveryCostEl.getAttribute(
               "data-freeshipping-text"
             );
