@@ -268,6 +268,7 @@
 
     if (hasItemWithDeliveryRequired) {
       switch (currentCountry) {
+        case "EG":
         case "DE":
         case "AT":
           handleCheeringBar(subtotalPrice, noDeliveryItemsTotalPrice);
