@@ -26,10 +26,14 @@
       style="--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--ta:left"
       data-keep-class="true"
       class="gVmpT8zhAx "
-    ><div><!-- Wrapper begrenzt die Breite auf Desktop -->
+    ><div><!-- Wrapper für das Video -->
 <div id="video-wrapper" style="max-width: 400px; margin: 0 auto;">
-  <!-- Embed-Container mit 125% Padding für das Seitenverhältnis -->
   <div id="vidalytics_embed_qn6kl5RleLq_MKdZ" style="width: 100%; position: relative; padding-top: 125%;"></div>
+</div>
+
+<!-- CTA Button, der anfangs verborgen ist (mit CSS-Klasse statt ID) -->
+<div class="cta-button" style="display: none;">
+  <button>Jetzt Handeln!</button>
 </div>
 
 <!-- Vidalytics Script -->
@@ -43,6 +47,30 @@
     };}
     vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
 })(window, document, 'Vidalytics', 'vidalytics_embed_qn6kl5RleLq_MKdZ', 'https://fast.vidalytics.com/embeds/tS6pVegV/qn6kl5RleLq_MKdZ/');
+</script>
+
+<!-- JavaScript für das Überwachen der Videozeit und CTA-Anzeige (mit CSS-Klasse) -->
+<script type="text/javascript">
+  // Warte bis das Video geladen und bereit ist
+  window.addEventListener('load', function() {
+    var video = document.getElementById('vidalytics_embed_qn6kl5RleLq_MKdZ');
+    var ctaButton = document.querySelector('.cta-button'); // Verwendung von CSS-Klasse statt ID
+    
+    // Überprüfe die Zeit im Video alle 0.5 Sekunden
+    var videoTimeInterval = setInterval(function() {
+      var currentTime = video.currentTime || 0; // Holt sich die aktuelle Zeit des Videos
+      
+      // Wenn der Timer die 1:10-Marke überschreitet, wird der CTA eingeblendet
+      if (currentTime >= 70) {
+        ctaButton.style.display = 'block';
+      }
+      
+      // Optional: Wenn das Video zu Ende ist, stoppen wir die Intervall-Überprüfung
+      if (currentTime >= video.duration) {
+        clearInterval(videoTimeInterval);
+      }
+    }, 500);  // Überprüfung alle 500ms (0.5 Sek.)
+  });
 </script></div></div>
   
     </div>
