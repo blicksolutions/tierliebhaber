@@ -97,7 +97,7 @@
           currentCountry !== "AT" &&
           currentCountry !== "CH"
         ) {
-          //handleOtherLocations();
+          handleOtherLocations();
         }
 
         observer.disconnect();
