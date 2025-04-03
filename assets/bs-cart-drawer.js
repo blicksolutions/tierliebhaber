@@ -95,7 +95,8 @@
         if (
           currentCountry !== "DE" &&
           currentCountry !== "AT" &&
-          currentCountry !== "CH"
+          currentCountry !== "CH" &&
+          currentCountry !== "EG"
         ) {
           handleOtherLocations();
         }
@@ -175,6 +176,11 @@
         currentCountry = json.detected_values.country.handle;
 
         switch (currentCountry) {
+          case "EG" : 
+             minSubtotalPriceValue =
+              window.shippingrates.de.minSubtotalPriceValue;
+            shippingPrice = window.shippingrates.de.priceValue;
+            break;
           case "DE":
             minSubtotalPriceValue =
               window.shippingrates.de.minSubtotalPriceValue;
