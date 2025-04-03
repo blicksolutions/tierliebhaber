@@ -889,6 +889,7 @@
             deliveryCostEl.classList.add("highlight-free-shipping");
             }else{
             deliveryCostEl.textContent = shippingPriceFormatted;
+              deliveryCostEl.classList.remove("highlight-free-shipping");
             }
         
           }
