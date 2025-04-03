@@ -1,22 +1,22 @@
 {%- comment -%}
-Those are the option names for which we automatically detect swatch. For the color, we use them to display a swatch, while
-for size, we use it to display a size chart (if applicable)
+  Those are the option names for which we automatically detect swatch. For the color, we use them to display a swatch, while
+  for size, we use it to display a size chart (if applicable)
 {%- endcomment -%}
 <script src="{{ 'bs-recharge-variant-selector.js' | asset_url }}"></script>
 
 <script>
-$(document).ready(function(){
-    var currentUrl = window.location.href.toLowerCase(); // Convert URL to lowercase
-    if(currentUrl.indexOf('dental') !== -1 || currentUrl.indexOf('zahn') !== -1) {
-        $('.acc_tl_upsell_24').hide();
-        $('#sidebar-cart').hide();
-        $('.ProductForm__AddToCart').on('click', function(){
-            setTimeout(function(){
-                $('#sidebar-cart').show();
-            }, 500);
-        });
-    }
-});
+  $(document).ready(function(){
+      var currentUrl = window.location.href.toLowerCase(); // Convert URL to lowercase
+      if(currentUrl.indexOf('dental') !== -1 || currentUrl.indexOf('zahn') !== -1) {
+          $('.acc_tl_upsell_24').hide();
+          $('#sidebar-cart').hide();
+          $('.ProductForm__AddToCart').on('click', function(){
+              setTimeout(function(){
+                  $('#sidebar-cart').show();
+              }, 500);
+          });
+      }
+  });
 </script>
 
 {%- assign color_label = 'color,colour,couleur,colore,farbe,색,色,färg,farve' | split: ',' -%}
@@ -28,46 +28,46 @@ $(document).ready(function(){
 
 {%- if atc -%}
   {%- if template.suffix == 'donation-en' -%}
-    {%- assign atc_text = "Donate now" -%}  
+    {%- assign atc_text = 'Donate now' -%}
   {% else %}
     {%- assign atc_text = atc -%}
   {%- endif -%}
 {%- else -%}
-{%- assign atc_text = 'product.form.add_to_cart' | t -%}
+  {%- assign atc_text = 'product.form.add_to_cart' | t -%}
 {%- endif -%}
 
-{%- if show_shipping == nil -%}
+{%- if show_shipping == null -%}
   {%- assign show_shipping = true -%}
 {%- endif -%}
 
-{%- if show_benefits == nil -%}
+{%- if show_benefits == null -%}
   {%- assign show_benefits = true -%}
 {%- endif -%}
 
 {%- assign selected_variant = product.selected_or_first_available_variant -%}
 
 {%- form 'product', product, data-productid: product.id, class: 'ProductForm' -%}
-
-  {%- if template.suffix == "standardprodukt-mit-abo" -%}
-    <!-- Begin ReCharge code --> 
-		<div class="rc-widget-injection-parent"></div>
+  {%- if template.suffix == 'standardprodukt-mit-abo' -%}
+    <!-- Begin ReCharge code -->
+    <div class="rc-widget-injection-parent"></div>
     <!-- End ReCharge code -->
   {%- else -%}
-  <style>
-    .rc-container-wrapper{
-      display: none;
-    }
-  </style>
+    <style>
+      .rc-container-wrapper{
+        display: none;
+      }
+    </style>
   {%- endif -%}
-
-
 
   <div class="ProductForm__Variants">
     {%- unless product.has_only_default_variant -%}
       {%- for option in product.options_with_values -%}
         {%- assign downcase_option = option.name | downcase -%}
 
-        {%- if section.settings.selector_mode == 'block' or color_label contains downcase_option and section.settings.show_color_swatch -%}
+        {%- if section.settings.selector_mode == 'block'
+          or color_label contains downcase_option
+          and section.settings.show_color_swatch
+        -%}
           {%- assign show_option_label = true -%}
         {%- endif -%}
       {%- endfor -%}
@@ -88,9 +88,14 @@ $(document).ready(function(){
               {% endif %}
 
               {%- if size_label contains downcase_option and size_chart_page != empty -%}
-                <button type="button" class="ProductForm__LabelLink Link Text--subdued" data-action="open-modal" aria-controls="modal-{{ size_chart_page.handle }}">
-                {{- 'product.form.size_chart' | t -}}
-              </button>
+                <button
+                  type="button"
+                  class="ProductForm__LabelLink Link Text--subdued"
+                  data-action="open-modal"
+                  aria-controls="modal-{{ size_chart_page.handle }}"
+                >
+                  {{- 'product.form.size_chart' | t -}}
+                </button>
               {%- endif -%}
             </span>
           {%- endif -%}
@@ -104,8 +109,23 @@ $(document).ready(function(){
                   {%- assign color_swatch_name = value | handle | append: '.png' -%}
                   {%- assign color_swatch_image = images[color_swatch_name] -%}
 
-                  <input id="option-{{ section.id }}-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}" class="ColorSwatch__Radio" type="radio" name="option-{{ forloop.parentloop.index0 }}" value="{{ value | escape }}" {% if value == option.selected_value %}checked="checked"{% endif %} data-option-position="{{ option.position }}">
-                  <label for="option-{{ section.id }}-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}" class="ColorSwatch ColorSwatch--large {% if downcase_value == 'white' %}ColorSwatch--white{% endif %}" data-tooltip="{{ value | escape }}" style="background-color: {{ value | replace: ' ', '' | downcase }}; {% if color_swatch_image != blank %}background-image: url({{ color_swatch_image | img_url: '64x64' }}){% endif %}">
+                  <input
+                    id="option-{{ section.id }}-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}"
+                    class="ColorSwatch__Radio"
+                    type="radio"
+                    name="option-{{ forloop.parentloop.index0 }}"
+                    value="{{ value | escape }}"
+                    {% if value == option.selected_value %}
+                      checked="checked"
+                    {% endif %}
+                    data-option-position="{{ option.position }}"
+                  >
+                  <label
+                    for="option-{{ section.id }}-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}"
+                    class="ColorSwatch ColorSwatch--large {% if downcase_value == 'white' %}ColorSwatch--white{% endif %}"
+                    data-tooltip="{{ value | escape }}"
+                    style="background-color: {{ value | replace: ' ', '' | downcase }}; {% if color_swatch_image != blank %}background-image: url({{ color_swatch_image | img_url: '64x64' }}){% endif %}"
+                  >
                     <span class="u-visually-hidden">{{ value }}</span>
                   </label>
                 </li>
@@ -115,14 +135,32 @@ $(document).ready(function(){
             <ul class="SizeSwatchList HorizontalList HorizontalList--spacingTight">
               {%- for value in option.values -%}
                 <li class="HorizontalList__Item">
-                  <input id="option-{{ section.id }}-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}" class="SizeSwatch__Radio" type="radio" name="option-{{ forloop.parentloop.index0 }}" value="{{ value | escape }}" {% if value == option.selected_value %}checked="checked"{% endif %} data-option-position="{{ option.position }}">
-                  <label for="option-{{ section.id }}-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}" class="SizeSwatch">{{ value }}</label>
+                  <input
+                    id="option-{{ section.id }}-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}"
+                    class="SizeSwatch__Radio"
+                    type="radio"
+                    name="option-{{ forloop.parentloop.index0 }}"
+                    value="{{ value | escape }}"
+                    {% if value == option.selected_value %}
+                      checked="checked"
+                    {% endif %}
+                    data-option-position="{{ option.position }}"
+                  >
+                  <label
+                    for="option-{{ section.id }}-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}"
+                    class="SizeSwatch"
+                  >
+                    {{- value -}}
+                  </label>
                 </li>
               {%- endfor -%}
             </ul>
           {%- else -%}
             <button type="button" class="ProductForm__Item" aria-expanded="false" aria-controls="{{ popover_id }}">
-              <span class="ProductForm__OptionName">{% unless show_option_label %}{{ option.name }}: {% endunless %}<span class="ProductForm__SelectedValue">{{ option.selected_value }}</span></span>
+              <span class="ProductForm__OptionName">
+                {%- unless show_option_label %}{{ option.name }}: {% endunless -%}
+                <span class="ProductForm__SelectedValue">{{ option.selected_value }}</span></span
+              >
               {%- render 'icon' with 'select-arrow' -%}
             </button>
 
@@ -273,13 +311,30 @@ $(document).ready(function(){
 
           <select id="product-select-{{ product.id }}" name="id" data-productid="{{ product.id }}" title="Variant">
             {%- for variant in product.variants -%}
-              <option {% if variant == selected_variant %}selected="selected"{% endif %} {% unless variant.available %}disabled="disabled"{% endunless %} value="{{ variant.id }}" data-sku="{{ variant.sku }}">{{ variant.title }} - {{ variant.price | money }}</option>
+              <option
+                {% if variant == selected_variant %}
+                  selected="selected"
+                {% endif %}
+                {% unless variant.available %}
+                  disabled="disabled"
+                {% endunless %}
+                value="{{ variant.id }}"
+                data-sku="{{ variant.sku }}"
+              >
+                {{ variant.title }} - {{ variant.price | money }}
+              </option>
             {%- endfor -%}
           </select>
         </div>
       </div>
     {%- else -%}
-      <input type="hidden" name="id" data-productid="{{ product.id }}" data-sku="{{ selected_variant.sku }}" value="{{ selected_variant.id }}">
+      <input
+        type="hidden"
+        name="id"
+        data-productid="{{ product.id }}"
+        data-sku="{{ selected_variant.sku }}"
+        value="{{ selected_variant.id }}"
+      >
     {%- endunless -%}
 
     {%- if section.settings.show_quantity_selector -%}
@@ -291,9 +346,20 @@ $(document).ready(function(){
         <div class="QuantitySelector QuantitySelector--large">
           {%- assign quantity_minus_one = line_item.quantity | minus: 1 -%}
 
-          <button type="button" class="QuantitySelector__Button Link Link--secondary" data-action="decrease-quantity">{% render 'icon' with 'minus' %}</button>
-          <input type="text" class="QuantitySelector__CurrentQuantity" pattern="[0-9]*" name="quantity" value="1" aria-label="{{ 'product.form.quantity' | t }}">
-          <button type="button" class="QuantitySelector__Button Link Link--secondary" data-action="increase-quantity">{% render 'icon' with 'plus' %}</button>
+          <button type="button" class="QuantitySelector__Button Link Link--secondary" data-action="decrease-quantity">
+            {% render 'icon' with 'minus' %}
+          </button>
+          <input
+            type="text"
+            class="QuantitySelector__CurrentQuantity"
+            pattern="[0-9]*"
+            name="quantity"
+            value="1"
+            aria-label="{{ 'product.form.quantity' | t }}"
+          >
+          <button type="button" class="QuantitySelector__Button Link Link--secondary" data-action="increase-quantity">
+            {% render 'icon' with 'plus' %}
+          </button>
         </div>
       </div>
     {%- else -%}
@@ -305,21 +371,28 @@ $(document).ready(function(){
         name="properties[_maxQuantity]"
         value="{{ selected_variant.metafields.limit.quantity }}"
         type="hidden"
-      />
+      >
     {%- endif -%}
 
     {%- if section.settings.show_inventory_quantity -%}
       {%- assign hide_inventory_quantity_by_default = false -%}
-      
+
       {%- if selected_variant.inventory_management == blank or selected_variant.inventory_quantity <= 0 -%}
         {%- assign hide_inventory_quantity_by_default = true -%}
       {%- endif -%}
 
-      {%- if section.settings.inventory_quantity_threshold != 0 and selected_variant.inventory_quantity > section.settings.inventory_quantity_threshold -%}
+      {%- if section.settings.inventory_quantity_threshold != 0
+        and selected_variant.inventory_quantity > section.settings.inventory_quantity_threshold
+      -%}
         {%- assign hide_inventory_quantity_by_default = true -%}
       {%- endif -%}
 
-      <p class="ProductForm__Inventory Text--subdued" {% if hide_inventory_quantity_by_default %}style="display: none"{% endif %}>
+      <p
+        class="ProductForm__Inventory Text--subdued"
+        {% if hide_inventory_quantity_by_default %}
+          style="display: none"
+        {% endif %}
+      >
         {%- if section.settings.inventory_quantity_threshold == 0 -%}
           {{- 'product.form.inventory_quantity_count' | t: count: selected_variant.inventory_quantity -}}
         {%- else -%}
@@ -329,38 +402,43 @@ $(document).ready(function(){
     {%- endif -%}
   </div>
   {%- if show_shipping -%}
-      {%- liquid
-          assign shipping_eta_class = 'ProductForm__ShippingEta'
+    {%- liquid
+      assign shipping_eta_class = 'ProductForm__ShippingEta'
 
-          if product.metafields.custom.lieferzeit != blank
-              assign shipping_eta_translation_key = product.metafields.custom.lieferzeit
+      if product.metafields.custom.lieferzeit != blank
+        assign shipping_eta_translation_key = product.metafields.custom.lieferzeit
+      else
+        if selected_variant.available
+          if selected_variant.requires_shipping
+            assign shipping_eta_translation_key = 'product.form.shipping_eta.available'
           else
-              if selected_variant.available
-                  if selected_variant.requires_shipping
-                      assign shipping_eta_translation_key = 'product.form.shipping_eta.available'
-                  else
-                      assign shipping_eta_translation_key = 'product.form.shipping_eta.instantly_available'
-                  endif
-              else
-                  assign shipping_eta_translation_key = 'product.form.shipping_eta.sold_out'
-                  assign shipping_eta_class = shipping_eta_class | append: ' -Unavailable'
-              endif
+            assign shipping_eta_translation_key = 'product.form.shipping_eta.instantly_available'
           endif
-      -%}
+        else
+          assign shipping_eta_translation_key = 'product.form.shipping_eta.sold_out'
+          assign shipping_eta_class = shipping_eta_class | append: ' -Unavailable'
+        endif
+      endif
+    -%}
 
-      {% comment %} bs custom shipping eta calculator {% endcomment %}
+    {% comment %}
+      bs custom shipping eta calculator
       {% render 'bs-shipping-eta' %}
-
-      {% if product.metafields.custom.lieferzeit != blank %}
-          <p class="{{ shipping_eta_class }}" data-translation-key="{{ shipping_eta_translation_key }}">{{ shipping_eta_translation_key }}</p>
-      {% else %}
-          <p class="{{ shipping_eta_class }}" data-translation-key="{{ shipping_eta_translation_key | t }}">{{ shipping_eta_translation_key | t }}</p>
-      {% endif %}
+    {% endcomment %}
+    {% if product.metafields.custom.lieferzeit != blank %}
+      <p class="{{ shipping_eta_class }}" data-translation-key="{{ shipping_eta_translation_key }}">
+        {{ shipping_eta_translation_key }}
+      </p>
+    {% else %}
+      <p class="{{ shipping_eta_class }}" data-translation-key="{{ shipping_eta_translation_key | t }}">
+        {{ shipping_eta_translation_key | t }}
+      </p>
+    {% endif %}
   {%- endif -%}
   {%- comment -%}
-  --------------------------------------------------------------------------------------------------------------------
-  ADD TO CART BUTTON
-  --------------------------------------------------------------------------------------------------------------------
+    --------------------------------------------------------------------------------------------------------------------
+    ADD TO CART BUTTON
+    --------------------------------------------------------------------------------------------------------------------
   {%- endcomment -%}
 
   {%- if section.settings.show_payment_button == false or product.selling_plan_groups.size > 0 -%}
@@ -369,10 +447,52 @@ $(document).ready(function(){
     {%- assign use_primary_button = false -%}
   {%- endif -%}
 
-    {% unless product.tags  contains 'free-gift' %}
-      <button type="submit" data-use-primary-button="{% if use_primary_button %}true{% else %}false{% endif %}" class="ProductForm__AddToCart Button {% if selected_variant.available and use_primary_button %}Button--primary{% else %}Button--secondary{% endif %} Button--full" {% if selected_variant.available %}data-action="add-to-cart"{% else %}disabled="disabled"{% endif %} data-js-atc-button>
+  {% unless product.tags contains 'free-gift' %}
+    <button
+      type="submit"
+      data-use-primary-button="{% if use_primary_button %}true{% else %}false{% endif %}"
+      class="ProductForm__AddToCart Button {% if selected_variant.available and use_primary_button %}Button--primary{% else %}Button--secondary{% endif %} Button--full"
+      {% if selected_variant.available %}
+        data-action="add-to-cart"
+      {% else %}
+        disabled="disabled"
+      {% endif %}
+      data-js-atc-button
+    >
+      {%- if selected_variant.available -%}
+        <span>
+          {%- if product.template_suffix == 'pre-order' -%}
+            {{- 'product.form.pre_order' | t -}}
+          {%- else -%}
+            {{- atc_text -}}
+          {%- endif -%}
+        </span>
+
+        {%- if section.settings.show_price_in_button -%}
+          <span class="Button__SeparatorDot"></span>
+          <span>{{ selected_variant.price | money_without_trailing_zeros }}</span>
+        {%- endif -%}
+      {%- else -%}
+        {{- 'product.form.sold_out' | t -}}
+      {%- endif -%}
+    </button>
+  {% endunless %}
+
+  {% if sticky_atc == true %}
+    <div class="ProductMeta__StickyATC" data-js-sticky-atc-container>
+      <div class="ProductMeta__StickyATCOverlay" data-js-sticky-atc-overlay></div>
+      <div
+        class="StickyATC__ATC Button {% if selected_variant.available and use_primary_button %}Button--primary{% else %}Button--secondary{% endif %} Button--full"
+        data-js-sticky-atc-button
+      >
         {%- if selected_variant.available -%}
-          <span>{% if product.template_suffix == 'pre-order' %}{{ 'product.form.pre_order' | t }}{% else %}{{atc_text}}{% endif %}</span>
+          <span>
+            {%- if product.template_suffix == 'pre-order' -%}
+              {{- 'product.form.pre_order' | t -}}
+            {%- else -%}
+              {{- atc_text -}}
+            {%- endif -%}
+          </span>
 
           {%- if section.settings.show_price_in_button -%}
             <span class="Button__SeparatorDot"></span>
@@ -381,63 +501,43 @@ $(document).ready(function(){
         {%- else -%}
           {{- 'product.form.sold_out' | t -}}
         {%- endif -%}
-      </button>
-    {% endunless %}
-
-    {% if sticky_atc == true %}
-
-    <div class="ProductMeta__StickyATC" data-js-sticky-atc-container>
-        <div class="ProductMeta__StickyATCOverlay" data-js-sticky-atc-overlay></div>
-        <div class="StickyATC__ATC Button {% if selected_variant.available and use_primary_button %}Button--primary{% else %}Button--secondary{% endif %} Button--full" data-js-sticky-atc-button>
-            {%- if selected_variant.available -%}
-                <span>{% if product.template_suffix == 'pre-order' %}{{ 'product.form.pre_order' | t }}{% else %}{{atc_text}}{% endif %}</span>
-        
-                {%- if section.settings.show_price_in_button -%}
-                    <span class="Button__SeparatorDot"></span>
-                    <span>{{ selected_variant.price | money_without_trailing_zeros }}</span>
-                {%- endif -%}
-            {%- else -%}
-                {{- 'product.form.sold_out' | t -}}
-          {%- endif -%}
-        </div>
-        <div class="StickyATC__VariantSelector" data-js-sticky-atc-variant-selector>
-            <h3 class="VariantSelector__Heading">
-                Anzahl auswählen
-            </h3>
-            <ul class="VariantSelector__List" data-js-sticky-atc-variant-selector-list>
-                {%- for option in product.options_with_values -%}
-                    {%- for value in option.values -%}
-                        {% for variant in product.variants %}                            
-                            {% if variant.option1 == value %}
-                                {% assign variant_savings = '' %}
-                                
-                                {% if variant.compare_at_price > variant.price %}
-                                    {% assign variant_savings = variant.compare_at_price |  minus: variant.price %}
-                                {% endif %}
-                            {% endif %}
-                        {% endfor %}
-        
-                    <li 
-						class="VariantSelector__ListItem {% if value == option.selected_value %}VariantSelector__ListItem--selected{% endif %}" 
-						data-js-sticky-atc-variant-selector-item
-						data-js-option-value="{{ value | escape }}"
-						{% if forloop.first %} data-js-first-option {% endif %}
-						>
-                            <p class="VariantSelector__Option">
-                                {{ value }}
-                            </p>
-                            {% if variant_savings != blank %}
-                                <p class="VariantSelector__OptionSavings">
-                                 {{ variant_savings | money }} Rabatt
-                                </p>
-                            {% endif %}
-                        </li>
-                    {%- endfor -%}
-                {%- endfor -%}
-            </ul>
-        </div>
       </div>
-    {% endif %}
+      <div class="StickyATC__VariantSelector" data-js-sticky-atc-variant-selector>
+        <h3 class="VariantSelector__Heading">Anzahl auswählen</h3>
+        <ul class="VariantSelector__List" data-js-sticky-atc-variant-selector-list>
+          {%- for option in product.options_with_values -%}
+            {%- for value in option.values -%}
+              {% for variant in product.variants %}
+                {% if variant.option1 == value %}
+                  {% assign variant_savings = '' %}
+
+                  {% if variant.compare_at_price > variant.price %}
+                    {% assign variant_savings = variant.compare_at_price | minus: variant.price %}
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+
+              <li
+                class="VariantSelector__ListItem {% if value == option.selected_value %}VariantSelector__ListItem--selected{% endif %}"
+                data-js-sticky-atc-variant-selector-item
+                data-js-option-value="{{ value | escape }}"
+                {% if forloop.first %}
+                  data-js-first-option
+                {% endif %}
+              >
+                <p class="VariantSelector__Option">
+                  {{ value }}
+                </p>
+                {% if variant_savings != blank %}
+                  <p class="VariantSelector__OptionSavings">{{ variant_savings | money }} Rabatt</p>
+                {% endif %}
+              </li>
+            {%- endfor -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+    </div>
+  {% endif %}
 
   {%- comment -%} Anchor for Klaviyo Back in Stock Script {%- endcomment -%}
   <div id="BackInStockAnchor"></div>
@@ -461,19 +561,17 @@ $(document).ready(function(){
   {%- endif -%}
   {%- liquid
     assign selling_points_content = product.metafields.content.selling_points.value
-    assign selling_points = selling_points_content.items  
+    assign selling_points = selling_points_content.items
   -%}
 
   {%- if selling_points.size > 0 -%}
     <div class="ProductForm__SellingPoints" style="margin-top: 45px; margin-bottom: 45px;">
-		<h2 class="SellingPoints__Heading">
-			Vorteile
-		</h2>
+      <h2 class="SellingPoints__Heading">Vorteile</h2>
       {%- for selling_point in selling_points -%}
         <div class="SellingPointItem">
           <div class="SellingPointItem__Icon">{%- render 'icon', icon: selling_point.icon -%}</div>
           <p class="SellingPointItem__Text">{{ selling_point.text }}</p>
-        </div> 
+        </div>
       {%- endfor -%}
     </div>
   {%- endif -%}
@@ -513,87 +611,89 @@ $(document).ready(function(){
 {%- endif -%}
 
 {%- comment -%}
-    esthetic-ignore
-    recharge variant selector code
+  esthetic-ignore
+  recharge variant selector code
 {%- endcomment -%}
 {% if product.has_only_default_variant != true %}
-    {% assign variant_on_sale_counter = 0 %}
-    {% for variant in product.variants %}
-        {% if variant.compare_at_price > variant.price %}
-            {% assign variant_on_sale_counter = variant_on_sale_counter |  plus: 1 %}
-        {% endif %}
-    {% endfor %}
-    <ul class="VariantSelector__List" data-js-variant-selector-list>
-        {%- for option in product.options_with_values -%}
-            {% assign options_amount = option.values | size %}
+  {% assign variant_on_sale_counter = 0 %}
+  {% for variant in product.variants %}
+    {% if variant.compare_at_price > variant.price %}
+      {% assign variant_on_sale_counter = variant_on_sale_counter | plus: 1 %}
+    {% endif %}
+  {% endfor %}
+  <ul class="VariantSelector__List" data-js-variant-selector-list>
+    {%- for option in product.options_with_values -%}
+      {% assign options_amount = option.values | size %}
 
-            {% if options_amount > 2 %}
-                {% assign full_width_options = true %}
-            {% else %}
-                {% assign full_width_options = false %}
+      {% if options_amount > 2 %}
+        {% assign full_width_options = true %}
+      {% else %}
+        {% assign full_width_options = false %}
+      {% endif %}
+
+      {%- for value in option.values -%}
+        {% for variant in product.variants %}
+          {% if variant.option1 == value %}
+            {% assign variant_savings = '' %}
+            {% if variant.compare_at_price > variant.price %}
+              {% assign variant_savings = variant.compare_at_price | minus: variant.price %}
             {% endif %}
 
-            {%- for value in option.values -%}
-                {% for variant in product.variants %}
-                    {% if variant.option1 == value %}
-                        {% assign variant_savings = '' %}
-                        {% if variant.compare_at_price > variant.price %}
-                            {% assign variant_savings = variant.compare_at_price |  minus: variant.price %}
-                        {% endif %}
+            {% case request.locale.iso_code %}
+              {% when 'de' %}
+                {% if variant.price > 4900 %}
+                  {% assign free_shipping = true %}
+                {% endif %}
 
-                        {% case request.locale.iso_code %}
-                            {% when 'de' %}                                                            
-                                {% if variant.price > 4900 %}
-                                    {% assign free_shipping = true %}
-                                {% endif %}
+              {% when 'at' %}
+                {% if variant.price > 6900 %}
+                  {% assign free_shipping = true %}
+                {% endif %}
 
-                            {% when 'at' %}                                                            
-                                {% if variant.price > 6900 %}
-                                    {% assign free_shipping = true %}
-                                {% endif %}
+              {% when 'ch' %}
+                {% if variant.price > 12900 %}
+                  {% assign free_shipping = true %}
+                {% endif %}
+            {% endcase %}
+          {% endif %}
+        {% endfor %}
 
-                            {% when 'ch' %}                                                            
-                                {% if variant.price > 12900 %}
-                                    {% assign free_shipping = true %}
-                                {% endif %}
-                        {% endcase %}
-                    {% endif %}
-                {% endfor %}
-                
-                <li 
-                    class="VariantSelector__ListItem {% if value == option.selected_value %}VariantSelector__ListItem--selected{% endif %} {% if full_width_options == true or variant_on_sale_counter > 1 %}VariantSelector__ListItem--full-width{% endif %}" 
-                    data-js-variant-selector-item data-js-option-value="{{ value | escape }}" 
-                    {% if variant_savings != blank %} data-js-savings="{{ variant_savings |  money_with_currency }}" {% endif %}
-                    {% if free_shipping != blank %} data-js-free-shipping="{{ free_shipping }}" {% endif %}
-                    >
-                    <p class="VariantSelector__Option">
-                        {{ value }}
-                    </p>
-                    {% if variant_savings != blank %}
-                        <p class="VariantSelector__OptionSavings">
-                        -{{ variant_savings | money }}
-                        </p>
-                    {% endif %}
-                </li>
-            {%- endfor -%}
-        {%- endfor -%}
-    </ul>
-
+        <li
+          class="VariantSelector__ListItem {% if value == option.selected_value %}VariantSelector__ListItem--selected{% endif %} {% if full_width_options == true or variant_on_sale_counter > 1 %}VariantSelector__ListItem--full-width{% endif %}"
+          data-js-variant-selector-item
+          data-js-option-value="{{ value | escape }}"
+          {% if variant_savings != blank %}
+            data-js-savings="{{ variant_savings |  money_with_currency }}"
+          {% endif %}
+          {% if free_shipping != blank %}
+            data-js-free-shipping="{{ free_shipping }}"
+          {% endif %}
+        >
+          <p class="VariantSelector__Option">
+            {{ value }}
+          </p>
+          {% if variant_savings != blank %}
+            <p class="VariantSelector__OptionSavings">-{{ variant_savings | money }}</p>
+          {% endif %}
+        </li>
+      {%- endfor -%}
+    {%- endfor -%}
+  </ul>
 {% endif %}
 {%- comment -%}
-    esthetic-ignore
-    recharge variant selector code
+  esthetic-ignore
+  recharge variant selector code
 {%- endcomment -%}
 
 {%- comment -%}
---------------------------------------------------------------------------------------------------------------------
-OFF SCREEN ELEMENTS
+  --------------------------------------------------------------------------------------------------------------------
+  OFF SCREEN ELEMENTS
 
-Implementation note: in the past (with "include") we could accumulate the data and output it outside the snippet
-itself. However with the new "render" tag, everything that is captured inside cannot be used outside the snippet
-itself. As a consequence we are moving them in JavaScript. This allows to make sure that those elements are upper
-in the DOM tree, and do not show below the content
---------------------------------------------------------------------------------------------------------------------
+  Implementation note: in the past (with "include") we could accumulate the data and output it outside the snippet
+  itself. However with the new "render" tag, everything that is captured inside cannot be used outside the snippet
+  itself. As a consequence we are moving them in JavaScript. This allows to make sure that those elements are upper
+  in the DOM tree, and do not show below the content
+  --------------------------------------------------------------------------------------------------------------------
 {%- endcomment -%}
 
 <div class="Product__OffScreen">
@@ -602,12 +702,12 @@ in the DOM tree, and do not show below the content
 </div>
 
 {% comment %}
-------------------------------------------------------------------------------
-Product Data. This must be outputted for all products (including home page).
+  ------------------------------------------------------------------------------
+  Product Data. This must be outputted for all products (including home page).
 
-IMPORTANT: THIS CODE IS VITAL. DO NOT EDIT IT NOT REMOVE IT. MAKE SURE TO KEEP
-THE EXACT SAME ATTRIBUTES.
-------------------------------------------------------------------------------
+  IMPORTANT: THIS CODE IS VITAL. DO NOT EDIT IT NOT REMOVE IT. MAKE SURE TO KEEP
+  THE EXACT SAME ATTRIBUTES.
+  ------------------------------------------------------------------------------
 {% endcomment %}
 
 <script type="application/json" data-product-json>
