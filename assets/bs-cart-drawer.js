@@ -928,7 +928,8 @@
       if (
         currentCountry !== "DE" &&
         currentCountry !== "AT" &&
-        currentCountry !== "CH"
+        currentCountry !== "CH" &&
+        currentCountry !== "EG"
       ) {
         cartDrawer.classList.toggle("Drawer__Footer__CouponActive--other-location");
       }
