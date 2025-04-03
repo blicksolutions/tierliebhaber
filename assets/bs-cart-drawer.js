@@ -77,7 +77,7 @@
         cheeringBar();
         showHideCheeringBar();
         toggleDCart();
-
+        console.log("currentCountry",currentCountry);
         // handle free gift, if enabled. Else unlock checkout button
         if (
           window.cartDrawerEnableGift &&
