@@ -846,6 +846,7 @@
 
       let subtotalPriceFormatted = Shopify.scFormatMoney(subTotalPrice * 100);
       console.log("subtotalPriceWithoutNoShippingItems", subtotalPriceWithoutNoShippingItems);
+      console.log("minSubtotalPriceValue", parseFloat(minSubtotalPriceValue));
       if (
         subtotalPriceWithoutNoShippingItems >= parseFloat(minSubtotalPriceValue)
       ) {
