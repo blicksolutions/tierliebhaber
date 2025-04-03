@@ -845,7 +845,7 @@
       }
 
       let subtotalPriceFormatted = Shopify.scFormatMoney(subTotalPrice * 100);
-
+      console.log("subtotalPriceWithoutNoShippingItems", subtotalPriceWithoutNoShippingItems);
       if (
         subtotalPriceWithoutNoShippingItems >= parseFloat(minSubtotalPriceValue)
       ) {
@@ -869,8 +869,10 @@
       } else {
         if (!hasItemWithDeliveryRequired) {
           if (deliveryCostEl) {
-              deliveryCostEl.textContent = ''; // or set to appropriate "no shipping needed" message
-          deliveryCostEl.classList.remove("highlight-free-shipping");
+            deliveryCostEl.textContent = deliveryCostEl.getAttribute(
+              "data-freeshipping-text"
+            );
+            deliveryCostEl.classList.add("highlight-free-shipping");
           }
 
           subTotalPriceEl.textContent = subtotalPriceFormatted;
