@@ -896,8 +896,9 @@
             );
             deliveryCostEl.classList.add("highlight-free-shipping");
             }else{
-               deliveryCostEl.textContent = ''; // or set to appropriate "no shipping needed" message
-          deliveryCostEl.classList.remove("highlight-free-shipping");
+document.querySelector(
+      ".Drawer__Footer__Delivery"
+    ).style.display = "none";
             }
         
           }
