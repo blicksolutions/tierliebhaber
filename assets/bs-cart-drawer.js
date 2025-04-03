@@ -896,7 +896,7 @@
             );
             deliveryCostEl.classList.add("highlight-free-shipping");
             }else{
-               deliveryCostEl.textContent = parseFloat(minSubtotalPriceValue); // or set to appropriate "no shipping needed" message
+               deliveryCostEl.textContent = ''; // or set to appropriate "no shipping needed" message
           deliveryCostEl.classList.remove("highlight-free-shipping");
             }
         
