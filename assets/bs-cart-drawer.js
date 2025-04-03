@@ -888,9 +888,7 @@
             );
             deliveryCostEl.classList.add("highlight-free-shipping");
             }else{
-document.querySelector(
-      ".Drawer__Footer__Delivery"
-    ).style.display = "none";
+            deliveryCostEl.textContent = shippingPriceFormatted;
             }
         
           }
