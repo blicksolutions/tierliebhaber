@@ -878,7 +878,25 @@
 
           subTotalPriceEl.textContent = subtotalPriceFormatted;
           totalPriceEl.textContent = subtotalPriceFormatted;
-        } 
+        } else {
+          shippingRate = shippingPrice;
+          let shippingPriceFormatted = Shopify.scFormatMoney(
+            shippingRate * 100
+          );
+          let totalPrice = parseFloat(subTotalPrice) + parseFloat(shippingRate);
+          let totalPriceFormatted = Shopify.scFormatMoney(
+            totalPrice.toFixed(2) * 100
+          );
+
+          subTotalPriceEl.textContent = subtotalPriceFormatted;
+          if (deliveryCostEl) {
+            deliveryCostEl.textContent = deliveryCostEl.getAttribute(
+              "data-freeshipping-text"
+            );
+            deliveryCostEl.classList.add("highlight-free-shipping");
+          }
+          totalPriceEl.textContent = totalPriceFormatted;
+        }
       }
 
       // Compare at price
