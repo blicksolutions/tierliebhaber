@@ -82,8 +82,7 @@
           window.cartDrawerEnableGift &&
           (currentCountry === "DE" ||
             currentCountry === "AT" ||
-            currentCountry === "CH" ||
-          currentCountry === "EG" )
+            currentCountry === "CH" )
         ) {
           handleFreeGift();
         } else {
@@ -95,8 +94,7 @@
         if (
           currentCountry !== "DE" &&
           currentCountry !== "AT" &&
-          currentCountry !== "CH" &&
-          currentCountry !== "EG"
+          currentCountry !== "CH"
         ) {
           handleOtherLocations();
         }
@@ -176,11 +174,6 @@
         currentCountry = json.detected_values.country.handle;
 
         switch (currentCountry) {
-          case "EG" : 
-             minSubtotalPriceValue =
-              window.shippingrates.de.minSubtotalPriceValue;
-            shippingPrice = window.shippingrates.de.priceValue;
-            break;
           case "DE":
             minSubtotalPriceValue =
               window.shippingrates.de.minSubtotalPriceValue;
@@ -268,7 +261,6 @@
 
     if (hasItemWithDeliveryRequired) {
       switch (currentCountry) {
-        case "EG":
         case "DE":
         case "AT":
           handleCheeringBar(subtotalPrice, noDeliveryItemsTotalPrice);
@@ -936,8 +928,7 @@ document.querySelector(
       if (
         currentCountry !== "DE" &&
         currentCountry !== "AT" &&
-        currentCountry !== "CH" &&
-        currentCountry !== "EG"
+        currentCountry !== "CH"
       ) {
         cartDrawer.classList.toggle("Drawer__Footer__CouponActive--other-location");
       }
