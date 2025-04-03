@@ -869,10 +869,8 @@
       } else {
         if (!hasItemWithDeliveryRequired) {
           if (deliveryCostEl) {
-            deliveryCostEl.textContent = deliveryCostEl.getAttribute(
-              "data-freeshipping-text"
-            );
-            deliveryCostEl.classList.add("highlight-free-shipping");
+              deliveryCostEl.textContent = ''; // or set to appropriate "no shipping needed" message
+          deliveryCostEl.classList.remove("highlight-free-shipping");
           }
 
           subTotalPriceEl.textContent = subtotalPriceFormatted;
