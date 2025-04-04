@@ -49,29 +49,27 @@
 })(window, document, 'Vidalytics', 'vidalytics_embed_qn6kl5RleLq_MKdZ', 'https://fast.vidalytics.com/embeds/tS6pVegV/qn6kl5RleLq_MKdZ/');
 </script>
 
-<!-- JavaScript für das Überwachen der Videozeit und CTA-Anzeige (mit CSS-Klasse) -->
+<!-- JavaScript für das Überwachen der Videozeit und CTA-Anzeige -->
 <script type="text/javascript">
   // Warte bis das Video geladen und bereit ist
   window.addEventListener('load', function() {
     var video = document.getElementById('vidalytics_embed_qn6kl5RleLq_MKdZ');
     var ctaButton = document.querySelector('.cta-button'); // Verwendung von CSS-Klasse statt ID
     
+    // Stelle sicher, dass der CTA-Button zu Beginn verborgen bleibt
+    ctaButton.style.display = 'none';
+
     // Überprüfe die Zeit im Video alle 0.5 Sekunden
     var videoTimeInterval = setInterval(function() {
       var currentTime = video.currentTime || 0; // Holt sich die aktuelle Zeit des Videos
       
       // Wenn der Timer die 1:10-Marke überschreitet, wird der CTA eingeblendet
       if (currentTime >= 70) {
-        ctaButton.style.display = 'block';
+        ctaButton.style.display = 'block';  // CTA sichtbar machen
       }
       
       // Optional: Wenn das Video zu Ende ist, stoppen wir die Intervall-Überprüfung
-      if (currentTime >= video.duration) {
-        clearInterval(videoTimeInterval);
-      }
-    }, 500);  // Überprüfung alle 500ms (0.5 Sek.)
-  });
-</script></div></div>
+      if (currentTime >= video.duration) {</div></div>
   
     </div>
     </div>
