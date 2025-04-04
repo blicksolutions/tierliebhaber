@@ -10,10 +10,16 @@
 {
   "layout": "theme.gempages.blank",
   "sections": {
+    "gp_section_560710496840320090": {
+      "type": "gp-section-560710496840320090",
+      "settings": {
+        "section_preload": "true",
+        "checksum": "b89e7c9e07a8d87152e8cb329e600a66af6280db6b4e10956979041942711220_0_1"
+      }
+    },
     "gp_section_560567859869123440": {
       "type": "gp-section-560567859869123440",
       "settings": {
-        "section_preload": "true",
         "checksum": "8afac5ea0d906e6f667010833afdd9d1d00482a02628ebb81890f4b4a3ca6c25_0_1"
       }
     },
@@ -25,6 +31,7 @@
     }
   },
   "order": [
+    "gp_section_560710496840320090",
     "gp_section_560567859869123440",
     "gp_section_560710271086101589"
   ]
