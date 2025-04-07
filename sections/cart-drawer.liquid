@@ -76,7 +76,7 @@
 			</span>
 
 			<span class="CartMessage__StepsLines__Gift" style="right: 0px;">
-				<span>Gratis Geschenk (13.90€)</span>
+				<span>Gratis Geschenk ({{ section.settings.free_gift_price }})</span>
 			</span>
 		</div>
 	</div>
@@ -417,6 +417,12 @@
 			"id": "message_delivery_text-first",
 			"label": "Message before value",
 			"default": "Noch"
+		},
+		{
+			"type": "text",
+			"id": "free_gift_price",
+			"label": "Free Gift Price",
+			"default": "34,90€"
 		},
 		{
 			"type": "text",
