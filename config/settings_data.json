@@ -9,10 +9,10 @@
  */
 {
   "current": {
-    "donations_amount": 108964,
+    "donations_amount": 113780,
     "donation_goal": 200000,
     "total_text": "",
-    "total_number": "Bisher gespendet seit 2022: €108.964",
+    "total_number": "Bisher gespendet seit 2022: €113.780",
     "heading_color": "#1c1b1b",
     "text_color": "#1c1b1b",
     "text_light_color": "#6a6a6a",
@@ -1326,6 +1326,7 @@
           "gift_product": "laufigkeitssaft-freegift",
           "message_delivery_icon": "shopify://shop_images/image_8.png",
           "message_delivery_text-first": "Noch",
+          "free_gift_price": "34,90€",
           "message_delivery_text-last": "bis zum kostenlosen Versand",
           "message_final_text": "Glückwunsch: der Versand ist kostenlos!",
           "upsell_title": "Probier´s doch mal:",
