@@ -68,10 +68,13 @@
     },
     "custom_liquid_RCt6P9": {
       "type": "custom-liquid",
+      "custom_css": [
+        "p{font-weight:bold;}"
+      ],
       "settings": {
         "subheading": "",
         "title": "",
-        "liquid": "{% if product.metafields.custom.biozid_hinweis_z_produkte != blank %}\n{{product.metafields.custom.biozid_hinweis_z_produkte}}\n{% endif %}"
+        "liquid": "{% if product.metafields.custom.biozid_hinweis_z_produkte != blank %}\n<p>{{product.metafields.custom.biozid_hinweis_z_produkte}}</p>\n{% endif %}"
       }
     },
     "16288047979ee0ca29": {
