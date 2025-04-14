@@ -1,4 +1,4 @@
-<section class="Section Section--spacingNormal" id="section-{{ section.id }}">
+<section class="Section {% if section.settings.liquid != blank %} Section--spacingNormal {% endif %}" id="section-{{ section.id }}">
   <div class="Container">
     {%- if section.settings.subheading != blank or section.settings.title != blank -%}
       <header class="SectionHeader SectionHeader--center">
