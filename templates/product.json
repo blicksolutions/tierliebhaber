@@ -68,6 +68,9 @@
     },
     "custom_liquid_QbYRQa": {
       "type": "custom-liquid",
+      "custom_css": [
+        "p {font-weight: bold;}"
+      ],
       "settings": {
         "subheading": "",
         "title": "",
