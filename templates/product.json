@@ -66,6 +66,14 @@
         "title": "Vorteile"
       }
     },
+    "custom_liquid_QbYRQa": {
+      "type": "custom-liquid",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "liquid": "{% if product.metafields.custom.biozid_hinweis_z_produkte != blank %}\n{{product.metafields.custom.biozid_hinweis_z_produkte}}\n{% endif %}"
+      }
+    },
     "16288047979ee0ca29": {
       "type": "content-accordion",
       "settings": {}
@@ -508,6 +516,7 @@
     "main",
     "bundles",
     "1628804794af0431f7",
+    "custom_liquid_QbYRQa",
     "16288047979ee0ca29",
     "16288473445aa6c049",
     "1652874593f2ea11e0",
