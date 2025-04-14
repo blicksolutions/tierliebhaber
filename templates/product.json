@@ -66,17 +66,6 @@
         "title": "Vorteile"
       }
     },
-    "text_with_image_N7XPUy": {
-      "type": "text-with-image",
-      "settings": {
-        "subheading": "",
-        "title": "",
-        "image_position": "right",
-        "content": "<p>{{ product.metafields.custom.biozid_hinweis_z_produkte | metafield_tag }}</p>",
-        "link_text": "",
-        "link_url": ""
-      }
-    },
     "16288047979ee0ca29": {
       "type": "content-accordion",
       "settings": {}
@@ -519,7 +508,6 @@
     "main",
     "bundles",
     "1628804794af0431f7",
-    "text_with_image_N7XPUy",
     "16288047979ee0ca29",
     "16288473445aa6c049",
     "1652874593f2ea11e0",
