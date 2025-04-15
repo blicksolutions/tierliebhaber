@@ -39,7 +39,7 @@
         "reviews_enabled": false,
         "featured_image_size": "large",
         "benefit_item_1_image": "shopify:\/\/shop_images\/icons8-benutzergruppe-mann-frau-80.png",
-        "benefit_item_1_title": "Über 310.000 glückliche Kunden",
+        "benefit_item_1_title": "Über 510.000 glückliche Kunden",
         "benefit_item_2_image": "shopify:\/\/shop_images\/image_8.png",
         "benefit_item_2_title": "Versandkostenfrei ab 49€ in DE"
       }
@@ -64,6 +64,17 @@
       "type": "benefits",
       "settings": {
         "title": "Vorteile"
+      }
+    },
+    "custom_liquid_QbYRQa": {
+      "type": "custom-liquid",
+      "custom_css": [
+        "p {font-weight: bold;}"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "liquid": "{% if product.metafields.custom.biozid_hinweis_z_produkte != blank %}\n{{product.metafields.custom.biozid_hinweis_z_produkte}}\n{% endif %}"
       }
     },
     "16288047979ee0ca29": {
@@ -508,6 +519,7 @@
     "main",
     "bundles",
     "1628804794af0431f7",
+    "custom_liquid_QbYRQa",
     "16288047979ee0ca29",
     "16288473445aa6c049",
     "1652874593f2ea11e0",
