@@ -690,23 +690,22 @@
       });
     </script>
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
-  const observer = new MutationObserver((mutations) => {
-    mutations.forEach(() => {
-      const iframe = document.querySelector('#superchat-widget iframe');
-      if (iframe) {
-        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-        const firstLi = iframeDoc.querySelector('#superchat-widget ul li:first-child');
-        if (firstLi) {
-          firstLi.style.display = 'none';
-          observer.disconnect(); // Stop observing once the style is applied
-        }
+     document.addEventListener('DOMContentLoaded', () => {
+  const checkIframe = setInterval(() => {
+    const iframe = document.querySelector('iframe');
+    if (iframe) {
+      console.log('Iframe found:', iframe);
+      const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+      console.log('Iframe document:', iframeDoc);
+      const firstLi = iframeDoc.querySelector('#superchat-widget ul li:first-child');
+      console.log('First LI:', firstLi);
+      if (firstLi) {
+        firstLi.style.display = 'none';
+        clearInterval(checkIframe);
       }
-    });
-  });
-      // Observe changes to the body or a specific container
-      observer.observe(document.body, { childList: true, subtree: true });
-    });
+    }
+  }, 3000);
+});
     </script>
   </body>
 </html>
