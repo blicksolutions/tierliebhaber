@@ -447,6 +447,7 @@
       "blocks": {
         "6019ae12-5366-4bb0-b0fb-d5360dbf448b": {
           "type": "button",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/whatsapp.png",
             "image_alt": "",
@@ -494,7 +495,7 @@
       ],
       "settings": {
         "title": "Fragen? Wir sind für dich da...",
-        "subtitle": "<p>Bei Fragen zu einer bestehenden Bestellung, schreib uns einfach eine Nachricht per<br/>WhatsApp oder per E-Mail.</p><p><strong>Hast du Fragen zu unseren Produkten, möchtest du lieber persönlich bestellen oder kommst bei einer Bestellung nicht weiter?</strong><br/><br/>Wir sind jederzeit für dich telefonisch (werktags), per E-Mail oder auf WhatsApp erreichbar.</p><p><strong>Du wünschst dir eine Produktberatung oder einen individuellen Rückruf?</strong></p><p>Dann buch dir gerne deine persönliche Produktberatung oder schreib uns einfach eine Nachricht per WhatsApp oder per E-Mail mit deiner Telefonnummer und wann es für dich zeitlich passt, dann melden wir uns sehr gerne bei dir!</p>",
+        "subtitle": "<p><strong>Hast du Fragen zu unseren Produkten, möchtest du lieber persönlich bestellen oder kommst bei einer Bestellung nicht weiter?</strong><br/><br/>Wir sind jederzeit für dich telefonisch (werktags) oder per E-Mail erreichbar.</p><p>Aufgrund einer Systemumstellung sind wir die kommenden Tage leider nicht via WhatsApp erreichbar. Bitte schreibe uns daher gern eine E-Mail mit deinem Anliegen oder ruf uns während der aktuellen Telefonzeiten an (Mo-Fr, 10-16 Uhr). </p><p>Vielen Dank für dein Verständnis!</p><p><strong>Du wünschst dir eine Produktberatung oder einen individuellen Rückruf?</strong></p><p>Dann buch dir gerne deine persönliche Produktberatung oder schreib uns einfach eine Nachricht per E-Mail mit deiner Telefonnummer und wann es für dich zeitlich passt, dann melden wir uns sehr gerne bei dir!</p>",
         "image": "shopify://shop_images/CS.png",
         "image_alt": "",
         "image_min_width": 340,
