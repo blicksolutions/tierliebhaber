@@ -692,7 +692,7 @@
     <script>
      document.addEventListener('DOMContentLoaded', () => {
   const checkIframe = setInterval(() => {
-    const iframe = document.querySelector('iframe');
+    const iframe = document.querySelector('#superchat-widget iframe');
     if (iframe) {
       console.log('Iframe found:', iframe);
       const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
