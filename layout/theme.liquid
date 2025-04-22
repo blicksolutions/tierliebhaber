@@ -691,20 +691,35 @@
     </script>
     <script>
      document.addEventListener('DOMContentLoaded', () => {
-  const checkIframe = setInterval(() => {
-    const iframe = document.querySelector('#superchat-widget iframe');
+  const observer = new MutationObserver(() => {
+    const iframe = document.querySelector('iframe');
     if (iframe) {
-      console.log('Iframe found:', iframe);
-      const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-      console.log('Iframe document:', iframeDoc);
-      const firstLi = iframeDoc.querySelector('#superchat-widget ul li:first-child');
-      console.log('First LI:', firstLi);
-      if (firstLi) {
-        firstLi.style.display = 'none';
-        clearInterval(checkIframe);
+      try {
+        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+        const firstLi = iframeDoc.querySelector('#superchat-widget ul li:first-child');
+        if (firstLi) {
+          firstLi.style.display = 'none';
+          observer.disconnect(); // Stop observing
+        } else {
+          // Monitor iframe's DOM for changes
+          const contentObserver = new MutationObserver(() => {
+            const firstLi = iframeDoc.querySelector('#superchat-widget ul li:first-child');
+            if (firstLi) {
+              firstLi.style.display = 'none';
+              contentObserver.disconnect();
+              observer.disconnect();
+            }
+          });
+          contentObserver.observe(iframeDoc.body || iframeDoc, { childList: true, subtree: true });
+        }
+      } catch (e) {
+        console.error('Error accessing iframe:', e);
+        observer.disconnect(); // Stop if access fails
       }
     }
-  }, 3000);
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
 });
     </script>
   </body>
