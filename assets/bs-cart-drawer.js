@@ -912,7 +912,7 @@
   /******************************************************************/
   /* DCART
     /******************************************************************/
-
+  /*
   const toggleDCart = () => {
   const cartDrawer = document.querySelector("#sidebar-cart");
   if (!cartDrawer) return;
@@ -933,7 +933,30 @@
     }
   });
 };
+  */
+   const toggleDCart = () => {
+  const cartDrawer = document.querySelector("#sidebar-cart");
+  if (!cartDrawer) return;
 
+  // Remove existing listener to prevent duplicates
+  cartDrawer.removeEventListener("click", handleCouponClick);
+  cartDrawer.addEventListener("click", handleCouponClick);
+};
+
+function handleCouponClick(event) {
+  const couponTitle = event.target.closest(".Drawer__Footer__Coupon-title");
+  if (couponTitle) {
+    const cartDrawer = document.querySelector("#sidebar-cart");
+    cartDrawer.classList.toggle("Drawer__Footer__CouponActive");
+    if (
+      currentCountry !== "DE" &&
+      currentCountry !== "AT" &&
+      currentCountry !== "CH"
+    ) {
+      cartDrawer.classList.toggle("Drawer__Footer__CouponActive--other-location");
+    }
+  }
+}
   const dCartCalculation = () => {
     const cartDrawerElement = document.querySelector("#sidebar-cart");
 
