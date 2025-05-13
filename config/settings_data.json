@@ -1786,18 +1786,21 @@
         "disabled": false,
         "settings": {}
       },
-      "10830403595879607806": {
-        "type": "shopify://apps/reviews-io/blocks/reviewsio-core/92a082e5-b297-4e88-b428-ac96cbc505f9",
-        "disabled": false,
+      "16274361319697914395": {
+        "type": "shopify://apps/reviews-io/blocks/reviewsio-floating/92a082e5-b297-4e88-b428-ac96cbc505f9",
+        "disabled": true,
         "settings": {
-          "url_key": "tierliebhaber.de",
-          "lang": "auto",
-          "enable_syndication": false
+          "widget_id": "",
+          "show_all": true,
+          "show_index": true,
+          "show_product": true,
+          "show_collection": true,
+          "show_cart": true
         }
       },
       "15316669992541710076": {
         "type": "shopify://apps/reviews-io/blocks/reviewsio-rating-snippet/92a082e5-b297-4e88-b428-ac96cbc505f9",
-        "disabled": false,
+        "disabled": true,
         "settings": {
           "star": "#000000",
           "text_color": "#333333",
@@ -1812,16 +1815,13 @@
           "show_empty_stars": false
         }
       },
-      "16274361319697914395": {
-        "type": "shopify://apps/reviews-io/blocks/reviewsio-floating/92a082e5-b297-4e88-b428-ac96cbc505f9",
-        "disabled": true,
+      "10830403595879607806": {
+        "type": "shopify://apps/reviews-io/blocks/reviewsio-core/92a082e5-b297-4e88-b428-ac96cbc505f9",
+        "disabled": false,
         "settings": {
-          "widget_id": "",
-          "show_all": true,
-          "show_index": true,
-          "show_product": true,
-          "show_collection": true,
-          "show_cart": true
+          "url_key": "tierliebhaber.de",
+          "lang": "auto",
+          "enable_syndication": false
         }
       }
     }
