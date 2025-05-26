@@ -15,49 +15,49 @@
         "1ee10129-1ca3-4b79-9135-63f22c191b4c": {
           "type": "usp_block",
           "settings": {
-            "usp_url": "shopify:\/\/collections\/zahnpflege",
+            "usp_url": "shopify://collections/zahnpflege",
             "usp_title": "ZAHNPFLEGE",
-            "usp_image": "shopify:\/\/shop_images\/shop_icons_Zahnpflege.png"
+            "usp_image": "shopify://shop_images/shop_icons_Zahnpflege.png"
           }
         },
         "22dd8802-a4c2-4765-9f88-62e9f9db73fc": {
           "type": "usp_block",
           "settings": {
-            "usp_url": "shopify:\/\/collections\/z-produkte",
+            "usp_url": "shopify://collections/z-produkte",
             "usp_title": "Z-Produkte",
-            "usp_image": "shopify:\/\/shop_images\/shop_icons_Z-Produkte.png"
+            "usp_image": "shopify://shop_images/shop_icons_Z-Produkte.png"
           }
         },
         "f0a03260-bba5-4fc9-b77e-c1c8a80825ba": {
           "type": "usp_block",
           "settings": {
-            "usp_url": "shopify:\/\/collections\/darmpflege",
+            "usp_url": "shopify://collections/darmpflege",
             "usp_title": "DARMPFLEGE",
-            "usp_image": "shopify:\/\/shop_images\/shop_icons_Darm.png"
+            "usp_image": "shopify://shop_images/shop_icons_Darm.png"
           }
         },
         "39a2132d-4551-46b4-bf64-c563a5d0c3c1": {
           "type": "usp_block",
           "settings": {
-            "usp_url": "shopify:\/\/collections\/gelenke",
+            "usp_url": "shopify://collections/gelenke",
             "usp_title": "GELENKE",
-            "usp_image": "shopify:\/\/shop_images\/shop_icons_Gelenke.png"
+            "usp_image": "shopify://shop_images/shop_icons_Gelenke.png"
           }
         },
         "b624e985-eac4-4705-9cab-016c84cbde42": {
           "type": "usp_block",
           "settings": {
-            "usp_url": "shopify:\/\/collections\/beruhigung",
+            "usp_url": "shopify://collections/beruhigung",
             "usp_title": "BERUHIGUNG",
-            "usp_image": "shopify:\/\/shop_images\/shop_icons_Beruhigung.png"
+            "usp_image": "shopify://shop_images/shop_icons_Beruhigung.png"
           }
         },
         "381adaa1-791a-4b86-bd77-e0a432f1ffa3": {
           "type": "usp_block",
           "settings": {
-            "usp_url": "shopify:\/\/collections\/kundenlieblinge",
+            "usp_url": "shopify://collections/kundenlieblinge",
             "usp_title": "KUNDENLIEBLINGE",
-            "usp_image": "shopify:\/\/shop_images\/shop_icons_Kundenlieblinge.png"
+            "usp_image": "shopify://shop_images/shop_icons_Kundenlieblinge.png"
           }
         }
       },
@@ -77,8 +77,8 @@
         "show_collection_info": false,
         "collection_title_color": "#ffffff",
         "show_collection_image": false,
-        "collection_image_desktop": "shopify:\/\/shop_images\/website_desktop_cb7232bf-debe-4cdf-bd58-afc42a8b2466.jpg",
-        "collection_image_mobile": "shopify:\/\/shop_images\/Test_Banner_2000_x_2000_px.png",
+        "collection_image_desktop": "shopify://shop_images/website_desktop_cb7232bf-debe-4cdf-bd58-afc42a8b2466.jpg",
+        "collection_image_mobile": "shopify://shop_images/Test_Banner_2000_x_2000_px.png",
         "apply_overlay": true,
         "show_black_week_banner": false,
         "show_color_swatch": false,
@@ -114,7 +114,7 @@
         "text_color": "#ffffff",
         "apply_overlay": true,
         "title": "Our story",
-        "content": "<p>Add your own custom content to explain your processes...<\/p>"
+        "content": "<p>Add your own custom content to explain your processes...</p>"
       }
     },
     "1629784067fb0cc2d7": {
