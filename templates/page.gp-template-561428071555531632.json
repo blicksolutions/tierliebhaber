@@ -8,32 +8,31 @@
  * ------------------------------------------------------------
  */
 {
-  "layout": "theme.gempages.blank",
   "sections": {
-    "gp_section_561428071605994352": {
-      "type": "gp-section-561428071605994352",
+    "gp_section_561428071605863280": {
       "settings": {
-        "section_preload": "true",
-        "checksum": "4a8314f0a2ff43dd9551f39c4a24b3f85f40880296ad3da98e8184a72b3a4a97_0_1"
-      }
+        "checksum": "39a0a5ac06c098df9196d58caf4b5961fbffdc9371a24f8d9cc687a3ea25e818_0_1_1_0_"
+      },
+      "type": "gp-section-561428071605863280"
     },
     "gp_section_561428071605928816": {
-      "type": "gp-section-561428071605928816",
       "settings": {
-        "checksum": "97465988aca993eda3125b2fd10420312cf626187dc3927c069829f0d71c6a7f_0_1"
-      }
+        "checksum": "7b5b8170e198e4179b21f30ff55ed586ffd11ca23ea6f2057427306bd1669828_0_1_1_0_"
+      },
+      "type": "gp-section-561428071605928816"
+    },
+    "gp_section_561428071605994352": {
+      "settings": {
+        "checksum": "fc7cee95631b0682ccfbb7b9b2c669c6b217f131009842f01acff55f9237eead_0_1_1_0_",
+        "section_preload": "true"
+      },
+      "type": "gp-section-561428071605994352"
     },
     "gp_section_561428071606059888": {
-      "type": "gp-section-561428071606059888",
       "settings": {
-        "checksum": "93e33da2a4b3442dc27e17397a723ce15403e9ed436e01cd7513a86eb510ce87_0_1"
-      }
-    },
-    "gp_section_561428071605863280": {
-      "type": "gp-section-561428071605863280",
-      "settings": {
-        "checksum": "a5e78d863717370da8474b3cf2f24d0ee336b52d4aafb942b4698b1a6babb324_0_1"
-      }
+        "checksum": "c701d8968cebbbf154be426af30ed409bec65b0e943232d8bd1fab3da9cde9aa_0_1_1_0_"
+      },
+      "type": "gp-section-561428071606059888"
     }
   },
   "order": [
@@ -41,5 +40,6 @@
     "gp_section_561428071605928816",
     "gp_section_561428071606059888",
     "gp_section_561428071605863280"
-  ]
+  ],
+  "layout": "theme.gempages.blank"
 }
