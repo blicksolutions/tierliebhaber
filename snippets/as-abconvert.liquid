@@ -130,7 +130,7 @@ document.addEventListener('abconvert:shipping:initialized', (event) => {
   /* Product page */
   if (window.location.pathname.includes('/products/')) {
     let badgeDone = false;
-    waitForElement(badgeDone, , () => {
+    waitForElement(badgeDone, () => {
       const badge = document.querySelector('.BenefitBadge + .BenefitBadge .BenefitBadge__Title');
 
       if(badge === null) {
@@ -146,7 +146,7 @@ document.addEventListener('abconvert:shipping:initialized', (event) => {
   /* Versand info page */
   if (window.location.pathname.includes('/policies/shipping-policy')) {
     let policyDone = false;
-    waitForElement(policyDone, , () => {
+    waitForElement(policyDone, () => {
       const elem = document.querySelector('.shopify-policy__body .text-container > p + p + h3 + p + p:has(~ h3)');
 
       if(elem === null) {
