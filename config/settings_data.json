@@ -1621,15 +1621,15 @@
           "image_WiPMGy": {
             "type": "image",
             "settings": {
-              "image": "shopify://shop_images/20250502_JL_Nassfutter-Shop-Banner_1.jpg",
-              "mobile_image": "shopify://shop_images/20250528_JL_Shop-Banner-Nassfutter-mobile_1.png",
+              "image": "shopify://shop_images/banner_general_desktop.jpg",
+              "mobile_image": "shopify://shop_images/banner_general_mobile.jpg",
               "apply_overlay": false,
               "content_offset_mobile_left": 50,
               "content_offset_mobile_top": 50,
               "content_offset_desktop_left": 50,
               "content_offset_desktop_top": 50,
               "content_position": "middleCenter",
-              "image_link": "shopify://collections/nassfutter",
+              "image_link": "shopify://collections/alle-produkte-1",
               "subheading": "",
               "title": "",
               "button_1_text": "",
