@@ -1829,14 +1829,14 @@
         "disabled": true,
         "settings": {}
       },
-      "8180082907217142696": {
-        "type": "shopify://apps/abconvert/blocks/app-embed-shipping/5c6be9a4-14ad-4ad6-a0b5-a41137ce4ddf",
-        "disabled": true,
-        "settings": {}
-      },
       "11597759809273779251": {
         "type": "shopify://apps/abconvert/blocks/app-embed-theme-test-clear-cache/5c6be9a4-14ad-4ad6-a0b5-a41137ce4ddf",
         "disabled": true,
+        "settings": {}
+      },
+      "8180082907217142696": {
+        "type": "shopify://apps/abconvert/blocks/app-embed-shipping/5c6be9a4-14ad-4ad6-a0b5-a41137ce4ddf",
+        "disabled": false,
         "settings": {}
       }
     }
