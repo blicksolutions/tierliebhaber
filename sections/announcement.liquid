@@ -6,6 +6,12 @@
 
 {%- if section.settings.enable_bar -%}
   {%- unless section.settings.home_page_only and template != 'index' -%}
+    {% if section.settings.enable_second_bar %}
+      <div class="second-announcement-bar" style="background:{{ section.settings.second-announcement-bg }}">
+        {% render 'gift-icon' %}
+        <span class="second-announcement-text">{{ section.settings.second-announcement-text }}</span>
+      </div>
+    {% endif %}
     <section id="section-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="announcement-bar">
       <div class="AnnouncementBar">
         <div class="{%- if section.settings.enable_three_col_content -%} remove-padding {% endif %} AnnouncementBar__Wrapper">
@@ -75,6 +81,30 @@
 {
   "name": "Announcement bar",
   "settings": [
+            {
+      "type": "header",
+      "content": "second announcement"
+    },
+        {
+      "type": "checkbox",
+      "id": "enable_second_bar",
+      "label": "Enable 2nd bar",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "second-announcement-text",
+      "label": "Text"
+    },
+    {
+      "type":"color",
+      "id":"second-announcement-bg",
+      "label":"background"
+    },
+                {
+      "type": "header",
+      "content": "main announcement"
+    },
     {
       "type": "checkbox",
       "id": "enable_bar",
