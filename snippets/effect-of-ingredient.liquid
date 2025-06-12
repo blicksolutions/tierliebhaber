@@ -698,7 +698,17 @@ Chillout Drops
 {% capture ingredients_summary %}
 {% case product.id %}
 {% when 8081976983820 %}
+  {% comment %}
+gelenk drops
+{% endcomment %}
+  Hirse (47%), Pflanzliches Glycerin (Extrakt aus Sonnenblumenkernen), Insektenproteine aus Hermetia- Larven (8%),
+  MSM (2%), Kollagen Hydrolysat, Hagebutte (2%), Teufelskralle (2%), Weidenrindenpulver (1,5%), Mädesüß (1,5%),
+ Grünlippmuschel, Löwenzahn, Hermetiafett, Kurkuma, Weihrauch, Chondroitinsulfat, Rosmarin.
 {% when 8020273070348 %}
+  {% comment %}
+Hustenkräutersaft Pferd
+{% endcomment %}
+  Brennnessel (gekocht und filtriert), Thymian (gekocht und filtriert), Fenchel (gekocht und filtriert), Fichte (gekocht und filtriert), Eibischwurzel (gekocht und filtriert), Süßholzwurzel (gekocht und filtriert), Spitzwegerich (gekocht und filtriert), Sonnenhutkraut (gekocht und filtriert), Anisfrüchte (gekocht und filtriert), Johannisbrotschrot (gekocht und filtriert), Isländisches Moos (gekocht und filtriert), Salbei (gekocht und filtriert), Kalmuswurzel (gekocht und filtriert), Lindenblüten (gekocht und filtriert)
 {% when 7031057940639 %}
 
 {% comment %}
@@ -747,26 +757,32 @@ Passionsblume, Hermetiafett, Rosmarin
 
 {% endcase %}
 {% endcapture %}
-<div class="ingredients__container open {% if ingredients == blank and ingredients_summary == blank %}ingredients__container--hidden{% endif %}"
-    data-effect-of-ingredient-container>
-    <div class="ingredients__heading-container">
-        <h2 class="ingredients__heading">
-            Highlight-Inhaltsstoffe
-        </h2>
-        <svg class="ingredients__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            data-effect-of-ingredient-button>
-            <path d="M5 15L12 8L19 15" stroke="#262626" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" />
-        </svg>
-    </div>
-    <ul class="ingredients__highlights">
-        {{ ingredients }}
-    </ul>
-              {% if ingredients_summary != blank  %}
+<div
+  class="ingredients__container open {% if ingredients == blank and ingredients_summary == blank %}ingredients__container--hidden{% endif %}"
+  data-effect-of-ingredient-container
+>
+  <div class="ingredients__heading-container">
+    <h2 class="ingredients__heading">Highlight-Inhaltsstoffe</h2>
+    <svg
+      class="ingredients__chevron"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      data-effect-of-ingredient-button
+    >
+      <path d="M5 15L12 8L19 15" stroke="#262626" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" />
+    </svg>
+  </div>
+  <ul class="ingredients__highlights">
+    {{ ingredients }}
+  </ul>
+  {% if ingredients_summary != blank %}
     <div class="ingredients__summary">
-        <s class="summary__heading">Zusammensetzung: </s>
-      
-        {{ ingredients_summary }}
+      <s class="summary__heading">Zusammensetzung: </s>
+
+      {{ ingredients_summary }}
     </div>
-              {% endif %}
+  {% endif %}
 </div>
