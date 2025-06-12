@@ -765,6 +765,7 @@ Passionsblume, Hermetiafett, Rosmarin
               {% if ingredients_summary != blank  %}
     <div class="ingredients__summary">
         <s class="summary__heading">Zusammensetzung: </s>
+      {{ product.id }}
         {{ ingredients_summary }}
     </div>
               {% endif %}
