@@ -746,7 +746,7 @@ Passionsblume, Hermetiafett, Rosmarin
 
 {% endcase %}
 {% endcapture %}
-
+{{ product.id }}
 <div class="ingredients__container open {% if ingredients == blank and ingredients_summary == blank %}ingredients__container--hidden{% endif %}"
     data-effect-of-ingredient-container>
     <div class="ingredients__heading-container">
@@ -765,7 +765,7 @@ Passionsblume, Hermetiafett, Rosmarin
               {% if ingredients_summary != blank  %}
     <div class="ingredients__summary">
         <s class="summary__heading">Zusammensetzung: </s>
-      {{ product.id }}
+      
         {{ ingredients_summary }}
     </div>
               {% endif %}
