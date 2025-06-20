@@ -352,7 +352,7 @@
     <link rel="stylesheet" href="{{ 'recommended-search-products.css' | asset_url }}">
 
     {%- render 'head-styles', layout: 'theme' -%}
-
+{% comment %}
     <script>
           {%- if request.page_type == 'policy' -%}
             document.addEventListener('DOMContentLoaded', function() {
@@ -433,7 +433,7 @@
             document.documentElement.className += (window.matchMedia('(-moz-touch-enabled: 1), (hover: none)')).matches ? ' no-supports-hover' : ' supports-hover';
           }());
     </script>
-
+{% endcomment %}
     <script src="{{ 'lazysizes.min.js' | asset_url }}" async></script>
 
     {%- if template == 'customers/addresses' -%}
