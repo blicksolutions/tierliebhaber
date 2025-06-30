@@ -221,3 +221,6 @@
         height: 120px;
     }
 }
+.CartItem__Image{
+  object-fit: contain;
+}
