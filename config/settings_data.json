@@ -1671,6 +1671,50 @@
           "link_text": "",
           "link_url": ""
         }
+      },
+      "slideshow_xFQ8td": {
+        "type": "slideshow",
+        "blocks": {
+          "image_kzXT3T": {
+            "type": "image",
+            "name": "Treueherzen Club",
+            "settings": {
+              "image": "shopify://shop_images/Treueherzen-Club-Desktop.jpg",
+              "mobile_image": "shopify://shop_images/Treueherzen-Club-Desktop.jpg",
+              "apply_overlay": true,
+              "content_offset_mobile_left": 50,
+              "content_offset_mobile_top": 50,
+              "content_offset_desktop_left": 50,
+              "content_offset_desktop_top": 50,
+              "content_position": "middleCenter",
+              "image_link": "https://tierliebhaber.de/pages/treueherzen-club",
+              "subheading": "",
+              "title": "",
+              "button_1_text": "",
+              "button_1_link": "",
+              "button_2_text": "",
+              "button_2_link": "",
+              "button_font": "Poppins",
+              "button_font_size": 35,
+              "button_font_weight": 400,
+              "button_text_color": "#000",
+              "button_background": "#fff"
+            }
+          }
+        },
+        "block_order": [
+          "image_kzXT3T"
+        ],
+        "name": "Slideshow",
+        "settings": {
+          "show_fullscreen": false,
+          "show_arrow": false,
+          "autoplay": true,
+          "cycle_speed": 5,
+          "text_color": "#ffffff",
+          "button_color": "#363636",
+          "button_background": "#ffffff"
+        }
       }
     },
     "content_for_index": [
@@ -1688,6 +1732,7 @@
       "text_with_image_DUmNND",
       "164847561630f9cc4a",
       "b94622a9-dfd5-4703-963d-0b90d3126168",
+      "slideshow_xFQ8td",
       "text_with_image_CLJqMt",
       "slideshow_dKUeWg",
       "1652440853255ce756",
