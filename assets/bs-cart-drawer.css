@@ -224,3 +224,6 @@
 .CartItem__Image{
   object-fit: contain;
 }
+.CartItem__ImageWrapper{
+  width:100px;
+}
