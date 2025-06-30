@@ -1681,7 +1681,7 @@
             "settings": {
               "image": "shopify://shop_images/Treueherzen-Club-Desktop.jpg",
               "mobile_image": "shopify://shop_images/Treueherzen-Club-mobile.jpg",
-              "apply_overlay": true,
+              "apply_overlay": false,
               "content_offset_mobile_left": 50,
               "content_offset_mobile_top": 50,
               "content_offset_desktop_left": 50,
