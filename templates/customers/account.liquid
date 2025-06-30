@@ -1,4 +1,14 @@
-
+<style>
+  .loyalty_program_container {
+    display: inline-block;
+    font-weight:bold;
+}
+  @media screen and (min-width:768px){
+    .loyalty_program_container {
+    margin-left: 40px;
+    }
+  }
+</style>
 <div class="Container Container--narrow">
   <header class="PageHeader">
     <a href="{{ routes.account_logout_url }}" class="PageHeader__Back Heading Text--subdued Link Link--primary u-h7">{{ 'customer.account.logout' | t }}</a>
