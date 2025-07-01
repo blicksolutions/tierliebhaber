@@ -1829,11 +1829,6 @@
           "useClassIsolator": false
         }
       },
-      "12509190167029697241": {
-        "type": "shopify://apps/blotout-edgetag/blocks/app-embed/ae22d985-ba57-41f5-94c5-18d3dd98ea3c",
-        "disabled": false,
-        "settings": {}
-      },
       "16274361319697914395": {
         "type": "shopify://apps/reviews-io/blocks/reviewsio-floating/92a082e5-b297-4e88-b428-ac96cbc505f9",
         "disabled": true,
@@ -1885,6 +1880,11 @@
       "8180082907217142696": {
         "type": "shopify://apps/abconvert/blocks/app-embed-shipping/5c6be9a4-14ad-4ad6-a0b5-a41137ce4ddf",
         "disabled": false,
+        "settings": {}
+      },
+      "12509190167029697241": {
+        "type": "shopify://apps/blotout-edgetag/blocks/app-embed/ae22d985-ba57-41f5-94c5-18d3dd98ea3c",
+        "disabled": true,
         "settings": {}
       }
     }
