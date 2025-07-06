@@ -1624,8 +1624,8 @@
           "image_WiPMGy": {
             "type": "image",
             "settings": {
-              "image": "shopify://shop_images/202050620_JL_Tierliebe-Wochen-Shop-Banner_1.png",
-              "mobile_image": "shopify://shop_images/202050620_JL_Tierliebe-Wochen-Shop-Banner-mobile.jpg",
+              "image": "shopify://shop_images/banner_general_desktop_8274280f-db2d-4363-8b6d-a044cdbf26fd.jpg",
+              "mobile_image": "shopify://shop_images/banner_general_mobile.jpg",
               "apply_overlay": false,
               "content_offset_mobile_left": 50,
               "content_offset_mobile_top": 50,
@@ -1880,11 +1880,6 @@
       "8180082907217142696": {
         "type": "shopify://apps/abconvert/blocks/app-embed-shipping/5c6be9a4-14ad-4ad6-a0b5-a41137ce4ddf",
         "disabled": false,
-        "settings": {}
-      },
-      "12509190167029697241": {
-        "type": "shopify://apps/blotout-edgetag/blocks/app-embed/ae22d985-ba57-41f5-94c5-18d3dd98ea3c",
-        "disabled": true,
         "settings": {}
       }
     }
