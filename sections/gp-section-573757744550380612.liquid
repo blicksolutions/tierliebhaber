@@ -58,6 +58,7 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
   z-index: 9999;
   display: flex;
   justify-content: center;
+  align-items: center;
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
@@ -71,31 +72,31 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
 }
 
 #sticky-cta-wrapper a {
-  background-color: #f7a600; /* Deine gewünschte Bernstein-Farbe */
-  color: black;
+  background-color: #f7961e; /* Dein Wunsch-Gelb-Orange */
+  color: #000000; /* Schwarzer Text */
   text-decoration: none;
   font-weight: bold;
   font-size: 18px;
-  padding: 16px 48px;
-  border-radius: 999px;
+  padding: 16px 40px;
+  border-radius: 12px;
   display: inline-block;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-  font-family: 'Arial', sans-serif;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  font-family: Arial, sans-serif;
   transition: background-color 0.3s ease;
 }
 
-/* Hover-Farbe etwas dunkler */
 #sticky-cta-wrapper a:hover {
-  background-color: #e39000;
+  background-color: #e88a00;
 }
 
-/* Mobile Anpassung */
+/* Mobile Version */
 @media screen and (max-width: 768px) {
   #sticky-cta-wrapper a {
     font-size: 16px;
-    padding: 14px 32px;
+    padding: 14px 28px;
   }
 }
+
 
       </style>
     
