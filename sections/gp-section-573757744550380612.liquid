@@ -26,7 +26,7 @@
       style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--ta:left"
       data-keep-class="true"
       class="gcLRATmg4I "
-    ><div><div id="floating-cta" style="
+    ><div><div id="sticky-cta-wrapper" style="
   position: fixed;
   bottom: 20px;
   left: 0;
@@ -39,17 +39,7 @@
   transform: translateY(30px);
   transition: opacity 0.4s ease, transform 0.4s ease;
 ">
-  <a href="#angebot" onclick="scrollToOffer()" style="
-    background-color: rgba(243, 68, 28, 0.66);
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 18px;
-    padding: 14px 28px;
-    border-radius: 9999px;
-    display: inline-block;
-    pointer-events: auto;
-  ">
+  <a href="javascript:void(0);" onclick="scrollToOfferSection()">
     JETZT SONDER-RABATT NUTZEN
   </a>
 </div></div></div>
@@ -72,6 +62,12 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
     width: 0 !important;
     position: absolute !important;
     left: -9999px !important;
+}
+
+#sticky-cta-wrapper.visible {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translateY(0);
 }
 
 #sticky-cta-wrapper a {
@@ -100,6 +96,8 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
 window.addEventListener('scroll', function () {
   const triggerHeight = window.innerHeight * 0.2;
   const wrapper = document.getElementById('sticky-cta-wrapper');
+  if (!wrapper) return;
+
   if (window.scrollY > triggerHeight) {
     wrapper.classList.add('visible');
   } else {
@@ -118,6 +116,7 @@ function scrollToOfferSection() {
     target.scrollIntoView({ behavior: 'smooth' });
   }
 }
+
         } catch(err){}
       </script>
     
