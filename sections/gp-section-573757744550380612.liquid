@@ -79,26 +79,30 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
     
       <script id="custom-js-gcLRATmg4I">
         try {
-          // Sticky-CTA erscheint ab 20% Scrolltiefe
-window.addEventListener('scroll', function () {
-  const triggerHeight = window.innerHeight * 0.2;
-  const wrapper = document.getElementById('sticky-cta-wrapper');
-  if (window.scrollY > triggerHeight) {
-    wrapper.classList.add('visible');
-  } else {
-    wrapper.classList.remove('visible');
+          document.addEventListener("DOMContentLoaded", function () {
+  const floatingCTA = document.getElementById("floating-cta");
+
+  function handleScroll() {
+    const scrollDepth = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+    if (scrollDepth > 0.2) {
+      floatingCTA.style.opacity = "1";
+      floatingCTA.style.pointerEvents = "auto";
+      floatingCTA.style.transform = "translateY(0)";
+    } else {
+      floatingCTA.style.opacity = "0";
+      floatingCTA.style.pointerEvents = "none";
+      floatingCTA.style.transform = "translateY(30px)";
+    }
   }
+
+  window.addEventListener("scroll", handleScroll);
 });
 
-// Scrollfunktion zur richtigen Section (je nach Gerät)
-function scrollToOfferSection() {
-  const isMobile = window.innerWidth <= 768;
-  const target = isMobile
-    ? document.querySelector('.offer-section2')
-    : document.querySelector('.offer-section1');
-
-  if (target) {
-    target.scrollIntoView({ behavior: 'smooth' });
+// Smooth scroll to offer section
+function scrollToOffer() {
+  const section = document.querySelector(".offer-section1");
+  if (section) {
+    section.scrollIntoView({ behavior: "smooth" });
   }
 }
 
