@@ -64,7 +64,6 @@ body .sticky-cta.fade-in {
       <script id="custom-js-gcLRATmg4I">
         try {
           document.addEventListener("DOMContentLoaded", function () {
-  console.log("✅ DOM geladen");
   const cta = document.querySelector(".sticky-cta");
 
   if (!cta) {
@@ -72,28 +71,31 @@ body .sticky-cta.fade-in {
     return;
   }
 
-  console.log("✅ CTA gefunden");
+  // Initial-Zustand setzen
+  cta.classList.remove("fade-in");
 
-  // Initialzustand setzen (ohne !important im CSS)
-  cta.style.opacity = "0";
-  cta.style.pointerEvents = "none";
-  cta.style.transition = "opacity 0.8s ease";
+  // Dummy-Trigger-Element erzeugen
+  const trigger = document.createElement("div");
+  trigger.style.height = "1px";
+  document.body.prepend(trigger);
 
-  function handleScroll() {
-    const scrollDepth = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-    console.log("🔁 Scrolltiefe:", scrollDepth);
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) {
+        cta.classList.add("fade-in");
+      } else {
+        cta.classList.remove("fade-in");
+      }
+    });
+  }, {
+    root: null,
+    threshold: 0,
+    rootMargin: "-20% 0px 0px 0px" // Zeigt CTA nach 20% Scroll
+  });
 
-    if (scrollDepth > 0.2) {
-      console.log("➡️ Fade-in aktiviert");
-      cta.classList.add("fade-in");
-    } else {
-      console.log("⬅️ Fade-in entfernt");
-      cta.classList.remove("fade-in");
-    }
-  }
-
-  window.addEventListener("scroll", handleScroll);
+  observer.observe(trigger);
 });
+
         } catch(err){}
       </script>
     
