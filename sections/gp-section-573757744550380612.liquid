@@ -48,6 +48,18 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
     left: -9999px !important;
 }
 
+.sticky-cta {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+}
+
+.sticky-cta.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
       </style>
     
       <script id="custom-js-gcLRATmg4I">
@@ -58,20 +70,18 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
 
   if (!cta) return;
 
-  // Anfangszustand: unsichtbar
-  cta.style.display = "none";
-
+  // Kein display: none – nur Klassenmanipulation
   function handleScroll() {
     const scrollDepth = window.scrollY / (document.body.scrollHeight - window.innerHeight);
 
     if (scrollDepth > 0.2) {
-      if (cta.style.display !== "block") {
-        cta.style.display = "block";
+      if (!cta.classList.contains("visible")) {
+        cta.classList.add("visible");
         console.log("✅ CTA eingeblendet");
       }
     } else {
-      if (cta.style.display !== "none") {
-        cta.style.display = "none";
+      if (cta.classList.contains("visible")) {
+        cta.classList.remove("visible");
         console.log("⬅️ CTA ausgeblendet");
       }
     }
@@ -79,6 +89,7 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
 
   window.addEventListener("scroll", handleScroll);
 });
+
         } catch(err){}
       </script>
     
