@@ -54,6 +54,8 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
         try {
           document.addEventListener("DOMContentLoaded", function () {
   const cta = document.querySelector(".sticky-cta");
+  console.log("CTA gefunden:", cta);
+
   if (!cta) return;
 
   cta.style.opacity = "0";
@@ -62,12 +64,16 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
 
   function handleScroll() {
     const scrollDepth = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+    console.log("Scrolltiefe:", scrollDepth);
+
     if (scrollDepth > 0.2) {
       cta.style.opacity = "1";
       cta.style.pointerEvents = "auto";
+      console.log("✅ Fade-in aktiviert");
     } else {
       cta.style.opacity = "0";
       cta.style.pointerEvents = "none";
+      console.log("⬅️ Fade-out aktiviert");
     }
   }
 
