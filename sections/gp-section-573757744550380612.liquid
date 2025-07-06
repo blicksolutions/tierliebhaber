@@ -88,28 +88,18 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
     
       <script id="custom-js-gcLRATmg4I">
         try {
-          document.addEventListener("DOMContentLoaded", function () {
-  const floatingCTA = document.getElementById("floating-cta");
+          // Smooth scroll to offer section
+function scrollToOffer() {
+  let section;
 
-  function handleScroll() {
-    const scrollDepth = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-    if (scrollDepth > 0.2) {
-      floatingCTA.style.opacity = "1";
-      floatingCTA.style.pointerEvents = "auto";
-      floatingCTA.style.transform = "translateY(0)";
-    } else {
-      floatingCTA.style.opacity = "0";
-      floatingCTA.style.pointerEvents = "none";
-      floatingCTA.style.transform = "translateY(30px)";
-    }
+  if (window.innerWidth <= 768) {
+    // Mobile
+    section = document.querySelector(".offer-section2");
+  } else {
+    // Desktop
+    section = document.querySelector(".offer-section1");
   }
 
-  window.addEventListener("scroll", handleScroll);
-});
-
-// Smooth scroll to offer section
-function scrollToOffer() {
-  const section = document.querySelector(".offer-section1");
   if (section) {
     section.scrollIntoView({ behavior: "smooth" });
   }
