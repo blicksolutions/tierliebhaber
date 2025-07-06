@@ -26,22 +26,8 @@
       style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--ta:left"
       data-keep-class="true"
       class="gcLRATmg4I "
-    ><div><div id="sticky-cta-wrapper" style="
-  position: fixed;
-  bottom: 20px;
-  left: 0;
-  right: 0;
-  z-index: 9999;
-  display: flex;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(30px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-">
-  <a href="javascript:void(0);" onclick="scrollToOfferSection()">
-    JETZT SONDER-RABATT NUTZEN
-  </a>
+    ><div><div id="sticky-cta-wrapper">
+  <a onclick="scrollToOfferSection()">JETZT SONDER-RABATT NUTZEN</a>
 </div></div></div>
   
       <style id="custom-css-gcLRATmg4I">
@@ -64,8 +50,6 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
     left: -9999px !important;
 }
 
-
-/* Sichtbarkeit */
 #sticky-cta-wrapper {
   position: fixed;
   bottom: 20px;
@@ -74,26 +58,25 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
   z-index: 9999;
   display: flex;
   justify-content: center;
+  visibility: hidden;
   opacity: 0;
   pointer-events: none;
-  transform: translateY(30px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 #sticky-cta-wrapper.visible {
-  opacity: 1 !important;
-  pointer-events: auto !important;
-  transform: translateY(0);
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
 }
 
-/* Button-Stil */
 #sticky-cta-wrapper a {
   background-color: #f7961e;
   color: #000000;
   text-decoration: none;
   font-weight: bold;
   font-size: 18px;
-  padding: 14px 28px;
+  padding: 16px 48px;
   border-radius: 999px;
   display: inline-block;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
@@ -101,17 +84,8 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
   font-family: 'Arial', sans-serif;
 }
 
-/* Hover-Effekt */
 #sticky-cta-wrapper a:hover {
   background-color: #e57e00;
-}
-
-/* Desktop größer */
-@media (min-width: 769px) {
-  #sticky-cta-wrapper a {
-    font-size: 20px;
-    padding: 18px 40px;
-  }
 }
 
       </style>
@@ -122,8 +96,6 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
 window.addEventListener('scroll', function () {
   const triggerHeight = window.innerHeight * 0.2;
   const wrapper = document.getElementById('sticky-cta-wrapper');
-  if (!wrapper) return;
-
   if (window.scrollY > triggerHeight) {
     wrapper.classList.add('visible');
   } else {
