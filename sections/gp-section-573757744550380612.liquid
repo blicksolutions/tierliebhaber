@@ -48,14 +48,14 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
     left: -9999px !important;
 }
 
-.sticky-cta {
+.gJEmA0MxQA {
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.4s ease, transform 0.4s ease;
   pointer-events: none;
 }
 
-.sticky-cta.visible {
+.gJEmA0MxQA.visible {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
@@ -65,19 +65,18 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
       <script id="custom-js-gcLRATmg4I">
         try {
           document.addEventListener("DOMContentLoaded", function () {
-  const cta = document.querySelector(".sticky-cta");
+  const cta = document.querySelector(".gJEmA0MxQA");
   console.log("CTA gefunden:", cta);
 
   if (!cta) return;
 
-  // Kein display: none – nur Klassenmanipulation
   function handleScroll() {
     const scrollDepth = window.scrollY / (document.body.scrollHeight - window.innerHeight);
 
     if (scrollDepth > 0.2) {
       if (!cta.classList.contains("visible")) {
         cta.classList.add("visible");
-        console.log("✅ CTA eingeblendet");
+        console.log("✅ CTA sichtbar");
       }
     } else {
       if (cta.classList.contains("visible")) {
