@@ -48,12 +48,6 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
     left: -9999px !important;
 }
 
-.sticky-cta {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.6s ease;
-}
-
       </style>
     
       <script id="custom-js-gcLRATmg4I">
@@ -64,21 +58,22 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
 
   if (!cta) return;
 
-  cta.style.opacity = "0";
-  cta.style.pointerEvents = "none";
-  cta.style.transition = "opacity 0.6s ease";
+  // Anfangszustand: unsichtbar
+  cta.style.display = "none";
 
   function handleScroll() {
     const scrollDepth = window.scrollY / (document.body.scrollHeight - window.innerHeight);
 
     if (scrollDepth > 0.2) {
-      cta.style.opacity = "1";
-      cta.style.pointerEvents = "auto";
-      console.log("✅ Fade-in aktiviert");
+      if (cta.style.display !== "block") {
+        cta.style.display = "block";
+        console.log("✅ CTA eingeblendet");
+      }
     } else {
-      cta.style.opacity = "0";
-      cta.style.pointerEvents = "none";
-      console.log("⬅️ Fade-out aktiviert");
+      if (cta.style.display !== "none") {
+        cta.style.display = "none";
+        console.log("⬅️ CTA ausgeblendet");
+      }
     }
   }
 
