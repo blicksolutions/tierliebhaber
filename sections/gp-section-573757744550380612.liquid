@@ -74,18 +74,24 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
     left: -9999px !important;
 }
 
-.gJEmA0MxQA {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  pointer-events: none;
+#sticky-cta-wrapper a {
+  background-color: #f7961e;
+  color: #000000;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 16px 48px;
+  border-radius: 999px;
+  display: inline-block;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+  font-family: 'Arial', sans-serif;
 }
 
-.gJEmA0MxQA.visible {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+#sticky-cta-wrapper a:hover {
+  background-color: #e57e00;
 }
+
       </style>
     
       <script id="custom-js-gcLRATmg4I">
@@ -116,6 +122,15 @@ function scrollToOffer() {
     section.scrollIntoView({ behavior: "smooth" });
   }
 }
+
+function scrollToOffer() {
+  const isMobile = window.innerWidth <= 768;
+  const section = document.querySelector(isMobile ? ".offer-section2" : ".offer-section");
+  if (section) {
+    section.scrollIntoView({ behavior: "smooth" });
+  }
+}
+
         } catch(err){}
       </script>
     
