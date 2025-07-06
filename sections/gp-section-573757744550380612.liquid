@@ -26,7 +26,28 @@
       style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--ta:left"
       data-keep-class="true"
       class="gcLRATmg4I "
-    ><div></div></div>
+    ><div><div id="my-sticky-cta" style="
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  display: none;
+  justify-content: center;
+  pointer-events: none;
+">
+  <a href="#angebot" style="
+    background-color: #f7961e;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 14px 28px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    pointer-events: auto;
+  ">JETZT SONDER-RABATT NUTZEN</a>
+</div></div></div>
   
       <style id="custom-css-gcLRATmg4I">
         .needsclick.kl-private-reset-css-Xuajs1, #superchat-widget {
@@ -65,24 +86,14 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
       <script id="custom-js-gcLRATmg4I">
         try {
           document.addEventListener("DOMContentLoaded", function () {
-  const cta = document.querySelector(".gJEmA0MxQA");
-  console.log("CTA gefunden:", cta);
-
-  if (!cta) return;
+  const sticky = document.getElementById("my-sticky-cta");
 
   function handleScroll() {
     const scrollDepth = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-
     if (scrollDepth > 0.2) {
-      if (!cta.classList.contains("visible")) {
-        cta.classList.add("visible");
-        console.log("✅ CTA sichtbar");
-      }
+      sticky.style.display = "flex";
     } else {
-      if (cta.classList.contains("visible")) {
-        cta.classList.remove("visible");
-        console.log("⬅️ CTA ausgeblendet");
-      }
+      sticky.style.display = "none";
     }
   }
 
