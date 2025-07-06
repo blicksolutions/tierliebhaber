@@ -48,7 +48,38 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
     left: -9999px !important;
 }
 
+.sticky-cta {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  pointer-events: none;
+}
+
+.sticky-cta.fade-in {
+  opacity: 1;
+  pointer-events: auto;
+}
       </style>
+    
+      <script id="custom-js-gcLRATmg4I">
+        try {
+          document.addEventListener("DOMContentLoaded", function () {
+  const cta = document.querySelector(".sticky-cta");
+
+  if (!cta) return;
+
+  function handleScroll() {
+    const scrollDepth = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+    if (scrollDepth > 0.2) {
+      cta.classList.add("fade-in");
+    } else {
+      cta.classList.remove("fade-in");
+    }
+  }
+
+  window.addEventListener("scroll", handleScroll);
+});
+        } catch(err){}
+      </script>
     
   
     <div
@@ -178,7 +209,7 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
 {% schema %}
   {
     
-    "name": "Section 2",
+    "name": "Section 1",
     "tag": "section",
     "class": "gps-573757744550380612 gps gpsi",
     "settings": [{"type":"paragraph","content":"Section design by GemPages. [Click here to start design](https://admin.shopify.com/store/tierliebhaber-animagus/apps/gempages-cro/app/shopify/edit?pageType=GP_STATIC&editorId=573757744297804868&sectionId=573757744550380612)"},{"type":"select","label":"Section Preload","id":"section_preload","options":[{"label":"On","value":"true"},{"label":"Off","value":"false"},{"label":"Off Lazy Script","value":"off_lazy_script"}],"default":"off_lazy_script"},{"type":"text","label":"Checksum","id":"checksum"}],
