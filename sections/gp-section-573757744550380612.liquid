@@ -54,35 +54,24 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
         try {
           document.addEventListener("DOMContentLoaded", function () {
   const cta = document.querySelector(".sticky-cta");
+  if (!cta) return;
 
-  if (!cta) {
-    console.warn("❌ CTA nicht gefunden");
-    return;
+  cta.style.opacity = "0";
+  cta.style.pointerEvents = "none";
+  cta.style.transition = "opacity 0.6s ease";
+
+  function handleScroll() {
+    const scrollDepth = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+    if (scrollDepth > 0.2) {
+      cta.style.opacity = "1";
+      cta.style.pointerEvents = "auto";
+    } else {
+      cta.style.opacity = "0";
+      cta.style.pointerEvents = "none";
+    }
   }
 
-  // Initial-Zustand setzen
-  cta.classList.remove("fade-in");
-
-  // Dummy-Trigger-Element erzeugen
-  const trigger = document.createElement("div");
-  trigger.style.height = "1px";
-  document.body.prepend(trigger);
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) {
-        cta.classList.add("fade-in");
-      } else {
-        cta.classList.remove("fade-in");
-      }
-    });
-  }, {
-    root: null,
-    threshold: 0,
-    rootMargin: "-20% 0px 0px 0px" // Zeigt CTA nach 20% Scroll
-  });
-
-  observer.observe(trigger);
+  window.addEventListener("scroll", handleScroll);
 });
 
         } catch(err){}
