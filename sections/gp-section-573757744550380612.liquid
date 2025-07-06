@@ -88,20 +88,34 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
     
       <script id="custom-js-gcLRATmg4I">
         try {
-          // Smooth scroll to offer section
-function scrollToOffer() {
-  let section;
+          document.addEventListener("DOMContentLoaded", function () {
+  const floatingCTA = document.getElementById("floating-cta");
 
-  if (window.innerWidth <= 768) {
-    // Mobile
-    section = document.querySelector(".offer-section2");
-  } else {
-    // Desktop
-    section = document.querySelector(".offer-section1");
+  function handleScroll() {
+    const scrollDepth = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+    if (scrollDepth > 0.2) {
+      floatingCTA.style.opacity = "1";
+      floatingCTA.style.pointerEvents = "auto";
+      floatingCTA.style.transform = "translateY(0)";
+    } else {
+      floatingCTA.style.opacity = "0";
+      floatingCTA.style.pointerEvents = "none";
+      floatingCTA.style.transform = "translateY(30px)";
+    }
   }
 
-  if (section) {
-    section.scrollIntoView({ behavior: "smooth" });
+  window.addEventListener("scroll", handleScroll);
+});
+
+// Smooth scroll zur richtigen Offer-Section
+function scrollToOffer() {
+  const isMobile = window.innerWidth <= 768;
+  const target = isMobile
+    ? document.querySelector(".offer-section2")
+    : document.querySelector(".offer-section1");
+
+  if (target) {
+    target.scrollIntoView({ behavior: "smooth" });
   }
 }
 
