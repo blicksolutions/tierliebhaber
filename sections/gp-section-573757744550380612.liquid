@@ -68,11 +68,16 @@ body .sticky-cta.fade-in {
   const cta = document.querySelector(".sticky-cta");
 
   if (!cta) {
-    console.warn("❌ CTA-Element mit .sticky-cta nicht gefunden");
+    console.warn("❌ CTA nicht gefunden");
     return;
-  } else {
-    console.log("✅ CTA gefunden");
   }
+
+  console.log("✅ CTA gefunden");
+
+  // Initialzustand setzen (ohne !important im CSS)
+  cta.style.opacity = "0";
+  cta.style.pointerEvents = "none";
+  cta.style.transition = "opacity 0.8s ease";
 
   function handleScroll() {
     const scrollDepth = window.scrollY / (document.body.scrollHeight - window.innerHeight);
@@ -89,7 +94,6 @@ body .sticky-cta.fade-in {
 
   window.addEventListener("scroll", handleScroll);
 });
-
         } catch(err){}
       </script>
     
