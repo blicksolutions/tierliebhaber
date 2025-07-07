@@ -4,6 +4,7 @@
     detail: {
       shippingTestData: {
         thresholdValue: 20 * 100,
+        rate: 2.45 * 100,
       }
     }
   }))
@@ -14,6 +15,9 @@ document.addEventListener('abconvert:shipping:initialized', (event) => {
 
   const threshold = shippingTestData.thresholdValue / 100;
   const thresholdFormatted = threshold.toLocaleString('de', { maximumFractionDigits: 0 });
+
+  const rate = shippingTestData.rate / 100;
+  const rateFormatted = rate.toLocaleString('de', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
   // Helper to poll until the elements are available to be updated
   function waitForElement(validation_bool, func) {
@@ -76,7 +80,7 @@ document.addEventListener('abconvert:shipping:initialized', (event) => {
         deliveryLeft.style.display = 'block';
         giftLeft.style.display = 'none';
 
-        deliveryFooter.innerHTML = '4,90€';
+        deliveryFooter.innerHTML = `${rateFormatted}€`;
 
         const total = subTotalValue + 4.9;
         const totalFormatted = total.toLocaleString('de', {
@@ -148,14 +152,16 @@ document.addEventListener('abconvert:shipping:initialized', (event) => {
     let policyDone = false;
     waitForElement(policyDone, () => {
       const elem = document.querySelector('.shopify-policy__body .text-container > p + p + h3 + p + p:has(~ h3)');
+      const elem2 = document.querySelector('.shopify-policy__body .text-container > p + p + h3 + p:has(+ p ~ h3)');
 
-      if(elem === null) {
+      if(elem === null || elem2 === null) {
         return;
       }
 
       policyDone = true;
 
       elem.innerHTML = `<strong>Ab ${thresholdFormatted}€ Bestellwert liefern wir innerhalb Deutschlands versandkostenfrei.</strong>`;
+      elem2.innerHTML = `Versandkostenpauschale je Bestellung: ${rateFormatted} Euro`;
     });
   }
 });
