@@ -3,7 +3,7 @@
   document.dispatchEvent(new CustomEvent("abconvert:shipping:initialized", {
     detail: {
       shippingTestData: {
-        thresholdValue: 20 * 100,
+        thresholdValue: 40 * 100,
         rate: 2.45 * 100,
       }
     }
@@ -82,7 +82,7 @@ document.addEventListener('abconvert:shipping:initialized', (event) => {
 
         deliveryFooter.innerHTML = `${rateFormatted}€`;
 
-        const total = subTotalValue + 4.9;
+        const total = subTotalValue + rate;
         const totalFormatted = total.toLocaleString('de', {
           minimumFractionDigits: 2,
           maximumFractionDigits: 2,
