@@ -11,14 +11,14 @@
   "sections": {
     "gp_section_574329827482403609": {
       "settings": {
-        "checksum": "7ab1de061be44998fc740127f878820e85f3d67891716af27f78657fc814ba41_0_1_1_0_",
+        "checksum": "fa767426f7f548c4a987e43806c76333e7ad799f518506abb073f47700ad4ac2_0_1_1_0_",
         "section_preload": "true"
       },
       "type": "gp-section-574329827482403609"
     },
     "gp_section_574329827482469145": {
       "settings": {
-        "checksum": "0baa2930113883d82c7c08e9785d4129e246f988184355064d990d2824001e13_0_1_1_0_"
+        "checksum": "2b1cc7d9c9b27a6d538e6df8913aded086c466b146cef5783aa4323fb87ca88e_0_1_1_0_"
       },
       "type": "gp-section-574329827482469145"
     },
@@ -48,7 +48,7 @@
     },
     "gp_section_574329827482796825": {
       "settings": {
-        "checksum": "31858473ebc1c8b1c9fcaacf1ccc8e2e07e40097be743d8b58b8a19078c4ff3e_0_1_1_0_"
+        "checksum": "11666f90d80c47c1d8e935376ee331ca07ff78dc5defec9523d83f9f8cc09e14_0_1_1_0_"
       },
       "type": "gp-section-574329827482796825"
     },
@@ -57,12 +57,6 @@
         "checksum": "4b0c6185226c95870fce6a8f71fc9bf78b0a08ff0832dfb64c83e152a3580c0d_0_1_1_0_"
       },
       "type": "gp-section-574329827482862361"
-    },
-    "gp_section_574329827482927897": {
-      "settings": {
-        "checksum": "d9f73acad4ff38b7d9a5023327883ffa242cfe68e82977d6c9b7c3b6157af505_0_1_1_0_"
-      },
-      "type": "gp-section-574329827482927897"
     },
     "gp_section_574329827482993433": {
       "settings": {
@@ -78,9 +72,15 @@
     },
     "gp_section_574355379618579519": {
       "settings": {
-        "checksum": "c21f5d2ab4005ad0d3e3961d1f1441c91752d8ee8489934c7707d64badb5174a_0_1_1_0_"
+        "checksum": "2d0e6a69fe4c225d36ec331c727cb1add3e0e3af503ff4d85e98bf1bbba13851_0_1_1_0_"
       },
       "type": "gp-section-574355379618579519"
+    },
+    "gp_section_574461251753608036": {
+      "settings": {
+        "checksum": "7468309ce8a9f02967f5c5594eaeb1fd2ae618b8fa43a0d634419c5a2e2aaab9_0_1_1_0_"
+      },
+      "type": "gp-section-574461251753608036"
     }
   },
   "order": [
@@ -89,12 +89,12 @@
     "gp_section_574329827482731289",
     "gp_section_574329827482862361",
     "gp_section_574355379618579519",
-    "gp_section_574329827482796825",
+    "gp_section_574461251753608036",
+    "gp_section_574329827482534681",
     "gp_section_574329827482993433",
     "gp_section_574329827482469145",
-    "gp_section_574329827482534681",
+    "gp_section_574329827482796825",
     "gp_section_574329827483058969",
-    "gp_section_574329827482927897",
     "gp_section_574329827482600217"
   ],
   "layout": "theme.gempages.blank"
