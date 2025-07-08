@@ -84,36 +84,35 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
 }
 
 
-<style>
-  .video-grid {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
+.video-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
+.video-item {
+  flex: 1 1 300px;
+  max-width: 32%;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
   .video-item {
-    flex: 1 1 300px;
-    max-width: 32%;
-    box-sizing: border-box;
+    max-width: 100%;
+    flex: 1 1 100%;
+    display: flex;
+    justify-content: center;
   }
 
-  @media screen and (max-width: 768px) {
-    .video-item {
-      max-width: 100%;
-      flex: 1 1 100%;
-      display: flex;
-      justify-content: center;
-    }
-
-    .video-item > div {
-      width: 100%;
-      max-width: 400px;
-    }
+  .video-item > div {
+    width: 100%;
+    max-width: 400px;
   }
-</style>
+}
+
       </style>
     
       <script id="custom-js-gcLRATmg4I">
