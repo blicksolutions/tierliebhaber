@@ -237,9 +237,11 @@ HEADER CONTENT
                             {%- if sub_link.links != blank -%}
                               <ul class="Linklist">
                                 {%- for sub_sub_link in sub_link.links -%}
+                                  {% unless sub_sub_link contains "alle Produkte ansehen" %}
                                   <li class="Linklist__Item">
                                     <a href="{{ sub_sub_link.url }}" class="Link Link--secondary">{{ sub_sub_link.title | escape }}</a>
                                   </li>
+                                    {% endunless %}
                                 {%- endfor -%}
                               </ul>
                             {%- endif -%}
