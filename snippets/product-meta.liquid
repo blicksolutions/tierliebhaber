@@ -428,7 +428,7 @@
             }
         </style>
 
-
+  {% comment %}
         {% unless product.id == 8068154949900 or product.id == 7181458014367  or product.id == 7973987385612 %}
             <div class="pdp-stock-bar wrapper-center-align">
             {% if selected_variant.available %}
@@ -442,7 +442,7 @@
             {% endif %}
             </div>
         {% endunless %}
-
+{% endcomment %}
         <script>
         /* Function to calculate and update price difference */
         function updatePriceDifference() {
