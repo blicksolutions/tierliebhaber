@@ -326,7 +326,7 @@
 	{%- if show_like_badge -%}
 		{%- render 'like-badge', classes: 'hidden-pocket' -%}
 	{%- endif-%}
-                  {% endcomment %}
+                  
 
 	{% unless product.id == 8068154949900 or product.id == 7181458014367  or product.id == 7973987385612 or  product.metafields.badge.text == 'Bestseller' %}
 		<div class="pdp-stock-bar wrapper-center-align">
@@ -342,7 +342,7 @@
 		{% endif %}
 		</div>
 	{% endunless %}
-
+{% endcomment %}
     {% if product.metafields.badge.text == 'Bestseller' %}
         <script>
             document.addEventListener('DOMContentLoaded', function() {
