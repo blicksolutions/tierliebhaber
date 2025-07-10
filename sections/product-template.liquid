@@ -217,8 +217,9 @@
             {%- render 'icon', icon: 'media-view-in-space' -%} {{- 'product.general.view_in_space' | t -}}
           </button>
         {%- endif -%}
-
+        {% comment %}
         {%- render 'like-badge', classes: 'hidden-lap-and-up' -%}
+        {% endcomment %}
 
         {%- if media_count > 1 -%}
           {%- comment -%}
