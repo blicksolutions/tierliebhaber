@@ -1,0 +1,62 @@
+<style>
+  .buttons-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap:wrap;
+}
+.cookie-btn {
+  padding: 20px 40px;
+  text-decoration: none  !important;
+  border: 1px solid #f1af9e;
+  border-radius: 15px;
+  background: #f1af9e !important;
+  font-weight: 500;
+  color: #fff  !important;
+}
+#cookie-revoke-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #f1af9e;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 0;
+    font-size: 16px;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    width: 100%;
+    text-align: center;
+}
+  @media only screen and (max-width:768px){
+    .cookie-btn{
+      flex-grow:1;
+    }
+  }
+</style>
+<div class="buttons-wrapper">
+<a class="cookie-btn cookie-settings-btn" href="javascript: Cookiebot.renew()">Cookie Einstellungen anpassen</a>
+<a class="cookie-btn cookie-revoke-btn" href="javascript: revokeCookies()">
+  Zustimmung zu Cookies widerrufen
+</a>
+</div>
+
+<script>
+  function revokeCookies() {
+    Cookiebot.withdraw();
+
+    const popup = document.createElement('div');
+    popup.id = 'cookie-revoke-popup';
+    popup.textContent = 'Cookies wurden widerrufen';
+    document.body.appendChild(popup);
+    requestAnimationFrame(() => {
+      popup.style.opacity = 1;
+    });
+    setTimeout(() => {
+      popup.style.opacity = 0;
+      popup.addEventListener('transitionend', () => popup.remove());
+    }, 3000);
+  }
+</script>
