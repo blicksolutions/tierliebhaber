@@ -11,10 +11,21 @@
   "sections": {
     "collabs": {
       "type": "apps",
+      "disabled": true,
       "settings": {}
+    },
+    "custom_liquid_CVBHeW": {
+      "type": "custom-liquid",
+      "name": "Custom liquid",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "liquid": "{% render 'cookies-section' %}"
+      }
     }
   },
   "order": [
-    "collabs"
+    "collabs",
+    "custom_liquid_CVBHeW"
   ]
 }
