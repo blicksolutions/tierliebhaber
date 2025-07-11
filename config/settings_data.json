@@ -783,7 +783,7 @@
           "image_alt": "",
           "image_min_width": 340,
           "cta_title": "Schnell & einfach",
-          "microcopy": "<p><em>Wir melden uns in der Regel </em></p><p><em>innerhalb von 2-3 Werktagen mit einer Antwort bei dir!</em></p>"
+          "microcopy": "<p><em>Wir melden uns in der Regel </em></p><p><em>innerhalb von 3-4 Werktagen mit einer Antwort bei dir!</em></p>"
         }
       },
       "16288779949bca7a14": {
@@ -1866,21 +1866,6 @@
           "lang": "auto",
           "enable_syndication": false
         }
-      },
-      "15626701136048320768": {
-        "type": "shopify://apps/abconvert/blocks/app-embed-custom-label/5c6be9a4-14ad-4ad6-a0b5-a41137ce4ddf",
-        "disabled": true,
-        "settings": {}
-      },
-      "11597759809273779251": {
-        "type": "shopify://apps/abconvert/blocks/app-embed-theme-test-clear-cache/5c6be9a4-14ad-4ad6-a0b5-a41137ce4ddf",
-        "disabled": true,
-        "settings": {}
-      },
-      "8180082907217142696": {
-        "type": "shopify://apps/abconvert/blocks/app-embed-shipping/5c6be9a4-14ad-4ad6-a0b5-a41137ce4ddf",
-        "disabled": false,
-        "settings": {}
       }
     }
   },
