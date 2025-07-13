@@ -11,7 +11,7 @@
               
     <div
       id="gXsvKkCR6K" data-id="gXsvKkCR6K"
-        style="--blockPadding:base;--pt:var(--g-s-2xl);--pb:var(--g-s-2xl);--d:grid;--d-tablet:grid;--d-mobile:grid;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--cg:32px;--pc:start;--gtc:minmax(0, 12fr);--w:100%;--w-tablet:100%;--w-mobile:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        style="--blockPadding:base;--pt:var(--g-s-2xl);--pb:var(--g-s-2xl);--d:none;--d-tablet:none;--d-mobile:grid;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--cg:32px;--pc:start;--gtc:minmax(0, 12fr);--w:100%;--w-tablet:100%;--w-mobile:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
         class="gXsvKkCR6K gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]"
     >
     <div
@@ -37,7 +37,7 @@
       
     <div
       parentTag="Col" id="gR8dR7KC2a" data-id="gR8dR7KC2a"
-        style="--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--pt:32px;--pl:20px;--pb:32px;--pr:20px;--mb-mobile:0px;--pt-mobile:28px;--pl-mobile:20px;--pb-mobile:28px;--pr-mobile:20px;--cg:62px;--pc:center;--gtc:minmax(0, auto) minmax(0, auto);--gtc-mobile:minmax(0, 12fr);--w:var(--g-ct-w, 1200px);--w-tablet:100%;--w-mobile:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        style="--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--pt:32px;--pl:20px;--pb:32px;--pr:20px;--mb-mobile:0px;--pt-mobile:0px;--pl-mobile:20px;--pb-mobile:28px;--pr-mobile:20px;--cg:62px;--pc:center;--gtc:minmax(0, auto) minmax(0, auto);--gtc-mobile:minmax(0, 12fr);--w:var(--g-ct-w, 1200px);--w-tablet:100%;--w-mobile:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
         class="gR8dR7KC2a gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]"
     >
     <div
@@ -45,7 +45,25 @@
       style="--jc:center"
       class="gC0DSmXIad gp-relative gp-flex gp-flex-col"
     >
-      <div
+      
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="geUl6Hkvb0">
+    <div
+      parentTag="Col"
+        class="geUl6Hkvb0 "
+        style="--ta:left;--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--op-mobile:100%;--mb:31px;--pl:0px;--mb-mobile:20px;--pl-mobile:0px;--mb-tablet:16px;--pl-tablet:0px"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <h2
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
+          style="--w:451%;--w-tablet:451%;--w-mobile:451%;--ts:none;--ta:left;--fs:normal;--ff:var(--g-font-heading, heading);--weight:600;--ls:normal;--size:35px;--size-tablet:28px;--size-mobile:27px;--lh:120%;--lh-tablet:120%;--lh-mobile:130%;--c:#242424;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
+        >{{ section.settings.ggeUl6Hkvb0_text | replace: '$locationOrigin', locationOrigin }}</h2>
+      </div>
+    </div>
+    </gp-text>
+    <div
     
      data-id="gouAGnMtPv"
     role="presentation"
@@ -61,15 +79,15 @@
         
   <picture style="border-radius: inherit" class="gp-contents">
   
-      <source media="(max-width: 767px)" srcset="https://cdn.shopify.com/s/files/1/2005/9307/files/gempages_432750572815254551-e482b8d6-7abe-4a97-b54a-79c1ad70bbfa_768x.webp?v=1722524319" />
-      <source media="(max-width: 1024px)" srcset="https://cdn.shopify.com/s/files/1/2005/9307/files/gempages_432750572815254551-e482b8d6-7abe-4a97-b54a-79c1ad70bbfa_1024x.webp?v=1722524319" />
+      <source media="(max-width: 767px)" srcset="{{ "gempages_534104955091420133-caedfb18-21d2-4169-9097-aa74ca0b2a49.png" | file_url }}" />
+      <source media="(max-width: 1024px)" srcset="{{ "gempages_534104955091420133-caedfb18-21d2-4169-9097-aa74ca0b2a49.png" | file_url }}" />
       <img
         
         class="gp-h-full gp-max-w-full gp-flex"
-        src="https://cdn.shopify.com/s/files/1/2005/9307/files/gempages_432750572815254551-e482b8d6-7abe-4a97-b54a-79c1ad70bbfa.webp?v=1722524319"
+        src="{{ "gempages_534104955091420133-caedfb18-21d2-4169-9097-aa74ca0b2a49.png" | file_url }}"
         alt=""
         fetchpriority="high"
-        style="--aspect:auto;--aspect-tablet:auto;--aspect-mobile:auto;--objf:contain;--w-mobile:335px;--h:auto;--h-tablet:auto;--h-mobile:auto;--btrr:15px;--bblr:15px;--bbrr:15px;--btlr:15px;--radiusType:custom"
+        style="--aspect:auto;--aspect-tablet:auto;--aspect-mobile:auto;--objf:contain;--h:auto;--h-tablet:auto;--h-mobile:auto;--btrr:15px;--bblr:15px;--bbrr:15px;--btlr:15px;--radiusType:custom"
       />
     
   </picture>
@@ -91,36 +109,18 @@
     >
       
   {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
-  <gp-text data-id="geUl6Hkvb0">
-    <div
-      parentTag="Col"
-        class="geUl6Hkvb0 "
-        style="--ta:left;--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--op-mobile:100%;--mb:17px;--pl:0px;--mb-mobile:14px;--pl-mobile:0px;--mb-tablet:16px;--pl-tablet:0px"
-      >
-      <div class="gp-flex" style="--jc:left">
-        <h2
-          
-          data-gp-text
-          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
-          style="--w:451%;--w-tablet:451%;--w-mobile:451%;--ts:none;--ta:left;--fs:normal;--ff:var(--g-font-heading, heading);--weight:600;--ls:normal;--size:35px;--size-tablet:28px;--size-mobile:20px;--lh:120%;--lh-tablet:120%;--lh-mobile:130%;--c:#242424;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
-        >{{ section.settings.ggeUl6Hkvb0_text | replace: '$locationOrigin', locationOrigin }}</h2>
-      </div>
-    </div>
-    </gp-text>
-    
-  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
   <gp-text data-id="gZcj7XimiI">
     <div
       parentTag="Col"
         class="gZcj7XimiI "
-        style="--ta:left;--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--op-mobile:100%;--op-tablet:100%;--mb:15px;--pl:0px;--pl-mobile:0px;--pl-tablet:0px"
+        style="--ta:left;--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--op-mobile:100%;--op-tablet:100%;--mb:15px;--pl:0px;--mb-mobile:0px;--pl-mobile:0px;--pl-tablet:0px"
       >
       <div class="gp-flex" style="--jc:left">
         <div
           
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
-          style="--w:100%;--ts:none;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--ls:normal;--size:22px;--size-tablet:16px;--size-mobile:14px;--lh:150%;--lh-tablet:130%;--lh-mobile:130%;--c:#242424;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pl:0px;overflow:hidden"
+          style="--w:100%;--ts:none;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--ls:normal;--size:22px;--size-tablet:16px;--size-mobile:18px;--lh:150%;--lh-tablet:130%;--lh-mobile:130%;--c:#242424;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pl:0px;overflow:hidden"
         >{{ section.settings.ggZcj7XimiI_text | replace: '$locationOrigin', locationOrigin }}</div>
       </div>
     </div>
@@ -145,7 +145,7 @@
 {% schema %}
   {
     
-    "name": "Section 5",
+    "name": "Section 6",
     "tag": "section",
     "class": "gps-574917401976505119 gps gpsi",
     "settings": [{"type":"paragraph","content":"Section design by GemPages. [Click here to start design](https://admin.shopify.com/store/tierliebhaber-animagus/apps/gempages-cro/app/shopify/edit?pageType=GP_STATIC&editorId=574499147273470820&sectionId=574917401976505119)"},{"type":"select","label":"Section Preload","id":"section_preload","options":[{"label":"On","value":"true"},{"label":"Off","value":"false"},{"label":"Off Lazy Script","value":"off_lazy_script"}],"default":"off_lazy_script"},{"type":"text","label":"Checksum","id":"checksum"},{"type":"html","id":"ggeUl6Hkvb0_text","label":"ggeUl6Hkvb0_text","default":"3. Die beste Unterstützung für den Hunde-Darm dank Ballaststoffen &amp; natürlichen Präbiotika"},{"type":"html","id":"ggZcj7XimiI_text","label":"ggZcj7XimiI_text","default":"<p>Mit wertvollen Kräutern, perfekt aufeinander abgestimmt, fördern unsere Gras- &amp; Kotfresser Drops eine gesunde Verdauung und ein ausgeglichenes Darmmilieu. Die rein natürlichen Zutaten unterstützen sanft die Magen-Darm-Gesundheit deines Hundes – für mehr Wohlbefinden, weniger Beschwerden und einen glücklichen Vierbeiner. So einfach kannst du die Verdauung deines Hundes täglich stärken!</p>"}],
