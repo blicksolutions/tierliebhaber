@@ -139,14 +139,18 @@
 
 
 <style>
-  /* Klaviyo Popup vollständig ausblenden */
+  /* ALLE Klaviyo Popups, Floating Bars und Formulare blockieren */
   .klaviyo-form,
   [data-testid^="klaviyo-form"],
-  .klaviyo-form-version-cid_1,
-  .kl-private-reset-css-Xuajs1 {
+  [class*="klaviyo-form"],
+  [class*="kl-private-reset-css-"],
+  .klaviyo-close-form,
+  .go3279073480,
+  .go300628013,
+  .klaviyo-form-version-cid_1 {
     display: none !important;
-    visibility: hidden !important;
     opacity: 0 !important;
+    visibility: hidden !important;
     pointer-events: none !important;
   }
 </style></div></div>
