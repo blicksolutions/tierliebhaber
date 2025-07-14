@@ -47,40 +47,78 @@
 
     #mobile-cta a {
       text-decoration: none;
+      display: block;
     }
 
     .cta-top {
-      background-color: #ffffff;
-      color: #61A60E;
+      background-color: #7C9A0B;
+      color: #ffffff;
       font-size: 16px;
       font-weight: bold;
       text-align: center;
-      padding: 14px 20px 6px;
+      padding: 14px 20px 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
     }
 
-    .cta-bar {
-      height: 5px;
-      background-color: #3C7AFD;
-      width: 40%;
-      margin: 0 auto;
-      border-radius: 3px;
+    .arrow {
+      font-size: 18px;
+      color: #ffffff;
+      animation: arrowPulse 1.2s infinite ease-in-out;
+      margin-left: 4px;
+    }
+
+    @keyframes arrowPulse {
+      0% { transform: translateX(0); opacity: 1; }
+      50% { transform: translateX(4px); opacity: 0.7; }
+      100% { transform: translateX(0); opacity: 1; }
     }
 
     .cta-bottom {
-      background-color: #7C9A0B;
-      color: #ffffff;
+      background-color: #ffffff;
+      color: #61A60E;
       font-size: 13px;
       text-align: center;
-      padding: 8px 20px 12px;
+      padding: 10px 20px 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .checkmark {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid #61A60E;
+      position: relative;
+    }
+
+    .checkmark::after {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 0px;
+      width: 5px;
+      height: 10px;
+      border: solid #61A60E;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
     }
   }
 </style>
 
 <div id="mobile-cta">
   <a href="https://tierliebhaber.de/collections/darmpflege/products/gras-kotfresser-drops-2?variant=54145323794700">
-    <div class="cta-top">Jetzt -25% sparen</div>
-    <div class="cta-bar"></div>
-    <div class="cta-bottom">90 Tage Geld-zurück-Garantie</div>
+    <div class="cta-top">
+      Letzte Möglichkeit nutzen und 25% sparen<span class="arrow">→</span>
+    </div>
+    <div class="cta-bottom">
+      <div class="checkmark"></div>
+      90 Tage Geld-zurück-Garantie
+    </div>
   </a>
 </div>
 
@@ -91,7 +129,7 @@
     const scrollPercent = (scrollTop / docHeight) * 100;
 
     const cta = document.getElementById('mobile-cta');
-    if (scrollPercent > 20) {
+    if (scrollPercent > 12) {
       cta.classList.add('visible');
     } else {
       cta.classList.remove('visible');
