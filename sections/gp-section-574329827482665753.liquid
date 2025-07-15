@@ -1645,7 +1645,7 @@
     
   <gp-button >
   <div
-    style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--mt:0px;--pt:0px;--ta:center"
+    style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:none;--d-tablet:block;--op:100%;--mt:0px;--pt:0px;--ta:center"
     
   >
     <style>
@@ -1725,6 +1725,88 @@
   </div>
   </gp-button>
 
+  <gp-button >
+  <div
+    style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:none;--d-mobile:block;--d-tablet:none;--op:100%;--mt:0px;--pt:0px;--ta:center"
+    
+  >
+    <style>
+    .ggVPFspUGB.gp-button-base::before {
+      content: "";
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      pointer-events: none;
+      border-style: none;
+  border-width: 1px 1px 1px 1px;
+  
+  
+      
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      
+    }
+
+    .ggVPFspUGB:hover::before {
+      
+      
+    }
+
+    .ggVPFspUGB:hover .gp-button-icon {
+      color: #FFFFFF;
+    }
+
+     .ggVPFspUGB .gp-button-icon {
+      color: #000000;
+    }
+
+    .ggVPFspUGB:hover .gp-button-price {
+      color: #FFFFFF;
+    }
+
+    .ggVPFspUGB .gp-button-price {
+      color: #000000;
+    }
+
+    .ggVPFspUGB .gp-product-dot-price {
+       color: #000000;
+    }
+
+    .ggVPFspUGB:hover .gp-product-dot-price {
+      color: #FFFFFF;
+    }
+  </style>
+    <button
+      type="button" data-id="ggVPFspUGB" aria-label="<p>JETZT ZUM ANGEBOT</p>"
+      
+      data-state="idle"
+      class="ggVPFspUGB gp-button-base gp-group/button gp-rounded-none gp-max-w-full gp-relative gp-inline-flex gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-300 disabled:gp-btn-disabled disabled:gp-opacity-30 disabled:gp-pointer-events-none hover:gp-bg-g-highlight gp-g-subheading-1"
+      style="--hvr-bg:var(--g-c-highlight, highlight);--bg:#f3841d;--bblr:8px;--bbrr:8px;--btlr:8px;--btrr:8px;--shadow:none;--w:Auto;--w-tablet:Auto;--w-mobile:1000px;--h:120px;--h-tablet:120px;--h-mobile:80px;--pl:24px;--pr:24px;--pt:8px;--pb:8px;--pl-mobile:24px;--pr-mobile:24px;--pt-mobile:8px;--pb-mobile:8px;--hvr-c:#FFFFFF;--c:#000000;--size:35px;--size-tablet:25px;--size-mobile:23px;--weight:bold"
+    >
+      
+    <div
+    class="gp-inline-flex gp-flex-row-reverse">
+    <span
+        class="gp-inline-flex gp-button-icon gp-transition-colors gp-duration-300 gp-shrink-0 gp-items-center gp-justify-center group-data-[state=loading]/button:gp-invisible gp-z-1 [&>svg]:!gp-h-[var(--height-desktop)] [&>svg]:!gp-w-auto tablet:[&>svg]:!gp-h-[var(--height-tablet)] mobile:[&>svg]:!gp-h-[var(--height-mobile)]"
+        style="--ml:8px;--height-desktop:1em;--height-tablet:1em;--height-mobile:1em"
+      ><svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817550822211944">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M208.49,152.49l-72,72a12,12,0,0,1-17,0l-72-72a12,12,0,0,1,17-17L116,187V40a12,12,0,0,1,24,0V187l51.51-51.52a12,12,0,0,1,17,17Z" /></svg></span>
+      <span
+        data-gp-text
+        class="gp-content-product-button group-hover/button:!gp-text-inherit group-active/button:!gp-text-inherit  gp-button-text-only gp-break-words group-data-[state=loading]/button:gp-invisible [&_p]:gp-whitespace-pre-line gp-z-1 gp-h-full gp-flex gp-items-center gp-overflow-hidden 
+        "
+        style="--size:35px;--size-tablet:25px;--size-mobile:23px;--hvr-c:#FFFFFF;--c:#000000"
+      >
+        {{ section.settings.gggVPFspUGB_label }}
+      </span>
+      </div>
+    
+    </button>
+  </div>
+  </gp-button>
+
     </div>
     </div>
   
@@ -1739,7 +1821,7 @@
     "name": "Section 2",
     "tag": "section",
     "class": "gps-574329827482665753 gps gpsi",
-    "settings": [{"type":"paragraph","content":"Section design by GemPages. [Click here to start design](https://admin.shopify.com/store/tierliebhaber-animagus/apps/gempages-cro/app/shopify/edit?pageType=GP_STATIC&editorId=574329827264299801&sectionId=574329827482665753)"},{"type":"select","label":"Section Preload","id":"section_preload","options":[{"label":"On","value":"true"},{"label":"Off","value":"false"},{"label":"Off Lazy Script","value":"off_lazy_script"}],"default":"off_lazy_script"},{"type":"text","label":"Checksum","id":"checksum"},{"type":"html","id":"ggWiJj4GHQ9_text","label":"ggWiJj4GHQ9_text","default":"<strong>Die Nr.1 gegen Zahnprobleme bei Hunden – Tierärzte &amp; Tierheilpraktiker empfehlen das Dentalspray von Tierliebhaber!</strong>"},{"type":"html","id":"ggd4YeLzp5A_text","label":"ggd4YeLzp5A_text","default":"<p>Jetzt für kurze Zeit die <strong>limitierten Neukunden Angebote</strong> sichern und bis zu 33% sparen!</p>"},{"type":"html","id":"gg4LQNCkOlR_text","label":"gg4LQNCkOlR_text","default":"<p><strong>4.81 / 5.00</strong> &nbsp; &nbsp;(1.747)</p>"},{"type":"html","id":"ggcYic7MHDg_childItem_0","label":"ggcYic7MHDg_childItem_0","default":"<p><strong>Neu entwickelte</strong>&nbsp;<strong>3-Stufen Formel</strong>&nbsp;entfernt Zahnbelag 100% natürlich &amp; ohne Chemie</p>"},{"type":"html","id":"ggcYic7MHDg_childItem_1","label":"ggcYic7MHDg_childItem_1","default":"<p>Kann eine&nbsp;Zahnstein<strong> OP unter Vollnarkose vorbeugen</strong></p>"},{"type":"html","id":"ggcYic7MHDg_childItem_2","label":"ggcYic7MHDg_childItem_2","default":"<p>Bereits über<strong> 510.000 begeisterte Hundehalter </strong>nutzen das Dentalspray</p>"},{"type":"html","id":"ggcYic7MHDg_childItem_3","label":"ggcYic7MHDg_childItem_3","default":"<p><strong>Einfache&nbsp;10-Sekunden</strong> Anwendung&nbsp;als Maul- oder Futterspray</p>"},{"type":"html","id":"ggcYic7MHDg_childItem_4","label":"ggcYic7MHDg_childItem_4","default":"<p><strong>90 Tage testen +&nbsp;30 Tage Geld-Zurück-Garantie</strong></p>"},{"type":"html","id":"gg0CV_ewjHT_text","label":"gg0CV_ewjHT_text","default":"<p><strong>Tierliebhaber Dentalspray</strong></p>"},{"type":"html","id":"ggilPbiZdQI_text","label":"ggilPbiZdQI_text","default":"<p>Dentalspray für Hunde Vergleichstestsieger 2024/25</p>"},{"type":"html","id":"ggRuZaAZ7Wx_text","label":"ggRuZaAZ7Wx_text","default":"<p><strong>12.747 BEWERTUNGEN</strong></p>"},{"type":"html","id":"ggh7Mqfv3Si_text","label":"ggh7Mqfv3Si_text","default":"<p><span style=\"color:#BA3535;\"><strong>nur 26,65€ </strong></span><span style=\"font-size:25px;\"><s><strong>39,90€</strong></s></span><strong> pro Flasche </strong>(6er Bundle Jahreskur)</p>"},{"type":"html","id":"gg_aabugMqv_text","label":"gg_aabugMqv_text","default":"Nur noch <strong>7 Sets</strong> auf Lager (mehr ist in Produktion)"},{"type":"html","id":"ggFFjHYELjp_text","label":"ggFFjHYELjp_text","default":"<p><strong>Tierliebhaber Dentalspray</strong></p>"},{"type":"html","id":"gggycwgs0Ph_text","label":"gggycwgs0Ph_text","default":"<p>Dentalspray für Hunde Vergleichstestsieger 2024/25</p>"},{"type":"html","id":"ggpFLsMW5RS_text","label":"ggpFLsMW5RS_text","default":"<p><strong>12.747 BEWERTUNGEN</strong></p>"},{"type":"html","id":"ggWRXDRMf2B_text","label":"ggWRXDRMf2B_text","default":"<p><span style=\"color:#BA3535;\"><strong>nur 26,65€ </strong></span><span style=\"font-size:25px;\"><s><strong>39,90€</strong></s></span><strong> pro Flasche </strong>(6er Bundle Jahreskur)</p>"},{"type":"html","id":"gg_CSkNJ3JL_text","label":"gg_CSkNJ3JL_text","default":"Nur noch <strong>7 Sets</strong> auf Lager (mehr ist in Produktion)"},{"type":"html","id":"gg2oKwdOo26_label","label":"gg2oKwdOo26_label","default":"<p>JETZT ZUM ANGEBOT</p>"}],
+    "settings": [{"type":"paragraph","content":"Section design by GemPages. [Click here to start design](https://admin.shopify.com/store/tierliebhaber-animagus/apps/gempages-cro/app/shopify/edit?pageType=GP_STATIC&editorId=574329827264299801&sectionId=574329827482665753)"},{"type":"select","label":"Section Preload","id":"section_preload","options":[{"label":"On","value":"true"},{"label":"Off","value":"false"},{"label":"Off Lazy Script","value":"off_lazy_script"}],"default":"off_lazy_script"},{"type":"text","label":"Checksum","id":"checksum"},{"type":"html","id":"ggWiJj4GHQ9_text","label":"ggWiJj4GHQ9_text","default":"<strong>Die Nr.1 gegen Zahnprobleme bei Hunden – Tierärzte &amp; Tierheilpraktiker empfehlen das Dentalspray von Tierliebhaber!</strong>"},{"type":"html","id":"ggd4YeLzp5A_text","label":"ggd4YeLzp5A_text","default":"<p>Jetzt für kurze Zeit die <strong>limitierten Neukunden Angebote</strong> sichern und bis zu 33% sparen!</p>"},{"type":"html","id":"gg4LQNCkOlR_text","label":"gg4LQNCkOlR_text","default":"<p><strong>4.81 / 5.00</strong> &nbsp; &nbsp;(1.747)</p>"},{"type":"html","id":"ggcYic7MHDg_childItem_0","label":"ggcYic7MHDg_childItem_0","default":"<p><strong>Neu entwickelte</strong>&nbsp;<strong>3-Stufen Formel</strong>&nbsp;entfernt Zahnbelag 100% natürlich &amp; ohne Chemie</p>"},{"type":"html","id":"ggcYic7MHDg_childItem_1","label":"ggcYic7MHDg_childItem_1","default":"<p>Kann eine&nbsp;Zahnstein<strong> OP unter Vollnarkose vorbeugen</strong></p>"},{"type":"html","id":"ggcYic7MHDg_childItem_2","label":"ggcYic7MHDg_childItem_2","default":"<p>Bereits über<strong> 510.000 begeisterte Hundehalter </strong>nutzen das Dentalspray</p>"},{"type":"html","id":"ggcYic7MHDg_childItem_3","label":"ggcYic7MHDg_childItem_3","default":"<p><strong>Einfache&nbsp;10-Sekunden</strong> Anwendung&nbsp;als Maul- oder Futterspray</p>"},{"type":"html","id":"ggcYic7MHDg_childItem_4","label":"ggcYic7MHDg_childItem_4","default":"<p><strong>90 Tage testen +&nbsp;30 Tage Geld-Zurück-Garantie</strong></p>"},{"type":"html","id":"gg0CV_ewjHT_text","label":"gg0CV_ewjHT_text","default":"<p><strong>Tierliebhaber Dentalspray</strong></p>"},{"type":"html","id":"ggilPbiZdQI_text","label":"ggilPbiZdQI_text","default":"<p>Dentalspray für Hunde Vergleichstestsieger 2024/25</p>"},{"type":"html","id":"ggRuZaAZ7Wx_text","label":"ggRuZaAZ7Wx_text","default":"<p><strong>12.747 BEWERTUNGEN</strong></p>"},{"type":"html","id":"ggh7Mqfv3Si_text","label":"ggh7Mqfv3Si_text","default":"<p><span style=\"color:#BA3535;\"><strong>nur 26,65€ </strong></span><span style=\"font-size:25px;\"><s><strong>39,90€</strong></s></span><strong> pro Flasche </strong>(6er Bundle Jahreskur)</p>"},{"type":"html","id":"gg_aabugMqv_text","label":"gg_aabugMqv_text","default":"Nur noch <strong>7 Sets</strong> auf Lager (mehr ist in Produktion)"},{"type":"html","id":"ggFFjHYELjp_text","label":"ggFFjHYELjp_text","default":"<p><strong>Tierliebhaber Dentalspray</strong></p>"},{"type":"html","id":"gggycwgs0Ph_text","label":"gggycwgs0Ph_text","default":"<p>Dentalspray für Hunde Vergleichstestsieger 2024/25</p>"},{"type":"html","id":"ggpFLsMW5RS_text","label":"ggpFLsMW5RS_text","default":"<p><strong>12.747 BEWERTUNGEN</strong></p>"},{"type":"html","id":"ggWRXDRMf2B_text","label":"ggWRXDRMf2B_text","default":"<p><span style=\"color:#BA3535;\"><strong>nur 26,65€ </strong></span><span style=\"font-size:25px;\"><s><strong>39,90€</strong></s></span><strong> pro Flasche </strong>(6er Bundle Jahreskur)</p>"},{"type":"html","id":"gg_CSkNJ3JL_text","label":"gg_CSkNJ3JL_text","default":"Nur noch <strong>7 Sets</strong> auf Lager (mehr ist in Produktion)"},{"type":"html","id":"gg2oKwdOo26_label","label":"gg2oKwdOo26_label","default":"<p>JETZT ZUM ANGEBOT</p>"},{"type":"html","id":"gggVPFspUGB_label","label":"gggVPFspUGB_label","default":"<p>JETZT ZUM ANGEBOT</p>"}],
     "blocks": [{"type": "@app"}],
     "locales": {}
   }
