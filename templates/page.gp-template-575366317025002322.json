@@ -144,7 +144,7 @@
     },
     "gp_section_575366317110330194": {
       "settings": {
-        "checksum": "d9d5bcb615ef0e11cd0ba9693012e9602dee50f9406492157fa7096ec092d2e4_0_1_1_0_"
+        "checksum": "d70846ea742ece714da643e75a558ed68ef43177e9f014b6759e86121896756d_0_1_1_0_"
       },
       "type": "gp-section-575366317110330194"
     },
@@ -153,11 +153,18 @@
         "checksum": "9700de8c31e0ad9f7e0d00503ef23f740aa71da0fd7b599b702f798174c8bc09_0_1_1_0_"
       },
       "type": "gp-section-575366317110395730"
+    },
+    "gp_section_575554809164202527": {
+      "settings": {
+        "checksum": "8ca25e95f71cab7507756d95d7e2033ca8c0f8a6911ea4a9100e2ce95ebfa55d_0_1_1_0_"
+      },
+      "type": "gp-section-575554809164202527"
     }
   },
   "order": [
     "gp_section_575366317110264658",
     "gp_section_575366317110330194",
+    "gp_section_575554809164202527",
     "gp_section_575366317109085010",
     "gp_section_575366317109216082",
     "gp_section_575366317109281618",
