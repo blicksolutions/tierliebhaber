@@ -525,6 +525,9 @@
         "optional_company_label": "Packstation / Firma (optional) ",
         "address1_label": "Straße, Hausnummer",
         "optional_address2_label": "DHL Postnummer, Zimmer o.ä (optional)"
+      },
+      "marketing": {
+        "accept_marketing_checkbox_label": "Wir nutzen deine E-Mail-Adresse, um dir Informationen über unsere Produkte zu senden. Dieser Verwendung deiner E-Mail-Adresse kannst du jederzeit kostenlos widersprechen."
       }
     }
   },
