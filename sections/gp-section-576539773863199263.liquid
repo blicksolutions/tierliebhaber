@@ -574,6 +574,31 @@
       style="--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--aspect:1/1"
     >
       
+    <gp-lite-vimeo-embed gp-data='{"id":"1103625009","lazy":true,"iframeSrc":"https://player.vimeo.com/video/1103625009?&autoplay=false&muted=true&loop=false&controls=true&autopause=false","title":"Video","style":{"--aspect":"1/1"}}'>
+      <article
+        aria-hidden
+        class="gp-relative gp-bg-cover gp-bg-center gp-lite-vimeo-embed-article tablet:!gp-aspect-video mobile:!gp-aspect-video"
+        data-title="Video"
+        style="--aspect:1/1"
+      >
+        <img src="" alt="Poster" class="gp-invisible gp-h-full gp-w-full" />
+        <button
+          type="button"
+          class="gp-absolute gp-top-1/2 gp-left-1/2 gp-flex gp-aspect-[56/32] gp-w-[56px] -gp-translate-x-1/2 -gp-translate-y-1/2 gp-items-center gp-justify-center gp-rounded gp-bg-black/80 gp-transition-colors hover:gp-bg-[#ef0800] gp-lite-vimeo-embed-button gp-visible gp-opacity-100"
+          aria-label="Play"
+        >
+          <svg class="gp-w-[20px] gp-text-white" viewBox="0 0 24 24">
+            <path
+              fill="currentColor"
+              d="M5 5.274c0-1.707 1.826-2.792 3.325-1.977l12.362 6.726c1.566.853 1.566 3.101 0 3.953L8.325 20.702C6.826 21.518 5 20.432 5 18.726V5.274Z"
+            />
+          </svg>
+        </button>
+        
+      </article>
+    </gp-lite-vimeo-embed>
+    <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-lite-vimeo-embed.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+  
     </div>
   
       </div>
