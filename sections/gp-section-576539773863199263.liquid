@@ -6,12 +6,12 @@
       
             <section
               class="gp-mx-auto gp-max-w-full {% if section.settings.section_preload == "false" %}gps-lazy {% endif %}"
-              style="--w:100%;--w-tablet:100%;--w-mobile:100%;--pl:0px;--pl-tablet:0px;--pl-mobile:0px;--pr:0px;--pr-tablet:0px;--pr-mobile:0px"
+              style="--w:calc(1000px + 2 * var(--g-ct-p, 15px));--w-tablet:100%;--w-mobile:100%;--pl:var(--g-ct-p, 15px);--pl-tablet:0px;--pl-mobile:0px;--pr:var(--g-ct-p, 15px);--pr-tablet:0px;--pr-mobile:0px"
             >
               
     <div
       id="gkqxaCRLdB" data-id="gkqxaCRLdB"
-        style="--blockPadding:base;--mb:20px;--pt:var(--g-s-2xl);--pb:var(--g-s-2xl);--d:grid;--d-tablet:grid;--d-mobile:none;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--cg:32px;--pc:start;--gtc:minmax(0, 12fr);--w:100%;--w-tablet:100%;--w-mobile:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        style="--blockPadding:base;--mb:20px;--pt:10px;--pb:var(--g-s-2xl);--d:grid;--d-tablet:grid;--d-mobile:none;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--cg:32px;--pc:start;--gtc:minmax(0, 12fr);--w:1000px;--w-tablet:100%;--w-mobile:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
         class="gkqxaCRLdB gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]"
     >
     <div
@@ -83,7 +83,7 @@
         data-src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/gempages_534104955091420133-1c744033-b665-4f8f-9518-eca6e6745fc2.png"
         width="100%"
         alt=""
-        style="--aspect:auto;--aspect-tablet:auto;--aspect-mobile:auto;--objf:cover;--w:80px;--w-tablet:80px;--w-mobile:80px;--h:auto;--h-tablet:auto;--h-mobile:auto;--b:none;--bc:#000000;--bw:1px 1px 1px 1px;--radiusType:none;--shadow:none"
+        style="--aspect:auto;--aspect-tablet:auto;--aspect-mobile:auto;--objf:cover;--w:70px;--w-tablet:70px;--w-mobile:70px;--h:auto;--h-tablet:auto;--h-mobile:auto;--b:none;--bc:#000000;--bw:1px 1px 1px 1px;--radiusType:none;--shadow:none"
       />
     
   </picture>
@@ -107,7 +107,7 @@
           
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
-          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-body, body);--weight:400;--ls:normal;--size:15px;--size-tablet:16px;--size-mobile:14px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--c:#242424;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-body, body);--weight:400;--ls:normal;--size:13px;--size-tablet:16px;--size-mobile:14px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--c:#242424;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
         >{{ section.settings.gg79lhgainU_text | replace: '$locationOrigin', locationOrigin }}</div>
       </div>
     </div>
@@ -138,51 +138,24 @@
           
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
-          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:left;--fs:normal;--ff:var(--g-font-heading, heading);--weight:700;--ls:normal;--size:25px;--size-tablet:40px;--size-mobile:29px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--c:#242424;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:left;--fs:normal;--ff:var(--g-font-heading, heading);--weight:700;--ls:normal;--size:22px;--size-tablet:40px;--size-mobile:29px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--c:#242424;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
         >{{ section.settings.ggcIZyxFlzZ_text | replace: '$locationOrigin', locationOrigin }}</h1>
       </div>
     </div>
     </gp-text>
-    
-  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
-  <gp-text data-id="gPLieiPvI0">
-    <div
-      parentTag="Col"
-        class="gPLieiPvI0 "
-        style="--ta:left;--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--op-mobile:100%;--op-tablet:100%;--mb:32px;--mb-mobile:21px"
-      >
-      <div class="gp-flex" style="--jc:left">
-        <div
-          
-          data-gp-text
-          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
-          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-body, body);--weight:400;--ls:normal;--size:18px;--size-tablet:23px;--size-mobile:17px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--c:#423a3a;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
-        >{{ section.settings.ggPLieiPvI0_text | replace: '$locationOrigin', locationOrigin }}</div>
-      </div>
-    </div>
-    </gp-text>
-    
-      <style id="custom-css-gPLieiPvI0">
-        .gPLieiPvI0 {
-
-}
-.gPLieiPvI0 p {
-
-}
-      </style>
     <div gp-el-wrapper  class="gXbHRV6r2C ">
       
     {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
     <gp-icon-list
       uid="gXbHRV6r2C"
       data-id="gXbHRV6r2C"
-      gp-data='{"position":{"desktop":"center","mobile":"center","tablet":"center"},"iconWidth":{"desktop":34,"mobile":16,"tablet":16}}'
+      gp-data='{"position":{"desktop":"center","mobile":"center","tablet":"center"},"iconWidth":{"desktop":23,"mobile":16,"tablet":16}}'
        style="--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--op-mobile:100%;--op-tablet:100%;--mb:14px;--mb-mobile:21px;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll">
      
       <div class="gp-flex" style="--jc:left">
         <div
         class="gp-inline-flex gp-flex-col "
-        style="--rg:14px;--rg-mobile:8px">
+        style="--rg:8px;--rg-mobile:8px">
         
            <div
             class="gp-icon-list-wrapper gp-flex gp-child-item-gXbHRV6r2C"
@@ -192,13 +165,13 @@
             <div class="gp-icon-list-icon gp-inline-flex gp-shrink-0 gp-overflow-hidden" style="--pl:0px;--pr:0px;--pt:0px;--pb:0px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:#ffffff;--bblr:999999px;--bbrr:999999px;--btlr:999999px;--btrr:999999px;--pos:relative;--pos-tablet:relative;--pos-mobile:relative;--top:inherit;--top-tablet:inherit;--top-mobile:inherit">
               <span
                 class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--size-desktop)] tablet:[&>svg]:!gp-h-[var(--size-tablet)] mobile:[&>svg]:!gp-h-[var(--size-mobile)] [&>svg]:!gp-w-[var(--size-desktop)] tablet:[&>svg]:!gp-w-[var(--size-tablet)] mobile:[&>svg]:!gp-w-[var(--size-mobile)]"
-                style="--c:#6CB479;--w:100%;--h:100%;--size-desktop:34px;--size-tablet:16px;--size-mobile:16px"
+                style="--c:#6CB479;--w:100%;--h:100%;--size-desktop:23px;--size-tablet:16px;--size-mobile:16px"
               >
                <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817723125989736">
               <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z" /></svg>
               </span>
             </div>
-             <div class=" gp-text-left gp-icon-list-text" style="--fs:normal;--ff:var(--g-font-body, body);--weight:400;--ls:normal;--size:15px;--size-tablet:16px;--size-mobile:14px;--c:#242424">
+             <div class=" gp-text-left gp-icon-list-text" style="--fs:normal;--ff:var(--g-font-body, body);--weight:400;--ls:normal;--size:13px;--size-tablet:16px;--size-mobile:14px;--c:#242424">
                 {{ section.settings.ggXbHRV6r2C_childItem_0 | replace: '$locationOrigin', locationOrigin }}
             </div>
             </div> 
@@ -210,13 +183,13 @@
             <div class="gp-icon-list-icon gp-inline-flex gp-shrink-0 gp-overflow-hidden" style="--pl:0px;--pr:0px;--pt:0px;--pb:0px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:#ffffff;--bblr:999999px;--bbrr:999999px;--btlr:999999px;--btrr:999999px;--pos:relative;--pos-tablet:relative;--pos-mobile:relative;--top:inherit;--top-tablet:inherit;--top-mobile:inherit">
               <span
                 class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--size-desktop)] tablet:[&>svg]:!gp-h-[var(--size-tablet)] mobile:[&>svg]:!gp-h-[var(--size-mobile)] [&>svg]:!gp-w-[var(--size-desktop)] tablet:[&>svg]:!gp-w-[var(--size-tablet)] mobile:[&>svg]:!gp-w-[var(--size-mobile)]"
-                style="--c:#6CB479;--w:100%;--h:100%;--size-desktop:34px;--size-tablet:16px;--size-mobile:16px"
+                style="--c:#6CB479;--w:100%;--h:100%;--size-desktop:23px;--size-tablet:16px;--size-mobile:16px"
               >
                <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817723125989736">
               <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z" /></svg>
               </span>
             </div>
-             <div class=" gp-text-left gp-icon-list-text" style="--fs:normal;--ff:var(--g-font-body, body);--weight:400;--ls:normal;--size:15px;--size-tablet:16px;--size-mobile:14px;--c:#242424">
+             <div class=" gp-text-left gp-icon-list-text" style="--fs:normal;--ff:var(--g-font-body, body);--weight:400;--ls:normal;--size:13px;--size-tablet:16px;--size-mobile:14px;--c:#242424">
                 {{ section.settings.ggXbHRV6r2C_childItem_1 | replace: '$locationOrigin', locationOrigin }}
             </div>
             </div> 
@@ -228,13 +201,13 @@
             <div class="gp-icon-list-icon gp-inline-flex gp-shrink-0 gp-overflow-hidden" style="--pl:0px;--pr:0px;--pt:0px;--pb:0px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:#ffffff;--bblr:999999px;--bbrr:999999px;--btlr:999999px;--btrr:999999px;--pos:relative;--pos-tablet:relative;--pos-mobile:relative;--top:inherit;--top-tablet:inherit;--top-mobile:inherit">
               <span
                 class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--size-desktop)] tablet:[&>svg]:!gp-h-[var(--size-tablet)] mobile:[&>svg]:!gp-h-[var(--size-mobile)] [&>svg]:!gp-w-[var(--size-desktop)] tablet:[&>svg]:!gp-w-[var(--size-tablet)] mobile:[&>svg]:!gp-w-[var(--size-mobile)]"
-                style="--c:#6CB479;--w:100%;--h:100%;--size-desktop:34px;--size-tablet:16px;--size-mobile:16px"
+                style="--c:#6CB479;--w:100%;--h:100%;--size-desktop:23px;--size-tablet:16px;--size-mobile:16px"
               >
                <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817723125989736">
               <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z" /></svg>
               </span>
             </div>
-             <div class=" gp-text-left gp-icon-list-text" style="--fs:normal;--ff:var(--g-font-body, body);--weight:400;--ls:normal;--size:15px;--size-tablet:16px;--size-mobile:14px;--c:#242424">
+             <div class=" gp-text-left gp-icon-list-text" style="--fs:normal;--ff:var(--g-font-body, body);--weight:400;--ls:normal;--size:13px;--size-tablet:16px;--size-mobile:14px;--c:#242424">
                 {{ section.settings.ggXbHRV6r2C_childItem_2 | replace: '$locationOrigin', locationOrigin }}
             </div>
             </div> 
@@ -246,13 +219,13 @@
             <div class="gp-icon-list-icon gp-inline-flex gp-shrink-0 gp-overflow-hidden" style="--pl:0px;--pr:0px;--pt:0px;--pb:0px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:#ffffff;--bblr:999999px;--bbrr:999999px;--btlr:999999px;--btrr:999999px;--pos:relative;--pos-tablet:relative;--pos-mobile:relative;--top:inherit;--top-tablet:inherit;--top-mobile:inherit">
               <span
                 class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--size-desktop)] tablet:[&>svg]:!gp-h-[var(--size-tablet)] mobile:[&>svg]:!gp-h-[var(--size-mobile)] [&>svg]:!gp-w-[var(--size-desktop)] tablet:[&>svg]:!gp-w-[var(--size-tablet)] mobile:[&>svg]:!gp-w-[var(--size-mobile)]"
-                style="--c:#6CB479;--w:100%;--h:100%;--size-desktop:34px;--size-tablet:16px;--size-mobile:16px"
+                style="--c:#6CB479;--w:100%;--h:100%;--size-desktop:23px;--size-tablet:16px;--size-mobile:16px"
               >
                <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817723125989736">
               <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z" /></svg>
               </span>
             </div>
-             <div class=" gp-text-left gp-icon-list-text" style="--fs:normal;--ff:var(--g-font-body, body);--weight:400;--ls:normal;--size:15px;--size-tablet:16px;--size-mobile:14px;--c:#242424">
+             <div class=" gp-text-left gp-icon-list-text" style="--fs:normal;--ff:var(--g-font-body, body);--weight:400;--ls:normal;--size:13px;--size-tablet:16px;--size-mobile:14px;--c:#242424">
                 {{ section.settings.ggXbHRV6r2C_childItem_3 | replace: '$locationOrigin', locationOrigin }}
             </div>
             </div> 
@@ -264,13 +237,13 @@
             <div class="gp-icon-list-icon gp-inline-flex gp-shrink-0 gp-overflow-hidden" style="--pl:0px;--pr:0px;--pt:0px;--pb:0px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:#ffffff;--bblr:999999px;--bbrr:999999px;--btlr:999999px;--btrr:999999px;--pos:relative;--pos-tablet:relative;--pos-mobile:relative;--top:inherit;--top-tablet:inherit;--top-mobile:inherit">
               <span
                 class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--size-desktop)] tablet:[&>svg]:!gp-h-[var(--size-tablet)] mobile:[&>svg]:!gp-h-[var(--size-mobile)] [&>svg]:!gp-w-[var(--size-desktop)] tablet:[&>svg]:!gp-w-[var(--size-tablet)] mobile:[&>svg]:!gp-w-[var(--size-mobile)]"
-                style="--c:#6CB479;--w:100%;--h:100%;--size-desktop:34px;--size-tablet:16px;--size-mobile:16px"
+                style="--c:#6CB479;--w:100%;--h:100%;--size-desktop:23px;--size-tablet:16px;--size-mobile:16px"
               >
                <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817723125989736">
               <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z" /></svg>
               </span>
             </div>
-             <div class=" gp-text-left gp-icon-list-text" style="--fs:normal;--ff:var(--g-font-body, body);--weight:400;--ls:normal;--size:15px;--size-tablet:16px;--size-mobile:14px;--c:#242424">
+             <div class=" gp-text-left gp-icon-list-text" style="--fs:normal;--ff:var(--g-font-body, body);--weight:400;--ls:normal;--size:13px;--size-tablet:16px;--size-mobile:14px;--c:#242424">
                 {{ section.settings.ggXbHRV6r2C_childItem_4 | replace: '$locationOrigin', locationOrigin }}
             </div>
             </div> 
@@ -282,13 +255,13 @@
             <div class="gp-icon-list-icon gp-inline-flex gp-shrink-0 gp-overflow-hidden" style="--pl:0px;--pr:0px;--pt:0px;--pb:0px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:#ffffff;--bblr:999999px;--bbrr:999999px;--btlr:999999px;--btrr:999999px;--pos:relative;--pos-tablet:relative;--pos-mobile:relative;--top:inherit;--top-tablet:inherit;--top-mobile:inherit">
               <span
                 class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--size-desktop)] tablet:[&>svg]:!gp-h-[var(--size-tablet)] mobile:[&>svg]:!gp-h-[var(--size-mobile)] [&>svg]:!gp-w-[var(--size-desktop)] tablet:[&>svg]:!gp-w-[var(--size-tablet)] mobile:[&>svg]:!gp-w-[var(--size-mobile)]"
-                style="--c:#6CB479;--w:100%;--h:100%;--size-desktop:34px;--size-tablet:16px;--size-mobile:16px"
+                style="--c:#6CB479;--w:100%;--h:100%;--size-desktop:23px;--size-tablet:16px;--size-mobile:16px"
               >
                <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817723125989736">
               <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z" /></svg>
               </span>
             </div>
-             <div class=" gp-text-left gp-icon-list-text" style="--fs:normal;--ff:var(--g-font-body, body);--weight:400;--ls:normal;--size:15px;--size-tablet:16px;--size-mobile:14px;--c:#242424">
+             <div class=" gp-text-left gp-icon-list-text" style="--fs:normal;--ff:var(--g-font-body, body);--weight:400;--ls:normal;--size:13px;--size-tablet:16px;--size-mobile:14px;--c:#242424">
                 {{ section.settings.ggXbHRV6r2C_childItem_5 | replace: '$locationOrigin', locationOrigin }}
             </div>
             </div>
@@ -356,7 +329,7 @@
       
       data-state="idle"
       class="g4uht9MiQr gp-button-base gp-group/button gp-rounded-none gp-max-w-full gp-relative gp-inline-flex gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-300 disabled:gp-btn-disabled disabled:gp-opacity-30 disabled:gp-pointer-events-none gp-text-center"
-      style="--hvr-bg:#FF7A21;--bg:#F3841D;--bblr:8px;--bbrr:8px;--btlr:8px;--btrr:8px;--shadow:6.735557395310443e-16px 11px 11px 0px rgba(96, 77, 62, 0.09);--w:100%;--w-tablet:100%;--w-mobile:100%;--h:73px;--h-tablet:73px;--h-mobile:64px;--pl:8px;--pr:8px;--pt:auto;--pb:auto;--pl-mobile:8px;--pr-mobile:8px;--pt-mobile:auto;--pb-mobile:auto;--c:#000000;--size:20px;--size-tablet:19px;--size-mobile:17px;--fs:normal;--ff:var(--g-font-body, body);--weight:600;--ls:normal;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--tt:uppercase"
+      style="--hvr-bg:#FF7A21;--bg:#F3841D;--bblr:8px;--bbrr:8px;--btlr:8px;--btrr:8px;--shadow:6.735557395310443e-16px 11px 11px 0px rgba(96, 77, 62, 0.09);--w:100%;--w-tablet:100%;--w-mobile:100%;--h:73px;--h-tablet:73px;--h-mobile:64px;--pl:8px;--pr:8px;--pt:auto;--pb:auto;--pl-mobile:8px;--pr-mobile:8px;--pt-mobile:auto;--pb-mobile:auto;--c:#000000;--size:17px;--size-tablet:19px;--size-mobile:17px;--fs:normal;--ff:var(--g-font-body, body);--weight:600;--ls:normal;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--tt:uppercase"
     >
       
     <div
@@ -366,7 +339,7 @@
         data-gp-text
         class="gp-content-product-button group-hover/button:!gp-text-inherit group-active/button:!gp-text-inherit  gp-button-text-only gp-break-words group-data-[state=loading]/button:gp-invisible [&_p]:gp-whitespace-pre-line gp-z-1 gp-h-full gp-flex gp-items-center gp-overflow-hidden 
         "
-        style="--size:20px;--size-tablet:19px;--size-mobile:17px;--c:#000000"
+        style="--size:17px;--size-tablet:19px;--size-mobile:17px;--c:#000000"
       >
         {{ section.settings.gg4uht9MiQr_label }}
       </span>
@@ -929,7 +902,7 @@
       
     >
       <span
-        style="--c:#242424;--t:rotate(0deg);--w:50px;--w-tablet:50px;--w-mobile:40px;--h:50px;--h-tablet:50px;--h-mobile:40px;--minw:50px;--minw-tablet:50px;--minw-mobile:40px;--height-desktop:50px;--height-tablet:50px;--height-mobile:40px"
+        style="--c:#242424;--t:rotate(0deg);--w:35px;--w-tablet:35px;--w-mobile:40px;--h:35px;--h-tablet:35px;--h-mobile:40px;--minw:35px;--minw-tablet:35px;--minw-mobile:40px;--height-desktop:35px;--height-tablet:35px;--height-mobile:40px"
         class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--height-desktop)] [&>svg]:!gp-w-auto tablet:[&>svg]:!gp-h-[var(--height-tablet)] mobile:[&>svg]:!gp-h-[var(--height-mobile)]"
       ><svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817633464942952">
               <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M221.45,40.19a6,6,0,0,0-5.64-5.64C140.43,30.11,80.14,52.71,54.53,95c-17.44,28.79-16.76,62.8,1.79,96.2L35.76,211.76a6,6,0,1,0,8.48,8.48L64.8,199.68c17.27,9.59,34.7,14.41,51.49,14.41A85.38,85.38,0,0,0,161,201.47C203.29,175.86,225.88,115.57,221.45,40.19Zm-66.66,151c-24.08,14.58-52.64,14.37-81.13-.39l90.59-90.59a6,6,0,0,0-8.48-8.48L65.18,182.34c-14.76-28.49-15-57-.39-81.13,22.68-37.43,76.63-57.8,145-54.95C212.59,114.58,192.22,168.54,154.79,191.21Z" /></svg></span>
@@ -949,7 +922,7 @@
           
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
-          style="--w:245px;--w-tablet:245px;--w-mobile:245px;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-body, body);--ls:normal;--size:15px;--size-tablet:16px;--size-mobile:14px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--weight:bold;--c:#242424;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
+          style="--w:245px;--w-tablet:245px;--w-mobile:245px;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-body, body);--ls:normal;--size:13px;--size-tablet:16px;--size-mobile:14px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--weight:bold;--c:#242424;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
         >{{ section.settings.ggnG-E3pXgp_text | replace: '$locationOrigin', locationOrigin }}</div>
       </div>
     </div>
@@ -976,7 +949,7 @@
           
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
-          style="--w:245px;--w-tablet:245px;--w-mobile:245px;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-body, body);--weight:400;--ls:normal;--size:13px;--size-tablet:16px;--size-mobile:12px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--c:#242424;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
+          style="--w:245px;--w-tablet:245px;--w-mobile:245px;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-body, body);--weight:400;--ls:normal;--size:11px;--size-tablet:16px;--size-mobile:12px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--c:#242424;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
         >{{ section.settings.gg9GtkTFiTD_text | replace: '$locationOrigin', locationOrigin }}</div>
       </div>
     </div>
@@ -1028,7 +1001,7 @@
       
     >
       <span
-        style="--c:#242424;--t:rotate(0deg);--w:50px;--w-tablet:50px;--w-mobile:40px;--h:50px;--h-tablet:50px;--h-mobile:40px;--minw:50px;--minw-tablet:50px;--minw-mobile:40px;--height-desktop:50px;--height-tablet:50px;--height-mobile:40px"
+        style="--c:#242424;--t:rotate(0deg);--w:35px;--w-tablet:35px;--w-mobile:40px;--h:35px;--h-tablet:35px;--h-mobile:40px;--minw:35px;--minw-tablet:35px;--minw-mobile:40px;--height-desktop:35px;--height-tablet:35px;--height-mobile:40px"
         class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--height-desktop)] [&>svg]:!gp-w-auto tablet:[&>svg]:!gp-h-[var(--height-tablet)] mobile:[&>svg]:!gp-h-[var(--height-mobile)]"
       ><svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817616301457768">
               <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M126,136a6,6,0,0,1-6,6H72a6,6,0,0,1,0-12h48A6,6,0,0,1,126,136Zm-6-38H72a6,6,0,0,0,0,12h48a6,6,0,0,0,0-12Zm110,62.62V224a6,6,0,0,1-9,5.21l-25-14.3-25,14.3a6,6,0,0,1-9-5.21V198H40a14,14,0,0,1-14-14V56A14,14,0,0,1,40,42H216a14,14,0,0,1,14,14V87.38a49.91,49.91,0,0,1,0,73.24ZM196,86a38,38,0,1,0,38,38A38,38,0,0,0,196,86ZM162,186V160.62a50,50,0,0,1,56-81.51V56a2,2,0,0,0-2-2H40a2,2,0,0,0-2,2V184a2,2,0,0,0,2,2Zm56-17.11a49.91,49.91,0,0,1-44,0v44.77l19-10.87a6,6,0,0,1,6,0l19,10.87Z" /></svg></span>
@@ -1048,7 +1021,7 @@
           
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
-          style="--w:245px;--w-tablet:245px;--w-mobile:245px;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-body, body);--ls:normal;--size:15px;--size-tablet:16px;--size-mobile:14px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--weight:bold;--c:#242424;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
+          style="--w:245px;--w-tablet:245px;--w-mobile:245px;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-body, body);--ls:normal;--size:13px;--size-tablet:16px;--size-mobile:14px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--weight:bold;--c:#242424;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
         >{{ section.settings.ggPz_NUmTQL_text | replace: '$locationOrigin', locationOrigin }}</div>
       </div>
     </div>
@@ -1075,7 +1048,7 @@
           
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
-          style="--w:245px;--w-tablet:245px;--w-mobile:245px;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-body, body);--weight:400;--ls:normal;--size:13px;--size-tablet:16px;--size-mobile:12px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--c:#242424;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
+          style="--w:245px;--w-tablet:245px;--w-mobile:245px;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-body, body);--weight:400;--ls:normal;--size:11px;--size-tablet:16px;--size-mobile:12px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--c:#242424;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
         >{{ section.settings.gg5YcBefhor_text | replace: '$locationOrigin', locationOrigin }}</div>
       </div>
     </div>
@@ -1127,7 +1100,7 @@
       
     >
       <span
-        style="--c:#242424;--t:rotate(0deg);--w:50px;--w-tablet:50px;--w-mobile:40px;--h:50px;--h-tablet:50px;--h-mobile:40px;--minw:50px;--minw-tablet:50px;--minw-mobile:40px;--height-desktop:50px;--height-tablet:50px;--height-mobile:40px"
+        style="--c:#242424;--t:rotate(0deg);--w:35px;--w-tablet:35px;--w-mobile:40px;--h:35px;--h-tablet:35px;--h-mobile:40px;--minw:35px;--minw-tablet:35px;--minw-mobile:40px;--height-desktop:35px;--height-tablet:35px;--height-mobile:40px"
         class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--height-desktop)] [&>svg]:!gp-w-auto tablet:[&>svg]:!gp-h-[var(--height-tablet)] mobile:[&>svg]:!gp-h-[var(--height-mobile)]"
       ><svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817653382906216">
               <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M232.49,81.44A22,22,0,0,0,216,74H158V56a38,38,0,0,0-38-38,6,6,0,0,0-5.37,3.32L76.29,98H32a14,14,0,0,0-14,14v88a14,14,0,0,0,14,14H204a22,22,0,0,0,21.83-19.27l12-96A22,22,0,0,0,232.49,81.44ZM30,200V112a2,2,0,0,1,2-2H74v92H32A2,2,0,0,1,30,200ZM225.92,97.24l-12,96A10,10,0,0,1,204,202H86V105.42l37.58-75.17A26,26,0,0,1,146,56V80a6,6,0,0,0,6,6h64a10,10,0,0,1,9.92,11.24Z" /></svg></span>
@@ -1147,7 +1120,7 @@
           
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
-          style="--w:245px;--w-tablet:245px;--w-mobile:245px;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-body, body);--ls:normal;--size:15px;--size-tablet:16px;--size-mobile:14px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--weight:bold;--c:#242424;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
+          style="--w:245px;--w-tablet:245px;--w-mobile:245px;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-body, body);--ls:normal;--size:13px;--size-tablet:16px;--size-mobile:14px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--weight:bold;--c:#242424;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
         >{{ section.settings.ggqkIv6yswc_text | replace: '$locationOrigin', locationOrigin }}</div>
       </div>
     </div>
@@ -1174,7 +1147,7 @@
           
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
-          style="--w:245px;--w-tablet:245px;--w-mobile:245px;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-body, body);--weight:400;--ls:normal;--size:13px;--size-tablet:16px;--size-mobile:12px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--c:#242424;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
+          style="--w:245px;--w-tablet:245px;--w-mobile:245px;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-body, body);--weight:400;--ls:normal;--size:11px;--size-tablet:16px;--size-mobile:12px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--c:#242424;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
         >{{ section.settings.ggxN8ckERhp_text | replace: '$locationOrigin', locationOrigin }}</div>
       </div>
     </div>
@@ -1226,7 +1199,7 @@
       
     >
       <span
-        style="--c:#242424;--t:rotate(0deg);--w:50px;--w-tablet:50px;--w-mobile:40px;--h:50px;--h-tablet:50px;--h-mobile:40px;--minw:50px;--minw-tablet:50px;--minw-mobile:40px;--height-desktop:50px;--height-tablet:50px;--height-mobile:40px"
+        style="--c:#242424;--t:rotate(0deg);--w:35px;--w-tablet:35px;--w-mobile:40px;--h:35px;--h-tablet:35px;--h-mobile:40px;--minw:35px;--minw-tablet:35px;--minw-mobile:40px;--height-desktop:35px;--height-tablet:35px;--height-mobile:40px"
         class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--height-desktop)] [&>svg]:!gp-w-auto tablet:[&>svg]:!gp-h-[var(--height-tablet)] mobile:[&>svg]:!gp-h-[var(--height-mobile)]"
       ><svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817641566896488">
               <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M222.72,67.91l-88-48.18a13.9,13.9,0,0,0-13.44,0l-88,48.18A14,14,0,0,0,26,80.18v95.64a14,14,0,0,0,7.28,12.27l88,48.18a13.92,13.92,0,0,0,13.44,0l88-48.18A14,14,0,0,0,230,175.82V80.18A14,14,0,0,0,222.72,67.91ZM127,30.25a2,2,0,0,1,1.92,0L212.51,76,178.57,94.57,94.05,48.31ZM122,223,39,177.57a2,2,0,0,1-1-1.75V86.66l84,46ZM43.49,76,81.56,55.15l84.51,46.26L128,122.24ZM218,175.82a2,2,0,0,1-1,1.75h0L134,223V132.64l36-19.71V152a6,6,0,0,0,12,0V106.37l36-19.71Z" /></svg></span>
@@ -1246,7 +1219,7 @@
           
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
-          style="--w:245px;--w-tablet:245px;--w-mobile:245px;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-body, body);--ls:normal;--size:15px;--size-tablet:16px;--size-mobile:14px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--weight:bold;--c:#242424;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
+          style="--w:245px;--w-tablet:245px;--w-mobile:245px;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-body, body);--ls:normal;--size:13px;--size-tablet:16px;--size-mobile:14px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--weight:bold;--c:#242424;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
         >{{ section.settings.ggptxuVwyIM_text | replace: '$locationOrigin', locationOrigin }}</div>
       </div>
     </div>
@@ -1273,7 +1246,7 @@
           
           data-gp-text
           class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
-          style="--w:245px;--w-tablet:245px;--w-mobile:245px;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-body, body);--weight:400;--ls:normal;--size:13px;--size-tablet:16px;--size-mobile:12px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--c:#242424;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
+          style="--w:245px;--w-tablet:245px;--w-mobile:245px;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-body, body);--weight:400;--ls:normal;--size:11px;--size-tablet:16px;--size-mobile:12px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--c:#242424;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
         >{{ section.settings.ggIyCbjHLxA_text | replace: '$locationOrigin', locationOrigin }}</div>
       </div>
     </div>
@@ -1310,7 +1283,7 @@
     "name": "Section 3",
     "tag": "section",
     "class": "gps-576539773863199263 gps gpsi",
-    "settings": [{"type":"paragraph","content":"Section design by GemPages. [Click here to start design](https://admin.shopify.com/store/tierliebhaber-animagus/apps/gempages-cro/app/shopify/edit?pageType=GP_STATIC&editorId=575823740923806282&sectionId=576539773863199263)"},{"type":"select","label":"Section Preload","id":"section_preload","options":[{"label":"On","value":"true"},{"label":"Off","value":"false"},{"label":"Off Lazy Script","value":"off_lazy_script"}],"default":"off_lazy_script"},{"type":"text","label":"Checksum","id":"checksum"},{"type":"html","id":"gg79lhgainU_text","label":"gg79lhgainU_text","default":"<p>Mehr als 500.000 zufriedene Kunden</p>"},{"type":"html","id":"ggcIZyxFlzZ_text","label":"ggcIZyxFlzZ_text","default":"<strong>Komplettschutz Magen-Darm-Kur für Hunde: Der einfachste Weg zu einem gesunden Hundedarm (100% natürlich)</strong>"},{"type":"html","id":"ggPLieiPvI0_text","label":"ggPLieiPvI0_text","default":"<p>Die pflanzliche Formel, die immer mehr Tierärzte empfehlen – über <strong>93 % der Hunde</strong> zeigen nach 2 Wochen deutlich weniger Anzeichen von Sodbrennen, Erbrechen und Pfotenlecken</p>"},{"type":"html","id":"ggXbHRV6r2C_childItem_0","label":"ggXbHRV6r2C_childItem_0","default":"<p>Bestseller Nr. 1 in Deutschland (NEU: jetzt mit noch besserer Formel)</p>"},{"type":"html","id":"ggXbHRV6r2C_childItem_1","label":"ggXbHRV6r2C_childItem_1","default":"<p>Lindert Sodbrennen, indem es überschüssige Magensäure bindet</p>"},{"type":"html","id":"ggXbHRV6r2C_childItem_2","label":"ggXbHRV6r2C_childItem_2","default":"<p>Lindert Würgereiz, Pfotenlecken und Erbrechen von Gras, weil es Magensäure bindet und so die Übersäuerung stoppt</p>"},{"type":"html","id":"ggXbHRV6r2C_childItem_3","label":"ggXbHRV6r2C_childItem_3","default":"<p>Ohne Chemie - komplett natürliche und studienbasierte Wirkstoffe</p>"},{"type":"html","id":"ggXbHRV6r2C_childItem_4","label":"ggXbHRV6r2C_childItem_4","default":"<p>Von Hunden geliebt: Als Leckerli in nur 10 Sekunden am Tag</p>"},{"type":"html","id":"ggXbHRV6r2C_childItem_5","label":"ggXbHRV6r2C_childItem_5","default":"<p><span style=\"color:#CC0E0E;\">60 Tage Wirksamkeit testen, 30 Tage Rückgabe-Möglichkeit</span></p>"},{"type":"html","id":"gg4uht9MiQr_label","label":"gg4uht9MiQr_label","default":"<p>BIS ZU 30% NEUKUNDEN-RABATT AKTIVIEREN</p>"},{"type":"html","id":"ggnG-E3pXgp_text","label":"ggnG-E3pXgp_text","default":"<p>100% Natürlich</p>"},{"type":"html","id":"gg9GtkTFiTD_text","label":"gg9GtkTFiTD_text","default":"<p>Schonend &nbsp;Magen-Lösung aus wirksamen Pflanzenstoffen &nbsp;</p>"},{"type":"html","id":"ggPz_NUmTQL_text","label":"ggPz_NUmTQL_text","default":"<p>Kein Risiko</p>"},{"type":"html","id":"gg5YcBefhor_text","label":"gg5YcBefhor_text","default":"<p>90 Tage Geld-zurück-Garantie ohne Wenn und Aber</p>"},{"type":"html","id":"ggqkIv6yswc_text","label":"ggqkIv6yswc_text","default":"<p>Einfache Anwendung</p>"},{"type":"html","id":"ggxN8ckERhp_text","label":"ggxN8ckERhp_text","default":"<p>Anti-Sodbrennen Hilfe im Im Leckerlie-Format</p>"},{"type":"html","id":"ggptxuVwyIM_text","label":"ggptxuVwyIM_text","default":"<p>Blitzversand</p>"},{"type":"html","id":"ggIyCbjHLxA_text","label":"ggIyCbjHLxA_text","default":"<p>Das Paket ist in der Regel in 2-3 Tagen nach Bestellung bei dir Zuhause</p>"}],
+    "settings": [{"type":"paragraph","content":"Section design by GemPages. [Click here to start design](https://admin.shopify.com/store/tierliebhaber-animagus/apps/gempages-cro/app/shopify/edit?pageType=GP_STATIC&editorId=575823740923806282&sectionId=576539773863199263)"},{"type":"select","label":"Section Preload","id":"section_preload","options":[{"label":"On","value":"true"},{"label":"Off","value":"false"},{"label":"Off Lazy Script","value":"off_lazy_script"}],"default":"off_lazy_script"},{"type":"text","label":"Checksum","id":"checksum"},{"type":"html","id":"gg79lhgainU_text","label":"gg79lhgainU_text","default":"<p>Mehr als 500.000 zufriedene Kunden</p>"},{"type":"html","id":"ggcIZyxFlzZ_text","label":"ggcIZyxFlzZ_text","default":"<strong>Komplettschutz Magen-Darm-Kur für Hunde: Der einfachste Weg zu einem gesunden Hundedarm (100% natürlich)</strong>"},{"type":"html","id":"ggXbHRV6r2C_childItem_0","label":"ggXbHRV6r2C_childItem_0","default":"<p>Bestseller Nr. 1 in Deutschland (NEU: jetzt mit noch besserer Formel)</p>"},{"type":"html","id":"ggXbHRV6r2C_childItem_1","label":"ggXbHRV6r2C_childItem_1","default":"<p>Lindert Sodbrennen, indem es überschüssige Magensäure bindet</p>"},{"type":"html","id":"ggXbHRV6r2C_childItem_2","label":"ggXbHRV6r2C_childItem_2","default":"<p>Lindert Würgereiz, Pfotenlecken und Erbrechen von Gras, weil es Magensäure bindet und so die Übersäuerung stoppt</p>"},{"type":"html","id":"ggXbHRV6r2C_childItem_3","label":"ggXbHRV6r2C_childItem_3","default":"<p>Ohne Chemie - komplett natürliche und studienbasierte Wirkstoffe</p>"},{"type":"html","id":"ggXbHRV6r2C_childItem_4","label":"ggXbHRV6r2C_childItem_4","default":"<p>Von Hunden geliebt: Als Leckerli in nur 10 Sekunden am Tag</p>"},{"type":"html","id":"ggXbHRV6r2C_childItem_5","label":"ggXbHRV6r2C_childItem_5","default":"<p><span style=\"color:#CC0E0E;\">60 Tage Wirksamkeit testen, 30 Tage Rückgabe-Möglichkeit</span></p>"},{"type":"html","id":"gg4uht9MiQr_label","label":"gg4uht9MiQr_label","default":"<p>BIS ZU 30% NEUKUNDEN-RABATT AKTIVIEREN</p>"},{"type":"html","id":"ggnG-E3pXgp_text","label":"ggnG-E3pXgp_text","default":"<p>100% Natürlich</p>"},{"type":"html","id":"gg9GtkTFiTD_text","label":"gg9GtkTFiTD_text","default":"<p>Schonend &nbsp;Magen-Lösung aus wirksamen Pflanzenstoffen &nbsp;</p>"},{"type":"html","id":"ggPz_NUmTQL_text","label":"ggPz_NUmTQL_text","default":"<p>Kein Risiko</p>"},{"type":"html","id":"gg5YcBefhor_text","label":"gg5YcBefhor_text","default":"<p>90 Tage Geld-zurück-Garantie ohne Wenn und Aber</p>"},{"type":"html","id":"ggqkIv6yswc_text","label":"ggqkIv6yswc_text","default":"<p>Einfache Anwendung</p>"},{"type":"html","id":"ggxN8ckERhp_text","label":"ggxN8ckERhp_text","default":"<p>Anti-Sodbrennen Hilfe im Im Leckerlie-Format</p>"},{"type":"html","id":"ggptxuVwyIM_text","label":"ggptxuVwyIM_text","default":"<p>Blitzversand</p>"},{"type":"html","id":"ggIyCbjHLxA_text","label":"ggIyCbjHLxA_text","default":"<p>Das Paket ist in der Regel in 2-3 Tagen nach Bestellung bei dir Zuhause</p>"}],
     "blocks": [{"type": "@app"}],
     "locales": {}
   }
