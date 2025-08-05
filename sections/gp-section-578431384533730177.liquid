@@ -1,0 +1,689 @@
+
+
+<style>@import url('https://fonts.googleapis.com/css?family=Inter:600,700,400|sans-serif:400&display=swap');.gps-578431384533730177 .gp-g-paragraph-1{font-family:var(--g-p1-ff);font-size:var(--g-p1-size);font-style:var(--g-p1-fs);font-weight:var(--g-p1-weight);letter-spacing:var(--g-p1-ls);line-height:var(--g-p1-lh)}.gps-578431384533730177 .gp-relative{position:relative}.gps-578431384533730177 .gp-mx-auto{margin-left:auto;margin-right:auto}.gps-578431384533730177 .gp-mb-0{margin-bottom:0}.gps-578431384533730177 .gp-block{display:block}.gps-578431384533730177 .gp-inline-block{display:inline-block}.gps-578431384533730177 .gp-flex{display:flex}.gps-578431384533730177 .gp-inline-flex{display:inline-flex}.gps-578431384533730177 .gp-grid{display:grid}.gps-578431384533730177 .gp-contents{display:contents}.gps-578431384533730177 .\!gp-hidden{display:none!important}.gps-578431384533730177 .gp-hidden{display:none}.gps-578431384533730177 .gp-h-auto{height:auto}.gps-578431384533730177 .gp-h-full{height:100%}.gps-578431384533730177 .gp-w-full{width:100%}.gps-578431384533730177 .gp-max-w-full{max-width:100%}.gps-578431384533730177 .gp-flex-none{flex:none}.gps-578431384533730177 .gp-shrink-0{flex-shrink:0}.gps-578431384533730177 .gp-grid-rows-\[1fr\]{grid-template-rows:1fr}.gps-578431384533730177 .gp-flex-col{flex-direction:column}.gps-578431384533730177 .gp-items-center{align-items:center}.gps-578431384533730177 .gp-justify-center{justify-content:center}.gps-578431384533730177 .gp-overflow-hidden{overflow:hidden}.gps-578431384533730177 .gp-break-words{overflow-wrap:break-word}.gps-578431384533730177 .gp-border{border-width:1px}.gps-578431384533730177 .gp-border-transparent{border-color:transparent}.gps-578431384533730177 .gp-text-left{text-align:left}.gps-578431384533730177 .gp-text-g-text-3{color:var(--g-c-text-3)}.gps-578431384533730177 .gp-no-underline{text-decoration-line:none}.gps-578431384533730177 .gp-transition-colors{transition-duration:.15s;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-578431384533730177 .gp-duration-200{transition-duration:.2s}.gps-578431384533730177 .gp-ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-578431384533730177 .disabled\:gp-btn-disabled:disabled{cursor:default}.gps-578431384533730177 .disabled\:gp-opacity-30:disabled{opacity:.3}.gps-578431384533730177 .gp-group\/button:active .group-active\/button\:\!gp-text-inherit{color:inherit!important}.gps-578431384533730177 .gp-group[data-state=loading] .group-data-\[state\=loading\]\:gp-invisible{visibility:hidden}@media (max-width:1024px){.gps-578431384533730177 .tablet\:gp-block{display:block}.gps-578431384533730177 .tablet\:\!gp-hidden{display:none!important}.gps-578431384533730177 .tablet\:gp-hidden{display:none}.gps-578431384533730177 .tablet\:gp-h-auto{height:auto}.gps-578431384533730177 .tablet\:gp-flex-none{flex:none}}@media (max-width:767px){.gps-578431384533730177 .mobile\:gp-block{display:block}.gps-578431384533730177 .mobile\:\!gp-hidden{display:none!important}.gps-578431384533730177 .mobile\:gp-hidden{display:none}.gps-578431384533730177 .mobile\:gp-h-auto{height:auto}.gps-578431384533730177 .mobile\:gp-flex-none{flex:none}}.gps-578431384533730177 .\[\&\>svg\]\:\!gp-h-\[var\(--size-desktop\)\]>svg{height:var(--size-desktop)!important}.gps-578431384533730177 .\[\&\>svg\]\:\!gp-w-\[var\(--size-desktop\)\]>svg{width:var(--size-desktop)!important}@media (max-width:1024px){.gps-578431384533730177 .tablet\:\[\&\>svg\]\:\!gp-h-\[var\(--size-tablet\)\]>svg{height:var(--size-tablet)!important}.gps-578431384533730177 .tablet\:\[\&\>svg\]\:\!gp-w-\[var\(--size-tablet\)\]>svg{width:var(--size-tablet)!important}}@media (max-width:767px){.gps-578431384533730177 .mobile\:\[\&\>svg\]\:\!gp-h-\[var\(--size-mobile\)\]>svg{height:var(--size-mobile)!important}.gps-578431384533730177 .mobile\:\[\&\>svg\]\:\!gp-w-\[var\(--size-mobile\)\]>svg{width:var(--size-mobile)!important}}.gps-578431384533730177 .\[\&_\*\]\:gp-max-w-full *{max-width:100%}.gps-578431384533730177 .\[\&_p\]\:gp-whitespace-pre-line p{white-space:pre-line}</style>
+
+
+    
+
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+
+    
+        <section
+          class="gp-mx-auto gp-max-w-full [&_*]:gp-max-w-full {% if section.settings.section_preload == "false" %}gps-lazy {% endif %}"
+          style="--w:calc(1000px + 2 * var(--g-ct-p, 15px));--w-tablet:100%;--w-mobile:calc(var(--g-ct-w, 100%) + 2 * var(--g-ct-p, 15px));--pl:none;--pl-tablet:none;--pl-mobile:var(--g-ct-p, 15px);--pr:none;--pr-tablet:none;--pr-mobile:var(--g-ct-p, 15px)"
+        >
+          
+    <gp-row gp-data='{"background":{"desktop":{"attachment":"scroll","color":"#00000000","image":{"height":0,"src":"","width":0},"position":{"x":50,"y":50},"repeat":"no-repeat","size":"cover","type":"color"}},"uid":"gro2Hnz2NZ"}' data-id="gro2Hnz2NZ" id="gro2Hnz2NZ" data-same-height-subgrid-container class="gro2Hnz2NZ gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--blockPadding:base;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--op-mobile:100%;--op-tablet:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--pt:0px;--pl:0px;--pb:0px;--pr:0px;--pt-tablet:0px;--pl-tablet:0px;--pb-tablet:0px;--pr-tablet:0px;--cg:32px;--gtc:minmax(0, 12fr);--w:1000px;--w-tablet:100%;--bgc:#00000000;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pc:start">
+      
+
+      <div
+      data-same-height-display-contents
+      style="--jc:start"
+      class="gP08BB_8bR gp-relative gp-flex gp-flex-col"
+    >
+      
+    
+
+    
+
+    
+    <gp-row gp-data='{"background":{"desktop":{"attachment":"scroll","color":"transparent","image":{"height":0,"src":"","width":0},"position":{"x":50,"y":50},"repeat":"no-repeat","size":"cover","type":"color"}},"uid":"g1bLb46UU4"}' data-id="g1bLb46UU4" id="g1bLb46UU4" data-same-height-subgrid-container class="g1bLb46UU4 gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:32px;--cg:8px;--gtc:minmax(0, 12fr);--gtc-mobile:minmax(0, 12fr);--w:var(--g-ct-w, 1200px);--h:auto;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pc:start">
+      
+
+      <div
+      data-same-height-display-contents
+      style="--jc:start"
+      class="goD9xDY7eM gp-relative gp-flex gp-flex-col"
+    >
+      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="gYT7vD_daZ"
+        class="gYT7vD_daZ"
+        style="--ta:left;--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--op-mobile:100%;--op-tablet:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:0px;--pt:0px;--pl:0px;--pb:0px;--pr:0px;--mb-tablet:16px;--pl-tablet:20px;--pr-tablet:20px;--mb-mobile:18px;--pl-mobile:0px;--pr-mobile:0px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1754386427359"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <h1
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:center;--ta-mobile:left;--fs:normal;--ff:var(--g-font-Inter, 'Inter'), var(--g-font-heading, heading);--ls:0px;--size:45px;--size-tablet:45px;--size-mobile:36px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--weight:bold;--c:#242424;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggYT7vD_daZ_text | replace: '$locationOrigin', locationOrigin }}
+        </h1>
+      </div>
+    </div>
+    
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="gC6-Dlmlua"
+        class="gC6-Dlmlua"
+        style="--ta:left;--mb:42px;--pt:0px;--pl:0px;--pb:0px;--pr:0px;--mb-tablet:42px;--pt-tablet:0px;--pl-tablet:0px;--pb-tablet:0px;--pr-tablet:0px;--mb-mobile:40px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--op:100%;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1754386427359"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--b:none;--bc:#121212;--bw:1px 1px 1px 1px;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--shadow:none;--ts:none;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-Inter, 'Inter'), var(--g-font-body, body);--weight:400;--size:28px;--size-tablet:28px;--size-mobile:20px;--lh:180%;--lh-tablet:180%;--lh-mobile:180%;--c:#151515;--tt:none;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggC6-Dlmlua_text | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+    
+
+    
+
+    
+    <gp-row gp-data='{"background":{"desktop":{"attachment":"scroll","color":"transparent","image":{"height":0,"src":"","width":0},"position":{"x":50,"y":50},"repeat":"no-repeat","size":"cover","type":"color"}},"uid":"gVP-3Erh5M"}' data-id="gVP-3Erh5M" id="gVP-3Erh5M" data-same-height-subgrid-container class="gVP-3Erh5M gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:none;--d-mobile:grid;--d-tablet:none;--op:100%;--op-mobile:100%;--op-tablet:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:26px;--pl:0px;--pr:0px;--mb-mobile:14px;--pl-mobile:auto;--mb-tablet:16px;--pl-tablet:20px;--pr-tablet:20px;--cg:16px;--cg-mobile:14px;--gtc:minmax(0, auto) minmax(0, auto);--gtc-mobile:minmax(0, auto) minmax(0, auto);--w:var(--g-ct-w, 1200px);--w-tablet:100%;--w-mobile:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pc:start">
+      
+
+      <div
+      data-same-height-display-contents
+      style="--jc:center"
+      class="gVCyofPqqK gp-relative gp-flex gp-flex-col"
+    >
+      
+    <div
+      role="presentation"
+      data-id="gbiTIFFqrT"
+      style="--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:center;--ta-mobile:left"
+      class="gp-group/image gp-relative force-publish-1754386427360 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto gbiTIFFqrT"
+    >
+      <div
+        
+        style="border-radius:inherit;--jc:center;--jc-mobile:left"
+        class="gp-h-full gp-w-full gp-flex pointer-events-auto"
+      >
+        
+    <picture style="border-radius:inherit" class="gp-contents">
+      
+      <source media="(max-width: 767px)" data-srcSet="{{ "gempages_534104955091420133-2fff61be-bb19-44b3-825f-ca40fe4a53d2.png" | file_url }}" srcset="{{ "gempages_534104955091420133-2fff61be-bb19-44b3-825f-ca40fe4a53d2.png" | file_url }}" />
+      <source media="(max-width: 1024px)" data-srcSet="{{ "gempages_534104955091420133-2fff61be-bb19-44b3-825f-ca40fe4a53d2.png" | file_url }}" srcset="{{ "gempages_534104955091420133-2fff61be-bb19-44b3-825f-ca40fe4a53d2.png" | file_url }}" />
+    
+      
+      <img
+        loading="eager" fetchpriority="high"
+        src="{{ "gempages_534104955091420133-2fff61be-bb19-44b3-825f-ca40fe4a53d2.png" | file_url }}" data-src="{{ "gempages_534104955091420133-2fff61be-bb19-44b3-825f-ca40fe4a53d2.png" | file_url }}"
+        alt=""
+        width="100%"
+        style="--aspect:auto;--aspect-tablet:auto;--aspect-mobile:auto;--objf:cover;--w:90px;--w-mobile:60px;--h:auto;--h-tablet:auto;--h-mobile:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--radiusType:square"
+        class="gp-inline-block gp-w-full gp-max-w-full"
+      />
+    
+    </picture>
+  
+      </div>
+    </div>
+  
+      <style id="custom-css-gbiTIFFqrT">
+        .gbiTIFFqrT {
+
+}
+.gbiTIFFqrT > figure > img {
+
+}
+      </style>
+    
+    </div><div
+      data-same-height-display-contents
+      style="--jc:center"
+      class="gTG7ioWmCJ gp-relative gp-flex gp-flex-col"
+    >
+      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="gq1vxi2SXL"
+        class="gq1vxi2SXL"
+        style="--ta:left;--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--op-mobile:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:4px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1754386427360"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <h2
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--fs:normal;--ff:var(--g-font-heading, heading);--weight:400;--ls:normal;--size:21px;--size-tablet:16px;--size-mobile:14px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--c:#242424;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggq1vxi2SXL_text | replace: '$locationOrigin', locationOrigin }}
+        </h2>
+      </div>
+    </div>
+    
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="gW5-4F53ec"
+        class="gW5-4F53ec"
+        style="--ta:left;--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1754386427361"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-body, body);--weight:400;--ls:normal;--size:19px;--size-tablet:16px;--size-mobile:14px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--c:#999999;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggW5-4F53ec_text | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+      <style id="custom-css-gW5-4F53ec">
+        .gW5-4F53ec {
+
+}
+.gW5-4F53ec p {
+
+}
+      </style>
+    
+    </div>
+
+      
+    </gp-row>
+  
+  
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="gP5moaRyBH"
+        class="gP5moaRyBH"
+        style="--ta:left;--mb:8px;--pt:0px;--pl:0px;--pb:0px;--pr:0px;--mb-tablet:8px;--pt-tablet:0px;--pl-tablet:0px;--pb-tablet:0px;--pr-tablet:0px;--mb-mobile:8px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--op:100%;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1754386427361"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--b:none;--bc:#121212;--bw:1px 1px 1px 1px;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--shadow:none;--ts:none;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-Inter, 'Inter'), var(--g-font-body, body);--size:18px;--size-tablet:18px;--size-mobile:16px;--lh:180%;--lh-tablet:180%;--lh-mobile:180%;--weight:bold;--c:#151515;--tt:none;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggP5moaRyBH_text | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="gOxSx4OX4C"
+        class="gOxSx4OX4C"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:8px;--pt:0px;--pl:0px;--pb:0px;--pr:0px;--mb-tablet:8px;--pt-tablet:0px;--pl-tablet:0px;--pb-tablet:0px;--pr-tablet:0px;--mb-mobile:8px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1754386427362"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-Inter, 'Inter'), var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:16px;--size-mobile:15px;--lh:180%;--lh-tablet:180%;--lh-mobile:180%;--c:#2c023d;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggOxSx4OX4C_text | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    <div gp-el-wrapper  class="gyt4qtTeiV ">
+      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <gp-icon-list
+      
+      uid="gyt4qtTeiV"
+      data-id="gyt4qtTeiV"
+      style="--mb:11px;--pt:0px;--pl:0px;--pb:0px;--pr:0px;--mb-tablet:11px;--pt-tablet:0px;--pl-tablet:0px;--pb-tablet:0px;--pr-tablet:0px;--mb-mobile:11px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--d:flex;--d-tablet:flex;--d-mobile:flex;--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--op:100%;--jc:left"
+      className="gyt4qtTeiV"
+      gp-data='{"position":{"desktop":"center","tablet":"center","mobile":"center"},"iconWidth":{"desktop":24}}'
+    >
+      
+          <div class="gp-flex" style="--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--w:100%;--jc:left">
+            <div class="gp-inline-flex gp-flex-col" style="--rg:12px">
+              
+                    <div
+                      key="0"
+                      data-index="0"
+                      class="gp-icon-list-wrapper gp-flex gp-child-item-gyt4qtTeiV"
+                      style="--cg:8px;--ai:center;--ai-tablet:center;--ai-mobile:center"
+                    >
+                      <div class="gp-icon-list-icon gp-inline-flex gp-shrink-0 gp-overflow-hidden" style="--pl:0px;--pr:0px;--pt:0px;--pb:0px;--bg:transparent;--top:unset;--top-tablet:unset;--top-mobile:unset;--pos:relative;--pos-tablet:relative;--pos-mobile:relative">
+                        <span
+                          class="gp-icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--size-desktop)] [&>svg]:!gp-w-[var(--size-desktop)] tablet:[&>svg]:!gp-h-[var(--size-tablet)] tablet:[&>svg]:!gp-w-[var(--size-tablet)] mobile:[&>svg]:!gp-h-[var(--size-mobile)] mobile:[&>svg]:!gp-w-[var(--size-mobile)]"
+                          style="--c:#C5453F;--w:100%;--h:100%;--size-desktop:24px;--size-tablet:24px;--size-mobile:24px"
+                        >
+                          <svg height="20" width="20" data-name="x-bold" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817606065848680">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z" /></svg>
+                        </span>
+                      </div>
+                      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id
+        class="gp-w-full"
+        style="--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1754386427362"
+      >
+      <div class="gp-flex" >
+        <div
+          data-gp-text
+          class=" gp-w-full gp-border gp-border-transparent gp-text-left gp-icon-list-text  gp-text-instant"
+          style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-Inter, 'Inter'), var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:16px;--size-mobile:14px;--lh:120%;--lh-tablet:180%;--lh-mobile:180%;--c:#151515;word-break:break-word;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggyt4qtTeiV_childItem_0 | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+                    </div> 
+                    <div
+                      key="1"
+                      data-index="1"
+                      class="gp-icon-list-wrapper gp-flex gp-child-item-gyt4qtTeiV"
+                      style="--cg:8px;--ai:center;--ai-tablet:center;--ai-mobile:center"
+                    >
+                      <div class="gp-icon-list-icon gp-inline-flex gp-shrink-0 gp-overflow-hidden" style="--pl:0px;--pr:0px;--pt:0px;--pb:0px;--bg:transparent;--top:unset;--top-tablet:unset;--top-mobile:unset;--pos:relative;--pos-tablet:relative;--pos-mobile:relative">
+                        <span
+                          class="gp-icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--size-desktop)] [&>svg]:!gp-w-[var(--size-desktop)] tablet:[&>svg]:!gp-h-[var(--size-tablet)] tablet:[&>svg]:!gp-w-[var(--size-tablet)] mobile:[&>svg]:!gp-h-[var(--size-mobile)] mobile:[&>svg]:!gp-w-[var(--size-mobile)]"
+                          style="--c:#C5453F;--w:100%;--h:100%;--size-desktop:24px;--size-tablet:24px;--size-mobile:24px"
+                        >
+                          <svg height="20" width="20" data-name="x-bold" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817606065848680">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z" /></svg>
+                        </span>
+                      </div>
+                      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id
+        class="gp-w-full"
+        style="--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1754386427363"
+      >
+      <div class="gp-flex" >
+        <div
+          data-gp-text
+          class=" gp-w-full gp-border gp-border-transparent gp-text-left gp-icon-list-text  gp-text-instant"
+          style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-Inter, 'Inter'), var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:16px;--size-mobile:14px;--lh:120%;--lh-tablet:180%;--lh-mobile:180%;--c:#151515;word-break:break-word;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggyt4qtTeiV_childItem_1 | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+                    </div> 
+                    <div
+                      key="2"
+                      data-index="2"
+                      class="gp-icon-list-wrapper gp-flex gp-child-item-gyt4qtTeiV"
+                      style="--cg:8px;--ai:center;--ai-tablet:center;--ai-mobile:center"
+                    >
+                      <div class="gp-icon-list-icon gp-inline-flex gp-shrink-0 gp-overflow-hidden" style="--pl:0px;--pr:0px;--pt:0px;--pb:0px;--bg:transparent;--top:unset;--top-tablet:unset;--top-mobile:unset;--pos:relative;--pos-tablet:relative;--pos-mobile:relative">
+                        <span
+                          class="gp-icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--size-desktop)] [&>svg]:!gp-w-[var(--size-desktop)] tablet:[&>svg]:!gp-h-[var(--size-tablet)] tablet:[&>svg]:!gp-w-[var(--size-tablet)] mobile:[&>svg]:!gp-h-[var(--size-mobile)] mobile:[&>svg]:!gp-w-[var(--size-mobile)]"
+                          style="--c:#C5453F;--w:100%;--h:100%;--size-desktop:24px;--size-tablet:24px;--size-mobile:24px"
+                        >
+                          <svg height="20" width="20" data-name="x-bold" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817606065848680">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z" /></svg>
+                        </span>
+                      </div>
+                      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id
+        class="gp-w-full"
+        style="--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1754386427363"
+      >
+      <div class="gp-flex" >
+        <div
+          data-gp-text
+          class=" gp-w-full gp-border gp-border-transparent gp-text-left gp-icon-list-text  gp-text-instant"
+          style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-Inter, 'Inter'), var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:16px;--size-mobile:14px;--lh:120%;--lh-tablet:180%;--lh-mobile:180%;--c:#151515;word-break:break-word;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggyt4qtTeiV_childItem_2 | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+                    </div>
+            </div>
+          </div>
+    </gp-icon-list>
+    <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-icon-list-v7-5.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+  
+      </div>
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="gzncLLdeVR"
+        class="gzncLLdeVR"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:31px;--pt:0px;--pl:0px;--pb:0px;--pr:0px;--mb-tablet:31px;--pt-tablet:0px;--pl-tablet:0px;--pb-tablet:0px;--pr-tablet:0px;--mb-mobile:31px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1754386427363"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-Inter, 'Inter'), var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:16px;--size-mobile:15px;--lh:180%;--lh-tablet:180%;--lh-mobile:180%;--c:#2c023d;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggzncLLdeVR_text | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    <div gp-el-wrapper style="--mb:9px;--pt:12px;--pb:12px;--mb-tablet:9px;--pt-tablet:12px;--pb-tablet:12px;--mb-mobile:9px;--pt-mobile:12px;--pb-mobile:12px;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--op:100%" class="g-mYVb-bIV ">
+      
+    <div data-id="g-mYVb-bIV" class="gp-flex gp-justify-center">
+      <div style="--w:100%;--w-tablet:100%;--w-mobile:100%;--bs:solid;--bbw:1px;--bbw-tablet:2px;--bbw-mobile:2px;--t:gp-rotate(0deg);--bc:var(--g-c-line-2, line-2)" class="gp-block tablet:gp-block mobile:gp-block"></div>
+      <div class="gp-items-center gp-hidden tablet:gp-hidden mobile:gp-hidden" style="--w:100%;--w-tablet:100%;--w-mobile:100%;--bc:var(--g-c-line-2, line-2);--t:gp-rotate(0deg)">
+        <div class="gp-hidden" style="--bc:var(--g-c-line-2, line-2);--bs:solid;--bbw:1px;--bbw-tablet:2px;--bbw-mobile:2px;--minw:100%;--w:100%;--w-tablet:100%;--w-mobile:100%"></div>
+        
+            <span
+              class="gp-inline-flex gp-flex-none gp-items-center gp-justify-center"
+              style="--mr:var(--g-s-xs);--w:20px;--h:20px;--t:gp-rotate(0);--c:var(--g-c-text-1, text-1)"
+            >
+              <svg style="width: 100%; height: 100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M428.8 137.6h-86.177a115.52 115.52 0 0 0 2.176-22.4c0-47.914-35.072-83.2-92-83.2-45.314 0-57.002 48.537-75.707 78.784-7.735 12.413-16.994 23.317-25.851 33.253l-.131.146-.129.148C135.662 161.807 127.764 168 120.8 168h-2.679c-5.747-4.952-13.536-8-22.12-8H32c-17.673 0-32 12.894-32 28.8v230.4C0 435.106 14.327 448 32 448h64c8.584 0 16.373-3.048 22.12-8h2.679c28.688 0 67.137 40 127.2 40h21.299c62.542 0 98.8-38.658 99.94-91.145 12.482-17.813 18.491-40.785 15.985-62.791A93.148 93.148 0 0 0 393.152 304H428.8c45.435 0 83.2-37.584 83.2-83.2 0-45.099-38.101-83.2-83.2-83.2zm0 118.4h-91.026c12.837 14.669 14.415 42.825-4.95 61.05 11.227 19.646 1.687 45.624-12.925 53.625 6.524 39.128-10.076 61.325-50.6 61.325H248c-45.491 0-77.21-35.913-120-39.676V215.571c25.239-2.964 42.966-21.222 59.075-39.596 11.275-12.65 21.725-25.3 30.799-39.875C232.355 112.712 244.006 80 252.8 80c23.375 0 44 8.8 44 35.2 0 35.2-26.4 53.075-26.4 70.4h158.4c18.425 0 35.2 16.5 35.2 35.2 0 18.975-16.225 35.2-35.2 35.2zM88 384c0 13.255-10.745 24-24 24s-24-10.745-24-24 10.745-24 24-24 24 10.745 24 24z" /></svg>
+            </span>
+          
+        
+            <span
+              class="gp-inline-flex gp-flex-none gp-items-center gp-justify-center gp-g-paragraph-1"
+              style="--tt:horizontal;--c:var(--g-c-text-1, text-1);--mr:var(--g-s-s);--ml:var(--g-s-s)"
+            >
+              Title
+            </span>
+          
+        <div class="gp-flex" style="--bc:var(--g-c-line-2, line-2);--bs:solid;--bbw:1px;--bbw-tablet:2px;--bbw-mobile:2px;--minw:100%;--w:100%;--w-tablet:100%;--w-mobile:100%"></div>
+      </div>
+    </div>
+  
+      </div>
+    
+
+    
+
+    
+    <gp-row gp-data='{"background":{"desktop":{"attachment":"scroll","color":"transparent","image":{"height":0,"src":"","width":0},"position":{"x":50,"y":50},"repeat":"no-repeat","size":"cover","type":"color"}},"uid":"gz_AThPxy8"}' data-id="gz_AThPxy8" id="gz_AThPxy8" data-same-height-subgrid-container class="gz_AThPxy8 gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--cg:8px;--gtc:minmax(0, 12fr);--gtc-mobile:minmax(0, 12fr);--w:var(--g-ct-w, 1200px);--h:auto;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pc:start">
+      
+
+      <div
+      data-same-height-display-contents
+      style="--jc:start"
+      class="gXYXxM6209 gp-relative gp-flex gp-flex-col"
+    >
+      
+    
+
+    
+
+    
+    <gp-row gp-data='{"background":{"desktop":{"attachment":"scroll","color":"transparent","image":{"height":0,"src":"","width":0},"position":{"x":50,"y":50},"repeat":"no-repeat","size":"cover","type":"color"}},"uid":"gXr-eqr1sz"}' data-id="gXr-eqr1sz" id="gXr-eqr1sz" data-same-height-subgrid-container class="gXr-eqr1sz gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:none;--d-tablet:none;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--pt:32px;--pl:0px;--pb:0px;--pr:0px;--pt-tablet:32px;--pl-tablet:0px;--pb-tablet:0px;--pr-tablet:0px;--mb-mobile:0px;--pt-mobile:28px;--pl-mobile:20px;--pb-mobile:28px;--pr-mobile:20px;--cg:62px;--gtc:minmax(0, 7fr) minmax(0, 5fr);--gtc-mobile:minmax(0, 12fr);--w:100%;--w-tablet:100%;--w-mobile:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pc:center">
+      
+
+      <div
+      data-same-height-display-contents
+      style="--jc:center"
+      class="gQW18kodQ5 gp-relative gp-flex gp-flex-col"
+    >
+      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="g_xm-Etdyd"
+        class="g_xm-Etdyd"
+        style="--ta:left;--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--op-mobile:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:30px;--pl:0px;--mb-mobile:14px;--pl-mobile:0px;--mb-tablet:16px;--pl-tablet:0px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1754386427365"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <h2
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--fs:normal;--ff:var(--g-font-Inter, 'Inter'), var(--g-font-heading, heading);--ls:normal;--size:24px;--size-tablet:24px;--size-mobile:24px;--lh:120%;--lh-tablet:120%;--lh-mobile:130%;--weight:bold;--c:#242424;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.gg_xm-Etdyd_text | replace: '$locationOrigin', locationOrigin }}
+        </h2>
+      </div>
+    </div>
+    
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="gRRax5hAH2"
+        class="gRRax5hAH2"
+        style="--ta:left;--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--op-mobile:100%;--op-tablet:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:35px;--pt:0px;--pl:0px;--pb:0px;--pr:0px;--pl-tablet:0px;--pl-mobile:0px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1754386427365"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-Inter, 'Inter'), var(--g-font-body, body);--weight:400;--ls:normal;--size:16px;--size-tablet:16px;--size-mobile:15px;--lh:150%;--lh-tablet:130%;--lh-mobile:130%;--c:#242424;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pl:0px;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggRRax5hAH2_text | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+    <gp-button
+      gp-data='{"btnLink":{"type":"open-page","link":"","target":"_self"}}'
+      
+      class="gp-flex gp-flex-col"
+    >
+      <div style="--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--op:100%;--ta:left" >
+        <style>[data-id="gOe-SCKupC"].gp-button-base::before, [data-id="gOe-SCKupC-interaction"].gp-button-base::before {
+      
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    border-style: none;
+  border-width: 1px 1px 1px 1px;
+  border-color: var(--g-c-line-3, line-3);
+  
+    
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      
+  
+    }
+  
+      
+  [data-id="gOe-SCKupC"]:hover::before, [data-id="gOe-SCKupC-interaction"]:hover::before {
+    
+    
+  }</style>
+        
+        <button
+          data-id="gOe-SCKupC" dataId="gOe-SCKupC" data-state="idle" aria-label="<p>Mehr erfahren</p>"
+          
+          type="button"
+          style="--w:Auto;--w-tablet:Auto;--w-mobile:Auto;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--pl:24px;--pr:24px;--pt:12px;--pb:12px;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--hvr-bblr:0px;--hvr-bbrr:0px;--hvr-btlr:0px;--hvr-btrr:0px;--bgi:;--hvr-bgi:;--bg:var(--g-c-brand, brand);--hvr-bg:var(--g-c-highlight, highlight);--c:var(--g-c-text-3, text-3)"
+          class="gOe-SCKupC gp-button-base gp-group gp-relative gp-inline-flex gp-max-w-full gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-200 disabled:gp-btn-disabled disabled:gp-opacity-30 gp-text-g-text-3 gp-g-paragraph-1"
+        >
+        
+        <div class="gp-inline-flex">
+          
+          
+    <span
+      data-gp-text
+      style="word-break:break-word"
+      class="gp-content-product-button group-active/button:!gp-text-inherit gp-relative gp-flex gp-h-full gp-items-center gp-overflow-hidden gp-break-words group-data-[state=loading]:gp-invisible [&_p]:gp-whitespace-pre-line gp-text button-text"
+    >
+      {{ section.settings.ggOe-SCKupC_label }}
+    </span>
+        </div>
+        
+        </button>
+      </div>
+      <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-button-v7-5.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+    </gp-button>
+  
+    </div><div
+      data-same-height-display-contents
+      style="--jc:center"
+      class="g6WAV2DT83 gp-relative gp-flex gp-flex-col"
+    >
+      
+    <div
+      role="presentation"
+      data-id="g6TDdrFuxH"
+      style="--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--op-mobile:100%;--op-tablet:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--pt:0px;--pl:0px;--pb:0px;--pr:0px;--pt-tablet:0px;--pl-tablet:0px;--pb-tablet:0px;--pr-tablet:0px;--mb-mobile:21px;--ta:center"
+      class="gp-group/image gp-relative force-publish-1754386427366 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto g6TDdrFuxH"
+    >
+      <div
+        
+        style="border-radius:inherit;--jc:center"
+        class="gp-h-full gp-w-full gp-flex pointer-events-auto"
+      >
+        
+    <picture style="border-radius:inherit" class="gp-contents">
+      
+      <source media="(max-width: 767px)" data-srcSet="{{ "gempages_534104955091420133-4e0b75e8-19a6-438a-a01d-21119fbd1292.png" | file_url }}" srcset="{{ "gempages_534104955091420133-4e0b75e8-19a6-438a-a01d-21119fbd1292.png" | file_url }}" />
+      <source media="(max-width: 1024px)" data-srcSet="{{ "gempages_534104955091420133-4e0b75e8-19a6-438a-a01d-21119fbd1292.png" | file_url }}" srcset="{{ "gempages_534104955091420133-4e0b75e8-19a6-438a-a01d-21119fbd1292.png" | file_url }}" />
+    
+      
+      <img
+        loading="eager" fetchpriority="high"
+        src="{{ "gempages_534104955091420133-4e0b75e8-19a6-438a-a01d-21119fbd1292.png" | file_url }}" data-src="{{ "gempages_534104955091420133-4e0b75e8-19a6-438a-a01d-21119fbd1292.png" | file_url }}"
+        alt=""
+        width="100%"
+        style="--aspect:auto;--aspect-tablet:auto;--aspect-mobile:auto;--objf:contain;--objf-mobile:contain;--w:100%;--w-tablet:100%;--h:auto;--h-tablet:auto;--h-mobile:auto;--b:none;--bc:transparent;--bblr:0px;--btrr:0px;--bbrr:0px;--btlr:0px;--radiusType:none;--shadow:none"
+        class="gp-inline-block gp-w-full gp-max-w-full"
+      />
+    
+    </picture>
+  
+      </div>
+    </div>
+  
+      <style id="custom-css-g6TDdrFuxH">
+        .g6TDdrFuxH {
+
+}
+.g6TDdrFuxH > figure > img {
+
+}
+      </style>
+    
+    </div>
+
+      
+    </gp-row>
+  
+  
+    
+
+    
+
+    
+    <gp-row gp-data='{"background":{"desktop":{"attachment":"scroll","color":"transparent","image":{"height":0,"src":"","width":0},"position":{"x":50,"y":50},"repeat":"no-repeat","size":"cover","type":"color"}},"uid":"gQCAs9n6Lx"}' data-id="gQCAs9n6Lx" id="gQCAs9n6Lx" data-same-height-subgrid-container class="gQCAs9n6Lx gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:none;--d-mobile:grid;--d-tablet:none;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--pt:32px;--pl:20px;--pb:32px;--pr:20px;--mb-mobile:0px;--pt-mobile:28px;--pl-mobile:20px;--pb-mobile:28px;--pr-mobile:20px;--cg:62px;--gtc:minmax(0, auto) minmax(0, auto);--gtc-mobile:minmax(0, 12fr);--w:100%;--w-tablet:100%;--w-mobile:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pc:center">
+      
+
+      <div
+      data-same-height-display-contents
+      style="--jc:start"
+      class="guu2DsSNSy gp-relative gp-flex gp-flex-col"
+    >
+      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="gUj8_GRVs0"
+        class="gUj8_GRVs0"
+        style="--ta:left;--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--op-mobile:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:30px;--pl:0px;--mb-mobile:20px;--pl-mobile:0px;--mb-tablet:16px;--pl-tablet:0px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1754386427368"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <h2
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--fs:normal;--ff:var(--g-font-heading, heading);--weight:600;--ls:normal;--size:35px;--size-tablet:28px;--size-mobile:27px;--lh:120%;--lh-tablet:120%;--lh-mobile:130%;--c:#242424;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggUj8_GRVs0_text | replace: '$locationOrigin', locationOrigin }}
+        </h2>
+      </div>
+    </div>
+    
+    </div><div
+      data-same-height-display-contents
+      style="--jc:start"
+      class="g2YNBB4Hhw gp-relative gp-flex gp-flex-col"
+    >
+      
+    <div
+      role="presentation"
+      data-id="gnWmgcRRJ8"
+      style="--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--op-mobile:100%;--op-tablet:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:30px;--mb-mobile:21px;--ta:center"
+      class="gp-group/image gp-relative force-publish-1754386427368 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto gnWmgcRRJ8"
+    >
+      <div
+        
+        style="border-radius:inherit;--jc:center"
+        class="gp-h-full gp-w-full gp-flex pointer-events-auto"
+      >
+        
+    <picture style="border-radius:inherit" class="gp-contents">
+      
+      <source media="(max-width: 767px)" data-srcSet="{{ "gempages_534104955091420133-4e0b75e8-19a6-438a-a01d-21119fbd1292.png" | file_url }}" srcset="{{ "gempages_534104955091420133-4e0b75e8-19a6-438a-a01d-21119fbd1292.png" | file_url }}" />
+      <source media="(max-width: 1024px)" data-srcSet="{{ "gempages_534104955091420133-4e0b75e8-19a6-438a-a01d-21119fbd1292.png" | file_url }}" srcset="{{ "gempages_534104955091420133-4e0b75e8-19a6-438a-a01d-21119fbd1292.png" | file_url }}" />
+    
+      
+      <img
+        loading="eager" fetchpriority="high"
+        src="{{ "gempages_534104955091420133-4e0b75e8-19a6-438a-a01d-21119fbd1292.png" | file_url }}" data-src="{{ "gempages_534104955091420133-4e0b75e8-19a6-438a-a01d-21119fbd1292.png" | file_url }}"
+        alt=""
+        width="100%"
+        style="--aspect:auto;--aspect-tablet:auto;--aspect-mobile:auto;--objf:contain;--objf-mobile:contain;--h:auto;--h-tablet:auto;--h-mobile:auto;--bblr:15px;--bbrr:15px;--btlr:15px;--btrr:15px;--radiusType:custom"
+        class="gp-inline-block gp-w-full gp-max-w-full"
+      />
+    
+    </picture>
+  
+      </div>
+    </div>
+  
+      <style id="custom-css-gnWmgcRRJ8">
+        .gnWmgcRRJ8 {
+
+}
+.gnWmgcRRJ8 > figure > img {
+
+}
+      </style>
+    
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="gvLiTdwJbo"
+        class="gvLiTdwJbo"
+        style="--ta:left;--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--op-mobile:100%;--op-tablet:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--pl:0px;--pl-mobile:0px;--pl-tablet:0px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1754386427391"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--ls:normal;--size:22px;--size-tablet:16px;--size-mobile:18px;--lh:150%;--lh-tablet:130%;--lh-mobile:130%;--c:#242424;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pl:0px;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggvLiTdwJbo_text | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+    </div>
+
+      
+    </gp-row>
+  
+  
+    </div>
+
+      
+    </gp-row>
+  
+  
+    </div>
+
+      
+    </gp-row>
+  
+  
+    </div>
+
+      
+    </gp-row>
+  
+        </section>
+      
+  
+
+
+{% schema %}
+  {
+    
+    "name": "Section 3",
+    "tag": "section",
+    "class": "gps-578431384533730177 gps gpsi",
+    "settings": [{"type":"paragraph","content":"Section design by GemPages. [Click here to start design](https://admin.shopify.com/store/tierliebhaber-animagus/apps/gempages-cro/app/shopify/edit?pageType=GP_STATIC&editorId=578431384448664449&sectionId=578431384533730177)"},{"type":"select","label":"Section Preload","id":"section_preload","options":[{"label":"On","value":"true"},{"label":"Off","value":"false"},{"label":"Off Lazy Script","value":"off_lazy_script"}],"default":"off_lazy_script"},{"type":"text","label":"Checksum","id":"checksum"},{"type":"html","id":"ggYT7vD_daZ_text","label":"ggYT7vD_daZ_text","default":"<strong>7 Dinge, die fast jeder Hundebesitzer bei Nassfutter falsch macht</strong>"},{"type":"html","id":"ggC6-Dlmlua_text","label":"ggC6-Dlmlua_text","default":"<p>Entdecke jetzt wie du ganz <u>einfach und sofort</u> die gesunde Wahl triffst</p>"},{"type":"html","id":"ggq1vxi2SXL_text","label":"ggq1vxi2SXL_text","default":"<span style=\"font-size:18px;\"><strong>Evelyn Rupprecht&nbsp;</strong></span><br><span style=\"font-size:13px;\">Zertifizierte Ernährungsexpertin für Hunde</span>"},{"type":"html","id":"ggW5-4F53ec_text","label":"ggW5-4F53ec_text","default":"<p>Veröffentlicht am 14.07.2025</p>"},{"type":"html","id":"ggP5moaRyBH_text","label":"ggP5moaRyBH_text","default":"<p><strong>Das Problem, das niemand anspricht</strong></p>"},{"type":"html","id":"ggOxSx4OX4C_text","label":"ggOxSx4OX4C_text","default":"<p>Fast jeder Hundebesitzer steht irgendwann vor diesem Dilemma:<br>Du willst nur das Beste für deinen Hund - doch&nbsp;<strong>die Realität in den meisten Nassfuttern ist erschreckend:</strong></p>"},{"type":"html","id":"ggyt4qtTeiV_childItem_0","label":"ggyt4qtTeiV_childItem_0","default":"<p>Schwammige Begriffe wie&nbsp;<i>„tierische Nebenerzeugnisse“,</i></p>"},{"type":"html","id":"ggyt4qtTeiV_childItem_1","label":"ggyt4qtTeiV_childItem_1","default":"<p>kaum Fleischanteil,</p>"},{"type":"html","id":"ggyt4qtTeiV_childItem_2","label":"ggyt4qtTeiV_childItem_2","default":"<p>billige Füllstoffe und Zucker.</p>"},{"type":"html","id":"ggzncLLdeVR_text","label":"ggzncLLdeVR_text","default":"<p>Das Ergebnis? Verdauungsprobleme, stumpfes Fell, schlechte Zähne, Allergien - und du fragst dich, ob du deinem Hund wirklich das Richtige gibst.</p><p>&nbsp;</p><p><strong>Tierärzte und Ernährungsberater sind sich einig: </strong>Gesunde Hundeernährung beginnt bei der Qualität des Futters.<br>Hier sind 7 Punkte, auf die du unbedingt achten solltest – und wie du deinem Hund ab sofort etwas Besseres bieten kannst, ohne Risiko.</p>"},{"type":"html","id":"gg_xm-Etdyd_text","label":"gg_xm-Etdyd_text","default":"<strong>1. Offene Deklaration statt Rätselraten</strong>"},{"type":"html","id":"ggRRax5hAH2_text","label":"ggRRax5hAH2_text","default":"<p>Viele Hersteller verstecken minderwertige Zutaten hinter Begriffen wie „tierische Nebenerzeugnisse“.</p><p><br>👉&nbsp;<i>Was du willst:</i> Ein Futter, das jede Zutat klar und offen deklariert, damit du weißt, was in den Napf kommt.</p>"},{"type":"html","id":"ggOe-SCKupC_label","label":"ggOe-SCKupC_label","default":"<p>Mehr erfahren</p>"},{"type":"html","id":"ggUj8_GRVs0_text","label":"ggUj8_GRVs0_text","default":"<strong>1. NEUE innovative, natürliche Formel – entwickelt für das Wohlbefinden deines Hundes</strong>"},{"type":"html","id":"ggvLiTdwJbo_text","label":"ggvLiTdwJbo_text","default":"<p>Tierliebhaber hat die perfekten Gras- &amp; Kotfresser Drops entwickelt, die gezielt auf die Bedürfnisse deines Hundes eingehen. Die einzigartige Kombination aus natürlichen Kräutern, wertvollen Pflanzenstoffen und funktionalen Zutaten unterstützt die Verdauung, beruhigt den Magen und hilft deinem Hund, sich rundum wohlzufühlen – ganz ohne Chemie oder Kompromisse.</p>"}],
+    "blocks": [{"type": "@app"}],
+    "locales": {}
+  }
+{% endschema %}
