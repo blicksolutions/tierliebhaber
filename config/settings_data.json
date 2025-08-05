@@ -1841,15 +1841,6 @@
           "show_cart": true
         }
       },
-      "10830403595879607806": {
-        "type": "shopify://apps/reviews-io/blocks/reviewsio-core/92a082e5-b297-4e88-b428-ac96cbc505f9",
-        "disabled": false,
-        "settings": {
-          "url_key": "tierliebhaber.de",
-          "lang": "auto",
-          "enable_syndication": false
-        }
-      },
       "15316669992541710076": {
         "type": "shopify://apps/reviews-io/blocks/reviewsio-rating-snippet/92a082e5-b297-4e88-b428-ac96cbc505f9",
         "disabled": false,
@@ -1865,6 +1856,15 @@
           "show_popup": false,
           "anchor_to_reviews_widget": true,
           "show_empty_stars": false
+        }
+      },
+      "10830403595879607806": {
+        "type": "shopify://apps/reviews-io/blocks/reviewsio-core/92a082e5-b297-4e88-b428-ac96cbc505f9",
+        "disabled": false,
+        "settings": {
+          "url_key": "tierliebhaber.de",
+          "lang": "de-informal",
+          "enable_syndication": false
         }
       }
     }
