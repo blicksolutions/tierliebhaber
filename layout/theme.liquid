@@ -3,13 +3,13 @@
 <html class="no-js" lang="{{ shop.locale }}">
   <head>
 
-{% comment %}
+
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="a4aa9c1a-9639-4e9f-8a23-4aef9c37b3cc" data-blockingmode="manual" type="text/javascript"></script>
-{% endcomment %}
+
 
     <!-- BS: AB Scripts -->
 	<link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}">
-    <link rel="stylesheet" href="{{ 'ds-op-lp-3.css' | asset_url }}">
+  <link rel="stylesheet" href="{{ 'ds-op-lp-3.css' | asset_url }}">
 
 	  <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
 	  <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
@@ -272,7 +272,7 @@
     {% render 'css-variables' %}
 
     {{ content_for_header }}
-   {% comment %}{% render 'cookie-consent' %}{% endcomment %}
+   {% render 'cookie-consent' %}
 <script>
   (() => {
     try {
@@ -433,9 +433,9 @@
       <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer></script>
       <script src="{{ 'customer_area.js' | shopify_asset_url }}" defer></script>
     {%- endif -%}
-    
+
     <script
-      src="https://cdn.polyfill.io/v3/polyfill.min.js?unknown=polyfill&features=Element.prototype.closest,Element.prototype.remove,Element.prototype.classList,Array.prototype.includes,Array.prototype.fill,Object.assign,CustomEvent,IntersectionObserver,IntersectionObserverEntry,URL"
+      src="https://cdn.polyfill.io/v3/polyfill.min.js?unknown=polyfill&features=fetch,Element.prototype.closest,Element.prototype.remove,Element.prototype.classList,Array.prototype.includes,Array.prototype.fill,Object.assign,CustomEvent,IntersectionObserver,IntersectionObserverEntry,URL"
       defer
     ></script>
     <script src="{{ 'libs.min.js' | asset_url }}" defer></script>
