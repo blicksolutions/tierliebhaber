@@ -12,7 +12,55 @@
     <meta name="google-site-verification" content="QZiR1WxDnZAKrxARkf6DQjhHzK1Y3t4Oo5I1TMO2Sgo">
     <meta name="google-site-verification" content="Yq9dF4MhfrxG4y9GADuu6whPXKYTFZ4vQ3O52SZWsas">
 
-    <!-- Cookiebot MUST be first script -->
+    <!-- CRITICAL COOKIE BLOCKING - Add before any other scripts -->
+    <script>
+      // Block problematic cookies before they can be set
+      (function() {
+        // Override document.cookie setter to block marketing cookies before consent
+        var originalCookieDescriptor = Object.getOwnPropertyDescriptor(Document.prototype, 'cookie') ||
+                                     Object.getOwnPropertyDescriptor(HTMLDocument.prototype, 'cookie');
+        
+        if (originalCookieDescriptor && originalCookieDescriptor.configurable) {
+          Object.defineProperty(document, 'cookie', {
+            get: function() {
+              return originalCookieDescriptor.get.call(document);
+            },
+            set: function(val) {
+              // List of cookies to block before consent
+              var blockedCookies = [
+                'data-timeout',           // RevenueHunt - from your log
+                '_shopify_test',          // Shopify tracking
+                'shopify_pay_redirect',   // Shopify Pay tracking
+                'keep_alive',             // Shopify analytics
+                '_shop_app_essential'     // Shop Pay tracking
+              ];
+              
+              var cookieName = val.split('=')[0].trim();
+              var shouldBlock = false;
+              
+              // Check if this cookie should be blocked
+              for (var i = 0; i < blockedCookies.length; i++) {
+                if (cookieName.indexOf(blockedCookies[i]) === 0) {
+                  shouldBlock = true;
+                  break;
+                }
+              }
+              
+              // Only set cookie if consent exists and marketing is allowed, OR if it's not a blocked cookie
+              if (!shouldBlock || 
+                  (window.Cookiebot && window.Cookiebot.consent && window.Cookiebot.consent.marketing)) {
+                originalCookieDescriptor.set.call(document, val);
+              } else {
+                console.log('Blocked cookie before consent:', cookieName);
+              }
+            },
+            configurable: true
+          });
+        }
+      })();
+    </script>
+
+    <!-- Cookiebot MUST be first script after cookie blocking -->
     <script id="Cookiebot"
             src="https://consent.cookiebot.com/uc.js"
             data-cbid="a4aa9c1a-9639-4e9f-8a23-4aef9c37b3cc"
@@ -206,9 +254,32 @@
     {% render 'microdata-schema' %}
     {% include 'ufe-offer' %}
 
-    <!-- Enhanced consent change handler -->
+    <!-- RevenueHunt Quiz - GATE THIS (it's setting data-timeout cookie) -->
+    <script type="text/plain" data-cookieconsent="marketing">
+      // RevenueHunt embed script - this was setting cookies before consent
+      (function() {
+        var script = document.createElement('script');
+        script.src = 'https://admin.revenuehunt.com/embed.js?shop=tierliebhaber-animagus.myshopify.com';
+        document.head.appendChild(script);
+      })();
+    </script>
+
+    <!-- Enhanced consent change handler with Shopify tracking control -->
     <script>
       (function() {
+        // Disable Shopify Analytics before consent
+        window.ShopifyAnalytics = window.ShopifyAnalytics || {};
+        window.ShopifyAnalytics.lib = window.ShopifyAnalytics.lib || {};
+        window.ShopifyAnalytics.lib.track = function() {
+          if (window.Cookiebot && window.Cookiebot.consent && window.Cookiebot.consent.marketing) {
+            // Only track if marketing consent is given
+            if (window.originalShopifyTrack) {
+              return window.originalShopifyTrack.apply(this, arguments);
+            }
+          }
+          console.log('Shopify tracking blocked - no marketing consent');
+        };
+
         function clearMarketingStorage() {
           try {
             var keys = [
@@ -217,8 +288,11 @@
               '___ELEVAR_GTM_SUITE--params','___ELEVAR_GTM_SUITE--sessionId',
               '___ELEVAR_GTM_SUITE--sessionCount','___ELEVAR_GTM_SUITE--lastDlPushTimestamp',
               '__gemx_campaign_data','__gemx_campaign_template','_replo_sid','smile_shopify_data',
-              '_ga','_gid','_gat','_fbp','_fbc', // Add common marketing cookies
-              'ablyft_', 'awin_', '_klaviyo' // Add your specific tracking prefixes
+              '_ga','_gid','_gat','_fbp','_fbc', 
+              'ablyft_', 'awin_', '_klaviyo',
+              'data-timeout', // RevenueHunt
+              'shopify_pay_redirect', // Shopify Pay
+              'keep_alive' // Shopify analytics
             ];
             
             keys.forEach(function(k){ 
@@ -232,12 +306,14 @@
                     if (name.indexOf(k) === 0) {
                       document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/; domain=' + window.location.hostname;
                       document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/;';
+                      document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/; domain=.de';
                     }
                   });
                 } else {
                   // Remove specific cookie
                   document.cookie = k + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/; domain=' + window.location.hostname;
                   document.cookie = k + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/;';
+                  document.cookie = k + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/; domain=.de';
                 }
               }catch(e){} 
             });
@@ -251,6 +327,18 @@
           if (window.Cookiebot && window.Cookiebot.consent && window.Cookiebot.consent.marketing === false) {
             clearMarketingStorage();
           }
+          
+          // Enable/disable Shopify tracking based on consent
+          if (window.Cookiebot && window.Cookiebot.consent) {
+            if (window.Cookiebot.consent.marketing && window.originalShopifyTrack) {
+              window.ShopifyAnalytics.lib.track = window.originalShopifyTrack;
+            }
+          }
+        }
+
+        // Store original Shopify tracking function
+        if (window.ShopifyAnalytics && window.ShopifyAnalytics.lib && window.ShopifyAnalytics.lib.track) {
+          window.originalShopifyTrack = window.ShopifyAnalytics.lib.track;
         }
 
         // Run on all consent events
