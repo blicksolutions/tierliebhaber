@@ -12404,3 +12404,6 @@ div:has(>reviewsio-product-reviews-widget) {
         padding: 0 80px;
     }
 }
+section#sidebar-menu[aria-hidden="false"] {
+    transform: translate(0%);
+}
