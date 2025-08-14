@@ -27,7 +27,7 @@
     
 
     
-    <gp-row gp-data='{"background":{"desktop":{"attachment":"scroll","color":"#DBF0D5","image":{"height":0,"src":"","width":0},"position":{"x":50,"y":50},"preload":false,"repeat":"no-repeat","size":"cover","type":"color","video":"","videoHtml5":""}},"uid":"gWGdtGX35H"}' data-id="gWGdtGX35H" id="gWGdtGX35H" data-same-height-subgrid-container class="gWGdtGX35H gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:347px;--pt:32px;--pl:20px;--pb:32px;--pr:20px;--mb-mobile:0px;--pt-mobile:20px;--pl-mobile:30px;--pb-mobile:20px;--pr-mobile:30px;--mb-tablet:347px;--pt-tablet:32px;--pl-tablet:20px;--pb-tablet:32px;--pr-tablet:20px;--cg:30px;--gtc:minmax(0, auto);--gtc-mobile:minmax(0, auto);--w:100%;--w-tablet:var(--g-ct-w, 100%);--w-mobile:100%;--bgc:#DBF0D5;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pc:center">
+    <gp-row gp-data='{"background":{"desktop":{"attachment":"scroll","color":"#DBF0D5","image":{"height":0,"src":"","width":0},"position":{"x":50,"y":50},"preload":false,"repeat":"no-repeat","size":"cover","type":"color","video":"","videoHtml5":""}},"uid":"gWGdtGX35H"}' data-id="gWGdtGX35H" id="gWGdtGX35H" data-same-height-subgrid-container class="gWGdtGX35H gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:347px;--pt:32px;--pl:20px;--pb:32px;--pr:20px;--mb-mobile:0px;--pt-mobile:20px;--pl-mobile:30px;--pb-mobile:20px;--pr-mobile:30px;--mb-tablet:347px;--pt-tablet:32px;--pl-tablet:20px;--pb-tablet:32px;--pr-tablet:20px;--cg:30px;--gtc:minmax(0, auto);--gtc-mobile:minmax(0, auto);--w:1000px;--w-tablet:var(--g-ct-w, 100%);--w-mobile:100%;--bgc:#DBF0D5;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pc:center">
       
 
       <div
@@ -50,6 +50,23 @@
       class="gOC6fhzHUP gp-relative gp-flex gp-flex-col"
     >
       
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="ghcvGppTo1"
+        class="ghcvGppTo1"
+        style="--ta:left;--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--op-mobile:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:26px;--pt:0px;--pl:0px;--pb:0px;--pr:0px;--mb-tablet:26px;--pt-tablet:0px;--pl-tablet:0px;--pb-tablet:0px;--pr-tablet:0px;--mb-mobile:16px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1755163585025"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <h2
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--ta-mobile:center;--fs:normal;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-heading, heading);--weight:600;--ls:normal;--size:27px;--size-tablet:27px;--size-mobile:22px;--lh:120%;--lh-tablet:120%;--lh-mobile:130%;--c:#242424;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.gghcvGppTo1_text | replace: '$locationOrigin', locationOrigin }}
+        </h2>
+      </div>
+    </div>
+    
     
 
     
@@ -63,24 +80,7 @@
       style="--jc:start"
       class="gz8p9XUbG7 gp-relative gp-flex gp-flex-col"
     >
-      
-    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
-    <div data-id="ghcvGppTo1"
-        class="ghcvGppTo1"
-        style="--ta:left;--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--op-mobile:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:11px;--mb-tablet:11px;--mb-mobile:16px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--dynamic-source-color:#F4F4F4"
-        data-test-force-publish="1755029544614"
-      >
-      <div class="gp-flex" style="--jc:left">
-        <h2
-          data-gp-text
-          class=" gp-text-instant gp-text"
-          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--ta-mobile:center;--fs:normal;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-heading, heading);--weight:600;--ls:normal;--size:27px;--size-tablet:27px;--size-mobile:24px;--lh:120%;--lh-tablet:120%;--lh-mobile:130%;--c:#242424;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
-        >
-          {{ section.settings.gghcvGppTo1_text | replace: '$locationOrigin', locationOrigin }}
-        </h2>
-      </div>
-    </div>
-    <div gp-el-wrapper  class="guLP5eV9-A ">
+      <div gp-el-wrapper  class="guLP5eV9-A ">
       
     {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
     <gp-icon-list
@@ -89,7 +89,7 @@
       data-id="guLP5eV9-A"
       style="--shadow:none;--d:flex;--d-mobile:flex;--d-tablet:flex;--op:100%;--pageType:GP_STATIC;--ml:0px;--mb:20px;--mr:0px;--pt:0px;--pl:0px;--pb:0px;--pr:0px;--ml-tablet:10px;--mr-tablet:80px;--ml-mobile:0px;--mb-mobile:0px;--mr-mobile:0px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--jc:left"
       className="guLP5eV9-A"
-      gp-data='{"position":{"desktop":"baseline","mobile":"baseline","tablet":"center"},"iconWidth":{"desktop":"31","mobile":"22","tablet":16}}'
+      gp-data='{"position":{"desktop":"baseline","mobile":"baseline","tablet":"center"},"iconWidth":{"desktop":"27","mobile":"22","tablet":16}}'
     >
       
           <div class="gp-flex" style="--b:none;--bc:#121212;--bw:1px 1px 1px 1px;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--w:100%;--jc:left">
@@ -104,7 +104,7 @@
                       <div class="gp-icon-list-icon gp-inline-flex gp-shrink-0 gp-overflow-hidden" style="--pl:0px;--pr:0px;--pt:0px;--pb:0px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:transparent;--top:unset;--top-tablet:unset;--top-mobile:unset;--pos:relative;--pos-tablet:relative;--pos-mobile:relative">
                         <span
                           class="gp-icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--size-desktop)] [&>svg]:!gp-w-[var(--size-desktop)] tablet:[&>svg]:!gp-h-[var(--size-tablet)] tablet:[&>svg]:!gp-w-[var(--size-tablet)] mobile:[&>svg]:!gp-h-[var(--size-mobile)] mobile:[&>svg]:!gp-w-[var(--size-mobile)]"
-                          style="--c:#5E8E49;--w:100%;--h:100%;--size-desktop:31px;--size-tablet:16px;--size-mobile:22px"
+                          style="--c:#5E8E49;--w:100%;--h:100%;--size-desktop:27px;--size-tablet:16px;--size-mobile:22px"
                         >
                           <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" data-id="508414807831544168"><path fill="currentColor" strokelinecap="round" strokelinejoin="round" d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
                         </span>
@@ -114,13 +114,13 @@
     <div data-id
         class="gp-w-full"
         style="--dynamic-source-color:#F4F4F4"
-        data-test-force-publish="1755029544616"
+        data-test-force-publish="1755163585025"
       >
       <div class="gp-flex" >
         <div
           data-gp-text
           class=" gp-w-full gp-border gp-border-transparent gp-text-left gp-icon-list-text  gp-text-instant"
-          style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:14px;--size-mobile:12px;--lh:180%;--lh-tablet:180%;--lh-mobile:180%;--c:#3A3A3A;word-break:break-word;overflow:hidden;--tdl:"
+          style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:14px;--size-mobile:12px;--lh:150%;--lh-tablet:180%;--lh-mobile:180%;--c:#3A3A3A;word-break:break-word;overflow:hidden;--tdl:"
         >
           {{ section.settings.gguLP5eV9-A_childItem_0 | replace: '$locationOrigin', locationOrigin }}
         </div>
@@ -137,7 +137,7 @@
                       <div class="gp-icon-list-icon gp-inline-flex gp-shrink-0 gp-overflow-hidden" style="--pl:0px;--pr:0px;--pt:0px;--pb:0px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:transparent;--top:unset;--top-tablet:unset;--top-mobile:unset;--pos:relative;--pos-tablet:relative;--pos-mobile:relative">
                         <span
                           class="gp-icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--size-desktop)] [&>svg]:!gp-w-[var(--size-desktop)] tablet:[&>svg]:!gp-h-[var(--size-tablet)] tablet:[&>svg]:!gp-w-[var(--size-tablet)] mobile:[&>svg]:!gp-h-[var(--size-mobile)] mobile:[&>svg]:!gp-w-[var(--size-mobile)]"
-                          style="--c:#5E8E49;--w:100%;--h:100%;--size-desktop:31px;--size-tablet:16px;--size-mobile:22px"
+                          style="--c:#5E8E49;--w:100%;--h:100%;--size-desktop:27px;--size-tablet:16px;--size-mobile:22px"
                         >
                           <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" data-id="508414807831544168"><path fill="currentColor" strokelinecap="round" strokelinejoin="round" d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
                         </span>
@@ -147,13 +147,13 @@
     <div data-id
         class="gp-w-full"
         style="--dynamic-source-color:#F4F4F4"
-        data-test-force-publish="1755029544616"
+        data-test-force-publish="1755163585026"
       >
       <div class="gp-flex" >
         <div
           data-gp-text
           class=" gp-w-full gp-border gp-border-transparent gp-text-left gp-icon-list-text  gp-text-instant"
-          style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:14px;--size-mobile:12px;--lh:180%;--lh-tablet:180%;--lh-mobile:180%;--c:#3A3A3A;word-break:break-word;overflow:hidden;--tdl:"
+          style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:14px;--size-mobile:12px;--lh:150%;--lh-tablet:180%;--lh-mobile:180%;--c:#3A3A3A;word-break:break-word;overflow:hidden;--tdl:"
         >
           {{ section.settings.gguLP5eV9-A_childItem_1 | replace: '$locationOrigin', locationOrigin }}
         </div>
@@ -170,7 +170,7 @@
                       <div class="gp-icon-list-icon gp-inline-flex gp-shrink-0 gp-overflow-hidden" style="--pl:0px;--pr:0px;--pt:0px;--pb:0px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:transparent;--top:unset;--top-tablet:unset;--top-mobile:unset;--pos:relative;--pos-tablet:relative;--pos-mobile:relative">
                         <span
                           class="gp-icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--size-desktop)] [&>svg]:!gp-w-[var(--size-desktop)] tablet:[&>svg]:!gp-h-[var(--size-tablet)] tablet:[&>svg]:!gp-w-[var(--size-tablet)] mobile:[&>svg]:!gp-h-[var(--size-mobile)] mobile:[&>svg]:!gp-w-[var(--size-mobile)]"
-                          style="--c:#5E8E49;--w:100%;--h:100%;--size-desktop:31px;--size-tablet:16px;--size-mobile:22px"
+                          style="--c:#5E8E49;--w:100%;--h:100%;--size-desktop:27px;--size-tablet:16px;--size-mobile:22px"
                         >
                           <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" data-id="508414807831544168"><path fill="currentColor" strokelinecap="round" strokelinejoin="round" d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
                         </span>
@@ -180,13 +180,13 @@
     <div data-id
         class="gp-w-full"
         style="--dynamic-source-color:#F4F4F4"
-        data-test-force-publish="1755029544616"
+        data-test-force-publish="1755163585026"
       >
       <div class="gp-flex" >
         <div
           data-gp-text
           class=" gp-w-full gp-border gp-border-transparent gp-text-left gp-icon-list-text  gp-text-instant"
-          style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:14px;--size-mobile:12px;--lh:180%;--lh-tablet:180%;--lh-mobile:180%;--c:#3A3A3A;word-break:break-word;overflow:hidden;--tdl:"
+          style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:14px;--size-mobile:12px;--lh:150%;--lh-tablet:180%;--lh-mobile:180%;--c:#3A3A3A;word-break:break-word;overflow:hidden;--tdl:"
         >
           {{ section.settings.gguLP5eV9-A_childItem_2 | replace: '$locationOrigin', locationOrigin }}
         </div>
@@ -203,7 +203,7 @@
                       <div class="gp-icon-list-icon gp-inline-flex gp-shrink-0 gp-overflow-hidden" style="--pl:0px;--pr:0px;--pt:0px;--pb:0px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:transparent;--top:unset;--top-tablet:unset;--top-mobile:unset;--pos:relative;--pos-tablet:relative;--pos-mobile:relative">
                         <span
                           class="gp-icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--size-desktop)] [&>svg]:!gp-w-[var(--size-desktop)] tablet:[&>svg]:!gp-h-[var(--size-tablet)] tablet:[&>svg]:!gp-w-[var(--size-tablet)] mobile:[&>svg]:!gp-h-[var(--size-mobile)] mobile:[&>svg]:!gp-w-[var(--size-mobile)]"
-                          style="--c:#5E8E49;--w:100%;--h:100%;--size-desktop:31px;--size-tablet:16px;--size-mobile:22px"
+                          style="--c:#5E8E49;--w:100%;--h:100%;--size-desktop:27px;--size-tablet:16px;--size-mobile:22px"
                         >
                           <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" data-id="508414807831544168"><path fill="currentColor" strokelinecap="round" strokelinejoin="round" d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
                         </span>
@@ -213,13 +213,13 @@
     <div data-id
         class="gp-w-full"
         style="--dynamic-source-color:#F4F4F4"
-        data-test-force-publish="1755029544617"
+        data-test-force-publish="1755163585026"
       >
       <div class="gp-flex" >
         <div
           data-gp-text
           class=" gp-w-full gp-border gp-border-transparent gp-text-left gp-icon-list-text  gp-text-instant"
-          style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:14px;--size-mobile:12px;--lh:180%;--lh-tablet:180%;--lh-mobile:180%;--c:#3A3A3A;word-break:break-word;overflow:hidden;--tdl:"
+          style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:14px;--size-mobile:12px;--lh:150%;--lh-tablet:180%;--lh-mobile:180%;--c:#3A3A3A;word-break:break-word;overflow:hidden;--tdl:"
         >
           {{ section.settings.gguLP5eV9-A_childItem_3 | replace: '$locationOrigin', locationOrigin }}
         </div>
@@ -236,7 +236,7 @@
                       <div class="gp-icon-list-icon gp-inline-flex gp-shrink-0 gp-overflow-hidden" style="--pl:0px;--pr:0px;--pt:0px;--pb:0px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:transparent;--top:unset;--top-tablet:unset;--top-mobile:unset;--pos:relative;--pos-tablet:relative;--pos-mobile:relative">
                         <span
                           class="gp-icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--size-desktop)] [&>svg]:!gp-w-[var(--size-desktop)] tablet:[&>svg]:!gp-h-[var(--size-tablet)] tablet:[&>svg]:!gp-w-[var(--size-tablet)] mobile:[&>svg]:!gp-h-[var(--size-mobile)] mobile:[&>svg]:!gp-w-[var(--size-mobile)]"
-                          style="--c:#5E8E49;--w:100%;--h:100%;--size-desktop:31px;--size-tablet:16px;--size-mobile:22px"
+                          style="--c:#5E8E49;--w:100%;--h:100%;--size-desktop:27px;--size-tablet:16px;--size-mobile:22px"
                         >
                           <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" data-id="508414807831544168"><path fill="currentColor" strokelinecap="round" strokelinejoin="round" d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
                         </span>
@@ -246,13 +246,13 @@
     <div data-id
         class="gp-w-full"
         style="--dynamic-source-color:#F4F4F4"
-        data-test-force-publish="1755029544617"
+        data-test-force-publish="1755163585026"
       >
       <div class="gp-flex" >
         <div
           data-gp-text
           class=" gp-w-full gp-border gp-border-transparent gp-text-left gp-icon-list-text  gp-text-instant"
-          style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:14px;--size-mobile:12px;--lh:180%;--lh-tablet:180%;--lh-mobile:180%;--c:#3A3A3A;word-break:break-word;overflow:hidden;--tdl:"
+          style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:14px;--size-mobile:12px;--lh:150%;--lh-tablet:180%;--lh-mobile:180%;--c:#3A3A3A;word-break:break-word;overflow:hidden;--tdl:"
         >
           {{ section.settings.gguLP5eV9-A_childItem_4 | replace: '$locationOrigin', locationOrigin }}
         </div>
@@ -276,7 +276,7 @@
       <div
         
         class="g4oe1l8YXt gp-relative gp-my-0 tablet:gp-px-0 gp-max-w-full mobile:gp-px-0 gp-carousel-wrapper mobile:gp-block tablet:gp-block gp-block"
-        style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--bblr-mobile:8px;--bbrr-mobile:8px;--btlr-mobile:8px;--btrr-mobile:8px;--mt:40px;--mb:38px;--pt:0px;--pl:0px;--pb:0px;--mt-tablet:40px;--mb-tablet:38px;--pt-tablet:0px;--pl-tablet:0px;--pb-tablet:0px;--ml-mobile:0px;--mb-mobile:36px;--mr-mobile:0px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--h:auto;--h-tablet:auto;--h-mobile:auto;--w:80%;--w-tablet:80%;--w-mobile:100%"
+        style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--bblr-mobile:8px;--bbrr-mobile:8px;--btlr-mobile:8px;--btrr-mobile:8px;--mt:0px;--mb:38px;--pt:0px;--pl:0px;--pb:0px;--pr:0px;--mt-tablet:0px;--mb-tablet:38px;--pt-tablet:0px;--pl-tablet:0px;--pb-tablet:0px;--pr-tablet:0px;--ml-mobile:0px;--mb-mobile:36px;--mr-mobile:0px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--h:auto;--h-tablet:auto;--h-mobile:auto;--w:80%;--w-tablet:80%;--w-mobile:100%"
       >
         <div class="gp-relative gp-flex gp-items-center gp-justify-between mobile:!gp-flex-row tablet:!gp-flex-row !gp-flex-row" style="--h:auto;--h-tablet:auto;--h-mobile:auto;gap:16px">
           
@@ -393,8 +393,8 @@
     <div
       role="presentation"
       data-id="gvYm73_sOz"
-      style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mt:0px;--mb:0px;--ml-mobile:0px;--mr-mobile:0px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--ta:center"
-      class="gp-group/image gp-relative force-publish-1755029544633 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto gvYm73_sOz"
+      style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mt:0px;--mb:0px;--pt:0px;--pl:0px;--pb:0px;--pr:0px;--mt-tablet:0px;--mb-tablet:0px;--pt-tablet:0px;--pl-tablet:0px;--pb-tablet:0px;--pr-tablet:0px;--ml-mobile:0px;--mr-mobile:0px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--ta:center"
+      class="gp-group/image gp-relative force-publish-1755163585032 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto gvYm73_sOz"
     >
       <div
         
@@ -447,7 +447,7 @@
       role="presentation"
       data-id="g0U9ivQMpl"
       style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:center"
-      class="gp-group/image gp-relative force-publish-1755029544634 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto g0U9ivQMpl"
+      class="gp-group/image gp-relative force-publish-1755163585033 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto g0U9ivQMpl"
     >
       <div
         
@@ -500,7 +500,7 @@
       role="presentation"
       data-id="g6XOXdS4d0"
       style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:center"
-      class="gp-group/image gp-relative force-publish-1755029544635 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto g6XOXdS4d0"
+      class="gp-group/image gp-relative force-publish-1755163585033 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto g6XOXdS4d0"
     >
       <div
         
@@ -553,7 +553,7 @@
       role="presentation"
       data-id="gWWDhzaKd3"
       style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:center"
-      class="gp-group/image gp-relative force-publish-1755029544637 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto gWWDhzaKd3"
+      class="gp-group/image gp-relative force-publish-1755163585034 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto gWWDhzaKd3"
     >
       <div
         
@@ -606,7 +606,7 @@
       role="presentation"
       data-id="gssomoajqP"
       style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--ta:center"
-      class="gp-group/image gp-relative force-publish-1755029544638 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto gssomoajqP"
+      class="gp-group/image gp-relative force-publish-1755163585034 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto gssomoajqP"
     >
       <div
         
@@ -659,7 +659,7 @@
       role="presentation"
       data-id="gbTH7EB5eL"
       style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:center"
-      class="gp-group/image gp-relative force-publish-1755029544639 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto gbTH7EB5eL"
+      class="gp-group/image gp-relative force-publish-1755163585035 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto gbTH7EB5eL"
     >
       <div
         
@@ -712,7 +712,7 @@
       role="presentation"
       data-id="gaeG43pgms"
       style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:center"
-      class="gp-group/image gp-relative force-publish-1755029544640 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto gaeG43pgms"
+      class="gp-group/image gp-relative force-publish-1755163585035 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto gaeG43pgms"
     >
       <div
         
@@ -765,7 +765,7 @@
       role="presentation"
       data-id="gl3BZpgMKH"
       style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:center"
-      class="gp-group/image gp-relative force-publish-1755029544641 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto gl3BZpgMKH"
+      class="gp-group/image gp-relative force-publish-1755163585036 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto gl3BZpgMKH"
     >
       <div
         
@@ -818,7 +818,7 @@
       role="presentation"
       data-id="gPU8_Wcjbb"
       style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:center"
-      class="gp-group/image gp-relative force-publish-1755029544642 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto gPU8_Wcjbb"
+      class="gp-group/image gp-relative force-publish-1755163585036 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto gPU8_Wcjbb"
     >
       <div
         
@@ -871,7 +871,7 @@
       role="presentation"
       data-id="g9ZmYqOizs"
       style="--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:center"
-      class="gp-group/image gp-relative force-publish-1755029544652 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto g9ZmYqOizs"
+      class="gp-group/image gp-relative force-publish-1755163585037 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto g9ZmYqOizs"
     >
       <div
         
@@ -924,7 +924,7 @@
       role="presentation"
       data-id="gZpg_JxxWS"
       style="--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:center"
-      class="gp-group/image gp-relative force-publish-1755029544653 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto gZpg_JxxWS"
+      class="gp-group/image gp-relative force-publish-1755163585037 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto gZpg_JxxWS"
     >
       <div
         
@@ -1147,7 +1147,7 @@
     <div data-id="gJv0mVG22B"
         class="gJv0mVG22B"
         style="--ta:left;--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--op-mobile:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:0px;--dynamic-source-color:#F4F4F4"
-        data-test-force-publish="1755029544668"
+        data-test-force-publish="1755163585044"
       >
       <div class="gp-flex" style="--jc:left">
         <div
@@ -1219,7 +1219,7 @@ iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
     "name": "Section 18",
     "tag": "section",
     "class": "gps-579581481798730545 gps gpsi",
-    "settings": [{"type":"paragraph","content":"Section design by GemPages. [Click here to start design](https://admin.shopify.com/store/tierliebhaber-animagus/apps/gempages-cro/app/shopify/edit?pageType=GP_STATIC&editorId=579581481714713393&sectionId=579581481798730545)"},{"type":"select","label":"Section Preload","id":"section_preload","options":[{"label":"On","value":"true"},{"label":"Off","value":"false"},{"label":"Off Lazy Script","value":"off_lazy_script"}],"default":"off_lazy_script"},{"type":"text","label":"Checksum","id":"checksum"},{"type":"html","id":"gghcvGppTo1_text","label":"gghcvGppTo1_text","default":"<span style=\"font-size:21px;\"><strong>JETZT EINZELSORTEN ENTDECKEN UND BIS ZU 27% SPAREN! </strong>(12er spar-set)</span>"},{"type":"html","id":"gguLP5eV9-A_childItem_0","label":"gguLP5eV9-A_childItem_0","default":"<p><strong>Entwickelt von Tierärzten, Tierheilpraktikern &amp;</strong> <strong>Ernährungsberatern:</strong>&nbsp;Unser Experten Team entwickelt seit 9 Jahren natürliche Ergänzungen für Hunde - nun haben wir das für uns&nbsp;“perfekte gesunde Nassfutter”&nbsp;veröffentlicht&nbsp;(damit die meisten Probleme gar nicht erst entstehen!)</p>"},{"type":"html","id":"gguLP5eV9-A_childItem_1","label":"gguLP5eV9-A_childItem_1","default":"<p><strong>Viel frisches Fleisch:</strong>&nbsp;Gesunde Rezeptur aus über 90% Muskelfleisch und nährstoffreichen Innereien wie Herz oder Leber! So ist es selbst für sensible Hunde super verträglich.</p>"},{"type":"html","id":"gguLP5eV9-A_childItem_2","label":"gguLP5eV9-A_childItem_2","default":"<p><strong>Kein unnötiger “Schnickschnack”:</strong>&nbsp;Eine hochwertige Fleischquelle, etwas Gemüse oder eine gesunde Kohlenhydratquelle. Nur das, was dein Hund wirklich braucht. Perfekt für Allergiker!</p>"},{"type":"html","id":"gguLP5eV9-A_childItem_3","label":"gguLP5eV9-A_childItem_3","default":"<p><strong>100% Transparenz:&nbsp;</strong>Offene und ehrliche Deklaration ohne versteckte Zutaten. Es ist nur das drin, was drauf steht.</p>"},{"type":"html","id":"gguLP5eV9-A_childItem_4","label":"gguLP5eV9-A_childItem_4","default":"<p><strong>Hergestellt in Deutschland </strong>unter strengsten Qualitätskontrollen&nbsp;</p>"},{"type":"html","id":"ggzzMSfPsC4_label","label":"ggzzMSfPsC4_label","default":"<p><span style=\"font-size:20px;\">Jetzt noch bis zu -27% Rabatt sichern</span></p>"},{"type":"html","id":"ggJv0mVG22B_text","label":"ggJv0mVG22B_text","default":"<p><strong>Kein Risiko durch. 60 Tage Geld-zurück-Garantie!</strong></p>"}],
+    "settings": [{"type":"paragraph","content":"Section design by GemPages. [Click here to start design](https://admin.shopify.com/store/tierliebhaber-animagus/apps/gempages-cro/app/shopify/edit?pageType=GP_STATIC&editorId=579581481714713393&sectionId=579581481798730545)"},{"type":"select","label":"Section Preload","id":"section_preload","options":[{"label":"On","value":"true"},{"label":"Off","value":"false"},{"label":"Off Lazy Script","value":"off_lazy_script"}],"default":"off_lazy_script"},{"type":"text","label":"Checksum","id":"checksum"},{"type":"html","id":"gghcvGppTo1_text","label":"gghcvGppTo1_text","default":"<strong>JETZT EINZELSORTEN ENTDECKEN UND BIS ZU 27% SPAREN!</strong> (12er spar-set)"},{"type":"html","id":"gguLP5eV9-A_childItem_0","label":"gguLP5eV9-A_childItem_0","default":"<p><strong>Entwickelt von Tierärzten, Tierheilpraktikern &amp;</strong> <strong>Ernährungsberatern:</strong>&nbsp;Unser Experten Team entwickelt seit 9 Jahren natürliche Ergänzungen für Hunde - nun haben wir das für uns&nbsp;“perfekte gesunde Nassfutter”&nbsp;veröffentlicht&nbsp;(damit die meisten Probleme gar nicht erst entstehen!)</p>"},{"type":"html","id":"gguLP5eV9-A_childItem_1","label":"gguLP5eV9-A_childItem_1","default":"<p><strong>Viel frisches Fleisch:</strong>&nbsp;Gesunde Rezeptur aus über 90% Muskelfleisch und nährstoffreichen Innereien wie Herz oder Leber! So ist es selbst für sensible Hunde super verträglich.</p>"},{"type":"html","id":"gguLP5eV9-A_childItem_2","label":"gguLP5eV9-A_childItem_2","default":"<p><strong>Kein unnötiger “Schnickschnack”:</strong>&nbsp;Eine hochwertige Fleischquelle, etwas Gemüse oder eine gesunde Kohlenhydratquelle. Nur das, was dein Hund wirklich braucht. Perfekt für Allergiker!</p>"},{"type":"html","id":"gguLP5eV9-A_childItem_3","label":"gguLP5eV9-A_childItem_3","default":"<p><strong>100% Transparenz:&nbsp;</strong>Offene und ehrliche Deklaration ohne versteckte Zutaten. Es ist nur das drin, was drauf steht.</p>"},{"type":"html","id":"gguLP5eV9-A_childItem_4","label":"gguLP5eV9-A_childItem_4","default":"<p><strong>Hergestellt in Deutschland </strong>unter strengsten Qualitätskontrollen&nbsp;</p>"},{"type":"html","id":"ggzzMSfPsC4_label","label":"ggzzMSfPsC4_label","default":"<p><span style=\"font-size:20px;\">Jetzt noch bis zu -27% Rabatt sichern</span></p>"},{"type":"html","id":"ggJv0mVG22B_text","label":"ggJv0mVG22B_text","default":"<p><strong>Kein Risiko durch. 60 Tage Geld-zurück-Garantie!</strong></p>"}],
     "blocks": [{"type": "@app"}],
     "locales": {}
   }
