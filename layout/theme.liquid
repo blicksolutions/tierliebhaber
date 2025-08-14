@@ -12,11 +12,11 @@
     <meta name="google-site-verification" content="QZiR1WxDnZAKrxARkf6DQjhHzK1Y3t4Oo5I1TMO2Sgo">
     <meta name="google-site-verification" content="Yq9dF4MhfrxG4y9GADuu6whPXKYTFZ4vQ3O52SZWsas">
 
-    <!-- CRITICAL COOKIE BLOCKING - Add before any other scripts -->
+    <!-- ENHANCED COOKIE BLOCKING - Add before ANY other scripts -->
     <script>
-      // Block problematic cookies before they can be set
+      // Advanced cookie blocking for Cloudflare and other automatic cookies
       (function() {
-        // Override document.cookie setter to block marketing cookies before consent
+        // Store original cookie methods
         var originalCookieDescriptor = Object.getOwnPropertyDescriptor(Document.prototype, 'cookie') ||
                                      Object.getOwnPropertyDescriptor(HTMLDocument.prototype, 'cookie');
         
@@ -26,13 +26,58 @@
               return originalCookieDescriptor.get.call(document);
             },
             set: function(val) {
-              // List of cookies to block before consent
+              // Comprehensive list of cookies to block before consent
               var blockedCookies = [
-                'data-timeout',           // RevenueHunt - from your log
-                '_shopify_test',          // Shopify tracking
-                'shopify_pay_redirect',   // Shopify Pay tracking
-                'keep_alive',             // Shopify analytics
-                '_shop_app_essential'     // Shop Pay tracking
+                // Cloudflare cookies
+                '__cf_bm',                // Cloudflare Bot Management
+                '__cflb',                 // Cloudflare Load Balancer
+                '__cfwaitingroom',        // Cloudflare Waiting Room
+                'cf_clearance',           // Cloudflare clearance
+                '__cf_bm_',               // Cloudflare Bot Management variants
+                
+                // RevenueHunt
+                'data-timeout',
+                'revenuehunt_',
+                
+                // Shopify tracking
+                '_shopify_test',
+                'shopify_pay_redirect',
+                'keep_alive',
+                '_shop_app_essential',
+                '_shopify_essential',
+                'secure_customer_sig',
+                '_shopify_country',
+                '_shopify_m',
+                '_shopify_tm',
+                '_shopify_tw',
+                '_shopify_s',
+                '_shopify_sa_p',
+                '_shopify_sa_t',
+                '_shopify_y',
+                '_shopify_evids',
+                '_shopify_ga',
+                
+                // Marketing & Analytics
+                '_ga', '_gid', '_gat',
+                '_fbp', '_fbc',
+                '_klaviyo',
+                '__kla_id',
+                '__kl_key',
+                'klaviyoOnsite',
+                '_gcl_au',
+                '_gcl_aw',
+                '_gcl_dc',
+                
+                // ABlyft & Testing
+                'ablyft_',
+                'awin_',
+                
+                // Other tracking
+                '_tt_enable_cookie',
+                '_ttp',
+                'TriplePixel',
+                'TriplePixelU',
+                '_replo_sid'
               ];
               
               var cookieName = val.split('=')[0].trim();
@@ -40,14 +85,49 @@
               
               // Check if this cookie should be blocked
               for (var i = 0; i < blockedCookies.length; i++) {
-                if (cookieName.indexOf(blockedCookies[i]) === 0) {
-                  shouldBlock = true;
+                var blockedCookie = blockedCookies[i];
+                if (blockedCookie.endsWith('_')) {
+                  // Prefix match for cookies like 'ablyft_'
+                  if (cookieName.indexOf(blockedCookie) === 0) {
+                    shouldBlock = true;
+                    break;
+                  }
+                } else {
+                  // Exact match
+                  if (cookieName === blockedCookie) {
+                    shouldBlock = true;
+                    break;
+                  }
+                }
+              }
+              
+              // Always allow necessary cookies (Shopify cart, session, etc.)
+              var necessaryCookies = [
+                'cart',
+                'secure_customer_sig',
+                '_shopify_country',
+                '_shopify_m',
+                '_y',
+                '_s',
+                'storefront_digest',
+                '_secure_session_id',
+                'localization',
+                'checkout_token'
+              ];
+              
+              var isNecessary = false;
+              for (var j = 0; j < necessaryCookies.length; j++) {
+                if (cookieName.indexOf(necessaryCookies[j]) === 0) {
+                  isNecessary = true;
                   break;
                 }
               }
               
-              // Only set cookie if consent exists and marketing is allowed, OR if it's not a blocked cookie
-              if (!shouldBlock || 
+              // Set cookie if:
+              // 1. It's a necessary cookie, OR
+              // 2. It's not blocked, OR
+              // 3. Marketing consent has been given
+              if (isNecessary || !shouldBlock || 
                   (window.Cookiebot && window.Cookiebot.consent && window.Cookiebot.consent.marketing)) {
                 originalCookieDescriptor.set.call(document, val);
               } else {
@@ -56,6 +136,36 @@
             },
             configurable: true
           });
+        }
+
+        // Additional protection: Monitor and clear unwanted cookies that might slip through
+        function clearUnwantedCookies() {
+          if (window.Cookiebot && window.Cookiebot.consent && !window.Cookiebot.consent.marketing) {
+            var cookies = document.cookie.split(';');
+            var blockedPatterns = ['__cf_bm', '_ga', '_gid', '_fbp', '_fbc', 'klaviyo', 'ablyft_', 'awin_'];
+            
+            cookies.forEach(function(cookie) {
+              var name = cookie.split('=')[0].trim();
+              blockedPatterns.forEach(function(pattern) {
+                if (name.indexOf(pattern) === 0) {
+                  // Remove the cookie
+                  document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/;';
+                  document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/; domain=' + window.location.hostname;
+                  document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/; domain=.' + window.location.hostname.split('.').slice(-2).join('.');
+                  console.log('Removed unwanted cookie:', name);
+                }
+              });
+            });
+          }
+        }
+
+        // Run cookie cleanup periodically
+        setInterval(clearUnwantedCookies, 5000);
+        
+        // Run cleanup when consent changes
+        if (window.addEventListener) {
+          window.addEventListener('CookiebotOnDecline', clearUnwantedCookies);
+          window.addEventListener('CookiebotOnLoad', clearUnwantedCookies);
         }
       })();
     </script>
@@ -270,6 +380,12 @@
         // Disable Shopify Analytics before consent
         window.ShopifyAnalytics = window.ShopifyAnalytics || {};
         window.ShopifyAnalytics.lib = window.ShopifyAnalytics.lib || {};
+        
+        // Store original Shopify tracking function
+        if (window.ShopifyAnalytics.lib.track) {
+          window.originalShopifyTrack = window.ShopifyAnalytics.lib.track;
+        }
+        
         window.ShopifyAnalytics.lib.track = function() {
           if (window.Cookiebot && window.Cookiebot.consent && window.Cookiebot.consent.marketing) {
             // Only track if marketing consent is given
@@ -283,6 +399,10 @@
         function clearMarketingStorage() {
           try {
             var keys = [
+              // Cloudflare cookies
+              '__cf_bm', '__cflb', '__cfwaitingroom', 'cf_clearance',
+              
+              // Marketing cookies
               'TriplePixel','TriplePixelU','klaviyoOnsite','__kl_key','__kla_id',
               'loyaltylion_persistent_data','___ELEVAR_GTM_SUITE--userId',
               '___ELEVAR_GTM_SUITE--params','___ELEVAR_GTM_SUITE--sessionId',
@@ -291,8 +411,7 @@
               '_ga','_gid','_gat','_fbp','_fbc', 
               'ablyft_', 'awin_', '_klaviyo',
               'data-timeout', // RevenueHunt
-              'shopify_pay_redirect', // Shopify Pay
-              'keep_alive' // Shopify analytics
+              '_tt_enable_cookie', '_ttp'
             ];
             
             keys.forEach(function(k){ 
@@ -304,18 +423,25 @@
                   document.cookie.split(';').forEach(function(cookie) {
                     var name = cookie.split('=')[0].trim();
                     if (name.indexOf(k) === 0) {
-                      document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/; domain=' + window.location.hostname;
-                      document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/;';
-                      document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/; domain=.de';
+                      // Multiple domain variations for thorough cleanup
+                      var domains = ['', window.location.hostname, '.' + window.location.hostname.split('.').slice(-2).join('.')];
+                      domains.forEach(function(domain) {
+                        var domainStr = domain ? '; domain=' + domain : '';
+                        document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/' + domainStr;
+                      });
                     }
                   });
                 } else {
-                  // Remove specific cookie
-                  document.cookie = k + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/; domain=' + window.location.hostname;
-                  document.cookie = k + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/;';
-                  document.cookie = k + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/; domain=.de';
+                  // Remove specific cookie with multiple domain variations
+                  var domains = ['', window.location.hostname, '.' + window.location.hostname.split('.').slice(-2).join('.')];
+                  domains.forEach(function(domain) {
+                    var domainStr = domain ? '; domain=' + domain : '';
+                    document.cookie = k + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/' + domainStr;
+                  });
                 }
-              }catch(e){} 
+              }catch(e){
+                console.warn('Error clearing storage item:', k, e);
+              } 
             });
           } catch(e) {
             console.warn('Error clearing marketing storage:', e);
@@ -336,11 +462,6 @@
           }
         }
 
-        // Store original Shopify tracking function
-        if (window.ShopifyAnalytics && window.ShopifyAnalytics.lib && window.ShopifyAnalytics.lib.track) {
-          window.originalShopifyTrack = window.ShopifyAnalytics.lib.track;
-        }
-
         // Run on all consent events
         if (window.addEventListener) {
           window.addEventListener('CookiebotOnLoad', checkConsentAndAct);
@@ -353,6 +474,44 @@
         document.addEventListener('DOMContentLoaded', function() {
           setTimeout(checkConsentAndAct, 1000);
         });
+      })();
+    </script>
+
+    <!-- Additional Cloudflare Cookie Monitoring -->
+    <script>
+      // Monitor for Cloudflare cookies specifically
+      (function() {
+        function checkCloudflarecookies() {
+          if (window.Cookiebot && window.Cookiebot.consent && !window.Cookiebot.consent.marketing) {
+            var cfCookies = ['__cf_bm', '__cflb', '__cfwaitingroom', 'cf_clearance'];
+            var cookies = document.cookie.split(';');
+            
+            cookies.forEach(function(cookie) {
+              var name = cookie.split('=')[0].trim();
+              cfCookies.forEach(function(cfCookie) {
+                if (name === cfCookie) {
+                  console.warn('Cloudflare cookie detected without consent:', name);
+                  // Attempt to clear (may not work due to Cloudflare's protection)
+                  var domains = ['', window.location.hostname, '.' + window.location.hostname.split('.').slice(-2).join('.')];
+                  domains.forEach(function(domain) {
+                    var domainStr = domain ? '; domain=' + domain : '';
+                    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/' + domainStr;
+                    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/; secure' + domainStr;
+                  });
+                }
+              });
+            });
+          }
+        }
+        
+        // Check every 10 seconds for Cloudflare cookies
+        setInterval(checkCloudflarecookies, 10000);
+        
+        // Also check on consent events
+        if (window.addEventListener) {
+          window.addEventListener('CookiebotOnLoad', checkCloudflarecookies);
+          window.addEventListener('CookiebotOnDecline', checkCloudflarecookies);
+        }
       })();
     </script>
   </head>
