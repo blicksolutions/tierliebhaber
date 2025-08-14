@@ -12,29 +12,29 @@
     <meta name="google-site-verification" content="QZiR1WxDnZAKrxARkf6DQjhHzK1Y3t4Oo5I1TMO2Sgo">
     <meta name="google-site-verification" content="Yq9dF4MhfrxG4y9GADuu6whPXKYTFZ4vQ3O52SZWsas">
 
-    <!-- Cookiebot (manual blocking for consent gating) -->
+    <!-- Cookiebot MUST be first script -->
     <script id="Cookiebot"
             src="https://consent.cookiebot.com/uc.js"
             data-cbid="a4aa9c1a-9639-4e9f-8a23-4aef9c37b3cc"
-            data-blockingmode="manual"
+            data-blockingmode="auto"
             type="text/javascript">
     </script>
 
-    <!-- Core CSS -->
+    <!-- Core CSS (functional - no gating needed) -->
     <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
     <link rel="stylesheet" href="{{ 'bs-custom.css' | asset_url }}">
     <link rel="stylesheet" href="{{ 'bs-mobile-sidebar-nav.css' | asset_url }}">
     <link rel="stylesheet" href="{{ 'recommended-search-products.css' | asset_url }}">
 
-    <!-- AB / landing CSS (keep only if used) -->
-    <link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}">
-    <link rel="stylesheet" href="{{ 'ds-op-lp-3.css' | asset_url }}">
+    <!-- AB / landing CSS - GATED (these likely have tracking) -->
+    <link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}" data-cookieconsent="marketing">
+    <link rel="stylesheet" href="{{ 'ds-op-lp-3.css' | asset_url }}" data-cookieconsent="marketing">
 
-    <!-- Slick (keep only if used) -->
+    <!-- Slick (functional - keep ungated if only used for UI) -->
     <link rel="stylesheet" href="{{ 'slick.css' | asset_url }}">
     <link rel="stylesheet" href="{{ 'slick-theme.css' | asset_url }}">
 
-    <!-- Swiper (keep only if used) -->
+    <!-- Swiper (functional - keep ungated if only used for UI) -->
     <link rel="stylesheet" href="{{ 'swiper-bundle.min.css' | asset_url }}">
 
     {% if page_description %}
@@ -71,14 +71,15 @@
     {{ content_for_header }}
     {% render 'cookie-consent' %}
 
-    <!-- Replo -->
-    {% render 'replo-head' %}
+    <!-- Replo (likely has tracking - GATE IT) -->
+    <script type="text/plain" data-cookieconsent="marketing">
+      {% render 'replo-head' %}
+    </script>
 
-    <!-- Rapid Search (kept) -->
+    <!-- Rapid Search (if purely functional, can stay ungated) -->
     {% render 'rapid-search-settings' %}
 
-    <!-- Cookiebot-gated marketing/experiment scripts -->
-    <!-- ABlyft / AB scripts -->
+    <!-- ALL AB TESTING & MARKETING SCRIPTS - PROPERLY GATED -->
     <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
     <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
     <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-009.js' | asset_url }}"></script>
@@ -86,7 +87,7 @@
     <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-011.js' | asset_url }}"></script>
     <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-025.js' | asset_url }}"></script>
 
-    <!-- DE visitor flag for ABlyft -->
+    <!-- DE visitor flag for ABlyft - GATED -->
     <script type="text/plain" data-cookieconsent="marketing">
       fetch('/browsing_context_suggestions.json')
         .then(function(r){ return r.json(); })
@@ -94,11 +95,11 @@
         .catch(function(){ window.isDeVisitor = false; });
     </script>
 
-    <!-- ABlyft Snippet -->
+    <!-- ABlyft Snippet - GATED -->
     <script type="text/plain" data-cookieconsent="marketing" src="https://cdn.ablyft.com/s/55886406.js"></script>
     <script type="text/plain" data-cookieconsent="marketing">window.ablyft = window.ablyft || [];</script>
 
-    <!-- TLH-026 custom goal snippet -->
+    <!-- TLH-026 custom goal snippet - GATED -->
     <script type="text/plain" data-cookieconsent="marketing">
       document.addEventListener('DOMContentLoaded', function() {
         var el = document.querySelector('.Search__Inner');
@@ -109,7 +110,7 @@
       });
     </script>
 
-    <!-- Awin Implementation (gated) -->
+    <!-- Awin Implementation - GATED -->
     <script type="text/plain" data-cookieconsent="marketing">
       (function() {
         window.AWIN = window.AWIN || {};
@@ -133,7 +134,7 @@
       })();
     </script>
 
-    <!-- Amazon Ad Tag on home only (gated) -->
+    <!-- Amazon Ad Tag on home only - GATED -->
     {% if template.name == 'index' %}
       <script type="text/plain" data-cookieconsent="marketing">
         !function(w,d,s,t,a){if(w.amzn)return;w.amzn=a=function(){w.amzn.q.push([arguments,(new Date).getTime()])};a.q=[];a.version="0.0";s=d.createElement("script");s.src="https://c.amazon-adsystem.com/aat/amzn.js";s.id="amzn-pixel";s.async=true;t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t)}(window,document);
@@ -143,7 +144,7 @@
       </script>
     {% endif %}
 
-    <!-- Feature flags / globals (functional) -->
+    <!-- Feature flags / globals (functional - no consent needed) -->
     <script>
       window.SLIDECART_DISABLE = true;
       window.experiments = { data: { product: { id: {{ product.id | json }}, title: {{ product.title | json }} } } };
@@ -167,14 +168,14 @@
     </script>
     <script src="{{ 'lazysizes.min.js' | asset_url }}" async></script>
 
-    <!-- Polyfills first, then vendors, then theme/custom (functional; not gated) -->
+    <!-- Polyfills first, then vendors (functional - no consent needed) -->
     <script src="https://cdn.polyfill.io/v3/polyfill.min.js?unknown=polyfill&features=fetch,Element.prototype.closest,Element.prototype.remove,Element.prototype.classList,Array.prototype.includes,Array.prototype.fill,Object.assign,CustomEvent,IntersectionObserver,IntersectionObserverEntry,URL" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
     <script src="{{ 'libs.min.js' | asset_url }}" defer></script>
     <script src="{{ 'slick.min.js' | asset_url }}" defer></script>
     <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
 
-    <!-- Theme & custom scripts (functional) -->
+    <!-- Theme & custom scripts (functional - no consent needed) -->
     <script src="{{ 'theme.min.js' | asset_url }}" defer></script>
     <script src="{{ 'bs-load-third-party-scripts.js' | asset_url }}" defer></script>
     <script src="{{ 'bs-subscription-callout.js' | asset_url }}" defer></script>
@@ -184,19 +185,28 @@
     <script src="{{ 'search-manipulation.js' | asset_url }}" defer></script>
     <script src="{{ 'bs-dentalspray-redirect.js' | asset_url }}" defer></script>
 
-    <!-- Customer area assets (Shopify standard) -->
+    <!-- Customer area assets (Shopify standard - functional) -->
     {% if template == 'customers/addresses' %}
       <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer></script>
       <script src="{{ 'customer_area.js' | shopify_asset_url }}" defer></script>
     {% endif %}
 
-    <!-- If this include contains marketing tags, move those parts into a Cookiebot-gated include -->
+    <!-- IMPORTANT: Check head-scripts include for marketing content -->
+    {% comment %}
+    WARNING: If 'head-scripts' contains any marketing/tracking scripts,
+    you need to either:
+    1. Remove marketing scripts from that include, OR
+    2. Gate the entire include like this:
+    <script type="text/plain" data-cookieconsent="marketing">
+      {% render 'head-scripts', layout: 'theme' %}
+    </script>
+    {% endcomment %}
     {% render 'head-scripts', layout: 'theme' %}
 
     {% render 'microdata-schema' %}
     {% include 'ufe-offer' %}
 
-    <!-- Consent change handler: clear non-essential storage when marketing is not allowed -->
+    <!-- Enhanced consent change handler -->
     <script>
       (function() {
         function clearMarketingStorage() {
@@ -206,23 +216,55 @@
               'loyaltylion_persistent_data','___ELEVAR_GTM_SUITE--userId',
               '___ELEVAR_GTM_SUITE--params','___ELEVAR_GTM_SUITE--sessionId',
               '___ELEVAR_GTM_SUITE--sessionCount','___ELEVAR_GTM_SUITE--lastDlPushTimestamp',
-              '__gemx_campaign_data','__gemx_campaign_template','_replo_sid','smile_shopify_data'
+              '__gemx_campaign_data','__gemx_campaign_template','_replo_sid','smile_shopify_data',
+              '_ga','_gid','_gat','_fbp','_fbc', // Add common marketing cookies
+              'ablyft_', 'awin_', '_klaviyo' // Add your specific tracking prefixes
             ];
-            keys.forEach(function(k){ try{ localStorage.removeItem(k); }catch(e){} });
-          } catch(e) {}
+            
+            keys.forEach(function(k){ 
+              try{ 
+                localStorage.removeItem(k);
+                sessionStorage.removeItem(k);
+                // Remove cookies that start with these prefixes
+                if (k.endsWith('_')) {
+                  document.cookie.split(';').forEach(function(cookie) {
+                    var name = cookie.split('=')[0].trim();
+                    if (name.indexOf(k) === 0) {
+                      document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/; domain=' + window.location.hostname;
+                      document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/;';
+                    }
+                  });
+                } else {
+                  // Remove specific cookie
+                  document.cookie = k + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/; domain=' + window.location.hostname;
+                  document.cookie = k + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/;';
+                }
+              }catch(e){} 
+            });
+          } catch(e) {
+            console.warn('Error clearing marketing storage:', e);
+          }
         }
 
         function checkConsentAndAct() {
-          // If Cookiebot exists and marketing is NOT consented, clear storage
+          // Clear storage when marketing consent is withdrawn
           if (window.Cookiebot && window.Cookiebot.consent && window.Cookiebot.consent.marketing === false) {
             clearMarketingStorage();
           }
         }
 
-        // Run once ready and on further consent changes
-        window.addEventListener('CookiebotOnLoad', checkConsentAndAct);
-        window.addEventListener('CookiebotOnAccept', checkConsentAndAct);
-        window.addEventListener('CookiebotOnDecline', checkConsentAndAct);
+        // Run on all consent events
+        if (window.addEventListener) {
+          window.addEventListener('CookiebotOnLoad', checkConsentAndAct);
+          window.addEventListener('CookiebotOnAccept', checkConsentAndAct);
+          window.addEventListener('CookiebotOnDecline', checkConsentAndAct);
+          window.addEventListener('CookiebotOnDialogInit', checkConsentAndAct);
+        }
+
+        // Fallback for older browsers
+        document.addEventListener('DOMContentLoaded', function() {
+          setTimeout(checkConsentAndAct, 1000);
+        });
       })();
     </script>
   </head>
@@ -261,7 +303,7 @@
       {% section 'footer' %}
     </div>
 
-    <!-- Bootstrapping & env flags -->
+    <!-- Bootstrapping & env flags (functional - no consent needed) -->
     <script>
       (function () {
         window.theme = {
@@ -353,8 +395,10 @@
       </script>
     {% endif %}
 
-    <!-- Klaviyo Onsite (GATED) -->
-    <script type="text/plain" data-cookieconsent="marketing" src="https://a.klaviyo.com/media/js/onsite/onsite.js" defer></script>
+    <!-- ALL MARKETING SCRIPTS PROPERLY GATED BELOW -->
+    
+    <!-- Klaviyo Onsite - GATED -->
+    <script type="text/plain" data-cookieconsent="marketing" src="https://a.klaviyo.com/media/js/onsite/onsite.js"></script>
     <script type="text/plain" data-cookieconsent="marketing">
       document.addEventListener('DOMContentLoaded', function() {
         try {
@@ -388,16 +432,18 @@
               success_text_color: '#1B9500'
             }
           });
-        } catch(e) { console.warn('Klaviyo init failed', e); }
+        } catch(e) { 
+          console.warn('Klaviyo init failed', e); 
+        }
       });
     </script>
 
-    <!-- NextLevel Network Tag (already gated above) -->
-    <script src="https://www.dwin1.com/86929.js" type="text/plain" data-cookieconsent="marketing" defer></script>
+    <!-- NextLevel Network Tag - GATED -->
+    <script src="https://www.dwin1.com/86929.js" type="text/plain" data-cookieconsent="marketing"></script>
 
-    <!-- reviews.io rating snippet (gate JS; CSS can stay) -->
+    <!-- reviews.io - CSS can stay, JS must be gated -->
     <link rel="stylesheet" href="https://widget.reviews.io/rating-snippet/dist.css">
-    <script type="text/plain" data-cookieconsent="marketing" src="https://widget.reviews.io/rating-snippet/dist.js" defer></script>
+    <script type="text/plain" data-cookieconsent="marketing" src="https://widget.reviews.io/rating-snippet/dist.js"></script>
     <script type="text/plain" data-cookieconsent="marketing">
       document.addEventListener('DOMContentLoaded', function () {
         if (typeof ratingSnippet === 'function') {
@@ -416,7 +462,7 @@
       });
     </script>
 
-    <!-- WhatsApp widget (GATED) -->
-    <script type="text/plain" data-cookieconsent="marketing" src="https://customized-whatsapp-widget.chatarmin.com/widget-fetcher.js?w_id=6811de72e886703c08521660&u_id=680a53d680aac276290b3339" async></script>
+    <!-- WhatsApp widget - GATED -->
+    <script type="text/plain" data-cookieconsent="marketing" src="https://customized-whatsapp-widget.chatarmin.com/widget-fetcher.js?w_id=6811de72e886703c08521660&u_id=680a53d680aac276290b3339"></script>
   </body>
 </html>
