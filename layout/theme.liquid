@@ -267,8 +267,8 @@
     <link rel="stylesheet" href="{{ 'recommended-search-products.css' | asset_url }}">
 
     <!-- AB / landing CSS - GATED (these likely have tracking) -->
-    <link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}">
-    <link rel="stylesheet" href="{{ 'ds-op-lp-3.css' | asset_url }}" >
+    <link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}" data-cookieconsent="marketing">
+    <link rel="stylesheet" href="{{ 'ds-op-lp-3.css' | asset_url }}" data-cookieconsent="marketing">
 
     <!-- Slick (functional - keep ungated if only used for UI) -->
     <link rel="stylesheet" href="{{ 'slick.css' | asset_url }}">
@@ -312,7 +312,7 @@
     {% render 'cookie-consent' %}
 
     <!-- Replo (likely has tracking - GATE IT) -->
-    <script type="text/plain" >
+    <script type="text/plain" data-cookieconsent="marketing">
       {% render 'replo-head' %}
     </script>
 
@@ -320,12 +320,12 @@
     {% render 'rapid-search-settings' %}
 
     <!-- ALL AB TESTING & MARKETING SCRIPTS - PROPERLY GATED -->
-    <script type="text/plain"  src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
-    <script type="text/plain"  src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
-    <script type="text/plain"  src="{{ 'bs-ab-tlh-009.js' | asset_url }}"></script>
-    <script type="text/plain"  src="{{ 'bs-ab-tlh-010.js' | asset_url }}"></script>
-    <script type="text/plain"  src="{{ 'bs-ab-tlh-011.js' | asset_url }}"></script>
-    <script type="text/plain"  src="{{ 'bs-ab-tlh-025.js' | asset_url }}"></script>
+    <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
+    <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
+    <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-009.js' | asset_url }}"></script>
+    <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-010.js' | asset_url }}"></script>
+    <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-011.js' | asset_url }}"></script>
+    <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-025.js' | asset_url }}"></script>
 
     <!-- DE visitor flag for ABlyft - GATED -->
     <script type="text/plain" data-cookieconsent="marketing">
@@ -558,7 +558,7 @@
         });
       })();
     </script>
-
+{% endcomment %}
     <!-- Additional Cloudflare Cookie Monitoring (Enhanced for reviews.io) -->
     <script>
       // AGGRESSIVE monitoring for external cookies, especially from reviews.io
@@ -658,7 +658,6 @@
         });
       })();
     </script>
-    {% endcomment %}
   </head>
 
   {%- capture classes -%}features--heading-{{ settings.heading_size }}{%- endcapture -%}
