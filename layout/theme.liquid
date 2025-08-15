@@ -1,6 +1,7 @@
 <!doctype html>
 <html class="no-js" lang="{{ shop.locale }}">
   <head>
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="a4aa9c1a-9639-4e9f-8a23-4aef9c37b3cc" data-blockingmode="auto" type="text/javascript"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
@@ -257,12 +258,7 @@
     </script>
 {% endcomment %}
     <!-- Cookiebot MUST be first script after cookie blocking -->
-    <script id="Cookiebot"
-            src="https://consent.cookiebot.com/uc.js"
-            data-cbid="a4aa9c1a-9639-4e9f-8a23-4aef9c37b3cc"
-            data-blockingmode="auto"
-            type="text/javascript">
-    </script>
+   
 
     <!-- Core CSS (functional - no gating needed) -->
     <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
@@ -791,7 +787,7 @@
     {% endif %}
 
     <!-- ALL MARKETING SCRIPTS PROPERLY GATED BELOW -->
-    
+    {% comment %}
     <!-- Klaviyo Onsite - GATED -->
     <script type="text/plain" data-cookieconsent="marketing" src="https://a.klaviyo.com/media/js/onsite/onsite.js"></script>
     <script type="text/plain" data-cookieconsent="marketing">
@@ -832,7 +828,7 @@
         }
       });
     </script>
-
+      {% endcomment %}
     <!-- NextLevel Network Tag - GATED -->
     <script src="https://www.dwin1.com/86929.js" type="text/plain" data-cookieconsent="marketing"></script>
 
