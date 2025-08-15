@@ -320,12 +320,12 @@
     {% render 'rapid-search-settings' %}
 
     <!-- ALL AB TESTING & MARKETING SCRIPTS - PROPERLY GATED -->
-    <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
-    <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
-    <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-009.js' | asset_url }}"></script>
-    <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-010.js' | asset_url }}"></script>
-    <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-011.js' | asset_url }}"></script>
-    <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-025.js' | asset_url }}"></script>
+    <script src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
+    <script src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
+    <script src="{{ 'bs-ab-tlh-009.js' | asset_url }}"></script>
+    <script src="{{ 'bs-ab-tlh-010.js' | asset_url }}"></script>
+    <script src="{{ 'bs-ab-tlh-011.js' | asset_url }}"></script>
+    <script src="{{ 'bs-ab-tlh-025.js' | asset_url }}"></script>
 
     <!-- DE visitor flag for ABlyft - GATED -->
     <script type="text/plain" data-cookieconsent="marketing">
