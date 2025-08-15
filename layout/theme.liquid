@@ -75,7 +75,7 @@
               // Comprehensive list of cookies to block before consent
               var blockedCookies = [
                 // Cloudflare cookies (from any source)
-                               // Cloudflare Bot Management - CRITICAL
+                '__cf_bm',                // Cloudflare Bot Management - CRITICAL
                 '__cflb',                 // Cloudflare Load Balancer
                 '__cfwaitingroom',        // Cloudflare Waiting Room
                 'cf_clearance',           // Cloudflare clearance
@@ -182,7 +182,7 @@
         function aggressiveCookieCleanup() {
           if (window.Cookiebot && window.Cookiebot.consent && !window.Cookiebot.consent.marketing) {
             var cookies = document.cookie.split(';');
-            var blockedPatterns = ['_ga', '_gid', '_fbp', '_fbc', 'klaviyo', 'ablyft_', 'awin_', 'reviews_io_', 'ruk_'];
+            var blockedPatterns = ['__cf_bm', '_ga', '_gid', '_fbp', '_fbc', 'klaviyo', 'ablyft_', 'awin_', 'reviews_io_', 'ruk_'];
             
             cookies.forEach(function(cookie) {
               var name = cookie.split('=')[0].trim();
@@ -486,7 +486,7 @@
           try {
             var keys = [
               // Cloudflare cookies
-               '__cflb', '__cfwaitingroom', 'cf_clearance',
+              '__cf_bm', '__cflb', '__cfwaitingroom', 'cf_clearance',
               
               // Marketing cookies
               'TriplePixel','TriplePixelU','klaviyoOnsite','__kl_key','__kla_id',
@@ -569,7 +569,7 @@
       (function() {
         function aggressiveCloudflareCleanup() {
           if (window.Cookiebot && window.Cookiebot.consent && !window.Cookiebot.consent.marketing) {
-            var cfCookies = ['__cflb', '__cfwaitingroom', 'cf_clearance'];
+            var cfCookies = ['__cf_bm', '__cflb', '__cfwaitingroom', 'cf_clearance'];
             var externalCookies = ['reviews_io_', 'ruk_', '_ga', '_gid', '_fbp'];
             var allBlockedCookies = cfCookies.concat(externalCookies);
             var cookies = document.cookie.split(';');
