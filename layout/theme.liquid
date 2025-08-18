@@ -12,253 +12,6 @@
     <!-- Google site verification (keep both if both are in use) -->
     <meta name="google-site-verification" content="QZiR1WxDnZAKrxARkf6DQjhHzK1Y3t4Oo5I1TMO2Sgo">
     <meta name="google-site-verification" content="Yq9dF4MhfrxG4y9GADuu6whPXKYTFZ4vQ3O52SZWsas">
-{% comment %}
-    <!-- ENHANCED COOKIE BLOCKING - Add before ANY other scripts -->
-    <script>
-      // AGGRESSIVE cookie blocking for Cloudflare and other automatic cookies
-      (function() {
-        // Store original methods
-        var originalCookieDescriptor = Object.getOwnPropertyDescriptor(Document.prototype, 'cookie') ||
-                                     Object.getOwnPropertyDescriptor(HTMLDocument.prototype, 'cookie');
-        var originalFetch = window.fetch;
-        var originalXHROpen = XMLHttpRequest.prototype.open;
-        
-        // Block network requests to external tracking domains before consent
-        var blockedDomains = [
-          'widget.reviews.io',
-          'reviews.io',
-          'googleapis.com',
-          'googletagmanager.com',
-          'google-analytics.com',
-          'facebook.com',
-          'connect.facebook.net',
-          'klaviyo.com',
-          'a.klaviyo.com'
-        ];
-
-        // Override fetch to block external tracking requests
-        window.fetch = function() {
-          var url = arguments[0];
-          if (typeof url === 'string') {
-            for (var i = 0; i < blockedDomains.length; i++) {
-              if (url.indexOf(blockedDomains[i]) !== -1) {
-                if (!window.Cookiebot || !window.Cookiebot.consent || !window.Cookiebot.consent.marketing) {
-                  console.log('Blocked fetch request before consent:', url);
-                  return Promise.reject(new Error('Request blocked before consent'));
-                }
-              }
-            }
-          }
-          return originalFetch.apply(this, arguments);
-        };
-
-        // Override XMLHttpRequest to block external tracking requests
-        XMLHttpRequest.prototype.open = function(method, url) {
-          if (typeof url === 'string') {
-            for (var i = 0; i < blockedDomains.length; i++) {
-              if (url.indexOf(blockedDomains[i]) !== -1) {
-                if (!window.Cookiebot || !window.Cookiebot.consent || !window.Cookiebot.consent.marketing) {
-                  console.log('Blocked XHR request before consent:', url);
-                  return;
-                }
-              }
-            }
-          }
-          return originalXHROpen.apply(this, arguments);
-        };
-        
-        if (originalCookieDescriptor && originalCookieDescriptor.configurable) {
-          Object.defineProperty(document, 'cookie', {
-            get: function() {
-              return originalCookieDescriptor.get.call(document);
-            },
-            set: function(val) {
-              // Comprehensive list of cookies to block before consent
-              var blockedCookies = [
-                // Cloudflare cookies (from any source)
-                '__cf_bm',                // Cloudflare Bot Management - CRITICAL
-                '__cflb',                 // Cloudflare Load Balancer
-                '__cfwaitingroom',        // Cloudflare Waiting Room
-                'cf_clearance',           // Cloudflare clearance
-                '__cf_bm_',               // Cloudflare Bot Management variants
-                
-                // Reviews.io related (they use Cloudflare)
-                'reviews_io_',
-                'ruk_',
-                
-                // RevenueHunt
-                'data-timeout',
-                'revenuehunt_',
-                
-                // Shopify tracking (non-essential)
-                'shopify_pay_redirect',
-                'keep_alive',
-                '_shop_app_essential',
-                '_shopify_evids',
-                '_shopify_ga',
-                
-                // Marketing & Analytics
-                '_ga', '_gid', '_gat',
-                '_fbp', '_fbc',
-                '_klaviyo',
-                '__kla_id',
-                '__kl_key',
-                'klaviyoOnsite',
-                '_gcl_au',
-                '_gcl_aw',
-                '_gcl_dc',
-                
-                // ABlyft & Testing
-                'ablyft_',
-                'awin_',
-                
-                // Other tracking
-                '_tt_enable_cookie',
-                '_ttp',
-                'TriplePixel',
-                'TriplePixelU',
-                '_replo_sid'
-              ];
-              
-              var cookieName = val.split('=')[0].trim();
-              var shouldBlock = false;
-              
-              // Check if this cookie should be blocked
-              for (var i = 0; i < blockedCookies.length; i++) {
-                var blockedCookie = blockedCookies[i];
-                if (blockedCookie.endsWith('_')) {
-                  // Prefix match for cookies like 'ablyft_'
-                  if (cookieName.indexOf(blockedCookie) === 0) {
-                    shouldBlock = true;
-                    break;
-                  }
-                } else {
-                  // Exact match
-                  if (cookieName === blockedCookie) {
-                    shouldBlock = true;
-                    break;
-                  }
-                }
-              }
-              
-              // Always allow necessary cookies (Shopify cart, session, etc.)
-              var necessaryCookies = [
-                'cart',
-                'secure_customer_sig',
-                '_shopify_country',
-                '_shopify_m',
-                '_y',
-                '_s',
-                'storefront_digest',
-                '_secure_session_id',
-                'localization',
-                'checkout_token',
-                '_shopify_essential' // Only truly essential shopify cookies
-              ];
-              
-              var isNecessary = false;
-              for (var j = 0; j < necessaryCookies.length; j++) {
-                if (cookieName.indexOf(necessaryCookies[j]) === 0) {
-                  isNecessary = true;
-                  break;
-                }
-              }
-              
-              // Set cookie if:
-              // 1. It's a necessary cookie, OR
-              // 2. It's not blocked, OR
-              // 3. Marketing consent has been given
-              if (isNecessary || !shouldBlock || 
-                  (window.Cookiebot && window.Cookiebot.consent && window.Cookiebot.consent.marketing)) {
-                originalCookieDescriptor.set.call(document, val);
-              } else {
-                console.log('🚫 BLOCKED COOKIE (no consent):', cookieName, 'from:', (new Error()).stack);
-              }
-            },
-            configurable: true
-          });
-        }
-
-        // AGGRESSIVE cookie cleanup function
-        function aggressiveCookieCleanup() {
-          if (window.Cookiebot && window.Cookiebot.consent && !window.Cookiebot.consent.marketing) {
-            var cookies = document.cookie.split(';');
-            var blockedPatterns = ['__cf_bm', '_ga', '_gid', '_fbp', '_fbc', 'klaviyo', 'ablyft_', 'awin_', 'reviews_io_', 'ruk_'];
-            
-            cookies.forEach(function(cookie) {
-              var name = cookie.split('=')[0].trim();
-              blockedPatterns.forEach(function(pattern) {
-                if (name.indexOf(pattern) === 0 || name === pattern) {
-                  // Multiple domain cleanup strategies
-                  var domains = [
-                    '',
-                    window.location.hostname,
-                    '.' + window.location.hostname,
-                    '.' + window.location.hostname.split('.').slice(-2).join('.'),
-                    '.reviews.io',
-                    '.widget.reviews.io'
-                  ];
-                  
-                  domains.forEach(function(domain) {
-                    var domainStr = domain ? '; domain=' + domain : '';
-                    // Try both secure and non-secure
-                    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/' + domainStr;
-                    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/; secure' + domainStr;
-                    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/; samesite=none; secure' + domainStr;
-                  });
-                  console.log('🧹 REMOVED COOKIE:', name);
-                }
-              });
-            });
-          }
-        }
-
-        // Run cookie cleanup very frequently to catch external cookies
-        setInterval(aggressiveCookieCleanup, 2000); // Every 2 seconds
-        
-        // Run cleanup on various events
-        if (window.addEventListener) {
-          window.addEventListener('CookiebotOnDecline', aggressiveCookieCleanup);
-          window.addEventListener('CookiebotOnLoad', aggressiveCookieCleanup);
-          window.addEventListener('focus', aggressiveCookieCleanup);
-          window.addEventListener('blur', aggressiveCookieCleanup);
-        }
-
-        // Override script loading to prevent external scripts before consent
-        var originalCreateElement = document.createElement;
-        document.createElement = function(tagName) {
-          var element = originalCreateElement.call(this, tagName);
-          
-          if (tagName.toLowerCase() === 'script') {
-            var originalSrcSetter = Object.getOwnPropertyDescriptor(element, 'src') || 
-                                   Object.getOwnPropertyDescriptor(HTMLScriptElement.prototype, 'src');
-            
-            if (originalSrcSetter) {
-              Object.defineProperty(element, 'src', {
-                set: function(src) {
-                  // Block external scripts before consent
-                  for (var i = 0; i < blockedDomains.length; i++) {
-                    if (src && src.indexOf && src.indexOf(blockedDomains[i]) !== -1) {
-                      if (!window.Cookiebot || !window.Cookiebot.consent || !window.Cookiebot.consent.marketing) {
-                        console.log('🚫 BLOCKED SCRIPT:', src);
-                        return; // Don't set the src
-                      }
-                    }
-                  }
-                  originalSrcSetter.set.call(this, src);
-                },
-                get: originalSrcSetter.get
-              });
-            }
-          }
-          
-          return element;
-        };
-      })();
-    </script>
-{% endcomment %}
-    <!-- Cookiebot MUST be first script after cookie blocking -->
-   
 
     <!-- Core CSS (functional - no gating needed) -->
     <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
@@ -276,6 +29,9 @@
 
     <!-- Swiper (functional - keep ungated if only used for UI) -->
     <link rel="stylesheet" href="{{ 'swiper-bundle.min.css' | asset_url }}">
+
+    <!-- Reviews.io CSS - UNGATED (functional display) -->
+    <link rel="stylesheet" href="https://widget.reviews.io/rating-snippet/dist.css">
 
     {% if page_description %}
       <meta name="description" content="{{ page_description | escape }}">
@@ -320,12 +76,12 @@
     {% render 'rapid-search-settings' %}
 
     <!-- ALL AB TESTING & MARKETING SCRIPTS - PROPERLY GATED -->
-    <script src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
-    <script src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
-    <script src="{{ 'bs-ab-tlh-009.js' | asset_url }}"></script>
-    <script src="{{ 'bs-ab-tlh-010.js' | asset_url }}"></script>
-    <script src="{{ 'bs-ab-tlh-011.js' | asset_url }}"></script>
-    <script src="{{ 'bs-ab-tlh-025.js' | asset_url }}"></script>
+    <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
+    <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
+    <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-009.js' | asset_url }}"></script>
+    <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-010.js' | asset_url }}"></script>
+    <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-011.js' | asset_url }}"></script>
+    <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-025.js' | asset_url }}"></script>
 
     <!-- DE visitor flag for ABlyft - GATED -->
     <script type="text/plain" data-cookieconsent="marketing">
@@ -410,7 +166,7 @@
 
     <!-- Polyfills first, then vendors (functional - no consent needed) -->
     <script src="https://cdn.polyfill.io/v3/polyfill.min.js?unknown=polyfill&features=Element.prototype.closest,Element.prototype.remove,Element.prototype.classList,Array.prototype.includes,Array.prototype.fill,Object.assign,CustomEvent,IntersectionObserver,IntersectionObserverEntry,URL" defer></script>
-    <script src="{{'jquery.min.js' | asset_url }}" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
     <script src="{{ 'libs.min.js' | asset_url }}" defer></script>
     <script src="{{ 'slick.min.js' | asset_url }}" defer></script>
     <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
@@ -431,16 +187,6 @@
       <script src="{{ 'customer_area.js' | shopify_asset_url }}" defer></script>
     {% endif %}
 
-    <!-- IMPORTANT: Check head-scripts include for marketing content -->
-    {% comment %}
-    WARNING: If 'head-scripts' contains any marketing/tracking scripts,
-    you need to either:
-    1. Remove marketing scripts from that include, OR
-    2. Gate the entire include like this:
-    <script type="text/plain" data-cookieconsent="marketing">
-      {% render 'head-scripts', layout: 'theme' %}
-    </script>
-    {% endcomment %}
     {% render 'head-scripts', layout: 'theme' %}
 
     {% render 'microdata-schema' %}
@@ -455,207 +201,96 @@
         document.head.appendChild(script);
       })();
     </script>
-{% comment %}
-    <!-- Enhanced consent change handler with Shopify tracking control -->
+
+    <!-- SAFE Marketing Cookie Cleanup - PROTECTS Reviews.io and Recharge -->
     <script>
+      // SAFE GDPR blocking - whitelist essential services
       (function() {
-        // Disable Shopify Analytics before consent
-        window.ShopifyAnalytics = window.ShopifyAnalytics || {};
-        window.ShopifyAnalytics.lib = window.ShopifyAnalytics.lib || {};
-        
-        // Store original Shopify tracking function
-        if (window.ShopifyAnalytics.lib.track) {
-          window.originalShopifyTrack = window.ShopifyAnalytics.lib.track;
-        }
-        
-        window.ShopifyAnalytics.lib.track = function() {
-          if (window.Cookiebot && window.Cookiebot.consent && window.Cookiebot.consent.marketing) {
-            // Only track if marketing consent is given
-            if (window.originalShopifyTrack) {
-              return window.originalShopifyTrack.apply(this, arguments);
-            }
-          }
-          console.log('Shopify tracking blocked - no marketing consent');
-        };
+        // ONLY block these specific marketing cookies (NOT Reviews.io or Recharge)
+        var marketingCookies = [
+          '_ga', '_gid', '_gat',         // Google Analytics only
+          '_fbp', '_fbc',               // Facebook only  
+          '_klaviyo', '__kla_id',       // Klaviyo only
+          'ablyft_',                    // ABlyft only
+          'awin_',                      // Awin only
+          '_tt_enable_cookie', '_ttp',  // TikTok only
+          'data-timeout'                // RevenueHunt only
+        ];
 
-        function clearMarketingStorage() {
-          try {
-            var keys = [
-              // Cloudflare cookies
-              '__cf_bm', '__cflb', '__cfwaitingroom', 'cf_clearance',
-              
-              // Marketing cookies
-              'TriplePixel','TriplePixelU','klaviyoOnsite','__kl_key','__kla_id',
-              'loyaltylion_persistent_data','___ELEVAR_GTM_SUITE--userId',
-              '___ELEVAR_GTM_SUITE--params','___ELEVAR_GTM_SUITE--sessionId',
-              '___ELEVAR_GTM_SUITE--sessionCount','___ELEVAR_GTM_SUITE--lastDlPushTimestamp',
-              '__gemx_campaign_data','__gemx_campaign_template','_replo_sid','smile_shopify_data',
-              '_ga','_gid','_gat','_fbp','_fbc', 
-              'ablyft_', 'awin_', '_klaviyo',
-              'data-timeout', // RevenueHunt
-              '_tt_enable_cookie', '_ttp'
-            ];
-            
-            keys.forEach(function(k){ 
-              try{ 
-                localStorage.removeItem(k);
-                sessionStorage.removeItem(k);
-                // Remove cookies that start with these prefixes
-                if (k.endsWith('_')) {
-                  document.cookie.split(';').forEach(function(cookie) {
-                    var name = cookie.split('=')[0].trim();
-                    if (name.indexOf(k) === 0) {
-                      // Multiple domain variations for thorough cleanup
-                      var domains = ['', window.location.hostname, '.' + window.location.hostname.split('.').slice(-2).join('.')];
-                      domains.forEach(function(domain) {
-                        var domainStr = domain ? '; domain=' + domain : '';
-                        document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/' + domainStr;
-                      });
-                    }
-                  });
-                } else {
-                  // Remove specific cookie with multiple domain variations
-                  var domains = ['', window.location.hostname, '.' + window.location.hostname.split('.').slice(-2).join('.')];
-                  domains.forEach(function(domain) {
-                    var domainStr = domain ? '; domain=' + domain : '';
-                    document.cookie = k + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/' + domainStr;
-                  });
-                }
-              }catch(e){
-                console.warn('Error clearing storage item:', k, e);
-              } 
-            });
-          } catch(e) {
-            console.warn('Error clearing marketing storage:', e);
-          }
-        }
+        // NEVER block these essential services (RECHARGE + REVIEWS.IO PROTECTED)
+        var essentialCookies = [
+          'recharge_',                  // CRITICAL: Recharge subscriptions
+          'reviews_io_',                // CRITICAL: Reviews.io functionality
+          'ruk_',                       // CRITICAL: Reviews.io functionality
+          '__cf_bm',                    // ALLOW: Cloudflare (used by Reviews.io and Recharge)
+          '__cflb',                     // ALLOW: Cloudflare Load Balancer
+          'cart',                       // CRITICAL: Shopify cart
+          'secure_customer_sig',        // CRITICAL: Shopify auth
+          '_shopify_',                  // CRITICAL: Shopify functionality
+          '_y', '_s',                   // CRITICAL: Shopify session
+          'storefront_digest',          // CRITICAL: Shopify
+          '_secure_session_id',         // CRITICAL: Shopify checkout
+          'localization',               // CRITICAL: Shopify
+          'checkout_token'              // CRITICAL: Shopify checkout
+        ];
 
-        function checkConsentAndAct() {
-          // Clear storage when marketing consent is withdrawn
-          if (window.Cookiebot && window.Cookiebot.consent && window.Cookiebot.consent.marketing === false) {
-            clearMarketingStorage();
-          }
-          
-          // Enable/disable Shopify tracking based on consent
-          if (window.Cookiebot && window.Cookiebot.consent) {
-            if (window.Cookiebot.consent.marketing && window.originalShopifyTrack) {
-              window.ShopifyAnalytics.lib.track = window.originalShopifyTrack;
-            }
-          }
-        }
-
-        // Run on all consent events
-        if (window.addEventListener) {
-          window.addEventListener('CookiebotOnLoad', checkConsentAndAct);
-          window.addEventListener('CookiebotOnAccept', checkConsentAndAct);
-          window.addEventListener('CookiebotOnDecline', checkConsentAndAct);
-          window.addEventListener('CookiebotOnDialogInit', checkConsentAndAct);
-        }
-
-        // Fallback for older browsers
-        document.addEventListener('DOMContentLoaded', function() {
-          setTimeout(checkConsentAndAct, 1000);
-        });
-      })();
-    </script>
-{% endcomment %}
-    <!-- Additional Cloudflare Cookie Monitoring (Enhanced for reviews.io) -->
-    <script>
-      // AGGRESSIVE monitoring for external cookies, especially from reviews.io
-      (function() {
-        function aggressiveCloudflareCleanup() {
+        // Safe cookie cleanup - only marketing cookies
+        function safeMarketingCleanup() {
           if (window.Cookiebot && window.Cookiebot.consent && !window.Cookiebot.consent.marketing) {
-            var cfCookies = ['__cf_bm', '__cflb', '__cfwaitingroom', 'cf_clearance'];
-            var externalCookies = ['reviews_io_', 'ruk_', '_ga', '_gid', '_fbp'];
-            var allBlockedCookies = cfCookies.concat(externalCookies);
             var cookies = document.cookie.split(';');
             
             cookies.forEach(function(cookie) {
               var name = cookie.split('=')[0].trim();
-              allBlockedCookies.forEach(function(blockedCookie) {
-                var matches = false;
-                if (blockedCookie.endsWith('_')) {
-                  matches = name.indexOf(blockedCookie) === 0;
+              var shouldRemove = false;
+              var isEssential = false;
+              
+              // Check if essential (NEVER remove)
+              for (var j = 0; j < essentialCookies.length; j++) {
+                var essential = essentialCookies[j];
+                if (essential.endsWith('_')) {
+                  if (name.indexOf(essential) === 0) {
+                    isEssential = true;
+                    break;
+                  }
                 } else {
-                  matches = name === blockedCookie;
+                  if (name === essential) {
+                    isEssential = true;
+                    break;
+                  }
                 }
-                
-                if (matches) {
-                  console.warn('🚨 EXTERNAL COOKIE DETECTED (removing):', name);
-                  // Ultra-aggressive removal with all possible domain combinations
-                  var domains = [
-                    '',
-                    window.location.hostname,
-                    '.' + window.location.hostname,
-                    '.' + window.location.hostname.split('.').slice(-2).join('.'),
-                    '.reviews.io',
-                    '.widget.reviews.io',
-                    '.cloudflare.com'
-                  ];
-                  
-                  domains.forEach(function(domain) {
-                    var domainStr = domain ? '; domain=' + domain : '';
-                    var expiry = '; expires=Thu, 01 Jan 1970 00:00:01 GMT';
-                    
-                    // Try all combinations
-                    document.cookie = name + '=' + expiry + '; path=/' + domainStr;
-                    document.cookie = name + '=' + expiry + '; path=/; secure' + domainStr;
-                    document.cookie = name + '=' + expiry + '; path=/; samesite=lax' + domainStr;
-                    document.cookie = name + '=' + expiry + '; path=/; samesite=strict' + domainStr;
-                    document.cookie = name + '=' + expiry + '; path=/; samesite=none; secure' + domainStr;
-                  });
+              }
+              
+              // Only check for removal if not essential
+              if (!isEssential) {
+                for (var i = 0; i < marketingCookies.length; i++) {
+                  var marketingCookie = marketingCookies[i];
+                  if (marketingCookie.endsWith('_')) {
+                    if (name.indexOf(marketingCookie) === 0) {
+                      shouldRemove = true;
+                      break;
+                    }
+                  } else {
+                    if (name === marketingCookie) {
+                      shouldRemove = true;
+                      break;
+                    }
+                  }
                 }
-              });
-            });
-          }
-        }
-        
-        // Run cleanup very frequently to catch external scripts setting cookies
-        setInterval(aggressiveCloudflareCleanup, 1000); // Every 1 second
-        
-        // Also run on page events
-        if (window.addEventListener) {
-          window.addEventListener('CookiebotOnLoad', aggressiveCloudflareCleanup);
-          window.addEventListener('CookiebotOnDecline', aggressiveCloudflareCleanup);
-          window.addEventListener('focus', aggressiveCloudflareCleanup);
-          window.addEventListener('visibilitychange', aggressiveCloudflareCleanup);
-          
-          // Watch for DOM mutations that might indicate external scripts loaded
-          if (window.MutationObserver) {
-            var observer = new MutationObserver(function(mutations) {
-              mutations.forEach(function(mutation) {
-                if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-                  setTimeout(aggressiveCloudflareCleanup, 100); // Cleanup after DOM changes
-                }
-              });
-            });
-            
-            observer.observe(document.documentElement, {
-              childList: true,
-              subtree: true
+              }
+              
+              if (shouldRemove) {
+                document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/';
+                console.log('🧹 Removed marketing cookie:', name);
+              }
             });
           }
         }
 
-        // Monitor window objects that external scripts might use
-        var blockedWindows = ['gtag', 'ga', '_gaq', 'fbq', 'klaviyo'];
-        blockedWindows.forEach(function(obj) {
-          Object.defineProperty(window, obj, {
-            set: function(val) {
-              if (!window.Cookiebot || !window.Cookiebot.consent || !window.Cookiebot.consent.marketing) {
-                console.log('🚫 BLOCKED GLOBAL OBJECT:', obj);
-                return;
-              }
-              window['_original_' + obj] = val;
-            },
-            get: function() {
-              if (window.Cookiebot && window.Cookiebot.consent && window.Cookiebot.consent.marketing) {
-                return window['_original_' + obj];
-              }
-              return undefined;
-            }
-          });
-        });
+        // Run cleanup on consent events only
+        if (window.addEventListener) {
+          window.addEventListener('CookiebotOnDecline', safeMarketingCleanup);
+          window.addEventListener('CookiebotOnConsentChanged', safeMarketingCleanup);
+        }
       })();
     </script>
   </head>
@@ -786,8 +421,6 @@
       </script>
     {% endif %}
 
-    <!-- ALL MARKETING SCRIPTS PROPERLY GATED BELOW -->
-    {% comment %}
     <!-- Klaviyo Onsite - GATED -->
     <script type="text/plain" data-cookieconsent="marketing" src="https://a.klaviyo.com/media/js/onsite/onsite.js"></script>
     <script type="text/plain" data-cookieconsent="marketing">
@@ -828,20 +461,13 @@
         }
       });
     </script>
-      {% endcomment %}
+
     <!-- NextLevel Network Tag - GATED -->
     <script src="https://www.dwin1.com/86929.js" type="text/plain" data-cookieconsent="marketing"></script>
 
-    <!-- reviews.io - COMPLETELY GATED (CSS and JS) -->
-    <script type="text/plain" data-cookieconsent="marketing">
-      // Load reviews.io CSS only after consent
-      var link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = 'https://widget.reviews.io/rating-snippet/dist.css';
-      document.head.appendChild(link);
-    </script>
-    <script type="text/plain" data-cookieconsent="marketing" src="https://widget.reviews.io/rating-snippet/dist.js"></script>
-    <script type="text/plain" data-cookieconsent="marketing">
+    <!-- reviews.io - UNGATED (functional business tool) -->
+    <script src="https://widget.reviews.io/rating-snippet/dist.js"></script>
+    <script>
       document.addEventListener('DOMContentLoaded', function () {
         if (typeof ratingSnippet === 'function') {
           ratingSnippet("ruk_rating_snippet", {
