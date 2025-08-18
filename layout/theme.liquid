@@ -7,7 +7,7 @@
 <script>
 (function () {
   const DEBUG = false;
-  const log = (...a) => { if (DEBUG && window.console) console.log('[CB-Recharge]', ...a); };
+  const log = (...a) => { if (DEBUG && window.console) console.log('[CB-Enhanced]', ...a); };
 
   // 1) Matchers
   const isRechargeUrl = (u) => typeof u === 'string' && /recharge/i.test(u);
@@ -18,11 +18,47 @@
     return /recharge/i.test(el.textContent || '');
   };
 
+  // Elevar detection
+  const isElevarUrl = (u) => typeof u === 'string' && /elevar/i.test(u);
+  const isElevarScript = (el) => {
+    if (!el || el.tagName !== 'SCRIPT') return false;
+    if (isElevarUrl(el.src)) return true;
+    // Check for Elevar in script content, including _Elevar references
+    return /elevar|_Elevar/i.test(el.textContent || '');
+  };
+
+  // NEW: Marketing consent required scripts detection
+  const marketingDomains = [
+    'monorail-edge.shopifysvc.com',
+    'shopify-gtm-suite.getelevar.com',
+    'admin.revenuehunt.com',
+    'data.replo.app',
+    'analytics-api.gemcommerce.com'
+  ];
+
+  const isMarketingScript = (el) => {
+    if (!el || el.tagName !== 'SCRIPT') return false;
+    const src = el.src || '';
+    return marketingDomains.some(domain => src.includes(domain));
+  };
+
   // 2) Tag to bypass Cookiebot auto-blocking
   const tagIgnore = (el) => {
     if (el.getAttribute('data-cookieconsent') !== 'ignore') {
       el.setAttribute('data-cookieconsent', 'ignore');
       log('tagged ignore', el);
+    }
+  };
+
+  // Tag to ensure Cookiebot blocks until marketing consent
+  const tagMarketing = (el) => {
+    if (el.getAttribute('data-cookieconsent') !== 'marketing') {
+      el.setAttribute('data-cookieconsent', 'marketing');
+      // Also change script type to text/plain to ensure blocking
+      if (el.tagName === 'SCRIPT' && el.type !== 'text/plain') {
+        el.type = 'text/javascript'; // Keep as javascript but with marketing consent
+      }
+      log('tagged marketing', el);
     }
   };
 
@@ -57,13 +93,98 @@
     log('rehydrated', live);
   };
 
+  // Function to check marketing consent
+  function checkMarketingConsent() {
+    try {
+      // Check if Cookiebot is available and consent is given
+      if (typeof Cookiebot !== 'undefined' && Cookiebot.consent) {
+        return Cookiebot.consent.marketing === true;
+      }
+      
+      // Fallback: check cookie consent string
+      const consentCookie = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('CookieConsent='));
+      
+      if (consentCookie) {
+        const consentValue = consentCookie.split('=')[1];
+        return consentValue.includes('marketing:true');
+      }
+      
+      return false; // Default to no consent
+    } catch (e) {
+      log('Error checking consent:', e);
+      return false;
+    }
+  }
+
+  // Prevent Elevar cookies by intercepting document.cookie writes
+  const originalCookieDescriptor = Object.getOwnPropertyDescriptor(Document.prototype, 'cookie');
+  if (originalCookieDescriptor && originalCookieDescriptor.set) {
+    Object.defineProperty(document, 'cookie', {
+      get: originalCookieDescriptor.get,
+      set: function(value) {
+        // Check if this is an Elevar cookie and if marketing consent is given
+        if (value && /_Elevar-apex/i.test(value)) {
+          // Check if marketing consent is given
+          const hasMarketingConsent = checkMarketingConsent();
+          if (!hasMarketingConsent) {
+            log('Blocked Elevar cookie write:', value);
+            return; // Block the cookie write
+          }
+        }
+        // Allow the cookie write
+        originalCookieDescriptor.set.call(this, value);
+      }
+    });
+  }
+
+  // NEW: Prevent localStorage writes for specific keys until consent
+  const blockedStorageKeys = ['triplePixel', 'TriplePixelU', 'gemx_campaign'];
+  
+  if (typeof Storage !== 'undefined' && window.localStorage) {
+    const originalSetItem = localStorage.setItem;
+    const originalRemoveItem = localStorage.removeItem;
+    
+    localStorage.setItem = function(key, value) {
+      if (blockedStorageKeys.includes(key)) {
+        const hasMarketingConsent = checkMarketingConsent();
+        if (!hasMarketingConsent) {
+          log('Blocked localStorage write for key:', key);
+          return;
+        }
+      }
+      return originalSetItem.call(this, key, value);
+    };
+
+    // Also prevent removing these keys to avoid workarounds
+    localStorage.removeItem = function(key) {
+      if (blockedStorageKeys.includes(key)) {
+        const hasMarketingConsent = checkMarketingConsent();
+        if (!hasMarketingConsent) {
+          log('Blocked localStorage remove for key:', key);
+          return;
+        }
+      }
+      return originalRemoveItem.call(this, key);
+    };
+  }
+
   // 5) Tag existing nodes
   document.querySelectorAll('script').forEach(s => {
-    if (isRechargeScript(s)) tagIgnore(s);
+    if (isRechargeScript(s)) {
+      tagIgnore(s);
+    } else if (isElevarScript(s) || isMarketingScript(s)) {
+      tagMarketing(s);
+    }
     rehydrateIfBlocked(s);
   });
   document.querySelectorAll('link[rel="preload"][as="script"][href]').forEach(l => {
-    if (isRechargeUrl(l.href)) tagIgnore(l);
+    if (isRechargeUrl(l.href)) {
+      tagIgnore(l);
+    } else if (isElevarUrl(l.href) || marketingDomains.some(domain => l.href.includes(domain))) {
+      tagMarketing(l);
+    }
   });
 
   // 6) Watch for new nodes + attribute changes (src, href, type, data-src)
@@ -73,22 +194,38 @@
         m.addedNodes.forEach(n => {
           if (n.nodeType !== 1) return;
           if (n.tagName === 'SCRIPT') {
-            if (isRechargeScript(n)) tagIgnore(n);
-            rehydrateIfBlocked(n);
+            if (isRechargeScript(n)) {
+              tagIgnore(n);
+              rehydrateIfBlocked(n);
+            } else if (isElevarScript(n) || isMarketingScript(n)) {
+              tagMarketing(n);
+            }
           } else if (n.tagName === 'LINK' && n.rel === 'preload' && (n.as === 'script' || n.getAttribute('as') === 'script')) {
-            if (isRechargeUrl(n.href)) tagIgnore(n);
+            if (isRechargeUrl(n.href)) {
+              tagIgnore(n);
+            } else if (isElevarUrl(n.href) || marketingDomains.some(domain => n.href.includes(domain))) {
+              tagMarketing(n);
+            }
           }
         });
       } else if (m.type === 'attributes') {
         const el = m.target;
         if (el.tagName === 'SCRIPT') {
           if (m.attributeName === 'src' || m.attributeName === 'type' || m.attributeName === 'data-src') {
-            if (isRechargeScript(el)) tagIgnore(el);
-            rehydrateIfBlocked(el);
+            if (isRechargeScript(el)) {
+              tagIgnore(el);
+              rehydrateIfBlocked(el);
+            } else if (isElevarScript(el) || isMarketingScript(el)) {
+              tagMarketing(el);
+            }
           }
         } else if (el.tagName === 'LINK' && m.attributeName === 'href') {
           if (el.rel === 'preload' && (el.as === 'script' || el.getAttribute('as') === 'script')) {
-            if (isRechargeUrl(el.href)) tagIgnore(el);
+            if (isRechargeUrl(el.href)) {
+              tagIgnore(el);
+            } else if (isElevarUrl(el.href) || marketingDomains.some(domain => el.href.includes(domain))) {
+              tagMarketing(el);
+            }
           }
         }
       }
