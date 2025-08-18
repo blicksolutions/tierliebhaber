@@ -5,6 +5,73 @@
 <!-- GDPR Cookie Consent - Must be first -->
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="a4aa9c1a-9639-4e9f-8a23-4aef9c37b3cc" data-blockingmode="manual" type="text/javascript"></script>
 
+<!-- Sync Cookiebot with Shopify Consent API -->
+<script>
+  // Initialize Shopify consent API integration
+  window.addEventListener('CookiebotOnLoad', function() {
+    // Set initial Shopify consent based on Cookiebot state
+    updateShopifyConsent();
+  });
+
+  window.addEventListener('CookiebotOnAccept', function() {
+    updateShopifyConsent();
+  });
+
+  window.addEventListener('CookiebotOnDecline', function() {
+    updateShopifyConsent();
+  });
+
+  function updateShopifyConsent() {
+    if (typeof Cookiebot !== 'undefined' && window.Shopify && window.Shopify.loadFeatures) {
+      // Map Cookiebot categories to Shopify consent
+      const consentSettings = {
+        analytics: Cookiebot.consent.statistics,
+        marketing: Cookiebot.consent.marketing,
+        preferences: Cookiebot.consent.preferences,
+        sale_of_data: Cookiebot.consent.marketing // Map marketing to sale_of_data
+      };
+
+      // Update Shopify's consent API
+      window.Shopify.loadFeatures([
+        {
+          name: 'consent-tracking-api',
+          version: '0.1',
+          onLoad: function() {
+            if (window.Shopify.customerPrivacy) {
+              window.Shopify.customerPrivacy.setTrackingConsent(consentSettings, function() {
+                console.log('Shopify consent updated:', consentSettings);
+              });
+            }
+          }
+        }
+      ]);
+    }
+  }
+
+  // Also sync when page loads (in case consent was already given)
+  document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(updateShopifyConsent, 100);
+  });
+</script>
+
+<!-- Manual Cookie Classification for Elevar -->
+<script>
+  // Ensure Cookiebot blocks Elevar cookie until consent
+  window.addEventListener('CookiebotOnLoad', function() {
+    if (typeof Cookiebot !== 'undefined') {
+      // Add Elevar cookie to statistics category
+      Cookiebot.addToCategory('_Elevar-apex', 'statistics');
+      
+      // Block Elevar initialization until statistics consent
+      if (!Cookiebot.consent.statistics) {
+        // Remove any existing Elevar cookies
+        document.cookie = '_Elevar-apex=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.tierliebhaber.de;';
+        document.cookie = '_Elevar-apex=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      }
+    }
+  });
+</script>
+
 <!-- BS: AB Scripts - EXACTLY as original -->
 <link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}">
 <link rel="stylesheet" href="{{ 'ds-op-lp-3.css' | asset_url }}">
@@ -19,15 +86,20 @@
 
 <!-- ABlyft DE Visitor Audience Setting -->
 <script type="text/plain" data-cookieconsent="marketing">
-  fetch('/browsing_context_suggestions.json')
-   .then(response => response.json())
-   .then(json => {
-    if(json.detected_values.country.handle == "DE") {
-      window.isDeVisitor = true;
-    } else {
-      window.isDeVisitor = false;
-    }
-   });
+  // Double-check both Cookiebot and Shopify consent
+  if ((typeof Cookiebot !== 'undefined' && Cookiebot.consent.marketing) || 
+      (window.Shopify && window.Shopify.customerPrivacy && window.Shopify.customerPrivacy.getTrackingConsent().marketing)) {
+    fetch('/browsing_context_suggestions.json')
+     .then(response => response.json())
+     .then(json => {
+      if(json.detected_values.country.handle == "DE") {
+        window.isDeVisitor = true;
+      } else {
+        window.isDeVisitor = false;
+      }
+     })
+     .catch(err => console.warn('Country detection failed:', err));
+  }
 </script>
 <!-- END ABlyft DE Visitor Audience Setting -->
 
@@ -599,39 +671,58 @@ setTimeout(()=>{
   <script>
     var klaviyo = klaviyo || [];
 
-    klaviyo.init({
-        account: 'Xfhnkz',
-        platform: 'shopify'
-    });
+    // Initialize Klaviyo with consent awareness
+    function initKlaviyo() {
+      klaviyo.init({
+          account: 'Xfhnkz',
+          platform: 'shopify'
+      });
 
-    klaviyo.enable('backinstock', {
-        trigger: {
-            product_page_text: 'Benachrichtige mich, wenn verfügbar',
-            product_page_class: 'Button Button--full Button--primary',
-            product_page_text_align: 'center',
-            product_page_margin: '0 0 8px',
-            replace_anchor: false,
-            alternate_anchor: 'BackInStockAnchor'
-        },
-        modal: {
-            headline: '{product_name}',
-            body_content: 'Registriere dich, um eine Nachricht zu erhalten, wenn dieser Artikel wieder verfügbar ist.',
-            email_field_label: 'Email',
-            button_label: 'Benachrichtige mich, wenn verfügbar',
-            subscription_success_label: 'Du hast es geschafft! Wir werden uns melden, wenn der Artikel wieder da ist.',
-            footer_content: '',
-            drop_background_color: '#000',
-            background_color: '#fff',
-            text_color: '#222',
-            button_text_color: '#fff',
-            button_background_color: '#f1af9e',
-            close_button_color: '#ccc',
-            error_background_color: '#fcd6d7',
-            error_text_color: '#C72E2F',
-            success_background_color: '#d3efcd',
-            success_text_color: '#1B9500'
-        }
-    });
+      klaviyo.enable('backinstock', {
+          trigger: {
+              product_page_text: 'Benachrichtige mich, wenn verfügbar',
+              product_page_class: 'Button Button--full Button--primary',
+              product_page_text_align: 'center',
+              product_page_margin: '0 0 8px',
+              replace_anchor: false,
+              alternate_anchor: 'BackInStockAnchor'
+          },
+          modal: {
+              headline: '{product_name}',
+              body_content: 'Registriere dich, um eine Nachricht zu erhalten, wenn dieser Artikel wieder verfügbar ist.',
+              email_field_label: 'Email',
+              button_label: 'Benachrichtige mich, wenn verfügbar',
+              subscription_success_label: 'Du hast es geschafft! Wir werden uns melden, wenn der Artikel wieder da ist.',
+              footer_content: '',
+              drop_background_color: '#000',
+              background_color: '#fff',
+              text_color: '#222',
+              button_text_color: '#fff',
+              button_background_color: '#f1af9e',
+              close_button_color: '#ccc',
+              error_background_color: '#fcd6d7',
+              error_text_color: '#C72E2F',
+              success_background_color: '#d3efcd',
+              success_text_color: '#1B9500'
+          }
+      });
+    }
+
+    // Check consent before initializing
+    if (typeof Cookiebot !== 'undefined') {
+      if (Cookiebot.consent.marketing) {
+        initKlaviyo();
+      } else {
+        window.addEventListener('CookiebotOnAccept', function() {
+          if (Cookiebot.consent.marketing) {
+            initKlaviyo();
+          }
+        });
+      }
+    } else {
+      // Fallback if Cookiebot not loaded
+      initKlaviyo();
+    }
   </script>
   
   {% comment %}
@@ -646,22 +737,42 @@ setTimeout(()=>{
   <script src="https://www.dwin1.com/86929.js" type="text/plain" data-cookieconsent="marketing" defer="defer"></script>
   <!-- END:NextLevel Network Tag tag -->
 
-  <!-- reviews io -->
-  <script src="https://widget.reviews.io/rating-snippet/dist.js"></script>
-  <link rel="stylesheet" href="https://widget.reviews.io/rating-snippet/dist.css">
-  <script>
-    ratingSnippet("ruk_rating_snippet", {
-      store: "tierliebhaber.de",
-      mode: "default",
-      color: "#fbd343",
-      linebreak: false,
-      text: "{{ 'product.tabs.reviews' | t }}",
-      singularText: "{{ 'product.tabs.reviews_singular' | t }}",
-      lang: "de",
-      usePolaris: true,
-      showEmptyStars: false,
-    });
+  <!-- Reviews.io Integration - GDPR Compliant -->
+  <script type="text/plain" data-cookieconsent="statistics">
+    // Load reviews.io only with statistics consent
+    if (document.querySelector('script[src*="reviews.io"]') === null) {
+      const script1 = document.createElement('script');
+      script1.src = 'https://widget.reviews.io/rating-snippet/dist.js';
+      document.head.appendChild(script1);
+      
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://widget.reviews.io/rating-snippet/dist.css';
+      document.head.appendChild(link);
+      
+      script1.onload = function() {
+        if (window.ratingSnippet) {
+          ratingSnippet("ruk_rating_snippet", {
+            store: "tierliebhaber.de",
+            mode: "default",
+            color: "#fbd343",
+            linebreak: false,
+            text: "{{ 'product.tabs.reviews' | t }}",
+            singularText: "{{ 'product.tabs.reviews_singular' | t }}",
+            lang: "de",
+            usePolaris: true,
+            showEmptyStars: false,
+          });
+        }
+      };
+    }
   </script>
-  <script src="https://customized-whatsapp-widget.chatarmin.com/widget-fetcher.js?w_id=6811de72e886703c08521660&u_id=680a53d680aac276290b3339" async ></script>    
+  <!-- WhatsApp Widget - GDPR Compliant -->
+  <script type="text/plain" data-cookieconsent="marketing">
+    const whatsappScript = document.createElement('script');
+    whatsappScript.src = 'https://customized-whatsapp-widget.chatarmin.com/widget-fetcher.js?w_id=6811de72e886703c08521660&u_id=680a53d680aac276290b3339';
+    whatsappScript.async = true;
+    document.body.appendChild(whatsappScript);
+  </script>    
 </body>
 </html>
