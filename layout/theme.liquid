@@ -23,8 +23,7 @@
   ];
   
   const STATISTICS_HOSTS = [
-    'reviews.io', 'widget.reviews.io', 'assets.reviews.io', 'api.reviews.io',
-    'revenuehunt.com', 'admin.revenuehunt.com'
+    // Removed reviews.io and revenuehunt.com - they should work without consent
   ];
 
   // Block script loading
@@ -234,37 +233,7 @@
         // Load statistics services
         if (Cookiebot.consent.statistics) {
           console.log('Loading statistics services...');
-          
-          // Trigger Reviews.io if it exists
-          if (window.ratingSnippet && !document.querySelector('.reviews-io-loaded')) {
-            try {
-              ratingSnippet("ruk_rating_snippet", {
-                store: "tierliebhaber.de",
-                mode: "default",
-                color: "#fbd343",
-                linebreak: false,
-                text: "Reviews",
-                singularText: "Review",
-                lang: "de",
-                usePolaris: true,
-                showEmptyStars: false,
-              });
-              document.body.classList.add('reviews-io-loaded');
-            } catch (e) {
-              console.log('Reviews.io init failed:', e);
-            }
-          }
-          
-          // Trigger RevenueHunt if it exists
-          if (window.RevenueHunt || window.prq) {
-            try {
-              if (window.RevenueHunt && typeof window.RevenueHunt.init === 'function') {
-                window.RevenueHunt.init();
-              }
-            } catch (e) {
-              console.log('RevenueHunt init failed:', e);
-            }
-          }
+          // Statistics services would go here if any were defined
         }
       }
     }, 500); // Small delay to ensure all scripts are ready
@@ -860,34 +829,22 @@ eval(function (p, a, c, k, e, r) { e = function (c) { return (c < a ? '' : e(par
   <script src="https://www.dwin1.com/86929.js" type="text/plain" data-cookieconsent="marketing" defer></script>
   <!-- END: NextLevel Network Tag -->
 
-  <!-- Reviews.io Integration - GDPR Compliant -->
-  <script type="text/plain" data-cookieconsent="statistics">
-    // Load reviews.io only with statistics consent
-    if (document.querySelector('script[src*="reviews.io"]') === null) {
-      const script1 = document.createElement('script');
-      script1.src = 'https://widget.reviews.io/rating-snippet/dist.js';
-      document.head.appendChild(script1);
-      
-      const link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = 'https://widget.reviews.io/rating-snippet/dist.css';
-      document.head.appendChild(link);
-      
-      script1.onload = function() {
-        if (window.ratingSnippet) {
-          ratingSnippet("ruk_rating_snippet", {
-            store: "tierliebhaber.de",
-            mode: "default",
-            color: "#fbd343",
-            linebreak: false,
-            text: "{{ 'product.tabs.reviews' | t }}",
-            singularText: "{{ 'product.tabs.reviews_singular' | t }}",
-            lang: "de",
-            usePolaris: true,
-            showEmptyStars: false,
-          });
-        }
-      };
+  <!-- Reviews.io Integration - No consent required (functional) -->
+  <script src="https://widget.reviews.io/rating-snippet/dist.js"></script>
+  <link rel="stylesheet" href="https://widget.reviews.io/rating-snippet/dist.css">
+  <script>
+    if (window.ratingSnippet) {
+      ratingSnippet("ruk_rating_snippet", {
+        store: "tierliebhaber.de",
+        mode: "default",
+        color: "#fbd343",
+        linebreak: false,
+        text: "{{ 'product.tabs.reviews' | t }}",
+        singularText: "{{ 'product.tabs.reviews_singular' | t }}",
+        lang: "de",
+        usePolaris: true,
+        showEmptyStars: false,
+      });
     }
   </script>
 
