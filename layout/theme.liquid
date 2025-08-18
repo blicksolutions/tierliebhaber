@@ -776,64 +776,6 @@ setTimeout(()=>{
     {% section 'footer' %}
   </div>
 
-  <script src="https://a.klaviyo.com/media/js/onsite/onsite.js"></script>
-  <script>
-    var klaviyo = klaviyo || [];
-
-    // Initialize Klaviyo with consent awareness
-    function initKlaviyo() {
-      klaviyo.init({
-          account: 'Xfhnkz',
-          platform: 'shopify'
-      });
-
-      klaviyo.enable('backinstock', {
-          trigger: {
-              product_page_text: 'Benachrichtige mich, wenn verfügbar',
-              product_page_class: 'Button Button--full Button--primary',
-              product_page_text_align: 'center',
-              product_page_margin: '0 0 8px',
-              replace_anchor: false,
-              alternate_anchor: 'BackInStockAnchor'
-          },
-          modal: {
-              headline: '{product_name}',
-              body_content: 'Registriere dich, um eine Nachricht zu erhalten, wenn dieser Artikel wieder verfügbar ist.',
-              email_field_label: 'Email',
-              button_label: 'Benachrichtige mich, wenn verfügbar',
-              subscription_success_label: 'Du hast es geschafft! Wir werden uns melden, wenn der Artikel wieder da ist.',
-              footer_content: '',
-              drop_background_color: '#000',
-              background_color: '#fff',
-              text_color: '#222',
-              button_text_color: '#fff',
-              button_background_color: '#f1af9e',
-              close_button_color: '#ccc',
-              error_background_color: '#fcd6d7',
-              error_text_color: '#C72E2F',
-              success_background_color: '#d3efcd',
-              success_text_color: '#1B9500'
-          }
-      });
-    }
-
-    // Check consent before initializing
-    if (typeof Cookiebot !== 'undefined') {
-      if (Cookiebot.consent.marketing) {
-        initKlaviyo();
-      } else {
-        window.addEventListener('CookiebotOnAccept', function() {
-          if (Cookiebot.consent.marketing) {
-            initKlaviyo();
-          }
-        });
-      }
-    } else {
-      // Fallback if Cookiebot not loaded
-      initKlaviyo();
-    }
-  </script>
-  
   {% comment %}
     <!-- MM edit  we are not using smile services anyore -->
   {% endcomment %}
@@ -877,7 +819,7 @@ setTimeout(()=>{
     }
   </script>
   <!-- WhatsApp Widget - GDPR Compliant -->
-  <script>
+  <script type="text/plain" data-cookieconsent="marketing">
     const whatsappScript = document.createElement('script');
     whatsappScript.src = 'https://customized-whatsapp-widget.chatarmin.com/widget-fetcher.js?w_id=6811de72e886703c08521660&u_id=680a53d680aac276290b3339';
     whatsappScript.async = true;
