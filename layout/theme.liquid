@@ -41,6 +41,53 @@
     // Removed reviews.io and revenuehunt.com - they should work without consent
   ];
 
+  // Essential hosts that should NEVER be blocked
+  const ESSENTIAL_HOSTS = [
+    'cdn.shopify.com',
+    'monorail-edge.shopifysvc.com',
+    'shopifycdn.com',
+    'shopifysvc.com',
+    'polyfill.io',
+    'polyfill-fastly.net',
+    'cdnjs.cloudflare.com',
+    'cdn.jsdelivr.net',
+    'fonts.googleapis.com',
+    'fonts.gstatic.com'
+  ];
+
+  // Function to check if a URL is essential
+  function isEssentialScript(url) {
+    if (!url) return false;
+    
+    // Check for essential hosts
+    if (ESSENTIAL_HOSTS.some(host => url.includes(host))) {
+      return true;
+    }
+    
+    // Check for your own domain scripts
+    if (url.includes(window.location.hostname)) {
+      return true;
+    }
+    
+    // Check for essential script patterns
+    const essentialPatterns = [
+      'theme.min.js',
+      'theme.js',
+      'libs.min.js',
+      'jquery',
+      'polyfill',
+      'lazysizes',
+      'swiper',
+      'slick'
+    ];
+    
+    if (essentialPatterns.some(pattern => url.includes(pattern))) {
+      return true;
+    }
+    
+    return false;
+  }
+
   // Block script loading - Enhanced for server-injected scripts
   const originalCreateElement = document.createElement;
   document.createElement = function(tagName) {
@@ -107,7 +154,7 @@
     const existingScripts = document.querySelectorAll('script[src]');
     existingScripts.forEach(script => {
       const src = script.getAttribute('src');
-      if (src) {
+      if (src && !isEssentialScript(src)) {
         const requiresMarketingConsent = MARKETING_HOSTS.some(host => src.includes(host));
         const requiresStatisticsConsent = STATISTICS_HOSTS.some(host => src.includes(host));
         
@@ -134,7 +181,7 @@
       mutation.addedNodes.forEach(node => {
         if (node.nodeType === 1) { // Element node
           // Check the node itself
-          if (node.tagName === 'SCRIPT' && node.src) {
+          if (node.tagName === 'SCRIPT' && node.src && !isEssentialScript(node.src)) {
             const requiresMarketingConsent = MARKETING_HOSTS.some(host => node.src.includes(host));
             const requiresStatisticsConsent = STATISTICS_HOSTS.some(host => node.src.includes(host));
             
@@ -154,17 +201,19 @@
           // Check child scripts
           const childScripts = node.querySelectorAll ? node.querySelectorAll('script[src]') : [];
           childScripts.forEach(script => {
-            const requiresMarketingConsent = MARKETING_HOSTS.some(host => script.src.includes(host));
-            const requiresStatisticsConsent = STATISTICS_HOSTS.some(host => script.src.includes(host));
-            
-            if (requiresMarketingConsent && (typeof Cookiebot === 'undefined' || !Cookiebot.consent.marketing)) {
-              console.log('Blocked child marketing script:', script.src);
-              script.remove();
-            }
-            
-            if (requiresStatisticsConsent && (typeof Cookiebot === 'undefined' || !Cookiebot.consent.statistics)) {
-              console.log('Blocked child statistics script:', script.src);
-              script.remove();
+            if (!isEssentialScript(script.src)) {
+              const requiresMarketingConsent = MARKETING_HOSTS.some(host => script.src.includes(host));
+              const requiresStatisticsConsent = STATISTICS_HOSTS.some(host => script.src.includes(host));
+              
+              if (requiresMarketingConsent && (typeof Cookiebot === 'undefined' || !Cookiebot.consent.marketing)) {
+                console.log('Blocked child marketing script:', script.src);
+                script.remove();
+              }
+              
+              if (requiresStatisticsConsent && (typeof Cookiebot === 'undefined' || !Cookiebot.consent.statistics)) {
+                console.log('Blocked child statistics script:', script.src);
+                script.remove();
+              }
             }
           });
         }
