@@ -15,7 +15,6 @@
     'klaviyo.com', 'static.klaviyo.com', 'static-tracking.klaviyo.com', 
     'fast.a.klaviyo.com', 'a.klaviyo.com', 'static-forms.klaviyo.com',
     'googletagmanager.com', 'google-analytics.com', 'pagead2.googlesyndication.com',
-    'loyaltylion.net', 'sdk.loyaltylion.net', 'platform.loyaltylion.com',
     'smile.io', 'js.smile.io', 'platform.smile.io',
     'getelevar.com', 'shopify-gtm-suite.getelevar.com',
     'gemcommerce.com', 'analytics-api.gemcommerce.com',
@@ -208,15 +207,6 @@
               });
             } catch (e) {
               console.log('GA consent update failed:', e);
-            }
-          }
-          
-          // Trigger LoyaltyLion if it exists
-          if (window.LoyaltyLion) {
-            try {
-              window.LoyaltyLion.init();
-            } catch (e) {
-              console.log('LoyaltyLion init failed:', e);
             }
           }
           
