@@ -202,7 +202,97 @@
       })();
     </script>
 
+    <!-- SAFE Marketing Cookie Cleanup - PROTECTS Reviews.io and Recharge -->
+    <script>
+      // SAFE GDPR blocking - whitelist essential services
+      (function() {
+        // ONLY block these specific marketing cookies (NOT Reviews.io or Recharge)
+        var marketingCookies = [
+          '_ga', '_gid', '_gat',         // Google Analytics only
+          '_fbp', '_fbc',               // Facebook only  
+          '_klaviyo', '__kla_id',       // Klaviyo only
+          'ablyft_',                    // ABlyft only
+          'awin_',                      // Awin only
+          '_tt_enable_cookie', '_ttp',  // TikTok only
+          'data-timeout'                // RevenueHunt only
+        ];
 
+        // NEVER block these essential services (RECHARGE + REVIEWS.IO PROTECTED)
+        var essentialCookies = [
+          'recharge_',                  // CRITICAL: Recharge subscriptions
+          'reviews_io_',                // CRITICAL: Reviews.io functionality
+          'ruk_',                       // CRITICAL: Reviews.io functionality
+          '__cf_bm',                    // ALLOW: Cloudflare (used by Reviews.io and Recharge)
+          '__cflb',                     // ALLOW: Cloudflare Load Balancer
+          'cart',                       // CRITICAL: Shopify cart
+          'secure_customer_sig',        // CRITICAL: Shopify auth
+          '_shopify_',                  // CRITICAL: Shopify functionality
+          '_y', '_s',                   // CRITICAL: Shopify session
+          'storefront_digest',          // CRITICAL: Shopify
+          '_secure_session_id',         // CRITICAL: Shopify checkout
+          'localization',               // CRITICAL: Shopify
+          'checkout_token'              // CRITICAL: Shopify checkout
+        ];
+
+        // Safe cookie cleanup - only marketing cookies
+        function safeMarketingCleanup() {
+          if (window.Cookiebot && window.Cookiebot.consent && !window.Cookiebot.consent.marketing) {
+            var cookies = document.cookie.split(';');
+            
+            cookies.forEach(function(cookie) {
+              var name = cookie.split('=')[0].trim();
+              var shouldRemove = false;
+              var isEssential = false;
+              
+              // Check if essential (NEVER remove)
+              for (var j = 0; j < essentialCookies.length; j++) {
+                var essential = essentialCookies[j];
+                if (essential.endsWith('_')) {
+                  if (name.indexOf(essential) === 0) {
+                    isEssential = true;
+                    break;
+                  }
+                } else {
+                  if (name === essential) {
+                    isEssential = true;
+                    break;
+                  }
+                }
+              }
+              
+              // Only check for removal if not essential
+              if (!isEssential) {
+                for (var i = 0; i < marketingCookies.length; i++) {
+                  var marketingCookie = marketingCookies[i];
+                  if (marketingCookie.endsWith('_')) {
+                    if (name.indexOf(marketingCookie) === 0) {
+                      shouldRemove = true;
+                      break;
+                    }
+                  } else {
+                    if (name === marketingCookie) {
+                      shouldRemove = true;
+                      break;
+                    }
+                  }
+                }
+              }
+              
+              if (shouldRemove) {
+                document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/';
+                console.log('🧹 Removed marketing cookie:', name);
+              }
+            });
+          }
+        }
+
+        // Run cleanup on consent events only
+        if (window.addEventListener) {
+          window.addEventListener('CookiebotOnDecline', safeMarketingCleanup);
+          window.addEventListener('CookiebotOnConsentChanged', safeMarketingCleanup);
+        }
+      })();
+    </script>
   </head>
 
   {%- capture classes -%}features--heading-{{ settings.heading_size }}{%- endcapture -%}
