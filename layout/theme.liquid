@@ -1,866 +1,418 @@
 <!doctype html>
 <html class="no-js" lang="{{ shop.locale }}">
-  <head>
-    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="a4aa9c1a-9639-4e9f-8a23-4aef9c37b3cc" data-blockingmode="auto" type="text/javascript"></script>
-    <script src={{ "jquery.min.js" | asset_url }}></script>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+<head>
 
-    <!-- Theme color -->
-    <meta name="theme-color" content="{{ settings.accent_color }}">
+<!-- GDPR Cookie Consent - AUTO mode (professional standard) -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="a4aa9c1a-9639-4e9f-8a23-4aef9c37b3cc" data-blockingmode="auto" type="text/javascript"></script>
 
-    <!-- Google site verification (keep both if both are in use) -->
-    <meta name="google-site-verification" content="QZiR1WxDnZAKrxARkf6DQjhHzK1Y3t4Oo5I1TMO2Sgo">
-    <meta name="google-site-verification" content="Yq9dF4MhfrxG4y9GADuu6whPXKYTFZ4vQ3O52SZWsas">
-{% comment %}
-    <!-- ENHANCED COOKIE BLOCKING - Add before ANY other scripts -->
-    <script>
-      // AGGRESSIVE cookie blocking for Cloudflare and other automatic cookies
-      (function() {
-        // Store original methods
-        var originalCookieDescriptor = Object.getOwnPropertyDescriptor(Document.prototype, 'cookie') ||
-                                     Object.getOwnPropertyDescriptor(HTMLDocument.prototype, 'cookie');
-        var originalFetch = window.fetch;
-        var originalXHROpen = XMLHttpRequest.prototype.open;
-        
-        // Block network requests to external tracking domains before consent
-        var blockedDomains = [
-          'widget.reviews.io',
-          'reviews.io',
-          'googleapis.com',
-          'googletagmanager.com',
-          'google-analytics.com',
-          'facebook.com',
-          'connect.facebook.net',
-          'klaviyo.com',
-          'a.klaviyo.com'
-        ];
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="{{ settings.accent_color }}">
 
-        // Override fetch to block external tracking requests
-        window.fetch = function() {
-          var url = arguments[0];
-          if (typeof url === 'string') {
-            for (var i = 0; i < blockedDomains.length; i++) {
-              if (url.indexOf(blockedDomains[i]) !== -1) {
-                if (!window.Cookiebot || !window.Cookiebot.consent || !window.Cookiebot.consent.marketing) {
-                  console.log('Blocked fetch request before consent:', url);
-                  return Promise.reject(new Error('Request blocked before consent'));
-                }
-              }
-            }
-          }
-          return originalFetch.apply(this, arguments);
-        };
+<!-- Google site verification -->
+<meta name="google-site-verification" content="QZiR1WxDnZAKrxARkf6DQjhHzK1Y3t4Oo5I1TMO2Sgo">
+<meta name="google-site-verification" content="Yq9dF4MhfrxG4y9GADuu6whPXKYTFZ4vQ3O52SZWsas">
 
-        // Override XMLHttpRequest to block external tracking requests
-        XMLHttpRequest.prototype.open = function(method, url) {
-          if (typeof url === 'string') {
-            for (var i = 0; i < blockedDomains.length; i++) {
-              if (url.indexOf(blockedDomains[i]) !== -1) {
-                if (!window.Cookiebot || !window.Cookiebot.consent || !window.Cookiebot.consent.marketing) {
-                  console.log('Blocked XHR request before consent:', url);
-                  return;
-                }
-              }
-            }
-          }
-          return originalXHROpen.apply(this, arguments);
-        };
-        
-        if (originalCookieDescriptor && originalCookieDescriptor.configurable) {
-          Object.defineProperty(document, 'cookie', {
-            get: function() {
-              return originalCookieDescriptor.get.call(document);
-            },
-            set: function(val) {
-              // Comprehensive list of cookies to block before consent
-              var blockedCookies = [
-                // Cloudflare cookies (from any source)
-                '__cf_bm',                // Cloudflare Bot Management - CRITICAL
-                '__cflb',                 // Cloudflare Load Balancer
-                '__cfwaitingroom',        // Cloudflare Waiting Room
-                'cf_clearance',           // Cloudflare clearance
-                '__cf_bm_',               // Cloudflare Bot Management variants
-                
-                // Reviews.io related (they use Cloudflare)
-                'reviews_io_',
-                'ruk_',
-                
-                // RevenueHunt
-                'data-timeout',
-                'revenuehunt_',
-                
-                // Shopify tracking (non-essential)
-                'shopify_pay_redirect',
-                'keep_alive',
-                '_shop_app_essential',
-                '_shopify_evids',
-                '_shopify_ga',
-                
-                // Marketing & Analytics
-                '_ga', '_gid', '_gat',
-                '_fbp', '_fbc',
-                '_klaviyo',
-                '__kla_id',
-                '__kl_key',
-                'klaviyoOnsite',
-                '_gcl_au',
-                '_gcl_aw',
-                '_gcl_dc',
-                
-                // ABlyft & Testing
-                'ablyft_',
-                'awin_',
-                
-                // Other tracking
-                '_tt_enable_cookie',
-                '_ttp',
-                'TriplePixel',
-                'TriplePixelU',
-                '_replo_sid'
-              ];
-              
-              var cookieName = val.split('=')[0].trim();
-              var shouldBlock = false;
-              
-              // Check if this cookie should be blocked
-              for (var i = 0; i < blockedCookies.length; i++) {
-                var blockedCookie = blockedCookies[i];
-                if (blockedCookie.endsWith('_')) {
-                  // Prefix match for cookies like 'ablyft_'
-                  if (cookieName.indexOf(blockedCookie) === 0) {
-                    shouldBlock = true;
-                    break;
-                  }
-                } else {
-                  // Exact match
-                  if (cookieName === blockedCookie) {
-                    shouldBlock = true;
-                    break;
-                  }
-                }
-              }
-              
-              // Always allow necessary cookies (Shopify cart, session, etc.)
-              var necessaryCookies = [
-                'cart',
-                'secure_customer_sig',
-                '_shopify_country',
-                '_shopify_m',
-                '_y',
-                '_s',
-                'storefront_digest',
-                '_secure_session_id',
-                'localization',
-                'checkout_token',
-                '_shopify_essential' // Only truly essential shopify cookies
-              ];
-              
-              var isNecessary = false;
-              for (var j = 0; j < necessaryCookies.length; j++) {
-                if (cookieName.indexOf(necessaryCookies[j]) === 0) {
-                  isNecessary = true;
-                  break;
-                }
-              }
-              
-              // Set cookie if:
-              // 1. It's a necessary cookie, OR
-              // 2. It's not blocked, OR
-              // 3. Marketing consent has been given
-              if (isNecessary || !shouldBlock || 
-                  (window.Cookiebot && window.Cookiebot.consent && window.Cookiebot.consent.marketing)) {
-                originalCookieDescriptor.set.call(document, val);
-              } else {
-                console.log('🚫 BLOCKED COOKIE (no consent):', cookieName, 'from:', (new Error()).stack);
-              }
-            },
-            configurable: true
+<!-- Core CSS (functional - no consent needed) -->
+<link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
+<link rel="stylesheet" href="{{ 'bs-custom.css' | asset_url }}">
+<link rel="stylesheet" href="{{ 'bs-mobile-sidebar-nav.css' | asset_url }}">
+<link rel="stylesheet" href="{{ 'recommended-search-products.css' | asset_url }}">
+
+<!-- A/B Testing CSS (no tracking data) -->
+<link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}">
+<link rel="stylesheet" href="{{ 'ds-op-lp-3.css' | asset_url }}">
+
+<!-- UI Libraries (functional - no consent needed) -->
+<link rel="stylesheet" href="{{ 'slick.css' | asset_url }}">
+<link rel="stylesheet" href="{{ 'slick-theme.css' | asset_url }}">
+<link rel="stylesheet" href="{{ 'swiper-bundle.min.css' | asset_url }}">
+
+<!-- Page Meta -->
+{%- if page_description -%}
+  <meta name="description" content="{{ page_description | escape }}">
+{%- endif -%}
+<link rel="canonical" href="{{ canonical_url }}">
+{%- if settings.favicon -%}
+  <link rel="shortcut icon" href="{{ settings.favicon | img_url: '96x' }}" type="image/png">
+{%- endif -%}
+
+<!-- NoIndex on unknown vendor pages -->
+{%- if request.path == '/collections/vendors' -%}
+  {%- assign lowercase_vendors = shop.vendors | join: ',' | downcase | split: ',' -%}
+  {%- assign lowercase_input = collection.title | downcase -%}
+  {%- unless lowercase_vendors contains lowercase_input -%}
+    <meta name="robots" content="noindex">
+  {%- endunless -%}
+{%- endif -%}
+
+<!-- Page Title -->
+<title>
+  {{ page_title }}
+  {% if current_tags -%}
+    {%- assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
+  {%- endif %}
+  {% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}
+  {% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+</title>
+
+{% render 'social-meta-tags' %}
+{% render 'css-variables' %}
+
+<!-- Shopify Content -->
+{{ content_for_header }}
+{% render 'cookie-consent' %}
+
+<!-- Essential JavaScript Configuration -->
+<script>
+  // Feature flags and globals (functional - no consent needed)
+  window.SLIDECART_DISABLE = true;
+  window.experiments = {
+    data: {
+      product: {
+        id: {{ product.id | json }},
+        title: {{ product.title | json }}
+      }
+    }
+  };
+  window.enable_superchat = {{ settings.enable_superchat }};
+  window.superchat_delay = {{ settings.superchat_delay | times: 1000 }};
+
+  // LazyLoad configuration
+  window.lazySizesConfig = {
+    loadHidden: false,
+    hFac: 0.5,
+    expFactor: 2,
+    ricTimeout: 150,
+    lazyClass: 'Image--lazyLoad',
+    loadingClass: 'Image--lazyLoading',
+    loadedClass: 'Image--lazyLoaded'
+  };
+</script>
+
+<!-- A/B Testing Scripts (functional UI changes - no tracking) -->
+<script src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
+<script src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
+<script src="{{ 'bs-ab-tlh-009.js' | asset_url }}"></script>
+<script src="{{ 'bs-ab-tlh-010.js' | asset_url }}"></script>
+<script src="{{ 'bs-ab-tlh-011.js' | asset_url }}"></script>
+<script src="{{ 'bs-ab-tlh-025.js' | asset_url }}"></script>
+
+<!-- Essential Libraries (no consent needed) -->
+<script src="{{ 'jquery.min.js' | asset_url }}"></script>
+<script src="{{ 'lazysizes.min.js' | asset_url }}" async></script>
+<script src="https://cdn.polyfill.io/v3/polyfill.min.js?unknown=polyfill&features=Element.prototype.closest,Element.prototype.remove,Element.prototype.classList,Array.prototype.includes,Array.prototype.fill,Object.assign,CustomEvent,IntersectionObserver,IntersectionObserverEntry,URL" defer></script>
+
+<!-- Theme Scripts (functional - no consent needed) -->
+<script src="{{ 'libs.min.js' | asset_url }}" defer></script>
+<script src="{{ 'theme.min.js' | asset_url }}" defer></script>
+<script src="{{ 'slick.min.js' | asset_url }}" defer></script>
+<script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
+
+<!-- Enhancement Scripts (functional - no consent needed) -->
+<script src="{{ 'bs-load-third-party-scripts.js' | asset_url }}" defer></script>
+<script src="{{ 'bs-subscription-callout.js' | asset_url }}" defer></script>
+<script src="{{ 'bs-sticky-atc.js' | asset_url }}" defer></script>
+<script src="{{ 'bs-mobile-sidebar-nav.js' | asset_url }}" defer></script>
+<script src="{{ 'bs-cart-drawer.js' | asset_url }}" defer></script>
+<script src="{{ 'search-manipulation.js' | asset_url }}" defer></script>
+<script src="{{ 'bs-dentalspray-redirect.js' | asset_url }}" defer></script>
+
+<!-- Customer Area Scripts (Shopify functional) -->
+{%- if template == 'customers/addresses' -%}
+  <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer></script>
+  <script src="{{ 'customer_area.js' | shopify_asset_url }}" defer></script>
+{%- endif -%}
+
+<!-- MARKETING SCRIPTS - Properly Gated -->
+
+<!-- Country Detection for ABlyft - GATED -->
+<script type="text/plain" data-cookieconsent="marketing">
+  fetch('/browsing_context_suggestions.json')
+    .then(response => response.json())
+    .then(json => {
+      if (json.detected_values.country.handle == "DE") {
+        window.isDeVisitor = true;
+      } else {
+        window.isDeVisitor = false;
+      }
+    })
+    .catch(err => console.warn('Country detection failed:', err));
+</script>
+
+<!-- ABlyft Tracking - GATED -->
+<script type="text/plain" data-cookieconsent="marketing" src="https://cdn.ablyft.com/s/55886406.js"></script>
+<script type="text/plain" data-cookieconsent="marketing">
+  window['ablyft'] = window['ablyft'] || [];
+</script>
+
+<!-- Search Analytics - GATED -->
+<script type="text/plain" data-cookieconsent="marketing">
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchElement = document.querySelector('.Search__Inner');
+    if (searchElement) {
+      searchElement.addEventListener('click', () => {
+        if (window['ablyft']) {
+          window['ablyft'].push({
+            eventType: 'custom',
+            eventName: 'tlh-026-clicks-on-searchbar',
+            eventValue: 1
           });
         }
-
-        // AGGRESSIVE cookie cleanup function
-        function aggressiveCookieCleanup() {
-          if (window.Cookiebot && window.Cookiebot.consent && !window.Cookiebot.consent.marketing) {
-            var cookies = document.cookie.split(';');
-            var blockedPatterns = ['__cf_bm', '_ga', '_gid', '_fbp', '_fbc', 'klaviyo', 'ablyft_', 'awin_', 'reviews_io_', 'ruk_'];
-            
-            cookies.forEach(function(cookie) {
-              var name = cookie.split('=')[0].trim();
-              blockedPatterns.forEach(function(pattern) {
-                if (name.indexOf(pattern) === 0 || name === pattern) {
-                  // Multiple domain cleanup strategies
-                  var domains = [
-                    '',
-                    window.location.hostname,
-                    '.' + window.location.hostname,
-                    '.' + window.location.hostname.split('.').slice(-2).join('.'),
-                    '.reviews.io',
-                    '.widget.reviews.io'
-                  ];
-                  
-                  domains.forEach(function(domain) {
-                    var domainStr = domain ? '; domain=' + domain : '';
-                    // Try both secure and non-secure
-                    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/' + domainStr;
-                    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/; secure' + domainStr;
-                    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/; samesite=none; secure' + domainStr;
-                  });
-                  console.log('🧹 REMOVED COOKIE:', name);
-                }
-              });
-            });
-          }
-        }
-
-        // Run cookie cleanup very frequently to catch external cookies
-        setInterval(aggressiveCookieCleanup, 2000); // Every 2 seconds
-        
-        // Run cleanup on various events
-        if (window.addEventListener) {
-          window.addEventListener('CookiebotOnDecline', aggressiveCookieCleanup);
-          window.addEventListener('CookiebotOnLoad', aggressiveCookieCleanup);
-          window.addEventListener('focus', aggressiveCookieCleanup);
-          window.addEventListener('blur', aggressiveCookieCleanup);
-        }
-
-        // Override script loading to prevent external scripts before consent
-        var originalCreateElement = document.createElement;
-        document.createElement = function(tagName) {
-          var element = originalCreateElement.call(this, tagName);
-          
-          if (tagName.toLowerCase() === 'script') {
-            var originalSrcSetter = Object.getOwnPropertyDescriptor(element, 'src') || 
-                                   Object.getOwnPropertyDescriptor(HTMLScriptElement.prototype, 'src');
-            
-            if (originalSrcSetter) {
-              Object.defineProperty(element, 'src', {
-                set: function(src) {
-                  // Block external scripts before consent
-                  for (var i = 0; i < blockedDomains.length; i++) {
-                    if (src && src.indexOf && src.indexOf(blockedDomains[i]) !== -1) {
-                      if (!window.Cookiebot || !window.Cookiebot.consent || !window.Cookiebot.consent.marketing) {
-                        console.log('🚫 BLOCKED SCRIPT:', src);
-                        return; // Don't set the src
-                      }
-                    }
-                  }
-                  originalSrcSetter.set.call(this, src);
-                },
-                get: originalSrcSetter.get
-              });
-            }
-          }
-          
-          return element;
-        };
-      })();
-    </script>
-{% endcomment %}
-    <!-- Cookiebot MUST be first script after cookie blocking -->
-   
-
-    <!-- Core CSS (functional - no gating needed) -->
-    <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
-    <link rel="stylesheet" href="{{ 'bs-custom.css' | asset_url }}">
-    <link rel="stylesheet" href="{{ 'bs-mobile-sidebar-nav.css' | asset_url }}">
-    <link rel="stylesheet" href="{{ 'recommended-search-products.css' | asset_url }}">
-
-    <!-- AB / landing CSS - GATED (these likely have tracking) -->
-    <link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}" data-cookieconsent="marketing">
-    <link rel="stylesheet" href="{{ 'ds-op-lp-3.css' | asset_url }}" data-cookieconsent="marketing">
-
-    <!-- Slick (functional - keep ungated if only used for UI) -->
-    <link rel="stylesheet" href="{{ 'slick.css' | asset_url }}">
-    <link rel="stylesheet" href="{{ 'slick-theme.css' | asset_url }}">
-
-    <!-- Swiper (functional - keep ungated if only used for UI) -->
-    <link rel="stylesheet" href="{{ 'swiper-bundle.min.css' | asset_url }}">
-
-    {% if page_description %}
-      <meta name="description" content="{{ page_description | escape }}">
-    {% endif %}
-    <link rel="canonical" href="{{ canonical_url }}">
-    {% if settings.favicon %}
-      <link rel="shortcut icon" href="{{ settings.favicon | img_url: '96x' }}" type="image/png">
-    {% endif %}
-
-    <!-- NoIndex on pages with vendors not known to the shop -->
-    {%- if request.path == '/collections/vendors' -%}
-      {%- assign lowercase_vendors = shop.vendors | join: ',' | downcase | split: ',' -%}
-      {%- assign lowercase_input = collection.title | downcase -%}
-      {%- unless lowercase_vendors contains lowercase_input -%}
-        <meta name="robots" content="noindex">
-      {%- endunless -%}
-    {%- endif -%}
-
-    <!-- Title -->
-    <title>
-      {{ page_title }}
-      {% if current_tags %}
-        {% assign meta_tags = current_tags | join: ', ' %} – {{ 'general.meta.tags' | t: tags: meta_tags }}
-      {% endif %}
-      {% if current_page != 1 %} – {{ 'general.meta.page' | t: page: current_page }}{% endif %}
-      {% unless page_title contains shop.name %} – {{ shop.name }}{% endunless %}
-    </title>
-
-    {% render 'social-meta-tags' %}
-    {% render 'css-variables' %}
-
-    <!-- Shopify header content -->
-    {{ content_for_header }}
-    {% render 'cookie-consent' %}
-
-    <!-- Replo (likely has tracking - GATE IT) -->
-    <script type="text/plain" data-cookieconsent="marketing">
-      {% render 'replo-head' %}
-    </script>
-
-    <!-- Rapid Search (if purely functional, can stay ungated) -->
-    {% render 'rapid-search-settings' %}
-
-    <!-- ALL AB TESTING & MARKETING SCRIPTS - PROPERLY GATED -->
-    <script src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
-    <script src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
-    <script src="{{ 'bs-ab-tlh-009.js' | asset_url }}"></script>
-    <script src="{{ 'bs-ab-tlh-010.js' | asset_url }}"></script>
-    <script src="{{ 'bs-ab-tlh-011.js' | asset_url }}"></script>
-    <script src="{{ 'bs-ab-tlh-025.js' | asset_url }}"></script>
-
-    <!-- DE visitor flag for ABlyft - GATED -->
-    <script type="text/plain" data-cookieconsent="marketing">
-      fetch('/browsing_context_suggestions.json')
-        .then(function(r){ return r.json(); })
-        .then(function(json){ window.isDeVisitor = json && json.detected_values && json.detected_values.country && json.detected_values.country.handle === "DE"; })
-        .catch(function(){ window.isDeVisitor = false; });
-    </script>
-
-    <!-- ABlyft Snippet - GATED -->
-    <script type="text/plain" data-cookieconsent="marketing" src="https://cdn.ablyft.com/s/55886406.js"></script>
-    <script type="text/plain" data-cookieconsent="marketing">window.ablyft = window.ablyft || [];</script>
-
-    <!-- TLH-026 custom goal snippet - GATED -->
-    <script type="text/plain" data-cookieconsent="marketing">
-      document.addEventListener('DOMContentLoaded', function() {
-        var el = document.querySelector('.Search__Inner');
-        if (!el || !window.ablyft) return;
-        el.addEventListener('click', function() {
-          window.ablyft.push({ eventType: 'custom', eventName: 'tlh-026-clicks-on-searchbar', eventValue: 1 });
-        });
       });
-    </script>
+    }
+  });
+</script>
 
-    <!-- Awin Implementation - GATED -->
-    <script type="text/plain" data-cookieconsent="marketing">
-      (function() {
-        window.AWIN = window.AWIN || {};
-        AWIN.Tracking = AWIN.Tracking || {};
-        AWIN.Tracking.Consent = AWIN.Tracking.Consent || { setAdvertiserConsentStatus: function(){} };
+<!-- Awin Affiliate Tracking - GATED -->
+<script type="text/plain" data-cookieconsent="marketing">
+  var AWIN = AWIN || {};
+  AWIN.Tracking = AWIN.Tracking || {};
+  AWIN.Tracking.AdvertiserConsent = false;
 
-        var cookies = document.cookie || '';
-        var prefix = 'CookieConsent=';
-        var begin = cookies.indexOf('; ' + prefix);
-        if (begin === -1) {
-          begin = cookies.indexOf(prefix);
-          if (begin !== 0) return;
-        } else {
-          begin += 2;
-        }
-        var end = cookies.indexOf(';', begin);
-        if (end === -1) end = cookies.length;
-        var val = decodeURI(cookies.substring(begin + prefix.length, end));
-        var fullConsent = ['necessary:true','preferences:true','statistics:true','marketing:true'].every(function(p){ return val.indexOf(p) > -1; });
-        AWIN.Tracking.Consent.setAdvertiserConsentStatus(!!fullConsent);
-      })();
-    </script>
+  // Get Cookie
+  let documentCookies = document.cookie;
+  let prefix = 'CookieConsent' + '=';
+  let begin = documentCookies.indexOf('; ' + prefix);
+  let end;
 
-    <!-- Amazon Ad Tag on home only - GATED -->
-    {% if template.name == 'index' %}
-      <script type="text/plain" data-cookieconsent="marketing">
-        !function(w,d,s,t,a){if(w.amzn)return;w.amzn=a=function(){w.amzn.q.push([arguments,(new Date).getTime()])};a.q=[];a.version="0.0";s=d.createElement("script");s.src="https://c.amazon-adsystem.com/aat/amzn.js";s.id="amzn-pixel";s.async=true;t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t)}(window,document);
-        amzn("setRegion", "EU");
-        amzn("addTag", "9ed9779f-1bce-49a3-a8de-4434d6a6c0be");
-        amzn("trackEvent", "PageView");
-      </script>
-    {% endif %}
+  if (begin == -1) {
+    begin = documentCookies.indexOf(prefix);
+    if (begin != 0) return null;
+  } else {
+    begin += 2;
+    end = document.cookie.indexOf(';', begin);
+    if (end == -1) {
+      end = documentCookies.length;
+    }
+  }
+  
+  const consentCookie = decodeURI(documentCookies.substring(begin + prefix.length, end));
+  if (consentCookie.includes('necessary:true') && 
+      consentCookie.includes('preferences:true') && 
+      consentCookie.includes('statistics:true') && 
+      consentCookie.includes('marketing:true')) {
+    if (AWIN.Tracking.Consent && typeof AWIN.Tracking.Consent.setAdvertiserConsentStatus === 'function') {
+      AWIN.Tracking.Consent.setAdvertiserConsentStatus(true);
+    }
+  } else {
+    if (AWIN.Tracking.Consent && typeof AWIN.Tracking.Consent.setAdvertiserConsentStatus === 'function') {
+      AWIN.Tracking.Consent.setAdvertiserConsentStatus(false);
+    }
+  }
+</script>
 
-    <!-- Feature flags / globals (functional - no consent needed) -->
-    <script>
-      window.SLIDECART_DISABLE = true;
-      window.experiments = { data: { product: { id: {{ product.id | json }}, title: {{ product.title | json }} } } };
-      window.enable_superchat = {{ settings.enable_superchat }};
-      window.superchat_delay = {{ settings.superchat_delay | times: 1000 }};
-    </script>
+<!-- Amazon Advertising (Homepage Only) - GATED -->
+{% if template.name == 'index' %}
+  <script type="text/plain" data-cookieconsent="marketing">
+    !function(w,d,s,t,a){if(w.amzn)return;w.amzn=a=function(){w.amzn.q.push([arguments,(new Date).getTime()])};a.q=[];a.version="0.0";s=d.createElement("script");s.src="https://c.amazon-adsystem.com/aat/amzn.js";s.id="amzn-pixel";s.async=true;t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t)}(window,document);
+    amzn("setRegion", "EU");
+    amzn("addTag", "9ed9779f-1bce-49a3-a8de-4434d6a6c0be");
+    amzn("trackEvent", "PageView");
+  </script>
+{% endif %}
 
-    {% render 'head-styles', layout: 'theme' %}
+<!-- Replo Landing Page Analytics - GATED -->
+<script type="text/plain" data-cookieconsent="marketing">
+  {% render 'replo-head' %}
+</script>
 
-    <!-- IMPORTANT: lazySizes config MUST be before lazySizes script -->
-    <script>
-      window.lazySizesConfig = {
-        loadHidden: false,
-        hFac: 0.5,
-        expFactor: 2,
-        ricTimeout: 150,
-        lazyClass: 'Image--lazyLoad',
-        loadingClass: 'Image--lazyLoading',
-        loadedClass: 'Image--lazyLoaded'
+{% render 'rapid-search-settings' %}
+{% render 'head-styles', layout: 'theme' %}
+{% render 'head-scripts', layout: 'theme' %}
+{% render 'microdata-schema' %}
+{% include 'ufe-offer' %}
+
+</head>
+
+{%- capture classes -%}features--heading-{{ settings.heading_size }}{%- endcapture -%}
+
+{%- if settings.uppercase_heading -%}
+  {%- assign classes = classes | append: ' features--heading-uppercase' -%}
+{%- endif -%}
+
+{%- if settings.product_show_price_on_hover -%}
+  {%- assign classes = classes | append: ' features--show-price-on-hover' -%}
+{%- endif -%}
+
+{%- if settings.show_page_transition -%}
+  {%- assign classes = classes | append: ' features--show-page-transition' -%}
+{%- endif -%}
+
+{%- if settings.show_button_transition -%}
+  {%- assign classes = classes | append: ' features--show-button-transition' -%}
+{%- endif -%}
+
+{%- if settings.show_image_zooming -%}
+  {%- assign classes = classes | append: ' features--show-image-zooming' -%}
+{%- endif -%}
+
+{%- if settings.show_element_staggering -%}
+  {%- assign classes = classes | append: ' features--show-element-staggering' -%}
+{%- endif -%}
+
+{%- assign shopCurrencySymbol = 100 | money | replace: '1.00' | replace: '1,00' -%}
+
+<body
+  class="prestige--v4 {{ classes }} {% if template.directory %}template-{{ template.directory | handle }}{% endif %} template-{{ template.name | handle }}"
+  data-currency-symbol="{{ shopCurrencySymbol }}"
+>
+
+  <a class="PageSkipLink u-visually-hidden" href="#main">{{ 'header.navigation.skip_to_content' | t }}</a>
+  <span class="LoadingBar"></span>
+  <div class="PageOverlay"></div>
+
+  {%- if settings.show_page_transition -%}
+    <div class="PageTransition"></div>
+  {%- endif -%}
+
+  {% section 'popup' %}
+  {% section 'sidebar-menu' %}
+
+  {%- if template != 'cart' -%}
+    {% section 'cart-drawer' %}
+  {%- endif -%}
+
+  <div class="PageContainer">
+    {% section 'announcement' %}
+    {% section 'header' %}
+
+    <main id="main" role="main">
+      {{ content_for_layout }}
+    </main>
+    {% section 'footer' %}
+  </div>
+
+  <!-- Theme Configuration -->
+  <script>
+    (function () {
+      window.theme = {
+        pageType: {{ request.page_type | json }},
+        moneyFormat: {{ shop.money_format | json }},
+        moneyWithCurrencyFormat: {{ shop.money_with_currency_format | json }},
+        productImageSize: {{ settings.product_image_size | json }},
+        searchMode: {{ settings.search_mode | json }},
+        showPageTransition: {{ settings.show_page_transition | json }},
+        showElementStaggering: {{ settings.show_element_staggering | json }},
+        showImageZooming: {{ settings.show_image_zooming | json }}
       };
-    </script>
-    <script src="{{ 'lazysizes.min.js' | asset_url }}" async></script>
 
-    <!-- Polyfills first, then vendors (functional - no consent needed) -->
-    <script src="https://cdn.polyfill.io/v3/polyfill.min.js?unknown=polyfill&features=Element.prototype.closest,Element.prototype.remove,Element.prototype.classList,Array.prototype.includes,Array.prototype.fill,Object.assign,CustomEvent,IntersectionObserver,IntersectionObserverEntry,URL" defer></script>
-    
-    <script src="{{ 'libs.min.js' | asset_url }}" defer></script>
-    <script src="{{ 'slick.min.js' | asset_url }}" defer></script>
-    <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
+      window.routes = {
+        rootUrl: {{ routes.root_url | json }},
+        rootUrlWithoutSlash: {% if routes.root_url == '/' %}''{% else %}{{ routes.root_url | json }}{% endif %},
+        cartUrl: {{ routes.cart_url | json }},
+        cartAddUrl: {{ routes.cart_add_url | json }},
+        cartChangeUrl: {{ routes.cart_change_url | json }},
+        searchUrl: {{ routes.search_url | json }},
+        productRecommendationsUrl: {{ routes.product_recommendations_url | json }}
+      };
 
-    <!-- Theme & custom scripts (functional - no consent needed) -->
-    <script src="{{ 'theme.min.js' | asset_url }}" defer></script>
-    <script src="{{ 'bs-load-third-party-scripts.js' | asset_url }}"></script>
-    <script src="{{ 'bs-subscription-callout.js' | asset_url }}" defer></script>
-    <script src="{{ 'bs-sticky-atc.js' | asset_url }}" defer></script>
-    <script src="{{ 'bs-mobile-sidebar-nav.js' | asset_url }}" defer></script>
-    <script src="{{ 'bs-cart-drawer.js' | asset_url }}" defer></script>
-    <script src="{{ 'search-manipulation.js' | asset_url }}" defer></script>
-    <script src="{{ 'bs-dentalspray-redirect.js' | asset_url }}" defer></script>
+      window.languages = {
+        cartAddNote: {{ 'cart.general.add_note' | t | json }},
+        cartEditNote: {{ 'cart.general.edit_note' | t | json }},
+        productImageLoadingError: {{ 'product.slideshow.image_loading_error' | t | json }},
+        productFormAddToCart: {% if product.template_suffix == 'pre-order' %}{{ 'product.form.pre_order' | t | json }}{% elsif product.template_suffix == 'donation' %}{{ 'product.form.add_to_cart_donation' | t | json }}{%else%}{{ 'product.form.add_to_cart' | t | json }}{% endif %},
+        productFormUnavailable: {{ 'product.form.unavailable' | t | json }},
+        productFormSoldOut: {{ 'product.form.sold_out' | t | json }},
+        shippingEstimatorOneResult: {{ 'cart.shipping_estimator.one_result_title' | t | json }},
+        shippingEstimatorMoreResults: {{ 'cart.shipping_estimator.more_results_title' | t | json }},
+        shippingEstimatorNoResults: {{ 'cart.shipping_estimator.no_results_title' | t | json }}
+      };
 
-    <!-- Customer area assets (Shopify standard - functional) -->
-    {% if template == 'customers/addresses' %}
-      <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer></script>
-      <script src="{{ 'customer_area.js' | shopify_asset_url }}" defer></script>
-    {% endif %}
+      {% if customer %}
+        window.Shopify.isUserLoggedIn = true;
+      {% else %}
+        window.Shopify.isUserLoggedIn = false;
+      {% endif %}
 
-    <!-- IMPORTANT: Check head-scripts include for marketing content -->
-    {% comment %}
-    WARNING: If 'head-scripts' contains any marketing/tracking scripts,
-    you need to either:
-    1. Remove marketing scripts from that include, OR
-    2. Gate the entire include like this:
-    <script type="text/plain" data-cookieconsent="marketing">
-      {% render 'head-scripts', layout: 'theme' %}
-    </script>
-    {% endcomment %}
-    {% render 'head-scripts', layout: 'theme' %}
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+      document.documentElement.style.setProperty('--window-height', window.innerHeight + 'px');
 
-    {% render 'microdata-schema' %}
-    {% include 'ufe-offer' %}
-
-    <!-- RevenueHunt Quiz - GATE THIS (it's setting data-timeout cookie) -->
-    <script type="text/plain" data-cookieconsent="marketing">
-      // RevenueHunt embed script - this was setting cookies before consent
+      // Feature detection
       (function() {
-        var script = document.createElement('script');
-        script.src = 'https://admin.revenuehunt.com/embed.js?shop=tierliebhaber-animagus.myshopify.com';
-        document.head.appendChild(script);
-      })();
-    </script>
-{% comment %}
-    <!-- Enhanced consent change handler with Shopify tracking control -->
+        document.documentElement.className += ((window.CSS && window.CSS.supports('(position: sticky) or (position: -webkit-sticky)')) ? ' supports-sticky' : ' no-supports-sticky');
+        document.documentElement.className += (window.matchMedia('(-moz-touch-enabled: 1), (hover: none)')).matches ? ' no-supports-hover' : ' supports-hover';
+      }());
+
+      // Page transition handling
+      window.onpageshow = function() {
+        if (window.theme.showPageTransition) {
+          var pageTransition = document.querySelector('.PageTransition');
+          if (pageTransition) {
+            pageTransition.style.visibility = 'visible';
+            pageTransition.style.opacity = '0';
+          }
+        }
+
+        // When the page is loaded from the cache, we have to reload the cart content
+        document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', {
+          bubbles: true
+        }));
+      };
+    })();
+  </script>
+
+  <!-- Policy Page Enhancement -->
+  {% if request.page_type == 'policy' %}
     <script>
-      (function() {
-        // Disable Shopify Analytics before consent
-        window.ShopifyAnalytics = window.ShopifyAnalytics || {};
-        window.ShopifyAnalytics.lib = window.ShopifyAnalytics.lib || {};
-        
-        // Store original Shopify tracking function
-        if (window.ShopifyAnalytics.lib.track) {
-          window.originalShopifyTrack = window.ShopifyAnalytics.lib.track;
-        }
-        
-        window.ShopifyAnalytics.lib.track = function() {
-          if (window.Cookiebot && window.Cookiebot.consent && window.Cookiebot.consent.marketing) {
-            // Only track if marketing consent is given
-            if (window.originalShopifyTrack) {
-              return window.originalShopifyTrack.apply(this, arguments);
-            }
-          }
-          console.log('Shopify tracking blocked - no marketing consent');
-        };
-
-        function clearMarketingStorage() {
-          try {
-            var keys = [
-              // Cloudflare cookies
-              '__cf_bm', '__cflb', '__cfwaitingroom', 'cf_clearance',
-              
-              // Marketing cookies
-              'TriplePixel','TriplePixelU','klaviyoOnsite','__kl_key','__kla_id',
-              'loyaltylion_persistent_data','___ELEVAR_GTM_SUITE--userId',
-              '___ELEVAR_GTM_SUITE--params','___ELEVAR_GTM_SUITE--sessionId',
-              '___ELEVAR_GTM_SUITE--sessionCount','___ELEVAR_GTM_SUITE--lastDlPushTimestamp',
-              '__gemx_campaign_data','__gemx_campaign_template','_replo_sid','smile_shopify_data',
-              '_ga','_gid','_gat','_fbp','_fbc', 
-              'ablyft_', 'awin_', '_klaviyo',
-              'data-timeout', // RevenueHunt
-              '_tt_enable_cookie', '_ttp'
-            ];
-            
-            keys.forEach(function(k){ 
-              try{ 
-                localStorage.removeItem(k);
-                sessionStorage.removeItem(k);
-                // Remove cookies that start with these prefixes
-                if (k.endsWith('_')) {
-                  document.cookie.split(';').forEach(function(cookie) {
-                    var name = cookie.split('=')[0].trim();
-                    if (name.indexOf(k) === 0) {
-                      // Multiple domain variations for thorough cleanup
-                      var domains = ['', window.location.hostname, '.' + window.location.hostname.split('.').slice(-2).join('.')];
-                      domains.forEach(function(domain) {
-                        var domainStr = domain ? '; domain=' + domain : '';
-                        document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/' + domainStr;
-                      });
-                    }
-                  });
-                } else {
-                  // Remove specific cookie with multiple domain variations
-                  var domains = ['', window.location.hostname, '.' + window.location.hostname.split('.').slice(-2).join('.')];
-                  domains.forEach(function(domain) {
-                    var domainStr = domain ? '; domain=' + domain : '';
-                    document.cookie = k + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/' + domainStr;
-                  });
-                }
-              }catch(e){
-                console.warn('Error clearing storage item:', k, e);
-              } 
-            });
-          } catch(e) {
-            console.warn('Error clearing marketing storage:', e);
-          }
-        }
-
-        function checkConsentAndAct() {
-          // Clear storage when marketing consent is withdrawn
-          if (window.Cookiebot && window.Cookiebot.consent && window.Cookiebot.consent.marketing === false) {
-            clearMarketingStorage();
-          }
-          
-          // Enable/disable Shopify tracking based on consent
-          if (window.Cookiebot && window.Cookiebot.consent) {
-            if (window.Cookiebot.consent.marketing && window.originalShopifyTrack) {
-              window.ShopifyAnalytics.lib.track = window.originalShopifyTrack;
-            }
-          }
-        }
-
-        // Run on all consent events
-        if (window.addEventListener) {
-          window.addEventListener('CookiebotOnLoad', checkConsentAndAct);
-          window.addEventListener('CookiebotOnAccept', checkConsentAndAct);
-          window.addEventListener('CookiebotOnDecline', checkConsentAndAct);
-          window.addEventListener('CookiebotOnDialogInit', checkConsentAndAct);
-        }
-
-        // Fallback for older browsers
-        document.addEventListener('DOMContentLoaded', function() {
-          setTimeout(checkConsentAndAct, 1000);
-        });
-      })();
-    </script>
-{% endcomment %}
-    <!-- Additional Cloudflare Cookie Monitoring (Enhanced for reviews.io) -->
-    <script>
-      // AGGRESSIVE monitoring for external cookies, especially from reviews.io
-      (function() {
-        function aggressiveCloudflareCleanup() {
-          if (window.Cookiebot && window.Cookiebot.consent && !window.Cookiebot.consent.marketing) {
-            var cfCookies = ['__cf_bm', '__cflb', '__cfwaitingroom', 'cf_clearance'];
-            var externalCookies = ['reviews_io_', 'ruk_', '_ga', '_gid', '_fbp'];
-            var allBlockedCookies = cfCookies.concat(externalCookies);
-            var cookies = document.cookie.split(';');
-            
-            cookies.forEach(function(cookie) {
-              var name = cookie.split('=')[0].trim();
-              allBlockedCookies.forEach(function(blockedCookie) {
-                var matches = false;
-                if (blockedCookie.endsWith('_')) {
-                  matches = name.indexOf(blockedCookie) === 0;
-                } else {
-                  matches = name === blockedCookie;
-                }
-                
-                if (matches) {
-                  console.warn('🚨 EXTERNAL COOKIE DETECTED (removing):', name);
-                  // Ultra-aggressive removal with all possible domain combinations
-                  var domains = [
-                    '',
-                    window.location.hostname,
-                    '.' + window.location.hostname,
-                    '.' + window.location.hostname.split('.').slice(-2).join('.'),
-                    '.reviews.io',
-                    '.widget.reviews.io',
-                    '.cloudflare.com'
-                  ];
-                  
-                  domains.forEach(function(domain) {
-                    var domainStr = domain ? '; domain=' + domain : '';
-                    var expiry = '; expires=Thu, 01 Jan 1970 00:00:01 GMT';
-                    
-                    // Try all combinations
-                    document.cookie = name + '=' + expiry + '; path=/' + domainStr;
-                    document.cookie = name + '=' + expiry + '; path=/; secure' + domainStr;
-                    document.cookie = name + '=' + expiry + '; path=/; samesite=lax' + domainStr;
-                    document.cookie = name + '=' + expiry + '; path=/; samesite=strict' + domainStr;
-                    document.cookie = name + '=' + expiry + '; path=/; samesite=none; secure' + domainStr;
-                  });
-                }
-              });
-            });
-          }
-        }
-        
-        // Run cleanup very frequently to catch external scripts setting cookies
-        setInterval(aggressiveCloudflareCleanup, 1000); // Every 1 second
-        
-        // Also run on page events
-        if (window.addEventListener) {
-          window.addEventListener('CookiebotOnLoad', aggressiveCloudflareCleanup);
-          window.addEventListener('CookiebotOnDecline', aggressiveCloudflareCleanup);
-          window.addEventListener('focus', aggressiveCloudflareCleanup);
-          window.addEventListener('visibilitychange', aggressiveCloudflareCleanup);
-          
-          // Watch for DOM mutations that might indicate external scripts loaded
-          if (window.MutationObserver) {
-            var observer = new MutationObserver(function(mutations) {
-              mutations.forEach(function(mutation) {
-                if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-                  setTimeout(aggressiveCloudflareCleanup, 100); // Cleanup after DOM changes
-                }
-              });
-            });
-            
-            observer.observe(document.documentElement, {
-              childList: true,
-              subtree: true
-            });
-          }
-        }
-
-        // Monitor window objects that external scripts might use
-        var blockedWindows = ['gtag', 'ga', '_gaq', 'fbq', 'klaviyo'];
-        blockedWindows.forEach(function(obj) {
-          Object.defineProperty(window, obj, {
-            set: function(val) {
-              if (!window.Cookiebot || !window.Cookiebot.consent || !window.Cookiebot.consent.marketing) {
-                console.log('🚫 BLOCKED GLOBAL OBJECT:', obj);
-                return;
-              }
-              window['_original_' + obj] = val;
-            },
-            get: function() {
-              if (window.Cookiebot && window.Cookiebot.consent && window.Cookiebot.consent.marketing) {
-                return window['_original_' + obj];
-              }
-              return undefined;
-            }
-          });
-        });
-      })();
-    </script>
-  </head>
-
-  {%- capture classes -%}features--heading-{{ settings.heading_size }}{%- endcapture -%}
-  {%- if settings.uppercase_heading -%}{% assign classes = classes | append: ' features--heading-uppercase' %}{% endif -%}
-  {%- if settings.product_show_price_on_hover -%}{% assign classes = classes | append: ' features--show-price-on-hover' %}{% endif -%}
-  {%- if settings.show_page_transition -%}{% assign classes = classes | append: ' features--show-page-transition' %}{% endif -%}
-  {%- if settings.show_button_transition -%}{% assign classes = classes | append: ' features--show-button-transition' %}{% endif -%}
-  {%- if settings.show_image_zooming -%}{% assign classes = classes | append: ' features--show-image-zooming' %}{% endif -%}
-  {%- if settings.show_element_staggering -%}{% assign classes = classes | append: ' features--show-element-staggering' %}{% endif -%}
-
-  {%- assign shopCurrencySymbol = 100 | money | replace: '1.00' | replace: '1,00' -%}
-
-  <body
-    class="prestige--v4 {{ classes }} {% if template.directory %}template-{{ template.directory | handle }}{% endif %} template-{{ template.name | handle }}"
-    data-currency-symbol="{{ shopCurrencySymbol }}"
-  >
-    <a class="PageSkipLink u-visually-hidden" href="#main">{{ 'header.navigation.skip_to_content' | t }}</a>
-    <span class="LoadingBar"></span>
-    <div class="PageOverlay"></div>
-    {% if settings.show_page_transition %}<div class="PageTransition"></div>{% endif %}
-
-    {% section 'popup' %}
-    {% section 'sidebar-menu' %}
-    {% if template != 'cart' %}{% section 'cart-drawer' %}{% endif %}
-
-    <div class="PageContainer">
-      {% section 'announcement' %}
-      {% section 'header' %}
-
-      <main id="main" role="main">
-        {{ content_for_layout }}
-      </main>
-
-      {% section 'footer' %}
-    </div>
-
-    <!-- Bootstrapping & env flags (functional - no consent needed) -->
-    <script>
-      (function () {
-        window.theme = {
-          pageType: {{ request.page_type | json }},
-          moneyFormat: {{ shop.money_format | json }},
-          moneyWithCurrencyFormat: {{ shop.money_with_currency_format | json }},
-          productImageSize: {{ settings.product_image_size | json }},
-          searchMode: {{ settings.search_mode | json }},
-          showPageTransition: {{ settings.show_page_transition | json }},
-          showElementStaggering: {{ settings.show_element_staggering | json }},
-          showImageZooming: {{ settings.show_image_zooming | json }}
-        };
-
-        window.routes = {
-          rootUrl: {{ routes.root_url | json }},
-          rootUrlWithoutSlash: {% if routes.root_url == '/' %}''{% else %}{{ routes.root_url | json }}{% endif %},
-          cartUrl: {{ routes.cart_url | json }},
-          cartAddUrl: {{ routes.cart_add_url | json }},
-          cartChangeUrl: {{ routes.cart_change_url | json }},
-          searchUrl: {{ routes.search_url | json }},
-          productRecommendationsUrl: {{ routes.product_recommendations_url | json }}
-        };
-
-        window.languages = {
-          cartAddNote: {{ 'cart.general.add_note' | t | json }},
-          cartEditNote: {{ 'cart.general.edit_note' | t | json }},
-          productImageLoadingError: {{ 'product.slideshow.image_loading_error' | t | json }},
-          productFormAddToCart:
-            {% if product.template_suffix == 'pre-order' %}
-              {{ 'product.form.pre_order' | t | json }}
-            {% elsif product.template_suffix == 'donation' %}
-              {{ 'product.form.add_to_cart_donation' | t | json }}
-            {% else %}
-              {{ 'product.form.add_to_cart' | t | json }}
-            {% endif %},
-          productFormUnavailable: {{ 'product.form.unavailable' | t | json }},
-          productFormSoldOut: {{ 'product.form.sold_out' | t | json }},
-          shippingEstimatorOneResult: {{ 'cart.shipping_estimator.one_result_title' | t | json }},
-          shippingEstimatorMoreResults: {{ 'cart.shipping_estimator.more_results_title' | t | json }},
-          shippingEstimatorNoResults: {{ 'cart.shipping_estimator.no_results_title' | t | json }}
-        };
-
-        window.Shopify = window.Shopify || {};
-        {% if customer %}window.Shopify.isUserLoggedIn = true;{% else %}window.Shopify.isUserLoggedIn = false;{% endif %}
-
-        document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
-        document.documentElement.style.setProperty('--window-height', window.innerHeight + 'px');
-
-        (function() {
-          var sticky = (window.CSS && window.CSS.supports('(position: sticky) or (position: -webkit-sticky)'));
-          var hover = window.matchMedia && window.matchMedia('(-moz-touch-enabled: 1), (hover: none)').matches;
-          document.documentElement.className += sticky ? ' supports-sticky' : ' no-supports-sticky';
-          document.documentElement.className += hover ? ' no-supports-hover' : ' supports-hover';
-        }());
-
-        window.onpageshow = function() {
-          if (window.theme.showPageTransition) {
-            var pageTransition = document.querySelector('.PageTransition');
-            if (pageTransition) {
-              pageTransition.style.visibility = 'visible';
-              pageTransition.style.opacity = '0';
-            }
-          }
-          document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }));
-        };
-      })();
-    </script>
-
-    <!-- Policy page: inject Cookie Declaration -->
-    {% if request.page_type == 'policy' %}
-      <script>
-        document.addEventListener('DOMContentLoaded', function() {
-          var t = document.querySelector('.shopify-policy__title');
-          var b = document.querySelector('.shopify-policy__body');
-          if (t) t.classList.add('PageHeader','Heading','u-h1');
-          if (b) b.classList.add('Rte');
-
-          setTimeout(function() {
-            var mount = document.querySelector('.CookieDeclaration__injection');
-            if (!mount) return;
-            var s = document.createElement('script');
-            s.id = 'CookieDeclaration';
-            s.src = 'https://consent.cookiebot.com/a4aa9c1a-9639-4e9f-8a23-4aef9c37b3cc/cd.js';
-            s.type = 'text/javascript';
-            s.async = true;
-            mount.appendChild(s);
-          }, 500);
-        });
-      </script>
-    {% endif %}
-
-    <!-- ALL MARKETING SCRIPTS PROPERLY GATED BELOW -->
-    {% comment %}
-    <!-- Klaviyo Onsite - GATED -->
-    <script type="text/plain" data-cookieconsent="marketing" src="https://a.klaviyo.com/media/js/onsite/onsite.js"></script>
-    <script type="text/plain" data-cookieconsent="marketing">
       document.addEventListener('DOMContentLoaded', function() {
-        try {
-          var klaviyo = window.klaviyo || [];
-          klaviyo.init({ account: 'Xfhnkz', platform: 'shopify' });
-          klaviyo.enable('backinstock', {
-            trigger: {
-              product_page_text: 'Benachrichtige mich, wenn verfügbar',
-              product_page_class: 'Button Button--full Button--primary',
-              product_page_text_align: 'center',
-              product_page_margin: '0 0 8px',
-              replace_anchor: false,
-              alternate_anchor: 'BackInStockAnchor'
-            },
-            modal: {
-              headline: '{product_name}',
-              body_content: 'Registriere dich, um eine Nachricht zu erhalten, wenn dieser Artikel wieder verfügbar ist.',
-              email_field_label: 'Email',
-              button_label: 'Benachrichtige mich, wenn verfügbar',
-              subscription_success_label: 'Du hast es geschafft! Wir werden uns melden, wenn der Artikel wieder da ist.',
-              footer_content: '',
-              drop_background_color: '#000',
-              background_color: '#fff',
-              text_color: '#222',
-              button_text_color: '#fff',
-              button_background_color: '#f1af9e',
-              close_button_color: '#ccc',
-              error_background_color: '#fcd6d7',
-              error_text_color: '#C72E2F',
-              success_background_color: '#d3efcd',
-              success_text_color: '#1B9500'
-            }
-          });
-        } catch(e) { 
-          console.warn('Klaviyo init failed', e); 
+        const policyTitle = document.querySelector('.shopify-policy__title');
+        const policyBody = document.querySelector('.shopify-policy__body');
+        
+        if (policyTitle) {
+          policyTitle.classList.add('PageHeader', 'Heading', 'u-h1');
         }
+        if (policyBody) {
+          policyBody.classList.add('Rte');
+        }
+
+        setTimeout(() => {
+          const cookieDeclaration = document.querySelector('.CookieDeclaration__injection');
+          if (cookieDeclaration) {
+            const cookieDeclarationScript = document.createElement('script');
+            cookieDeclarationScript.setAttribute('id','CookieDeclaration');
+            cookieDeclarationScript.setAttribute('src','https://consent.cookiebot.com/a4aa9c1a-9639-4e9f-8a23-4aef9c37b3cc/cd.js');
+            cookieDeclarationScript.setAttribute('type','text/javascript');
+            cookieDeclarationScript.setAttribute('async','true');
+            cookieDeclaration.appendChild(cookieDeclarationScript);
+          }
+        }, 500);
       });
     </script>
-      {% endcomment %}
-    <!-- NextLevel Network Tag - GATED -->
-    <script src="https://www.dwin1.com/86929.js" type="text/plain" data-cookieconsent="marketing"></script>
+  {% endif %}
 
-    <!-- reviews.io - COMPLETELY GATED (CSS and JS) -->
-    <script type="text/plain" data-cookieconsent="marketing">
-      // Load reviews.io CSS only after consent
-      var link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = 'https://widget.reviews.io/rating-snippet/dist.css';
-      document.head.appendChild(link);
-    </script>
-    <script type="text/plain" data-cookieconsent="marketing" src="https://widget.reviews.io/rating-snippet/dist.js"></script>
-    <script type="text/plain" data-cookieconsent="marketing">
-      document.addEventListener('DOMContentLoaded', function () {
-        if (typeof ratingSnippet === 'function') {
-          ratingSnippet("ruk_rating_snippet", {
-            store: "tierliebhaber.de",
-            mode: "default",
-            color: "#fbd343",
-            linebreak: false,
-            text: "{{ 'product.tabs.reviews' | t }}",
-            singularText: "{{ 'product.tabs.reviews_singular' | t }}",
-            lang: "de",
-            usePolaris: true,
-            showEmptyStars: false
-          });
-        }
+  <!-- MARKETING INTEGRATIONS - All Properly Gated -->
+
+  <!-- NextLevel Network Tracking - GATED -->
+  <script src="https://www.dwin1.com/86929.js" type="text/plain" data-cookieconsent="marketing" defer></script>
+
+  <!-- Reviews.io Integration - No consent required (functional) -->
+  <script src="https://widget.reviews.io/rating-snippet/dist.js"></script>
+  <link rel="stylesheet" href="https://widget.reviews.io/rating-snippet/dist.css">
+  <script>
+    if (window.ratingSnippet) {
+      ratingSnippet("ruk_rating_snippet", {
+        store: "tierliebhaber.de",
+        mode: "default",
+        color: "#fbd343",
+        linebreak: false,
+        text: "{{ 'product.tabs.reviews' | t }}",
+        singularText: "{{ 'product.tabs.reviews_singular' | t }}",
+        lang: "de",
+        usePolaris: true,
+        showEmptyStars: false,
       });
-    </script>
+    }
+  </script>
 
-    <!-- WhatsApp widget - GATED -->
-    <script type="text/plain" data-cookieconsent="marketing" src="https://customized-whatsapp-widget.chatarmin.com/widget-fetcher.js?w_id=6811de72e886703c08521660&u_id=680a53d680aac276290b3339"></script>
-  </body>
+  <!-- WhatsApp Widget - GATED -->
+  <script type="text/plain" data-cookieconsent="marketing">
+    const whatsappScript = document.createElement('script');
+    whatsappScript.src = 'https://customized-whatsapp-widget.chatarmin.com/widget-fetcher.js?w_id=6811de72e886703c08521660&u_id=680a53d680aac276290b3339';
+    whatsappScript.async = true;
+    document.body.appendChild(whatsappScript);
+  </script>
+
+</body>
 </html>
