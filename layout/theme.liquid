@@ -4,6 +4,7 @@
     
     <!-- Cookiebot FIRST with AUTO blocking mode for better GDPR compliance -->
     <!-- PLACE THIS AS THE VERY FIRST <script> IN <head> -->
+    {% comment %}
 <script>
 (function () {
   const DEBUG = false;
@@ -103,7 +104,7 @@
   });
 })();
 </script>
-
+{% endcomment %}
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="a4aa9c1a-9639-4e9f-8a23-4aef9c37b3cc" data-blockingmode="auto" type="text/javascript"></script>
 
     <!-- Basic meta tags -->
