@@ -10,12 +10,15 @@
   const log = (...a) => { if (DEBUG && window.console) console.log('[CB-Recharge]', ...a); };
 
   // 1) Matchers
-  const isRechargeUrl = (u) => typeof u === 'string' && /recharge/i.test(u);
+  const isRechargeUrl = (u) => {
+    if (typeof u !== 'string') return false;
+    return u.includes('static.rechargecdn.com');
+  };
   const isRechargeScript = (el) => {
     if (!el || el.tagName !== 'SCRIPT') return false;
     if (isRechargeUrl(el.src)) return true;
     // Some apps inject inline bootstrap that references recharge later
-    return /recharge/i.test(el.textContent || '');
+    return el.textContent && el.textContent.includes('static.rechargecdn.com');
   };
 
   // 2) Tag to bypass Cookiebot auto-blocking
@@ -42,7 +45,7 @@
     if (!isPlain || !hasCBAttr) return;
 
     const url = el.getAttribute('src') || el.getAttribute('data-src') || '';
-    const looksRecharge = isRechargeUrl(url) || /recharge/i.test(el.textContent || '');
+    const looksRecharge = isRechargeUrl(url) || (el.textContent && el.textContent.includes('static.rechargecdn.com'));
     if (!looksRecharge) return;
 
     const live = document.createElement('script');
