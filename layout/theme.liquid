@@ -7,10 +7,63 @@
 
 <!-- Sync Cookiebot with Shopify Consent API -->
 <script>
+  // Enhanced cookie blocking for Elevar and other tracking cookies
+  (function() {
+    // Store original cookie descriptor
+    const originalCookieDescriptor = Object.getOwnPropertyDescriptor(Document.prototype, 'cookie') || 
+                                   Object.getOwnPropertyDescriptor(HTMLDocument.prototype, 'cookie');
+    
+    // Override cookie setter globally
+    Object.defineProperty(document, 'cookie', {
+      get: function() {
+        return originalCookieDescriptor.get.call(this);
+      },
+      set: function(cookieString) {
+        // Define cookies that need consent
+        const consentRequiredCookies = [
+          '_Elevar-apex',
+          'data-timeout',
+          '_fbp',
+          '_fbc',
+          '__cf_bm'
+        ];
+        
+        // Check if this cookie requires consent
+        const requiresConsent = consentRequiredCookies.some(name => 
+          cookieString.toLowerCase().includes(name.toLowerCase())
+        );
+        
+        if (requiresConsent) {
+          // Check consent status
+          if (typeof Cookiebot !== 'undefined') {
+            // For analytics cookies, check statistics consent
+            if (cookieString.includes('_Elevar-apex') && !Cookiebot.consent.statistics) {
+              console.log('Blocked Elevar cookie - no statistics consent');
+              return;
+            }
+            // For marketing cookies, check marketing consent
+            if (cookieString.includes('data-timeout') && !Cookiebot.consent.marketing) {
+              console.log('Blocked RevenueHunt cookie - no marketing consent');
+              return;
+            }
+          } else {
+            // If Cookiebot not loaded yet, block by default
+            console.log('Blocked tracking cookie - consent not determined yet');
+            return;
+          }
+        }
+        
+        // Allow cookie if no consent required or consent given
+        return originalCookieDescriptor.set.call(this, cookieString);
+      },
+      configurable: true
+    });
+  })();
+
   // Initialize Shopify consent API integration
   window.addEventListener('CookiebotOnLoad', function() {
-    // Set initial Shopify consent based on Cookiebot state
     updateShopifyConsent();
+    cleanupExistingCookies();
   });
 
   window.addEventListener('CookiebotOnAccept', function() {
@@ -19,19 +72,36 @@
 
   window.addEventListener('CookiebotOnDecline', function() {
     updateShopifyConsent();
+    cleanupExistingCookies();
   });
+
+  function cleanupExistingCookies() {
+    if (typeof Cookiebot !== 'undefined') {
+      // Remove tracking cookies if consent not given
+      if (!Cookiebot.consent.statistics) {
+        // Remove Elevar cookie
+        document.cookie = '_Elevar-apex=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + window.location.hostname;
+        document.cookie = '_Elevar-apex=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.' + window.location.hostname;
+        document.cookie = '_Elevar-apex=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      }
+      
+      if (!Cookiebot.consent.marketing) {
+        // Remove RevenueHunt cookie
+        document.cookie = 'data-timeout=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + window.location.hostname;
+        document.cookie = 'data-timeout=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      }
+    }
+  }
 
   function updateShopifyConsent() {
     if (typeof Cookiebot !== 'undefined' && window.Shopify && window.Shopify.loadFeatures) {
-      // Map Cookiebot categories to Shopify consent
       const consentSettings = {
         analytics: Cookiebot.consent.statistics,
         marketing: Cookiebot.consent.marketing,
         preferences: Cookiebot.consent.preferences,
-        sale_of_data: Cookiebot.consent.marketing // Map marketing to sale_of_data
+        sale_of_data: Cookiebot.consent.marketing
       };
 
-      // Update Shopify's consent API
       window.Shopify.loadFeatures([
         {
           name: 'consent-tracking-api',
@@ -48,9 +118,12 @@
     }
   }
 
-  // Also sync when page loads (in case consent was already given)
+  // Also sync when page loads
   document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(updateShopifyConsent, 100);
+    setTimeout(function() {
+      updateShopifyConsent();
+      cleanupExistingCookies();
+    }, 100);
   });
 </script>
 
@@ -405,7 +478,43 @@
 {% render 'social-meta-tags' %}
 {% render 'css-variables' %}
 
-{{ content_for_header }}
+  {{ content_for_header }}
+  
+  <!-- Essential Cookie Documentation -->
+  <script>
+    // Document essential cookies for GDPR compliance
+    window.essentialCookies = {
+      '_shopify_essential': 'Core Shopify functionality and security',
+      'shopify_pay_redirect': 'Payment processing functionality', 
+      '_shopify_test': 'Technical functionality testing',
+      '_shop_app_essential': 'Shop app core functionality',
+      'localization': 'User language and region preferences',
+      'cart_currency': 'Shopping cart currency settings',
+      'keep_alive': 'Session management and security',
+      '_landing_page': 'User experience optimization',
+      'CookieConsent': 'Cookie consent preferences'
+    };
+    
+    // These cookies are essential for website functionality and don't require consent
+    console.log('Essential cookies documented for GDPR compliance');
+  </script>
+  <script>
+    // Override RevenueHunt initialization
+    window.prqOriginalSetCookie = window.prqSetCookie;
+    window.prqSetCookie = function(name, value, days) {
+      if (name === 'data-timeout') {
+        // Only allow if marketing consent given
+        if (typeof Cookiebot !== 'undefined' && !Cookiebot.consent.marketing) {
+          console.log('Blocked RevenueHunt cookie - no marketing consent');
+          return;
+        }
+      }
+      // Call original function if consent given
+      if (window.prqOriginalSetCookie) {
+        return window.prqOriginalSetCookie(name, value, days);
+      }
+    };
+  </script>
 {% render 'cookie-consent' %}
 
 <script>
