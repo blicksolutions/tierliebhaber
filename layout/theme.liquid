@@ -4,7 +4,6 @@
     
     <!-- Cookiebot FIRST with AUTO blocking mode for better GDPR compliance -->
     <!-- PLACE THIS AS THE VERY FIRST <script> IN <head> -->
-    {% comment %}
 <script>
 (function () {
   const DEBUG = false;
@@ -51,7 +50,7 @@
     const src = el.getAttribute('src') || el.getAttribute('data-src');
     if (src) live.src = src;
     live.async = el.async;
-    live. = el.;
+    live.defer = el.defer;
     live.type = 'text/javascript';
     live.setAttribute('data-cookieconsent', 'ignore');
     el.parentNode.insertBefore(live, el.nextSibling);
@@ -104,7 +103,7 @@
   });
 })();
 </script>
-{% endcomment %}
+
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="a4aa9c1a-9639-4e9f-8a23-4aef9c37b3cc" data-blockingmode="auto" type="text/javascript"></script>
 
     <!-- Basic meta tags -->
@@ -255,7 +254,7 @@
     {% endif %}
 
     <!-- NextLevel Network Tag - GATED -->
-    <script src="https://www.dwin1.com/86929.js" type="text/plain" data-cookieconsent="marketing" ></script>
+    <script src="https://www.dwin1.com/86929.js" type="text/plain" data-cookieconsent="marketing" defer></script>
 
     <!-- Klaviyo - PROPERLY GATED -->
     <script type="text/plain" data-cookieconsent="marketing" src="https://a.klaviyo.com/media/js/onsite/onsite.js"></script>
@@ -465,26 +464,26 @@
 
     <!-- External libraries -->
     <script src="{{ 'lazysizes.min.js' | asset_url }}" async></script>
-    <script src="https://cdn.polyfill.io/v3/polyfill.min.js?unknown=polyfill&features=Element.prototype.closest,Element.prototype.remove,Element.prototype.classList,Array.prototype.includes,Array.prototype.fill,Object.assign,CustomEvent,IntersectionObserver,IntersectionObserverEntry,URL" ></script>
+    <script src="https://cdn.polyfill.io/v3/polyfill.min.js?unknown=polyfill&features=fetch,Element.prototype.closest,Element.prototype.remove,Element.prototype.classList,Array.prototype.includes,Array.prototype.fill,Object.assign,CustomEvent,IntersectionObserver,IntersectionObserverEntry,URL" defer></script>
     <script src="{{'jquery.min.js' | asset_url}}"></script>
 
     <!-- Theme scripts -->
-    <script src="{{ 'libs.min.js' | asset_url }}" ></script>
-    <script src="{{ 'slick.min.js' | asset_url }}" ></script>
-    <script src="{{ 'swiper-bundle.min.js' | asset_url }}" ></script>
-    <script src="{{ 'theme.min.js' | asset_url }}" ></script>
-    <script src="{{ 'bs-load-third-party-scripts.js' | asset_url }}"></script>
-    <script src="{{ 'bs-subscription-callout.js' | asset_url }}" ></script>
-    <script src="{{ 'bs-sticky-atc.js' | asset_url }}" ></script>
-    <script src="{{ 'bs-mobile-sidebar-nav.js' | asset_url }}" ></script>
-    <script src="{{ 'bs-cart-drawer.js' | asset_url }}" ></script>
-    <script src="{{ 'search-manipulation.js' | asset_url }}" ></script>
+    <script src="{{ 'libs.min.js' | asset_url }}" defer></script>
+    <script src="{{ 'slick.min.js' | asset_url }}" defer></script>
+    <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
+    <script src="{{ 'theme.min.js' | asset_url }}" defer></script>
+    <script src="{{ 'bs-load-third-party-scripts.js' | asset_url }}" defer></script>
+    <script src="{{ 'bs-subscription-callout.js' | asset_url }}" defer></script>
+    <script src="{{ 'bs-sticky-atc.js' | asset_url }}" defer></script>
+    <script src="{{ 'bs-mobile-sidebar-nav.js' | asset_url }}" defer></script>
+    <script src="{{ 'bs-cart-drawer.js' | asset_url }}" defer></script>
+    <script src="{{ 'search-manipulation.js' | asset_url }}" defer></script>
     <script src="{{ 'bs-dentalspray-redirect.js' | asset_url }}"></script>
 
     <!-- Customer area assets -->
     {%- if template == 'customers/addresses' -%}
-      <script src="{{ 'shopify_common.js' | shopify_asset_url }}" ></script>
-      <script src="{{ 'customer_area.js' | shopify_asset_url }}" ></script>
+      <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer></script>
+      <script src="{{ 'customer_area.js' | shopify_asset_url }}" defer></script>
     {%- endif -%}
 
     <!-- Page transition handling -->
