@@ -10,6 +10,22 @@
 (function() {
   'use strict';
   
+  // Global consent state
+  window.consentState = {
+    marketing: false,
+    statistics: false,
+    initialized: false
+  };
+
+  // Update consent state
+  function updateConsentState() {
+    if (typeof Cookiebot !== 'undefined') {
+      window.consentState.marketing = Cookiebot.consent.marketing;
+      window.consentState.statistics = Cookiebot.consent.statistics;
+      window.consentState.initialized = true;
+    }
+  }
+
   // Define hosts that require consent
   const MARKETING_HOSTS = [
     'klaviyo.com', 'static.klaviyo.com', 'static-tracking.klaviyo.com', 
@@ -25,7 +41,7 @@
     // Removed reviews.io and revenuehunt.com - they should work without consent
   ];
 
-  // Block script loading
+  // Block script loading - Enhanced for server-injected scripts
   const originalCreateElement = document.createElement;
   document.createElement = function(tagName) {
     const element = originalCreateElement.call(this, tagName);
@@ -38,14 +54,14 @@
           const requiresStatisticsConsent = STATISTICS_HOSTS.some(host => value.includes(host));
           
           if (requiresMarketingConsent) {
-            if (typeof Cookiebot !== 'undefined' && !Cookiebot.consent.marketing) {
+            if (!window.consentState.marketing && (typeof Cookiebot === 'undefined' || !Cookiebot.consent.marketing)) {
               console.log('Blocked marketing script:', value);
               return;
             }
           }
           
           if (requiresStatisticsConsent) {
-            if (typeof Cookiebot !== 'undefined' && !Cookiebot.consent.statistics) {
+            if (!window.consentState.statistics && (typeof Cookiebot === 'undefined' || !Cookiebot.consent.statistics)) {
               console.log('Blocked statistics script:', value);
               return;
             }
@@ -53,9 +69,114 @@
         }
         return originalSetAttribute.call(this, name, value);
       };
+      
+      // Also intercept direct src assignment
+      Object.defineProperty(element, 'src', {
+        get: function() {
+          return this.getAttribute('src');
+        },
+        set: function(value) {
+          if (value) {
+            const requiresMarketingConsent = MARKETING_HOSTS.some(host => value.includes(host));
+            const requiresStatisticsConsent = STATISTICS_HOSTS.some(host => value.includes(host));
+            
+            if (requiresMarketingConsent) {
+              if (typeof Cookiebot !== 'undefined' && !Cookiebot.consent.marketing) {
+                console.log('Blocked marketing script (direct src):', value);
+                return;
+              }
+            }
+            
+            if (requiresStatisticsConsent) {
+              if (typeof Cookiebot !== 'undefined' && !Cookiebot.consent.statistics) {
+                console.log('Blocked statistics script (direct src):', value);
+                return;
+              }
+            }
+          }
+          this.setAttribute('src', value);
+        },
+        configurable: true
+      });
     }
     return element;
   };
+
+  // Block existing scripts that are already in the DOM
+  function blockExistingScripts() {
+    const existingScripts = document.querySelectorAll('script[src]');
+    existingScripts.forEach(script => {
+      const src = script.getAttribute('src');
+      if (src) {
+        const requiresMarketingConsent = MARKETING_HOSTS.some(host => src.includes(host));
+        const requiresStatisticsConsent = STATISTICS_HOSTS.some(host => src.includes(host));
+        
+        if (requiresMarketingConsent && (typeof Cookiebot === 'undefined' || !Cookiebot.consent.marketing)) {
+          console.log('Removing existing marketing script:', src);
+          script.remove();
+        }
+        
+        if (requiresStatisticsConsent && (typeof Cookiebot === 'undefined' || !Cookiebot.consent.statistics)) {
+          console.log('Removing existing statistics script:', src);
+          script.remove();
+        }
+      }
+    });
+  }
+
+  // Run immediately and also after DOM is ready
+  blockExistingScripts();
+  document.addEventListener('DOMContentLoaded', blockExistingScripts);
+
+  // Watch for dynamically added scripts
+  const scriptObserver = new MutationObserver(mutations => {
+    mutations.forEach(mutation => {
+      mutation.addedNodes.forEach(node => {
+        if (node.nodeType === 1) { // Element node
+          // Check the node itself
+          if (node.tagName === 'SCRIPT' && node.src) {
+            const requiresMarketingConsent = MARKETING_HOSTS.some(host => node.src.includes(host));
+            const requiresStatisticsConsent = STATISTICS_HOSTS.some(host => node.src.includes(host));
+            
+            if (requiresMarketingConsent && (typeof Cookiebot === 'undefined' || !Cookiebot.consent.marketing)) {
+              console.log('Blocked dynamically added marketing script:', node.src);
+              node.remove();
+              return;
+            }
+            
+            if (requiresStatisticsConsent && (typeof Cookiebot === 'undefined' || !Cookiebot.consent.statistics)) {
+              console.log('Blocked dynamically added statistics script:', node.src);
+              node.remove();
+              return;
+            }
+          }
+          
+          // Check child scripts
+          const childScripts = node.querySelectorAll ? node.querySelectorAll('script[src]') : [];
+          childScripts.forEach(script => {
+            const requiresMarketingConsent = MARKETING_HOSTS.some(host => script.src.includes(host));
+            const requiresStatisticsConsent = STATISTICS_HOSTS.some(host => script.src.includes(host));
+            
+            if (requiresMarketingConsent && (typeof Cookiebot === 'undefined' || !Cookiebot.consent.marketing)) {
+              console.log('Blocked child marketing script:', script.src);
+              script.remove();
+            }
+            
+            if (requiresStatisticsConsent && (typeof Cookiebot === 'undefined' || !Cookiebot.consent.statistics)) {
+              console.log('Blocked child statistics script:', script.src);
+              script.remove();
+            }
+          });
+        }
+      });
+    });
+  });
+
+  // Start observing
+  scriptObserver.observe(document.documentElement, {
+    childList: true,
+    subtree: true
+  });
 
   // Block fetch requests
   const originalFetch = window.fetch;
@@ -171,9 +292,18 @@
   }
 
   // Apply cleanup on consent events
-  window.addEventListener('CookiebotOnLoad', cleanupTrackingData);
-  window.addEventListener('CookiebotOnDecline', cleanupTrackingData);
+  window.addEventListener('CookiebotOnLoad', function() {
+    updateConsentState();
+    cleanupTrackingData();
+  });
+  
+  window.addEventListener('CookiebotOnDecline', function() {
+    updateConsentState();
+    cleanupTrackingData();
+  });
+  
   window.addEventListener('CookiebotOnAccept', function() {
+    updateConsentState();
     cleanupTrackingData();
     
     // Dynamically load services when consent is granted
@@ -184,19 +314,42 @@
         if (Cookiebot.consent.marketing) {
           console.log('Loading marketing services...');
           
-          // Trigger Klaviyo if it exists
-          if (window.klaviyo || window._learnq) {
+          // Reload Klaviyo scripts that were blocked
+          const klaviyoScripts = [
+            'https://static.klaviyo.com/onsite/js/klaviyo.js',
+            'https://a.klaviyo.com/media/js/onsite/onsite.js'
+          ];
+          
+          klaviyoScripts.forEach(src => {
+            if (!document.querySelector(`script[src="${src}"]`)) {
+              const script = document.createElement('script');
+              script.src = src;
+              script.async = true;
+              document.head.appendChild(script);
+              console.log('Reloaded Klaviyo script:', src);
+            }
+          });
+          
+          // Initialize Klaviyo after scripts load
+          setTimeout(() => {
             try {
               if (window.klaviyo && typeof window.klaviyo.init === 'function') {
                 window.klaviyo.init({
                   account: 'Xfhnkz',
                   platform: 'shopify'
                 });
+                console.log('Klaviyo initialized');
+              }
+              
+              // Also try legacy initialization
+              if (window._learnq) {
+                window._learnq.push(['account', 'Xfhnkz']);
+                console.log('Klaviyo legacy initialized');
               }
             } catch (e) {
               console.log('Klaviyo manual init failed:', e);
             }
-          }
+          }, 1000);
           
           // Trigger Google Analytics if it exists
           if (window.gtag) {
