@@ -1,27 +1,7 @@
 <!doctype html>
 <html class="no-js" lang="{{ shop.locale }}">
   <head>
-    <!-- Must be before the Cookiebot tag -->
-<script>
-(function () {
-  const rx = /(?:^|\/)(?:static\.)?rechargecdn\.com|rechargepayments\.com|storefront\.getrecharge\.com/i;
-  const mark = s => {
-    if (s && s.tagName === 'SCRIPT' && rx.test(s.src)) {
-      s.setAttribute('data-cookieconsent','ignore');
-    }
-  };
-  // mark any existing script tags
-  document.querySelectorAll('script[src]').forEach(mark);
-  // mark future ones
-  new MutationObserver(muts => muts.forEach(m => m.addedNodes.forEach(n => {
-    if (n.nodeType === 1) {
-      if (n.tagName === 'SCRIPT') mark(n);
-      // if Recharge ever injects iframes, you could also add: n.tagName==='IFRAME' etc.
-    }
-  }))).observe(document.documentElement,{childList:true,subtree:true});
-})();
-</script>
-
+    
     <!-- Cookiebot FIRST with AUTO blocking mode for better GDPR compliance -->
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="a4aa9c1a-9639-4e9f-8a23-4aef9c37b3cc" data-blockingmode="auto" type="text/javascript"></script>
 
