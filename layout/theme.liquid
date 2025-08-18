@@ -3,9 +3,13 @@
 <html class="no-js" lang="{{ shop.locale }}">
   <head>
 
+
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="a4aa9c1a-9639-4e9f-8a23-4aef9c37b3cc" data-blockingmode="manual" type="text/javascript"></script>
+
+
     <!-- BS: AB Scripts -->
 	<link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}">
-    <link rel="stylesheet" href="{{ 'ds-op-lp-3.css' | asset_url }}">
+  <link rel="stylesheet" href="{{ 'ds-op-lp-3.css' | asset_url }}">
 
 	  <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
 	  <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
@@ -268,7 +272,7 @@
     {% render 'css-variables' %}
 
     {{ content_for_header }}
-   
+   {% render 'cookie-consent' %}
 <script>
   (() => {
     try {
@@ -332,7 +336,7 @@
   })();
 </script>
     
-    {%- comment -%}{% render 'cookie-consent' %}{%- endcomment -%}
+    
 
     <link rel="stylesheet" href="{{ 'bs-mobile-sidebar-nav.css' | asset_url }}">
 
@@ -629,11 +633,14 @@
           }
       });
     </script>
-    {% include 'smile-initializer' %}
-
-    {% if content_for_header contains 'fastbundle.co' %}
-      {% render 'fast_bundle_service' %}
-    {% endif %}
+    
+    {% comment %}
+      <!-- MM edit  we are not using smile services anyore -->
+    {% endcomment %}
+   
+    {% comment %}
+    <!-- MM edit  we are not using fastbundle anymore -->
+    {% endcomment %}
 
     <!-- NextLevel Network Tag tag -->
     <script src="https://www.dwin1.com/86929.js" type="text/plain" data-cookieconsent="marketing" defer="defer"></script>
@@ -650,7 +657,7 @@
         linebreak: false,
         text: "{{ 'product.tabs.reviews' | t }}",
         singularText: "{{ 'product.tabs.reviews_singular' | t }}",
-        lang: "en",
+        lang: "de",
         usePolaris: true,
         showEmptyStars: false,
       });
