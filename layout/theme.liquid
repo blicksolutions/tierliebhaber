@@ -4,11 +4,10 @@
     
     <!-- Cookiebot FIRST with AUTO blocking mode for better GDPR compliance -->
     <!-- PLACE THIS AS THE VERY FIRST <script> IN <head> -->
-    {% comment %}
 <script>
 (function () {
   const DEBUG = false;
-  const log = (...a) => { if (DEBUG && window.console) console.log('[CB-Enhanced]', ...a); };
+  const log = (...a) => { if (DEBUG && window.console) console.log('[CB-Recharge]', ...a); };
 
   // 1) Matchers
   const isRechargeUrl = (u) => typeof u === 'string' && /recharge/i.test(u);
@@ -19,47 +18,11 @@
     return /recharge/i.test(el.textContent || '');
   };
 
-  // Elevar detection
-  const isElevarUrl = (u) => typeof u === 'string' && /elevar/i.test(u);
-  const isElevarScript = (el) => {
-    if (!el || el.tagName !== 'SCRIPT') return false;
-    if (isElevarUrl(el.src)) return true;
-    // Check for Elevar in script content, including _Elevar references
-    return /elevar|_Elevar/i.test(el.textContent || '');
-  };
-
-  // NEW: Marketing consent required scripts detection
-  const marketingDomains = [
-    'monorail-edge.shopifysvc.com',
-    'shopify-gtm-suite.getelevar.com',
-    'admin.revenuehunt.com',
-    'data.replo.app',
-    'analytics-api.gemcommerce.com'
-  ];
-
-  const isMarketingScript = (el) => {
-    if (!el || el.tagName !== 'SCRIPT') return false;
-    const src = el.src || '';
-    return marketingDomains.some(domain => src.includes(domain));
-  };
-
   // 2) Tag to bypass Cookiebot auto-blocking
   const tagIgnore = (el) => {
     if (el.getAttribute('data-cookieconsent') !== 'ignore') {
       el.setAttribute('data-cookieconsent', 'ignore');
       log('tagged ignore', el);
-    }
-  };
-
-  // Tag to ensure Cookiebot blocks until marketing consent
-  const tagMarketing = (el) => {
-    if (el.getAttribute('data-cookieconsent') !== 'marketing') {
-      el.setAttribute('data-cookieconsent', 'marketing');
-      // Also change script type to text/plain to ensure blocking
-      if (el.tagName === 'SCRIPT' && el.type !== 'text/plain') {
-        el.type = 'text/javascript'; // Keep as javascript but with marketing consent
-      }
-      log('tagged marketing', el);
     }
   };
 
@@ -94,7 +57,7 @@
     log('rehydrated', live);
   };
 
-  // Function to check marketing consent
+  // Function to check marketing consent (for Elevar cookie blocking only)
   function checkMarketingConsent() {
     try {
       // Check if Cookiebot is available and consent is given
@@ -140,52 +103,13 @@
     });
   }
 
-  // NEW: Prevent localStorage writes for specific keys until consent
-  const blockedStorageKeys = ['triplePixel', 'TriplePixelU', 'gemx_campaign'];
-  
-  if (typeof Storage !== 'undefined' && window.localStorage) {
-    const originalSetItem = localStorage.setItem;
-    const originalRemoveItem = localStorage.removeItem;
-    
-    localStorage.setItem = function(key, value) {
-      if (blockedStorageKeys.includes(key)) {
-        const hasMarketingConsent = checkMarketingConsent();
-        if (!hasMarketingConsent) {
-          log('Blocked localStorage write for key:', key);
-          return;
-        }
-      }
-      return originalSetItem.call(this, key, value);
-    };
-
-    // Also prevent removing these keys to avoid workarounds
-    localStorage.removeItem = function(key) {
-      if (blockedStorageKeys.includes(key)) {
-        const hasMarketingConsent = checkMarketingConsent();
-        if (!hasMarketingConsent) {
-          log('Blocked localStorage remove for key:', key);
-          return;
-        }
-      }
-      return originalRemoveItem.call(this, key);
-    };
-  }
-
   // 5) Tag existing nodes
   document.querySelectorAll('script').forEach(s => {
-    if (isRechargeScript(s)) {
-      tagIgnore(s);
-    } else if (isElevarScript(s) || isMarketingScript(s)) {
-      tagMarketing(s);
-    }
+    if (isRechargeScript(s)) tagIgnore(s);
     rehydrateIfBlocked(s);
   });
   document.querySelectorAll('link[rel="preload"][as="script"][href]').forEach(l => {
-    if (isRechargeUrl(l.href)) {
-      tagIgnore(l);
-    } else if (isElevarUrl(l.href) || marketingDomains.some(domain => l.href.includes(domain))) {
-      tagMarketing(l);
-    }
+    if (isRechargeUrl(l.href)) tagIgnore(l);
   });
 
   // 6) Watch for new nodes + attribute changes (src, href, type, data-src)
@@ -198,14 +122,10 @@
             if (isRechargeScript(n)) {
               tagIgnore(n);
               rehydrateIfBlocked(n);
-            } else if (isElevarScript(n) || isMarketingScript(n)) {
-              tagMarketing(n);
             }
           } else if (n.tagName === 'LINK' && n.rel === 'preload' && (n.as === 'script' || n.getAttribute('as') === 'script')) {
             if (isRechargeUrl(n.href)) {
               tagIgnore(n);
-            } else if (isElevarUrl(n.href) || marketingDomains.some(domain => n.href.includes(domain))) {
-              tagMarketing(n);
             }
           }
         });
@@ -216,16 +136,12 @@
             if (isRechargeScript(el)) {
               tagIgnore(el);
               rehydrateIfBlocked(el);
-            } else if (isElevarScript(el) || isMarketingScript(el)) {
-              tagMarketing(el);
             }
           }
         } else if (el.tagName === 'LINK' && m.attributeName === 'href') {
           if (el.rel === 'preload' && (el.as === 'script' || el.getAttribute('as') === 'script')) {
             if (isRechargeUrl(el.href)) {
               tagIgnore(el);
-            } else if (isElevarUrl(el.href) || marketingDomains.some(domain => el.href.includes(domain))) {
-              tagMarketing(el);
             }
           }
         }
@@ -241,7 +157,6 @@
   });
 })();
 </script>
-{% endcomment %}
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="a4aa9c1a-9639-4e9f-8a23-4aef9c37b3cc" data-blockingmode="auto" type="text/javascript"></script>
 
     <!-- Basic meta tags -->
