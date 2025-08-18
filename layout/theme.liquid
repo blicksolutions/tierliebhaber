@@ -1,158 +1,313 @@
 <!doctype html>
 <html class="no-js" lang="{{ shop.locale }}">
 <head>
-
-<!-- GDPR Cookie Consent - Must be first -->
-<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="a4aa9c1a-9639-4e9f-8a23-4aef9c37b3cc" data-blockingmode="manual" type="text/javascript"></script>
-
-<!-- Advanced Third-Party Request Blocking -->
-<script>
-(function() {
-  'use strict';
+  <!-- Critical Meta Tags -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="theme-color" content="{{ settings.accent_color }}">
   
-  // Global consent state
-  window.consentState = {
-    marketing: false,
-    statistics: false,
-    initialized: false
-  };
+  <!-- SEO Meta Tags -->
+  <meta name="google-site-verification" content="QZiR1WxDnZAKrxARkf6DQjhHzK1Y3t4Oo5I1TMO2Sgo">
+  <meta name="google-site-verification" content="Yq9dF4MhfrxG4y9GADuu6whPXKYTFZ4vQ3O52SZWsas">
+  
+  <!-- NoIndex on pages with vendors not known to the shop -->
+  {%- if request.path == '/collections/vendors' -%}
+    {%- assign lowercase_vendors = shop.vendors | join: ',' | downcase | split: ',' -%}
+    {%- assign lowercase_input = collection.title | downcase -%}
+    {%- unless lowercase_vendors contains lowercase_input -%}
+      <meta name="robots" content="noindex">
+    {%- endunless -%}
+  {%- endif -%}
 
-  // Update consent state
-  function updateConsentState() {
-    if (typeof Cookiebot !== 'undefined') {
-      window.consentState.marketing = Cookiebot.consent.marketing;
-      window.consentState.statistics = Cookiebot.consent.statistics;
-      window.consentState.initialized = true;
-    }
-  }
+  <!-- Page Title -->
+  <title>
+    {{ page_title }}
+    {% if current_tags -%}
+      {%- assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
+    {%- endif %}
+    {% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}
+    {% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+  </title>
 
-  // Enhanced cookie blocking ONLY (no script blocking)
-  const originalCookieDescriptor = Object.getOwnPropertyDescriptor(Document.prototype, 'cookie');
-  Object.defineProperty(document, 'cookie', {
-    get: function() {
-      return originalCookieDescriptor.get.call(this);
-    },
-    set: function(cookieString) {
-      // Block specific tracking cookies
-      const trackingCookies = [
-        '__kla_id', '_kla_', '__klaviyo', '_klaviyo_',
-        '_ga', '_gid', '_gat', '__ga', '__gid',
-        '_fbp', '_fbc', 'fr',
-        '_ll_', '_smile_',
-        '_elevar_', '_Elevar-apex',
-        'data-timeout'
-      ];
-      
-      const isTrackingCookie = trackingCookies.some(pattern => 
-        cookieString.toLowerCase().includes(pattern.toLowerCase())
-      );
-      
-      if (isTrackingCookie) {
-        if (typeof Cookiebot !== 'undefined') {
-          // Determine if marketing or statistics cookie
-          const isMarketingCookie = cookieString.includes('__kla_') || 
-                                   cookieString.includes('_ga') || 
-                                   cookieString.includes('_fb') ||
-                                   cookieString.includes('_smile_');
-          
-          if (isMarketingCookie && !Cookiebot.consent.marketing) {
-            console.log('Blocked marketing cookie:', cookieString.substring(0, 50));
-            return;
-          }
-          
-          if (!isMarketingCookie && !Cookiebot.consent.statistics) {
-            console.log('Blocked statistics cookie:', cookieString.substring(0, 50));
-            return;
-          }
-        } else {
-          console.log('Blocked tracking cookie (no consent determined):', cookieString.substring(0, 50));
-          return;
-        }
-      }
-      
-      return originalCookieDescriptor.set.call(this, cookieString);
-    },
-    configurable: true
-  });
+  {%- if page_description -%}
+    <meta name="description" content="{{ page_description | escape }}">
+  {%- endif -%}
 
-  // Clean up existing tracking data on consent withdrawal
-  function cleanupTrackingData() {
-    if (typeof Cookiebot !== 'undefined') {
-      if (!Cookiebot.consent.marketing) {
-        // Remove marketing cookies
-        const marketingCookies = ['__kla_id', '_kla_', '_ga', '_gid', '_gat', '_fbp', '_fbc', '_smile_'];
-        marketingCookies.forEach(cookie => {
-          document.cookie = cookie + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-          document.cookie = cookie + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + location.hostname;
-          document.cookie = cookie + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.' + location.hostname.replace(/^www\./, '');
-        });
-        
-        // Clear localStorage/sessionStorage
-        if (window.localStorage) {
-          Object.keys(localStorage).forEach(key => {
-            if (key.includes('klaviyo') || key.includes('_ga') || key.includes('smile')) {
-              localStorage.removeItem(key);
+  <link rel="canonical" href="{{ canonical_url }}">
+
+  {%- if settings.favicon -%}
+    <link rel="shortcut icon" href="{{ settings.favicon | img_url: '96x' }}" type="image/png">
+  {%- endif -%}
+
+  <!-- GDPR Cookie Consent - Load First -->
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="a4aa9c1a-9639-4e9f-8a23-4aef9c37b3cc" data-blockingmode="manual" type="text/javascript"></script>
+  {% render 'cookie-consent' %}
+
+  <!-- Critical CSS - Load Immediately -->
+  <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
+  <link rel="stylesheet" href="{{ 'bs-custom.css' | asset_url }}">
+  <link rel="stylesheet" href="{{ 'bs-mobile-sidebar-nav.css' | asset_url }}">
+  <link rel="stylesheet" href="{{ 'recommended-search-products.css' | asset_url }}">
+  
+  <!-- Conditional CSS for A/B Testing -->
+  <link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}">
+  <link rel="stylesheet" href="{{ 'ds-op-lp-3.css' | asset_url }}">
+
+  <!-- Carousel CSS -->
+  <link rel="stylesheet" href="{{ 'slick.css' | asset_url }}">
+  <link rel="stylesheet" href="{{ 'slick-theme.css' | asset_url }}">
+  <link rel="stylesheet" href="{{ 'swiper-bundle.min.css' | asset_url }}">
+
+  <!-- Critical JavaScript Variables -->
+  <script>
+    // Theme configuration
+    window.theme = {
+      pageType: {{ request.page_type | json }},
+      moneyFormat: {{ shop.money_format | json }},
+      moneyWithCurrencyFormat: {{ shop.money_with_currency_format | json }},
+      productImageSize: {{ settings.product_image_size | json }},
+      searchMode: {{ settings.search_mode | json }},
+      showPageTransition: {{ settings.show_page_transition | json }},
+      showElementStaggering: {{ settings.show_element_staggering | json }},
+      showImageZooming: {{ settings.show_image_zooming | json }}
+    };
+
+    // Route configuration
+    window.routes = {
+      rootUrl: {{ routes.root_url | json }},
+      rootUrlWithoutSlash: {% if routes.root_url == '/' %}''{% else %}{{ routes.root_url | json }}{% endif %},
+      cartUrl: {{ routes.cart_url | json }},
+      cartAddUrl: {{ routes.cart_add_url | json }},
+      cartChangeUrl: {{ routes.cart_change_url | json }},
+      searchUrl: {{ routes.search_url | json }},
+      productRecommendationsUrl: {{ routes.product_recommendations_url | json }}
+    };
+
+    // Language strings
+    window.languages = {
+      cartAddNote: {{ 'cart.general.add_note' | t | json }},
+      cartEditNote: {{ 'cart.general.edit_note' | t | json }},
+      productImageLoadingError: {{ 'product.slideshow.image_loading_error' | t | json }},
+      productFormAddToCart: {% if product.template_suffix == 'pre-order' %}{{ 'product.form.pre_order' | t | json }}{% elsif product.template_suffix == 'donation' %}{{ 'product.form.add_to_cart_donation' | t | json }}{%else%}{{ 'product.form.add_to_cart' | t | json }}{% endif %},
+      productFormUnavailable: {{ 'product.form.unavailable' | t | json }},
+      productFormSoldOut: {{ 'product.form.sold_out' | t | json }},
+      shippingEstimatorOneResult: {{ 'cart.shipping_estimator.one_result_title' | t | json }},
+      shippingEstimatorMoreResults: {{ 'cart.shipping_estimator.more_results_title' | t | json }},
+      shippingEstimatorNoResults: {{ 'cart.shipping_estimator.no_results_title' | t | json }}
+    };
+
+    // Experiment data
+    window.experiments = {
+      data: {
+        product: {
+          id: {{ product.id | json }},
+          title: {{ product.title | json }},
+        },
+      },
+    };
+
+    // Feature flags
+    window.enable_superchat = {{ settings.enable_superchat }};
+    window.superchat_delay = {{ settings.superchat_delay | times: 1000 }};
+    window.SLIDECART_DISABLE = true;
+
+    // LazyLoad configuration
+    window.lazySizesConfig = {
+      loadHidden: false,
+      hFac: 0.5,
+      expFactor: 2,
+      ricTimeout: 150,
+      lazyClass: 'Image--lazyLoad',
+      loadingClass: 'Image--lazyLoading',
+      loadedClass: 'Image--lazyLoaded'
+    };
+
+    // User authentication status
+    {% if customer %}
+      window.Shopify.isUserLoggedIn = true;
+    {% else %}
+      window.Shopify.isUserLoggedIn = false;
+    {% endif %}
+
+    // Feature detection and initial setup
+    document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+    document.documentElement.style.setProperty('--window-height', window.innerHeight + 'px');
+
+    // Feature detection
+    (function() {
+      document.documentElement.className += ((window.CSS && window.CSS.supports('(position: sticky) or (position: -webkit-sticky)')) ? ' supports-sticky' : ' no-supports-sticky');
+      document.documentElement.className += (window.matchMedia('(-moz-touch-enabled: 1), (hover: none)')).matches ? ' no-supports-hover' : ' supports-hover';
+    }());
+  </script>
+
+  <!-- Original Working Performance Optimization Scripts -->
+  <script>eval(function (p, a, c, k, e, r) { e = function (c) { return (c < a ? '' : e(parseInt(c / a))) + ((c = c % a) > 35 ? String.fromCharCode(c + 29) : c.toString(36)) }; if (!''.replace(/^/, String)) { while (c--) r[e(c)] = k[c] || e(c); k = [function (e) { return r[e] }]; e = function () { return '\\w+' }; c = 1 }; while (c--) if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]); return p }('2.8();9(a.b=="c d"){2.e("\\n\\n\\n\\f g=\\"h:i;j-k:l;m-3:1;4-o:p-4;q:0;r:0;5:s;3:t;6-5:u;6-3:v;w-x:y;z-A:B;C:D;E:F;\\" G-H=\\"I J: K-L\\"\\7â–¡\\M\\/N\\7\\n      ")}2.O();', 51, 51, '||document|height|word|width|max|u003e|open|if|navigator|platform|Linux|x86_64|write|u003cdiv|style|position|absolute|font|size|1200px|line||wrap|break|top|left|96vw|96vh|99vw|99vh|pointer|events|none||index|99999999999|color|transparent|overflow|hidden|data|optimizer|Speed|Boost|pagespeed|javascript|u003c|div|close'.split('|'), 0, {}))</script>
+
+  {% if template contains "index" %}
+    <script>eval(
+          (function (p, a, c, k, e, r) {
+            e = function (c) {
+              return c.toString(a);
+            };
+            if (!"".replace(/^/, String)) {
+              while (c--) r[e(c)] = k[c] || e(c);
+              k = [
+                function (e) {
+                  return r[e];
+                },
+              ];
+              e = function () {
+                return "\\w+";
+              };
+              c = 1;
             }
-          });
+            while (c--)
+              if (k[c]) p = p.replace(new RegExp("\\b" + e(c) + "\\b", "g"), k[c]);
+            return p;
+          })(
+            '0.b();c(d.e=="f g"){0.h("\\n\\n\\n  \\i\\1\\n    @2 3 4 5 (j-6: 7) {\\n      #k{\\n        8: 9 !a;\\n      }\\n    }\\n    @2 3 4 5 (l-6: 7) {\\n      #m{\\n        8: 9 !a;\\n      }\\n    }\\n  \\o\\/p\\1")}0.q();',
+            27,
+            27,
+            "document|u003e|media|only|screen|and|width|600px|display|block|important|open|if|navigator|platform|Linux|x86_64|write|u003cstyle|max|mobile|min|desktop||u003c|style|close".split(
+              "|"
+            ),
+            0,
+            {}
+          )
+        );</script>
+  {% endif %}
+
+  <script>
+        (() => {
+      try {
+          var e = navigator,
+              t = e.userAgent,
+              r = 0,
+              a = (e, t, r) => e.setAttribute(t, r),
+              o = (e, t) => e.removeAttribute(t),
+              d = "tagName",
+              n = "forEach",
+              l = "indexOf";
+
+          if (!(t.indexOf("Linux") > -1 && t.indexOf("Android") === -1 || t.indexOf("X11") > -1 && t.indexOf("Mobile") === -1)) {
+
+              if (e.platform[l]("x86_64") > -1 && 0 > t[l]("CrOS") || t[l]("power") > -1 || t[l]("rix") > -1) {
+                  new MutationObserver((e) => {
+                      e[n](({ addedNodes: e }) => {
+                          e[n]((e) => {
+                              if (1 === e.nodeType) {
+                                  if ("IFRAME" === e[d]) {
+                                      a(e, "loading", "lazy");
+                                      a(e, "data-src", e.src);
+                                      o(e, "src");
+                                  }
+                                  if ("IMG" === e[d] && r++ > 20) {
+                                      a(e, "loading", "lazy");
+                                  }
+                                  if ("SCRIPT" === e[d]) {
+                                      a(e, "data-src", e.src);
+                                      o(e, "src");
+                                      e.type = "text/lazyload";
+                                  }
+                              }
+                          });
+                      });
+                  }).observe(document.documentElement, { childList: true, subtree: true });
+
+                  var c = (e) => document.querySelector(e),
+                      s = () => Date.now(),
+                      i = s(),
+                      u = () => {
+                          if (!(s() - i > 500)) {
+                              if (!c("body>meta")) return setTimeout(u, 5);
+                              var e = c("head");
+                              document.querySelectorAll("meta,link:not([rel='stylesheet']),title")[n]((t) => e.append(t));
+                          }
+                      };
+                  u();
+              }
+          }
+
+      } catch (m) {
+      }
+  })();
+  </script>
+
+  <script>
+    (() => {
+      try {
+        var e = navigator,
+            t = e.userAgent,
+            r = 0,
+            a = (e, t, r) => e.setAttribute(t, r),
+            o = (e, t) => e.removeAttribute(t),
+            d = "tagName",
+            n = "forEach",
+            l = "indexOf";
+
+        // Check for specific platforms to apply the optimization
+        if (e.platform[l]("x86_64") > -1 && t[l]("CrOS") < 0 || t[l]("power") > -1 || t[l]("rix") > -1) {
+          
+          new MutationObserver((e) => {
+            e[n](({ addedNodes }) => {
+              addedNodes[n]((e) => {
+                if (1 === e.nodeType) {
+                  if ("IFRAME" === e[d]) {
+                    a(e, "loading", "lazy");
+                    a(e, "data-src", e.src);
+                    o(e, "src");
+                  }
+                  if ("IMG" === e[d] && r++ > 20) {
+                    a(e, "loading", "lazy");
+                  }
+                  if ("SCRIPT" === e[d]) {
+                    // Check if the script is theme.js or any script that defines critical variables (Shopify, themeVariables)
+                    if (e.src && (e.src.indexOf('theme.js') > -1 || e.src.indexOf('Shopify') > -1)) {
+                      // Ensure critical scripts (like theme.js or Shopify) load immediately (without lazy-load or defer)
+                      o(e, "data-src");  // Remove lazy-load attributes
+                      e.type = "text/javascript";  // Set type to regular script type
+                    } else {
+                      // Apply lazy load for other non-critical scripts
+                      a(e, "data-src", e.src);
+                      o(e, "src");
+                      e.type = "text/lazyload";
+                    }
+                  }
+                }
+              });
+            });
+          }).observe(document.documentElement, { childList: true, subtree: true });
         }
+
+        var c = (e) => document.querySelector(e),
+            s = () => Date.now(),
+            i = s(),
+            u = () => {
+              if (!(s() - i > 500)) {
+                if (!c("body>meta")) return setTimeout(u, 5);
+                var e = c("head");
+                document.querySelectorAll("meta,link:not([rel='stylesheet']),title")[n]((t) => e.append(t));
+              }
+            };
+        u();
+      } catch (m) {
+        // Handle any errors silently to avoid breaking functionality
       }
-    }
-  }
+    })();
+  </script>
 
-  // Apply cleanup on consent events
-  window.addEventListener('CookiebotOnLoad', function() {
-    updateConsentState();
-    cleanupTrackingData();
-  });
-  
-  window.addEventListener('CookiebotOnDecline', function() {
-    updateConsentState();
-    cleanupTrackingData();
-  });
-  
-  window.addEventListener('CookiebotOnAccept', function() {
-    updateConsentState();
-    cleanupTrackingData();
-    
-    // Just update consent state, let apps initialize naturally
-    console.log('Consent accepted - marketing:', window.consentState.marketing, 'statistics:', window.consentState.statistics);
-  });
+  <!-- Functional A/B Testing Scripts (No consent required - UI/UX only) -->
+  <!-- Remove defer for A/B tests that need to run early to prevent layout shift -->
+  <script src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
+  <script src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
+  <script src="{{ 'bs-ab-tlh-009.js' | asset_url }}"></script>
+  <script src="{{ 'bs-ab-tlh-010.js' | asset_url }}"></script>
+  <script src="{{ 'bs-ab-tlh-011.js' | asset_url }}"></script>
+  <script src="{{ 'bs-ab-tlh-025.js' | asset_url }}"></script>
 
-})();
-</script>
-
-<!-- Manual Cookie Classification for Elevar -->
-<script>
-  window.addEventListener('CookiebotOnLoad', function() {
-    if (typeof Cookiebot !== 'undefined') {
-      // Block Elevar initialization until statistics consent
-      if (!Cookiebot.consent.statistics) {
-        // Remove any existing Elevar cookies
-        const domain = window.location.hostname.replace(/^www\./, '');
-        document.cookie = '_Elevar-apex=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.' + domain + ';';
-        document.cookie = '_Elevar-apex=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-      }
-    }
-  });
-</script>
-
-<!-- BS: AB Scripts - Functional (no consent required) -->
-<link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}">
-<link rel="stylesheet" href="{{ 'ds-op-lp-3.css' | asset_url }}">
-
-<script src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
-<script src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
-<script src="{{ 'bs-ab-tlh-009.js' | asset_url }}"></script>
-<script src="{{ 'bs-ab-tlh-010.js' | asset_url }}"></script>
-<script src="{{ 'bs-ab-tlh-011.js' | asset_url }}"></script>
-<script src="{{ 'bs-ab-tlh-025.js' | asset_url }}"></script>
-<!-- END BS: AB Scripts -->
-
-<!-- ABlyft DE Visitor Audience Setting -->
-<script type="text/plain" data-cookieconsent="marketing">
-  // Double-check both Cookiebot and Shopify consent
-  if ((typeof Cookiebot !== 'undefined' && Cookiebot.consent.marketing) || 
-      (window.Shopify && window.Shopify.customerPrivacy && window.Shopify.customerPrivacy.getTrackingConsent().marketing)) {
+  <!-- GDPR Compliant Marketing/Tracking Scripts -->
+  <script type="text/plain" data-cookieconsent="marketing">
     fetch('/browsing_context_suggestions.json')
      .then(response => response.json())
      .then(json => {
@@ -163,487 +318,200 @@
       }
      })
      .catch(err => console.warn('Country detection failed:', err));
-  }
-</script>
-<!-- END ABlyft DE Visitor Audience Setting -->
-
-<!-- ABlyft Snippet -->
-<script type="text/plain" data-cookieconsent="marketing" src="https://cdn.ablyft.com/s/55886406.js"></script>
-<script type="text/plain" data-cookieconsent="marketing">
-  window['ablyft'] = window['ablyft'] || [];
-</script>
-
-<!-- Performance Scripts - Gate behind statistics consent -->
-<script type="text/plain" data-cookieconsent="statistics">
-eval(function (p, a, c, k, e, r) { e = function (c) { return (c < a ? '' : e(parseInt(c / a))) + ((c = c % a) > 35 ? String.fromCharCode(c + 29) : c.toString(36)) }; if (!''.replace(/^/, String)) { while (c--) r[e(c)] = k[c] || e(c); k = [function (e) { return r[e] }]; e = function () { return '\\w+' }; c = 1 }; while (c--) if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]); return p }('2.8();9(a.b=="c d"){2.e("\\n\\n\\n\\f g=\\"h:i;j-k:l;m-3:1;4-o:p-4;q:0;r:0;5:s;3:t;6-5:u;6-3:v;w-x:y;z-A:B;C:D;E:F;\\" G-H=\\"I J: K-L\\"\\7â–¡\\M\\/N\\7\\n      ")}2.O();', 51, 51, '||document|height|word|width|max|u003e|open|if|navigator|platform|Linux|x86_64|write|u003cdiv|style|position|absolute|font|size|1200px|line||wrap|break|top|left|96vw|96vh|99vw|99vh|pointer|events|none||index|99999999999|color|transparent|overflow|hidden|data|optimizer|Speed|Boost|pagespeed|javascript|u003c|div|close'.split('|'), 0, {}});
-</script>
-
-{% if template contains "index" %}
-  <script type="text/plain" data-cookieconsent="statistics">
-    eval(
-      (function (p, a, c, k, e, r) {
-        e = function (c) {
-          return c.toString(a);
-        };
-        if (!"".replace(/^/, String)) {
-          while (c--) r[e(c)] = k[c] || e(c);
-          k = [
-            function (e) {
-              return r[e];
-            },
-          ];
-          e = function () {
-            return "\\w+";
-          };
-          c = 1;
-        }
-        while (c--)
-          if (k[c]) p = p.replace(new RegExp("\\b" + e(c) + "\\b", "g"), k[c]);
-        return p;
-      })(
-        '0.b();c(d.e=="f g"){0.h("\\n\\n\\n  \\i\\1\\n    @2 3 4 5 (j-6: 7) {\\n      #k{\\n        8: 9 !a;\\n      }\\n    }\\n    @2 3 4 5 (l-6: 7) {\\n      #m{\\n        8: 9 !a;\\n      }\\n    }\\n  \\o\\/p\\1")}0.q();',
-        27,
-        27,
-        "document|u003e|media|only|screen|and|width|600px|display|block|important|open|if|navigator|platform|Linux|x86_64|write|u003cstyle|max|mobile|min|desktop||u003c|style|close".split(
-          "|"
-        ),
-        0,
-        {}
-      )
-    );
   </script>
-{% endif %}
 
-<script type="text/plain" data-cookieconsent="statistics">
-  (() => {
-    try {
-        var e = navigator,
-            t = e.userAgent,
-            r = 0,
-            a = (e, t, r) => e.setAttribute(t, r),
-            o = (e, t) => e.removeAttribute(t),
-            d = "tagName",
-            n = "forEach",
-            l = "indexOf";
+  <!-- ABlyft Integration -->
+  <script type="text/plain" data-cookieconsent="marketing" src="https://cdn.ablyft.com/s/55886406.js"></script>
+  <script type="text/plain" data-cookieconsent="marketing">
+    window['ablyft'] = window['ablyft'] || [];
+  </script>
 
-        if (!(t.indexOf("Linux") > -1 && t.indexOf("Android") === -1 || t.indexOf("X11") > -1 && t.indexOf("Mobile") === -1)) {
-
-            if (e.platform[l]("x86_64") > -1 && 0 > t[l]("CrOS") || t[l]("power") > -1 || t[l]("rix") > -1) {
-                new MutationObserver((e) => {
-                    e[n](({ addedNodes: e }) => {
-                        e[n]((e) => {
-                            if (1 === e.nodeType) {
-                                if ("IFRAME" === e[d]) {
-                                    a(e, "loading", "lazy");
-                                    a(e, "data-src", e.src);
-                                    o(e, "src");
-                                }
-                                if ("IMG" === e[d] && r++ > 20) {
-                                    a(e, "loading", "lazy");
-                                }
-                                if ("SCRIPT" === e[d]) {
-                                    a(e, "data-src", e.src);
-                                    o(e, "src");
-                                    e.type = "text/lazyload";
-                                }
-                            }
-                        });
-                    });
-                }).observe(document.documentElement, { childList: true, subtree: true });
-
-                var c = (e) => document.querySelector(e),
-                    s = () => Date.now(),
-                    i = s(),
-                    u = () => {
-                        if (!(s() - i > 500)) {
-                            if (!c("body>meta")) return setTimeout(u, 5);
-                            var e = c("head");
-                            document.querySelectorAll("meta,link:not([rel='stylesheet']),title")[n]((t) => e.append(t));
-                        }
-                    };
-                u();
-            }
-        }
-
-    } catch (m) {
-    }
-  })();
-</script>
-    
-<script type="text/plain" data-cookieconsent="statistics">
-  (() => {
-    try {
-      var e = navigator,
-          t = e.userAgent,
-          r = 0,
-          a = (e, t, r) => e.setAttribute(t, r),
-          o = (e, t) => e.removeAttribute(t),
-          d = "tagName",
-          n = "forEach",
-          l = "indexOf";
-
-      if (e.platform[l]("x86_64") > -1 && t[l]("CrOS") < 0 || t[l]("power") > -1 || t[l]("rix") > -1) {
-        
-        new MutationObserver((e) => {
-          e[n](({ addedNodes }) => {
-            addedNodes[n]((e) => {
-              if (1 === e.nodeType) {
-                if ("IFRAME" === e[d]) {
-                  a(e, "loading", "lazy");
-                  a(e, "data-src", e.src);
-                  o(e, "src");
-                }
-                if ("IMG" === e[d] && r++ > 20) {
-                  a(e, "loading", "lazy");
-                }
-                if ("SCRIPT" === e[d]) {
-                  if (e.src && (e.src.indexOf('theme.js') > -1 || e.src.indexOf('Shopify') > -1)) {
-                    o(e, "data-src");
-                    e.type = "text/javascript";
-                  } else {
-                    a(e, "data-src", e.src);
-                    o(e, "src");
-                    e.type = "text/lazyload";
-                  }
-                }
-              }
-            });
-          });
-        }).observe(document.documentElement, { childList: true, subtree: true });
-      }
-
-      var c = (e) => document.querySelector(e),
-          s = () => Date.now(),
-          i = s(),
-          u = () => {
-            if (!(s() - i > 500)) {
-              if (!c("body>meta")) return setTimeout(u, 5);
-              var e = c("head");
-              document.querySelectorAll("meta,link:not([rel='stylesheet']),title")[n]((t) => e.append(t));
-            }
-          };
-      u();
-    } catch (m) {
-    }
-  })();
-</script>
-
-<!-- TLH-026 custom goal snippet -->
-<script type="text/plain" data-cookieconsent="marketing">
-  document.addEventListener('DOMContentLoaded',() => {
+  <!-- Custom Goal Tracking -->
+  <script type="text/plain" data-cookieconsent="marketing">
+    document.addEventListener('DOMContentLoaded', () => {
       const searchElement = document.querySelector('.Search__Inner');
       if (searchElement) {
-        searchElement.addEventListener('click',() =>  {
-            if (window['ablyft']) {
-              window['ablyft'].push({
-                  eventType: 'custom',
-                  eventName: 'tlh-026-clicks-on-searchbar',
-                  eventValue: 1
-              });
-            }
+        searchElement.addEventListener('click', () => {
+          if (window['ablyft']) {
+            window['ablyft'].push({
+              eventType: 'custom',
+              eventName: 'tlh-026-clicks-on-searchbar',
+              eventValue: 1
+            });
+          }
         });
       }
-  });
-</script>
-<!-- END: TLH-026 custom goal snippet -->
-
-{% render 'replo-head' %}
-
-<script src="{{ 'bs-load-third-party-scripts.js' | asset_url }}" defer></script>
-<script src="{{ 'bs-subscription-callout.js' | asset_url }}" defer></script>
-<script src="{{ 'bs-sticky-atc.js' | asset_url }}" defer></script>
-<script src="{{ 'bs-mobile-sidebar-nav.js' | asset_url }}" defer></script>
-
-<!-- Awin Implementation -->
-<script type="text/plain" data-cookieconsent="marketing">
-  var AWIN = AWIN || {};
-  AWIN.Tracking = AWIN.Tracking || {};
-  AWIN.Tracking.AdvertiserConsent = false;
-
-  //get Cookie
-  let documentCookies = document.cookie;
-  let prefix = 'CookieConsent' + '=';
-  let begin = documentCookies.indexOf('; ' + prefix);
-  let end;
-
-  if (begin == -1) {
-  	begin = documentCookies.indexOf(prefix);
-  	if (begin != 0) return null;
-  } else {
-  	begin += 2;
-  	end = document.cookie.indexOf(';', begin);
-  	if (end == -1) {
-  		end = documentCookies.length;
-  	}
-  }
-  const consentCookie = decodeURI(documentCookies.substring(begin + prefix.length, end));
-  if (consentCookie.includes('necessary:true') && consentCookie.includes('preferences:true') && consentCookie.includes('statistics:true') && consentCookie.includes('marketing:true')) {
-  	if (AWIN.Tracking.Consent && typeof AWIN.Tracking.Consent.setAdvertiserConsentStatus === 'function') {
-      AWIN.Tracking.Consent.setAdvertiserConsentStatus(true);
-    }
-  } else {
-  	if (AWIN.Tracking.Consent && typeof AWIN.Tracking.Consent.setAdvertiserConsentStatus === 'function') {
-      AWIN.Tracking.Consent.setAdvertiserConsentStatus(false);
-    }
-  }
-</script>
-<!-- END: Awin Implementation -->
-
-<script>
-  window.SLIDECART_DISABLE = true
-</script>
-
-<link rel="stylesheet" href="{{ 'slick.css' | asset_url }}">
-<link rel="stylesheet" href="{{ 'slick-theme.css' | asset_url }}">
-<script src="{{ 'slick.min.js' | asset_url }}" defer></script>
-
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.0"
->
-<meta name="theme-color" content="{{ settings.accent_color }}">
-<meta name="google-site-verification" content="QZiR1WxDnZAKrxARkf6DQjhHzK1Y3t4Oo5I1TMO2Sgo">
-<meta name="google-site-verification" content="Yq9dF4MhfrxG4y9GADuu6whPXKYTFZ4vQ3O52SZWsas" />
-
-<!-- NoIndex on pages with vendors not known to the shop -->
-{%- if request.path == '/collections/vendors' -%}
-  {%- assign lowercase_vendors = shop.vendors | join: ',' | downcase | split: ',' -%}
-  {%- assign lowercase_input = collection.title | downcase -%}
-  {%- unless lowercase_vendors contains lowercase_input -%}
-    <meta name="robots" content="noindex">
-  {%- endunless -%}
-{%- endif -%}
-
-<title>
-  {{ page_title }}
-  {% if current_tags -%}
-    {%- assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
-  {%- endif %}
-  {% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}
-  {% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
-</title>
-
-<link rel="stylesheet" href="{{ 'swiper-bundle.min.css' | asset_url }}">
-<script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
-
-{%- if page_description -%}
-  <meta name="description" content="{{ page_description | escape }}">
-{%- endif -%}
-
-<link rel="canonical" href="{{ canonical_url }}">
-
-{%- if settings.favicon -%}
-  <link rel="shortcut icon" href="{{ settings.favicon | img_url: '96x' }}" type="image/png">
-{%- endif -%}
-
-<script>
-  window.experiments = {
-    data: {
-      product: {
-        id: {{ product.id | json }},
-        title: {{ product.title | json }},
-      },
-    },
-  };
-</script>
-
-<script>
-  window.enable_superchat = {{ settings.enable_superchat }};
-  window.superchat_delay = {{ settings.superchat_delay | times: 1000 }}
-</script>
-
-{% render 'social-meta-tags' %}
-{% render 'css-variables' %}
-
-{{ content_for_header }}
-
-<!-- Essential Cookie Documentation -->
-<script>
-  window.essentialCookies = {
-    '_shopify_essential': 'Core Shopify functionality and security',
-    'shopify_pay_redirect': 'Payment processing functionality', 
-    '_shopify_test': 'Technical functionality testing',
-    '_shop_app_essential': 'Shop app core functionality',
-    'localization': 'User language and region preferences',
-    'cart_currency': 'Shopping cart currency settings',
-    'keep_alive': 'Session management and security',
-    '_landing_page': 'User experience optimization',
-    'CookieConsent': 'Cookie consent preferences'
-  };
-</script>
-
-<!-- Block RevenueHunt script if no consent -->
-<script>
-  window.prqOriginalSetCookie = window.prqSetCookie;
-  window.prqSetCookie = function(name, value, days) {
-    if (name === 'data-timeout') {
-      if (typeof Cookiebot !== 'undefined' && !Cookiebot.consent.marketing) {
-        console.log('Blocked RevenueHunt cookie - no marketing consent');
-        return;
-      }
-    }
-    if (window.prqOriginalSetCookie) {
-      return window.prqOriginalSetCookie(name, value, days);
-    }
-  };
-</script>
-
-{% render 'cookie-consent' %}
-
-<script>
-  {%- if request.page_type == 'policy' -%}
-    document.addEventListener('DOMContentLoaded', function() {
-      const policyTitle = document.querySelector('.shopify-policy__title');
-      const policyBody = document.querySelector('.shopify-policy__body');
-      
-      if (policyTitle) {
-        policyTitle.classList.add('PageHeader', 'Heading', 'u-h1');
-      }
-      if (policyBody) {
-        policyBody.classList.add('Rte');
-      }
-
-      setTimeout(()=>{
-        const cookieDeclaration = document.querySelector('.CookieDeclaration__injection');
-        if (cookieDeclaration) {
-          const cookieDeclarationScript = document.createElement('script');
-          cookieDeclarationScript.setAttribute('id','CookieDeclaration');
-          cookieDeclarationScript.setAttribute('src','https://consent.cookiebot.com/a4aa9c1a-9639-4e9f-8a23-4aef9c37b3cc/cd.js');
-          cookieDeclarationScript.setAttribute('type','text/javascript');
-          cookieDeclarationScript.setAttribute('async','true');
-          cookieDeclaration.appendChild(cookieDeclarationScript);
-        }
-      },500);
     });
-  {%- endif -%}
+  </script>
 
-  // Theme configuration
-  window.theme = {
-    pageType: {{ request.page_type | json }},
-    moneyFormat: {{ shop.money_format | json }},
-    moneyWithCurrencyFormat: {{ shop.money_with_currency_format | json }},
-    productImageSize: {{ settings.product_image_size | json }},
-    searchMode: {{ settings.search_mode | json }},
-    showPageTransition: {{ settings.show_page_transition | json }},
-    showElementStaggering: {{ settings.show_element_staggering | json }},
-    showImageZooming: {{ settings.show_image_zooming | json }}
-  };
+  <!-- Awin Tracking -->
+  <script type="text/plain" data-cookieconsent="marketing">
+    window.AWIN = window.AWIN || {};
+    window.AWIN.Tracking = window.AWIN.Tracking || {};
+    
+    // Enhanced cookie consent detection
+    function checkAwinConsent() {
+      const documentCookies = document.cookie;
+      const prefix = 'CookieConsent=';
+      let begin = documentCookies.indexOf('; ' + prefix);
+      
+      if (begin == -1) {
+        begin = documentCookies.indexOf(prefix);
+        if (begin != 0) return false;
+      } else {
+        begin += 2;
+      }
+      
+      const end = documentCookies.indexOf(';', begin) == -1 ? 
+                  documentCookies.length : 
+                  documentCookies.indexOf(';', begin);
+      
+      const consentCookie = decodeURI(documentCookies.substring(begin + prefix.length, end));
+      
+      return consentCookie.includes('necessary:true') && 
+             consentCookie.includes('preferences:true') && 
+             consentCookie.includes('statistics:true') && 
+             consentCookie.includes('marketing:true');
+    }
+    
+    if (window.AWIN.Tracking.Consent && typeof window.AWIN.Tracking.Consent.setAdvertiserConsentStatus === 'function') {
+      window.AWIN.Tracking.Consent.setAdvertiserConsentStatus(checkAwinConsent());
+    }
+  </script>
 
-  window.routes = {
-    rootUrl: {{ routes.root_url | json }},
-    rootUrlWithoutSlash: {% if routes.root_url == '/' %}''{% else %}{{ routes.root_url | json }}{% endif %},
-    cartUrl: {{ routes.cart_url | json }},
-    cartAddUrl: {{ routes.cart_add_url | json }},
-    cartChangeUrl: {{ routes.cart_change_url | json }},
-    searchUrl: {{ routes.search_url | json }},
-    productRecommendationsUrl: {{ routes.product_recommendations_url | json }}
-  };
-
-  window.languages = {
-    cartAddNote: {{ 'cart.general.add_note' | t | json }},
-    cartEditNote: {{ 'cart.general.edit_note' | t | json }},
-    productImageLoadingError: {{ 'product.slideshow.image_loading_error' | t | json }},
-    productFormAddToCart: {% if product.template_suffix == 'pre-order' %}{{ 'product.form.pre_order' | t | json }}{% elsif product.template_suffix == 'donation' %}{{ 'product.form.add_to_cart_donation' | t | json }}{%else%}{{ 'product.form.add_to_cart' | t | json }}{% endif %},
-    productFormUnavailable: {{ 'product.form.unavailable' | t | json }},
-    productFormSoldOut: {{ 'product.form.sold_out' | t | json }},
-    shippingEstimatorOneResult: {{ 'cart.shipping_estimator.one_result_title' | t | json }},
-    shippingEstimatorMoreResults: {{ 'cart.shipping_estimator.more_results_title' | t | json }},
-    shippingEstimatorNoResults: {{ 'cart.shipping_estimator.no_results_title' | t | json }}
-  };
-
-  window.lazySizesConfig = {
-    loadHidden: false,
-    hFac: 0.5,
-    expFactor: 2,
-    ricTimeout: 150,
-    lazyClass: 'Image--lazyLoad',
-    loadingClass: 'Image--lazyLoading',
-    loadedClass: 'Image--lazyLoaded'
-  };
-
-  {% if customer %}
-    window.Shopify.isUserLoggedIn = true;
-  {% else %}
-    window.Shopify.isUserLoggedIn = false;
+  <!-- Amazon Advertising (Homepage Only) -->
+  {% if template.name == 'index' %}
+    <script type="text/plain" data-cookieconsent="marketing">
+      !function(w,d,s,t,a){
+        if(w.amzn) return;
+        w.amzn = a = function(){
+          w.amzn.q.push([arguments,(new Date).getTime()])
+        };
+        a.q = [];
+        a.version = "0.0";
+        s = d.createElement("script");
+        s.src = "https://c.amazon-adsystem.com/aat/amzn.js";
+        s.id = "amzn-pixel";
+        s.async = true;
+        t = d.getElementsByTagName("script")[0];
+        t.parentNode.insertBefore(s,t);
+      }(window,document);
+      
+      if (window.amzn) {
+        amzn("setRegion", "EU");
+        amzn("addTag", "9ed9779f-1bce-49a3-a8de-4434d6a6c0be");
+        amzn("trackEvent", "PageView");
+      }
+    </script>
   {% endif %}
 
-  document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
-  document.documentElement.style.setProperty('--window-height', window.innerHeight + 'px');
+  <!-- NextLevel Network Tag -->
+  <script src="https://www.dwin1.com/86929.js" type="text/plain" data-cookieconsent="marketing" defer></script>
 
-  // Feature detection
-  (function() {
-    document.documentElement.className += ((window.CSS && window.CSS.supports('(position: sticky) or (position: -webkit-sticky)')) ? ' supports-sticky' : ' no-supports-sticky');
-    document.documentElement.className += (window.matchMedia('(-moz-touch-enabled: 1), (hover: none)')).matches ? ' no-supports-hover' : ' supports-hover';
-  }());
-</script>
+  {% render 'replo-head' %}
+  {% render 'social-meta-tags' %}
+  {% render 'css-variables' %}
+  {% render 'microdata-schema' %}
+  {% render 'rapid-search-settings' %}
+  {% include 'ufe-offer' %}
 
-<script src="{{ 'lazysizes.min.js' | asset_url }}" async></script>
+  {{ content_for_header }}
 
-{%- if template == 'customers/addresses' -%}
-  <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer></script>
-  <script src="{{ 'customer_area.js' | shopify_asset_url }}" defer></script>
-{%- endif -%}
-
-<script
-  src="https://cdn.polyfill.io/v3/polyfill.min.js?unknown=polyfill&features=Element.prototype.closest,Element.prototype.remove,Element.prototype.classList,Array.prototype.includes,Array.prototype.fill,Object.assign,CustomEvent,IntersectionObserver,IntersectionObserverEntry,URL"
-  defer
-></script>
-<script src="{{ 'libs.min.js' | asset_url }}" defer></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<script src="{{ 'theme.min.js' | asset_url }}" defer></script>
-<script src="{{ 'bs-cart-drawer.js' | asset_url }}" defer></script>
-<script src="{{ 'search-manipulation.js' | asset_url }}" defer></script>
-<script src="{{ 'bs-dentalspray-redirect.js' | asset_url }}"></script>
-
-<script>
-  (function () {
-    window.onpageshow = function() {
-      if (window.theme.showPageTransition) {
-        var pageTransition = document.querySelector('.PageTransition');
-
-        if (pageTransition) {
-          pageTransition.style.visibility = 'visible';
-          pageTransition.style.opacity = '0';
+  <!-- Policy Page Enhancement -->
+  {%- if request.page_type == 'policy' -%}
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const policyTitle = document.querySelector('.shopify-policy__title');
+        const policyBody = document.querySelector('.shopify-policy__body');
+        
+        if (policyTitle) {
+          policyTitle.classList.add('PageHeader', 'Heading', 'u-h1');
         }
-      }
+        if (policyBody) {
+          policyBody.classList.add('Rte');
+        }
 
-      // When the page is loaded from the cache, we have to reload the cart content
-      document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', {
-        bubbles: true
-      }));
-    };
-  })();
-</script>
+        // Cookie Declaration injection
+        setTimeout(() => {
+          const cookieDeclaration = document.querySelector('.CookieDeclaration__injection');
+          if (cookieDeclaration) {
+            const script = document.createElement('script');
+            script.id = 'CookieDeclaration';
+            script.src = 'https://consent.cookiebot.com/a4aa9c1a-9639-4e9f-8a23-4aef9c37b3cc/cd.js';
+            script.type = 'text/javascript';
+            script.async = true;
+            cookieDeclaration.appendChild(script);
+          }
+        }, 500);
+      });
+    </script>
+  {%- endif -%}
 
-{%- render 'head-styles', layout: 'theme' -%}
+  <!-- Responsive Design Enhancement -->
+  {% if template contains "index" %}
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Mobile/Desktop specific optimizations
+        const isMobile = window.matchMedia('(max-width: 600px)').matches;
+        
+        if (isMobile) {
+          document.body.classList.add('mobile-optimized');
+        } else {
+          document.body.classList.add('desktop-optimized');
+        }
+      });
+    </script>
+  {% endif %}
 
-{% render 'microdata-schema' %}
-{% include 'ufe-offer' %}
+  <!-- Essential JavaScript Libraries (Load in specific order) -->
+  <script src="https://cdn.polyfill.io/v3/polyfill.min.js?unknown=polyfill&features=Element.prototype.closest,Element.prototype.remove,Element.prototype.classList,Array.prototype.includes,Array.prototype.fill,Object.assign,CustomEvent,IntersectionObserver,IntersectionObserverEntry,URL"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="{{ 'lazysizes.min.js' | asset_url }}" async></script>
 
-{% if template.name == 'index' %}
-  <!-- Amazon Ad Tag -->
-  <script type="text/plain" data-cookieconsent="marketing">
-    !function(w,d,s,t,a){if(w.amzn)return;w.amzn=a=function(){w.amzn.q.push([arguments,(new Date).getTime()])};a.q=[];a.version="0.0";s=d.createElement("script");s.src="https://c.amazon-adsystem.com/aat/amzn.js";s.id="amzn-pixel";s.async=true;t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t)}(window,document);
-    amzn("setRegion", "EU");
-    amzn("addTag", "9ed9779f-1bce-49a3-a8de-4434d6a6c0be");
-    amzn("trackEvent", "PageView");
+  <!-- Theme Scripts (Must load in order) -->
+  <script src="{{ 'libs.min.js' | asset_url }}"></script>
+  <script src="{{ 'theme.min.js' | asset_url }}"></script>
+
+  <!-- Custom Enhancement Scripts -->
+  <script src="{{ 'bs-load-third-party-scripts.js' | asset_url }}" defer></script>
+  <script src="{{ 'bs-subscription-callout.js' | asset_url }}" defer></script>
+  <script src="{{ 'bs-sticky-atc.js' | asset_url }}" defer></script>
+  <script src="{{ 'bs-mobile-sidebar-nav.js' | asset_url }}" defer></script>
+  <script src="{{ 'bs-cart-drawer.js' | asset_url }}" defer></script>
+  <script src="{{ 'search-manipulation.js' | asset_url }}" defer></script>
+  <script src="{{ 'bs-dentalspray-redirect.js' | asset_url }}"></script>
+
+  <!-- Carousel Scripts -->
+  <script src="{{ 'slick.min.js' | asset_url }}" defer></script>
+  <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
+
+  {%- if template == 'customers/addresses' -%}
+    <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer></script>
+    <script src="{{ 'customer_area.js' | shopify_asset_url }}" defer></script>
+  {%- endif -%}
+
+  <!-- Page Transition Handler -->
+  <script>
+    (function () {
+      window.onpageshow = function() {
+        if (window.theme.showPageTransition) {
+          const pageTransition = document.querySelector('.PageTransition');
+          if (pageTransition) {
+            pageTransition.style.visibility = 'visible';
+            pageTransition.style.opacity = '0';
+          }
+        }
+
+        // Refresh cart when page is loaded from cache
+        document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', {
+          bubbles: true
+        }));
+      };
+    })();
   </script>
-  <!-- END: Amazon Ad Tag -->
-{% endif %}
 
-{% render 'rapid-search-settings' %}
-
-<link rel="stylesheet" href="{{ 'bs-mobile-sidebar-nav.css' | asset_url }}">
-<link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
-<link rel="stylesheet" href="{{ 'bs-custom.css' | asset_url }}">
-<link rel="stylesheet" href="{{ 'recommended-search-products.css' | asset_url }}">
-
-{%- render 'head-styles', layout: 'theme' -%}
-{%- render 'head-scripts', layout: 'theme' -%}
+  {%- render 'head-styles', layout: 'theme' -%}
+  {%- render 'head-scripts', layout: 'theme' -%}
 </head>
 
 {%- capture classes -%}features--heading-{{ settings.heading_size }}{%- endcapture -%}
@@ -674,10 +542,7 @@ eval(function (p, a, c, k, e, r) { e = function (c) { return (c < a ? '' : e(par
 
 {%- assign shopCurrencySymbol = 100 | money | replace: '1.00' | replace: '1,00' -%}
 
-<body
-  class="prestige--v4 {{ classes }} {% if template.directory %}template-{{ template.directory | handle }}{% endif %} template-{{ template.name | handle }}"
-  data-currency-symbol="{{ shopCurrencySymbol }}"
->
+<body class="prestige--v4 {{ classes }} {% if template.directory %}template-{{ template.directory | handle }}{% endif %} template-{{ template.name | handle }}" data-currency-symbol="{{ shopCurrencySymbol }}">
 
   <a class="PageSkipLink u-visually-hidden" href="#main">{{ 'header.navigation.skip_to_content' | t }}</a>
   <span class="LoadingBar"></span>
@@ -701,14 +566,51 @@ eval(function (p, a, c, k, e, r) { e = function (c) { return (c < a ? '' : e(par
     <main id="main" role="main">
       {{ content_for_layout }}
     </main>
+    
     {% section 'footer' %}
   </div>
 
-  <!-- NextLevel Network Tag -->
-  <script src="https://www.dwin1.com/86929.js" type="text/plain" data-cookieconsent="marketing" defer></script>
-  <!-- END: NextLevel Network Tag -->
+  <!-- Klaviyo Integration -->
+  <script src="https://a.klaviyo.com/media/js/onsite/onsite.js"></script>
+  <script>
+    if (window.klaviyo) {
+      klaviyo.init({
+        account: 'Xfhnkz',
+        platform: 'shopify'
+      });
 
-  <!-- Reviews.io Integration - No consent required (functional) -->
+      klaviyo.enable('backinstock', {
+        trigger: {
+          product_page_text: 'Benachrichtige mich, wenn verfügbar',
+          product_page_class: 'Button Button--full Button--primary',
+          product_page_text_align: 'center',
+          product_page_margin: '0 0 8px',
+          replace_anchor: false,
+          alternate_anchor: 'BackInStockAnchor'
+        },
+        modal: {
+          headline: '{product_name}',
+          body_content: 'Registriere dich, um eine Nachricht zu erhalten, wenn dieser Artikel wieder verfügbar ist.',
+          email_field_label: 'Email',
+          button_label: 'Benachrichtige mich, wenn verfügbar',
+          subscription_success_label: 'Du hast es geschafft! Wir werden uns melden, wenn der Artikel wieder da ist.',
+          footer_content: '',
+          drop_background_color: '#000',
+          background_color: '#fff',
+          text_color: '#222',
+          button_text_color: '#fff',
+          button_background_color: '#f1af9e',
+          close_button_color: '#ccc',
+          error_background_color: '#fcd6d7',
+          error_text_color: '#C72E2F',
+          success_background_color: '#d3efcd',
+          success_text_color: '#1B9500'
+        }
+      });
+    }
+  </script>
+
+  <!-- Reviews.io Integration -->
   <script src="https://widget.reviews.io/rating-snippet/dist.js"></script>
   <link rel="stylesheet" href="https://widget.reviews.io/rating-snippet/dist.css">
   <script>
@@ -727,13 +629,8 @@ eval(function (p, a, c, k, e, r) { e = function (c) { return (c < a ? '' : e(par
     }
   </script>
 
-  <!-- WhatsApp Widget - GDPR Compliant -->
-  <script type="text/plain" data-cookieconsent="marketing">
-    const whatsappScript = document.createElement('script');
-    whatsappScript.src = 'https://customized-whatsapp-widget.chatarmin.com/widget-fetcher.js?w_id=6811de72e886703c08521660&u_id=680a53d680aac276290b3339';
-    whatsappScript.async = true;
-    document.body.appendChild(whatsappScript);
-  </script>
+  <!-- WhatsApp Widget -->
+  <script src="https://customized-whatsapp-widget.chatarmin.com/widget-fetcher.js?w_id=6811de72e886703c08521660&u_id=680a53d680aac276290b3339" async></script>
 
 </body>
 </html>
