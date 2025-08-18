@@ -7,68 +7,15 @@
 <script>
 (function () {
   const DEBUG = false;
-  const log = (...a) => { if (DEBUG && window.console) console.log('[CB-Recharge]', ...a); };
-
-  // 1) Matchers
-  const isRechargeUrl = (u) => {
-    if (typeof u !== 'string') return false;
-    return u.includes('static.rechargecdn.com');
-  };
-  const isRechargeScript = (el) => {
-    if (!el || el.tagName !== 'SCRIPT') return false;
-    if (isRechargeUrl(el.src)) return true;
-    // Some apps inject inline bootstrap that references recharge later
-    return el.textContent && el.textContent.includes('static.rechargecdn.com');
-  };
-
-  // 2) Tag to bypass Cookiebot auto-blocking
-  const tagIgnore = (el) => {
-    if (el.getAttribute('data-cookieconsent') !== 'ignore') {
-      el.setAttribute('data-cookieconsent', 'ignore');
-      log('tagged ignore', el);
-    }
-  };
-
-  // 3) Copy attributes when we need to rehydrate
-  const copyAttrs = (from, to) => {
-    for (const { name, value } of Array.from(from.attributes)) {
-      if (name === 'type' || name === 'data-cookieconsent') continue;
-      to.setAttribute(name, value);
-    }
-  };
-
-  // 4) If Cookiebot already blocked (type="text/plain"), re-create as live script
-  const rehydrateIfBlocked = (el) => {
-    if (!el || el.tagName !== 'SCRIPT') return;
-    const isPlain = (el.type || '').toLowerCase() === 'text/plain';
-    const hasCBAttr = el.hasAttribute('data-cookieconsent');
-    if (!isPlain || !hasCBAttr) return;
-
-    const url = el.getAttribute('src') || el.getAttribute('data-src') || '';
-    const looksRecharge = isRechargeUrl(url) || (el.textContent && el.textContent.includes('static.rechargecdn.com'));
-    if (!looksRecharge) return;
-
-    const live = document.createElement('script');
-    copyAttrs(el, live);
-    const src = el.getAttribute('src') || el.getAttribute('data-src');
-    if (src) live.src = src;
-    live.async = el.async;
-    live.defer = el.defer;
-    live.type = 'text/javascript';
-    live.setAttribute('data-cookieconsent', 'ignore');
-    el.parentNode.insertBefore(live, el.nextSibling);
-    log('rehydrated', live);
-  };
+  const log = (...a) => { if (DEBUG && window.console) console.log('[CB-Minimal]', ...a); };
 
   // Function to check marketing consent (for Elevar cookie blocking only)
   function checkMarketingConsent() {
     try {
-      // Check if Cookiebot is available and consent is given
       if (typeof Cookiebot !== 'undefined' && Cookiebot.consent) {
         return Cookiebot.consent.marketing === true;
       }
       
-      // Fallback: check cookie consent string
       const consentCookie = document.cookie
         .split('; ')
         .find(row => row.startsWith('CookieConsent='));
@@ -78,86 +25,30 @@
         return consentValue.includes('marketing:true');
       }
       
-      return false; // Default to no consent
+      return false;
     } catch (e) {
       log('Error checking consent:', e);
       return false;
     }
   }
 
-  // Prevent Elevar cookies by intercepting document.cookie writes
+  // ONLY prevent Elevar cookies - no script blocking at all
   const originalCookieDescriptor = Object.getOwnPropertyDescriptor(Document.prototype, 'cookie');
   if (originalCookieDescriptor && originalCookieDescriptor.set) {
     Object.defineProperty(document, 'cookie', {
       get: originalCookieDescriptor.get,
       set: function(value) {
-        // Check if this is an Elevar cookie and if marketing consent is given
         if (value && /_Elevar-apex/i.test(value)) {
-          // Check if marketing consent is given
           const hasMarketingConsent = checkMarketingConsent();
           if (!hasMarketingConsent) {
             log('Blocked Elevar cookie write:', value);
-            return; // Block the cookie write
+            return;
           }
         }
-        // Allow the cookie write
         originalCookieDescriptor.set.call(this, value);
       }
     });
   }
-
-  // 5) Tag existing nodes
-  document.querySelectorAll('script').forEach(s => {
-    if (isRechargeScript(s)) tagIgnore(s);
-    rehydrateIfBlocked(s);
-  });
-  document.querySelectorAll('link[rel="preload"][as="script"][href]').forEach(l => {
-    if (isRechargeUrl(l.href)) tagIgnore(l);
-  });
-
-  // 6) Watch for new nodes + attribute changes (src, href, type, data-src)
-  const mo = new MutationObserver(muts => {
-    for (const m of muts) {
-      if (m.type === 'childList') {
-        m.addedNodes.forEach(n => {
-          if (n.nodeType !== 1) return;
-          if (n.tagName === 'SCRIPT') {
-            if (isRechargeScript(n)) {
-              tagIgnore(n);
-              rehydrateIfBlocked(n);
-            }
-          } else if (n.tagName === 'LINK' && n.rel === 'preload' && (n.as === 'script' || n.getAttribute('as') === 'script')) {
-            if (isRechargeUrl(n.href)) {
-              tagIgnore(n);
-            }
-          }
-        });
-      } else if (m.type === 'attributes') {
-        const el = m.target;
-        if (el.tagName === 'SCRIPT') {
-          if (m.attributeName === 'src' || m.attributeName === 'type' || m.attributeName === 'data-src') {
-            if (isRechargeScript(el)) {
-              tagIgnore(el);
-              rehydrateIfBlocked(el);
-            }
-          }
-        } else if (el.tagName === 'LINK' && m.attributeName === 'href') {
-          if (el.rel === 'preload' && (el.as === 'script' || el.getAttribute('as') === 'script')) {
-            if (isRechargeUrl(el.href)) {
-              tagIgnore(el);
-            }
-          }
-        }
-      }
-    }
-  });
-
-  mo.observe(document.documentElement, {
-    childList: true,
-    subtree: true,
-    attributes: true,
-    attributeFilter: ['src', 'href', 'type', 'data-src']
-  });
 })();
 </script>
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="a4aa9c1a-9639-4e9f-8a23-4aef9c37b3cc" data-blockingmode="auto" type="text/javascript"></script>
