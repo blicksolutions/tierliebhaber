@@ -5,50 +5,180 @@
 <!-- GDPR Cookie Consent - Must be first -->
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="a4aa9c1a-9639-4e9f-8a23-4aef9c37b3cc" data-blockingmode="manual" type="text/javascript"></script>
 
-<!-- Enhanced cookie blocking for specific tracking cookies -->
+<!-- Advanced Third-Party Request Blocking -->
 <script>
-  (function() {
-    const originalCookieDescriptor = Object.getOwnPropertyDescriptor(Document.prototype, 'cookie') || 
-                                   Object.getOwnPropertyDescriptor(HTMLDocument.prototype, 'cookie');
+(function() {
+  'use strict';
+  
+  // Define hosts that require consent
+  const MARKETING_HOSTS = [
+    'klaviyo.com', 'static.klaviyo.com', 'static-tracking.klaviyo.com', 
+    'fast.a.klaviyo.com', 'a.klaviyo.com', 'static-forms.klaviyo.com',
+    'googletagmanager.com', 'google-analytics.com', 'pagead2.googlesyndication.com',
+    'loyaltylion.net', 'sdk.loyaltylion.net', 'platform.loyaltylion.com',
+    'smile.io', 'js.smile.io', 'platform.smile.io',
+    'getelevar.com', 'shopify-gtm-suite.getelevar.com',
+    'gemcommerce.com', 'analytics-api.gemcommerce.com',
+    'replo.app', 'data.replo.app'
+  ];
+  
+  const STATISTICS_HOSTS = [
+    'reviews.io', 'widget.reviews.io', 'assets.reviews.io', 'api.reviews.io',
+    'config-security.com', 'api.config-security.com', 'conf.config-security.com',
+    'revenuehunt.com', 'admin.revenuehunt.com'
+  ];
+
+  // Block script loading
+  const originalCreateElement = document.createElement;
+  document.createElement = function(tagName) {
+    const element = originalCreateElement.call(this, tagName);
     
-    Object.defineProperty(document, 'cookie', {
-      get: function() {
-        return originalCookieDescriptor.get.call(this);
-      },
-      set: function(cookieString) {
-        const consentRequiredCookies = [
-          '_Elevar-apex',
-          'data-timeout',
-          '_fbp',
-          '_fbc',
-          '__cf_bm'
-        ];
-        
-        const requiresConsent = consentRequiredCookies.some(name => 
-          cookieString.toLowerCase().includes(name.toLowerCase())
-        );
-        
-        if (requiresConsent) {
-          if (typeof Cookiebot !== 'undefined') {
-            if (cookieString.includes('_Elevar-apex') && !Cookiebot.consent.statistics) {
-              console.log('Blocked Elevar cookie - no statistics consent');
+    if (tagName.toLowerCase() === 'script') {
+      const originalSetAttribute = element.setAttribute;
+      element.setAttribute = function(name, value) {
+        if (name === 'src' && value) {
+          const requiresMarketingConsent = MARKETING_HOSTS.some(host => value.includes(host));
+          const requiresStatisticsConsent = STATISTICS_HOSTS.some(host => value.includes(host));
+          
+          if (requiresMarketingConsent) {
+            if (typeof Cookiebot !== 'undefined' && !Cookiebot.consent.marketing) {
+              console.log('Blocked marketing script:', value);
               return;
             }
-            if (cookieString.includes('data-timeout') && !Cookiebot.consent.marketing) {
-              console.log('Blocked RevenueHunt cookie - no marketing consent');
+          }
+          
+          if (requiresStatisticsConsent) {
+            if (typeof Cookiebot !== 'undefined' && !Cookiebot.consent.statistics) {
+              console.log('Blocked statistics script:', value);
               return;
             }
-          } else {
-            console.log('Blocked tracking cookie - consent not determined yet');
-            return;
           }
         }
+        return originalSetAttribute.call(this, name, value);
+      };
+    }
+    return element;
+  };
+
+  // Block fetch requests
+  const originalFetch = window.fetch;
+  window.fetch = function(url, options) {
+    if (typeof url === 'string') {
+      const requiresMarketingConsent = MARKETING_HOSTS.some(host => url.includes(host));
+      const requiresStatisticsConsent = STATISTICS_HOSTS.some(host => url.includes(host));
+      
+      if (requiresMarketingConsent && typeof Cookiebot !== 'undefined' && !Cookiebot.consent.marketing) {
+        console.log('Blocked marketing fetch:', url);
+        return Promise.reject(new Error('Blocked by consent management'));
+      }
+      
+      if (requiresStatisticsConsent && typeof Cookiebot !== 'undefined' && !Cookiebot.consent.statistics) {
+        console.log('Blocked statistics fetch:', url);
+        return Promise.reject(new Error('Blocked by consent management'));
+      }
+    }
+    return originalFetch.apply(this, arguments);
+  };
+
+  // Block XHR requests
+  const originalOpen = XMLHttpRequest.prototype.open;
+  XMLHttpRequest.prototype.open = function(method, url) {
+    if (typeof url === 'string') {
+      const requiresMarketingConsent = MARKETING_HOSTS.some(host => url.includes(host));
+      const requiresStatisticsConsent = STATISTICS_HOSTS.some(host => url.includes(host));
+      
+      if (requiresMarketingConsent && typeof Cookiebot !== 'undefined' && !Cookiebot.consent.marketing) {
+        console.log('Blocked marketing XHR:', url);
+        throw new Error('Blocked by consent management');
+      }
+      
+      if (requiresStatisticsConsent && typeof Cookiebot !== 'undefined' && !Cookiebot.consent.statistics) {
+        console.log('Blocked statistics XHR:', url);
+        throw new Error('Blocked by consent management');
+      }
+    }
+    return originalOpen.apply(this, arguments);
+  };
+
+  // Enhanced cookie blocking
+  const originalCookieDescriptor = Object.getOwnPropertyDescriptor(Document.prototype, 'cookie');
+  Object.defineProperty(document, 'cookie', {
+    get: function() {
+      return originalCookieDescriptor.get.call(this);
+    },
+    set: function(cookieString) {
+      // Block specific tracking cookies
+      const trackingCookies = [
+        '__kla_id', '_kla_', '__klaviyo', '_klaviyo_',
+        '_ga', '_gid', '_gat', '__ga', '__gid',
+        '_fbp', '_fbc', 'fr',
+        '_ll_', '_smile_',
+        '_elevar_', '_Elevar-apex',
+        'data-timeout'
+      ];
+      
+      const isTrackingCookie = trackingCookies.some(pattern => 
+        cookieString.toLowerCase().includes(pattern.toLowerCase())
+      );
+      
+      if (isTrackingCookie) {
+        if (typeof Cookiebot !== 'undefined') {
+          // Determine if marketing or statistics cookie
+          const isMarketingCookie = cookieString.includes('__kla_') || 
+                                   cookieString.includes('_ga') || 
+                                   cookieString.includes('_fb') ||
+                                   cookieString.includes('_smile_');
+          
+          if (isMarketingCookie && !Cookiebot.consent.marketing) {
+            console.log('Blocked marketing cookie:', cookieString.substring(0, 50));
+            return;
+          }
+          
+          if (!isMarketingCookie && !Cookiebot.consent.statistics) {
+            console.log('Blocked statistics cookie:', cookieString.substring(0, 50));
+            return;
+          }
+        } else {
+          console.log('Blocked tracking cookie (no consent determined):', cookieString.substring(0, 50));
+          return;
+        }
+      }
+      
+      return originalCookieDescriptor.set.call(this, cookieString);
+    },
+    configurable: true
+  });
+
+  // Clean up existing tracking data on consent withdrawal
+  function cleanupTrackingData() {
+    if (typeof Cookiebot !== 'undefined') {
+      if (!Cookiebot.consent.marketing) {
+        // Remove marketing cookies
+        const marketingCookies = ['__kla_id', '_kla_', '_ga', '_gid', '_gat', '_fbp', '_fbc', '_smile_'];
+        marketingCookies.forEach(cookie => {
+          document.cookie = cookie + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+          document.cookie = cookie + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + location.hostname;
+          document.cookie = cookie + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.' + location.hostname.replace(/^www\./, '');
+        });
         
-        return originalCookieDescriptor.set.call(this, cookieString);
-      },
-      configurable: true
-    });
-  })();
+        // Clear localStorage/sessionStorage
+        if (window.localStorage) {
+          Object.keys(localStorage).forEach(key => {
+            if (key.includes('klaviyo') || key.includes('_ga') || key.includes('smile')) {
+              localStorage.removeItem(key);
+            }
+          });
+        }
+      }
+    }
+  }
+
+  // Apply cleanup on consent events
+  window.addEventListener('CookiebotOnLoad', cleanupTrackingData);
+  window.addEventListener('CookiebotOnDecline', cleanupTrackingData);
+  window.addEventListener('CookiebotOnAccept', cleanupTrackingData);
+
+})();
 </script>
 
 <!-- Manual Cookie Classification for Elevar -->
