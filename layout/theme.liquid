@@ -24,7 +24,6 @@
   
   const STATISTICS_HOSTS = [
     'reviews.io', 'widget.reviews.io', 'assets.reviews.io', 'api.reviews.io',
-    'config-security.com', 'api.config-security.com', 'conf.config-security.com',
     'revenuehunt.com', 'admin.revenuehunt.com'
   ];
 
@@ -176,7 +175,100 @@
   // Apply cleanup on consent events
   window.addEventListener('CookiebotOnLoad', cleanupTrackingData);
   window.addEventListener('CookiebotOnDecline', cleanupTrackingData);
-  window.addEventListener('CookiebotOnAccept', cleanupTrackingData);
+  window.addEventListener('CookiebotOnAccept', function() {
+    cleanupTrackingData();
+    
+    // Dynamically load services when consent is granted
+    setTimeout(() => {
+      if (typeof Cookiebot !== 'undefined') {
+        
+        // Load marketing services
+        if (Cookiebot.consent.marketing) {
+          console.log('Loading marketing services...');
+          
+          // Trigger Klaviyo if it exists
+          if (window.klaviyo || window._learnq) {
+            try {
+              if (window.klaviyo && typeof window.klaviyo.init === 'function') {
+                window.klaviyo.init({
+                  account: 'Xfhnkz',
+                  platform: 'shopify'
+                });
+              }
+            } catch (e) {
+              console.log('Klaviyo manual init failed:', e);
+            }
+          }
+          
+          // Trigger Google Analytics if it exists
+          if (window.gtag) {
+            try {
+              window.gtag('consent', 'update', {
+                'analytics_storage': 'granted',
+                'ad_storage': 'granted'
+              });
+            } catch (e) {
+              console.log('GA consent update failed:', e);
+            }
+          }
+          
+          // Trigger LoyaltyLion if it exists
+          if (window.LoyaltyLion) {
+            try {
+              window.LoyaltyLion.init();
+            } catch (e) {
+              console.log('LoyaltyLion init failed:', e);
+            }
+          }
+          
+          // Trigger Smile.io if it exists
+          if (window.SmileUI) {
+            try {
+              window.SmileUI.init();
+            } catch (e) {
+              console.log('Smile.io init failed:', e);
+            }
+          }
+        }
+        
+        // Load statistics services
+        if (Cookiebot.consent.statistics) {
+          console.log('Loading statistics services...');
+          
+          // Trigger Reviews.io if it exists
+          if (window.ratingSnippet && !document.querySelector('.reviews-io-loaded')) {
+            try {
+              ratingSnippet("ruk_rating_snippet", {
+                store: "tierliebhaber.de",
+                mode: "default",
+                color: "#fbd343",
+                linebreak: false,
+                text: "Reviews",
+                singularText: "Review",
+                lang: "de",
+                usePolaris: true,
+                showEmptyStars: false,
+              });
+              document.body.classList.add('reviews-io-loaded');
+            } catch (e) {
+              console.log('Reviews.io init failed:', e);
+            }
+          }
+          
+          // Trigger RevenueHunt if it exists
+          if (window.RevenueHunt || window.prq) {
+            try {
+              if (window.RevenueHunt && typeof window.RevenueHunt.init === 'function') {
+                window.RevenueHunt.init();
+              }
+            } catch (e) {
+              console.log('RevenueHunt init failed:', e);
+            }
+          }
+        }
+      }
+    }, 500); // Small delay to ensure all scripts are ready
+  });
 
 })();
 </script>
