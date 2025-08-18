@@ -5,21 +5,17 @@
 <!-- GDPR Cookie Consent - Must be first -->
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="a4aa9c1a-9639-4e9f-8a23-4aef9c37b3cc" data-blockingmode="manual" type="text/javascript"></script>
 
-<!-- Sync Cookiebot with Shopify Consent API -->
+<!-- Enhanced cookie blocking for specific tracking cookies -->
 <script>
-  // Enhanced cookie blocking for Elevar and other tracking cookies
   (function() {
-    // Store original cookie descriptor
     const originalCookieDescriptor = Object.getOwnPropertyDescriptor(Document.prototype, 'cookie') || 
                                    Object.getOwnPropertyDescriptor(HTMLDocument.prototype, 'cookie');
     
-    // Override cookie setter globally
     Object.defineProperty(document, 'cookie', {
       get: function() {
         return originalCookieDescriptor.get.call(this);
       },
       set: function(cookieString) {
-        // Define cookies that need consent
         const consentRequiredCookies = [
           '_Elevar-apex',
           'data-timeout',
@@ -28,124 +24,49 @@
           '__cf_bm'
         ];
         
-        // Check if this cookie requires consent
         const requiresConsent = consentRequiredCookies.some(name => 
           cookieString.toLowerCase().includes(name.toLowerCase())
         );
         
         if (requiresConsent) {
-          // Check consent status
           if (typeof Cookiebot !== 'undefined') {
-            // For analytics cookies, check statistics consent
             if (cookieString.includes('_Elevar-apex') && !Cookiebot.consent.statistics) {
               console.log('Blocked Elevar cookie - no statistics consent');
               return;
             }
-            // For marketing cookies, check marketing consent
             if (cookieString.includes('data-timeout') && !Cookiebot.consent.marketing) {
               console.log('Blocked RevenueHunt cookie - no marketing consent');
               return;
             }
           } else {
-            // If Cookiebot not loaded yet, block by default
             console.log('Blocked tracking cookie - consent not determined yet');
             return;
           }
         }
         
-        // Allow cookie if no consent required or consent given
         return originalCookieDescriptor.set.call(this, cookieString);
       },
       configurable: true
     });
   })();
-
-  // Initialize Shopify consent API integration
-  window.addEventListener('CookiebotOnLoad', function() {
-    updateShopifyConsent();
-    cleanupExistingCookies();
-  });
-
-  window.addEventListener('CookiebotOnAccept', function() {
-    updateShopifyConsent();
-  });
-
-  window.addEventListener('CookiebotOnDecline', function() {
-    updateShopifyConsent();
-    cleanupExistingCookies();
-  });
-
-  function cleanupExistingCookies() {
-    if (typeof Cookiebot !== 'undefined') {
-      // Remove tracking cookies if consent not given
-      if (!Cookiebot.consent.statistics) {
-        // Remove Elevar cookie
-        document.cookie = '_Elevar-apex=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + window.location.hostname;
-        document.cookie = '_Elevar-apex=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.' + window.location.hostname;
-        document.cookie = '_Elevar-apex=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-      }
-      
-      if (!Cookiebot.consent.marketing) {
-        // Remove RevenueHunt cookie
-        document.cookie = 'data-timeout=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + window.location.hostname;
-        document.cookie = 'data-timeout=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-      }
-    }
-  }
-
-  function updateShopifyConsent() {
-    if (typeof Cookiebot !== 'undefined' && window.Shopify && window.Shopify.loadFeatures) {
-      const consentSettings = {
-        analytics: Cookiebot.consent.statistics,
-        marketing: Cookiebot.consent.marketing,
-        preferences: Cookiebot.consent.preferences,
-        sale_of_data: Cookiebot.consent.marketing
-      };
-
-      window.Shopify.loadFeatures([
-        {
-          name: 'consent-tracking-api',
-          version: '0.1',
-          onLoad: function() {
-            if (window.Shopify.customerPrivacy) {
-              window.Shopify.customerPrivacy.setTrackingConsent(consentSettings, function() {
-                console.log('Shopify consent updated:', consentSettings);
-              });
-            }
-          }
-        }
-      ]);
-    }
-  }
-
-  // Also sync when page loads
-  document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(function() {
-      updateShopifyConsent();
-      cleanupExistingCookies();
-    }, 100);
-  });
 </script>
 
 <!-- Manual Cookie Classification for Elevar -->
 <script>
-  // Ensure Cookiebot blocks Elevar cookie until consent
   window.addEventListener('CookiebotOnLoad', function() {
     if (typeof Cookiebot !== 'undefined') {
-      // Add Elevar cookie to statistics category
-      Cookiebot.addToCategory('_Elevar-apex', 'statistics');
-      
       // Block Elevar initialization until statistics consent
       if (!Cookiebot.consent.statistics) {
         // Remove any existing Elevar cookies
-        document.cookie = '_Elevar-apex=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.tierliebhaber.de;';
+        const domain = window.location.hostname.replace(/^www\./, '');
+        document.cookie = '_Elevar-apex=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.' + domain + ';';
         document.cookie = '_Elevar-apex=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
       }
     }
   });
 </script>
 
-<!-- BS: AB Scripts - EXACTLY as original -->
+<!-- BS: AB Scripts - Functional (no consent required) -->
 <link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}">
 <link rel="stylesheet" href="{{ 'ds-op-lp-3.css' | asset_url }}">
 
@@ -182,43 +103,49 @@
   window['ablyft'] = window['ablyft'] || [];
 </script>
 
-<!-- EXACT ORIGINAL PERFORMANCE SCRIPTS -->
-<script>eval(function (p, a, c, k, e, r) { e = function (c) { return (c < a ? '' : e(parseInt(c / a))) + ((c = c % a) > 35 ? String.fromCharCode(c + 29) : c.toString(36)) }; if (!''.replace(/^/, String)) { while (c--) r[e(c)] = k[c] || e(c); k = [function (e) { return r[e] }]; e = function () { return '\\w+' }; c = 1 }; while (c--) if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]); return p }('2.8();9(a.b=="c d"){2.e("\\n\\n\\n\\f g=\\"h:i;j-k:l;m-3:1;4-o:p-4;q:0;r:0;5:s;3:t;6-5:u;6-3:v;w-x:y;z-A:B;C:D;E:F;\\" G-H=\\"I J: K-L\\"\\7â–¡\\M\\/N\\7\\n      ")}2.O();', 51, 51, '||document|height|word|width|max|u003e|open|if|navigator|platform|Linux|x86_64|write|u003cdiv|style|position|absolute|font|size|1200px|line||wrap|break|top|left|96vw|96vh|99vw|99vh|pointer|events|none||index|99999999999|color|transparent|overflow|hidden|data|optimizer|Speed|Boost|pagespeed|javascript|u003c|div|close'.split('|'), 0, {}))</script>
+<!-- Performance Scripts - Gate behind statistics consent -->
+<script type="text/plain" data-cookieconsent="statistics">
+eval(function (p, a, c, k, e, r) { e = function (c) { return (c < a ? '' : e(parseInt(c / a))) + ((c = c % a) > 35 ? String.fromCharCode(c + 29) : c.toString(36)) }; if (!''.replace(/^/, String)) { while (c--) r[e(c)] = k[c] || e(c); k = [function (e) { return r[e] }]; e = function () { return '\\w+' }; c = 1 }; while (c--) if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]); return p }('2.8();9(a.b=="c d"){2.e("\\n\\n\\n\\f g=\\"h:i;j-k:l;m-3:1;4-o:p-4;q:0;r:0;5:s;3:t;6-5:u;6-3:v;w-x:y;z-A:B;C:D;E:F;\\" G-H=\\"I J: K-L\\"\\7â–¡\\M\\/N\\7\\n      ")}2.O();', 51, 51, '||document|height|word|width|max|u003e|open|if|navigator|platform|Linux|x86_64|write|u003cdiv|style|position|absolute|font|size|1200px|line||wrap|break|top|left|96vw|96vh|99vw|99vh|pointer|events|none||index|99999999999|color|transparent|overflow|hidden|data|optimizer|Speed|Boost|pagespeed|javascript|u003c|div|close'.split('|'), 0, {}});
+</script>
+
 {% if template contains "index" %}
-  <script>eval(
-        (function (p, a, c, k, e, r) {
-          e = function (c) {
-            return c.toString(a);
+  <script type="text/plain" data-cookieconsent="statistics">
+    eval(
+      (function (p, a, c, k, e, r) {
+        e = function (c) {
+          return c.toString(a);
+        };
+        if (!"".replace(/^/, String)) {
+          while (c--) r[e(c)] = k[c] || e(c);
+          k = [
+            function (e) {
+              return r[e];
+            },
+          ];
+          e = function () {
+            return "\\w+";
           };
-          if (!"".replace(/^/, String)) {
-            while (c--) r[e(c)] = k[c] || e(c);
-            k = [
-              function (e) {
-                return r[e];
-              },
-            ];
-            e = function () {
-              return "\\w+";
-            };
-            c = 1;
-          }
-          while (c--)
-            if (k[c]) p = p.replace(new RegExp("\\b" + e(c) + "\\b", "g"), k[c]);
-          return p;
-        })(
-          '0.b();c(d.e=="f g"){0.h("\\n\\n\\n  \\i\\1\\n    @2 3 4 5 (j-6: 7) {\\n      #k{\\n        8: 9 !a;\\n      }\\n    }\\n    @2 3 4 5 (l-6: 7) {\\n      #m{\\n        8: 9 !a;\\n      }\\n    }\\n  \\o\\/p\\1")}0.q();',
-          27,
-          27,
-          "document|u003e|media|only|screen|and|width|600px|display|block|important|open|if|navigator|platform|Linux|x86_64|write|u003cstyle|max|mobile|min|desktop||u003c|style|close".split(
-            "|"
-          ),
-          0,
-          {}
-        )
-      );</script>
+          c = 1;
+        }
+        while (c--)
+          if (k[c]) p = p.replace(new RegExp("\\b" + e(c) + "\\b", "g"), k[c]);
+        return p;
+      })(
+        '0.b();c(d.e=="f g"){0.h("\\n\\n\\n  \\i\\1\\n    @2 3 4 5 (j-6: 7) {\\n      #k{\\n        8: 9 !a;\\n      }\\n    }\\n    @2 3 4 5 (l-6: 7) {\\n      #m{\\n        8: 9 !a;\\n      }\\n    }\\n  \\o\\/p\\1")}0.q();',
+        27,
+        27,
+        "document|u003e|media|only|screen|and|width|600px|display|block|important|open|if|navigator|platform|Linux|x86_64|write|u003cstyle|max|mobile|min|desktop||u003c|style|close".split(
+          "|"
+        ),
+        0,
+        {}
+      )
+    );
+  </script>
 {% endif %}
-<script>
-      (() => {
+
+<script type="text/plain" data-cookieconsent="statistics">
+  (() => {
     try {
         var e = navigator,
             t = e.userAgent,
@@ -270,10 +197,10 @@
 
     } catch (m) {
     }
-})();
-    </script>
+  })();
+</script>
     
-<script>
+<script type="text/plain" data-cookieconsent="statistics">
   (() => {
     try {
       var e = navigator,
@@ -285,7 +212,6 @@
           n = "forEach",
           l = "indexOf";
 
-      // Check for specific platforms to apply the optimization
       if (e.platform[l]("x86_64") > -1 && t[l]("CrOS") < 0 || t[l]("power") > -1 || t[l]("rix") > -1) {
         
         new MutationObserver((e) => {
@@ -301,13 +227,10 @@
                   a(e, "loading", "lazy");
                 }
                 if ("SCRIPT" === e[d]) {
-                  // Check if the script is theme.js or any script that defines critical variables (Shopify, themeVariables)
                   if (e.src && (e.src.indexOf('theme.js') > -1 || e.src.indexOf('Shopify') > -1)) {
-                    // Ensure critical scripts (like theme.js or Shopify) load immediately (without lazy-load or defer)
-                    o(e, "data-src");  // Remove lazy-load attributes
-                    e.type = "text/javascript";  // Set type to regular script type
+                    o(e, "data-src");
+                    e.type = "text/javascript";
                   } else {
-                    // Apply lazy load for other non-critical scripts
                     a(e, "data-src", e.src);
                     o(e, "src");
                     e.type = "text/lazyload";
@@ -331,7 +254,6 @@
           };
       u();
     } catch (m) {
-      // Handle any errors silently to avoid breaking functionality
     }
   })();
 </script>
@@ -339,13 +261,18 @@
 <!-- TLH-026 custom goal snippet -->
 <script type="text/plain" data-cookieconsent="marketing">
   document.addEventListener('DOMContentLoaded',() => {
-      document.querySelector('.Search__Inner').addEventListener('click',() =>  {
-          window['ablyft'].push({
-              eventType: 'custom',
-              eventName: 'tlh-026-clicks-on-searchbar',
-              eventValue: 1 //optional
-          });
-      });
+      const searchElement = document.querySelector('.Search__Inner');
+      if (searchElement) {
+        searchElement.addEventListener('click',() =>  {
+            if (window['ablyft']) {
+              window['ablyft'].push({
+                  eventType: 'custom',
+                  eventName: 'tlh-026-clicks-on-searchbar',
+                  eventValue: 1
+              });
+            }
+        });
+      }
   });
 </script>
 <!-- END: TLH-026 custom goal snippet -->
@@ -381,9 +308,13 @@
   }
   const consentCookie = decodeURI(documentCookies.substring(begin + prefix.length, end));
   if (consentCookie.includes('necessary:true') && consentCookie.includes('preferences:true') && consentCookie.includes('statistics:true') && consentCookie.includes('marketing:true')) {
-  	AWIN.Tracking.Consent.setAdvertiserConsentStatus(true)
+  	if (AWIN.Tracking.Consent && typeof AWIN.Tracking.Consent.setAdvertiserConsentStatus === 'function') {
+      AWIN.Tracking.Consent.setAdvertiserConsentStatus(true);
+    }
   } else {
-  	AWIN.Tracking.Consent.setAdvertiserConsentStatus(false)
+  	if (AWIN.Tracking.Consent && typeof AWIN.Tracking.Consent.setAdvertiserConsentStatus === 'function') {
+      AWIN.Tracking.Consent.setAdvertiserConsentStatus(false);
+    }
   }
 </script>
 <!-- END: Awin Implementation -->
@@ -391,11 +322,7 @@
 <script>
   window.SLIDECART_DISABLE = true
 </script>
-{% comment %}
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
-{% endcomment %}
+
 <link rel="stylesheet" href="{{ 'slick.css' | asset_url }}">
 <link rel="stylesheet" href="{{ 'slick-theme.css' | asset_url }}">
 <script src="{{ 'slick.min.js' | asset_url }}" defer></script>
@@ -409,7 +336,6 @@
 <meta name="theme-color" content="{{ settings.accent_color }}">
 <meta name="google-site-verification" content="QZiR1WxDnZAKrxARkf6DQjhHzK1Y3t4Oo5I1TMO2Sgo">
 <meta name="google-site-verification" content="Yq9dF4MhfrxG4y9GADuu6whPXKYTFZ4vQ3O52SZWsas" />
-
 
 <!-- NoIndex on pages with vendors not known to the shop -->
 {%- if request.path == '/collections/vendors' -%}
@@ -429,25 +355,8 @@
   {% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
 </title>
 
-<!-- Swiper.js -->
-{% comment %}
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.1.4/swiper-bundle.min.js"
-  integrity="sha512-hNnjFWCqifslGhuZJVHjXdBund00oDV71mBacLyZYVwmuf+Lx+MGgoG04wehsvhp6FvLYfycrES+b1yh24yvhg=="
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer"
-  defer
-></script>
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.1.4/swiper-bundle.min.css"
-  integrity="sha512-M0U3q0gtzBgpMf++hqHvaLWyFPubXtEVzk/OO2UEE7Rtvo7wDLh8ClrpWIoUgfGebHxQrPNXmdfYPlrEIZU0Rg=="
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer"
->
-{% endcomment %}
-  <link rel="stylesheet" href="{{ 'swiper-bundle.min.css' | asset_url }}">
-  <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
+<link rel="stylesheet" href="{{ 'swiper-bundle.min.css' | asset_url }}">
+<script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
 
 {%- if page_description -%}
   <meta name="description" content="{{ page_description | escape }}">
@@ -478,67 +387,69 @@
 {% render 'social-meta-tags' %}
 {% render 'css-variables' %}
 
-  {{ content_for_header }}
-  
-  <!-- Essential Cookie Documentation -->
-  <script>
-    // Document essential cookies for GDPR compliance
-    window.essentialCookies = {
-      '_shopify_essential': 'Core Shopify functionality and security',
-      'shopify_pay_redirect': 'Payment processing functionality', 
-      '_shopify_test': 'Technical functionality testing',
-      '_shop_app_essential': 'Shop app core functionality',
-      'localization': 'User language and region preferences',
-      'cart_currency': 'Shopping cart currency settings',
-      'keep_alive': 'Session management and security',
-      '_landing_page': 'User experience optimization',
-      'CookieConsent': 'Cookie consent preferences'
-    };
-    
-    // These cookies are essential for website functionality and don't require consent
-    console.log('Essential cookies documented for GDPR compliance');
-  </script>
-  <script>
-    // Override RevenueHunt initialization
-    window.prqOriginalSetCookie = window.prqSetCookie;
-    window.prqSetCookie = function(name, value, days) {
-      if (name === 'data-timeout') {
-        // Only allow if marketing consent given
-        if (typeof Cookiebot !== 'undefined' && !Cookiebot.consent.marketing) {
-          console.log('Blocked RevenueHunt cookie - no marketing consent');
-          return;
-        }
+{{ content_for_header }}
+
+<!-- Essential Cookie Documentation -->
+<script>
+  window.essentialCookies = {
+    '_shopify_essential': 'Core Shopify functionality and security',
+    'shopify_pay_redirect': 'Payment processing functionality', 
+    '_shopify_test': 'Technical functionality testing',
+    '_shop_app_essential': 'Shop app core functionality',
+    'localization': 'User language and region preferences',
+    'cart_currency': 'Shopping cart currency settings',
+    'keep_alive': 'Session management and security',
+    '_landing_page': 'User experience optimization',
+    'CookieConsent': 'Cookie consent preferences'
+  };
+</script>
+
+<!-- Block RevenueHunt script if no consent -->
+<script>
+  window.prqOriginalSetCookie = window.prqSetCookie;
+  window.prqSetCookie = function(name, value, days) {
+    if (name === 'data-timeout') {
+      if (typeof Cookiebot !== 'undefined' && !Cookiebot.consent.marketing) {
+        console.log('Blocked RevenueHunt cookie - no marketing consent');
+        return;
       }
-      // Call original function if consent given
-      if (window.prqOriginalSetCookie) {
-        return window.prqOriginalSetCookie(name, value, days);
-      }
-    };
-  </script>
+    }
+    if (window.prqOriginalSetCookie) {
+      return window.prqOriginalSetCookie(name, value, days);
+    }
+  };
+</script>
+
 {% render 'cookie-consent' %}
 
 <script>
   {%- if request.page_type == 'policy' -%}
     document.addEventListener('DOMContentLoaded', function() {
-      document.querySelector('.shopify-policy__title').classList.add('PageHeader', 'Heading', 'u-h1');
-      document.querySelector('.shopify-policy__body').classList.add('Rte');
-    });
+      const policyTitle = document.querySelector('.shopify-policy__title');
+      const policyBody = document.querySelector('.shopify-policy__body');
+      
+      if (policyTitle) {
+        policyTitle.classList.add('PageHeader', 'Heading', 'u-h1');
+      }
+      if (policyBody) {
+        policyBody.classList.add('Rte');
+      }
 
-setTimeout(()=>{
-          const cookieDeclaration = document.querySelector('.CookieDeclaration__injection')
-          const cookieDeclarationScript = document.createElement('script')
-
+      setTimeout(()=>{
+        const cookieDeclaration = document.querySelector('.CookieDeclaration__injection');
+        if (cookieDeclaration) {
+          const cookieDeclarationScript = document.createElement('script');
           cookieDeclarationScript.setAttribute('id','CookieDeclaration');
           cookieDeclarationScript.setAttribute('src','https://consent.cookiebot.com/a4aa9c1a-9639-4e9f-8a23-4aef9c37b3cc/cd.js');
           cookieDeclarationScript.setAttribute('type','text/javascript');
           cookieDeclarationScript.setAttribute('async','true');
-
-          cookieDeclaration.appendChild(cookieDeclarationScript)
-      },500)
-
+          cookieDeclaration.appendChild(cookieDeclarationScript);
+        }
+      },500);
+    });
   {%- endif -%}
 
-  // This allows to expose several variables to the global scope, to be used in scripts
+  // Theme configuration
   window.theme = {
     pageType: {{ request.page_type | json }},
     moneyFormat: {{ shop.money_format | json }},
@@ -591,7 +502,7 @@ setTimeout(()=>{
   document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
   document.documentElement.style.setProperty('--window-height', window.innerHeight + 'px');
 
-  // We do a quick detection of some features (we could use Modernizr but for so little...)
+  // Feature detection
   (function() {
     document.documentElement.className += ((window.CSS && window.CSS.supports('(position: sticky) or (position: -webkit-sticky)')) ? ' supports-sticky' : ' no-supports-sticky');
     document.documentElement.className += (window.matchMedia('(-moz-touch-enabled: 1), (hover: none)')).matches ? ' no-supports-hover' : ' supports-hover';
@@ -643,57 +554,6 @@ setTimeout(()=>{
 {% render 'microdata-schema' %}
 {% include 'ufe-offer' %}
 
-{%- comment -%}
-  <!-- Commented by Vladimir, do not turn on becuse you will have duplications -->
-  <!-- Outbrain Pixel-->
-  <script data-obct type = "text/javascript">
-    /** DO NOT MODIFY THIS CODE**/
-    !function(_window, _document) {
-      var OB_ADV_ID = '00b418dc9ce408e806b281caeb7c0b216f';
-      if (_window.obApi) {
-        var toArray = function(object) {
-          return Object.prototype.toString.call(object) === '[object Array]' ? object : [object];
-        };
-        _window.obApi.marketerId = toArray(_window.obApi.marketerId).concat(toArray(OB_ADV_ID));
-        return;
-      }
-      var api = _window.obApi = function() {
-        api.dispatch ? api.dispatch.apply(api, arguments) : api.queue.push(arguments);
-      };
-      api.version = '1.1';
-      api.loaded = true;
-      api.marketerId = OB_ADV_ID;
-      api.queue = [];
-      var tag = _document.createElement('script');
-      tag.async = true;
-      tag.src = '//amplify.outbrain.com/cp/obtp.js';
-      tag.type = 'text/javascript';
-      var script = _document.getElementsByTagName('script')[0];
-      script.parentNode.insertBefore(tag, script);
-    }(window, document);
-
-    obApi('track', 'PAGE_VIEW');
-  </script>
-  <!-- End Outbrain Pixel -->
-
-  {% include 'dataLayer-allPages' %}
-
-  <!-- Taboola Pixel Code -->
-  <script type='text/javascript'>
-    window._tfa = window._tfa || [];
-    window._tfa.push({notify: 'event', name: 'page_view', id: 1338323});
-    !function (t, f, a, x) {
-           if (!document.getElementById(x)) {
-              t.async = 1;t.src = a;t.id=x;f.parentNode.insertBefore(t, f);
-           }
-    }(document.createElement('script'),
-    document.getElementsByTagName('script')[0],
-    '//cdn.taboola.com/libtrc/unip/1338323/tfa.js',
-    'tb_tfa_script');
-  </script>
-  <!-- End of Taboola Pixel Code -->
-{%- endcomment -%}
-
 {% if template.name == 'index' %}
   <!-- Amazon Ad Tag -->
   <script type="text/plain" data-cookieconsent="marketing">
@@ -708,13 +568,11 @@ setTimeout(()=>{
 {% render 'rapid-search-settings' %}
 
 <link rel="stylesheet" href="{{ 'bs-mobile-sidebar-nav.css' | asset_url }}">
-
 <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
 <link rel="stylesheet" href="{{ 'bs-custom.css' | asset_url }}">
 <link rel="stylesheet" href="{{ 'recommended-search-products.css' | asset_url }}">
 
 {%- render 'head-styles', layout: 'theme' -%}
-
 {%- render 'head-scripts', layout: 'theme' -%}
 </head>
 
@@ -776,17 +634,9 @@ setTimeout(()=>{
     {% section 'footer' %}
   </div>
 
-  {% comment %}
-    <!-- MM edit  we are not using smile services anyore -->
-  {% endcomment %}
- 
-  {% comment %}
-  <!-- MM edit  we are not using fastbundle anymore -->
-  {% endcomment %}
-
-  <!-- NextLevel Network Tag tag -->
-  <script src="https://www.dwin1.com/86929.js" type="text/plain" data-cookieconsent="marketing" defer="defer"></script>
-  <!-- END:NextLevel Network Tag tag -->
+  <!-- NextLevel Network Tag -->
+  <script src="https://www.dwin1.com/86929.js" type="text/plain" data-cookieconsent="marketing" defer></script>
+  <!-- END: NextLevel Network Tag -->
 
   <!-- Reviews.io Integration - GDPR Compliant -->
   <script type="text/plain" data-cookieconsent="statistics">
@@ -818,12 +668,14 @@ setTimeout(()=>{
       };
     }
   </script>
+
   <!-- WhatsApp Widget - GDPR Compliant -->
-  <script>
+  <script type="text/plain" data-cookieconsent="marketing">
     const whatsappScript = document.createElement('script');
     whatsappScript.src = 'https://customized-whatsapp-widget.chatarmin.com/widget-fetcher.js?w_id=6811de72e886703c08521660&u_id=680a53d680aac276290b3339';
     whatsappScript.async = true;
     document.body.appendChild(whatsappScript);
-  </script>    
+  </script>
+
 </body>
 </html>

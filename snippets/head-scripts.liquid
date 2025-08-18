@@ -12,10 +12,13 @@
   };
 </script>
 
-<script
-  src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
-  defer
-  >
+<!-- Trustpilot Widget - GDPR Compliant -->
+<script type="text/plain" data-cookieconsent="marketing">
+  // Load Trustpilot only after marketing consent
+  const trustpilotScript = document.createElement('script');
+  trustpilotScript.src = '//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js';
+  trustpilotScript.defer = true;
+  document.head.appendChild(trustpilotScript);
 </script>
 
 {%- capture layout_bundle -%}bundle.layout.{{- layout -}}.js{%- endcapture -%}
