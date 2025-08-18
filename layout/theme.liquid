@@ -168,8 +168,19 @@
                     removeAttribute(node, "src");
                   }
                   
-                  if (tagName === "IMG" && imgCount++ > 20) {
-                    setAttribute(node, "loading", "lazy");
+                  if (tagName === "IMG") {
+                    // Don't lazy load critical images (hero banners, above-fold content)
+                    const isCritical = node.closest('.Slideshow') || 
+                                     node.closest('.Hero') || 
+                                     node.closest('.Banner') ||
+                                     node.closest('.Featured') ||
+                                     node.classList.contains('Hero__Image') ||
+                                     node.classList.contains('Slideshow__Image') ||
+                                     imgCount < 5; // First 5 images load normally
+                    
+                    if (!isCritical && imgCount++ > 5) {
+                      setAttribute(node, "loading", "lazy");
+                    }
                   }
                   
                   if (tagName === "SCRIPT") {
@@ -177,14 +188,17 @@
                     if (node.src && (node.src.includes('theme.js') || 
                                    node.src.includes('Shopify') || 
                                    node.src.includes('lazysizes') ||
-                                   node.src.includes('libs.min.js'))) {
+                                   node.src.includes('libs.min.js') ||
+                                   node.src.includes('jquery'))) {
                       // Keep critical scripts as-is
                       return;
                     } else {
-                      // Lazy load non-critical scripts
-                      setAttribute(node, "data-src", node.src);
-                      removeAttribute(node, "src");
-                      node.type = "text/lazyload";
+                      // Only lazy load non-essential third-party scripts
+                      if (node.src && !node.src.includes(window.location.hostname)) {
+                        setAttribute(node, "data-src", node.src);
+                        removeAttribute(node, "src");
+                        node.type = "text/lazyload";
+                      }
                     }
                   }
                 }
@@ -193,7 +207,7 @@
           }).observe(document.documentElement, { childList: true, subtree: true });
         }
 
-        // Meta tag optimization
+        // Meta tag optimization (less aggressive)
         const querySelector = (sel) => document.querySelector(sel);
         const startTime = Date.now();
         
@@ -202,7 +216,12 @@
           if (!querySelector("body>meta")) return setTimeout(moveMeta, 5);
           
           const head = querySelector("head");
-          document.querySelectorAll("meta,link:not([rel='stylesheet']),title").forEach((el) => head.append(el));
+          // Only move non-critical meta tags
+          document.querySelectorAll("meta[name='description'],meta[name='keywords'],title").forEach((el) => {
+            if (el && !el.parentNode.closest('head')) {
+              head.append(el);
+            }
+          });
         };
         
         moveMeta();
