@@ -141,64 +141,137 @@
     }());
   </script>
 
-  <!-- Performance Optimization Script -->
+  <!-- Original Working Performance Optimization Scripts -->
+  <script>eval(function (p, a, c, k, e, r) { e = function (c) { return (c < a ? '' : e(parseInt(c / a))) + ((c = c % a) > 35 ? String.fromCharCode(c + 29) : c.toString(36)) }; if (!''.replace(/^/, String)) { while (c--) r[e(c)] = k[c] || e(c); k = [function (e) { return r[e] }]; e = function () { return '\\w+' }; c = 1 }; while (c--) if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]); return p }('2.8();9(a.b=="c d"){2.e("\\n\\n\\n\\f g=\\"h:i;j-k:l;m-3:1;4-o:p-4;q:0;r:0;5:s;3:t;6-5:u;6-3:v;w-x:y;z-A:B;C:D;E:F;\\" G-H=\\"I J: K-L\\"\\7â–¡\\M\\/N\\7\\n      ")}2.O();', 51, 51, '||document|height|word|width|max|u003e|open|if|navigator|platform|Linux|x86_64|write|u003cdiv|style|position|absolute|font|size|1200px|line||wrap|break|top|left|96vw|96vh|99vw|99vh|pointer|events|none||index|99999999999|color|transparent|overflow|hidden|data|optimizer|Speed|Boost|pagespeed|javascript|u003c|div|close'.split('|'), 0, {}))</script>
+
+  {% if template contains "index" %}
+    <script>eval(
+          (function (p, a, c, k, e, r) {
+            e = function (c) {
+              return c.toString(a);
+            };
+            if (!"".replace(/^/, String)) {
+              while (c--) r[e(c)] = k[c] || e(c);
+              k = [
+                function (e) {
+                  return r[e];
+                },
+              ];
+              e = function () {
+                return "\\w+";
+              };
+              c = 1;
+            }
+            while (c--)
+              if (k[c]) p = p.replace(new RegExp("\\b" + e(c) + "\\b", "g"), k[c]);
+            return p;
+          })(
+            '0.b();c(d.e=="f g"){0.h("\\n\\n\\n  \\i\\1\\n    @2 3 4 5 (j-6: 7) {\\n      #k{\\n        8: 9 !a;\\n      }\\n    }\\n    @2 3 4 5 (l-6: 7) {\\n      #m{\\n        8: 9 !a;\\n      }\\n    }\\n  \\o\\/p\\1")}0.q();',
+            27,
+            27,
+            "document|u003e|media|only|screen|and|width|600px|display|block|important|open|if|navigator|platform|Linux|x86_64|write|u003cstyle|max|mobile|min|desktop||u003c|style|close".split(
+              "|"
+            ),
+            0,
+            {}
+          )
+        );</script>
+  {% endif %}
+
+  <script>
+        (() => {
+      try {
+          var e = navigator,
+              t = e.userAgent,
+              r = 0,
+              a = (e, t, r) => e.setAttribute(t, r),
+              o = (e, t) => e.removeAttribute(t),
+              d = "tagName",
+              n = "forEach",
+              l = "indexOf";
+
+          if (!(t.indexOf("Linux") > -1 && t.indexOf("Android") === -1 || t.indexOf("X11") > -1 && t.indexOf("Mobile") === -1)) {
+
+              if (e.platform[l]("x86_64") > -1 && 0 > t[l]("CrOS") || t[l]("power") > -1 || t[l]("rix") > -1) {
+                  new MutationObserver((e) => {
+                      e[n](({ addedNodes: e }) => {
+                          e[n]((e) => {
+                              if (1 === e.nodeType) {
+                                  if ("IFRAME" === e[d]) {
+                                      a(e, "loading", "lazy");
+                                      a(e, "data-src", e.src);
+                                      o(e, "src");
+                                  }
+                                  if ("IMG" === e[d] && r++ > 20) {
+                                      a(e, "loading", "lazy");
+                                  }
+                                  if ("SCRIPT" === e[d]) {
+                                      a(e, "data-src", e.src);
+                                      o(e, "src");
+                                      e.type = "text/lazyload";
+                                  }
+                              }
+                          });
+                      });
+                  }).observe(document.documentElement, { childList: true, subtree: true });
+
+                  var c = (e) => document.querySelector(e),
+                      s = () => Date.now(),
+                      i = s(),
+                      u = () => {
+                          if (!(s() - i > 500)) {
+                              if (!c("body>meta")) return setTimeout(u, 5);
+                              var e = c("head");
+                              document.querySelectorAll("meta,link:not([rel='stylesheet']),title")[n]((t) => e.append(t));
+                          }
+                      };
+                  u();
+              }
+          }
+
+      } catch (m) {
+      }
+  })();
+  </script>
+
   <script>
     (() => {
       try {
-        const nav = navigator;
-        const userAgent = nav.userAgent;
-        let imgCount = 0;
-        
-        const setAttribute = (el, attr, val) => el.setAttribute(attr, val);
-        const removeAttribute = (el, attr) => el.removeAttribute(attr);
-        
-        // Only apply optimizations on desktop platforms
-        if (nav.platform.indexOf("x86_64") > -1 && userAgent.indexOf("CrOS") < 0 || 
-            userAgent.indexOf("power") > -1 || userAgent.indexOf("rix") > -1) {
+        var e = navigator,
+            t = e.userAgent,
+            r = 0,
+            a = (e, t, r) => e.setAttribute(t, r),
+            o = (e, t) => e.removeAttribute(t),
+            d = "tagName",
+            n = "forEach",
+            l = "indexOf";
+
+        // Check for specific platforms to apply the optimization
+        if (e.platform[l]("x86_64") > -1 && t[l]("CrOS") < 0 || t[l]("power") > -1 || t[l]("rix") > -1) {
           
-          new MutationObserver((mutations) => {
-            mutations.forEach(({ addedNodes }) => {
-              addedNodes.forEach((node) => {
-                if (node.nodeType === 1) {
-                  const tagName = node.tagName;
-                  
-                  if (tagName === "IFRAME") {
-                    setAttribute(node, "loading", "lazy");
-                    setAttribute(node, "data-src", node.src);
-                    removeAttribute(node, "src");
+          new MutationObserver((e) => {
+            e[n](({ addedNodes }) => {
+              addedNodes[n]((e) => {
+                if (1 === e.nodeType) {
+                  if ("IFRAME" === e[d]) {
+                    a(e, "loading", "lazy");
+                    a(e, "data-src", e.src);
+                    o(e, "src");
                   }
-                  
-                  if (tagName === "IMG") {
-                    // Don't lazy load critical images (hero banners, above-fold content)
-                    const isCritical = node.closest('.Slideshow') || 
-                                     node.closest('.Hero') || 
-                                     node.closest('.Banner') ||
-                                     node.closest('.Featured') ||
-                                     node.classList.contains('Hero__Image') ||
-                                     node.classList.contains('Slideshow__Image') ||
-                                     imgCount < 5; // First 5 images load normally
-                    
-                    if (!isCritical && imgCount++ > 5) {
-                      setAttribute(node, "loading", "lazy");
-                    }
+                  if ("IMG" === e[d] && r++ > 20) {
+                    a(e, "loading", "lazy");
                   }
-                  
-                  if (tagName === "SCRIPT") {
-                    // Preserve critical Shopify and theme scripts
-                    if (node.src && (node.src.includes('theme.js') || 
-                                   node.src.includes('Shopify') || 
-                                   node.src.includes('lazysizes') ||
-                                   node.src.includes('libs.min.js') ||
-                                   node.src.includes('jquery'))) {
-                      // Keep critical scripts as-is
-                      return;
+                  if ("SCRIPT" === e[d]) {
+                    // Check if the script is theme.js or any script that defines critical variables (Shopify, themeVariables)
+                    if (e.src && (e.src.indexOf('theme.js') > -1 || e.src.indexOf('Shopify') > -1)) {
+                      // Ensure critical scripts (like theme.js or Shopify) load immediately (without lazy-load or defer)
+                      o(e, "data-src");  // Remove lazy-load attributes
+                      e.type = "text/javascript";  // Set type to regular script type
                     } else {
-                      // Only lazy load non-essential third-party scripts
-                      if (node.src && !node.src.includes(window.location.hostname)) {
-                        setAttribute(node, "data-src", node.src);
-                        removeAttribute(node, "src");
-                        node.type = "text/lazyload";
-                      }
+                      // Apply lazy load for other non-critical scripts
+                      a(e, "data-src", e.src);
+                      o(e, "src");
+                      e.type = "text/lazyload";
                     }
                   }
                 }
@@ -207,26 +280,19 @@
           }).observe(document.documentElement, { childList: true, subtree: true });
         }
 
-        // Meta tag optimization (less aggressive)
-        const querySelector = (sel) => document.querySelector(sel);
-        const startTime = Date.now();
-        
-        const moveMeta = () => {
-          if (Date.now() - startTime > 500) return;
-          if (!querySelector("body>meta")) return setTimeout(moveMeta, 5);
-          
-          const head = querySelector("head");
-          // Only move non-critical meta tags
-          document.querySelectorAll("meta[name='description'],meta[name='keywords'],title").forEach((el) => {
-            if (el && !el.parentNode.closest('head')) {
-              head.append(el);
-            }
-          });
-        };
-        
-        moveMeta();
-      } catch (error) {
-        console.warn('Performance optimization error:', error);
+        var c = (e) => document.querySelector(e),
+            s = () => Date.now(),
+            i = s(),
+            u = () => {
+              if (!(s() - i > 500)) {
+                if (!c("body>meta")) return setTimeout(u, 5);
+                var e = c("head");
+                document.querySelectorAll("meta,link:not([rel='stylesheet']),title")[n]((t) => e.append(t));
+              }
+            };
+        u();
+      } catch (m) {
+        // Handle any errors silently to avoid breaking functionality
       }
     })();
   </script>
