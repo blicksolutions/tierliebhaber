@@ -3004,6 +3004,7 @@
             var i = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : "localStorage";
             window[i].setItem(e, JSON.stringify(t));
         };
+        if(window.experiments.data.product.title){
     var re,
         ne,
         se = "__likeCount__".concat(
@@ -3013,6 +3014,8 @@
                 })
                 .replace(/\s+/g, "")
         );
+        }
+
     (re = document.querySelectorAll(".LikeBadge")),
         (ne = te(se, "sessionStorage")),
         re.forEach(function (e) {
