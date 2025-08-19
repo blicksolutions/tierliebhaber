@@ -17,7 +17,9 @@
 		
 			const reviewWidget = document.querySelector('.ElementsWidget__inner .header__inner .header__group:first-of-type');
 			const avgRating = reviewWidget.querySelector('div:first-of-type').innerText;
-			const reviewsNumber = reviewWidget.querySelector('div:nth-of-type(3)').innerText.match(/[\d,\.]+/g);
+			if(reviewWidget.querySelector('div:nth-of-type(3)')){
+				const reviewsNumber = reviewWidget.querySelector('div:nth-of-type(3)').innerText.match(/[\d,\.]+/g);
+			}
 			const avgRatingTarget = document.querySelector('.bs-product-testimonials__rating-product__average span');
 			const reviewsNumberTarget = document.querySelector('.bs-product-testimonials__rating-product__reviews-number span');
 			const starRatingWidget = reviewWidget.querySelector('div:nth-of-type(2) .R-RatingStars').outerHTML;
