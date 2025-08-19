@@ -392,7 +392,7 @@
 
     <!-- NextLevel Network Tag - GATED -->
     <script src="https://www.dwin1.com/86929.js" type="text/plain" data-cookieconsent="marketing" defer></script>
-
+{% comment %}
     <!-- Klaviyo - PROPERLY GATED -->
     <script type="text/plain" data-cookieconsent="marketing" src="https://a.klaviyo.com/media/js/onsite/onsite.js"></script>
     <script type="text/plain" data-cookieconsent="marketing">
@@ -430,7 +430,7 @@
           }
       });
     </script>
-
+{% endcomment %}
     <!-- WhatsApp Widget - GATED -->
     <script type="text/plain" data-cookieconsent="marketing" src="https://customized-whatsapp-widget.chatarmin.com/widget-fetcher.js?w_id=6811de72e886703c08521660&u_id=680a53d680aac276290b3339" async></script>
 
@@ -450,7 +450,7 @@
       window.enable_superchat = {{ settings.enable_superchat }};
       window.superchat_delay = {{ settings.superchat_delay | times: 1000 }};
     </script>
-
+{% comment %}
     <!-- Performance optimization script (cleaned up) -->
     <script>
       (() => {
@@ -512,7 +512,7 @@
         }
       })();
     </script>
-
+{% endcomment %}
     <!-- Theme variables and config -->
     <script>
       // Theme configuration
