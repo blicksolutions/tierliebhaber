@@ -1,9 +1,7 @@
 <!doctype html>
+
 <html class="no-js" lang="{{ shop.locale }}">
   <head>
-    
-    <!-- Cookiebot FIRST with AUTO blocking mode for better GDPR compliance -->
-    <!-- PLACE THIS AS THE VERY FIRST <script> IN <head> -->
 <script>
 (function () {
   const DEBUG = false;
@@ -240,82 +238,18 @@
   });
 })();
 </script>
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="a4aa9c1a-9639-4e9f-8a23-4aef9c37b3cc" data-blockingmode="auto" type="text/javascript"></script>
 
-    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="a4aa9c1a-9639-4e9f-8a23-4aef9c37b3cc" data-blockingmode="auto" type="text/javascript"></script>
+	<link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}">
+  <link rel="stylesheet" href="{{ 'ds-op-lp-3.css' | asset_url }}">
 
-    <!-- Basic meta tags -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.0">
-    <meta name="theme-color" content="{{ settings.accent_color }}">
-    <meta name="google-site-verification" content="QZiR1WxDnZAKrxARkf6DQjhHzK1Y3t4Oo5I1TMO2Sgo">
-    <meta name="google-site-verification" content="Yq9dF4MhfrxG4y9GADuu6whPXKYTFZ4vQ3O52SZWsas" />
+	  <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
+	  <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
+	  <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-009.js' | asset_url }}"></script>
+	  <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-010.js' | asset_url }}"></script>
+	  <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-011.js' | asset_url }}"></script>
+	  <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-025.js' | asset_url }}"></script>
 
-    <!-- Core CSS (functional - no gating needed) -->
-    <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
-    <link rel="stylesheet" href="{{ 'bs-custom.css' | asset_url }}">
-    <link rel="stylesheet" href="{{ 'recommended-search-products.css' | asset_url }}">
-    <link rel="stylesheet" href="{{ 'bs-mobile-sidebar-nav.css' | asset_url }}">
-    <link rel="stylesheet" href="{{ 'slick.css' | asset_url }}">
-    <link rel="stylesheet" href="{{ 'slick-theme.css' | asset_url }}">
-    <link rel="stylesheet" href="{{ 'swiper-bundle.min.css' | asset_url }}">
-
-    <!-- A/B Testing CSS - PROPERLY GATED -->
-    <link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}" data-cookieconsent="marketing">
-    <link rel="stylesheet" href="{{ 'ds-op-lp-3.css' | asset_url }}" data-cookieconsent="marketing">
-
-    <!-- Reviews.io CSS - Keep ungated for functionality -->
-    <link rel="stylesheet" href="https://widget.reviews.io/rating-snippet/dist.css">
-
-    <!-- SEO and basic page info -->
-    {%- if page_description -%}
-      <meta name="description" content="{{ page_description | escape }}">
-    {%- endif -%}
-    <link rel="canonical" href="{{ canonical_url }}">
-    {%- if settings.favicon -%}
-      <link rel="shortcut icon" href="{{ settings.favicon | img_url: '96x' }}" type="image/png">
-    {%- endif -%}
-
-    <!-- NoIndex on pages with vendors not known to the shop -->
-    {%- if request.path == '/collections/vendors' -%}
-      {%- assign lowercase_vendors = shop.vendors | join: ',' | downcase | split: ',' -%}
-      {%- assign lowercase_input = collection.title | downcase -%}
-      {%- unless lowercase_vendors contains lowercase_input -%}
-        <meta name="robots" content="noindex">
-      {%- endunless -%}
-    {%- endif -%}
-
-    <!-- Page title -->
-    <title>
-      {{ page_title }}
-      {% if current_tags -%}
-        {%- assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
-      {%- endif %}
-      {% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}
-      {% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
-    </title>
-
-    {% render 'social-meta-tags' %}
-    {% render 'css-variables' %}
-    {{ content_for_header }}
-    {% render 'cookie-consent' %}
-
-    <!-- ===== GATED MARKETING SCRIPTS ===== -->
-
-    <!-- Replo - PROPERLY GATED -->
-    <script type="text/plain" data-cookieconsent="marketing">
-      {% render 'replo-head' %}
-    </script>
-
-    <!-- A/B Testing Scripts - PROPERLY GATED -->
-    <script src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
-    <script src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
-    <script src="{{ 'bs-ab-tlh-009.js' | asset_url }}"></script>
-    <script src="{{ 'bs-ab-tlh-010.js' | asset_url }}"></script>
-    <script src="{{ 'bs-ab-tlh-011.js' | asset_url }}"></script>
-    <script src="{{ 'bs-ab-tlh-025.js' | asset_url }}"></script>
-
-    <!-- ABlyft DE Visitor Detection - GATED -->
     <script type="text/plain" data-cookieconsent="marketing">
       fetch('/browsing_context_suggestions.json')
        .then(response => response.json())
@@ -328,35 +262,36 @@
        });
     </script>
 
-    <!-- ABlyft Scripts - GATED -->
     <script type="text/plain" data-cookieconsent="marketing" src="https://cdn.ablyft.com/s/55886406.js"></script>
     <script type="text/plain" data-cookieconsent="marketing">
       window['ablyft'] = window['ablyft'] || [];
     </script>
 
-    <!-- TLH-026 Search Tracking - GATED -->
+    
     <script type="text/plain" data-cookieconsent="marketing">
       document.addEventListener('DOMContentLoaded',() => {
-          const searchEl = document.querySelector('.Search__Inner');
-          if (searchEl && window.ablyft) {
-            searchEl.addEventListener('click',() =>  {
-                window['ablyft'].push({
-                    eventType: 'custom',
-                    eventName: 'tlh-026-clicks-on-searchbar',
-                    eventValue: 1
-                });
-            });
-          }
+          document.querySelector('.Search__Inner').addEventListener('click',() =>  {
+              window['ablyft'].push({
+                  eventType: 'custom',
+                  eventName: 'tlh-026-clicks-on-searchbar',
+                  eventValue: 1
+              });
+          });
       });
     </script>
 
-    <!-- Awin Implementation - GATED -->
+    {% render 'replo-head' %}
+
+    <script src="{{ 'bs-load-third-party-scripts.js' | asset_url }}" defer></script>
+    <script src="{{ 'bs-subscription-callout.js' | asset_url }}" defer></script>
+    <script src="{{ 'bs-sticky-atc.js' | asset_url }}" defer></script>
+    <script src="{{ 'bs-mobile-sidebar-nav.js' | asset_url }}" defer></script>
+
     <script type="text/plain" data-cookieconsent="marketing">
       var AWIN = AWIN || {};
       AWIN.Tracking = AWIN.Tracking || {};
       AWIN.Tracking.AdvertiserConsent = false;
 
-      //get Cookie
       let documentCookies = document.cookie;
       let prefix = 'CookieConsent' + '=';
       let begin = documentCookies.indexOf('; ' + prefix);
@@ -380,7 +315,208 @@
       }
     </script>
 
-    <!-- Amazon Ad Tag (homepage only) - GATED -->
+    <script>
+      window.SLIDECART_DISABLE = true
+    </script>
+    
+    <link rel="stylesheet" href="{{ 'slick.css' | asset_url }}">
+    <link rel="stylesheet" href="{{ 'slick-theme.css' | asset_url }}">
+    <script src="{{ 'slick.min.js' | asset_url }}" defer></script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.0"
+    >
+    <meta name="theme-color" content="{{ settings.accent_color }}">
+    <meta name="google-site-verification" content="QZiR1WxDnZAKrxARkf6DQjhHzK1Y3t4Oo5I1TMO2Sgo">
+    <meta name="google-site-verification" content="Yq9dF4MhfrxG4y9GADuu6whPXKYTFZ4vQ3O52SZWsas" />
+
+    {%- if request.path == '/collections/vendors' -%}
+      {%- assign lowercase_vendors = shop.vendors | join: ',' | downcase | split: ',' -%}
+      {%- assign lowercase_input = collection.title | downcase -%}
+      {%- unless lowercase_vendors contains lowercase_input -%}
+        <meta name="robots" content="noindex">
+      {%- endunless -%}
+    {%- endif -%}
+
+    <title>
+      {{ page_title }}
+      {% if current_tags -%}
+        {%- assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
+      {%- endif %}
+      {% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}
+      {% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+    </title>
+
+      <link rel="stylesheet" href="{{ 'swiper-bundle.min.css' | asset_url }}">
+      <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
+
+    {%- if page_description -%}
+      <meta name="description" content="{{ page_description | escape }}">
+    {%- endif -%}
+
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    {%- if settings.favicon -%}
+      <link rel="shortcut icon" href="{{ settings.favicon | img_url: '96x' }}" type="image/png">
+    {%- endif -%}
+
+    <script>
+      window.experiments = {
+        data: {
+          product: {
+            id: {{ product.id | json }},
+            title: {{ product.title | json }},
+          },
+        },
+      };
+    </script>
+
+    <script>
+      window.enable_superchat = {{ settings.enable_superchat }};
+      window.superchat_delay = {{ settings.superchat_delay | times: 1000 }}
+    </script>
+
+    {% render 'social-meta-tags' %}
+    {% render 'css-variables' %}
+
+    {{ content_for_header }}
+   {% render 'cookie-consent' %}
+
+    
+    <link rel="stylesheet" href="{{ 'bs-mobile-sidebar-nav.css' | asset_url }}">
+
+    <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
+    <link rel="stylesheet" href="{{ 'bs-custom.css' | asset_url }}">
+    <link rel="stylesheet" href="{{ 'recommended-search-products.css' | asset_url }}">
+
+    {%- render 'head-styles', layout: 'theme' -%}
+
+    <script>
+          {%- if request.page_type == 'policy' -%}
+            document.addEventListener('DOMContentLoaded', function() {
+              document.querySelector('.shopify-policy__title').classList.add('PageHeader', 'Heading', 'u-h1');
+              document.querySelector('.shopify-policy__body').classList.add('Rte');
+            });
+
+      setTimeout(()=>{
+                const cookieDeclaration = document.querySelector('.CookieDeclaration__injection')
+                const cookieDeclarationScript = document.createElement('script')
+
+                cookieDeclarationScript.setAttribute('id','CookieDeclaration');
+                cookieDeclarationScript.setAttribute('src','https://consent.cookiebot.com/a4aa9c1a-9639-4e9f-8a23-4aef9c37b3cc/cd.js');
+                cookieDeclarationScript.setAttribute('type','text/javascript');
+                cookieDeclarationScript.setAttribute('async','true');
+
+                cookieDeclaration.appendChild(cookieDeclarationScript)
+            },500)
+
+          {%- endif -%}
+
+          window.theme = {
+            pageType: {{ request.page_type | json }},
+            moneyFormat: {{ shop.money_format | json }},
+            moneyWithCurrencyFormat: {{ shop.money_with_currency_format | json }},
+            productImageSize: {{ settings.product_image_size | json }},
+            searchMode: {{ settings.search_mode | json }},
+            showPageTransition: {{ settings.show_page_transition | json }},
+            showElementStaggering: {{ settings.show_element_staggering | json }},
+            showImageZooming: {{ settings.show_image_zooming | json }}
+          };
+
+          window.routes = {
+            rootUrl: {{ routes.root_url | json }},
+            rootUrlWithoutSlash: {% if routes.root_url == '/' %}''{% else %}{{ routes.root_url | json }}{% endif %},
+            cartUrl: {{ routes.cart_url | json }},
+            cartAddUrl: {{ routes.cart_add_url | json }},
+            cartChangeUrl: {{ routes.cart_change_url | json }},
+            searchUrl: {{ routes.search_url | json }},
+            productRecommendationsUrl: {{ routes.product_recommendations_url | json }}
+          };
+
+          window.languages = {
+            cartAddNote: {{ 'cart.general.add_note' | t | json }},
+            cartEditNote: {{ 'cart.general.edit_note' | t | json }},
+            productImageLoadingError: {{ 'product.slideshow.image_loading_error' | t | json }},
+            productFormAddToCart: {% if product.template_suffix == 'pre-order' %}{{ 'product.form.pre_order' | t | json }}{% elsif product.template_suffix == 'donation' %}{{ 'product.form.add_to_cart_donation' | t | json }}{%else%}{{ 'product.form.add_to_cart' | t | json }}{% endif %},
+            productFormUnavailable: {{ 'product.form.unavailable' | t | json }},
+            productFormSoldOut: {{ 'product.form.sold_out' | t | json }},
+            shippingEstimatorOneResult: {{ 'cart.shipping_estimator.one_result_title' | t | json }},
+            shippingEstimatorMoreResults: {{ 'cart.shipping_estimator.more_results_title' | t | json }},
+            shippingEstimatorNoResults: {{ 'cart.shipping_estimator.no_results_title' | t | json }}
+          };
+
+          window.lazySizesConfig = {
+            loadHidden: false,
+            hFac: 0.5,
+            expFactor: 2,
+            ricTimeout: 150,
+            lazyClass: 'Image--lazyLoad',
+            loadingClass: 'Image--lazyLoading',
+            loadedClass: 'Image--lazyLoaded'
+          };
+
+          {% if customer %}
+            window.Shopify.isUserLoggedIn = true;
+          {% else %}
+            window.Shopify.isUserLoggedIn = false;
+          {% endif %}
+
+          document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+          document.documentElement.style.setProperty('--window-height', window.innerHeight + 'px');
+
+          (function() {
+            document.documentElement.className += ((window.CSS && window.CSS.supports('(position: sticky) or (position: -webkit-sticky)')) ? ' supports-sticky' : ' no-supports-sticky');
+            document.documentElement.className += (window.matchMedia('(-moz-touch-enabled: 1), (hover: none)')).matches ? ' no-supports-hover' : ' supports-hover';
+          }());
+    </script>
+
+    <script src="{{ 'lazysizes.min.js' | asset_url }}" async></script>
+
+    {%- if template == 'customers/addresses' -%}
+      <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer></script>
+      <script src="{{ 'customer_area.js' | shopify_asset_url }}" defer></script>
+    {%- endif -%}
+
+    <script
+      src="https://cdn.polyfill.io/v3/polyfill.min.js?unknown=polyfill&features=fetch,Element.prototype.closest,Element.prototype.remove,Element.prototype.classList,Array.prototype.includes,Array.prototype.fill,Object.assign,CustomEvent,IntersectionObserver,IntersectionObserverEntry,URL"
+      defer
+    ></script>
+    <script src="{{ 'libs.min.js' | asset_url }}" defer></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="{{ 'theme.min.js' | asset_url }}" defer></script>
+    <script src="{{ 'bs-cart-drawer.js' | asset_url }}" defer></script>
+    <script src="{{ 'search-manipulation.js' | asset_url }}" defer></script>
+    <script src="{{ 'bs-dentalspray-redirect.js' | asset_url }}"></script>
+
+    <script>
+      (function () {
+        window.onpageshow = function() {
+          if (window.theme.showPageTransition) {
+            var pageTransition = document.querySelector('.PageTransition');
+
+            if (pageTransition) {
+              pageTransition.style.visibility = 'visible';
+              pageTransition.style.opacity = '0';
+            }
+          }
+
+          document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', {
+            bubbles: true
+          }));
+        };
+      })();
+    </script>
+
+    {%- render 'head-scripts', layout: 'theme' -%}
+
+    {% render 'microdata-schema' %}
+    {% include 'ufe-offer' %}
+
     {% if template.name == 'index' %}
       <script type="text/plain" data-cookieconsent="marketing">
         !function(w,d,s,t,a){if(w.amzn)return;w.amzn=a=function(){w.amzn.q.push([arguments,(new Date).getTime()])};a.q=[];a.version="0.0";s=d.createElement("script");s.src="https://c.amazon-adsystem.com/aat/amzn.js";s.id="amzn-pixel";s.async=true;t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t)}(window,document);
@@ -390,280 +526,31 @@
       </script>
     {% endif %}
 
-    <!-- NextLevel Network Tag - GATED -->
-    <script src="https://www.dwin1.com/86929.js" type="text/plain" data-cookieconsent="marketing" defer></script>
-
-    <!-- Klaviyo - PROPERLY GATED -->
-    <script type="text/plain" data-cookieconsent="marketing" src="https://a.klaviyo.com/media/js/onsite/onsite.js"></script>
-    <script type="text/plain" data-cookieconsent="marketing">
-      var klaviyo = klaviyo || [];
-      klaviyo.init({
-          account: 'Xfhnkz',
-          platform: 'shopify'
-      });
-      klaviyo.enable('backinstock', {
-          trigger: {
-              product_page_text: 'Benachrichtige mich, wenn verfügbar',
-              product_page_class: 'Button Button--full Button--primary',
-              product_page_text_align: 'center',
-              product_page_margin: '0 0 8px',
-              replace_anchor: false,
-              alternate_anchor: 'BackInStockAnchor'
-          },
-          modal: {
-              headline: '{product_name}',
-              body_content: 'Registriere dich, um eine Nachricht zu erhalten, wenn dieser Artikel wieder verfügbar ist.',
-              email_field_label: 'Email',
-              button_label: 'Benachrichtige mich, wenn verfügbar',
-              subscription_success_label: 'Du hast es geschafft! Wir werden uns melden, wenn der Artikel wieder da ist.',
-              footer_content: '',
-              drop_background_color: '#000',
-              background_color: '#fff',
-              text_color: '#222',
-              button_text_color: '#fff',
-              button_background_color: '#f1af9e',
-              close_button_color: '#ccc',
-              error_background_color: '#fcd6d7',
-              error_text_color: '#C72E2F',
-              success_background_color: '#d3efcd',
-              success_text_color: '#1B9500'
-          }
-      });
-    </script>
-
-    <!-- WhatsApp Widget - GATED -->
-    <script type="text/plain" data-cookieconsent="marketing" src="https://customized-whatsapp-widget.chatarmin.com/widget-fetcher.js?w_id=6811de72e886703c08521660&u_id=680a53d680aac276290b3339" async></script>
-
-    <!-- ===== FUNCTIONAL SCRIPTS (NO CONSENT NEEDED) ===== -->
-
-    <!-- Core functionality scripts -->
-    <script>
-      window.SLIDECART_DISABLE = true;
-      window.experiments = {
-        data: {
-          product: {
-            id: {{ product.id | json }},
-            title: {{ product.title | json }},
-          },
-        },
-      };
-      window.enable_superchat = {{ settings.enable_superchat }};
-      window.superchat_delay = {{ settings.superchat_delay | times: 1000 }};
-    </script>
-
-    <!-- Performance optimization script (cleaned up) -->
-    <script>
-      (() => {
-        try {
-          var e = navigator,
-              t = e.userAgent,
-              r = 0,
-              a = (e, t, r) => e.setAttribute(t, r),
-              o = (e, t) => e.removeAttribute(t),
-              d = "tagName",
-              n = "forEach",
-              l = "indexOf";
-
-          // Only apply optimization on specific platforms
-          if (e.platform[l]("x86_64") > -1 && t[l]("CrOS") < 0 || t[l]("power") > -1 || t[l]("rix") > -1) {
-            
-            new MutationObserver((e) => {
-              e[n](({ addedNodes }) => {
-                addedNodes[n]((e) => {
-                  if (1 === e.nodeType) {
-                    if ("IFRAME" === e[d]) {
-                      a(e, "loading", "lazy");
-                      a(e, "data-src", e.src);
-                      o(e, "src");
-                    }
-                    if ("IMG" === e[d] && r++ > 20) {
-                      a(e, "loading", "lazy");
-                    }
-                    if ("SCRIPT" === e[d]) {
-                      // Preserve essential scripts
-                      if (e.src && (e.src.indexOf('theme.js') > -1 || e.src.indexOf('Shopify') > -1 || e.src.indexOf('cookiebot') > -1 || e.src.indexOf('recharge') > -1)) {
-                        // Keep critical scripts loading normally
-                        return;
-                      }
-                      // Apply lazy loading to non-critical scripts
-                      a(e, "data-src", e.src);
-                      o(e, "src");
-                      e.type = "text/lazyload";
-                    }
-                  }
-                });
-              });
-            }).observe(document.documentElement, { childList: true, subtree: true });
-          }
-
-          var c = (e) => document.querySelector(e),
-              s = () => Date.now(),
-              i = s(),
-              u = () => {
-                if (!(s() - i > 500)) {
-                  if (!c("body>meta")) return setTimeout(u, 5);
-                  var e = c("head");
-                  document.querySelectorAll("meta,link:not([rel='stylesheet']),title")[n]((t) => e.append(t));
-                }
-              };
-          u();
-        } catch (m) {
-          // Handle errors silently
-        }
-      })();
-    </script>
-
-    <!-- Theme variables and config -->
-    <script>
-      // Theme configuration
-      window.theme = {
-        pageType: {{ request.page_type | json }},
-        moneyFormat: {{ shop.money_format | json }},
-        moneyWithCurrencyFormat: {{ shop.money_with_currency_format | json }},
-        productImageSize: {{ settings.product_image_size | json }},
-        searchMode: {{ settings.search_mode | json }},
-        showPageTransition: {{ settings.show_page_transition | json }},
-        showElementStaggering: {{ settings.show_element_staggering | json }},
-        showImageZooming: {{ settings.show_image_zooming | json }}
-      };
-
-      window.routes = {
-        rootUrl: {{ routes.root_url | json }},
-        rootUrlWithoutSlash: {% if routes.root_url == '/' %}''{% else %}{{ routes.root_url | json }}{% endif %},
-        cartUrl: {{ routes.cart_url | json }},
-        cartAddUrl: {{ routes.cart_add_url | json }},
-        cartChangeUrl: {{ routes.cart_change_url | json }},
-        searchUrl: {{ routes.search_url | json }},
-        productRecommendationsUrl: {{ routes.product_recommendations_url | json }}
-      };
-
-      window.languages = {
-        cartAddNote: {{ 'cart.general.add_note' | t | json }},
-        cartEditNote: {{ 'cart.general.edit_note' | t | json }},
-        productImageLoadingError: {{ 'product.slideshow.image_loading_error' | t | json }},
-        productFormAddToCart: {% if product.template_suffix == 'pre-order' %}{{ 'product.form.pre_order' | t | json }}{% elsif product.template_suffix == 'donation' %}{{ 'product.form.add_to_cart_donation' | t | json }}{%else%}{{ 'product.form.add_to_cart' | t | json }}{% endif %},
-        productFormUnavailable: {{ 'product.form.unavailable' | t | json }},
-        productFormSoldOut: {{ 'product.form.sold_out' | t | json }},
-        shippingEstimatorOneResult: {{ 'cart.shipping_estimator.one_result_title' | t | json }},
-        shippingEstimatorMoreResults: {{ 'cart.shipping_estimator.more_results_title' | t | json }},
-        shippingEstimatorNoResults: {{ 'cart.shipping_estimator.no_results_title' | t | json }}
-      };
-
-      window.lazySizesConfig = {
-        loadHidden: false,
-        hFac: 0.5,
-        expFactor: 2,
-        ricTimeout: 150,
-        lazyClass: 'Image--lazyLoad',
-        loadingClass: 'Image--lazyLoading',
-        loadedClass: 'Image--lazyLoaded'
-      };
-
-      {% if customer %}
-        window.Shopify.isUserLoggedIn = true;
-      {% else %}
-        window.Shopify.isUserLoggedIn = false;
-      {% endif %}
-
-      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
-      document.documentElement.style.setProperty('--window-height', window.innerHeight + 'px');
-
-      // Feature detection
-      (function() {
-        document.documentElement.className += ((window.CSS && window.CSS.supports('(position: sticky) or (position: -webkit-sticky)')) ? ' supports-sticky' : ' no-supports-sticky');
-        document.documentElement.className += (window.matchMedia('(-moz-touch-enabled: 1), (hover: none)')).matches ? ' no-supports-hover' : ' supports-hover';
-      }());
-    </script>
-
-    <!-- Policy page cookie declaration -->
-    <script>
-      {%- if request.page_type == 'policy' -%}
-        document.addEventListener('DOMContentLoaded', function() {
-          var title = document.querySelector('.shopify-policy__title');
-          var body = document.querySelector('.shopify-policy__body');
-          if (title) title.classList.add('PageHeader', 'Heading', 'u-h1');
-          if (body) body.classList.add('Rte');
-
-          setTimeout(() => {
-            const cookieDeclaration = document.querySelector('.CookieDeclaration__injection');
-            if (cookieDeclaration) {
-              const cookieDeclarationScript = document.createElement('script');
-              cookieDeclarationScript.setAttribute('id','CookieDeclaration');
-              cookieDeclarationScript.setAttribute('src','https://consent.cookiebot.com/a4aa9c1a-9639-4e9f-8a23-4aef9c37b3cc/cd.js');
-              cookieDeclarationScript.setAttribute('type','text/javascript');
-              cookieDeclarationScript.setAttribute('async','true');
-              cookieDeclaration.appendChild(cookieDeclarationScript);
-            }
-          }, 500);
-        });
-      {%- endif -%}
-    </script>
-
-    <!-- External libraries -->
-    <script src="{{ 'lazysizes.min.js' | asset_url }}" async></script>
-    <script src="https://cdn.polyfill.io/v3/polyfill.min.js?unknown=polyfill&features=Element.prototype.closest,Element.prototype.remove,Element.prototype.classList,Array.prototype.includes,Array.prototype.fill,Object.assign,CustomEvent,IntersectionObserver,IntersectionObserverEntry,URL" defer></script>
-    <script src="{{'jquery.min.js' | asset_url}}"></script>
-
-    <!-- Theme scripts -->
-    <script src="{{ 'libs.min.js' | asset_url }}" defer></script>
-    <script src="{{ 'slick.min.js' | asset_url }}" defer></script>
-    <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
-    <script src="{{ 'theme.min.js' | asset_url }}" defer></script>
-    <script src="{{ 'bs-load-third-party-scripts.js' | asset_url }}" defer></script>
-    <script src="{{ 'bs-subscription-callout.js' | asset_url }}" defer></script>
-    <script src="{{ 'bs-sticky-atc.js' | asset_url }}" defer></script>
-    <script src="{{ 'bs-mobile-sidebar-nav.js' | asset_url }}" defer></script>
-    <script src="{{ 'bs-cart-drawer.js' | asset_url }}" defer></script>
-    <script src="{{ 'search-manipulation.js' | asset_url }}" defer></script>
-    <script src="{{ 'bs-dentalspray-redirect.js' | asset_url }}"></script>
-
-    <!-- Customer area assets -->
-    {%- if template == 'customers/addresses' -%}
-      <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer></script>
-      <script src="{{ 'customer_area.js' | shopify_asset_url }}" defer></script>
-    {%- endif -%}
-
-    <!-- Page transition handling -->
-    <script>
-      (function () {
-        window.onpageshow = function() {
-          if (window.theme.showPageTransition) {
-            var pageTransition = document.querySelector('.PageTransition');
-            if (pageTransition) {
-              pageTransition.style.visibility = 'visible';
-              pageTransition.style.opacity = '0';
-            }
-          }
-          document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', {
-            bubbles: true
-          }));
-        };
-      })();
-    </script>
-
-    {%- render 'head-styles', layout: 'theme' -%}
-    {%- render 'head-scripts', layout: 'theme' -%}
-    {% render 'microdata-schema' %}
-    {% include 'ufe-offer' %}
     {% render 'rapid-search-settings' %}
   </head>
 
   {%- capture classes -%}features--heading-{{ settings.heading_size }}{%- endcapture -%}
+
   {%- if settings.uppercase_heading -%}
     {%- assign classes = classes | append: ' features--heading-uppercase' -%}
   {%- endif -%}
+
   {%- if settings.product_show_price_on_hover -%}
     {%- assign classes = classes | append: ' features--show-price-on-hover' -%}
   {%- endif -%}
+
   {%- if settings.show_page_transition -%}
     {%- assign classes = classes | append: ' features--show-page-transition' -%}
   {%- endif -%}
+
   {%- if settings.show_button_transition -%}
     {%- assign classes = classes | append: ' features--show-button-transition' -%}
   {%- endif -%}
+
   {%- if settings.show_image_zooming -%}
     {%- assign classes = classes | append: ' features--show-image-zooming' -%}
   {%- endif -%}
+
   {%- if settings.show_element_staggering -%}
     {%- assign classes = classes | append: ' features--show-element-staggering' -%}
   {%- endif -%}
@@ -700,26 +587,23 @@
       {% section 'footer' %}
     </div>
 
-    <!-- Reviews.io (functional - ungated but limited tracking) -->
-   <script src="https://widget.reviews.io/rating-snippet/dist.js"></script>
-  <div id="ruk_rating_snippet"></div>
-  <script>
-  if (typeof ratingSnippet === 'function') {
-    ratingSnippet("ruk_rating_snippet", {
-      store: "tierliebhaber.de",
-      mode: "default",
-      color: "#fbd343",
-      linebreak: false,
-      text: "{{ 'product.tabs.reviews' | t }}",
-      singularText: "{{ 'product.tabs.reviews_singular' | t }}",
-      lang: "de",
-      usePolaris: true,
-      showEmptyStars: false,
-      dictionary: {
-        "helpful_question": "War diese Bewertung hilfreich?"
-      }
-    });
-  }
-</script>
+    <script src="https://www.dwin1.com/86929.js" type="text/plain" data-cookieconsent="marketing" defer="defer"></script>
+
+    <script src="https://widget.reviews.io/rating-snippet/dist.js"></script>
+    <link rel="stylesheet" href="https://widget.reviews.io/rating-snippet/dist.css">
+    <script>
+      ratingSnippet("ruk_rating_snippet", {
+        store: "tierliebhaber.de",
+        mode: "default",
+        color: "#fbd343",
+        linebreak: false,
+        text: "{{ 'product.tabs.reviews' | t }}",
+        singularText: "{{ 'product.tabs.reviews_singular' | t }}",
+        lang: "de",
+        usePolaris: true,
+        showEmptyStars: false,
+      });
+    </script>
+    <script src="https://customized-whatsapp-widget.chatarmin.com/widget-fetcher.js?w_id=6811de72e886703c08521660&u_id=680a53d680aac276290b3339" async ></script>    
   </body>
 </html>
