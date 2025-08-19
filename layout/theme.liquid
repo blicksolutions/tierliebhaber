@@ -108,7 +108,7 @@
 
       if (begin == -1) {
       	begin = documentCookies.indexOf(prefix);
-      	if (begin != 0) return null;
+      	if (begin != 0) return;
       } else {
       	begin += 2;
       	end = document.cookie.indexOf(';', begin);
