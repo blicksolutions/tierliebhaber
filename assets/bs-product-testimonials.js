@@ -25,7 +25,7 @@
 			const starRatingWidget = reviewWidget.querySelector('div:nth-of-type(2) .R-RatingStars').outerHTML;
 			const starRatingWidgetTarget = document.querySelector('.bs-product-testimonials__rating-product');
 		
-			if(starRatingWidgetTarget && avgRatingTarget && reviewsNumberTarget){
+			if(starRatingWidgetTarget && avgRatingTarget && reviewsNumberTarget && reviewsNumber){
 				starRatingWidgetTarget.insertAdjacentHTML('afterbegin', starRatingWidget);
 				avgRatingTarget.innerHTML = avgRating;
 				reviewsNumberTarget.innerHTML = reviewsNumber;
