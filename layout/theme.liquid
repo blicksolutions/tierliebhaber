@@ -3,6 +3,30 @@
 <html class="no-js" lang="{{ shop.locale }}">
   <head>
 <script>
+    // Function to check marketing consent
+  function checkMarketingConsent() {
+    try {
+      // Check if Cookiebot is available and consent is given
+      if (typeof Cookiebot !== 'undefined' && Cookiebot.consent) {
+        return Cookiebot.consent.marketing === true;
+      }
+      
+      // Fallback: check cookie consent string
+      const consentCookie = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('CookieConsent='));
+      
+      if (consentCookie) {
+        const consentValue = consentCookie.split('=')[1];
+        return consentValue.includes('marketing:true');
+      }
+      
+      return false; // Default to no consent
+    } catch (e) {
+      log('Error checking consent:', e);
+      return false;
+    }
+  }
     const originalCookieDescriptor = Object.getOwnPropertyDescriptor(Document.prototype, 'cookie');
   if (originalCookieDescriptor && originalCookieDescriptor.set) {
     Object.defineProperty(document, 'cookie', {
