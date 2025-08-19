@@ -3022,7 +3022,10 @@
             var t = e.querySelector(".LikeBadge__Text");
             ne || ((ne = t.textContent.match(/\d+/)[0]), ie(se, ne, "sessionStorage")), (t.textContent = t.textContent.replace(/\d+/, ne)), e.classList.add("-Initialized");
         });
-    var ae = JSON.parse(document.querySelector("[data-product-json]").innerHTML);
+        if(document.querySelector("[data-product-json]")){
+var ae = JSON.parse(document.querySelector("[data-product-json]").innerHTML);
+        }
+    
     document.addEventListener("variant:changed", function (e) {
         var t,
             i,
