@@ -32,12 +32,12 @@
     Object.defineProperty(document, 'cookie', {
       get: originalCookieDescriptor.get,
       set: function(value) {
-        // Check if this is an Elevar cookie and if marketing consent is given
-        if (value && /_Elevar-apex/i.test(value)) {
+        // Check if this is an Elevar or Klaviyo cookie and if marketing consent is given
+        if (value && (/_Elevar-apex/i.test(value) || /__kla_id/i.test(value))) {
           // Check if marketing consent is given
           const hasMarketingConsent = checkMarketingConsent();
           if (!hasMarketingConsent) {
-            log('Blocked Elevar cookie write:', value);
+            log('Blocked marketing cookie write:', value);
             return; // Block the cookie write
           }
         }
