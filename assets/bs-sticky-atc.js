@@ -2,7 +2,10 @@
 	// code for TLH-068
 	setTimeout(()=>{
 		let atcButton = document.querySelector('[data-js-atc-button]')
-		if (atcButton.getAttribute('disabled') == 'disabled') return;
+		if(atcButton){
+			if (atcButton.getAttribute('disabled') == 'disabled') return;
+		}
+		
 
 		const productInfo = document.querySelector('.Product__Info');
 		if (!productInfo) return;
