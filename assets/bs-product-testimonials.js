@@ -19,13 +19,15 @@
 			const avgRating = reviewWidget.querySelector('div:first-of-type').innerText;
 			if(reviewWidget.querySelector('div:nth-of-type(3)')){
 				const reviewsNumber = reviewWidget.querySelector('div:nth-of-type(3)').innerText.match(/[\d,\.]+/g);
+			}else{
+				const reviewsNumber= "";
 			}
 			const avgRatingTarget = document.querySelector('.bs-product-testimonials__rating-product__average span');
 			const reviewsNumberTarget = document.querySelector('.bs-product-testimonials__rating-product__reviews-number span');
 			const starRatingWidget = reviewWidget.querySelector('div:nth-of-type(2) .R-RatingStars').outerHTML;
 			const starRatingWidgetTarget = document.querySelector('.bs-product-testimonials__rating-product');
 		
-			if(starRatingWidgetTarget && avgRatingTarget && reviewsNumberTarget && reviewsNumber){
+			if(starRatingWidgetTarget && avgRatingTarget && reviewsNumberTarget){
 				starRatingWidgetTarget.insertAdjacentHTML('afterbegin', starRatingWidget);
 				avgRatingTarget.innerHTML = avgRating;
 				reviewsNumberTarget.innerHTML = reviewsNumber;
