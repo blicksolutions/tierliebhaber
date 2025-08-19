@@ -7,52 +7,27 @@
 
     const superChatScriptPath = `https://widget.superchat.de/snippet.js?applicationKey=WCjPxDo0Ol8v91gpB51bp4NVn6`;
 
-    const loadScriptSafely = (src, scriptName = 'Third-party script') => {
-        return new Promise((resolve, reject) => {
-            try {
-                const script = document.createElement("script");
-                script.src = src;
-                
-                script.onload = () => {
-                    console.log(`✅ ${scriptName} loaded successfully`);
-                    resolve();
-                };
-                
-                script.onerror = (event) => {
-                    console.warn(`⚠️ ${scriptName} failed to load (SSL/Network error): ${src}`);
-                    resolve(); // Resolve instead of reject to continue execution
-                };
-
-                // Wrap appendChild in try-catch to handle immediate network errors
-                try {
-                    document.head.appendChild(script);
-                } catch (appendError) {
-                    console.warn(`⚠️ Failed to append ${scriptName} (Network error):`, appendError);
-                    resolve(); // Continue execution
-                }
-                
-            } catch (error) {
-                console.warn(`⚠️ Error creating ${scriptName}:`, error);
-                resolve(); // Continue execution
-            }
-        });
-    };
-
-    const addThirdPartyScripts = async () => {
+    const addThirdPartyScripts = () => {
         if (!thirdPartyScriptAdded) {
             
-            // Load scripts one by one, handling each failure gracefully
-            for (let i = 0; i < thirdPartysSriptPaths.length; i++) {
-                try {
-                    await loadScriptSafely(thirdPartysSriptPaths[i], `Tierliebhaber Script ${i + 1}`);
-                } catch (error) {
-                    console.warn(`⚠️ Skipping script ${i + 1}, continuing...`);
-                }
-            }
+            thirdPartysSriptPaths.forEach((thirdPartyScriptPath, index) => {
+                // Create and append script - browser error will happen here but won't break JS
+                const script = document.createElement("script");
+                script.src = thirdPartyScriptPath;
+                
+                script.onload = () => {
+                    console.log(`✅ Script ${index + 1} loaded successfully`);
+                };
+                
+                script.onerror = () => {
+                    console.log(`⚠️ Script ${index + 1} failed (expected due to SSL issue) - website continues normally`);
+                };
+
+                // This line will trigger the browser error, but JS execution continues
+                document.head.appendChild(script);
+            });
 
             thirdPartyScriptAdded = true;
-            
-            // Clean up event listeners
             window.removeEventListener("click", addThirdPartyScripts);
             window.removeEventListener("mousemove", addThirdPartyScripts);
             window.removeEventListener("scroll", addThirdPartyScripts);
@@ -69,12 +44,12 @@
         }, 1000);
 
         if (window.enable_superchat == true) {
-            setTimeout(async () => {
-                try {
-                    await loadScriptSafely(superChatScriptPath, 'SuperChat Script');
-                } catch (error) {
-                    console.warn('⚠️ SuperChat failed, but website continues normally');
-                }
+            setTimeout(() => {
+                const script = document.createElement("script");
+                script.src = superChatScriptPath;
+                script.onload = () => console.log(`✅ SuperChat loaded successfully`);
+                script.onerror = () => console.log(`⚠️ SuperChat failed - website continues normally`);
+                document.head.appendChild(script);
             }, window.superchat_delay);
         }
     });
