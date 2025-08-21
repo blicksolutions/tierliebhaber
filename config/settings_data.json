@@ -1756,19 +1756,9 @@
         "disabled": true,
         "settings": {}
       },
-      "15685250022964305326": {
-        "type": "shopify://apps/elevar-conversion-tracking/blocks/dataLayerEmbed/bc30ab68-b15c-4311-811f-8ef485877ad6",
-        "disabled": false,
-        "settings": {}
-      },
       "6757137876795001004": {
         "type": "shopify://apps/pixoo-outbrain-pixel/blocks/star_rating/7eb7f1da-dc3d-4f59-af0d-5d4efc849789",
         "disabled": true,
-        "settings": {}
-      },
-      "6478312753674380289": {
-        "type": "shopify://apps/gempages-builder/blocks/embed-gp-script-head/20b379d4-1b20-474c-a6ca-665c331919f3",
-        "disabled": false,
         "settings": {}
       },
       "3667842014806057753": {
@@ -1777,11 +1767,6 @@
         "settings": {
           "allowed_templates": ""
         }
-      },
-      "7625205453299604178": {
-        "type": "shopify://apps/gemx-cro-a-b-testing/blocks/gemx-theme-helper/d5fea089-2b8e-4af7-a4da-76b975b021c7",
-        "disabled": false,
-        "settings": {}
       },
       "4291333794791649201": {
         "type": "shopify://apps/loyalty-rewards-and-referrals/blocks/embed-sdk/6f172e67-4106-4ac0-89c5-b32a069b3101",
@@ -1853,6 +1838,21 @@
       },
       "17676059084223943535": {
         "type": "shopify://apps/triplewhale/blocks/triple_pixel_snippet/483d496b-3f1a-4609-aea7-8eee3b6b7a2a",
+        "disabled": true,
+        "settings": {}
+      },
+      "7625205453299604178": {
+        "type": "shopify://apps/gemx-cro-a-b-testing/blocks/gemx-theme-helper/d5fea089-2b8e-4af7-a4da-76b975b021c7",
+        "disabled": true,
+        "settings": {}
+      },
+      "15685250022964305326": {
+        "type": "shopify://apps/elevar-conversion-tracking/blocks/dataLayerEmbed/bc30ab68-b15c-4311-811f-8ef485877ad6",
+        "disabled": true,
+        "settings": {}
+      },
+      "6478312753674380289": {
+        "type": "shopify://apps/gempages-builder/blocks/embed-gp-script-head/20b379d4-1b20-474c-a6ca-665c331919f3",
         "disabled": true,
         "settings": {}
       }
