@@ -88,9 +88,9 @@
     </script>
 
     {% render 'replo-head' %}
-    {% comment %}
+
      {% render 'consent_script_blocking' %} 
-    {% endcomment %} 
+        {% comment %}{% endcomment %} 
 
     <script src="{{ 'bs-load-third-party-scripts.js' | asset_url }}" defer></script>
     <script src="{{ 'bs-subscription-callout.js' | asset_url }}" defer></script>
