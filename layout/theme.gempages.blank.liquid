@@ -4,20 +4,20 @@
   <head>
  {% render 'cookiebot' %}
 
-    <!-- BS: AB Scripts -->
+     <!-- BS: AB Scripts -->
 	<link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}">
     <link rel="stylesheet" href="{{ 'ds-op-lp-3.css' | asset_url }}">
 
-	  <script src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
-	  <script src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
-	  <script src="{{ 'bs-ab-tlh-009.js' | asset_url }}"></script>
-	  <script src="{{ 'bs-ab-tlh-010.js' | asset_url }}"></script>
-	  <script src="{{ 'bs-ab-tlh-011.js' | asset_url }}"></script>
-	  <script src="{{ 'bs-ab-tlh-025.js' | asset_url }}"></script>
+	  <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
+	  <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
+	  <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-009.js' | asset_url }}"></script>
+	  <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-010.js' | asset_url }}"></script>
+	  <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-011.js' | asset_url }}"></script>
+	  <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-025.js' | asset_url }}"></script>
     <!-- END BS: AB Scripts -->
 
     <!-- ABlyft DE Visitor Audience Setting -->
-    <script>
+    <script type="text/plain" data-cookieconsent="marketing">
       fetch('/browsing_context_suggestions.json')
        .then(response => response.json())
        .then(json => {
@@ -31,8 +31,8 @@
     <!-- END ABlyft DE Visitor Audience Setting -->
 
     <!-- ABlyft Snippet -->
-    <script src="https://cdn.ablyft.com/s/55886406.js"></script>
-    <script>
+    <script type="text/plain" data-cookieconsent="marketing" src="https://cdn.ablyft.com/s/55886406.js"></script>
+    <script type="text/plain" data-cookieconsent="marketing">
       window['ablyft'] = window['ablyft'] || [];
     </script>
     
@@ -140,7 +140,11 @@
     </script>
     <!-- END: TLH-026 custom goal snippet -->
 
+    {% comment %}
     {% render 'replo-head' %}
+    {% endcomment %}
+
+    {% render 'consent_script_blocking' %}
 
     <script src="{{ 'bs-load-third-party-scripts.js' | asset_url }}" defer></script>
     <script src="{{ 'bs-subscription-callout.js' | asset_url }}" defer></script>
@@ -148,7 +152,7 @@
     <script src="{{ 'bs-mobile-sidebar-nav.js' | asset_url }}" defer></script>
 
     <!-- Awin Implementation -->
-    <script>
+    <script type="text/plain" data-cookieconsent="marketing">
       var AWIN = AWIN || {};
       AWIN.Tracking = AWIN.Tracking || {};
       AWIN.Tracking.AdvertiserConsent = false;
@@ -280,7 +284,7 @@
     {% render 'css-variables' %}
 
     {{ content_for_header }}
-
+{% render 'cookie-consent' %}
 <script>
   (() => {
     try {
@@ -442,7 +446,7 @@
       <script src="{{ 'customer_area.js' | shopify_asset_url }}" defer></script>
     {%- endif -%}
 
-    <script
+    <script type="text/plain" data-cookieconsent="marketing"
       src="https://cdn.polyfill.io/v3/polyfill.min.js?unknown=polyfill&features=fetch,Element.prototype.closest,Element.prototype.remove,Element.prototype.classList,Array.prototype.includes,Array.prototype.fill,Object.assign,CustomEvent,IntersectionObserver,IntersectionObserverEntry,URL"
       defer
     ></script>
