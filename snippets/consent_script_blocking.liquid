@@ -1,0 +1,179 @@
+<script>
+/**
+ * Shopify runtime blocker + Cookiebot-controlled allowlist
+ * Blocks specific script src domains until the matching Cookiebot category is consented.
+ * - polyfill-fastly.net        -> Cookiebot "preferences" (Functional)
+ * - error-analytics-sessions-production.shopifysvc.com -> Cookiebot "statistics" (Analytics)
+ *
+ * Place after Cookiebot loader, before </head>.
+ */
+(function () {
+  // ---- Config: domain -> Cookiebot category
+  const DOMAIN_CATEGORY = {
+    "polyfill-fastly.net": "preferences", // Functional
+    "error-analytics-sessions-production.shopifysvc.com": "statistics" // Analytics
+  };
+
+  // ---- Helpers
+  function whichDomain(url) {
+    try { return new URL(url, location.href).hostname; } catch (e) { return ""; }
+  }
+
+  function neededCategoryFor(url) {
+    const host = whichDomain(url);
+    return Object.keys(DOMAIN_CATEGORY).find(d => host === d || host.endsWith("." + d))
+      ? DOMAIN_CATEGORY[Object.keys(DOMAIN_CATEGORY).find(d => host === d || host.endsWith("." + d))]
+      : null;
+  }
+
+  function hasConsent(cat) {
+    // Map Cookiebot categories to booleans; treat unknown as false
+    if (!window.Cookiebot || !Cookiebot.consent) return false;
+    switch (cat) {
+      case "necessary":   return true; // always allowed
+      case "preferences": return !!Cookiebot.consent.preferences;
+      case "statistics":  return !!Cookiebot.consent.statistics;
+      case "marketing":   return !!Cookiebot.consent.marketing;
+      default:            return false;
+    }
+  }
+
+  function onCookiebot(eventName, cb) {
+    // Cookiebot dispatches DOM events with these names
+    window.addEventListener("CookiebotOnAccept", cb);
+    window.addEventListener("CookiebotOnDecline", cb);
+    window.addEventListener("CookiebotOnConsentReady", cb);
+  }
+
+  // ---- Pending queue for scripts we blocked before consent
+  const pending = []; // { src, attrs, async, defer, text, nonce, referrerPolicy, crossOrigin, integrity }
+
+  function cloneAttrs(srcEl) {
+    const out = {};
+    for (const a of srcEl.attributes) out[a.name] = a.value;
+    return out;
+  }
+
+  function createAndInjectScript(record) {
+    const s = document.createElement("script");
+    if (record.text) s.textContent = record.text;
+    if (record.src) s.src = record.src;
+    if (record.async != null) s.async = record.async;
+    if (record.defer != null) s.defer = record.defer;
+    if (record.nonce) s.nonce = record.nonce;
+    if (record.referrerPolicy) s.referrerPolicy = record.referrerPolicy;
+    if (record.crossOrigin) s.crossOrigin = record.crossOrigin;
+    if (record.integrity) s.integrity = record.integrity;
+    if (record.attrs) {
+      for (const [k, v] of Object.entries(record.attrs)) {
+        // Avoid re-setting properties we already set above
+        if (!["src","async","defer","nonce","referrerpolicy","crossorigin","integrity"].includes(k.toLowerCase())) {
+          try { s.setAttribute(k, v); } catch(e){}
+        }
+      }
+    }
+    (document.head || document.documentElement).appendChild(s);
+  }
+
+  function tryReleasePending() {
+    // Attempt to load any blocked scripts that now have consent
+    for (let i = pending.length - 1; i >= 0; i--) {
+      const rec = pending[i];
+      const cat = neededCategoryFor(rec.src || "");
+      if (!cat || hasConsent(cat)) {
+        console.info("[Cookiebot] Releasing previously blocked script:", rec.src, "category:", cat);
+        createAndInjectScript(rec);
+        pending.splice(i, 1);
+      }
+    }
+  }
+
+  // ---- Interceptors for script creation/injection
+  const origCreateElement = document.createElement;
+  const origAppendChild = Element.prototype.appendChild;
+  const origInsertBefore = Element.prototype.insertBefore;
+  const origSetAttribute = Element.prototype.setAttribute;
+
+  function shouldBlock(src) {
+    const cat = neededCategoryFor(src || "");
+    if (!cat) return false;             // not a domain we manage
+    const allowed = hasConsent(cat);    // consent given?
+    return !allowed;                    // block if not allowed yet
+  }
+
+  function handleScriptCandidate(el) {
+    // If it has a src we manage and no consent yet, block & queue
+    const src = el.getAttribute && el.getAttribute("src");
+    if (src && shouldBlock(src)) {
+      const rec = {
+        src,
+        attrs: cloneAttrs(el),
+        async: el.async,
+        defer: el.defer,
+        text: el.textContent,
+        nonce: el.nonce,
+        referrerPolicy: el.referrerPolicy,
+        crossOrigin: el.crossOrigin,
+        integrity: el.integrity
+      };
+      console.warn("[Cookiebot] Blocked script until consent:", src, "category:", neededCategoryFor(src));
+      pending.push(rec);
+      return true; // handled (blocked)
+    }
+    return false; // not blocked
+  }
+
+  // Trap creation so setting src later also gets checked
+  document.createElement = function(tagName, ...args) {
+    const el = origCreateElement.call(document, tagName, ...args);
+    if (String(tagName).toLowerCase() === "script") {
+      // Wrap setAttribute on this element to catch late src assignments
+      el.setAttribute = function(name, value) {
+        if (String(name).toLowerCase() === "src" && shouldBlock(value)) {
+          const rec = {
+            src: value,
+            attrs: cloneAttrs(el),
+            async: el.async,
+            defer: el.defer,
+            text: el.textContent,
+            nonce: el.nonce,
+            referrerPolicy: el.referrerPolicy,
+            crossOrigin: el.crossOrigin,
+            integrity: el.integrity
+          };
+          console.warn("[Cookiebot] Blocked (late) script src until consent:", value, "category:", neededCategoryFor(value));
+          pending.push(rec);
+          return; // swallow
+        }
+        return origSetAttribute.call(el, name, value);
+      };
+    }
+    return el;
+  };
+
+  // Trap DOM insertion paths
+  Element.prototype.appendChild = function(child) {
+    if (child && child.tagName === "SCRIPT" && handleScriptCandidate(child)) {
+      return child; // do not append
+    }
+    return origAppendChild.call(this, child);
+  };
+  Element.prototype.insertBefore = function(newNode, referenceNode) {
+    if (newNode && newNode.tagName === "SCRIPT" && handleScriptCandidate(newNode)) {
+      return newNode; // do not insert
+    }
+    return origInsertBefore.call(this, newNode, referenceNode);
+  };
+
+  // ---- Hook into Cookiebot lifecycle to release when consent exists
+  onCookiebot("CookiebotOnConsentReady", tryReleasePending);
+
+  // If Cookiebot is already ready (e.g., quick loads), try once
+  if (window.Cookiebot && Cookiebot.consent) {
+    tryReleasePending();
+  }
+
+  // Optional: also retry after a short delay in case scripts were queued very early
+  setTimeout(tryReleasePending, 1500);
+})();
+</script>
