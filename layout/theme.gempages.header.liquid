@@ -2,67 +2,23 @@
 
 <html class="no-js" lang="{{ shop.locale }}">
   <head>
-<script>
-    // Function to check marketing consent
-  function checkMarketingConsent() {
-    try {
-      // Check if Cookiebot is available and consent is given
-      if (typeof Cookiebot !== 'undefined' && Cookiebot.consent) {
-        return Cookiebot.consent.marketing === true;
-      }
-      
-      // Fallback: check cookie consent string
-      const consentCookie = document.cookie
-        .split('; ')
-        .find(row => row.startsWith('CookieConsent='));
-      
-      if (consentCookie) {
-        const consentValue = consentCookie.split('=')[1];
-        return consentValue.includes('marketing:true');
-      }
-      
-      return false; // Default to no consent
-    } catch (e) {
-      log('Error checking consent:', e);
-      return false;
-    }
-  }
-    const originalCookieDescriptor = Object.getOwnPropertyDescriptor(Document.prototype, 'cookie');
-  if (originalCookieDescriptor && originalCookieDescriptor.set) {
-    Object.defineProperty(document, 'cookie', {
-      get: originalCookieDescriptor.get,
-      set: function(value) {
-        // Check if this is an Elevar or Klaviyo cookie and if marketing consent is given
-        if (value && (/_Elevar-apex/i.test(value) || /__kla_id/i.test(value))) {
-          // Check if marketing consent is given
-          const hasMarketingConsent = checkMarketingConsent();
-          if (!hasMarketingConsent) {
-            log('Blocked marketing cookie write:', value);
-            return; // Block the cookie write
-          }
-        }
-        // Allow the cookie write
-        originalCookieDescriptor.set.call(this, value);
-      }
-    });
-  }
-</script>
-<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="a4aa9c1a-9639-4e9f-8a23-4aef9c37b3cc" data-blockingmode="manual" type="text/javascript"></script>
+
+    {% render 'cookiebot' %}
 
     <!-- BS: AB Scripts -->
 	<link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}">
     <link rel="stylesheet" href="{{ 'ds-op-lp-3.css' | asset_url }}">
 
-	  <script src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
-	  <script src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
-	  <script src="{{ 'bs-ab-tlh-009.js' | asset_url }}"></script>
-	  <script src="{{ 'bs-ab-tlh-010.js' | asset_url }}"></script>
-	  <script src="{{ 'bs-ab-tlh-011.js' | asset_url }}"></script>
-	  <script src="{{ 'bs-ab-tlh-025.js' | asset_url }}"></script>
+	  <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
+	  <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
+	  <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-009.js' | asset_url }}"></script>
+	  <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-010.js' | asset_url }}"></script>
+	  <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-011.js' | asset_url }}"></script>
+	  <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-025.js' | asset_url }}"></script>
     <!-- END BS: AB Scripts -->
 
     <!-- ABlyft DE Visitor Audience Setting -->
-    <script>
+    <script type="text/plain" data-cookieconsent="marketing">
       fetch('/browsing_context_suggestions.json')
        .then(response => response.json())
        .then(json => {
@@ -76,8 +32,8 @@
     <!-- END ABlyft DE Visitor Audience Setting -->
 
     <!-- ABlyft Snippet -->
-    <script src="https://cdn.ablyft.com/s/55886406.js"></script>
-    <script>
+    <script type="text/plain" data-cookieconsent="marketing" src="https://cdn.ablyft.com/s/55886406.js"></script>
+    <script type="text/plain" data-cookieconsent="marketing">
       window['ablyft'] = window['ablyft'] || [];
     </script>
     
@@ -184,8 +140,11 @@
       });
     </script>
     <!-- END: TLH-026 custom goal snippet -->
-
+    {% comment %}
     {% render 'replo-head' %}
+    {% endcomment %}
+
+    {% render 'consent_script_blocking' %}
 
     <script src="{{ 'bs-load-third-party-scripts.js' | asset_url }}" defer></script>
     <script src="{{ 'bs-subscription-callout.js' | asset_url }}" defer></script>
@@ -193,7 +152,7 @@
     <script src="{{ 'bs-mobile-sidebar-nav.js' | asset_url }}" defer></script>
 
     <!-- Awin Implementation -->
-    <script>
+    <script type="text/plain" data-cookieconsent="marketing">
       var AWIN = AWIN || {};
       AWIN.Tracking = AWIN.Tracking || {};
       AWIN.Tracking.AdvertiserConsent = false;
@@ -325,7 +284,7 @@
     {% render 'css-variables' %}
 
     {{ content_for_header }}
-
+    {% render 'cookie-consent' %}
 <script>
   (() => {
     try {
@@ -389,7 +348,7 @@
   })();
 </script>
     
-    {%- comment -%}{% render 'cookie-consent' %}{%- endcomment -%}
+    
 
     <link rel="stylesheet" href="{{ 'bs-mobile-sidebar-nav.css' | asset_url }}">
 
@@ -664,8 +623,8 @@
       
     </div>
 
-    <script src="https://a.klaviyo.com/media/js/onsite/onsite.js"></script>
-    <script>
+    <script type="text/plain" data-cookieconsent="marketing" src="https://a.klaviyo.com/media/js/onsite/onsite.js"></script>
+    <script type="text/plain" data-cookieconsent="marketing">
       var klaviyo = klaviyo || [];
 
       klaviyo.init({
@@ -709,11 +668,11 @@
     {% endif %}
 
     <!-- NextLevel Network Tag tag -->
-    <script src="https://www.dwin1.com/86929.js" type="text/javascript" defer="defer"></script>
+    <script src="https://www.dwin1.com/86929.js" type="text/plain" data-cookieconsent="marketing" defer="defer"></script>
     <!-- END:NextLevel Network Tag tag -->
 
     <!-- reviews io -->
-    <script src="https://widget.reviews.io/rating-snippet/dist.js"></script>
+    <script type="text/plain" data-cookieconsent="marketing" src="https://widget.reviews.io/rating-snippet/dist.js"></script>
     <link rel="stylesheet" href="https://widget.reviews.io/rating-snippet/dist.css">
     <script>
       ratingSnippet("ruk_rating_snippet", {
