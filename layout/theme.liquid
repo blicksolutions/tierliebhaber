@@ -300,7 +300,7 @@
       <script src="{{ 'customer_area.js' | shopify_asset_url }}" defer></script>
     {%- endif -%}
 
-    <script
+    <script type="text/plain" data-cookieconsent="preferences"
       src="https://cdn.polyfill.io/v3/polyfill.min.js?unknown=polyfill&features=Element.prototype.closest,Element.prototype.remove,Element.prototype.classList,Array.prototype.includes,Array.prototype.fill,Object.assign,CustomEvent,IntersectionObserver,IntersectionObserverEntry,URL"
       defer
     ></script>
@@ -407,7 +407,7 @@
       {% section 'footer' %}
     </div>
 
-    <script src="https://www.dwin1.com/86929.js" type="text/plain" data-cookieconsent="marketing" defer="defer"></script>
+    <script type="text/plain" data-cookieconsent="marketing" src="https://www.dwin1.com/86929.js" defer="defer"></script>
 
     <script type="text/plain" data-cookieconsent="marketing" src="https://widget.reviews.io/rating-snippet/dist.js"></script>
     <link rel="stylesheet" href="https://widget.reviews.io/rating-snippet/dist.css">
