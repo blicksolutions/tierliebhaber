@@ -42,11 +42,11 @@
           });
       });
     </script>
-
+    {% comment %}
     {% render 'replo-head' %}
-
+    {% endcomment %} 
     {% render 'consent_script_blocking' %} 
-    {% comment %}{% endcomment %} 
+  
 
     <script src="{{ 'bs-load-third-party-scripts.js' | asset_url }}" defer></script>
     <script src="{{ 'bs-subscription-callout.js' | asset_url }}" defer></script>
