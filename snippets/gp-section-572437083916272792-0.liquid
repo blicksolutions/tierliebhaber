@@ -1,0 +1,834 @@
+
+    
+      {%- assign gpBkProduct = product -%}
+      
+      {%- liquid
+        if request.page_type == 'product'
+          if 'static' == 'static'
+            if '11434433249548' == 'latest'
+              paginate collections.all.products by 100000
+                assign product = collections.all.products | sort: 'created_at' | reverse | first
+              endpaginate
+            else
+              assign product = all_products['dentalspray-4']
+              assign productId = '11434433249548' | times: 1
+              if product == empty or product == null
+                paginate collections.all.products by 100000
+                  for item in collections.all.products
+                    if item.id == productId
+                      assign product = item
+                    endif
+                  endfor
+                endpaginate
+              endif
+            endif
+          endif
+        else
+          if '11434433249548' == 'latest'
+            paginate collections.all.products by 100000
+              assign product = collections.all.products | sort: 'created_at'| reverse | first
+            endpaginate
+          else
+            assign product = all_products['dentalspray-4']
+            assign productId = '11434433249548' | times: 1
+            if product == empty or product == null
+              paginate collections.all.products by 100000
+                for item in collections.all.products
+                  if item.id == productId
+                    assign product = item
+                  endif
+                endfor
+              endpaginate
+            endif
+          endif
+        endif
+      -%}
+    
+    
+    {% if product != empty and product != null %}
+      
+      {%- assign initVariantId = 53649074946316 -%}
+      {%- assign product_form_id = 'product-form-' | append: "gvcBr5IQzd" -%}
+      {%- assign variant = product.variants | where: 'id', initVariantId | first -%}
+      {%- assign productSelectedVariant = product.variants | where: 'id', initVariantId | first -%}
+      {%-if productSelectedVariant == empty or productSelectedVariant == null -%}
+        {%- assign productSelectedVariant = product.selected_or_first_available_variant -%}
+      {%- endif -%}
+      {%-if variant == empty or variant == null -%}
+        {%- assign variant = product.selected_or_first_available_variant -%}
+      {%- endif -%}
+    
+      <gp-product
+        data-uid="gvcBr5IQzd"
+        data-id="gvcBr5IQzd"
+        
+        
+        gp-context='{"productId": {{ product.id }}, "preSelectedOptionIds": [8649119006988], "isSyncProduct": "true", "variantSelected": {{ variant | json | escape }},  "inventory_management": {{ variant.inventory_management | json | escape  }}, "inventory_policy": {{ variant.inventory_policy | json | escape }}, "inventoryQuantity": {{ variant.inventory_quantity }}, "quantity": 1, "formId": "{{ product_form_id }}" }'
+        gp-data='{"variantSelected": {{ variant | json | escape }}, "quantity": 1, "productUrl":{{ product.url | json | escape }}, "productHandle":{{ product.handle | json | escape }}, "collectionUrl": {{ collection.url | json | escape }}, "collectionHandle": {{ collection.handle | json | escape }}}'
+      >
+        <product-form class="product-form">
+          {%- form 'product', product, id: product_form_id, class: 'form contents', data-type: 'add-to-cart-form', autocomplete: 'off'  -%}
+            <input type="hidden" name="id" value="{{ variant.id }}" />
+            <input type="hidden" name="quantity" value="{{ quantity }}" />
+            <button type="submit" onclick="return false;" style="display:none;"></button>
+            
+    
+
+    
+
+    
+    <gp-row gp-data='{"uid":"gvcBr5IQzd"}' data-id="gvcBr5IQzd-row" id="gvcBr5IQzd" data-same-height-subgrid-container class="gvcBr5IQzd gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--bs:solid;--bw:2px 2px 2px 2px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mt:32px;--pt:0px;--mt-mobile:32px;--mb-mobile:27px;--pt-mobile:0px;--cg:30px;--rg:0px;--gtc:minmax(0, 12fr);--w:600px;--w-tablet:100%;--w-mobile:100%;--pc:start">
+      
+
+      <div
+      data-same-height-display-contents
+      style="--jc:start"
+      class="glJhyG64qk gp-relative gp-flex gp-flex-col"
+    >
+      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="ggx4uEfWsS"
+        class="ggx4uEfWsS"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:var(--g-s-l);--mb-mobile:10px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1755844674925"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          data-gp-text
+          class="gp-g-subheading-2  gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--size:32px;--size-tablet:18px;--size-mobile:30px;--weight:bold;--c:#151515;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.gggx4uEfWsS_text | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+    
+
+    
+
+    
+    <gp-row gp-data='{"background":{"desktop":{"attachment":"scroll","color":"transparent","image":{"height":0,"src":"","width":0},"position":{"x":50,"y":50},"repeat":"no-repeat","size":"cover","type":"color"}},"uid":"gc-dgoX3cI"}' data-id="gc-dgoX3cI" id="gc-dgoX3cI" data-same-height-subgrid-container class="gc-dgoX3cI gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:var(--g-s-l);--cg:8px;--cg-mobile:8px;--gtc:minmax(0, 6fr) minmax(0, 6fr);--gtc-mobile:minmax(0, auto) minmax(0, auto);--w:var(--g-ct-w, 1200px);--w-mobile:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pc:start;--pc-mobile:center">
+      
+
+      <div
+      data-same-height-display-contents
+      style="--jc:start;--jc-mobile:center"
+      class="gYKvpfDiGF gp-relative gp-flex gp-flex-col"
+    >
+      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="gzn17clQso"
+        class="gzn17clQso"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ml:0px;--mr:0px;--pt:0px;--ml-mobile:0px;--mr-mobile:0px;--pt-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1755844674925"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          data-gp-text
+          class="gp-g-paragraph-1  gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:Auto;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:left;--ta-mobile:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--size:14px;--size-tablet:16px;--size-mobile:11px;--weight:bold;--c:#000000;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggzn17clQso_text | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+    </div><div
+      data-same-height-display-contents
+      style="--jc:start;--jc-mobile:center"
+      class="gKjZXXXBJa gp-relative gp-flex gp-flex-col"
+    >
+      
+    
+    <div data-id="gT-71vEdHn"  style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ml:0px;--mr:0px;--ml-mobile:0px;--mb-mobile:0px;--mr-mobile:0px;--pr-mobile:0px;--bgc:#00000000;--bgc-mobile:#00000000;--bgi:url();--bgi-mobile:url();--bgp:50% 50%;--bgp-mobile:50% 50%;--bgs:cover;--bgs-mobile:cover;--bgr:no-repeat;--bgr-mobile:no-repeat;--bga:scroll;--bga-mobile:scroll">
+      <div class="gp-flex gp-flex-wrap" style="--cg:1px;--jc:left;--ai:center">
+            <div gp-el-wrapper style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px" class="gHaJWmGQT9 ">
+      
+    <div  class="gp-flex gp-w-full gp-flex-col gp-items-center">
+      
+    <div id="g5597feCQW" class="gp-leading-[0] g5597feCQW" style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:left">
+      <div data-id="g5597feCQW" class="icon-wrapper gp-inline-flex gp-overflow-hidden g5597feCQW " style="--bs:none;--bw:1px 1px 1px 1px;--bc:#000000">
+      
+        <div >
+          <span style="--c:#ffcb01;--t:rotate(0deg);--w:19px;--w-tablet:19px;--w-mobile:18px;--h:19px;--h-tablet:19px;--h-mobile:18px;--minw:19px;--minw-tablet:19px;--minw-mobile:18px;--height-desktop:19px;--height-tablet:19px;--height-mobile:18px" class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--height-desktop)] [&>svg]:!gp-w-auto tablet:[&>svg]:!gp-h-[var(--height-tablet)] mobile:[&>svg]:!gp-h-[var(--height-mobile)] "><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" data-id="508414815326568800" viewBox="0 0 256 256"><path d="m234.29 114.85-45 38.83L203 211.75a16.4 16.4 0 0 1-24.5 17.82L128 198.49l-50.53 31.08A16.4 16.4 0 0 1 53 211.75l13.76-58.07-45-38.83A16.46 16.46 0 0 1 31.08 86l59-4.76 22.76-55.08a16.36 16.36 0 0 1 30.27 0l22.75 55.08 59 4.76a16.46 16.46 0 0 1 9.37 28.86Z"/></svg></span>
+        </div>
+      </div>
+    </div>
+    
+    </div>
+  
+      </div><div gp-el-wrapper style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px" class="g07r0upG9N ">
+      
+    <div  class="gp-flex gp-w-full gp-flex-col gp-items-center">
+      
+    <div id="ga2u0YpW_j" class="gp-leading-[0] ga2u0YpW_j" style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ml-mobile:0px;--ta:left">
+      <div data-id="ga2u0YpW_j" class="icon-wrapper gp-inline-flex gp-overflow-hidden ga2u0YpW_j " style="--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:#00000000">
+      
+        <div >
+          <span style="--c:#FFCB01;--t:rotate(0deg);--w:19px;--w-tablet:19px;--w-mobile:18px;--h:19px;--h-tablet:19px;--h-mobile:18px;--minw:19px;--minw-tablet:19px;--minw-mobile:18px;--height-desktop:19px;--height-tablet:19px;--height-mobile:18px" class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--height-desktop)] [&>svg]:!gp-w-auto tablet:[&>svg]:!gp-h-[var(--height-tablet)] mobile:[&>svg]:!gp-h-[var(--height-mobile)] "><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" data-id="508414815326568800" viewBox="0 0 256 256"><path d="m234.29 114.85-45 38.83L203 211.75a16.4 16.4 0 0 1-24.5 17.82L128 198.49l-50.53 31.08A16.4 16.4 0 0 1 53 211.75l13.76-58.07-45-38.83A16.46 16.46 0 0 1 31.08 86l59-4.76 22.76-55.08a16.36 16.36 0 0 1 30.27 0l22.75 55.08 59 4.76a16.46 16.46 0 0 1 9.37 28.86Z"/></svg></span>
+        </div>
+      </div>
+    </div>
+    
+    </div>
+  
+      </div><div gp-el-wrapper style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px" class="grzyVuz3r0 ">
+      
+    <div  class="gp-flex gp-w-full gp-flex-col gp-items-center">
+      
+    <div id="gOFl79zDHl" class="gp-leading-[0] gOFl79zDHl" style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:left">
+      <div data-id="gOFl79zDHl" class="icon-wrapper gp-inline-flex gp-overflow-hidden gOFl79zDHl " style="--bs:none;--bw:1px 1px 1px 1px;--bc:#000000">
+      
+        <div >
+          <span style="--c:#ffcb01;--t:rotate(0deg);--w:19px;--w-tablet:19px;--w-mobile:18px;--h:19px;--h-tablet:19px;--h-mobile:18px;--minw:19px;--minw-tablet:19px;--minw-mobile:18px;--height-desktop:19px;--height-tablet:19px;--height-mobile:18px" class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--height-desktop)] [&>svg]:!gp-w-auto tablet:[&>svg]:!gp-h-[var(--height-tablet)] mobile:[&>svg]:!gp-h-[var(--height-mobile)] "><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" data-id="508414815326568800" viewBox="0 0 256 256"><path d="m234.29 114.85-45 38.83L203 211.75a16.4 16.4 0 0 1-24.5 17.82L128 198.49l-50.53 31.08A16.4 16.4 0 0 1 53 211.75l13.76-58.07-45-38.83A16.46 16.46 0 0 1 31.08 86l59-4.76 22.76-55.08a16.36 16.36 0 0 1 30.27 0l22.75 55.08 59 4.76a16.46 16.46 0 0 1 9.37 28.86Z"/></svg></span>
+        </div>
+      </div>
+    </div>
+    
+    </div>
+  
+      </div><div gp-el-wrapper style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px" class="guA6MMMibU ">
+      
+    <div  class="gp-flex gp-w-full gp-flex-col gp-items-center">
+      
+    <div id="ggtGIANIp6" class="gp-leading-[0] ggtGIANIp6" style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:left">
+      <div data-id="ggtGIANIp6" class="icon-wrapper gp-inline-flex gp-overflow-hidden ggtGIANIp6 " style="--bs:none;--bw:2px 2px 2px 2px;--bc:#000000">
+      
+        <div >
+          <span style="--c:#ffcb01;--t:rotate(0deg);--w:19px;--w-tablet:19px;--w-mobile:18px;--h:19px;--h-tablet:19px;--h-mobile:18px;--minw:19px;--minw-tablet:19px;--minw-mobile:18px;--height-desktop:19px;--height-tablet:19px;--height-mobile:18px" class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--height-desktop)] [&>svg]:!gp-w-auto tablet:[&>svg]:!gp-h-[var(--height-tablet)] mobile:[&>svg]:!gp-h-[var(--height-mobile)] "><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" data-id="508414815326568800" viewBox="0 0 256 256"><path d="m234.29 114.85-45 38.83L203 211.75a16.4 16.4 0 0 1-24.5 17.82L128 198.49l-50.53 31.08A16.4 16.4 0 0 1 53 211.75l13.76-58.07-45-38.83A16.46 16.46 0 0 1 31.08 86l59-4.76 22.76-55.08a16.36 16.36 0 0 1 30.27 0l22.75 55.08 59 4.76a16.46 16.46 0 0 1 9.37 28.86Z"/></svg></span>
+        </div>
+      </div>
+    </div>
+    
+    </div>
+  
+      </div><div gp-el-wrapper style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px" class="gHeEYqSCeY ">
+      
+    <div  class="gp-flex gp-w-full gp-flex-col gp-items-center">
+      
+    <div id="gEzcXPcHtC" class="gp-leading-[0] gEzcXPcHtC" style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:0px;--ta:left">
+      <div data-id="gEzcXPcHtC" class="icon-wrapper gp-inline-flex gp-overflow-hidden gEzcXPcHtC " style="--bs:none;--bw:1px 1px 1px 1px;--bc:#000000">
+      
+        <div >
+          <span style="--c:#ffcb01;--t:rotate(0deg);--w:19px;--w-tablet:19px;--w-mobile:18px;--h:19px;--h-tablet:19px;--h-mobile:18px;--minw:19px;--minw-tablet:19px;--minw-mobile:18px;--height-desktop:19px;--height-tablet:19px;--height-mobile:18px" class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--height-desktop)] [&>svg]:!gp-w-auto tablet:[&>svg]:!gp-h-[var(--height-tablet)] mobile:[&>svg]:!gp-h-[var(--height-mobile)] "><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" data-id="508414815326765440" viewBox="0 0 256 256"><path d="M239.18 97.26A16.38 16.38 0 0 0 224.92 86l-59-4.76-22.78-55.09a16.36 16.36 0 0 0-30.27 0L90.11 81.23 31.08 86a16.46 16.46 0 0 0-9.37 28.86l45 38.83L53 211.75a16.4 16.4 0 0 0 24.5 17.82l50.5-31.08 50.53 31.08A16.4 16.4 0 0 0 203 211.75l-13.76-58.07 45-38.83a16.43 16.43 0 0 0 4.94-17.59Zm-15.34 5.47-48.7 42a8 8 0 0 0-2.56 7.91l14.88 62.8a.37.37 0 0 1-.17.48c-.18.14-.23.11-.38 0l-54.72-33.65a8 8 0 0 0-4.19-1.17V32c.24 0 .27.08.35.26L153 91.86a8 8 0 0 0 6.75 4.92l63.91 5.16c.16 0 .25 0 .34.29s0 .4-.16.5Z"/></svg></span>
+        </div>
+      </div>
+    </div>
+    
+    </div>
+  
+      </div>
+          </div>
+    </div>
+  
+    </div>
+
+      
+    </gp-row>
+  
+  
+    
+
+    
+
+    
+    <gp-row gp-data='{"background":{"desktop":{"attachment":"scroll","color":"transparent","image":{"height":0,"src":"","width":0},"position":{"x":50,"y":50},"repeat":"no-repeat","size":"cover","type":"color"}},"uid":"gyrNrvf9wy"}' data-id="gyrNrvf9wy" id="gyrNrvf9wy" data-same-height-subgrid-container class="gyrNrvf9wy gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:none;--d-tablet:grid;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:var(--g-s-l);--cg:8px;--gtc:minmax(0, auto) minmax(0, auto);--gtc-mobile:minmax(0, auto) minmax(0, auto);--w:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pc:center">
+      
+
+      <div
+      data-same-height-display-contents
+      style="--jc:center;--o:1"
+      class="gXcSsIkC_p gp-relative gp-flex gp-flex-col"
+    >
+      
+    
+    <div data-id="g7huZECbrx"  style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ml:0px;--mr:0px;--ml-mobile:0px;--mb-mobile:0px;--mr-mobile:0px;--pr-mobile:0px;--bgc:#00000000;--bgc-mobile:#00000000;--bgi:url();--bgi-mobile:url();--bgp:50% 50%;--bgp-mobile:50% 50%;--bgs:cover;--bgs-mobile:cover;--bgr:no-repeat;--bgr-mobile:no-repeat;--bga:scroll;--bga-mobile:scroll">
+      <div class="gp-flex gp-flex-wrap" style="--cg:1px;--jc:left;--ai:center">
+            <div gp-el-wrapper style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px" class="gEFxcCMy-k ">
+      
+    <div  class="gp-flex gp-w-full gp-flex-col gp-items-center">
+      
+    <div id="gSHlA9blQb" class="gp-leading-[0] gSHlA9blQb" style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:left">
+      <div data-id="gSHlA9blQb" class="icon-wrapper gp-inline-flex gp-overflow-hidden gSHlA9blQb " style="--bs:none;--bw:1px 1px 1px 1px;--bc:#000000">
+      
+        <div >
+          <span style="--c:#ffcb01;--t:rotate(0deg);--w:19px;--w-tablet:19px;--w-mobile:18px;--h:19px;--h-tablet:19px;--h-mobile:18px;--minw:19px;--minw-tablet:19px;--minw-mobile:18px;--height-desktop:19px;--height-tablet:19px;--height-mobile:18px" class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--height-desktop)] [&>svg]:!gp-w-auto tablet:[&>svg]:!gp-h-[var(--height-tablet)] mobile:[&>svg]:!gp-h-[var(--height-mobile)] "><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" data-id="508414815326568800" viewBox="0 0 256 256"><path d="m234.29 114.85-45 38.83L203 211.75a16.4 16.4 0 0 1-24.5 17.82L128 198.49l-50.53 31.08A16.4 16.4 0 0 1 53 211.75l13.76-58.07-45-38.83A16.46 16.46 0 0 1 31.08 86l59-4.76 22.76-55.08a16.36 16.36 0 0 1 30.27 0l22.75 55.08 59 4.76a16.46 16.46 0 0 1 9.37 28.86Z"/></svg></span>
+        </div>
+      </div>
+    </div>
+    
+    </div>
+  
+      </div><div gp-el-wrapper style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px" class="gp6S2BH8H1 ">
+      
+    <div  class="gp-flex gp-w-full gp-flex-col gp-items-center">
+      
+    <div id="gF5axszI0B" class="gp-leading-[0] gF5axszI0B" style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ml-mobile:0px;--ta:left">
+      <div data-id="gF5axszI0B" class="icon-wrapper gp-inline-flex gp-overflow-hidden gF5axszI0B " style="--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:#00000000">
+      
+        <div >
+          <span style="--c:#FFCB01;--t:rotate(0deg);--w:19px;--w-tablet:19px;--w-mobile:18px;--h:19px;--h-tablet:19px;--h-mobile:18px;--minw:19px;--minw-tablet:19px;--minw-mobile:18px;--height-desktop:19px;--height-tablet:19px;--height-mobile:18px" class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--height-desktop)] [&>svg]:!gp-w-auto tablet:[&>svg]:!gp-h-[var(--height-tablet)] mobile:[&>svg]:!gp-h-[var(--height-mobile)] "><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" data-id="508414815326568800" viewBox="0 0 256 256"><path d="m234.29 114.85-45 38.83L203 211.75a16.4 16.4 0 0 1-24.5 17.82L128 198.49l-50.53 31.08A16.4 16.4 0 0 1 53 211.75l13.76-58.07-45-38.83A16.46 16.46 0 0 1 31.08 86l59-4.76 22.76-55.08a16.36 16.36 0 0 1 30.27 0l22.75 55.08 59 4.76a16.46 16.46 0 0 1 9.37 28.86Z"/></svg></span>
+        </div>
+      </div>
+    </div>
+    
+    </div>
+  
+      </div><div gp-el-wrapper style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px" class="gI0M2Ob2Yp ">
+      
+    <div  class="gp-flex gp-w-full gp-flex-col gp-items-center">
+      
+    <div id="gAOMYoRA3B" class="gp-leading-[0] gAOMYoRA3B" style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:left">
+      <div data-id="gAOMYoRA3B" class="icon-wrapper gp-inline-flex gp-overflow-hidden gAOMYoRA3B " style="--bs:none;--bw:1px 1px 1px 1px;--bc:#000000">
+      
+        <div >
+          <span style="--c:#ffcb01;--t:rotate(0deg);--w:19px;--w-tablet:19px;--w-mobile:18px;--h:19px;--h-tablet:19px;--h-mobile:18px;--minw:19px;--minw-tablet:19px;--minw-mobile:18px;--height-desktop:19px;--height-tablet:19px;--height-mobile:18px" class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--height-desktop)] [&>svg]:!gp-w-auto tablet:[&>svg]:!gp-h-[var(--height-tablet)] mobile:[&>svg]:!gp-h-[var(--height-mobile)] "><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" data-id="508414815326568800" viewBox="0 0 256 256"><path d="m234.29 114.85-45 38.83L203 211.75a16.4 16.4 0 0 1-24.5 17.82L128 198.49l-50.53 31.08A16.4 16.4 0 0 1 53 211.75l13.76-58.07-45-38.83A16.46 16.46 0 0 1 31.08 86l59-4.76 22.76-55.08a16.36 16.36 0 0 1 30.27 0l22.75 55.08 59 4.76a16.46 16.46 0 0 1 9.37 28.86Z"/></svg></span>
+        </div>
+      </div>
+    </div>
+    
+    </div>
+  
+      </div><div gp-el-wrapper style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px" class="gIZ_l4ZYMa ">
+      
+    <div  class="gp-flex gp-w-full gp-flex-col gp-items-center">
+      
+    <div id="gU4HbfHnp-" class="gp-leading-[0] gU4HbfHnp-" style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:left">
+      <div data-id="gU4HbfHnp-" class="icon-wrapper gp-inline-flex gp-overflow-hidden gU4HbfHnp- " style="--bs:none;--bw:2px 2px 2px 2px;--bc:#000000">
+      
+        <div >
+          <span style="--c:#ffcb01;--t:rotate(0deg);--w:19px;--w-tablet:19px;--w-mobile:18px;--h:19px;--h-tablet:19px;--h-mobile:18px;--minw:19px;--minw-tablet:19px;--minw-mobile:18px;--height-desktop:19px;--height-tablet:19px;--height-mobile:18px" class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--height-desktop)] [&>svg]:!gp-w-auto tablet:[&>svg]:!gp-h-[var(--height-tablet)] mobile:[&>svg]:!gp-h-[var(--height-mobile)] "><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" data-id="508414815326568800" viewBox="0 0 256 256"><path d="m234.29 114.85-45 38.83L203 211.75a16.4 16.4 0 0 1-24.5 17.82L128 198.49l-50.53 31.08A16.4 16.4 0 0 1 53 211.75l13.76-58.07-45-38.83A16.46 16.46 0 0 1 31.08 86l59-4.76 22.76-55.08a16.36 16.36 0 0 1 30.27 0l22.75 55.08 59 4.76a16.46 16.46 0 0 1 9.37 28.86Z"/></svg></span>
+        </div>
+      </div>
+    </div>
+    
+    </div>
+  
+      </div><div gp-el-wrapper style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px" class="go4FzIKezL ">
+      
+    <div  class="gp-flex gp-w-full gp-flex-col gp-items-center">
+      
+    <div id="gFws8-Kr69" class="gp-leading-[0] gFws8-Kr69" style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:0px;--ta:left">
+      <div data-id="gFws8-Kr69" class="icon-wrapper gp-inline-flex gp-overflow-hidden gFws8-Kr69 " style="--bs:none;--bw:1px 1px 1px 1px;--bc:#000000">
+      
+        <div >
+          <span style="--c:#ffcb01;--t:rotate(0deg);--w:19px;--w-tablet:19px;--w-mobile:18px;--h:19px;--h-tablet:19px;--h-mobile:18px;--minw:19px;--minw-tablet:19px;--minw-mobile:18px;--height-desktop:19px;--height-tablet:19px;--height-mobile:18px" class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--height-desktop)] [&>svg]:!gp-w-auto tablet:[&>svg]:!gp-h-[var(--height-tablet)] mobile:[&>svg]:!gp-h-[var(--height-mobile)] "><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" data-id="508414815326765440" viewBox="0 0 256 256"><path d="M239.18 97.26A16.38 16.38 0 0 0 224.92 86l-59-4.76-22.78-55.09a16.36 16.36 0 0 0-30.27 0L90.11 81.23 31.08 86a16.46 16.46 0 0 0-9.37 28.86l45 38.83L53 211.75a16.4 16.4 0 0 0 24.5 17.82l50.5-31.08 50.53 31.08A16.4 16.4 0 0 0 203 211.75l-13.76-58.07 45-38.83a16.43 16.43 0 0 0 4.94-17.59Zm-15.34 5.47-48.7 42a8 8 0 0 0-2.56 7.91l14.88 62.8a.37.37 0 0 1-.17.48c-.18.14-.23.11-.38 0l-54.72-33.65a8 8 0 0 0-4.19-1.17V32c.24 0 .27.08.35.26L153 91.86a8 8 0 0 0 6.75 4.92l63.91 5.16c.16 0 .25 0 .34.29s0 .4-.16.5Z"/></svg></span>
+        </div>
+      </div>
+    </div>
+    
+    </div>
+  
+      </div>
+          </div>
+    </div>
+  
+    </div><div
+      data-same-height-display-contents
+      style="--jc:center;--o:0"
+      class="g-XxoFdhFR gp-relative gp-flex gp-flex-col"
+    >
+      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="gE7p0ks064"
+        class="gE7p0ks064"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ml:0px;--mr:0px;--pt:0px;--ml-mobile:5px;--mr-mobile:45px;--pt-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1755844674930"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          data-gp-text
+          class="gp-g-paragraph-1  gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--size:14px;--size-tablet:16px;--size-mobile:11px;--weight:bold;--c:#000000;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggE7p0ks064_text | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+    </div>
+
+      
+    </gp-row>
+  
+  
+    <div
+      role="presentation"
+      data-id="geaC7W_1h5"
+      style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:center"
+      class="gp-group/image gp-relative force-publish-1755844674930 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto geaC7W_1h5"
+    >
+      <a
+        href="https://tierliebhaber-animagus.myshopify.com/cart/53649054957836:1?channel=buy_button" target="_self" title
+        style="border-radius:inherit;--jc:center"
+        class="gp-h-full gp-w-full gp-flex pointer-events-auto"
+      >
+        
+    <picture style="border-radius:inherit" class="gp-contents">
+      
+      <source media="(max-width: 767px)" data-srcSet="{{ "gempages_534104955091420133-ad054c82-4c4d-4018-8ba2-8fa6904a6407.png" | file_url }}" srcset="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTA4MCIgaGVpZ2h0PSIxMDgwIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGRlZnM+CiAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZy0xMDgwLTEwODAiPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iMjAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNTAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNzAlIiAvPgogICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPC9kZWZzPgogICAgPHJlY3Qgd2lkdGg9IjEwODAiIGhlaWdodD0iMTA4MCIgZmlsbD0icmdiYSg1MSwgNTEsIDUxLCAwKSIgLz4KICAgIDxyZWN0IGlkPSJyIiB3aWR0aD0iMTA4MCIgaGVpZ2h0PSIxMDgwIiBmaWxsPSJ1cmwoI2ctMTA4MC0xMDgwKSIgLz4KICAgIDxhbmltYXRlIHhsaW5rOmhyZWY9IiNyIiBhdHRyaWJ1dGVOYW1lPSJ4IiBmcm9tPSItMTA4MCIgdG89IjEwODAiIGR1cj0iMXMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAgLz4KICA8L3N2Zz4=" />
+      <source media="(max-width: 1024px)" data-srcSet="https://ucarecdn.com/ee6d5074-1640-4cc7-8933-47c8589c3dee/-/format/auto/" srcset="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjIzNyIgaGVpZ2h0PSIxNjc4IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGRlZnM+CiAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZy0yMjM3LTE2NzgiPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iMjAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNTAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNzAlIiAvPgogICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPC9kZWZzPgogICAgPHJlY3Qgd2lkdGg9IjIyMzciIGhlaWdodD0iMTY3OCIgZmlsbD0icmdiYSg1MSwgNTEsIDUxLCAwKSIgLz4KICAgIDxyZWN0IGlkPSJyIiB3aWR0aD0iMjIzNyIgaGVpZ2h0PSIxNjc4IiBmaWxsPSJ1cmwoI2ctMjIzNy0xNjc4KSIgLz4KICAgIDxhbmltYXRlIHhsaW5rOmhyZWY9IiNyIiBhdHRyaWJ1dGVOYW1lPSJ4IiBmcm9tPSItMjIzNyIgdG89IjIyMzciIGR1cj0iMXMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAgLz4KICA8L3N2Zz4=" />
+    
+      
+      <img
+        base-src="https://ucarecdn.com/ee6d5074-1640-4cc7-8933-47c8589c3dee/-/format/auto/" quality-type="{}" quality-percent="{}"
+        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjIzNyIgaGVpZ2h0PSIxNjc4IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGRlZnM+CiAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZy0yMjM3LTE2NzgiPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iMjAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNTAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNzAlIiAvPgogICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPC9kZWZzPgogICAgPHJlY3Qgd2lkdGg9IjIyMzciIGhlaWdodD0iMTY3OCIgZmlsbD0icmdiYSg1MSwgNTEsIDUxLCAwKSIgLz4KICAgIDxyZWN0IGlkPSJyIiB3aWR0aD0iMjIzNyIgaGVpZ2h0PSIxNjc4IiBmaWxsPSJ1cmwoI2ctMjIzNy0xNjc4KSIgLz4KICAgIDxhbmltYXRlIHhsaW5rOmhyZWY9IiNyIiBhdHRyaWJ1dGVOYW1lPSJ4IiBmcm9tPSItMjIzNyIgdG89IjIyMzciIGR1cj0iMXMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAgLz4KICA8L3N2Zz4=" data-src="https://ucarecdn.com/ee6d5074-1640-4cc7-8933-47c8589c3dee/-/format/auto/"
+        alt=""
+        width="100%"
+        style="--aspect:auto;--aspect-tablet:auto;--aspect-mobile:auto;--objf:cover;--h:auto;--h-tablet:auto;--h-mobile:auto;--b:none;--bc:#000000;--bw:1px 1px 1px 1px;--radiusType:none;--shadow:none"
+        class="gp-inline-block gp-w-full gp-max-w-full gp_lazyload"
+      />
+    
+    </picture>
+  
+      </a>
+    </div>
+  
+    </div><div
+      data-same-height-display-contents
+      style="--jc:start"
+      class="gopAD0On0E gp-relative gp-flex gp-flex-col"
+    >
+      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="gaDPr2Spue"
+        class="gaDPr2Spue"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:var(--g-s-l);--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1755844674931"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-heading, heading);--ls:2px;--size:30px;--size-tablet:25px;--size-mobile:30px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--weight:bold;--c:#151515;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggaDPr2Spue_text | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    <div gp-el-wrapper  class="g2fd797Ddu ">
+      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <gp-icon-list
+      
+      uid="g2fd797Ddu"
+      data-id="g2fd797Ddu"
+      style="--shadow:none;--d:flex;--d-mobile:flex;--d-tablet:flex;--op:100%;--pageType:GP_STATIC;--mb:6px;--ml-mobile:0px;--mb-mobile:6px;--jc:left;--jc-mobile:left"
+      className="g2fd797Ddu"
+      gp-data='{"position":{"desktop":"center","mobile":"center","tablet":"center"},"iconWidth":{"desktop":25,"mobile":25,"tablet":16}}'
+    >
+      
+          <div class="gp-flex" style="--b:none;--bc:#121212;--bw:1px 1px 1px 1px;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pl:20px;--pl-mobile:42px;--w:100%;--jc:left;--jc-mobile:left">
+            <div class="gp-inline-flex gp-flex-col" style="--rg:8px">
+              
+                    <div
+                      key="0"
+                      data-index="0"
+                      class="gp-icon-list-wrapper gp-flex gp-child-item-g2fd797Ddu"
+                      style="--cg:8px;--ai:center;--ai-tablet:center;--ai-mobile:center"
+                    >
+                      <div class="gp-icon-list-icon gp-inline-flex gp-shrink-0 gp-overflow-hidden" style="--pl:0px;--pr:0px;--pt:0px;--pb:0px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:transparent;--top:unset;--top-tablet:unset;--top-mobile:unset;--pos:relative;--pos-tablet:relative;--pos-mobile:relative">
+                        <span
+                          class="gp-icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--size-desktop)] [&>svg]:!gp-w-[var(--size-desktop)] tablet:[&>svg]:!gp-h-[var(--size-tablet)] tablet:[&>svg]:!gp-w-[var(--size-tablet)] mobile:[&>svg]:!gp-h-[var(--size-mobile)] mobile:[&>svg]:!gp-w-[var(--size-mobile)]"
+                          style="--c:#00C853;--w:100%;--h:100%;--size-desktop:25px;--size-tablet:16px;--size-mobile:25px"
+                        >
+                          <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" data-id="508414807831544168"><path fill="currentColor" strokelinecap="round" strokelinejoin="round" d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                        </span>
+                      </div>
+                      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id
+        class="gp-w-full"
+        style="--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1755844674931"
+      >
+      <div class="gp-flex" >
+        <div
+          data-gp-text
+          class="gp-g-paragraph-1 gp-w-full gp-border gp-border-transparent gp-text-left gp-icon-list-text gp-g-paragraph-1  gp-text-instant"
+          style="--w:100%;--tdt:auto;--size:16px;--size-tablet:16px;--size-mobile:18px;--c:#121212;word-break:break-word;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.gg2fd797Ddu_childItem_0 | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+                    </div> 
+                    <div
+                      key="1"
+                      data-index="1"
+                      class="gp-icon-list-wrapper gp-flex gp-child-item-g2fd797Ddu"
+                      style="--cg:8px;--ai:center;--ai-tablet:center;--ai-mobile:center"
+                    >
+                      <div class="gp-icon-list-icon gp-inline-flex gp-shrink-0 gp-overflow-hidden" style="--pl:0px;--pr:0px;--pt:0px;--pb:0px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:transparent;--top:unset;--top-tablet:unset;--top-mobile:unset;--pos:relative;--pos-tablet:relative;--pos-mobile:relative">
+                        <span
+                          class="gp-icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--size-desktop)] [&>svg]:!gp-w-[var(--size-desktop)] tablet:[&>svg]:!gp-h-[var(--size-tablet)] tablet:[&>svg]:!gp-w-[var(--size-tablet)] mobile:[&>svg]:!gp-h-[var(--size-mobile)] mobile:[&>svg]:!gp-w-[var(--size-mobile)]"
+                          style="--c:#00C853;--w:100%;--h:100%;--size-desktop:25px;--size-tablet:16px;--size-mobile:25px"
+                        >
+                          <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" data-id="508414807831544168"><path fill="currentColor" strokelinecap="round" strokelinejoin="round" d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                        </span>
+                      </div>
+                      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id
+        class="gp-w-full"
+        style="--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1755844674931"
+      >
+      <div class="gp-flex" >
+        <div
+          data-gp-text
+          class="gp-g-paragraph-1 gp-w-full gp-border gp-border-transparent gp-text-left gp-icon-list-text gp-g-paragraph-1  gp-text-instant"
+          style="--w:100%;--tdt:auto;--size:16px;--size-tablet:16px;--size-mobile:18px;--c:#121212;word-break:break-word;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.gg2fd797Ddu_childItem_1 | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+                    </div>
+            </div>
+          </div>
+    </gp-icon-list>
+    <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-icon-list-v7-5.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+  
+      </div><div gp-el-wrapper  class="gV536_P7xl ">
+      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <gp-icon-list
+      
+      uid="gV536_P7xl"
+      data-id="gV536_P7xl"
+      style="--shadow:none;--d:flex;--d-mobile:flex;--d-tablet:flex;--op:100%;--pageType:GP_STATIC;--mb:133px;--mb-mobile:15px;--jc:left;--jc-mobile:left"
+      className="gV536_P7xl"
+      gp-data='{"position":{"desktop":"center","mobile":"center","tablet":"center"},"iconWidth":{"desktop":25,"mobile":25,"tablet":16}}'
+    >
+      
+          <div class="gp-flex" style="--b:none;--bc:#121212;--bw:1px 1px 1px 1px;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pl:20px;--pl-mobile:42px;--w:100%;--jc:left;--jc-mobile:left">
+            <div class="gp-inline-flex gp-flex-col" style="--rg:8px">
+              
+                    <div
+                      key="0"
+                      data-index="0"
+                      class="gp-icon-list-wrapper gp-flex gp-child-item-gV536_P7xl"
+                      style="--cg:8px;--ai:center;--ai-tablet:center;--ai-mobile:center"
+                    >
+                      <div class="gp-icon-list-icon gp-inline-flex gp-shrink-0 gp-overflow-hidden" style="--pl:0px;--pr:0px;--pt:0px;--pb:0px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:transparent;--top:unset;--top-tablet:unset;--top-mobile:unset;--pos:relative;--pos-tablet:relative;--pos-mobile:relative">
+                        <span
+                          class="gp-icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--size-desktop)] [&>svg]:!gp-w-[var(--size-desktop)] tablet:[&>svg]:!gp-h-[var(--size-tablet)] tablet:[&>svg]:!gp-w-[var(--size-tablet)] mobile:[&>svg]:!gp-h-[var(--size-mobile)] mobile:[&>svg]:!gp-w-[var(--size-mobile)]"
+                          style="--c:#d63837;--w:100%;--h:100%;--size-desktop:25px;--size-tablet:16px;--size-mobile:25px"
+                        >
+                          <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817766391349608">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm37.66,130.34a8,8,0,0,1-11.32,11.32L128,139.31l-26.34,26.35a8,8,0,0,1-11.32-11.32L116.69,128,90.34,101.66a8,8,0,0,1,11.32-11.32L128,116.69l26.34-26.35a8,8,0,0,1,11.32,11.32L139.31,128Z" /></svg>
+                        </span>
+                      </div>
+                      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id
+        class="gp-w-full"
+        style="--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1755844674932"
+      >
+      <div class="gp-flex" >
+        <div
+          data-gp-text
+          class="gp-g-paragraph-1 gp-w-full gp-border gp-border-transparent gp-text-left gp-icon-list-text gp-g-paragraph-1  gp-text-instant"
+          style="--w:100%;--tdt:auto;--size:16px;--size-tablet:16px;--size-mobile:18px;--c:#121212;word-break:break-word;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggV536_P7xl_childItem_0 | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+                    </div> 
+                    <div
+                      key="1"
+                      data-index="1"
+                      class="gp-icon-list-wrapper gp-flex gp-child-item-gV536_P7xl"
+                      style="--cg:8px;--ai:center;--ai-tablet:center;--ai-mobile:center"
+                    >
+                      <div class="gp-icon-list-icon gp-inline-flex gp-shrink-0 gp-overflow-hidden" style="--pl:0px;--pr:0px;--pt:0px;--pb:0px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:transparent;--top:unset;--top-tablet:unset;--top-mobile:unset;--pos:relative;--pos-tablet:relative;--pos-mobile:relative">
+                        <span
+                          class="gp-icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--size-desktop)] [&>svg]:!gp-w-[var(--size-desktop)] tablet:[&>svg]:!gp-h-[var(--size-tablet)] tablet:[&>svg]:!gp-w-[var(--size-tablet)] mobile:[&>svg]:!gp-h-[var(--size-mobile)] mobile:[&>svg]:!gp-w-[var(--size-mobile)]"
+                          style="--c:#d63837;--w:100%;--h:100%;--size-desktop:25px;--size-tablet:16px;--size-mobile:25px"
+                        >
+                          <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817766391349608">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm37.66,130.34a8,8,0,0,1-11.32,11.32L128,139.31l-26.34,26.35a8,8,0,0,1-11.32-11.32L116.69,128,90.34,101.66a8,8,0,0,1,11.32-11.32L128,116.69l26.34-26.35a8,8,0,0,1,11.32,11.32L139.31,128Z" /></svg>
+                        </span>
+                      </div>
+                      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id
+        class="gp-w-full"
+        style="--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1755844674932"
+      >
+      <div class="gp-flex" >
+        <div
+          data-gp-text
+          class="gp-g-paragraph-1 gp-w-full gp-border gp-border-transparent gp-text-left gp-icon-list-text gp-g-paragraph-1  gp-text-instant"
+          style="--w:100%;--tdt:auto;--size:16px;--size-tablet:16px;--size-mobile:18px;--c:#121212;word-break:break-word;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggV536_P7xl_childItem_1 | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+                    </div> 
+                    <div
+                      key="2"
+                      data-index="2"
+                      class="gp-icon-list-wrapper gp-flex gp-child-item-gV536_P7xl"
+                      style="--cg:8px;--ai:center;--ai-tablet:center;--ai-mobile:center"
+                    >
+                      <div class="gp-icon-list-icon gp-inline-flex gp-shrink-0 gp-overflow-hidden" style="--pl:0px;--pr:0px;--pt:0px;--pb:0px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:transparent;--top:unset;--top-tablet:unset;--top-mobile:unset;--pos:relative;--pos-tablet:relative;--pos-mobile:relative">
+                        <span
+                          class="gp-icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--size-desktop)] [&>svg]:!gp-w-[var(--size-desktop)] tablet:[&>svg]:!gp-h-[var(--size-tablet)] tablet:[&>svg]:!gp-w-[var(--size-tablet)] mobile:[&>svg]:!gp-h-[var(--size-mobile)] mobile:[&>svg]:!gp-w-[var(--size-mobile)]"
+                          style="--c:#d63837;--w:100%;--h:100%;--size-desktop:25px;--size-tablet:16px;--size-mobile:25px"
+                        >
+                          <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817766391349608">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm37.66,130.34a8,8,0,0,1-11.32,11.32L128,139.31l-26.34,26.35a8,8,0,0,1-11.32-11.32L116.69,128,90.34,101.66a8,8,0,0,1,11.32-11.32L128,116.69l26.34-26.35a8,8,0,0,1,11.32,11.32L139.31,128Z" /></svg>
+                        </span>
+                      </div>
+                      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id
+        class="gp-w-full"
+        style="--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1755844674932"
+      >
+      <div class="gp-flex" >
+        <div
+          data-gp-text
+          class="gp-g-paragraph-1 gp-w-full gp-border gp-border-transparent gp-text-left gp-icon-list-text gp-g-paragraph-1  gp-text-instant"
+          style="--w:100%;--tdt:auto;--size:16px;--size-tablet:16px;--size-mobile:18px;--c:#121212;word-break:break-word;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggV536_P7xl_childItem_2 | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+                    </div>
+            </div>
+          </div>
+    </gp-icon-list>
+    <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-icon-list-v7-5.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+  
+      </div>
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="g9CSZLQvIk"
+        class="g9CSZLQvIk"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:40px;--mb-mobile:40px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1755844674932"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--size:24px;--size-tablet:16px;--size-mobile:14px;--lh:120%;--lh-tablet:180%;--lh-mobile:180%;--weight:bold;--c:#D30000;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.gg9CSZLQvIk_text | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+    {%- liquid
+      assign inventory_quantity = variant.inventory_quantity | default: 0
+      assign is_in_stock = variant.available
+    -%}
+    <gp-product-button
+      
+      gp-data-wrapper="true"
+      gp-href="https://tierliebhaber-animagus.myshopify.com/cart/53649054957836:1?channel=buy_button"
+      class="gp-product-button"
+      gp-label-out-of-stock="{{ section.settings.ggewW5ujGqT_outOfStockLabel }}"
+      gp-label-unavailable="{{ section.settings.ggewW5ujGqT_unavailableLabel }}"
+      gp-data='{"styles":{"errorTypo":{"attrs":{"color":"error"},"type":"paragraph-2"},"successTypo":{"attrs":{"color":"success"},"type":"paragraph-2"}},"setting":{"errorType":"built-in","actionEffect":"go-to-url","enableMessage":true,"label":"JETZT BESTELLEN","errorMessage":"Cannot add product to cart","successMessage":"Add product to cart successfully","outOfStockLabel":"Out of stock","customURL":{"link":"https://tierliebhaber-animagus.myshopify.com/cart/53649054957836:1?channel=buy_button","target":"_self"}},"variantID":"{{variant.id}}","disabled":"{{variant.available}}","totalVariant":"{{total_combinations}}"}'
+      data-variant-selection-required-message="{{ section.settings.ggewW5ujGqT_variantSelectionRequiredMessage }}"
+    >
+      
+    <gp-button
+      gp-data='{}'
+      
+      class="gp-flex gp-flex-col"
+    >
+      <div style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:9px;--ta:left" class="{% unless variant.available %} !gp-hidden {% endunless %}">
+        <style>[data-id="gewW5ujGqT"].gp-button-base::before, [data-id="gewW5ujGqT-interaction"].gp-button-base::before {
+      
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    border-style: none;
+  border-width: 1px 1px 1px 1px;
+  
+  
+    
+      
+      
+      
+      
+      
+  
+    }
+  
+      
+  [data-id="gewW5ujGqT"]:hover::before, [data-id="gewW5ujGqT-interaction"]:hover::before {
+    border-style: none;
+  border-width: 1px 1px 1px 1px;
+  
+  
+    
+  }</style>
+        
+        <button
+          data-id="gewW5ujGqT" dataId="gewW5ujGqT" data-state="idle" aria-label="JETZT BESTELLEN"
+          name="add" gp-data-hidden="{% unless variant.available %}true{% endunless %}"
+          type="submit"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--h:60px;--h-tablet:60px;--h-mobile:60px;--pl:24px;--pr:24px;--pt:8px;--pb:8px;--shadow:none;--bgi:;--hvr-bgi:;--hvr-bg:var(--g-c-highlight, highlight);--bg:#7D7D7D;--c:var(--g-c-text-3, text-3);--size:22px;--size-tablet:16px;--size-mobile:25px;--weight:bold"
+          class="gp-button-atc tcustomizer-submit-button gewW5ujGqT gp-button-base gp-group gp-relative gp-inline-flex gp-max-w-full gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-200 disabled:gp-btn-disabled disabled:gp-opacity-30 gp-text-g-text-3 gp-g-paragraph-1 undefined"
+        >
+        
+  <svg
+    class="gp-invisible gp-absolute gp-h-5 gp-w-5 group-data-[state=loading]:gp-animate-spin group-data-[state=loading]:gp-visible"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+  >
+    <circle
+      class="gp-opacity-25"
+      cx="12"
+      cy="12"
+      r="10"
+      stroke="currentColor"
+      stroke-width="4"
+    ></circle>
+    <path
+      class="gp-opacity-75"
+      fill="currentColor"
+      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+    ></path>
+  </svg>
+
+        <div class="gp-inline-flex">
+          
+          
+    <span
+      data-gp-text
+      style="--size:22px;--size-tablet:16px;--size-mobile:25px;--weight:bold;word-break:break-word"
+      class="gp-content-product-button group-active/button:!gp-text-inherit gp-relative gp-flex gp-h-full gp-items-center gp-overflow-hidden gp-break-words group-data-[state=loading]:gp-invisible [&_p]:gp-whitespace-pre-line gp-text button-text"
+    >
+      {{ section.settings.ggewW5ujGqT_label }}
+    </span>
+        </div>
+        
+    
+    
+  
+        </button>
+      </div>
+      <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-button-v7-5.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+    </gp-button>
+  
+      
+    <gp-button
+      gp-data='{}'
+      
+      class="gp-flex gp-flex-col"
+    >
+      <div style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:9px;--ta:left" class="{% if variant.available %} !gp-hidden {% endif %}">
+        <style>[data-id="gewW5ujGqT-sold-out"].gp-button-base::before, [data-id="gewW5ujGqT-sold-out-interaction"].gp-button-base::before {
+      
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    border-style: none;
+  border-width: 1px 1px 1px 1px;
+  
+  
+    
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      
+  
+    }
+  
+      
+  [data-id="gewW5ujGqT-sold-out"]:hover::before, [data-id="gewW5ujGqT-sold-out-interaction"]:hover::before {
+    
+    
+  }</style>
+        
+        <button
+          data-id="gewW5ujGqT-sold-out" dataId="gewW5ujGqT-sold-out" data-state="idle" aria-label="{{ section.settings.ggewW5ujGqT_outOfStockLabel }}"
+          gp-data-hidden="{% if variant.available %}true{% endif %}"
+          type="button"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--h:60px;--h-tablet:60px;--h-mobile:60px;--pl:24px;--pr:24px;--pt:8px;--pb:8px;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--hvr-bblr:0px;--hvr-bbrr:0px;--hvr-btlr:0px;--hvr-btrr:0px;--shadow:none;--bgi:;--hvr-bgi:;--bg:#7D7D7D;--hvr-bg:#7D7D7D;--c:var(--g-c-text-3, text-3);--size:22px;--size-tablet:16px;--size-mobile:25px;--weight:bold"
+          class="gp-cursor-default gp-opacity-30 btn-disabled gp-button-sold-out gewW5ujGqT-sold-out gp-button-base gp-group gp-relative gp-inline-flex gp-max-w-full gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-200 disabled:gp-btn-disabled disabled:gp-opacity-30  gp-g-paragraph-1"
+        >
+        
+        <div class="gp-inline-flex">
+          
+          
+    <span
+      data-gp-text
+      style="--size:22px;--size-tablet:16px;--size-mobile:25px;--weight:bold;word-break:break-word"
+      class="gp-content-product-button group-active/button:!gp-text-inherit gp-relative gp-flex gp-h-full gp-items-center gp-overflow-hidden gp-break-words group-data-[state=loading]:gp-invisible [&_p]:gp-whitespace-pre-line gp-text button-text"
+    >
+      {{ section.settings.ggewW5ujGqT_outOfStockLabel }}
+    </span>
+        </div>
+        
+    
+    
+  
+        </button>
+      </div>
+      <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-button-v7-5.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+    </gp-button>
+  
+    </gp-product-button>
+    <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-product-button-v7-5.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+  
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="g_-B-Zg-rl"
+        class="g_-B-Zg-rl"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:6px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1755844674935"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:17px;--size-tablet:16px;--size-mobile:14px;--lh:120%;--lh-tablet:180%;--lh-mobile:180%;--c:#151515;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.gg_-B-Zg-rl_text | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+    </div>
+
+      
+    </gp-row>
+  
+  
+          {%- endform -%}
+        </product-form>
+      </gp-product>
+      {%- assign product = gpBkProduct -%}
+    {% else %}
+      <div class="gp-text-center">{{ 'gempages.Product.product_not_found' | t }}</div>
+    {% endif %}
+    <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-product-v7-5.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+  
