@@ -173,7 +173,6 @@
       .then((json) => {
         currentCountry = json.detected_values.country.handle;
         console.log("test",currentCountry);
-        alert("test",currentCountry);
         switch (currentCountry) {
           case "DE":
             minSubtotalPriceValue =
