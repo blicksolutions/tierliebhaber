@@ -2,52 +2,7 @@
 
 <html class="no-js" lang="{{ shop.locale }}">
   <head>
-<script>
-    // Function to check marketing consent
-  function checkMarketingConsent() {
-    try {
-      // Check if Cookiebot is available and consent is given
-      if (typeof Cookiebot !== 'undefined' && Cookiebot.consent) {
-        return Cookiebot.consent.marketing === true;
-      }
-      
-      // Fallback: check cookie consent string
-      const consentCookie = document.cookie
-        .split('; ')
-        .find(row => row.startsWith('CookieConsent='));
-      
-      if (consentCookie) {
-        const consentValue = consentCookie.split('=')[1];
-        return consentValue.includes('marketing:true');
-      }
-      
-      return false; // Default to no consent
-    } catch (e) {
-      log('Error checking consent:', e);
-      return false;
-    }
-  }
-    const originalCookieDescriptor = Object.getOwnPropertyDescriptor(Document.prototype, 'cookie');
-  if (originalCookieDescriptor && originalCookieDescriptor.set) {
-    Object.defineProperty(document, 'cookie', {
-      get: originalCookieDescriptor.get,
-      set: function(value) {
-        // Check if this is an Elevar or Klaviyo cookie and if marketing consent is given
-        if (value && (/_Elevar-apex/i.test(value) || /__kla_id/i.test(value))) {
-          // Check if marketing consent is given
-          const hasMarketingConsent = checkMarketingConsent();
-          if (!hasMarketingConsent) {
-            log('Blocked marketing cookie write:', value);
-            return; // Block the cookie write
-          }
-        }
-        // Allow the cookie write
-        originalCookieDescriptor.set.call(this, value);
-      }
-    });
-  }
-</script>
-<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="a4aa9c1a-9639-4e9f-8a23-4aef9c37b3cc" data-blockingmode="manual" type="text/javascript"></script>
+ {% render 'cookiebot' %}
 
     <!-- BS: AB Scripts -->
 	<link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}">
