@@ -662,7 +662,7 @@
       "1628785723a639a63d": {
         "type": "featured-in",
         "blocks": {
-          "bd5374af-d99b-4192-b2f9-c0f3123ac0f3": {
+          "image_e7fXtp": {
             "type": "image",
             "settings": {
               "image": "shopify://shop_images/logo_bunte_3b000de3-2716-4d31-b5cf-0063f6d2e369.jpg",
@@ -680,6 +680,15 @@
               "max_width": 160
             }
           },
+          "bd5374af-d99b-4192-b2f9-c0f3123ac0f3": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/Bildschirmfoto_2025-08-25_um_09.48.31.png",
+              "image_alt": "",
+              "image_url": "https://de.trustpilot.com/review/tierliebhaber.de",
+              "max_width": 128
+            }
+          },
           "143db82c-8dbd-4241-8805-62b2a626ca51": {
             "type": "image",
             "settings": {
@@ -687,12 +696,6 @@
               "image_alt": "",
               "image_url": "",
               "max_width": 136
-            }
-          },
-          "fb93a848-0723-4d67-a948-992c854e0b5f": {
-            "type": "html",
-            "settings": {
-              "html": "<div class=\"trustpilot-widget\" data-locale=\"de-DE\" data-template-id=\"53aa8807dec7e10d38f59f32\" data-businessunit-id=\"60d5db8ab6c75b0001a3a5e3\" data-style-height=\"150px\" data-style-width=\"100%\" data-theme=\"light\">\n  <a href=\"https://de.trustpilot.com/review/tierliebhaber.de\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>"
             }
           },
           "f6452686-be98-4be8-8ad1-8cd81d013eb7": {
@@ -715,10 +718,10 @@
           }
         },
         "block_order": [
-          "bd5374af-d99b-4192-b2f9-c0f3123ac0f3",
+          "image_e7fXtp",
           "51a4e0a4-5035-4f15-81ea-400c105bea3d",
+          "bd5374af-d99b-4192-b2f9-c0f3123ac0f3",
           "143db82c-8dbd-4241-8805-62b2a626ca51",
-          "fb93a848-0723-4d67-a948-992c854e0b5f",
           "f6452686-be98-4be8-8ad1-8cd81d013eb7",
           "db8fd44d-cc21-46fc-ab84-efde41ab3e9c"
         ],
