@@ -43,33 +43,20 @@
       data-keep-class="true"
       class="gSzTAutrGY gp-cursor-pointer gp-custom-code">
       <div>
-    <div id="angebot-row-text" style="font-size: 20px; font-weight: bold; text-align: center; line-height: 1.2;">
-  <span id="angebot-title"></span><span>*</span><br>
-  <span style="font-size: 13px; font-weight: normal;">*Nur so lange der Vorrat reicht</span>
+    <div id="angebot-row-text" 
+     style="font-size: 22px; font-weight: 700; text-align: center; line-height: 1.3; color:#0f1f1c; margin-bottom:10px;">
+  <span id="angebot-title" style="background:#f7961e; color:#0f1f1c; padding:4px 10px; border-radius:6px;"></span>
+  <br>
+  <span style="font-size: 14px; font-weight: 400; color:#5b6f6b;">*Nur solange der Vorrat reicht</span>
 </div>
 
 <script>
   (function() {
-    // Monatsnamen definieren
     const monateRow = [
-      "Januar",
-      "Februar",
-      "März",
-      "April",
-      "Mai",
-      "Juni",
-      "Juli",
-      "August",
-      "September",
-      "Oktober",
-      "November",
-      "Dezember"
+      "Januar","Februar","März","April","Mai","Juni",
+      "Juli","August","September","Oktober","November","Dezember"
     ];
-    
-    // Aktuellen Monat abrufen
     const aktuellerMonatRow = monateRow[new Date().getMonth()];
-
-    // Text in das spezifische span einsetzen
     const angebotTitleElement = document.getElementById("angebot-title");
     if (angebotTitleElement) {
       angebotTitleElement.innerText = `Limitiertes ${aktuellerMonatRow} Angebot`;
