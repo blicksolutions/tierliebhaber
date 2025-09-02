@@ -43,9 +43,10 @@
       data-keep-class="true"
       class="gmPJvhAFIq gp-cursor-pointer gp-custom-code">
       <div>
-    <!-- Einfügen oberhalb jeder Offer-Kachel -->
+    <!-- Badge-Block über jeder Offer-Kachel -->
 <div class="angebot-row-text">
-  <span class="angebot-title"></span><span class="angebot-asterisk">*</span><br>
+  <span class="angebot-title"></span>
+  <br>
   <span class="angebot-sub">*Nur solange der Vorrat reicht</span>
 </div>
 
@@ -61,26 +62,46 @@
   .angebot-row-text .angebot-sub{
     font-size:14px;font-weight:400;color:#5b6f6b;
   }
-  .angebot-row-text .angebot-asterisk{display:none;} /* Stern nur optisch, Inhalt steht in .angebot-sub */
 </style>
 
 <script>
 (function(){
-  const monate = ["Januar","Februar","März","April","Mai","Juni","Juli",
-                  "August","September","Oktober","November","Dezember"];
+  const monate = ["Januar","Februar","März","April","Mai","Juni",
+                  "Juli","August","September","Oktober","November","Dezember"];
   const text = `Limitiertes ${monate[new Date().getMonth()]} Angebot`;
 
-  function apply(){
-    document.querySelectorAll('.angebot-title').forEach(el => { el.textContent = text; });
+  // Beschriftet alle noch nicht befüllten Badges
+  function fillTitles(root = document){
+    root.querySelectorAll('.angebot-title').forEach(el => {
+      if (!el.dataset.populated){ // nur einmal
+        el.textContent = text;
+        el.dataset.populated = '1';
+      }
+    });
   }
 
-  // initial + wenn Shopify dynamisch nachlädt
+  // 1) Initial beim Laden
   if (document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', apply);
-  } else { apply(); }
+    document.addEventListener('DOMContentLoaded', () => fillTitles());
+  } else {
+    fillTitles();
+  }
 
-  // falls Sektionen später ins DOM kommen (Slides/Accordions)
-  new MutationObserver(apply).observe(document.body, {childList:true, subtree:true});
+  // 2) Nur auf NEU hinzugefügte Elemente reagieren (keine Endlosschleife)
+  const observer = new MutationObserver(mutations => {
+    for (const m of mutations){
+      for (const n of m.addedNodes){
+        if (n.nodeType !== 1) continue;
+        if (n.matches && n.matches('.angebot-title')){
+          fillTitles(n.parentNode || n);
+        } else if (n.querySelector){
+          const found = n.querySelector('.angebot-title');
+          if (found) fillTitles(n);
+        }
+      }
+    }
+  });
+  observer.observe(document.body, { childList:true, subtree:true });
 })();
 </script>
     </div>
