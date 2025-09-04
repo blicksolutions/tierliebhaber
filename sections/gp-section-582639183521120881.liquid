@@ -43,66 +43,63 @@
       data-keep-class="true"
       class="g0S2pzbSX0 gp-cursor-pointer gp-custom-code">
       <div>
-    <!-- Badge-Block über jeder Offer-Kachel -->
-<div class="angebot-row-text">
+    <!-- ==== Limitiertes Monats-Angebot (Badge über den Offer-Kacheln) ==== -->
+<div class="angebot-row-text style-b">
   <span class="angebot-title"></span>
   <br>
   <span class="angebot-sub">*Nur solange der Vorrat reicht</span>
 </div>
 
 <style>
+  /* Basis-Styling (dezent, passend zur Tierliebhaber-Seite) */
   .angebot-row-text{
-    font-size:22px;font-weight:700;text-align:center;line-height:1.3;
-    color:#0f1f1c;margin:12px 0 10px;
-  }
-  .angebot-row-text .angebot-title{
-    background:#f7961e;color:#0f1f1c;padding:6px 12px;border-radius:8px;
-    display:inline-block;
+    font-size:20px;font-weight:700;text-align:center;line-height:1.35;
+    color:#0f1f1c;margin:12px 0 6px;
   }
   .angebot-row-text .angebot-sub{
-    font-size:14px;font-weight:400;color:#5b6f6b;
+    font-size:14px;font-weight:400;color:#5b6f6b;margin-top:4px;display:inline-block;
+  }
+
+  /* STYLE B – Editorial Tag mit linker Akzentleiste (Empfehlung) */
+  .angebot-row-text.style-b .angebot-title{
+    display:inline-block;padding:6px 12px 6px 14px;border-radius:8px;
+    background:#fff;border:1px solid #e9eceb;color:#0f1f1c;
+    box-shadow:0 1px 2px rgba(0,0,0,.04);position:relative;
+  }
+  .angebot-row-text.style-b .angebot-title::before{
+    content:"";position:absolute;left:-1px;top:6px;bottom:6px;width:4px;border-radius:4px;
+    background:#f7961e;
+  }
+
+  /* Optional: Alternative Styles – bei Bedarf einfach style-a oder style-c an die Wrapper-Klasse hängen */
+  .angebot-row-text.style-a .angebot-title{
+    display:inline-block;padding:6px 12px;border-radius:999px;border:1px solid #f7961e;
+    background:transparent;color:#0f1f1c;
+  }
+  .angebot-row-text.style-c .angebot-title{
+    display:inline-block;padding:0 2px;border-bottom:3px solid #f7961e;color:#0f1f1c;
   }
 </style>
 
 <script>
-(function(){
-  const monate = ["Januar","Februar","März","April","Mai","Juni",
-                  "Juli","August","September","Oktober","November","Dezember"];
-  const text = `Limitiertes ${monate[new Date().getMonth()]} Angebot`;
+  (function(){
+    const monate=["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
+    const text=`Limitiertes ${monate[new Date().getMonth()]} Angebot`;
 
-  // Beschriftet alle noch nicht befüllten Badges
-  function fillTitles(root = document){
-    root.querySelectorAll('.angebot-title').forEach(el => {
-      if (!el.dataset.populated){ // nur einmal
-        el.textContent = text;
-        el.dataset.populated = '1';
-      }
-    });
-  }
-
-  // 1) Initial beim Laden
-  if (document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', () => fillTitles());
-  } else {
-    fillTitles();
-  }
-
-  // 2) Nur auf NEU hinzugefügte Elemente reagieren (keine Endlosschleife)
-  const observer = new MutationObserver(mutations => {
-    for (const m of mutations){
-      for (const n of m.addedNodes){
-        if (n.nodeType !== 1) continue;
-        if (n.matches && n.matches('.angebot-title')){
-          fillTitles(n.parentNode || n);
-        } else if (n.querySelector){
-          const found = n.querySelector('.angebot-title');
-          if (found) fillTitles(n);
+    function fill(root=document){
+      root.querySelectorAll('.angebot-title').forEach(el=>{
+        if(!el.dataset.populated){
+          el.textContent=text;
+          el.dataset.populated='1';
         }
-      }
+      });
     }
-  });
-  observer.observe(document.body, { childList:true, subtree:true });
-})();
+    if(document.readyState==='loading'){
+      document.addEventListener('DOMContentLoaded',()=>fill());
+    } else {
+      fill();
+    }
+  })();
 </script>
     </div>
     </div>
