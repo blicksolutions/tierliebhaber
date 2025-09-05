@@ -44,40 +44,92 @@
       class="g0S2pzbSX0 gp-cursor-pointer gp-custom-code">
       <div>
     <!-- ==== Limitiertes Monats-Angebot (Badge über den Offer-Kacheln) ==== -->
-<div class="angebot-row-text style-b">
+<div class="angebot-row-text style-d">
   <span class="angebot-title"></span>
   <br>
   <span class="angebot-sub">*Nur solange der Vorrat reicht</span>
 </div>
 
 <style>
-  /* Basis-Styling (dezent, passend zur Tierliebhaber-Seite) */
-  .angebot-row-text{
-    font-size:20px;font-weight:700;text-align:center;line-height:1.35;
-    color:#0f1f1c;margin:12px 0 6px;
-  }
-  .angebot-row-text .angebot-sub{
-    font-size:14px;font-weight:400;color:#5b6f6b;margin-top:4px;display:inline-block;
+  :root{
+    --ink:#0f1f1c;
+    --muted:#5b6f6b;
+    --bd:#e9eceb;
+    --accent:#f7961e;         /* Orange (wie bisher) */
+    --accent2:#ffd06a;        /* Helles Orange/Gold für Verlauf */
+    --badge-bg:#ffffff;
   }
 
-  /* STYLE B – Editorial Tag mit linker Akzentleiste (Empfehlung) */
+  .angebot-row-text{
+    font-size:20px;font-weight:700;text-align:center;line-height:1.35;
+    color:var(--ink);margin:12px 0 6px;
+  }
+  .angebot-row-text .angebot-sub{
+    font-size:14px;font-weight:400;color:var(--muted);margin-top:4px;display:inline-block;
+  }
+
+  /* STYLE D – dezent auffälliger Badge */
+  .angebot-row-text.style-d .angebot-title{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:8px 14px 8px 16px;border-radius:12px;
+    background:linear-gradient(0deg, rgba(255,255,255,.85), rgba(255,255,255,.85)), var(--badge-bg);
+    border:1px solid var(--bd);
+    box-shadow:
+      0 1px 2px rgba(0,0,0,.05),
+      0 0 0 4px rgba(247,150,30,.06);   /* sanfter Focus-Ring */
+    color:var(--ink);position:relative;
+    transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  /* Linke Akzentleiste mit Verlauf */
+  .angebot-row-text.style-d .angebot-title::before{
+    content:"";position:absolute;left:-1px;top:6px;bottom:6px;width:5px;border-radius:6px;
+    background:linear-gradient(180deg, var(--accent), var(--accent2));
+  }
+  /* kleines Stern-/Sparkle-Icon (SVG als Mask) */
+  .angebot-row-text.style-d .angebot-title::after{
+    content:"";width:14px;height:14px;
+    -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23000" d="M12 3l1.6 3.9L18 8.5l-3.4 1.6L13 14l-1-3.9L8.5 8.5l3.5-1.6L12 3zM5 16l.9 2.1L8 19l-2.1.9L5 22l-.9-2.1L2 19l2.1-.9L5 16zM19 16l1.1 2.5L23 20l-2.9 1.5L19 24l-1.1-2.5L15 20l2.9-1.5L19 16z"/></svg>') center/contain no-repeat;
+    mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23000" d="M12 3l1.6 3.9L18 8.5l-3.4 1.6L13 14l-1-3.9L8.5 8.5l3.5-1.6L12 3zM5 16l.9 2.1L8 19l-2.1.9L5 22l-.9-2.1L2 19l2.1-.9L5 16zM19 16l1.1 2.5L23 20l-2.9 1.5L19 24l-1.1-2.5L15 20l2.9-1.5L19 16z"/></svg>') center/contain no-repeat;
+    background:linear-gradient(180deg, var(--accent2), var(--accent));
+  }
+
+  /* leichter Hover-Lift (dezent) */
+  .angebot-row-text.style-d .angebot-title:hover{
+    transform:translateY(-1px);
+    box-shadow:
+      0 4px 10px rgba(0,0,0,.06),
+      0 0 0 4px rgba(247,150,30,.09);
+    border-color:#e3e6e4;
+  }
+
+  /* Sanftes "glint" auf der Akzentleiste (nur wenn Motion erlaubt) */
+  @media (prefers-reduced-motion:no-preference){
+    .angebot-row-text.style-d .angebot-title::before{
+      background-size:200% 100%;
+      animation:glint 2.8s cubic-bezier(.4,0,.2,1) infinite;
+    }
+    @keyframes glint{
+      0%{background-position:0% 0}
+      50%{background-position:100% 0}
+      100%{background-position:0% 0}
+    }
+  }
+
+  /* Bestehende Alternativ-Styles bleiben verfügbar */
+  .angebot-row-text.style-a .angebot-title{
+    display:inline-block;padding:6px 12px;border-radius:999px;border:1px solid var(--accent);
+    background:transparent;color:var(--ink);
+  }
   .angebot-row-text.style-b .angebot-title{
     display:inline-block;padding:6px 12px 6px 14px;border-radius:8px;
-    background:#fff;border:1px solid #e9eceb;color:#0f1f1c;
+    background:#fff;border:1px solid var(--bd);color:var(--ink);
     box-shadow:0 1px 2px rgba(0,0,0,.04);position:relative;
   }
   .angebot-row-text.style-b .angebot-title::before{
-    content:"";position:absolute;left:-1px;top:6px;bottom:6px;width:4px;border-radius:4px;
-    background:#f7961e;
-  }
-
-  /* Optional: Alternative Styles – bei Bedarf einfach style-a oder style-c an die Wrapper-Klasse hängen */
-  .angebot-row-text.style-a .angebot-title{
-    display:inline-block;padding:6px 12px;border-radius:999px;border:1px solid #f7961e;
-    background:transparent;color:#0f1f1c;
+    content:"";position:absolute;left:-1px;top:6px;bottom:6px;width:4px;border-radius:4px;background:var(--accent);
   }
   .angebot-row-text.style-c .angebot-title{
-    display:inline-block;padding:0 2px;border-bottom:3px solid #f7961e;color:#0f1f1c;
+    display:inline-block;padding:0 2px;border-bottom:3px solid var(--accent);color:var(--ink);
   }
 </style>
 
@@ -85,7 +137,6 @@
   (function(){
     const monate=["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
     const text=`Limitiertes ${monate[new Date().getMonth()]} Angebot`;
-
     function fill(root=document){
       root.querySelectorAll('.angebot-title').forEach(el=>{
         if(!el.dataset.populated){
@@ -96,9 +147,7 @@
     }
     if(document.readyState==='loading'){
       document.addEventListener('DOMContentLoaded',()=>fill());
-    } else {
-      fill();
-    }
+    } else { fill(); }
   })();
 </script>
     </div>
