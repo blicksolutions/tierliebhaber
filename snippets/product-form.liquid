@@ -47,7 +47,7 @@
 {%- assign selected_variant = product.selected_or_first_available_variant -%}
 
 {%- form 'product', product, data-productid: product.id, class: 'ProductForm' -%}
-  {%- if template.suffix == 'standardprodukt-mit-abo' -%}
+  {%- if template.suffix == 'standardprodukt-mit-abo' or template.suffix == 'abo-ohne-reviews' -%}
     <!-- Begin ReCharge code -->
     <div class="rc-widget-injection-parent"></div>
     <!-- End ReCharge code -->
