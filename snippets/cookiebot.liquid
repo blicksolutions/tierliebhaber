@@ -312,8 +312,23 @@
   }).observe(document.documentElement, { childList:true, subtree:true });
 
   // Nach Einwilligung: automatisch freischalten
-  window.addEventListener('CookiebotOnConsentReady', restoreAllPlaceholders);
-  window.addEventListener('CookiebotOnAccept',      restoreAllPlaceholders);
+function enforceVimeoConsentState(){
+    if (hasMarketingConsent()) {
+      // Zustimmung vorhanden -> Platzhalter in echte Iframes zurückverwandeln
+      restoreAllPlaceholders();
+    } else {
+      // Keine Zustimmung -> alle vorhandenen Vimeo-Iframes in Platzhalter tauschen
+      document.querySelectorAll('iframe[src*="vimeo.com"]').forEach(replaceIframeWithPlaceholder);
+    }
+  }
+
+  // Alte Listener entfernen/überschreiben und durch diese Drei ersetzen:
+  window.addEventListener('CookiebotOnConsentReady', enforceVimeoConsentState);
+  window.addEventListener('CookiebotOnAccept',      enforceVimeoConsentState);
+  window.addEventListener('CookiebotOnDecline',     enforceVimeoConsentState);
+
+  // Optional (falls euer Setup dieses Event feuert, z. B. bei erneuter Auswahl im Dialog):
+  window.addEventListener('CookiebotOnDialogInit',  enforceVimeoConsentState);
 
   // Minimalstyles (kannst du ins CSS auslagern)
   const css = `
