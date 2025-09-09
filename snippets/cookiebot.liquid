@@ -204,26 +204,84 @@
     return wrap;
   }
 
-  function replaceIframeWithPlaceholder(iframe){
-    if (iframe.hasAttribute('data-consent-exempt')) return; // Opt-out für einzelne iFrames
-    const src = iframe.src;
-    const ph = makePlaceholder(src);
-    iframe.parentNode.insertBefore(ph, iframe);
-    iframe.parentNode.removeChild(iframe);
+function snapshotIframeMeta(ifr){
+  const rect = ifr.getBoundingClientRect();
+  return {
+    widthAttr: ifr.getAttribute('width') || '',
+    heightAttr: ifr.getAttribute('height') || '',
+    style: ifr.getAttribute('style') || '',
+    className: ifr.className || '',
+    allow: ifr.getAttribute('allow') || 'autoplay; fullscreen; picture-in-picture',
+    allowFull: ifr.hasAttribute('allowfullscreen') ? '1' : '',
+    // Fallback: berechnete Größe merken, falls width/height fehlen
+    cw: Math.round(rect.width) || '',
+    ch: Math.round(rect.height) || ''
+  };
+}
+
+function replaceIframeWithPlaceholder(iframe){
+  if (iframe.hasAttribute('data-consent-exempt')) return;
+  const meta = snapshotIframeMeta(iframe);
+  const src = iframe.src;
+
+  const ph = makePlaceholder(src);
+  // Meta an Placeholder hängen
+  Object.entries(meta).forEach(([k,v]) => ph.dataset[k] = v);
+
+  // Placeholder grob passend dimensionieren
+  if (meta.widthAttr && meta.heightAttr) {
+    ph.style.aspectRatio = `${meta.widthAttr} / ${meta.heightAttr}`;
+    ph.style.width = meta.widthAttr.match(/^\d+$/) ? meta.widthAttr+'px' : meta.widthAttr;
+  } else if (meta.cw && meta.ch) {
+    ph.style.aspectRatio = `${meta.cw} / ${meta.ch}`;
+    ph.style.width = meta.cw+'px';
+  } else {
+    ph.style.width = '100%';
+    ph.style.aspectRatio = '16 / 9';
   }
 
-  function restoreVimeoFromPlaceholder(ph){
-    const src = ph.getAttribute('data-vimeo-src');
-    if (!src) return;
-    const f = document.createElement('iframe');
-    f.src = src;
-    f.width = ph.getAttribute('data-width') || '640';
-    f.height = ph.getAttribute('data-height') || '360';
-    f.setAttribute('frameborder','0');
-    f.setAttribute('allow','autoplay; fullscreen; picture-in-picture');
-    f.setAttribute('allowfullscreen','');
-    ph.parentNode.replaceChild(f, ph);
+  iframe.parentNode.insertBefore(ph, iframe);
+  iframe.parentNode.removeChild(iframe);
+}
+
+function restoreVimeoFromPlaceholder(ph){
+  const src = ph.getAttribute('data-vimeo-src');
+  if (!src) return;
+
+  const f = document.createElement('iframe');
+  f.src = src;
+
+  // ursprüngliche Klassen/Styles/Attribute zurückgeben
+  const cls = ph.dataset.className || '';
+  if (cls) f.className = cls;
+
+  const style = ph.dataset.style || '';
+  if (style) f.setAttribute('style', style);
+
+  const w = ph.dataset.widthAttr || ph.dataset.cw || '';
+  const h = ph.dataset.heightAttr || ph.dataset.ch || '';
+  if (w && h) {
+    f.setAttribute('width', String(w));
+    f.setAttribute('height', String(h));
+  } else {
+    // responsive fallback
+    f.style.width = '100%';
+    f.style.height = '100%';
   }
+
+  f.setAttribute('frameborder','0');
+  f.setAttribute('allow', ph.dataset.allow || 'autoplay; fullscreen; picture-in-picture');
+  if (ph.dataset.allowFull) f.setAttribute('allowfullscreen','');
+
+  // In Wrapper setzen, der die Größe des Platzhalters übernimmt
+  const wrap = document.createElement('div');
+  wrap.className = 'vimeo-consent-embed';
+  wrap.style.width = ph.style.width || '100%';
+  if (ph.style.aspectRatio) wrap.style.aspectRatio = ph.style.aspectRatio;
+
+  wrap.appendChild(f);
+  ph.parentNode.replaceChild(wrap, ph);
+}
 
   function blockAllVimeoIframes(context){
     const root = context || document;
