@@ -152,3 +152,127 @@
 </script>
 
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="a4aa9c1a-9639-4e9f-8a23-4aef9c37b3cc" data-blockingmode="manual" type="text/javascript"></script>
+
+
+
+<script>
+(function(){
+  /* ---------- Helpers ---------- */
+  const log = (...a)=>{ try{ console.debug('[VIMEO CONSENT]',...a);}catch(e){} };
+
+  function hasMarketingConsent(){
+    try {
+      if (typeof Cookiebot !== 'undefined') {
+        if (Cookiebot.consents && typeof Cookiebot.consents.marketing === 'boolean') return Cookiebot.consents.marketing;
+        if (Cookiebot.consent  && typeof Cookiebot.consent.marketing  === 'boolean') return Cookiebot.consent.marketing;
+      }
+      // Fallback: CookieConsent-String von Cookiebot
+      const cc = document.cookie.split('; ').find(r=>r.startsWith('CookieConsent='));
+      return cc ? decodeURIComponent(cc.split('=')[1]).includes('marketing:true') : false;
+    } catch(e){ return false; }
+  }
+
+  function isVimeoIframe(node){
+    return node && node.tagName === 'IFRAME' && /(^|\/\/)(player\.)?vimeo\.com/i.test(node.src || '');
+  }
+
+  function makePlaceholder(src){
+    const wrap = document.createElement('div');
+    wrap.className = 'vimeo-consent-placeholder';
+    wrap.setAttribute('data-vimeo-src', src);
+    wrap.innerHTML = `
+      <div class="vimeo-consent-box">
+        <div class="vimeo-consent-title">Vimeo-Video blockiert</div>
+        <div class="vimeo-consent-text">Zum Abspielen bitte Marketing-Cookies zulassen.</div>
+        <div class="vimeo-consent-actions">
+          <button type="button" class="vimeo-consent-allow">Marketing akzeptieren & Video laden</button>
+          <button type="button" class="vimeo-consent-settings">Einstellungen öffnen</button>
+        </div>
+      </div>
+    `;
+    wrap.querySelector('.vimeo-consent-allow').addEventListener('click', function(){
+      // Im manuellen Modus öffnen wir einfach das Cookiebot-Dialogfenster;
+      // der User kann dort Marketing aktivieren. Danach greifen die Events unten.
+      if (typeof Cookiebot !== 'undefined' && typeof Cookiebot.show === 'function') {
+        Cookiebot.show();
+      } else {
+        alert('Bitte Marketing-Cookies in den Cookie-Einstellungen aktivieren.');
+      }
+    });
+    wrap.querySelector('.vimeo-consent-settings').addEventListener('click', function(){
+      if (typeof Cookiebot !== 'undefined' && typeof Cookiebot.show === 'function') Cookiebot.show();
+    });
+    return wrap;
+  }
+
+  function replaceIframeWithPlaceholder(iframe){
+    if (iframe.hasAttribute('data-consent-exempt')) return; // Opt-out für einzelne iFrames
+    const src = iframe.src;
+    const ph = makePlaceholder(src);
+    iframe.parentNode.insertBefore(ph, iframe);
+    iframe.parentNode.removeChild(iframe);
+  }
+
+  function restoreVimeoFromPlaceholder(ph){
+    const src = ph.getAttribute('data-vimeo-src');
+    if (!src) return;
+    const f = document.createElement('iframe');
+    f.src = src;
+    f.width = ph.getAttribute('data-width') || '640';
+    f.height = ph.getAttribute('data-height') || '360';
+    f.setAttribute('frameborder','0');
+    f.setAttribute('allow','autoplay; fullscreen; picture-in-picture');
+    f.setAttribute('allowfullscreen','');
+    ph.parentNode.replaceChild(f, ph);
+  }
+
+  function blockAllVimeoIframes(context){
+    const root = context || document;
+    root.querySelectorAll('iframe[src*="vimeo.com"]').forEach(ifr=>{
+      if (!hasMarketingConsent()) replaceIframeWithPlaceholder(ifr);
+    });
+  }
+
+  function restoreAllPlaceholders(){
+    if (!hasMarketingConsent()) return;
+    document.querySelectorAll('.vimeo-consent-placeholder').forEach(restoreVimeoFromPlaceholder);
+  }
+
+  // Initial: bestehende iFrames prüfen
+  if (!hasMarketingConsent()) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', ()=> blockAllVimeoIframes(document));
+    } else {
+      blockAllVimeoIframes(document);
+    }
+  }
+
+  // Dynamisch nachgeladene iFrames abfangen
+  new MutationObserver((ml)=>{
+    if (hasMarketingConsent()) return;
+    for (const m of ml) for (const n of m.addedNodes) {
+      if (isVimeoIframe(n)) replaceIframeWithPlaceholder(n);
+      else if (n.querySelectorAll) n.querySelectorAll('iframe[src*="vimeo.com"]').forEach(replaceIframeWithPlaceholder);
+    }
+  }).observe(document.documentElement, { childList:true, subtree:true });
+
+  // Nach Einwilligung: automatisch freischalten
+  window.addEventListener('CookiebotOnConsentReady', restoreAllPlaceholders);
+  window.addEventListener('CookiebotOnAccept',      restoreAllPlaceholders);
+
+  // Minimalstyles (kannst du ins CSS auslagern)
+  const css = `
+  .vimeo-consent-placeholder{border:1px solid #e5e5e5; background:#fafafa; padding:16px; text-align:center; margin:8px 0;}
+  .vimeo-consent-title{font-weight:600; margin-bottom:4px;}
+  .vimeo-consent-text{font-size:14px; color:#444; margin-bottom:10px;}
+  .vimeo-consent-actions button{margin:0 4px; padding:8px 12px; cursor:pointer;}
+  .vimeo-consent-actions .vimeo-consent-allow{background:#222; color:#fff; border:0;}
+  .vimeo-consent-actions .vimeo-consent-settings{background:#fff; color:#222; border:1px solid #222;}
+  `;
+  const style = document.createElement('style');
+  style.textContent = css;
+  document.head.appendChild(style);
+})();
+</script>
+
+
