@@ -247,13 +247,13 @@
       // Im manuellen Modus öffnen wir einfach das Cookiebot-Dialogfenster;
       // der User kann dort Marketing aktivieren. Danach greifen die Events unten.
       if (typeof Cookiebot !== 'undefined' && typeof Cookiebot.show === 'function') {
-        Cookiebot.show();
+        Cookiebot.renew();
       } else {
         alert('Bitte Marketing-Cookies in den Cookie-Einstellungen aktivieren.');
       }
     });
     wrap.querySelector('.vimeo-consent-settings').addEventListener('click', function(){
-      if (typeof Cookiebot !== 'undefined' && typeof Cookiebot.show === 'function') Cookiebot.show();
+      if (typeof Cookiebot !== 'undefined' && typeof Cookiebot.show === 'function') Cookiebot.renew();
     });
     return wrap;
   }
