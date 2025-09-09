@@ -351,7 +351,7 @@ function enforceVimeoConsentState(){
 
 <script>
 (function(){
-  /* ---------- Helpers ---------- */
+  /* ================= Helpers / Consent ================= */
   const log = (...a)=>{ try{ console.debug('[TYPEFORM CONSENT]',...a);}catch(e){} };
 
   function hasMarketingConsent(){
@@ -360,70 +360,79 @@ function enforceVimeoConsentState(){
         if (Cookiebot.consents && typeof Cookiebot.consents.marketing === 'boolean') return Cookiebot.consents.marketing;
         if (Cookiebot.consent  && typeof Cookiebot.consent.marketing  === 'boolean') return Cookiebot.consent.marketing;
       }
+      // Fallback: CookieConsent-String (Cookiebot)
       const cc = document.cookie.split('; ').find(r=>r.startsWith('CookieConsent='));
       return cc ? decodeURIComponent(cc.split('=')[1]).includes('marketing:true') : false;
     } catch(e){ return false; }
   }
 
-  /* ---------- Erkennung ---------- */
-  const TYPEFORM_HOST_RX = /(^|\/\/)([^/]*\.)?(typeform\.com|typeform\.co)\//i; // z.B. embed.typeform.com, admin.typeform.com, s1.typeform.co
-
+  /* ================= Erkennung Typeform ================= */
+  // Typische Typeform-Quellen:
+  // - iframes: https://form.typeform.com/to/...  oder https://typeform.com/to/...
+  // - embed-scripts: https://embed.typeform.com/embed.js (u. a. popover/sidetab)
   function isTypeformIframe(node){
-    return node && node.tagName === 'IFRAME' && TYPEFORM_HOST_RX.test(node.src || '');
+    const src = (node && node.tagName === 'IFRAME') ? (node.src || '') : '';
+    return /(^|\/\/)(form\.)?typeform\.com\/(to|forms)\//i.test(src);
   }
   function isTypeformScript(node){
-    return node && node.tagName === 'SCRIPT' && node.src && TYPEFORM_HOST_RX.test(node.src);
+    const src = (node && node.tagName === 'SCRIPT') ? (node.src || '') : '';
+    return /(^|\/\/)embed\.typeform\.com\/embed(\.js)?/i.test(src);
   }
 
-  /* ---------- Platzhalter-UI ---------- */
+  /* ================= Placeholder UI ================= */
   function makePlaceholder(src){
     const wrap = document.createElement('div');
     wrap.className = 'typeform-consent-placeholder';
-    wrap.setAttribute('data-tf-src', src || '');
+    wrap.setAttribute('data-typeform-src', src);
     wrap.innerHTML = `
       <div class="typeform-consent-box">
-        <div class="typeform-consent-title">Typeform-Inhalt blockiert</div>
-        <div class="typeform-consent-text">Zum Anzeigen bitte Marketing-Cookies zulassen.</div>
+        <div class="typeform-consent-title">Formular blockiert</div>
+        <div class="typeform-consent-text">Dieses Typeform wird erst nach Zustimmung zu Marketing-Cookies geladen.</div>
         <div class="typeform-consent-actions">
-          <button type="button" class="typeform-consent-allow">Marketing akzeptieren & Inhalt laden</button>
+          <button type="button" class="typeform-consent-allow">Marketing akzeptieren & Formular laden</button>
           <button type="button" class="typeform-consent-settings">Einstellungen öffnen</button>
         </div>
       </div>
     `;
-    // Direkt die Detail-/Präferenzansicht öffnen:
     const openDetails = () => {
-      if (typeof Cookiebot !== 'undefined' && typeof Cookiebot.renew === 'function') Cookiebot.renew();
-      else if (typeof Cookiebot !== 'undefined' && typeof Cookiebot.show === 'function') Cookiebot.show();
-      else alert('Bitte in den Cookie-Einstellungen Marketing erlauben.');
+      if (typeof Cookiebot !== 'undefined' && typeof Cookiebot.renew === 'function') {
+        Cookiebot.renew(); // direkt Detail-/Änderungsansicht
+      } else if (typeof Cookiebot !== 'undefined' && typeof Cookiebot.show === 'function') {
+        Cookiebot.show();
+      } else {
+        alert('Bitte Marketing-Cookies in den Cookie-Einstellungen aktivieren.');
+      }
     };
     wrap.querySelector('.typeform-consent-allow').addEventListener('click', openDetails);
     wrap.querySelector('.typeform-consent-settings').addEventListener('click', openDetails);
     return wrap;
   }
 
-  /* ---------- Größen-/Meta-Snapshot ---------- */
-  function snapshotBoxMeta(el){
-    const rect = el.getBoundingClientRect();
+  /* ================= Größen-Snapshot ================= */
+  function snapshotIframeMeta(ifr){
+    const rect = ifr.getBoundingClientRect();
     return {
-      widthAttr:  el.getAttribute('width')  || '',
-      heightAttr: el.getAttribute('height') || '',
-      style:      el.getAttribute('style')  || '',
-      className:  el.className || '',
+      widthAttr:  ifr.getAttribute('width')  || '',
+      heightAttr: ifr.getAttribute('height') || '',
+      style:      ifr.getAttribute('style')  || '',
+      className:  ifr.className || '',
+      allow:      ifr.getAttribute('allow') || 'camera; microphone; geolocation; clipboard-read; clipboard-write; autoplay',
+      allowFull:  ifr.hasAttribute('allowfullscreen') ? '1' : '',
       cw: Math.round(rect.width)  || '',
       ch: Math.round(rect.height) || ''
     };
   }
 
-  /* ---------- iFrame -> Platzhalter ---------- */
+  /* ================= Iframe -> Placeholder ================= */
   function replaceIframeWithPlaceholder(iframe){
-    if (iframe.hasAttribute('data-consent-exempt')) return;
-    const meta = snapshotBoxMeta(iframe);
+    if (iframe.hasAttribute('data-consent-exempt')) return; // Opt-out für einzelne iframes
+    const meta = snapshotIframeMeta(iframe);
     const src  = iframe.src;
-    const ph   = makePlaceholder(src);
 
+    const ph = makePlaceholder(src);
     Object.entries(meta).forEach(([k,v]) => ph.dataset[k] = v);
 
-    // Dimensionen übernehmen / fallback 16:9
+    // dimensionieren
     if (meta.widthAttr && meta.heightAttr) {
       ph.style.aspectRatio = `${meta.widthAttr} / ${meta.heightAttr}`;
       ph.style.width = /^\d+$/.test(meta.widthAttr) ? meta.widthAttr+'px' : meta.widthAttr;
@@ -432,21 +441,22 @@ function enforceVimeoConsentState(){
       ph.style.width = meta.cw + 'px';
     } else {
       ph.style.width = '100%';
-      ph.style.aspectRatio = '16 / 9';
+      ph.style.aspectRatio = '3 / 4'; // Typeform ist oft höher – gern anpassen
     }
 
     iframe.parentNode.insertBefore(ph, iframe);
     iframe.parentNode.removeChild(iframe);
   }
 
-  /* ---------- Platzhalter -> iFrame ---------- */
-  function restoreIframeFromPlaceholder(ph){
-    const src = ph.getAttribute('data-tf-src');
+  /* ================= Placeholder -> Iframe ================= */
+  function restoreTypeformFromPlaceholder(ph){
+    const src = ph.getAttribute('data-typeform-src');
     if (!src) return;
 
     const f = document.createElement('iframe');
     f.src = src;
 
+    // Ursprungs-Styles/Klassen/Attribute übernehmen
     const cls = ph.dataset.className || '';
     if (cls) f.className = cls;
 
@@ -464,8 +474,8 @@ function enforceVimeoConsentState(){
     }
 
     f.setAttribute('frameborder','0');
-    f.setAttribute('allow', 'microphone; camera; autoplay; encrypted-media'); // Typeform nutzt ggf. Mic/Camera
-    f.setAttribute('allowfullscreen','');
+    f.setAttribute('allow', ph.dataset.allow || 'camera; microphone; geolocation; clipboard-read; clipboard-write; autoplay');
+    if (ph.dataset.allowFull) f.setAttribute('allowfullscreen','');
 
     const wrap = document.createElement('div');
     wrap.className = 'typeform-consent-embed';
@@ -476,8 +486,8 @@ function enforceVimeoConsentState(){
     ph.parentNode.replaceChild(wrap, ph);
   }
 
-  /* ---------- Skripte blocken & nach Consent laden ---------- */
-  function markScriptBlocked(node){
+  /* ================= Skripte (embed.js) blocken / rehydrieren ================= */
+  function markBlockedScript(node){
     node.setAttribute('data-tf-blocked','1');
     node.setAttribute('data-tf-src', node.src || '');
     try { node.removeAttribute('src'); } catch(e){}
@@ -485,7 +495,8 @@ function enforceVimeoConsentState(){
     log('blocked Typeform script', node.getAttribute('data-tf-src'));
   }
 
-  async function reloadBlockedScripts(){
+  async function restoreBlockedScripts(){
+    if (!hasMarketingConsent()) return;
     const blocked = Array.from(document.querySelectorAll('script[data-tf-blocked="1"]'));
     for (const s of blocked) {
       const src = s.getAttribute('data-tf-src');
@@ -500,65 +511,66 @@ function enforceVimeoConsentState(){
     }
   }
 
-  function blockAllTypeformIframes(ctx){
-    (ctx||document).querySelectorAll('iframe').forEach(ifr=>{
-      if (isTypeformIframe(ifr) && !hasMarketingConsent()) replaceIframeWithPlaceholder(ifr);
+  /* ================= Sammelfunktionen ================= */
+  function blockAllTypeform(context){
+    const root = context || document;
+    // iframes
+    root.querySelectorAll('iframe').forEach(ifr=>{
+      if (!hasMarketingConsent() && isTypeformIframe(ifr)) replaceIframeWithPlaceholder(ifr);
+    });
+    // scripts
+    root.querySelectorAll('script[src]').forEach(sc=>{
+      if (!hasMarketingConsent() && isTypeformScript(sc)) markBlockedScript(sc);
     });
   }
 
-  /* ---------- Initiallauf ---------- */
+  function restoreAllPlaceholders(){
+    if (!hasMarketingConsent()) return;
+    document.querySelectorAll('.typeform-consent-placeholder').forEach(restoreTypeformFromPlaceholder);
+    restoreBlockedScripts();
+  }
+
+  /* ================= Initial & Dynamik ================= */
+  // Initial
   if (!hasMarketingConsent()) {
-    // Bereits vorhandene iFrames blocken
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', ()=> blockAllTypeformIframes(document));
+      document.addEventListener('DOMContentLoaded', ()=> blockAllTypeform(document));
     } else {
-      blockAllTypeformIframes(document);
+      blockAllTypeform(document);
     }
   }
 
-  /* ---------- Dynamik: neue iFrames / Skripte abfangen ---------- */
-  // Hook für appendChild/insertBefore: Skripte blockieren, iFrames ersetzen
-  const hook = (proto, method) => {
-    const orig = proto[method];
-    proto[method] = function () {
-      const node = arguments[0];
-      if (!hasMarketingConsent() && node && node.tagName) {
-        if (isTypeformScript(node)) { markScriptBlocked(node); try { return orig.apply(this, arguments); } catch(e){ return node; } }
-        if (isTypeformIframe(node)) { replaceIframeWithPlaceholder(node); try { return orig.apply(this, arguments); } catch(e){ return node; } }
-      }
-      return orig.apply(this, arguments);
-    };
-  };
-  hook(Element.prototype, 'appendChild');
-  hook(Node.prototype, 'insertBefore');
-
-  // MutationObserver als zusätzliche Sicherung
+  // Dynamisch nachgeladen
   new MutationObserver((ml)=>{
-    if (hasMarketingConsent()) return;
+    const consent = hasMarketingConsent();
     for (const m of ml) for (const n of m.addedNodes) {
-      if (!(n && n.tagName)) continue;
-      if (isTypeformScript(n)) markScriptBlocked(n);
-      else if (isTypeformIframe(n)) replaceIframeWithPlaceholder(n);
-      else if (n.querySelectorAll){
-        n.querySelectorAll('script').forEach(s=>{ if (isTypeformScript(s)) markScriptBlocked(s); });
-        n.querySelectorAll('iframe').forEach(i=>{ if (isTypeformIframe(i)) replaceIframeWithPlaceholder(i); });
+      if (n && n.tagName === 'IFRAME' && isTypeformIframe(n)) {
+        if (!consent) replaceIframeWithPlaceholder(n);
+      } else if (n && n.tagName === 'SCRIPT' && isTypeformScript(n)) {
+        if (!consent) markBlockedScript(n);
+      } else if (n && n.querySelectorAll) {
+        if (!consent) {
+          n.querySelectorAll('iframe').forEach(ifr=> isTypeformIframe(ifr) && replaceIframeWithPlaceholder(ifr));
+          n.querySelectorAll('script[src]').forEach(sc=> isTypeformScript(sc) && markBlockedScript(sc));
+        }
       }
     }
   }).observe(document.documentElement, { childList:true, subtree:true });
 
-  /* ---------- Nach Einwilligung freigeben ---------- */
-  async function restoreAllTypeform(){
-    if (!hasMarketingConsent()) return;
-    // 1) blockierte Skripte nachladen (z. B. embed.typeform.com/next/embed.js)
-    await reloadBlockedScripts();
-    // 2) Platzhalter wieder durch iFrames ersetzen (falls es direkte iFrame-Embeds sind)
-    document.querySelectorAll('.typeform-consent-placeholder').forEach(restoreIframeFromPlaceholder);
-    log('Typeform restored after consent');
+  /* ================= State-Enforcer (Opt-in & Widerruf) ================= */
+  function enforceTypeformConsentState(){
+    if (hasMarketingConsent()) {
+      restoreAllPlaceholders();
+    } else {
+      // bei Widerruf: laufende Einbettungen wieder blocken
+      document.querySelectorAll('iframe').forEach(ifr=> isTypeformIframe(ifr) && replaceIframeWithPlaceholder(ifr));
+    }
   }
-  window.addEventListener('CookiebotOnConsentReady', restoreAllTypeform);
-  window.addEventListener('CookiebotOnAccept',      restoreAllTypeform);
+  window.addEventListener('CookiebotOnConsentReady', enforceTypeformConsentState);
+  window.addEventListener('CookiebotOnAccept',      enforceTypeformConsentState);
+  window.addEventListener('CookiebotOnDecline',     enforceTypeformConsentState);
 
-  /* ---------- Minimal-CSS ---------- */
+  /* ================= Minimal-CSS (optional ins Theme-CSS) ================= */
   const css = `
     .typeform-consent-placeholder,
     .typeform-consent-embed{ display:block; max-width:100%; }
@@ -574,11 +586,18 @@ function enforceVimeoConsentState(){
     .typeform-consent-actions button{
       margin:0 4px; padding:8px 12px; cursor:pointer; border-radius:6px;
     }
-    .typeform-consent-actions .typeform-consent-allow{ background:#222; color:#fff; border:0; }
-    .typeform-consent-actions .typeform-consent-settings{ background:#fff; color:#222; border:1px solid #222; }
+    .typeform-consent-actions .typeform-consent-allow{
+      background:#222; color:#fff; border:0;
+    }
+    .typeform-consent-actions .typeform-consent-settings{
+      background:#fff; color:#222; border:1px solid #222;
+    }
   `;
-  const style = document.createElement('style'); style.textContent = css; document.head.appendChild(style);
+  const style = document.createElement('style');
+  style.textContent = css;
+  document.head.appendChild(style);
 })();
 </script>
+
 
 <!--  Block Typeform End until Markting Consent (edit Michael Müller 9.9.25) --> 
