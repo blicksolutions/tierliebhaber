@@ -154,11 +154,9 @@
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="a4aa9c1a-9639-4e9f-8a23-4aef9c37b3cc" data-blockingmode="manual" type="text/javascript"></script>
 
 
-
 <script>
-  <script>
 (function(){
-  /* ================= Helpers / Consent ================= */
+  /* ---------- Helpers ---------- */
   const log = (...a)=>{ try{ console.debug('[VIMEO CONSENT]',...a);}catch(e){} };
 
   function hasMarketingConsent(){
@@ -167,7 +165,7 @@
         if (Cookiebot.consents && typeof Cookiebot.consents.marketing === 'boolean') return Cookiebot.consents.marketing;
         if (Cookiebot.consent  && typeof Cookiebot.consent.marketing  === 'boolean') return Cookiebot.consent.marketing;
       }
-      // Fallback: CookieConsent-String (Cookiebot)
+      // Fallback: CookieConsent-String von Cookiebot
       const cc = document.cookie.split('; ').find(r=>r.startsWith('CookieConsent='));
       return cc ? decodeURIComponent(cc.split('=')[1]).includes('marketing:true') : false;
     } catch(e){ return false; }
@@ -177,7 +175,6 @@
     return node && node.tagName === 'IFRAME' && /(^|\/\/)(player\.)?vimeo\.com/i.test(node.src || '');
   }
 
-  /* ============== Placeholder UI ============== */
   function makePlaceholder(src){
     const wrap = document.createElement('div');
     wrap.className = 'vimeo-consent-placeholder';
@@ -193,7 +190,8 @@
       </div>
     `;
     wrap.querySelector('.vimeo-consent-allow').addEventListener('click', function(){
-      // Im manuellen Modus: Consent-Dialog öffnen; nach Zustimmung wird unten automatisch wiederhergestellt
+      // Im manuellen Modus öffnen wir einfach das Cookiebot-Dialogfenster;
+      // der User kann dort Marketing aktivieren. Danach greifen die Events unten.
       if (typeof Cookiebot !== 'undefined' && typeof Cookiebot.show === 'function') {
         Cookiebot.show();
       } else {
@@ -206,90 +204,27 @@
     return wrap;
   }
 
-  /* ============== Größen-Fix: Original-Meta merken ============== */
-  function snapshotIframeMeta(ifr){
-    const rect = ifr.getBoundingClientRect();
-    return {
-      widthAttr:  ifr.getAttribute('width')  || '',
-      heightAttr: ifr.getAttribute('height') || '',
-      style:      ifr.getAttribute('style')  || '',
-      className:  ifr.className || '',
-      allow:      ifr.getAttribute('allow') || 'autoplay; fullscreen; picture-in-picture',
-      allowFull:  ifr.hasAttribute('allowfullscreen') ? '1' : '',
-      // Fallback auf berechnete Größe, falls width/height fehlen
-      cw: Math.round(rect.width)  || '',
-      ch: Math.round(rect.height) || ''
-    };
-  }
-
-  /* ============== ERSETZEN: Iframe -> Placeholder ============== */
   function replaceIframeWithPlaceholder(iframe){
-    if (iframe.hasAttribute('data-consent-exempt')) return; // Einzelnes Iframe ausnehmen
-    const meta = snapshotIframeMeta(iframe);
+    if (iframe.hasAttribute('data-consent-exempt')) return; // Opt-out für einzelne iFrames
     const src = iframe.src;
-
     const ph = makePlaceholder(src);
-    // Original-Meta am Placeholder speichern
-    Object.entries(meta).forEach(([k,v]) => ph.dataset[k] = v);
-
-    // Placeholder dimensionieren (Original bevorzugt; sonst 16:9 responsive)
-    if (meta.widthAttr && meta.heightAttr) {
-      ph.style.aspectRatio = `${meta.widthAttr} / ${meta.heightAttr}`;
-      ph.style.width = /^\d+$/.test(meta.widthAttr) ? meta.widthAttr+'px' : meta.widthAttr;
-    } else if (meta.cw && meta.ch) {
-      ph.style.aspectRatio = `${meta.cw} / ${meta.ch}`;
-      ph.style.width = meta.cw + 'px';
-    } else {
-      ph.style.width = '100%';
-      ph.style.aspectRatio = '16 / 9';
-    }
-
-    // Original-IFRAME entfernen, Placeholder einsetzen
     iframe.parentNode.insertBefore(ph, iframe);
     iframe.parentNode.removeChild(iframe);
   }
 
-  /* ============== WIEDERHERSTELLEN: Placeholder -> Iframe ============== */
   function restoreVimeoFromPlaceholder(ph){
     const src = ph.getAttribute('data-vimeo-src');
     if (!src) return;
-
     const f = document.createElement('iframe');
     f.src = src;
-
-    // Ursprungs-Styles/Klassen/Attribute übernehmen
-    const cls = ph.dataset.className || '';
-    if (cls) f.className = cls;
-
-    const style = ph.dataset.style || '';
-    if (style) f.setAttribute('style', style);
-
-    const w = ph.dataset.widthAttr || ph.dataset.cw || '';
-    const h = ph.dataset.heightAttr || ph.dataset.ch || '';
-    if (w && h) {
-      f.setAttribute('width', String(w));
-      f.setAttribute('height', String(h));
-    } else {
-      // Fallback: responsive im Wrapper
-      f.style.width = '100%';
-      f.style.height = '100%';
-    }
-
+    f.width = ph.getAttribute('data-width') || '640';
+    f.height = ph.getAttribute('data-height') || '360';
     f.setAttribute('frameborder','0');
-    f.setAttribute('allow', ph.dataset.allow || 'autoplay; fullscreen; picture-in-picture');
-    if (ph.dataset.allowFull) f.setAttribute('allowfullscreen','');
-
-    // Wrapper übernimmt die Größe/Aspect-Ratio des Platzhalters
-    const wrap = document.createElement('div');
-    wrap.className = 'vimeo-consent-embed';
-    wrap.style.width = ph.style.width || '100%';
-    if (ph.style.aspectRatio) wrap.style.aspectRatio = ph.style.aspectRatio;
-
-    wrap.appendChild(f);
-    ph.parentNode.replaceChild(wrap, ph);
+    f.setAttribute('allow','autoplay; fullscreen; picture-in-picture');
+    f.setAttribute('allowfullscreen','');
+    ph.parentNode.replaceChild(f, ph);
   }
 
-  /* ============== Apply / Restore ============== */
   function blockAllVimeoIframes(context){
     const root = context || document;
     root.querySelectorAll('iframe[src*="vimeo.com"]').forEach(ifr=>{
@@ -302,8 +237,7 @@
     document.querySelectorAll('.vimeo-consent-placeholder').forEach(restoreVimeoFromPlaceholder);
   }
 
-  /* ============== Initial & Dynamik ============== */
-  // Initial: vorhandene iFrames prüfen
+  // Initial: bestehende iFrames prüfen
   if (!hasMarketingConsent()) {
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', ()=> blockAllVimeoIframes(document));
@@ -317,44 +251,25 @@
     if (hasMarketingConsent()) return;
     for (const m of ml) for (const n of m.addedNodes) {
       if (isVimeoIframe(n)) replaceIframeWithPlaceholder(n);
-      else if (n && n.querySelectorAll) n.querySelectorAll('iframe[src*="vimeo.com"]').forEach(replaceIframeWithPlaceholder);
+      else if (n.querySelectorAll) n.querySelectorAll('iframe[src*="vimeo.com"]').forEach(replaceIframeWithPlaceholder);
     }
   }).observe(document.documentElement, { childList:true, subtree:true });
 
-  // Nach Einwilligung automatisch freischalten
+  // Nach Einwilligung: automatisch freischalten
   window.addEventListener('CookiebotOnConsentReady', restoreAllPlaceholders);
   window.addEventListener('CookiebotOnAccept',      restoreAllPlaceholders);
 
-  /* ============== Minimal-CSS (optional ins Theme-CSS verschieben) ============== */
+  // Minimalstyles (kannst du ins CSS auslagern)
   const css = `
-    .vimeo-consent-placeholder,
-    .vimeo-consent-embed{ display:block; max-width:100%; }
-    .vimeo-consent-embed{ position:relative; }
-    .vimeo-consent-embed iframe{ width:100%; height:100%; display:block; }
-
-    .vimeo-consent-placeholder{
-      border:1px solid #e5e5e5; background:#fafafa;
-      padding:16px; text-align:center; margin:8px 0;
-      width:100%;
-    }
-    .vimeo-consent-title{ font-weight:600; margin-bottom:4px; }
-    .vimeo-consent-text{ font-size:14px; color:#444; margin-bottom:10px; }
-    .vimeo-consent-actions button{
-      margin:0 4px; padding:8px 12px; cursor:pointer; border-radius:6px;
-    }
-    .vimeo-consent-actions .vimeo-consent-allow{
-      background:#222; color:#fff; border:0;
-    }
-    .vimeo-consent-actions .vimeo-consent-settings{
-      background:#fff; color:#222; border:1px solid #222;
-    }
+  .vimeo-consent-placeholder{border:1px solid #e5e5e5; background:#fafafa; padding:16px; text-align:center; margin:8px 0;}
+  .vimeo-consent-title{font-weight:600; margin-bottom:4px;}
+  .vimeo-consent-text{font-size:14px; color:#444; margin-bottom:10px;}
+  .vimeo-consent-actions button{margin:0 4px; padding:8px 12px; cursor:pointer;}
+  .vimeo-consent-actions .vimeo-consent-allow{background:#222; color:#fff; border:0;}
+  .vimeo-consent-actions .vimeo-consent-settings{background:#fff; color:#222; border:1px solid #222;}
   `;
   const style = document.createElement('style');
   style.textContent = css;
   document.head.appendChild(style);
 })();
 </script>
-
-</script>
-
-
