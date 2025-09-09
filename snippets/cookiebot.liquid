@@ -271,8 +271,8 @@
     if (!src) return;
     const f = document.createElement('iframe');
     f.src = src;
-    f.width = ph.getAttribute('data-width') || '640';
-    f.height = ph.getAttribute('data-height') || '360';
+    f.width = ph.getAttribute('data-width') || '100%';
+    f.height = ph.getAttribute('data-height') || 'auto';
     f.setAttribute('frameborder','0');
     f.setAttribute('allow','autoplay; fullscreen; picture-in-picture');
     f.setAttribute('allowfullscreen','');
