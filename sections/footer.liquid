@@ -1,11 +1,16 @@
-{{ 'bs-footer.css' |  asset_url |  stylesheet_tag }}
+{{ 'bs-footer.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'bs-footer.js' | asset_url }}" defer></script>
 
 {% if section.settings.klaviyo_newsletter %}
   <script src="{{ 'bs-footer-newsletter.js' |  asset_url }}" defer></script>
 {% endif %}
 
-{%- if template.name == 'page' or template.name == 'blog' or template == 'customers/account' or template == 'customers/order' or template == 'customers/addresses' -%}
+{%- if template.name == 'page'
+  or template.name == 'blog'
+  or template == 'customers/account'
+  or template == 'customers/order'
+  or template == 'customers/addresses'
+-%}
   {%- assign add_top_margin = true -%}
 {%- else -%}
   {%- assign add_top_margin = false -%}
@@ -21,13 +26,18 @@
   {% endif %}
 {% endfor %}
 
-<footer id="section-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="footer" class="Footer {% if section.blocks.size <= 2 %}Footer--center{% endif %} {% if add_top_margin %}Footer--withMargin{% endif %}" role="contentinfo">
+<footer
+  id="section-{{ section.id }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="footer"
+  class="Footer {% if section.blocks.size <= 2 %}Footer--center{% endif %} {% if add_top_margin %}Footer--withMargin{% endif %}"
+  role="contentinfo"
+>
   <div class="Container">
-
     {% if section.settings.klaviyo_newsletter %}
       <div class="klaviyo-form-XEs6zR"></div>
     {% endif %}
-     
+
     {%- if section.blocks.size > 0 -%}
       <div class="Footer__Inner">
         {%- for block in section.blocks -%}
@@ -80,12 +90,21 @@
                       <p class="Form__Alert Alert Alert--success">{{ 'footer.newsletter.success' | t }}</p>
                     {%- else -%}
                       {%- if form.errors -%}
-                        <p class="Form__Alert Alert Alert--error">{{ form.errors.messages['email'] }}</p>
+                        <p class="Form__Alert Alert Alert--error">{{ form.errors.messages.email }}</p>
                       {%- endif -%}
 
                       <input type="hidden" name="contact[tags]" value="newsletter">
-                      <input type="email" name="contact[email]" class="Form__Input" aria-label="{{ 'footer.newsletter.input' | t }}" placeholder="{{ 'footer.newsletter.input' | t }}" required>
-                      <button type="submit" class="Form__Submit Button Button--primary">{{ 'footer.newsletter.submit' | t }}</button>
+                      <input
+                        type="email"
+                        name="contact[email]"
+                        class="Form__Input"
+                        aria-label="{{ 'footer.newsletter.input' | t }}"
+                        placeholder="{{ 'footer.newsletter.input' | t }}"
+                        required
+                      >
+                      <button type="submit" class="Form__Submit Button Button--primary">
+                        {{ 'footer.newsletter.submit' | t }}
+                      </button>
                     {%- endif -%}
                   {%- endform -%}
                 {% when 'reachability' %}
@@ -102,7 +121,7 @@
                   <div class="Footer__socials">
                     {% for social in block.settings.socials %}
                       <a href="{{ social.link }}" class="Footer__socials__social">
-                        {{ social.icon |  image_url: height: 100 |  image_tag }}
+                        {{ social.icon | image_url: height: 100 | image_tag }}
                       </a>
                     {% endfor %}
                   </div>
@@ -114,7 +133,7 @@
                   <div class="Footer__awards">
                     {% for award in block.settings.awards %}
                       <div class="Footer__awards__award">
-                        {{ award.icon |  image_url: width: 150 |  image_tag }}
+                        {{ award.icon | image_url: width: 150 | image_tag }}
                       </div>
                     {% endfor %}
                   </div>
@@ -131,32 +150,34 @@
       </div>
 
       <div class="panel" id="panel-2">
-              Mit der Kontaktaufnahme per WhatsApp oder E-Mail willige ich freiwillig in die Verarbeitung über WhatsApp
-              oder E-Mail, sowie in das Setzen oder Aktivieren der jeweiligen Cookies und externen Verbindungen ein,
-              deren Funktionen in der Datenschutzerklärung oder in dort verlinkten Dokumenten bzw. externen Links
-              genauer erläutert werden und mir deshalb bekannt sind. In dem ich die Kommunikation starte erteile ich
-              auch freiwillig meine ausdrückliche Einwilligung gem. Art. 49 Abs. 1 Unterabs. 1 Buchst. a DS-GVO in
-              Datenübermittlungen in Drittländer zu den und durch die in der Datenschutzerklärung genannten Unternehmen
-              und Zwecke, insbesondere für solche Übermittlungen an Drittländer für die ein oder kein
-              Angemessenheitsbeschluss der EU/EWR vorliegt sowie an Unternehmen oder sonstige Stellen, die einem
-              bestehenden Angemessenheitsbeschluss nicht aufgrund einer Selbstzertifizierung oder anderer
-              Beitrittskriterien unterfallen, und in denen oder für die erhebliche Risiken und keine geeigneten
-              Garantien für den Schutz meiner personenbezogenen Daten bestehen (z.B. wegen § 702 FISA, Executive Order
-              EO12333 und dem CloudAct in den USA). Bei Abgabe meiner freiwilligen und ausdrücklichen Einwilligung war
-              mir bekannt, dass in Drittländern unter Umständen kein angemessenes Datenschutzniveau gegeben ist und das
-              meine Betroffenenrechte gegebenenfalls nicht durchgesetzt werden können. Ich kann die
-              datenschutzrechtliche Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen. Durch den Widerruf
-              der Einwilligung wird die Rechtmäßigkeit der aufgrund der Einwilligung bis zum Widerruf erfolgten
-              Verarbeitung nicht berührt. Mit einer einzelnen Handlung (der Kontaktaufnahme), erteile ich mehrere
-              Einwilligungen. Dabei handelt es sich sowohl um Einwilligungen nach dem EU/EWR-Datenschutzrecht als auch
-              um die des CCPA/CPRA, ePrivacy und Telemedienrechts, und anderer internationaler Rechtsvorschriften, die
-              unter anderem zum Speichern und Auslesen von Informationen notwendig und als Rechtsgrundlage für eine
-              geplante weitere Verarbeitung der ausgelesenen Daten erforderlich sind. Mit meiner Handlung bestätige ich
-              ebenfalls, die <a href="https://tierliebhaber.de/pages/datenschutz" target="_blank">Datenschutzerklärung</a> und das <a href="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/2025_09_02_Animagus_GmbH_FINAL_Transparency_Document.pdf?v=1757324668" target="_blank">Transparenzdokument</a> gelesen und zur Kenntnis genommen zu
-              haben.
-            </div>
-
-
+        Mit der Kontaktaufnahme per WhatsApp oder E-Mail willige ich freiwillig in die Verarbeitung über WhatsApp oder
+        E-Mail, sowie in das Setzen oder Aktivieren der jeweiligen Cookies und externen Verbindungen ein, deren
+        Funktionen in der Datenschutzerklärung oder in dort verlinkten Dokumenten bzw. externen Links genauer erläutert
+        werden und mir deshalb bekannt sind. In dem ich die Kommunikation starte erteile ich auch freiwillig meine
+        ausdrückliche Einwilligung gem. Art. 49 Abs. 1 Unterabs. 1 Buchst. a DS-GVO in Datenübermittlungen in
+        Drittländer zu den und durch die in der Datenschutzerklärung genannten Unternehmen und Zwecke, insbesondere für
+        solche Übermittlungen an Drittländer für die ein oder kein Angemessenheitsbeschluss der EU/EWR vorliegt sowie an
+        Unternehmen oder sonstige Stellen, die einem bestehenden Angemessenheitsbeschluss nicht aufgrund einer
+        Selbstzertifizierung oder anderer Beitrittskriterien unterfallen, und in denen oder für die erhebliche Risiken
+        und keine geeigneten Garantien für den Schutz meiner personenbezogenen Daten bestehen (z.B. wegen § 702 FISA,
+        Executive Order EO12333 und dem CloudAct in den USA). Bei Abgabe meiner freiwilligen und ausdrücklichen
+        Einwilligung war mir bekannt, dass in Drittländern unter Umständen kein angemessenes Datenschutzniveau gegeben
+        ist und das meine Betroffenenrechte gegebenenfalls nicht durchgesetzt werden können. Ich kann die
+        datenschutzrechtliche Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen. Durch den Widerruf der
+        Einwilligung wird die Rechtmäßigkeit der aufgrund der Einwilligung bis zum Widerruf erfolgten Verarbeitung nicht
+        berührt. Mit einer einzelnen Handlung (der Kontaktaufnahme), erteile ich mehrere Einwilligungen. Dabei handelt
+        es sich sowohl um Einwilligungen nach dem EU/EWR-Datenschutzrecht als auch um die des CCPA/CPRA, ePrivacy und
+        Telemedienrechts, und anderer internationaler Rechtsvorschriften, die unter anderem zum Speichern und Auslesen
+        von Informationen notwendig und als Rechtsgrundlage für eine geplante weitere Verarbeitung der ausgelesenen
+        Daten erforderlich sind. Mit meiner Handlung bestätige ich ebenfalls, die
+        <a href="https://tierliebhaber.de/pages/datenschutz" target="_blank">Datenschutzerklärung</a> und das
+        <a
+          href="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/2025_09_02_Animagus_GmbH_FINAL_Transparency_Document.pdf?v=1757324668"
+          target="_blank"
+          >Transparenzdokument</a
+        >
+        gelesen und zur Kenntnis genommen zu haben.
+      </div>
     {%- endif -%}
 
     <div class="Footer__Aside">
@@ -176,22 +197,40 @@
                 <input type="hidden" name="currency_code" value="{{ form.current_currency.iso_code }}">
                 <span class="u-visually-hidden">{{ 'footer.general.currency' | t }}</span>
 
-                <button type="button" class="SelectButton Link Link--primary u-h8" aria-haspopup="true" aria-expanded="false" aria-controls="footer-currency-popover">
-                  {{ form.current_currency.iso_code }} {% if form.current_currency.symbol %}{{ form.current_currency.symbol }}{% endif %}
+                <button
+                  type="button"
+                  class="SelectButton Link Link--primary u-h8"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  aria-controls="footer-currency-popover"
+                >
+                  {{ form.current_currency.iso_code }}
+                  {% if form.current_currency.symbol %}{{ form.current_currency.symbol }}{% endif %}
                   {%- render 'icon', icon: 'select-arrow' -%}
                 </button>
 
                 <div id="footer-currency-popover" class="Popover Popover--small Popover--noWrap" aria-hidden="true">
                   <header class="Popover__Header">
-                    <button type="button" class="Popover__Close Icon-Wrapper--clickable" data-action="close-popover">{% render 'icon' with 'close' %}</button>
+                    <button type="button" class="Popover__Close Icon-Wrapper--clickable" data-action="close-popover">
+                      {% render 'icon' with 'close' %}
+                    </button>
                     <span class="Popover__Title Heading u-h4">{{ 'footer.general.currency' | t }}</span>
                   </header>
 
                   <div class="Popover__Content">
                     <div class="Popover__ValueList Popover__ValueList--center" data-scrollable>
                       {%- for currency in form.available_currencies -%}
-                        <button type="submit" name="currency_code" class="Popover__Value {% if currency.iso_code == form.current_currency.iso_code %}is-selected{% endif %} Heading Link Link--primary u-h6"  value="{{ currency.iso_code }}" {% if currency.iso_code == form.current_currency.iso_code %}aria-current="true"{% endif %}>
-                          {{ currency.iso_code }} {% if currency.symbol %}{{ currency.symbol }}{% endif %}
+                        <button
+                          type="submit"
+                          name="currency_code"
+                          class="Popover__Value {% if currency.iso_code == form.current_currency.iso_code %}is-selected{% endif %} Heading Link Link--primary u-h6"
+                          value="{{ currency.iso_code }}"
+                          {% if currency.iso_code == form.current_currency.iso_code %}
+                            aria-current="true"
+                          {% endif %}
+                        >
+                          {{ currency.iso_code }}
+                          {% if currency.symbol %}{{ currency.symbol }}{% endif %}
                         </button>
                       {%- endfor -%}
                     </div>
@@ -205,21 +244,37 @@
                 <input type="hidden" name="locale_code" value="{{ form.current_locale.iso_code }}">
                 <span class="u-visually-hidden">{{ 'footer.general.locale' | t }}</span>
 
-                <button type="button" class="SelectButton Link Link--primary u-h8" aria-haspopup="true" aria-expanded="false" aria-controls="footer-locale-popover">
+                <button
+                  type="button"
+                  class="SelectButton Link Link--primary u-h8"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  aria-controls="footer-locale-popover"
+                >
                   {{- form.current_locale.endonym_name -}}
                   {%- render 'icon', icon: 'select-arrow' -%}
                 </button>
 
                 <div id="footer-locale-popover" class="Popover Popover--small Popover--noWrap" aria-hidden="true">
                   <header class="Popover__Header">
-                    <button type="button" class="Popover__Close Icon-Wrapper--clickable" data-action="close-popover">{% render 'icon' with 'close' %}</button>
+                    <button type="button" class="Popover__Close Icon-Wrapper--clickable" data-action="close-popover">
+                      {% render 'icon' with 'close' %}
+                    </button>
                     <span class="Popover__Title Heading u-h4">{{ 'footer.general.locale' | t }}</span>
                   </header>
 
                   <div class="Popover__Content">
                     <div class="Popover__ValueList Popover__ValueList--center" data-scrollable>
                       {%- for locale in form.available_locales -%}
-                        <button type="submit" name="locale_code" class="Popover__Value {% if locale.iso_code == form.current_locale.iso_code %}is-selected{% endif %} Heading Link Link--primary u-h6" value="{{ locale.iso_code }}" {% if locale.iso_code == form.current_locale.iso_code %}aria-current="true"{% endif %}>
+                        <button
+                          type="submit"
+                          name="locale_code"
+                          class="Popover__Value {% if locale.iso_code == form.current_locale.iso_code %}is-selected{% endif %} Heading Link Link--primary u-h6"
+                          value="{{ locale.iso_code }}"
+                          {% if locale.iso_code == form.current_locale.iso_code %}
+                            aria-current="true"
+                          {% endif %}
+                        >
                           {{- locale.endonym_name -}}
                         </button>
                       {%- endfor -%}
@@ -233,7 +288,9 @@
       {%- endif -%}
 
       <div class="Footer__Copyright">
-        <a href="{{ routes.root_url }}" class="Footer__StoreName Heading u-h7 Link Link--secondary">© {{ shop.name }}</a>
+        <a href="{{ routes.root_url }}" class="Footer__StoreName Heading u-h7 Link Link--secondary"
+          >© {{ shop.name -}}
+        </a>
         <p class="Footer__ThemeAuthor">{{ powered_by_link }}</p>
       </div>
 
