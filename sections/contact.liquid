@@ -39,12 +39,6 @@
           <div class="Contact__MicroCopy" style="max-width: 80%; margin: 0 auto;">
             {{ section.settings['microcopy-html'] }}
           </div>
-
-          {% comment %}
-            {{ section.settings.microcopy-html }}
-                     <div class="Contact__MicroCopy">{{ section.settings.microcopy }}</div>
-            <div class="">* Ihre Einwilligung in die Kontaktaufnahme finden Sie hier.</div>
-          {% endcomment %}
         </div>
       </div>
       <div class="panel" id="panel">
@@ -162,8 +156,10 @@
   });
 </script>
 
+
+
 <style>
-  #panel {
+  .panel {
     padding: 5px;
     text-align: center;
     background-color:transparent;
@@ -174,6 +170,8 @@
     padding: 9px 17px;
     box-shadow: 1px 1px 8px #d5d5d5;
   }
+
+
   #flip {
   text-decoration: underline
   }
