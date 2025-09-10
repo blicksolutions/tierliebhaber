@@ -38,6 +38,33 @@
           </div>
           <div class="Contact__MicroCopy" style="max-width: 80%; margin: 0 auto;">{{ section.settings.microcopy-html }}</div>
 
+
+          <style>
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+</style>
+
           {%  comment %}
                       <div class="Contact__MicroCopy">{{ section.settings.microcopy }}</div>
              <div class="">* Ihre Einwilligung in die Kontaktaufnahme finden Sie hier.</div>
