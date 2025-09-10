@@ -40,10 +40,11 @@
             <p>Wir melden uns in der Regel innerhalb von 2-3 Werktagen mit einer Antwort bei dir!</p>
 
             * Ihre Einwilligung in die Kontaktaufnahme finden Sie <span class="flip" id="flip">hier</span>
+            {{ section.settings.microcopy-html }}
           </div>
 
           {% comment %}
-            {{ section.settings['microcopy-html'] }}
+            {{ section.settings.microcopy-html }}
                      <div class="Contact__MicroCopy">{{ section.settings.microcopy }}</div>
             <div class="">* Ihre Einwilligung in die Kontaktaufnahme finden Sie hier.</div>
           {% endcomment %}
