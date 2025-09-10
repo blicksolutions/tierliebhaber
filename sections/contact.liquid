@@ -9,7 +9,7 @@
         <div
           class="Contact__ImageContainer Image"
           style="--aspect-ratio: {{ section.settings.image.aspect_ratio }}; --min-width: {{ section.settings.image_min_width }}px;"
-          >
+        >
           <img
             class="Image__Image Image--lazyLoad Image--fadeIn"
             src="{{ section.settings.image | img_url: 'master' }}"
@@ -25,7 +25,7 @@
                 class="Button"
                 href="{{ block.settings.url }}"
                 style="--color: {{ block.settings.color }};"
-                >
+              >
                 <img
                   class="Button__Image Image--lazyLoad Image--fadeIn"
                   src="{{ block.settings.image | img_url: 'master' }}"
@@ -36,13 +36,40 @@
               </a>
             {%- endfor -%}
           </div>
-          <div class="Contact__MicroCopy" style="max-width: 80%; margin: 0 auto;">{{ section.settings.microcopy-html }}</div>
+          <div class="Contact__MicroCopy" style="max-width: 80%; margin: 0 auto;">
+            {{ section.settings['microcopy-html'] }}
+          </div>
+          <style>
+                        .tooltip {
+              position: relative;
+              display: inline-block;
+              border-bottom: 1px dotted black;
+            }
 
-          {%  comment %}
-                      <div class="Contact__MicroCopy">{{ section.settings.microcopy }}</div>
-             <div class="">* Ihre Einwilligung in die Kontaktaufnahme finden Sie hier.</div>
+            .tooltip .tooltiptext {
+              visibility: hidden;
+              width: 120px;
+              background-color: white;
+              border: 1px solid black;
+              color: #7e8187;
+              text-align: center;
+              border-radius: 6px;
+              padding: 5px 0;
+
+              /* Position the tooltip */
+              position: absolute;
+              z-index: 1;
+            }
+
+            .tooltip:hover .tooltiptext {
+              visibility: visible;
+            }
+          </style>
+
+          {% comment %}
+                     <div class="Contact__MicroCopy">{{ section.settings.microcopy }}</div>
+            <div class="">* Ihre Einwilligung in die Kontaktaufnahme finden Sie hier.</div>
           {% endcomment %}
-         
         </div>
       </div>
     </div>
@@ -94,13 +121,11 @@
       "id": "microcopy",
       "label": "Micro Copy"
     },
-     {
+    {
       "type": "html",
       "id": "microcopy-html",
       "label": "Micro Copy HTML"
-    },
-    
-    
+    }
   ],
   "blocks": [
     {
