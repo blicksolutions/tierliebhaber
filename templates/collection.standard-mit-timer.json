@@ -128,10 +128,49 @@
       "settings": {
         "id": "XEs6zR"
       }
+    },
+    "countdown_timer_banner_3yTmtg": {
+      "type": "countdown-timer-banner",
+      "name": "Countdown Banner",
+      "settings": {
+        "wave_image_desktop": "shopify://shop_images/BG_fe2d9a49-2f51-49af-8d2d-9f5ca5368b4a.png",
+        "wave_image": "shopify://shop_images/BG_e9d8170c-a1e3-479f-9466-857c98548eb8.png",
+        "heart_image": "shopify://shop_images/Icon_1625c622-ce45-4fe4-9f55-8f7d9b203c49.png",
+        "heading_text": "Nassfutter Woche",
+        "description_text": "<p><strong>Jetzt sparen</strong> - das Angebot endet am <strong>05. September!</strong></p>",
+        "end_date": "2025-09-10",
+        "end_time": "23:59",
+        "start_date": "2025-08-08",
+        "start_time": "00:00",
+        "hide_when_expired": true,
+        "days_label": "Tage",
+        "hours_label": "Std.",
+        "minutes_label": "Min.",
+        "seconds_label": "Sek.",
+        "background_color_1": "#6e94eb",
+        "background_color_2": "#6e94eb",
+        "heading_color": "#ffffff",
+        "description_color": "#ffffff",
+        "box_background_color": "#ffffff",
+        "box_text_color": "#ee82b1",
+        "progress_bar_color": "#ffffff",
+        "heading_font_size": 30,
+        "heading_font_weight": "600",
+        "number_font_size": 24,
+        "label_font_size": 12,
+        "description_font_size": 16,
+        "max_width": 1450,
+        "border_radius": 20,
+        "box_border_radius": 8,
+        "progress_bar_height": 8,
+        "section_margin_top": 40,
+        "section_margin_bottom": 40
+      }
     }
   },
   "order": [
     "ddee7e2a-800b-4859-be96-f251a0f829b6",
+    "countdown_timer_banner_3yTmtg",
     "main",
     "recently-viewed-products",
     "collection-footer",
