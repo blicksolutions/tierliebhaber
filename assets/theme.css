@@ -12419,4 +12419,15 @@ section#sidebar-menu[aria-hidden="false"] {
     display: none !important;
 }
 
+@media screen and (min-width: 601px) {
+    #CybotCookiebotDialog {
+        max-width: 770px !important ;
+    }
+
+@media screen and (min-width: 1280px) {
+    #CybotCookiebotDialogBodyContent {
+        padding: 1.725em !important;
+    }
+}
+
 
