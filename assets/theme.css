@@ -12412,7 +12412,7 @@ section#sidebar-menu[aria-hidden="false"] {
     border-radius: 30px !important;
 }
 #CybotCookiebotDialogBodyButtons .CybotCookiebotDialogBodyButton:not(:last-of-type) {
-    margin-right1.5em;
+    margin-right:1.5em !important;
 }
 
 #CybotCookiebotDialogPoweredbyCybot {
