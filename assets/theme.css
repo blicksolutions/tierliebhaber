@@ -12407,3 +12407,9 @@ div:has(>reviewsio-product-reviews-widget) {
 section#sidebar-menu[aria-hidden="false"] {
     transform: translate(0%);
 }
+
+#CybotCookiebotDialogFooter .CybotCookiebotDialogBodyButton {
+    border-radius: 30px;
+}
+
+
