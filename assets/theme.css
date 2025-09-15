@@ -12415,6 +12415,8 @@ section#sidebar-menu[aria-hidden="false"] {
     margin-right1.5em;
 }
 
-
+#CybotCookiebotDialogPoweredbyCybot {
+    display: none !important;
+}
 
 
