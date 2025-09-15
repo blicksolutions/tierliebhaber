@@ -12418,6 +12418,10 @@ section#sidebar-menu[aria-hidden="false"] {
 #CybotCookiebotDialogPoweredbyCybot {
     display: none !important;
 }
+#CybotCookiebotDialogBodyContent {
+    padding-left: 1.625em;
+    padding-right: 1.625em;
+}
 
 @media screen and (min-width: 601px) {
     #CybotCookiebotDialog {
