@@ -12439,7 +12439,9 @@ section#sidebar-menu[aria-hidden="false"] {
     border-color: #ffffff !important;
     color: #ffffff !important;    
 }
-
+#CybotCookiebotDialogFooter.CybotCookiebotScrollContainer {
+    border-bottom:none;
+}
 
 
 /* 
