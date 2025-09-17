@@ -12427,17 +12427,25 @@ section#sidebar-menu[aria-hidden="false"] {
     #CybotCookiebotDialog {
         max-width: 770px !important ;
     }
-
+}
 @media screen and (min-width: 1280px) {
     #CybotCookiebotDialogBodyContent {
         padding: 1.725em !important;
     }
 }
+
+.CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
+    background-color: #4caf50;
+    border-color: #ffffff;
+    color: #ffffff;    
+}
+
+
+
 /* 
 .klaviyo-form .kl-private-reset-css-Xuajs1:nth-child(2) {
     padding: 0 10px 0 15px !important;
 }
 */
-
 
 
