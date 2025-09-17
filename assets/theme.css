@@ -12433,14 +12433,16 @@ section#sidebar-menu[aria-hidden="false"] {
         padding: 1.725em !important;
     }
 }
-
+/* 
 .CybotCookiebotDialogBodyButton.CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
     background-color: #4caf50 !important;
     border-color: #ffffff !important;
     color: #ffffff !important;    
 }
+*/
+
 #CybotCookiebotDialogFooter.CybotCookiebotScrollContainer {
-    border-bottom:none !important;
+    border-bottom:none !important ;
 }
 
 
