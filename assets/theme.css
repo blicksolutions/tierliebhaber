@@ -12440,7 +12440,7 @@ section#sidebar-menu[aria-hidden="false"] {
     color: #ffffff !important;    
 }
 #CybotCookiebotDialogFooter.CybotCookiebotScrollContainer {
-    border-bottom:none;
+    border-bottom:none !important;
 }
 
 
