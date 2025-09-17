@@ -12434,10 +12434,10 @@ section#sidebar-menu[aria-hidden="false"] {
     }
 }
 
-.CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
-    background-color: #4caf50;
-    border-color: #ffffff;
-    color: #ffffff;    
+.CybotCookiebotDialogBodyButton.CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
+    background-color: #4caf50 !important;
+    border-color: #ffffff !important;
+    color: #ffffff !important;    
 }
 
 
