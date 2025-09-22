@@ -1,218 +1,218 @@
 <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        // Beobachte DOM-Änderungen durch Cookiebot
-        const observer = new MutationObserver(() => {
-          const declineBtn = document.querySelector('#CybotCookiebotDialogBodyButtonDecline');
-          const textContainer = document.querySelector('#CybotCookiebotDialogBodyContentText');
+  document.addEventListener('DOMContentLoaded', function () {
+    // Beobachte DOM-Änderungen durch Cookiebot
+    const observer = new MutationObserver(() => {
+      const declineBtn = document.querySelector('#CybotCookiebotDialogBodyButtonDecline');
+      const textContainer = document.querySelector('#CybotCookiebotDialogBodyContentText');
 
-          if (declineBtn && textContainer && !textContainer.querySelector('#CybotCookiebotDialogBodyButtonDecline')) {
-            // Verschiebe den Button in den Textbereich
-            textContainer.appendChild(declineBtn);
-            declineBtn.style.display = 'block'; // falls nötig sicherstellen, dass er sichtbar bleibt
-          }
-        });
+      if (declineBtn && textContainer && !textContainer.querySelector('#CybotCookiebotDialogBodyButtonDecline')) {
+        // Verschiebe den Button in den Textbereich
+        textContainer.appendChild(declineBtn);
+        declineBtn.style.display = 'block'; // falls nötig sicherstellen, dass er sichtbar bleibt
+      }
+    });
 
-        observer.observe(document.body, { childList: true, subtree: true });
-      });
-    (function () {
-      // ---- Toggle debug logs in console
-      window.DEBUG_CONSENT = window.DEBUG_CONSENT || false;
-      const log = (...args) => {
-        if (window.DEBUG_CONSENT) {
-          try {
-            console.log('[consent]', ...args);
-          } catch (e) {}
-        }
-      };
-
-      // ---- Consent check (Cookiebot first, cookie fallback second)
-      function hasConsent(cat) {
+    observer.observe(document.body, { childList: true, subtree: true });
+  });
+  (function () {
+    // ---- Toggle debug logs in console
+    window.DEBUG_CONSENT = window.DEBUG_CONSENT || false;
+    const log = (...args) => {
+      if (window.DEBUG_CONSENT) {
         try {
-          if (window.Cookiebot && Cookiebot.consent) {
-            if (cat === 'marketing') return !!Cookiebot.consent.marketing;
-            if (cat === 'statistics') return !!Cookiebot.consent.statistics;
-            if (cat === 'preferences') return !!Cookiebot.consent.preferences;
-            if (cat === 'necessary') return true;
-            return false;
-          }
-          // Fallback: parse "CookieConsent" cookie (Cookiebot writes this)
-          const row = document.cookie.split('; ').find((r) => r.startsWith('CookieConsent='));
-          if (!row) return false;
-          const v = decodeURIComponent(row.split('=')[1] || '');
-          const map = {
-            marketing: /marketing:true/.test(v),
-            statistics: /statistics:true/.test(v),
-            preferences: /preferences:true/.test(v),
-          };
-          return !!map[cat];
-        } catch (e) {
+          console.log('[consent]', ...args);
+        } catch (e) {}
+      }
+    };
+
+    // ---- Consent check (Cookiebot first, cookie fallback second)
+    function hasConsent(cat) {
+      try {
+        if (window.Cookiebot && Cookiebot.consent) {
+          if (cat === 'marketing') return !!Cookiebot.consent.marketing;
+          if (cat === 'statistics') return !!Cookiebot.consent.statistics;
+          if (cat === 'preferences') return !!Cookiebot.consent.preferences;
+          if (cat === 'necessary') return true;
           return false;
         }
+        // Fallback: parse "CookieConsent" cookie (Cookiebot writes this)
+        const row = document.cookie.split('; ').find((r) => r.startsWith('CookieConsent='));
+        if (!row) return false;
+        const v = decodeURIComponent(row.split('=')[1] || '');
+        const map = {
+          marketing: /marketing:true/.test(v),
+          statistics: /statistics:true/.test(v),
+          preferences: /preferences:true/.test(v),
+        };
+        return !!map[cat];
+      } catch (e) {
+        return false;
       }
+    }
 
-      // ---- Guard marketing cookies (Elevar/Klaviyo) until consent
-      const cookieDesc =
-        Object.getOwnPropertyDescriptor(Document.prototype, 'cookie') ||
-        Object.getOwnPropertyDescriptor(HTMLDocument.prototype, 'cookie');
-      if (cookieDesc && cookieDesc.set) {
-        Object.defineProperty(document, 'cookie', {
-          configurable: true,
-          enumerable: true,
-          get: cookieDesc.get,
-          set: function (v) {
-            try {
-              // Add any other marketing cookies you want to guard here:
-              if (v && (/_Elevar/i.test(v) || /__kla_id/i.test(v) || /_ke=/.test(v) || /KL_FORMS/.test(v))) {
-                if (!hasConsent('marketing')) {
-                  log('blocked cookie (marketing)', v);
-                  return;
-                }
-              }
-            } catch (e) {}
-            return cookieDesc.set.call(this, v);
-          },
-        });
-      }
-
-      // ---- Domain → category map for script gating
-      const MAP = {
-        'polyfill-fastly.net': 'preferences', // Functional
-        'error-analytics-sessions-production.shopifysvc.com': 'statistics', // Shopify Error Analytics
-      };
-      const domains = Object.keys(MAP);
-
-      const hostOf = (u) => {
-        try {
-          return new URL(u, location.href).hostname;
-        } catch (e) {
-          return '';
-        }
-      };
-      const catFor = (u) => {
-        const h = hostOf(u);
-        if (!h) return null;
-        for (const d of domains) {
-          if (h === d || h.endsWith('.' + d)) return MAP[d];
-        }
-        return null;
-      };
-      const shouldBlock = (u) => {
-        const c = catFor(u || '');
-        return c ? !hasConsent(c) : false;
-      };
-
-      const pending = [];
-      function copyAttrs(el) {
-        const o = {};
-        for (const a of el.attributes || []) o[a.name] = a.value;
-        return o;
-      }
-      function queue(el, src) {
-        pending.push({
-          src,
-          attrs: copyAttrs(el),
-          async: el.async,
-          defer: el.defer,
-          nonce: el.nonce,
-          referrerPolicy: el.referrerPolicy,
-          crossOrigin: el.crossOrigin,
-          integrity: el.integrity,
-        });
-        log('blocked script', src, 'cat:', catFor(src));
-      }
-      function release() {
-        for (let i = pending.length - 1; i >= 0; i--) {
-          const r = pending[i],
-            c = catFor(r.src || '');
-          if (!c || hasConsent(c)) {
-            const s = document.createElement('script');
-            if (r.nonce) s.nonce = r.nonce;
-            if (r.async != null) s.async = r.async;
-            if (r.defer != null) s.defer = r.defer;
-            if (r.referrerPolicy) s.referrerPolicy = r.referrerPolicy;
-            if (r.crossOrigin) s.crossOrigin = r.crossOrigin;
-            if (r.integrity) s.integrity = r.integrity;
-            for (const [k, v] of Object.entries(r.attrs || {})) {
-              const kk = k.toLowerCase();
-              if (
-                !['src', 'async', 'defer', 'nonce', 'referrerpolicy', 'crossorigin', 'integrity', 'type'].includes(kk)
-              ) {
-                try {
-                  s.setAttribute(k, v);
-                } catch (e) {}
+    // ---- Guard marketing cookies (Elevar/Klaviyo) until consent
+    const cookieDesc =
+      Object.getOwnPropertyDescriptor(Document.prototype, 'cookie') ||
+      Object.getOwnPropertyDescriptor(HTMLDocument.prototype, 'cookie');
+    if (cookieDesc && cookieDesc.set) {
+      Object.defineProperty(document, 'cookie', {
+        configurable: true,
+        enumerable: true,
+        get: cookieDesc.get,
+        set: function (v) {
+          try {
+            // Add any other marketing cookies you want to guard here:
+            if (v && (/_Elevar/i.test(v) || /__kla_id/i.test(v) || /_ke=/.test(v) || /KL_FORMS/.test(v))) {
+              if (!hasConsent('marketing')) {
+                log('blocked cookie (marketing)', v);
+                return;
               }
             }
-            s.src = r.src;
-            (document.head || document.documentElement).appendChild(s);
-            log('released script', r.src, c);
-            pending.splice(i, 1);
+          } catch (e) {}
+          return cookieDesc.set.call(this, v);
+        },
+      });
+    }
+
+    // ---- Domain → category map for script gating
+    const MAP = {
+      'polyfill-fastly.net': 'preferences', // Functional
+      'error-analytics-sessions-production.shopifysvc.com': 'statistics', // Shopify Error Analytics
+    };
+    const domains = Object.keys(MAP);
+
+    const hostOf = (u) => {
+      try {
+        return new URL(u, location.href).hostname;
+      } catch (e) {
+        return '';
+      }
+    };
+    const catFor = (u) => {
+      const h = hostOf(u);
+      if (!h) return null;
+      for (const d of domains) {
+        if (h === d || h.endsWith('.' + d)) return MAP[d];
+      }
+      return null;
+    };
+    const shouldBlock = (u) => {
+      const c = catFor(u || '');
+      return c ? !hasConsent(c) : false;
+    };
+
+    const pending = [];
+    function copyAttrs(el) {
+      const o = {};
+      for (const a of el.attributes || []) o[a.name] = a.value;
+      return o;
+    }
+    function queue(el, src) {
+      pending.push({
+        src,
+        attrs: copyAttrs(el),
+        async: el.async,
+        defer: el.defer,
+        nonce: el.nonce,
+        referrerPolicy: el.referrerPolicy,
+        crossOrigin: el.crossOrigin,
+        integrity: el.integrity,
+      });
+      log('blocked script', src, 'cat:', catFor(src));
+    }
+    function release() {
+      for (let i = pending.length - 1; i >= 0; i--) {
+        const r = pending[i],
+          c = catFor(r.src || '');
+        if (!c || hasConsent(c)) {
+          const s = document.createElement('script');
+          if (r.nonce) s.nonce = r.nonce;
+          if (r.async != null) s.async = r.async;
+          if (r.defer != null) s.defer = r.defer;
+          if (r.referrerPolicy) s.referrerPolicy = r.referrerPolicy;
+          if (r.crossOrigin) s.crossOrigin = r.crossOrigin;
+          if (r.integrity) s.integrity = r.integrity;
+          for (const [k, v] of Object.entries(r.attrs || {})) {
+            const kk = k.toLowerCase();
+            if (
+              !['src', 'async', 'defer', 'nonce', 'referrerpolicy', 'crossorigin', 'integrity', 'type'].includes(kk)
+            ) {
+              try {
+                s.setAttribute(k, v);
+              } catch (e) {}
+            }
           }
+          s.src = r.src;
+          (document.head || document.documentElement).appendChild(s);
+          log('released script', r.src, c);
+          pending.splice(i, 1);
         }
       }
+    }
 
-      // Intercept dynamic script loads (createElement, appendChild/insertBefore, and .src setter)
-      const OrigCreate = document.createElement;
-      const OrigAppend = Element.prototype.appendChild;
-      const OrigBefore = Element.prototype.insertBefore;
-      const OrigSetAttr = Element.prototype.setAttribute;
+    // Intercept dynamic script loads (createElement, appendChild/insertBefore, and .src setter)
+    const OrigCreate = document.createElement;
+    const OrigAppend = Element.prototype.appendChild;
+    const OrigBefore = Element.prototype.insertBefore;
+    const OrigSetAttr = Element.prototype.setAttribute;
 
-      document.createElement = function (tag) {
-        const el = OrigCreate.call(document, tag);
-        if (String(tag).toLowerCase() === 'script') {
-          el.setAttribute = function (name, value) {
-            if (String(name).toLowerCase() === 'src' && shouldBlock(value)) {
-              queue(el, value);
-              return;
-            }
-            return OrigSetAttr.call(el, name, value);
-          };
-        }
-        return el;
-      };
-      Element.prototype.appendChild = function (ch) {
-        if (ch && ch.tagName === 'SCRIPT') {
-          const src = ch.getAttribute && ch.getAttribute('src');
-          if (src && shouldBlock(src)) {
-            queue(ch, src);
-            return ch;
+    document.createElement = function (tag) {
+      const el = OrigCreate.call(document, tag);
+      if (String(tag).toLowerCase() === 'script') {
+        el.setAttribute = function (name, value) {
+          if (String(name).toLowerCase() === 'src' && shouldBlock(value)) {
+            queue(el, value);
+            return;
           }
-        }
-        return OrigAppend.call(this, ch);
-      };
-      Element.prototype.insertBefore = function (n, r) {
-        if (n && n.tagName === 'SCRIPT') {
-          const src = n.getAttribute && n.getAttribute('src');
-          if (src && shouldBlock(src)) {
-            queue(n, src);
-            return n;
-          }
-        }
-        return OrigBefore.call(this, n, r);
-      };
-
-      const srcDesc = Object.getOwnPropertyDescriptor(HTMLScriptElement.prototype, 'src');
-      if (srcDesc && srcDesc.set) {
-        Object.defineProperty(HTMLScriptElement.prototype, 'src', {
-          configurable: true,
-          get() {
-            return srcDesc.get.call(this);
-          },
-          set(v) {
-            if (shouldBlock(v)) {
-              queue(this, v);
-              return v;
-            }
-            return srcDesc.set.call(this, v);
-          },
-        });
+          return OrigSetAttr.call(el, name, value);
+        };
       }
+      return el;
+    };
+    Element.prototype.appendChild = function (ch) {
+      if (ch && ch.tagName === 'SCRIPT') {
+        const src = ch.getAttribute && ch.getAttribute('src');
+        if (src && shouldBlock(src)) {
+          queue(ch, src);
+          return ch;
+        }
+      }
+      return OrigAppend.call(this, ch);
+    };
+    Element.prototype.insertBefore = function (n, r) {
+      if (n && n.tagName === 'SCRIPT') {
+        const src = n.getAttribute && n.getAttribute('src');
+        if (src && shouldBlock(src)) {
+          queue(n, src);
+          return n;
+        }
+      }
+      return OrigBefore.call(this, n, r);
+    };
 
-      // Release when Cookiebot reports consent (or fallback timer)
-      window.addEventListener('CookiebotOnConsentReady', release);
-      window.addEventListener('CookiebotOnAccept', release);
-      window.addEventListener('CookiebotOnDecline', release);
-      setTimeout(release, 2000);
-    })();
+    const srcDesc = Object.getOwnPropertyDescriptor(HTMLScriptElement.prototype, 'src');
+    if (srcDesc && srcDesc.set) {
+      Object.defineProperty(HTMLScriptElement.prototype, 'src', {
+        configurable: true,
+        get() {
+          return srcDesc.get.call(this);
+        },
+        set(v) {
+          if (shouldBlock(v)) {
+            queue(this, v);
+            return v;
+          }
+          return srcDesc.set.call(this, v);
+        },
+      });
+    }
+
+    // Release when Cookiebot reports consent (or fallback timer)
+    window.addEventListener('CookiebotOnConsentReady', release);
+    window.addEventListener('CookiebotOnAccept', release);
+    window.addEventListener('CookiebotOnDecline', release);
+    setTimeout(release, 2000);
+  })();
 </script>
 
 <script
