@@ -12461,4 +12461,7 @@ section#sidebar-menu[aria-hidden="false"] {
     padding: 1em;
     text-align: center;
     user-select: none;
+        background-color: #4caf50 !important;
+    border-color: #ffffff !important;
+    color: #ffffff !important;    
 }
