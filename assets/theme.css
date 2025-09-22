@@ -12450,7 +12450,6 @@ section#sidebar-menu[aria-hidden="false"] {
 .CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
     display: block;
     width: 100%;
-    max-width: 240px;
     margin: 0 15px;
     padding: 15px !important;
     font-weight: 600;
