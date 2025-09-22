@@ -12460,6 +12460,10 @@ section#sidebar-menu[aria-hidden="false"] {
     color: #ffffff !important;    
 }
 
+@media screen and (min-width: 601px) { 
+    max-width: 240px;
+}
+
 /* 
 .klaviyo-form .kl-private-reset-css-Xuajs1:nth-child(2) {
     padding: 0 10px 0 15px !important;
