@@ -12443,6 +12443,9 @@ section#sidebar-menu[aria-hidden="false"] {
 #CybotCookiebotDialogFooter.CybotCookiebotScrollContainer {
     border-bottom:none !important ;
 }
+#CybotCookiebotDialogFooter.CybotCookiebotScrollArea {
+    padding: 0 !important;
+}
 
 .CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
     display: block;
