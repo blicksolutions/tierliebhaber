@@ -12457,7 +12457,7 @@ section#sidebar-menu[aria-hidden="false"] {
     display: block;
     width: 100%;
     margin: 0 15px;
-    padding: 15px;
+    padding: 15px !important;
     font-weight: 600;
     text-align: center;
     user-select: none;
