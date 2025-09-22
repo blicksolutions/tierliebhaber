@@ -12468,7 +12468,9 @@ section#sidebar-menu[aria-hidden="false"] {
 #CybotCookiebotDialogBodyContent {
     padding-bottom: 5px !important;
 }
-
+#CybotCookiebotDialog .CybotCookiebotScrollContainer {
+    border-bottom: none;
+}
 
 
 /* 
