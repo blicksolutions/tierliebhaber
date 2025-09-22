@@ -12457,11 +12457,11 @@ section#sidebar-menu[aria-hidden="false"] {
     display: block;
     width: 100%;
     margin: 0 15px;
+    padding: 15px;
     font-weight: 600;
-    padding: 1em;
     text-align: center;
     user-select: none;
-        background-color: #4caf50 !important;
+    background-color: #4caf50 !important;
     border-color: #ffffff !important;
     color: #ffffff !important;    
 }
