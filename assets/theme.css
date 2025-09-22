@@ -12469,7 +12469,7 @@ section#sidebar-menu[aria-hidden="false"] {
     padding-bottom: 5px !important;
 }
 #CybotCookiebotDialog .CybotCookiebotScrollContainer {
-    border-bottom: none;
+    border-bottom: none !important;
 }
 
 
