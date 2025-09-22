@@ -12444,17 +12444,10 @@ section#sidebar-menu[aria-hidden="false"] {
     border-bottom:none !important ;
 }
 
-
-/* 
-.klaviyo-form .kl-private-reset-css-Xuajs1:nth-child(2) {
-    padding: 0 10px 0 15px !important;
-}
-*/
-
-
 .CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
     display: block;
     width: 100%;
+    max-width: 240px;
     margin: 0 15px;
     padding: 15px !important;
     font-weight: 600;
@@ -12464,3 +12457,11 @@ section#sidebar-menu[aria-hidden="false"] {
     border-color: #ffffff !important;
     color: #ffffff !important;    
 }
+
+/* 
+.klaviyo-form .kl-private-reset-css-Xuajs1:nth-child(2) {
+    padding: 0 10px 0 15px !important;
+}
+*/
+
+
