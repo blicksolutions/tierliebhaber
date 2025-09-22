@@ -12465,6 +12465,11 @@ section#sidebar-menu[aria-hidden="false"] {
         max-width: 240px;
     }
 }
+#CybotCookiebotDialogBodyContent {
+    padding-bottom: 5px !important;
+}
+
+
 
 /* 
 .klaviyo-form .kl-private-reset-css-Xuajs1:nth-child(2) {
