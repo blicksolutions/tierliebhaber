@@ -1,0 +1,693 @@
+
+    
+    <style>@import url('https://fonts.googleapis.com/css?family=sans-serif:400,700&display=swap');.gps-586541536113132227 .gp-g-paragraph-1{font-family:var(--g-p1-ff);font-size:var(--g-p1-size);font-style:var(--g-p1-fs);font-weight:var(--g-p1-weight);letter-spacing:var(--g-p1-ls);line-height:var(--g-p1-lh)}.gps-586541536113132227 .gp-relative{position:relative}.gps-586541536113132227 .gp-mx-auto{margin-left:auto;margin-right:auto}.gps-586541536113132227 .gp-mb-0{margin-bottom:0}.gps-586541536113132227 .gp-block{display:block}.gps-586541536113132227 .gp-inline-block{display:inline-block}.gps-586541536113132227 .gp-flex{display:flex}.gps-586541536113132227 .gp-inline-flex{display:inline-flex}.gps-586541536113132227 .gp-grid{display:grid}.gps-586541536113132227 .gp-contents{display:contents}.gps-586541536113132227 .\!gp-hidden{display:none!important}.gps-586541536113132227 .gp-hidden{display:none}.gps-586541536113132227 .gp-h-auto{height:auto}.gps-586541536113132227 .gp-h-full{height:100%}.gps-586541536113132227 .gp-w-full{width:100%}.gps-586541536113132227 .gp-max-w-full{max-width:100%}.gps-586541536113132227 .gp-flex-none{flex:none}.gps-586541536113132227 .gp-cursor-pointer{cursor:pointer}.gps-586541536113132227 .gp-grid-rows-\[1fr\]{grid-template-rows:1fr}.gps-586541536113132227 .gp-flex-col{flex-direction:column}.gps-586541536113132227 .gp-items-center{align-items:center}.gps-586541536113132227 .gp-justify-start{justify-content:flex-start}.gps-586541536113132227 .gp-justify-center{justify-content:center}.gps-586541536113132227 .gp-transition-colors{transition-duration:.15s;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-586541536113132227 .gp-duration-200{transition-duration:.2s}.gps-586541536113132227 .gp-ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}@media (max-width:1024px){.gps-586541536113132227 .tablet\:gp-block{display:block}.gps-586541536113132227 .tablet\:\!gp-hidden{display:none!important}.gps-586541536113132227 .tablet\:gp-hidden{display:none}.gps-586541536113132227 .tablet\:gp-h-auto{height:auto}.gps-586541536113132227 .tablet\:gp-flex-none{flex:none}}@media (max-width:767px){.gps-586541536113132227 .mobile\:gp-block{display:block}.gps-586541536113132227 .mobile\:\!gp-hidden{display:none!important}.gps-586541536113132227 .mobile\:gp-hidden{display:none}.gps-586541536113132227 .mobile\:gp-h-auto{height:auto}.gps-586541536113132227 .mobile\:gp-flex-none{flex:none}}.gps-586541536113132227 .\[\&_\*\]\:gp-max-w-full *{max-width:100%}</style>
+    
+    
+    
+
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+
+    
+        <section
+          class="gp-mx-auto gp-max-w-full [&_*]:gp-max-w-full {% if section.settings.section_preload == "false" %}gps-lazy {% endif %}"
+          style="--w:calc(900px + 2 * var(--g-ct-p, 15px));--w-tablet:100%;--w-mobile:calc(var(--g-ct-w, 100%) + 2 * var(--g-ct-p, 15px));--pl:none;--pl-tablet:none;--pl-mobile:var(--g-ct-p, 15px);--pr:none;--pr-tablet:none;--pr-mobile:var(--g-ct-p, 15px)"
+        >
+          
+    <gp-row gp-data='{"background":{"desktop":{"attachment":"scroll","color":"transparent","image":{"height":0,"src":"","width":0},"position":{"x":50,"y":50},"repeat":"no-repeat","size":"cover","type":"color"}},"uid":"glq-hz0rb6"}' data-id="glq-hz0rb6" id="glq-hz0rb6" data-same-height-subgrid-container class="glq-hz0rb6 gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--blockPadding:base;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:20px;--pt:0px;--pl:0px;--pb:0px;--pr:0px;--mb-mobile:10px;--pt-mobile:0px;--pb-mobile:0px;--mb-tablet:20px;--pt-tablet:0px;--pl-tablet:0px;--pb-tablet:0px;--pr-tablet:0px;--cg:32px;--gtc:minmax(0, 12fr);--gtc-mobile:minmax(0, auto);--w:900px;--w-tablet:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pc:start">
+      
+
+      <div
+      data-same-height-display-contents
+      style="--jc:start"
+      class="gdERLqnHkZ gp-relative gp-flex gp-flex-col"
+    >
+      
+    
+
+    
+
+    
+    <gp-row gp-data='{"background":{"desktop":{"attachment":"scroll","color":"transparent","image":{"height":0,"src":"","width":0},"position":{"x":50,"y":50},"repeat":"no-repeat","size":"cover","type":"color"}},"uid":"gxEY-VOERb"}' data-id="gxEY-VOERb" id="gxEY-VOERb" data-same-height-subgrid-container class="gxEY-VOERb gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:0px;--pt:0px;--pl:0px;--pb:0px;--pr:0px;--mb-mobile:8px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--mb-tablet:0px;--pt-tablet:0px;--pl-tablet:0px;--pb-tablet:0px;--pr-tablet:0px;--cg:8px;--gtc:minmax(0, auto);--gtc-mobile:minmax(0, auto);--w:var(--g-ct-w, 1200px);--h:auto;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pc:start">
+      
+
+      <div
+      data-same-height-display-contents
+      style="--jc:start"
+      class="gVU4d_F4dL gp-relative gp-flex gp-flex-col"
+    >
+      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="gZ59e8jPJz"
+        class="gZ59e8jPJz"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mt:30px;--mb:26px;--mt-mobile:0px;--mb-mobile:3px;--mt-tablet:30px;--mb-tablet:3px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1759135705236"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <h2
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--ta-mobile:left;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-heading, heading);--size:32px;--size-tablet:32px;--size-mobile:22px;--lh:140%;--lh-tablet:130%;--lh-mobile:130%;--weight:bold;--c:#3A3A3A;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggZ59e8jPJz_text | replace: '$locationOrigin', locationOrigin }}
+        </h2>
+      </div>
+    </div>
+    
+    
+
+    
+
+    
+    <gp-row gp-data='{"uid":"gv4OIxhHZh"}' data-id="gv4OIxhHZh" id="gv4OIxhHZh" data-same-height-subgrid-container class="gv4OIxhHZh gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:26px;--cg:16px;--rg:16px;--rg-tablet:16px;--rg-mobile:16px;--gtc:minmax(0, 10fr) minmax(0, 2fr);--gtc-mobile:minmax(0, 9fr) minmax(0, 3fr);--w:var(--g-ct-w, 1200px);--h:auto;--pc:start">
+      
+
+      <div
+      data-same-height-display-contents
+      style="--jc:start"
+      class="gy48iuHNnG gp-relative gp-flex gp-flex-col"
+    >
+      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="gxU-QVam_y"
+        class="gxU-QVam_y"
+        style="--ta:left;--bs:none;--bs-mobile:none;--bw:0px 0px 0px 5px;--bw-mobile:0px 0px 0px 5px;--bc:#1e3a56;--bc-mobile:#3b5c7c;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mt:0px;--mb:10px;--pt:0px;--pl:0px;--pb:0px;--pr:0px;--mt-mobile:0px;--mb-mobile:13px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--mt-tablet:0px;--mb-tablet:10px;--pt-tablet:0px;--pl-tablet:0px;--pb-tablet:0px;--pr-tablet:0px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1759135705237"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <h2
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--ta-mobile:left;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:20px;--size-tablet:20px;--size-mobile:16px;--lh:150%;--lh-tablet:180%;--lh-mobile:150%;--c:#3A3A3A;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggxU-QVam_y_text | replace: '$locationOrigin', locationOrigin }}
+        </h2>
+      </div>
+    </div>
+    
+    </div><div
+      data-same-height-display-contents
+      style="--jc:start"
+      class="gnSvIkA8cO gp-relative gp-flex gp-flex-col"
+    >
+      
+    <div
+      role="presentation"
+      data-id="gYs-4fSJyw"
+      style="--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:center"
+      class="gp-group/image gp-relative force-publish-1759135705237 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto gYs-4fSJyw"
+    >
+      <div
+        
+        style="border-radius:inherit;--jc:center"
+        class="gp-h-full gp-w-full gp-flex pointer-events-auto"
+      >
+        
+    <picture style="border-radius:inherit" class="gp-contents">
+      
+      <source media="(max-width: 767px)" data-srcSet="{{ "gempages_534104955091420133-b2be90e4-3f5d-4d2e-b693-6c1b1560d304.png" | file_url }}" srcset="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAyNSIgaGVpZ2h0PSIyMDI1IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGRlZnM+CiAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZy0yMDI1LTIwMjUiPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iMjAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNTAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNzAlIiAvPgogICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPC9kZWZzPgogICAgPHJlY3Qgd2lkdGg9IjIwMjUiIGhlaWdodD0iMjAyNSIgZmlsbD0icmdiYSg1MSwgNTEsIDUxLCAwKSIgLz4KICAgIDxyZWN0IGlkPSJyIiB3aWR0aD0iMjAyNSIgaGVpZ2h0PSIyMDI1IiBmaWxsPSJ1cmwoI2ctMjAyNS0yMDI1KSIgLz4KICAgIDxhbmltYXRlIHhsaW5rOmhyZWY9IiNyIiBhdHRyaWJ1dGVOYW1lPSJ4IiBmcm9tPSItMjAyNSIgdG89IjIwMjUiIGR1cj0iMXMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAgLz4KICA8L3N2Zz4=" />
+      <source media="(max-width: 1024px)" data-srcSet="{{ "gempages_534104955091420133-b2be90e4-3f5d-4d2e-b693-6c1b1560d304.png" | file_url }}" srcset="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAyNSIgaGVpZ2h0PSIyMDI1IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGRlZnM+CiAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZy0yMDI1LTIwMjUiPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iMjAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNTAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNzAlIiAvPgogICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPC9kZWZzPgogICAgPHJlY3Qgd2lkdGg9IjIwMjUiIGhlaWdodD0iMjAyNSIgZmlsbD0icmdiYSg1MSwgNTEsIDUxLCAwKSIgLz4KICAgIDxyZWN0IGlkPSJyIiB3aWR0aD0iMjAyNSIgaGVpZ2h0PSIyMDI1IiBmaWxsPSJ1cmwoI2ctMjAyNS0yMDI1KSIgLz4KICAgIDxhbmltYXRlIHhsaW5rOmhyZWY9IiNyIiBhdHRyaWJ1dGVOYW1lPSJ4IiBmcm9tPSItMjAyNSIgdG89IjIwMjUiIGR1cj0iMXMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAgLz4KICA8L3N2Zz4=" />
+    
+      
+      <img
+        base-src="{{ "gempages_534104955091420133-b2be90e4-3f5d-4d2e-b693-6c1b1560d304.png" | file_url }}" quality-type="{&quot;desktop&quot;:&quot;high&quot;}" quality-percent="{&quot;desktop&quot;:100}"
+        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAyNSIgaGVpZ2h0PSIyMDI1IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGRlZnM+CiAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZy0yMDI1LTIwMjUiPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iMjAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNTAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNzAlIiAvPgogICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPC9kZWZzPgogICAgPHJlY3Qgd2lkdGg9IjIwMjUiIGhlaWdodD0iMjAyNSIgZmlsbD0icmdiYSg1MSwgNTEsIDUxLCAwKSIgLz4KICAgIDxyZWN0IGlkPSJyIiB3aWR0aD0iMjAyNSIgaGVpZ2h0PSIyMDI1IiBmaWxsPSJ1cmwoI2ctMjAyNS0yMDI1KSIgLz4KICAgIDxhbmltYXRlIHhsaW5rOmhyZWY9IiNyIiBhdHRyaWJ1dGVOYW1lPSJ4IiBmcm9tPSItMjAyNSIgdG89IjIwMjUiIGR1cj0iMXMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAgLz4KICA8L3N2Zz4=" data-src="{{ "gempages_534104955091420133-b2be90e4-3f5d-4d2e-b693-6c1b1560d304.png" | file_url }}"
+        alt=""
+        width="100%"
+        style="--aspect:auto;--aspect-tablet:auto;--aspect-mobile:auto;--objf:cover;--w:100%;--w-tablet:100%;--w-mobile:100%;--h:auto;--h-tablet:auto;--h-mobile:auto;--b:none;--bc:#000000;--bw:1px 1px 1px 1px;--radiusType:none;--shadow:none"
+        class="gp-inline-block gp-w-full gp-max-w-full gp_lazyload"
+      />
+    
+    </picture>
+  
+      </div>
+    </div>
+  
+    </div>
+
+      
+    </gp-row>
+  
+  
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="gHU0rqxm0d"
+        class="gHU0rqxm0d"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mt:30px;--mb:0px;--mt-mobile:0px;--mb-mobile:3px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--mt-tablet:30px;--mb-tablet:3px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1759135705238"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <h2
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--ta-mobile:left;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-heading, heading);--weight:400;--size:24px;--size-tablet:24px;--size-mobile:18px;--lh:140%;--lh-tablet:130%;--lh-mobile:130%;--c:#3A3A3A;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggHU0rqxm0d_text | replace: '$locationOrigin', locationOrigin }}
+        </h2>
+      </div>
+    </div>
+    
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="gJ-tsdDpuW"
+        class="gJ-tsdDpuW"
+        style="--ta:left;--bs:none;--bs-mobile:none;--bw:0px 0px 0px 5px;--bw-mobile:0px 0px 0px 5px;--bc:#1e3a56;--bc-mobile:#3b5c7c;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mt:0px;--mb:10px;--pl:0px;--mt-mobile:0px;--mb-mobile:29px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1759135705238"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <h2
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--ta-mobile:justify;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:20px;--size-tablet:20px;--size-mobile:16px;--lh:150%;--lh-tablet:180%;--lh-mobile:150%;--c:#3A3A3A;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggJ-tsdDpuW_text | replace: '$locationOrigin', locationOrigin }}
+        </h2>
+      </div>
+    </div>
+    
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="gyUzDqsmad"
+        class="gyUzDqsmad"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mt:30px;--mb:0px;--pt:0px;--pl:0px;--pb:0px;--pr:0px;--mt-mobile:0px;--mb-mobile:3px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--mt-tablet:30px;--mb-tablet:3px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1759135705238"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <h2
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--ta-mobile:left;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-heading, heading);--weight:400;--size:24px;--size-tablet:24px;--size-mobile:18px;--lh:140%;--lh-tablet:130%;--lh-mobile:130%;--c:#3A3A3A;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggyUzDqsmad_text | replace: '$locationOrigin', locationOrigin }}
+        </h2>
+      </div>
+    </div>
+    
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="g1qpq_fpS0"
+        class="g1qpq_fpS0"
+        style="--ta:left;--bs:none;--bs-mobile:none;--bw:0px 0px 0px 5px;--bw-mobile:0px 0px 0px 5px;--bc:#1e3a56;--bc-mobile:#3b5c7c;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mt:0px;--mb:0px;--pt:0px;--pl:0px;--pb:0px;--pr:0px;--mt-mobile:0px;--mb-mobile:29px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--mt-tablet:0px;--mb-tablet:0px;--pt-tablet:0px;--pl-tablet:0px;--pb-tablet:0px;--pr-tablet:0px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1759135705239"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <h2
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--ta-mobile:left;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:20px;--size-tablet:20px;--size-mobile:16px;--lh:150%;--lh-tablet:180%;--lh-mobile:150%;--c:#3A3A3A;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.gg1qpq_fpS0_text | replace: '$locationOrigin', locationOrigin }}
+        </h2>
+      </div>
+    </div>
+    
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="ggA2Cw_5oU"
+        class="ggA2Cw_5oU"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mt:30px;--mb:26px;--pt:0px;--pl:0px;--pb:0px;--pr:0px;--mt-mobile:0px;--mb-mobile:3px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--mt-tablet:30px;--mb-tablet:3px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1759135705239"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <h2
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--ta-mobile:left;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-heading, heading);--weight:400;--size:32px;--size-tablet:32px;--size-mobile:22px;--lh:140%;--lh-tablet:130%;--lh-mobile:130%;--c:#3A3A3A;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.gggA2Cw_5oU_text | replace: '$locationOrigin', locationOrigin }}
+        </h2>
+      </div>
+    </div>
+    
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="gjJJ1mn27P"
+        class="gjJJ1mn27P"
+        style="--ta:left;--bs:none;--bs-mobile:none;--bw:0px 0px 0px 5px;--bw-mobile:0px 0px 0px 5px;--bc:#1e3a56;--bc-mobile:#3b5c7c;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mt:0px;--mb:10px;--pt:0px;--pl:0px;--pb:0px;--pr:0px;--mt-mobile:0px;--mb-mobile:6px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--mt-tablet:0px;--mb-tablet:10px;--pt-tablet:0px;--pl-tablet:0px;--pb-tablet:0px;--pr-tablet:0px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1759135705239"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <h2
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--ta-mobile:left;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:20px;--size-tablet:20px;--size-mobile:16px;--lh:150%;--lh-tablet:180%;--lh-mobile:150%;--c:#3A3A3A;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggjJJ1mn27P_text | replace: '$locationOrigin', locationOrigin }}
+        </h2>
+      </div>
+    </div>
+    
+  
+    <div
+      
+      style="--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:10px;--ta:left;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+      data-keep-class="true"
+      class="gSggCon5IK gp-cursor-pointer gp-custom-code">
+      <div>
+    <section class="tlh-flavor-section" aria-label="Diese 8 Premium-Sorten sind im Probierpaket enthalten" tabindex="0">
+  <div class="tlh-flavor-head">
+    <span class="h-chip">
+      <i class="dot dot-pulse" aria-hidden="true"></i>
+      <span class="chip-text">
+        <span>Diese 8 Sorten sind im</span>
+        <span class="em">PROBIER-PAKET</span>
+        <span>enthalten</span>
+      </span>
+    </span>
+    <div class="tlh-flavor-ctr">
+      <button class="tlh-nav prev" aria-label="Zur vorherigen Sorte" type="button">‹</button>
+      <div class="tlh-count" aria-live="polite">
+        <span class="tlh-count-num">1</span><span class="tlh-count-total">/8</span>
+      </div>
+      <button class="tlh-nav next" aria-label="Zur nächsten Sorte" type="button">›</button>
+    </div>
+  </div>
+
+  <div class="tlh-flavor-viewport" dir="ltr">
+    <ul class="tlh-flavor-track js-free" role="list" data-flavors="8">
+      
+      <li class="tlh-slide">
+        <figure class="tlh-card">
+          <picture class="tlh-media">
+            <img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/gempages_534104955091420133-a3d341ed-4d6e-4985-9b61-31421a4d772c.webp" alt="Ente mit Reis">
+          </picture>
+          <figcaption class="tlh-info">
+            <h4>Ente mit Reis</h4>
+            <ul class="tlh-bullets">
+              <li>Zart & saftig – hohe Akzeptanz</li>
+              <li>Reis: magenfreundliche Energie</li>
+            </ul>
+          </figcaption>
+        </figure>
+      </li>
+
+      
+      <li class="tlh-slide">
+        <figure class="tlh-card">
+          <picture class="tlh-media">
+            <img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/gempages_534104955091420133-d1e55ac2-1c82-4af8-96a9-1e17ee2e2446.webp" alt="Huhn mit Gemüse">
+          </picture>
+          <figcaption class="tlh-info">
+            <h4>Huhn mit Gemüse</h4>
+            <ul class="tlh-bullets">
+              <li>Extra mager – sanft zum Bauch</li>
+              <li>Gemüse: Darmbalance & Vitamine</li>
+            </ul>
+          </figcaption>
+        </figure>
+      </li>
+
+      
+      <li class="tlh-slide">
+        <figure class="tlh-card">
+          <picture class="tlh-media">
+            <img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/gempages_534104955091420133-2f3e8075-d3f0-4d62-9914-b77de206732b.webp" alt="Pferd mit Kartoffel">
+          </picture>
+          <figcaption class="tlh-info">
+            <h4>Pferd mit Kartoffel</h4>
+            <ul class="tlh-bullets">
+              <li>Sehr verträglich – beliebt bei Sensibelchen</li>
+              <li>Kartoffel: sanfte, sättigende Energie</li>
+            </ul>
+          </figcaption>
+        </figure>
+      </li>
+
+      
+      <li class="tlh-slide">
+        <figure class="tlh-card">
+          <picture class="tlh-media">
+            <img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/gempages_534104955091420133-01058916-2c90-4400-8dbe-ccd0d791d20e.webp" alt="Kaninchen mit Gemüse">
+          </picture>
+          <figcaption class="tlh-info">
+            <h4>Kaninchen mit Gemüse</h4>
+            <ul class="tlh-bullets">
+              <li>Fein & leicht – gute Bekömmlichkeit</li>
+              <li>Gemüse: Ballaststoffe für die Verdauung</li>
+            </ul>
+          </figcaption>
+        </figure>
+      </li>
+
+      
+      <li class="tlh-slide">
+        <figure class="tlh-card">
+          <picture class="tlh-media">
+            <img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/gempages_534104955091420133-143e9992-97ab-41a5-a6d7-dca210869770.webp" alt="Lamm mit Apfel">
+          </picture>
+          <figcaption class="tlh-info">
+            <h4>Lamm mit Apfel</h4>
+            <ul class="tlh-bullets">
+              <li>Saftig & nährstoffreich</li>
+              <li>Apfel: natürliche Antioxidantien</li>
+            </ul>
+          </figcaption>
+        </figure>
+      </li>
+
+      
+      <li class="tlh-slide">
+        <figure class="tlh-card">
+          <picture class="tlh-media">
+            <img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/gempages_534104955091420133-30159ed5-8b17-4d02-bd09-2893883e85a8.webp" alt="Ziege mit Pastinake">
+          </picture>
+          <figcaption class="tlh-info">
+            <h4>Ziege mit Pastinake</h4>
+            <ul class="tlh-bullets">
+              <li>Aromatisch & gut verträglich</li>
+              <li>Pastinake: mild & sättigend</li>
+            </ul>
+          </figcaption>
+        </figure>
+      </li>
+
+      
+      <li class="tlh-slide">
+        <figure class="tlh-card">
+          <picture class="tlh-media">
+            <img class="img-rind" src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/gempages_534104955091420133-f8794758-f193-48af-bc9b-40301157e145.webp" alt="Rind mit Gemüse">
+          </picture>
+          <figcaption class="tlh-info">
+            <h4>Rind mit Gemüse</h4>
+            <ul class="tlh-bullets">
+              <li>Kräftiger Geschmack – hohe Akzeptanz</li>
+              <li>Gemüse: ausgewogen & bunt</li>
+            </ul>
+          </figcaption>
+        </figure>
+      </li>
+
+      
+      <li class="tlh-slide">
+        <figure class="tlh-card">
+          <picture class="tlh-media">
+            <img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/gempages_534104955091420133-c3915329-7199-42d3-9b18-177b8fcbf4c6.webp" alt="Pute mit Reis">
+          </picture>
+          <figcaption class="tlh-info">
+            <h4>Pute mit Reis</h4>
+            <ul class="tlh-bullets">
+              <li>Sehr mager – sanft zum Bauch</li>
+              <li>Reis: schonend bei empfindlichem Magen</li>
+            </ul>
+          </figcaption>
+        </figure>
+      </li>
+    </ul>
+
+    <div class="tlh-peek-hint" aria-hidden="true">
+      Weiter wischen <span class="tlh-peek-arrow">→</span>
+    </div>
+  </div>
+</section>
+    </div>
+    </div>
+  
+      <style id="custom-css-gSggCon5IK">
+        /* === Flavor Slider (free scroll, endless) === */
+:root{
+  --ink:#0f1f1c; --muted:#5b6f6b; --bd:#e9eceb; --chip:#f1f7f5;
+  --ok:#33cc7a;
+  --card-bg:#fff; --shadow:0 6px 24px rgba(15,31,28,.06), 0 2px 8px rgba(15,31,28,.05);
+  --radius:18px;
+}
+
+.tlh-flavor-section{margin:16px 0 8px;color:var(--ink);font-family:inherit}
+.tlh-flavor-head{display:flex;align-items:center;justify-content:space-between;margin:0 4px 10px;gap:10px;flex-wrap:wrap}
+
+/* Chip – enger, mobil entspannter */
+.h-chip{
+  display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:14px;
+  padding:8px 12px;border:1px solid var(--bd);border-radius:999px;background:#fff;
+  box-shadow:0 1px 2px rgba(0,0,0,.04); line-height:1.25; max-width:100%;
+}
+.h-chip .chip-text{display:flex;align-items:center;gap:.5ch;flex-wrap:wrap}
+.h-chip .em{
+  text-transform:uppercase; font-size:1.16em; letter-spacing:.2px;
+  padding-inline:.15ch; white-space:nowrap; /* kein Umbruch von PROBIER-PAKET */
+}
+@media (max-width:600px){
+  .h-chip{font-size:13.5px; padding:8px 10px}
+  .h-chip .chip-text{gap:.4ch}
+  .h-chip .em{font-size:1.12em; letter-spacing:.15px; padding-inline:.1ch}
+}
+
+/* Signalpunkt fix rund */
+.dot{
+  width:12px;height:12px;border-radius:999px;flex:0 0 12px;
+  background:radial-gradient(circle at 50% 50%, #5bffb1 0%, #33cc7a 45%, #25a561 100%);
+  box-shadow:0 0 0 4px rgba(51,204,122,.12)
+}
+.dot-pulse{position:relative}
+.dot-pulse::after{
+  content:"";position:absolute;inset:-6px;border-radius:999px;
+  box-shadow:0 0 0 0 rgba(51,204,122,.22);animation:pulse 2.2s ease-out infinite
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(51,204,122,.22)}
+  70%{box-shadow:0 0 0 10px rgba(51,204,122,0)}
+  100%{box-shadow:0 0 0 0 rgba(51,204,122,0)}
+}
+
+/* Counter/Buttons */
+.tlh-flavor-ctr{display:flex;align-items:center;gap:10px}
+.tlh-count{display:inline-flex;align-items:center;gap:4px;font-weight:700}
+.tlh-count .tlh-count-num{
+  display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;
+  border-radius:999px;background:#fff;border:1px solid var(--bd);box-shadow:0 1px 1px rgba(0,0,0,.04);
+  font-size:13px;font-weight:800
+}
+.tlh-count .tlh-count-total{font-size:13px;color:var(--muted)}
+.tlh-nav{width:34px;height:34px;border-radius:999px;border:1px solid var(--bd);background:#fff;
+  display:grid;place-items:center;cursor:pointer;font-size:18px;color:var(--ink);
+  transition:transform .15s ease, box-shadow .15s ease}
+.tlh-nav:hover{transform:translateY(-1px);box-shadow:0 6px 14px rgba(0,0,0,.06)}
+
+/* Track */
+.tlh-flavor-viewport{position:relative}
+.tlh-flavor-track{
+  display:flex;gap:12px;overflow-x:auto; /* frei scrollen */
+  -webkit-overflow-scrolling:touch; overscroll-behavior-x:contain;
+  padding:4px 8px 6px;margin:0;list-style:none
+}
+.tlh-slide{flex:0 0 84%;max-width:520px}
+@media (min-width:860px){.tlh-slide{flex-basis:46%}}
+@media (min-width:1200px){.tlh-slide{flex-basis:31%}}
+
+/* Karten */
+.tlh-card{margin:0;background:var(--card-bg);border:1px solid var(--bd);border-radius:var(--radius);
+  box-shadow:var(--shadow);overflow:hidden;display:grid;grid-template-rows:auto 1fr;min-height:376px}
+.tlh-media{display:block;width:100%;background:#fff;aspect-ratio:16/11}
+
+/* Bilder tiefer (noch mehr Dose/Fleisch) */
+.tlh-media img{width:100%;height:100%;object-fit:cover;object-position:center 88%}
+.tlh-media .img-rind{object-position:center 86%}
+
+/* Caption kompakt */
+.tlh-info{padding:8px 12px 8px;display:flex;flex-direction:column;gap:6px;min-height:98px}
+.tlh-info h4{font-size:16px;margin:0;font-weight:800}
+
+/* Bullets */
+.tlh-bullets{margin:0;padding:0;list-style:none;display:grid;gap:5px}
+.tlh-bullets li{font-size:14px;color:var(--ink);background:var(--chip);border:1px solid #e6efec;border-radius:12px;padding:6px 9px;display:inline-block;width:max-content;max-width:100%}
+@media (max-width:600px){.tlh-bullets li{font-size:13px;padding:6px 8px}}
+
+.tlh-peek-hint{position:absolute;right:8px;bottom:8px;font-size:12px;color:var(--muted);
+  background:#fff;border:1px solid var(--bd);padding:4px 8px;border-radius:999px;box-shadow:0 1px 4px rgba(0,0,0,.05);display:none;align-items:center;gap:6px}
+.tlh-peek-arrow{display:inline-block;animation:peek 1.8s ease-in-out infinite}
+@keyframes peek{0%,60%,100%{transform:translateX(0)}30%{transform:translateX(6px)}}
+
+.tlh-flavor-track::-webkit-scrollbar{height:8px}
+.tlh-flavor-track::-webkit-scrollbar-thumb{background:#e9efed;border-radius:999px}
+
+      </style>
+    
+      <script id="custom-js-gSggCon5IK">
+        try {
+          /* TLH Flavor Slider – MULTI INSTANCE SAFE (free scroll, endless) */
+(function(){
+  function enhanceSection(sec){
+    if (!sec || sec.dataset.tlhInit === '1') return;
+    sec.dataset.tlhInit = '1';
+
+    const track   = sec.querySelector('.tlh-flavor-track');
+    const btnPrev = sec.querySelector('.tlh-nav.prev');
+    const btnNext = sec.querySelector('.tlh-nav.next');
+    const countEl = sec.querySelector('.tlh-count-num');
+    const peek    = sec.querySelector('.tlh-peek-hint');
+
+    if (!track || track.dataset.tlhBuilt === '1') return;
+
+    // --- Originals (vor dem Klonen) ---
+    const originals = Array.from(track.children);
+    const N = originals.length;
+
+    // Absicherung: nicht doppelt initialisieren
+    if (N === 0) return;
+    track.dataset.tlhBuilt = '1';
+
+    // --- Triple-Belt für Endlos-Scroll ---
+    const prefix = originals.map(n => n.cloneNode(true));
+    const suffix = originals.map(n => n.cloneNode(true));
+    prefix.forEach(n => track.insertBefore(n, track.firstChild));
+    suffix.forEach(n => track.appendChild(n));
+
+    const all = Array.from(track.children); // 3N
+    let step = 0;
+
+    function measureStep(){
+      const a = all[N], b = all[N+1];
+      step = Math.max(1, Math.round(b.offsetLeft - a.offsetLeft));
+    }
+    function setScrollX(px){ track.scrollLeft = px; }
+
+    function logicalIndexFromX(x){
+      const approx = Math.round(x / step) - N;      // 0..N-1 ungefähr
+      return ((approx % N) + N) % N;
+    }
+    function updateCounterFromX(x){
+      if (countEl) countEl.textContent = logicalIndexFromX(x) + 1;
+    }
+
+    function normalizeIfNeeded(){
+      const x = track.scrollLeft;
+      const leftEdge  = (N - 4) * step;             // großzügige Puffer
+      const rightEdge = (2*N + 4) * step;
+      if (x < leftEdge)  setScrollX(x + N*step);
+      if (x > rightEdge) setScrollX(x - N*step);
+    }
+
+    function ready(){
+      measureStep();
+      setScrollX(N * step);                         // mittleres Band
+      updateCounterFromX(track.scrollLeft);
+      // kleiner Peek-Hinweis mobil
+      setTimeout(()=>{
+        if (peek && window.innerWidth < 860){
+          peek.style.display='inline-flex';
+          setTimeout(()=>peek.style.display='none', 1600);
+        }
+      }, 400);
+    }
+
+    if (document.readyState === 'complete') ready();
+    else window.addEventListener('load', ready);
+
+    function go(dir){
+      normalizeIfNeeded();
+      const currentDomIndex = Math.round(track.scrollLeft / step);
+      const target = currentDomIndex + dir;
+      track.scrollTo({ left: target * step, behavior: 'smooth' });
+      updateCounterFromX(target * step);
+    }
+    btnNext && btnNext.addEventListener('click', ()=>go(+1));
+    btnPrev && btnPrev.addEventListener('click', ()=>go(-1));
+
+    // Live-Update + Endlos-Normalisierung
+    track.addEventListener('scroll', ()=>{
+      normalizeIfNeeded();
+      updateCounterFromX(track.scrollLeft);
+    }, {passive:true});
+
+    // Desktop Drag (pro Instanz)
+    let dragging=false, sx=0, sl=0;
+    track.addEventListener('pointerdown', e=>{
+      dragging=true; track.setPointerCapture(e.pointerId);
+      sx=e.clientX; sl=track.scrollLeft;
+    });
+    track.addEventListener('pointermove', e=>{
+      if(!dragging) return;
+      setScrollX(sl - (e.clientX - sx));
+    });
+    track.addEventListener('pointerup', ()=>{ dragging=false; });
+
+    // Resize nur für diese Sektion
+    const onResize = ()=>{
+      const li = logicalIndexFromX(track.scrollLeft);
+      measureStep();
+      setScrollX((N + li) * step);
+      updateCounterFromX(track.scrollLeft);
+    };
+    window.addEventListener('resize', onResize);
+  }
+
+  // Alle vorhandenen Sektionen initialisieren
+  document.querySelectorAll('.tlh-flavor-section').forEach(enhanceSection);
+
+  // Optional: falls Builder nachträglich Sektionen einfügt
+  const mo = new MutationObserver(() => {
+    document.querySelectorAll('.tlh-flavor-section:not([data-tlh-init])')
+      .forEach(enhanceSection);
+  });
+  mo.observe(document.documentElement, { childList:true, subtree:true });
+})();
+
+        } catch(err){}
+      </script>
+    
+    
+
+    
+
+    
+    <gp-row gp-data='{"background":{"desktop":{"attachment":"scroll","color":"transparent","image":{"height":0,"src":"","width":0},"position":{"x":50,"y":50},"repeat":"no-repeat","size":"cover","type":"color"}},"uid":"gLN6LV_xUW"}' data-id="gLN6LV_xUW" id="gLN6LV_xUW" data-same-height-subgrid-container class="gLN6LV_xUW gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:35px;--mb-mobile:0px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--cg:8px;--gtc:minmax(0, 12fr);--gtc-mobile:minmax(0, 12fr);--w:var(--g-ct-w, 1200px);--h:auto;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pc:start">
+      
+
+      <div
+      data-same-height-display-contents
+      style="--jc:start"
+      class="gojsD8ywbM gp-relative gp-flex gp-flex-col"
+    >
+      <div gp-el-wrapper style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mt:20px;--ml:0px;--mb:0px;--mr:0px;--pt:12px;--pl:0px;--pb:0px;--pr:0px;--ml-mobile:0px;--mb-mobile:0px;--mr-mobile:0px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:12px;--pr-mobile:0px;--mt-tablet:20px;--ml-tablet:0px;--mb-tablet:0px;--mr-tablet:0px;--pt-tablet:12px;--pl-tablet:0px;--pb-tablet:0px;--pr-tablet:0px" class="gBiGcBZlCX ">
+      
+    <div data-id="gBiGcBZlCX" class="gp-flex gp-justify-start">
+      <div style="--w:100%;--w-tablet:100%;--w-mobile:100%;--bs:solid;--bbw:2px;--bbw-tablet:1px;--bbw-mobile:1px;--t:gp-rotate(0deg);--bc:#ADADAD" class="gp-block tablet:gp-block mobile:gp-block"></div>
+      <div class="gp-items-center gp-hidden tablet:gp-hidden mobile:gp-hidden" style="--w:100%;--w-tablet:100%;--w-mobile:100%;--bc:#ADADAD;--t:gp-rotate(0deg)">
+        <div class="gp-hidden" style="--bc:#ADADAD;--bs:solid;--bbw:2px;--bbw-tablet:1px;--bbw-mobile:1px;--minw:100%;--w:100%;--w-tablet:100%;--w-mobile:100%"></div>
+        
+            <span
+              class="gp-inline-flex gp-flex-none gp-items-center gp-justify-center"
+              style="--mr:var(--g-s-xs);--w:20px;--h:20px;--t:gp-rotate(0);--c:var(--g-c-text-1, text-1)"
+            >
+              <svg style="width: 100%; height: 100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M428.8 137.6h-86.177a115.52 115.52 0 0 0 2.176-22.4c0-47.914-35.072-83.2-92-83.2-45.314 0-57.002 48.537-75.707 78.784-7.735 12.413-16.994 23.317-25.851 33.253l-.131.146-.129.148C135.662 161.807 127.764 168 120.8 168h-2.679c-5.747-4.952-13.536-8-22.12-8H32c-17.673 0-32 12.894-32 28.8v230.4C0 435.106 14.327 448 32 448h64c8.584 0 16.373-3.048 22.12-8h2.679c28.688 0 67.137 40 127.2 40h21.299c62.542 0 98.8-38.658 99.94-91.145 12.482-17.813 18.491-40.785 15.985-62.791A93.148 93.148 0 0 0 393.152 304H428.8c45.435 0 83.2-37.584 83.2-83.2 0-45.099-38.101-83.2-83.2-83.2zm0 118.4h-91.026c12.837 14.669 14.415 42.825-4.95 61.05 11.227 19.646 1.687 45.624-12.925 53.625 6.524 39.128-10.076 61.325-50.6 61.325H248c-45.491 0-77.21-35.913-120-39.676V215.571c25.239-2.964 42.966-21.222 59.075-39.596 11.275-12.65 21.725-25.3 30.799-39.875C232.355 112.712 244.006 80 252.8 80c23.375 0 44 8.8 44 35.2 0 35.2-26.4 53.075-26.4 70.4h158.4c18.425 0 35.2 16.5 35.2 35.2 0 18.975-16.225 35.2-35.2 35.2zM88 384c0 13.255-10.745 24-24 24s-24-10.745-24-24 10.745-24 24-24 24 10.745 24 24z" /></svg>
+            </span>
+          
+        
+            <span
+              class="gp-inline-flex gp-flex-none gp-items-center gp-justify-center gp-g-paragraph-1"
+              style="--tt:horizontal;--c:var(--g-c-text-1, text-1);--mr:var(--g-s-s);--ml:var(--g-s-s)"
+            >
+              Title
+            </span>
+          
+        <div class="gp-flex" style="--bc:#ADADAD;--bs:solid;--bbw:2px;--bbw-tablet:1px;--bbw-mobile:1px;--minw:100%;--w:100%;--w-tablet:100%;--w-mobile:100%"></div>
+      </div>
+    </div>
+  
+      </div>
+    </div>
+
+      
+    </gp-row>
+  
+  
+    </div>
+
+      
+    </gp-row>
+  
+  
+    </div>
+
+      
+    </gp-row>
+  
+        </section>
+      
+  
+    
+    
+{% schema %}
+  {
+    
+    "name": "Section 7",
+    "tag": "section",
+    "class": "gps-586541536113132227 gps gpsi",
+    "settings": [{"type":"paragraph","content":"Section design by GemPages. [Click here to start design](https://admin.shopify.com/store/tierliebhaber-animagus/apps/gempages-cro/app/shopify/edit?pageType=GP_STATIC&editorId=586541535927993027&sectionId=586541536113132227)"},{"type":"select","label":"Section Preload","id":"section_preload","options":[{"label":"On","value":"true"},{"label":"Off","value":"false"},{"label":"Off Lazy Script","value":"off_lazy_script"}],"default":"off_lazy_script"},{"type":"text","label":"Checksum","id":"checksum"},{"type":"html","id":"ggZ59e8jPJz_text","label":"ggZ59e8jPJz_text","default":"<strong>Doch was, wenn es deinem Hund nicht schmeckt? Oder er das Futter nicht verträgt?</strong>"},{"type":"html","id":"ggxU-QVam_y_text","label":"ggxU-QVam_y_text","default":"Wir kennen es alle:&nbsp;Du probierst voller Hoffnung ein neues Futter aus. Nur um dann festzustellen, dass es deinem Hund nicht schmeckt. Oder nicht verträgt. Super frustrierend. Das kann natürlich immer mal vorkommen. Doch das soll nicht dein Risiko sein. Deswegen bekommst du bei jeder Bestellung vom Tierliebhaber Nassfutter gleich 2 Garantien von uns als Hersteller."},{"type":"html","id":"ggHU0rqxm0d_text","label":"ggHU0rqxm0d_text","default":"<strong>Garantie 1: Geschmacks Garantie</strong>&nbsp;(nur 1% unserer Kunden nutzen es, 99% sind voll zufrieden)"},{"type":"html","id":"ggJ-tsdDpuW_text","label":"ggJ-tsdDpuW_text","default":"Wenn das Futter deinem Hund nicht schmeckt, bekommst du dein Geld von uns zurück.<br>Was du tun musst? Schreib uns einfach eine Mail oder eine Whatsapp Nachricht. Danach bekommst du von uns jeden Cent zurück. Ohne wenn und aber."},{"type":"html","id":"ggyUzDqsmad_text","label":"ggyUzDqsmad_text","default":"<strong>Garantie 2: Verträglichkeits Garantie</strong>"},{"type":"html","id":"gg1qpq_fpS0_text","label":"gg1qpq_fpS0_text","default":"Wenn dein Hund das Futter nicht verträgt, bekommst du dein Geld von uns zurück.Was du tun musst? Schreib uns einfach eine Mail oder eine Whatsapp Nachricht. Danach bekommst du von uns jeden Cent zurück. Ohne wenn und aber."},{"type":"html","id":"gggA2Cw_5oU_text","label":"gggA2Cw_5oU_text","default":"<strong>Doch warum geben wir als einziger Hersteller solche Garantien?</strong>"},{"type":"html","id":"ggjJJ1mn27P_text","label":"ggjJJ1mn27P_text","default":"Ganz einfach: Wir wollen, dass du mit dem Futter zufrieden bist. Und immer wieder gerne bei uns bestellst. Wir sind nicht auf den schnellen Euro aus. Ganz im Gegenteil. Wir wollen zufriedene Stammkunden mit gesunden Hunden. Und das geht eben nur mit einem erstklassigen Produkt und einem noch besserem Service."}],
+    "blocks": [{"type": "@app"}],
+    "locales": {}
+  }
+{% endschema %}
+  
