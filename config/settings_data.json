@@ -1854,13 +1854,13 @@
         "disabled": true,
         "settings": {}
       },
-      "7625205453299604178": {
-        "type": "shopify://apps/gemx-cro-a-b-testing/blocks/gemx-theme-helper/d5fea089-2b8e-4af7-a4da-76b975b021c7",
-        "disabled": true,
-        "settings": {}
-      },
       "6478312753674380289": {
         "type": "shopify://apps/gempages-builder/blocks/embed-gp-script-head/20b379d4-1b20-474c-a6ca-665c331919f3",
+        "disabled": false,
+        "settings": {}
+      },
+      "7625205453299604178": {
+        "type": "shopify://apps/gemx-cro-a-b-testing/blocks/gemx-theme-helper/d5fea089-2b8e-4af7-a4da-76b975b021c7",
         "disabled": false,
         "settings": {}
       }
