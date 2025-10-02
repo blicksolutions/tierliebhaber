@@ -532,7 +532,8 @@
         
         {%- assign current_date = "now" | date: "%s" -%}
         {%- assign release_date = "2025-10-05 00:00:00" | date: "%s" -%}
-
+        {{ current_date }}
+        {{ release_date }}
         {%- if current_date >= release_date -%}
         {%- if collection.handle == 'alle-produkte-1' or collection.handle == 'kundenlieblinge' -%}
         {%- assign discount_filter_param = 'filter.p.m.custom.discount_filter_on_cp' -%}
