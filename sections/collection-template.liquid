@@ -529,6 +529,7 @@
         {% comment %}
         {% render 'countdown_banner', section: section %}
         {% endcomment %}
+        
         {%- assign discount_filter_param = 'filter.p.m.custom.discount_filter_on_cp' -%}
         {%- assign discount_filter = nil -%}
 
@@ -572,22 +573,6 @@
                   {%- endif -%}
                 {%- endfor -%}
               </div>
-
-              {% comment %} {%- assign has_active = false -%}
-              {%- for v in discount_filter.values -%}
-                {%- if v.active -%}
-                  {%- assign has_active = true -%}
-                  {%- break -%}
-                {%- endif -%}
-              {%- endfor -%}
-
-              {%- if has_active -%}
-                <div class="discount-circles__clear-wrap">
-                  <a href="{{ collection.url }}" class="Button Button--primary" aria-label="Remove filters">
-                    {{ section.settings.clear_filter_text }}
-                  </a>
-                </div>
-              {%- endif -%} {% endcomment %}
             </div>
           </div>
 
