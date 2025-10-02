@@ -536,7 +536,7 @@
         {%- if collection.handle == 'alle-produkte-1' or collection.handle == 'kundenlieblinge' and current_date >= release_date -%}
         {%- assign discount_filter_param = 'filter.p.m.custom.discount_filter_on_cp' -%}
         {%- assign discount_filter = nil -%}
-
+        <p>{{ current_date }}</p>
         {%- for f in collection.filters -%}
           {%- if f.param_name == discount_filter_param -%}
             {%- assign discount_filter = f -%}
