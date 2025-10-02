@@ -344,7 +344,7 @@
 		{% endif %}
 		</div>
 	{% endunless %}
-{%- endif -%}
+
     {% if product.metafields.badge.text == 'Bestseller' %}
         <script>
             document.addEventListener('DOMContentLoaded', function() {
@@ -429,8 +429,7 @@
                 width: var(--progress-width, 0%); /* Use the custom property */
             }
         </style>
-
-        {%- if current_date >= release_date -%}   
+   
         {% unless product.id == 8068154949900 or product.id == 7181458014367  or product.id == 7973987385612 %}
             <div class="pdp-stock-bar wrapper-center-align"{% if pdp_info_toggle_btn == false %} hidden{% endif %}>
             {% if selected_variant.available %}
