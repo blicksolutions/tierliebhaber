@@ -328,7 +328,7 @@
 	{%- endif-%}
 {% endcomment %}
   {%- assign current_date = "now" | date: "%s" -%}
-  {%- assign release_date = "2025-10-05 00:00:00" | date: "%s" -%}
+  {%- assign release_date = "2025-10-02 00:00:00" | date: "%s" -%}
   {%- if current_date >= release_date -%}                
 	{% unless product.id == 8068154949900 or product.id == 7181458014367  or product.id == 7973987385612 or  product.metafields.badge.text == 'Bestseller' %}
 		<div class="pdp-stock-bar wrapper-center-align"{% if pdp_info_toggle_btn == false %} hidden{% endif %}>
