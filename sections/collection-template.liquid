@@ -504,7 +504,7 @@
           {% render 'bs-black-week-collection-banner' %}
           {% comment %} blackweek collection filter end {% endcomment %}
         {%- endif -%}
-        {%- if collection.handle == 'alle-produkte-1' or collection.handle == 'kundenlieblinge' -%}
+        {%- unless collection.handle == 'alle-produkte-1' or collection.handle == 'kundenlieblinge' -%}
         <div class="subscriptionReminderCallout">
           <span class="subscriptionReminderCallout__head">Abonnieren und 15% sparen</span>
           <div class="subscriptionReminderCallout__bubbles">
@@ -522,7 +522,7 @@
             </div>
           </div>
         </div>
-      {%- endif -%}
+      {%- endunless -%}
         {%- if section.settings.toolbar_position == 'top' -%}
           {{- collection_toolbar -}}
         {%- endif -%}
