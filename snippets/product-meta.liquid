@@ -326,10 +326,10 @@
 	{%- if show_like_badge -%}
 		{%- render 'like-badge', classes: 'hidden-pocket' -%}
 	{%- endif-%}
+{% endcomment %}
                   
-
 	{% unless product.id == 8068154949900 or product.id == 7181458014367  or product.id == 7973987385612 or  product.metafields.badge.text == 'Bestseller' %}
-		<div class="pdp-stock-bar wrapper-center-align">
+		<div class="pdp-stock-bar wrapper-center-align"{% if pdp_info_toggle_btn %} hidden{% endif %}>
 		{% if selected_variant.available %}
 			<div class="acc-tl-pr39-wrapper">
 			<div class="acc-pr39-title hidden-lap-and-up">Nur solange der Vorrat reicht!</div>
@@ -342,7 +342,7 @@
 		{% endif %}
 		</div>
 	{% endunless %}
-{% endcomment %}
+
     {% if product.metafields.badge.text == 'Bestseller' %}
         <script>
             document.addEventListener('DOMContentLoaded', function() {
@@ -428,9 +428,8 @@
             }
         </style>
 
-  {% comment %}
         {% unless product.id == 8068154949900 or product.id == 7181458014367  or product.id == 7973987385612 %}
-            <div class="pdp-stock-bar wrapper-center-align">
+            <div class="pdp-stock-bar wrapper-center-align"{% if pdp_info_toggle_btn %} hidden{% endif %}>
             {% if selected_variant.available %}
                 <div class="acc-tl-pr39-wrapper">
                 <div class="acc-pr39-title">Nur solange der Vorrat reicht!</div>
@@ -442,7 +441,6 @@
             {% endif %}
             </div>
         {% endunless %}
-{% endcomment %}
         <script>
         /* Function to calculate and update price difference */
         function updatePriceDifference() {
