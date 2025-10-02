@@ -457,6 +457,138 @@
           {{- collection_toolbar -}}
         {%- endif -%}
 
+                {%- assign discount_filter_param = 'filter.p.m.custom.discount_filter_on_cp' -%}
+        {%- assign discount_filter = nil -%}
+
+        {%- for f in collection.filters -%}
+          {%- if f.param_name == discount_filter_param -%}
+            {%- assign discount_filter = f -%}
+            {%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+
+        {%- if discount_filter and discount_filter.values.size > 0 -%}
+          <div class="metafield_wrapper">
+            <div class="Container">
+              {%- if section.settings.heading != blank -%}
+                <h1 class="discount-circles__heading">{{ section.settings.heading }}</h1>
+              {%- endif -%}
+
+              <div class="discount-circles">
+                {%- for v in discount_filter.values -%}
+                  {%- if v.count > 0 -%}
+                    <a
+                      {% if v.active %}
+                        href="{{ v.url_to_remove }}"
+                        class="discount-circles__item is-active"
+                        aria-pressed="true"
+                      {% else %}
+                        href="{{ v.url_to_add }}"
+                        class="discount-circles__item"
+                        aria-pressed="false"
+                      {% endif %}
+                      aria-label="{{ v.label }} filter"
+                    >
+                      {% if v.active %}
+                        <img class="active_filter" src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/approve-accept-icon.svg?v=1759312528" height="30" width="30" alt="">
+                      {% endif %}
+                      <span class="discount-circles__circle">
+                        <span class="discount-circles__percent">{{ v.label }}</span>
+                      </span>
+                      <div class="discount-circles__caption">{{ v.label }}</div>
+                    </a>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+            </div>
+          </div>
+
+
+          <style>
+            .metafield_wrapper {
+              padding: 40px 0 0;
+            }
+            .discount-circles__heading {
+              text-align: center;
+              margin: 0 0 20px;
+              font-weight: 600;
+              line-height: 1.25;
+              font-size: 18px;
+            }
+            .discount-circles {
+              display: flex;
+              gap: 20px;
+              align-items: start;
+              margin: 12px 0 16px;
+              justify-content: center;
+            }
+            .discount-circles__item {
+              text-decoration: none;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              gap: 10px;
+              position: relative;
+            }
+            .discount-circles__item .active_filter {
+                position: absolute;
+                right: -1px;
+                top: -4px;
+                width: 20px;
+                height: auto;
+            }
+            .discount-circles__circle {
+              width: 110px;
+              height: 110px;
+              border-radius: 999px;
+              display: grid;
+              place-items: center;
+              background: #0b1524;
+              border: 4px solid #24b2e4;
+              box-shadow: 0 0 0 2px rgba(36, 178, 228, 0.25) inset;
+              color: #fff;
+            }
+            .discount-circles__item.is-active .discount-circles__circle {
+              border-color: #35e0ff;
+              box-shadow: 0 0 0 4px rgba(53, 224, 255, 0.25) inset;
+            }
+            .discount-circles__percent {
+              font-size: 28px;
+              font-weight: 800;
+              letter-spacing: 0.3px;
+            }
+            .discount-circles__caption {
+              font-size: 18px;
+              line-height: 1.4;
+              text-align: center;
+              font-weight: 700;
+            }
+            .discount-circles__clear-wrap {
+              margin-top: 10px;
+              text-align: center;
+            }
+            @media (max-width: 680px) {
+              .discount-circles {
+                gap: 12px;
+              }
+              .discount-circles__circle {
+                width: 88px;
+                height: 88px;
+              }
+              .discount-circles__percent {
+                font-size: 22px;
+              }
+              .discount-circles__caption {
+                font-size: 16px;
+              }
+              .discount-circles__item .active_filter {
+                width: 16px;
+              }
+            }
+
+          </style>
+        {%- endif -%}
+
         <div class="CollectionInner">
           {%- if show_filters and section.settings.filter_position == 'sidebar' -%}
             <div class="CollectionInner__Sidebar {% if collection_toolbar != blank and section.settings.toolbar_position == 'top' %}CollectionInner__Sidebar--withTopToolbar{% endif %} hidden-pocket">
