@@ -530,6 +530,11 @@
         {% render 'countdown_banner', section: section %}
         {% endcomment %}
         
+        {%- assign allowed_collections = "collection-handle-1,collection-handle-2" | split: "," -%}
+        {%- assign current_date = "now" | date: "%s" -%}
+        {%- assign release_date = "2025-10-05 00:00:00" | date: "%s" -%}
+
+        {%- if allowed_collections contains collection.handle and current_date >= release_date -%}
         {%- assign discount_filter_param = 'filter.p.m.custom.discount_filter_on_cp' -%}
         {%- assign discount_filter = nil -%}
 
@@ -661,6 +666,7 @@
 
           </style>
         {%- endif -%}
+      {%- endif -%}
 
         <div class="CollectionInner">
           {%- if show_filters and section.settings.filter_position == 'sidebar' -%}
