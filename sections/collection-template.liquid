@@ -533,7 +533,8 @@
         {%- assign current_date = "now" | date: "%s" -%}
         {%- assign release_date = "2025-10-03 00:00:00" | date: "%s" -%}
 
-        {%- if collection.handle == 'alle-produkte-1' or collection.handle == 'kundenlieblinge' and current_date >= release_date -%}
+        {%- if current_date >= release_date -%}
+        {%- if collection.handle == 'alle-produkte-1' or collection.handle == 'kundenlieblinge' -%}
         {%- assign discount_filter_param = 'filter.p.m.custom.discount_filter_on_cp' -%}
         {%- assign discount_filter = nil -%}
 
@@ -666,7 +667,8 @@
           </style>
         {%- endif -%}
       {%- endif -%}
-
+      {%- endif -%}
+        
         <div class="CollectionInner">
           {%- if show_filters and section.settings.filter_position == 'sidebar' -%}
             <div class="CollectionInner__Sidebar {% if collection_toolbar != blank and section.settings.toolbar_position == 'top' %}CollectionInner__Sidebar--withTopToolbar{% endif %} hidden-pocket">
