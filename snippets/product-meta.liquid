@@ -429,7 +429,7 @@
         </style>
 
         {% unless product.id == 8068154949900 or product.id == 7181458014367  or product.id == 7973987385612 %}
-            <div class="pdp-stock-bar wrapper-center-align"{% if pdp_info_toggle_btn %} hidden{% endif %}>
+            <div class="pdp-stock-bar wrapper-center-align"{% if pdp_info_toggle_btn == false %} hidden{% endif %}>
             {% if selected_variant.available %}
                 <div class="acc-tl-pr39-wrapper">
                 <div class="acc-pr39-title">Nur solange der Vorrat reicht!</div>
