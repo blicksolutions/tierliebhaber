@@ -504,7 +504,14 @@
           {% render 'bs-black-week-collection-banner' %}
           {% comment %} blackweek collection filter end {% endcomment %}
         {%- endif -%}
-        {%- unless collection.handle == 'alle-produkte-1' or collection.handle == 'kundenlieblinge' -%}
+        {%- assign current_datetime = 'now' | date: '%Y-%m-%d %H:%M' -%}
+        {%- assign cutoff_datetime = '2025-10-05 00:00' -%}
+
+        {%- assign is_restricted_collection = false -%}
+        {%- if collection.handle == 'alle-produkte-1' or collection.handle == 'kundenlieblinge' -%}
+          {%- assign is_restricted_collection = true -%}
+        {%- endif -%}
+        {%- if current_datetime > cutoff_datetime and is_restricted_collection -%}
         <div class="subscriptionReminderCallout">
           <span class="subscriptionReminderCallout__head">Abonnieren und 15% sparen</span>
           <div class="subscriptionReminderCallout__bubbles">
@@ -522,7 +529,7 @@
             </div>
           </div>
         </div>
-      {%- endunless -%}
+      {%- endif -%}
         {%- if section.settings.toolbar_position == 'top' -%}
           {{- collection_toolbar -}}
         {%- endif -%}
