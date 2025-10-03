@@ -511,7 +511,12 @@
         {%- if collection.handle == 'alle-produkte-1' or collection.handle == 'kundenlieblinge' -%}
           {%- assign is_restricted_collection = true -%}
         {%- endif -%}
+
+        {%- assign should_hide = false -%}
         {%- if current_datetime > cutoff_datetime and is_restricted_collection -%}
+          {%- assign should_hide = true -%}
+        {%- endif -%}
+        {%- unless should_hide -%}
         <div class="subscriptionReminderCallout">
           <span class="subscriptionReminderCallout__head">Abonnieren und 15% sparen</span>
           <div class="subscriptionReminderCallout__bubbles">
@@ -529,7 +534,7 @@
             </div>
           </div>
         </div>
-      {%- endif -%}
+      {%- endunless -%}
         {%- if section.settings.toolbar_position == 'top' -%}
           {{- collection_toolbar -}}
         {%- endif -%}
