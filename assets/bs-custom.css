@@ -1778,7 +1778,7 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 @media only screen and (max-width: 576px){
     .discount-circles{
         overflow-x: scroll;
-        justify-content: flex-start;
+        justify-content: flex-start !important;
     }
 }
 /******************************************************************/
