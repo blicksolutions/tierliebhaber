@@ -112,7 +112,7 @@
           "second-announcement-bg": "#d5dfbc",
           "enable_bar": true,
           "enable_advent_bar": false,
-          "enable_black_week_bar": false,
+          "enable_black_week_bar": true,
           "sticky_bar": false,
           "home_page_only": false,
           "enable_trustpilot_widget": false,
@@ -1633,8 +1633,8 @@
           "image_WiPMGy": {
             "type": "image",
             "settings": {
-              "image": "shopify://shop_images/Nassfutter_von_Tierliebhaber.png",
-              "mobile_image": "shopify://shop_images/Nassfutter_von_Tierliebhaber_mobile.png",
+              "image": "shopify://shop_images/20250925_JL_Shop-Banner-Early-Black-Week-Desktop.png",
+              "mobile_image": "shopify://shop_images/20250919_JL_Early-Black-Week-Shop-Banner-mobile.png",
               "apply_overlay": false,
               "content_offset_mobile_left": 50,
               "content_offset_mobile_top": 50,
