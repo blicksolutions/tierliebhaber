@@ -43,16 +43,6 @@
       },
       "type": "gp-section-586856938864641003"
     },
-    "gp_section_586856940676579897": {
-      "settings": {
-        "checksum": "a32ea30420e93e521e64a5437e8c9d4e9688d7fcc358f1ad288ba8624d52b2d6_0_1_1_0__1",
-        "ggefi0utzvj_text": "<p>Copyright © 2022 GemSleeps. All Rights Reserved.</p>",
-        "ggjeCvM0W8Q_label": "Privacy policy",
-        "ggwYEwMsTDO_label": "Terms of service",
-        "ggwqll_AExZ_label": "Refund policy"
-      },
-      "type": "gp-section-586856940676579897"
-    },
     "gp_section_586856943662924650": {
       "settings": {
         "checksum": "12ab9a1b0dce653dfdbf4b8915bc62674f246922d0a23ce3c85b47674dca50f9_0_1_1_0__1",
@@ -242,6 +232,14 @@
         "ggwQPx8QKhS_text": "<p>Stärkt die Darmbarriere</p>"
       },
       "type": "gp-section-586960873046672234"
+    },
+    "gp_section_587558192536355385": {
+      "settings": {
+        "checksum": "70d869cba254f6fffa5266a84ec55bf6003af661718dfd6234e745f163b761d5_0_1_1_0__1",
+        "ggKCvm62xpy_text": "<p><a href=\"https://tierliebhaber.de/policies/legal-notice\" target=\"_blank\"><u>Impressum</u></a></p>",
+        "ggZlAoD_v1N_text": "<p><a href=\"https://tierliebhaber.de/policies/privacy-policy\" target=\"_blank\"><u>Datenschutz</u></a></p>"
+      },
+      "type": "gp-section-587558192536355385"
     }
   },
   "order": [
@@ -256,7 +254,7 @@
     "gp_section_586960873046672234",
     "gp_section_586856931918873145",
     "gp_section_586856938864641003",
-    "gp_section_586856940676579897"
+    "gp_section_587558192536355385"
   ],
   "layout": "theme.gempages.blank"
 }
