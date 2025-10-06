@@ -12434,42 +12434,16 @@ section#sidebar-menu[aria-hidden="false"] {
     }
 }
 
+/* 
 .CybotCookiebotDialogBodyButton.CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
     background-color: #4caf50 !important;
     border-color: #ffffff !important;
     color: #ffffff !important;    
 }
+*/
 
 #CybotCookiebotDialogFooter.CybotCookiebotScrollContainer {
     border-bottom:none !important ;
-}
-#CybotCookiebotDialogBodyContentText #CybotCookiebotDialogFooter .CybotCookiebotScrollArea {
-    padding: 0 !important;
-}
-
-.CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
-    display: block;
-    width: 100%;
-    margin: 0 15px;
-    padding: 15px !important;
-    font-weight: 600;
-    text-align: center;
-    user-select: none;
-    background-color: #4caf50 !important;
-    border-color: #ffffff !important;
-    color: #ffffff !important;    
-}
-
-@media screen and (min-width: 601px) { 
-    .CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
-        max-width: 240px;
-    }
-}
-#CybotCookiebotDialogBodyContent {
-    padding-bottom: 5px !important;
-}
-#CybotCookiebotDialog .CybotCookiebotScrollContainer {
-    border-bottom: none !important;
 }
 
 
@@ -12479,4 +12453,12 @@ section#sidebar-menu[aria-hidden="false"] {
 }
 */
 
-
+.CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
+    display: block;
+    width: 100%;
+    margin: 0 15px;
+    font-weight: 600;
+    padding: 1em;
+    text-align: center;
+    user-select: none;
+}
