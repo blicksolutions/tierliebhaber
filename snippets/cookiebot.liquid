@@ -834,7 +834,7 @@ function enforceVimeoConsentState(){
   window.addEventListener('CookiebotOnAccept',      enforceTypeformConsentState);
   window.addEventListener('CookiebotOnDecline',     enforceTypeformConsentState);
 
-  /* ================= Minimal-CSS (optional ins Theme-CSS) ================= */
+  /* ========= Minimal-CSS (optional ins Theme-CSS) ================= */
   const css = `
     .typeform-consent-placeholder,
     .typeform-consent-embed{ display:block; max-width:100%; }
@@ -863,6 +863,78 @@ function enforceVimeoConsentState(){
 })();
 </script>
 
+<!-- ========= blocking reviews.io -->
+
+<script>
+  
+(function gateReviewsIO(){
+  var blockedHosts = [
+    "widget.reviews.io",
+    "api.reviews.io",
+    "cdn.reviews.io",
+    "media.reviews.io",
+    "widgets.reviews.co.uk"
+  ];
+
+  function isBlocked(url){
+    try { return blockedHosts.some(h => new URL(url, location.href).hostname.endsWith(h)); }
+    catch(e){ return false; }
+  }
+
+  function consentOn(){ 
+    return window.Cookiebot && (Cookiebot.consent && (Cookiebot.consent.marketing === true));
+  }
+
+  // Block XHR
+  (function(){
+    const open = XMLHttpRequest.prototype.open;
+    XMLHttpRequest.prototype.open = function(method, url){
+      if(!consentOn() && isBlocked(url)) { return; }  // hart blocken
+      return open.apply(this, arguments);
+    };
+  })();
+
+  // Block fetch
+  (function(){
+    const _fetch = window.fetch;
+    window.fetch = function(resource, init){
+      const url = (typeof resource === "string") ? resource : (resource && resource.url);
+      if(!consentOn() && url && isBlocked(url)) { return new Promise(()=>{}); } // noop
+      return _fetch.apply(this, arguments);
+    };
+  })();
+
+  // DOM-Injektionen (script/iframe) abfangen
+  (function(){
+    const add = Element.prototype.appendChild;
+    Element.prototype.appendChild = function(child){
+      try{
+        if(child && child.tagName){
+          const tag = child.tagName.toLowerCase();
+          const src = child.src || child.getAttribute && child.getAttribute("src");
+          if((tag === "script" || tag === "iframe") && src && !consentOn() && isBlocked(src)){
+            return child; // NICHT anhängen
+          }
+        }
+      }catch(e){}
+      return add.call(this, child);
+    };
+  })();
+
+  // Bei Consent nachladen (optional, wenn du manuell initiieren willst)
+  window.addEventListener("CookiebotOnAccept", function(){
+    if(consentOn()){
+      // Falls dein Widget ein Init braucht, hier starten (Beispiel):
+      // window.rio && window.rio.init && window.rio.init({ ... });
+    }
+  });
+})();
+
+</script>
+
+
+
+
 <style>
   .CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
     display: block;
@@ -874,6 +946,9 @@ function enforceVimeoConsentState(){
     user-select: none;
 }
 </style>
+
+
+
 
 
 <!--  Block Typeform End until Markting Consent (edit Michael Müller 9.9.25) --> 
