@@ -153,7 +153,7 @@
     },
     "gp_section_586856966463161194": {
       "settings": {
-        "checksum": "880bbae4d311a51b5afbb931421312ff065643925ec46aa9208b1904f785ed3d_0_1_1_0__1",
+        "checksum": "e3d7b293d6bf9fbc78dd8a417c1ffdd4bd3227efc79a72cf1c850051ae11de34_0_1_1_0__1",
         "gg4vnbx4QVK_dayLabel": "Day",
         "gg4vnbx4QVK_hourLabel": "Stunden",
         "gg4vnbx4QVK_minuteLabel": "Minuten",
@@ -170,6 +170,7 @@
         "ggEwA8OXLXU_displayContent": "spare jetzt {amount_discount}",
         "ggFfZD7DSrk_text": "<p>Das Angebot läuft aus in:</p>",
         "ggFqhkZZuTC_text": "<p><strong>Achtung:</strong> Aktuell herrscht eine hohe Nachfrage!</p><p>Jetzt noch schnell Angebot sichern, bevor die letzte Packung vergriffen ist.</p>",
+        "ggIH_fZNMJN_text": "Standard Angebot",
         "ggKAPeGtAFu_text": "<p>Beste Wahl, um Giardien-Rückfällen vorzubeugen</p>",
         "ggNQ6BXlzbf_text": "<p>60 Tage Geld-zurück-Garantie</p>",
         "ggOIRERX6UH_displayContent": "You saved {amount_discount}",
@@ -179,7 +180,6 @@
         "ggU-5f5Kz8E_minuteLabel": "Minuten",
         "ggU-5f5Kz8E_secondLabel": "Sekunden",
         "ggU-5f5Kz8E_weekLabel": "Weeks",
-        "ggYfCotFn1A_displayContent": "du sparst {percent_discount}",
         "ggZoVPnT19e_text": "<p>Das Angebot läuft aus in:</p>",
         "gg_5FsaIjkC_text": "<p>Vorrat für mehrere Monate&nbsp;</p>",
         "ggaOMvi780e_text": "<p>Normalpreis</p>",
@@ -194,10 +194,12 @@
         "ggkbq60eCJU_unavailableLabel": "Unavailable",
         "ggkbq60eCJU_variantSelectionRequiredMessage": "Please select a variant to add product to cart",
         "gglARadKFYh_displayContent": "Du sparst {percent_discount}",
+        "ggmBIeQEGu__text": "Maximale Ersparnis",
         "ggmVQgV5qed_displayContent": "You saved {amount_discount}",
         "ggoAGjIzwOh_text": "<p>60 Tage Geld-zurück-Garantie</p>",
         "ggoWijc4SnQ_displayContent": "Du sparst {percent_discount}",
         "ggrrRegZO3b_displayContent": "spare jetzt {amount_discount}",
+        "ggxO6K8SIg7_text": "Am beliebtesten",
         "ggzzRd3CTvv_text": "<p>Geld-zurück-Garantie</p>"
       },
       "type": "gp-section-586856966463161194"
