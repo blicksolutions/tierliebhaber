@@ -12433,6 +12433,9 @@ section#sidebar-menu[aria-hidden="false"] {
     #CybotCookiebotDialog {
         max-width: 770px !important ;
     }
+    #CybotCookiebotDialogBodyButtonDecline.CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
+    max-width: 33%;
+    }
 }
 @media screen and (min-width: 1280px) {
     #CybotCookiebotDialogBodyContent {
@@ -12472,9 +12475,10 @@ section#sidebar-menu[aria-hidden="false"] {
     padding-left: 0 !important;
     text-align: center;
     user-select: none;
-    max-width: 33%;
     float: left !important;
 }
+
+
 
   .CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
     display: block;
