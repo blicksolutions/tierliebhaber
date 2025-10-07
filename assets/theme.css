@@ -12408,11 +12408,6 @@ section#sidebar-menu[aria-hidden="false"] {
     transform: translate(0%);
 }
 
-/* 
-.klaviyo-form .kl-private-reset-css-Xuajs1:nth-child(2) {
-    padding: 0 10px 0 15px !important;
-}
-*/
 
 .kl-teaser-XJMpsN {
     margin: 0 !important;
@@ -12445,7 +12440,7 @@ section#sidebar-menu[aria-hidden="false"] {
     }
 }
 
- 
+
 .CybotCookiebotDialogBodyButton.CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
     background-color: #4caf50 !important;
     border-color: #ffffff !important;
@@ -12490,3 +12485,8 @@ section#sidebar-menu[aria-hidden="false"] {
     text-align: center;
     user-select: none;
 }
+
+.padding-left-0 .CybotCookiebotScrollArea {
+    padding-left: 0 !important;
+}
+
