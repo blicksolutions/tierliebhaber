@@ -12436,6 +12436,7 @@ section#sidebar-menu[aria-hidden="false"] {
     #CybotCookiebotDialogBodyButtonDecline.CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
         max-width: 33%;
         float: left !important;
+        margin-bottom: 15px !important;
     }
 }
 @media screen and (min-width: 1280px) {
