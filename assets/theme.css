@@ -12438,7 +12438,7 @@ section#sidebar-menu[aria-hidden="false"] {
 .CybotCookiebotDialogBodyButton.CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
     background-color: #4caf50 !important;
     border-color: #ffffff !important;
-    color: #ffffff !important;    
+    color: #ffffff !important;  
 }
 
 
@@ -12447,18 +12447,18 @@ section#sidebar-menu[aria-hidden="false"] {
 }
 
 
-
+/* 
 .klaviyo-form .kl-private-reset-css-Xuajs1:nth-child(2) {
     padding: 0 10px 0 15px !important;
 }
-
+*/
 
 .kl-teaser-XJMpsN {
     margin: 0 !important;
 }
 
 
-.CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
+#CybotCookiebotDialogFooter.CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
     display: block;
     width: 100%;
     margin: 0 15px;
