@@ -12467,3 +12467,13 @@ section#sidebar-menu[aria-hidden="false"] {
     text-align: center;
     user-select: none;
 }
+
+#CybotCookiebotDialogBodyButtonDecline.CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
+        display: block;
+    width: 100%;
+    margin: 0 15px;
+    font-weight: 600;
+    padding: 1em;
+    text-align: center;
+    user-select: none;
+}
