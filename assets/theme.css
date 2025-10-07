@@ -12469,9 +12469,9 @@ section#sidebar-menu[aria-hidden="false"] {
 }
 
 #CybotCookiebotDialogBodyButtonDecline.CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
-        display: block;
+    display: block;
     width: 100%;
-    margin: 0 15px;
+    margin: 0 auto !important;
     font-weight: 600;
     padding: 1em;
     text-align: center;
