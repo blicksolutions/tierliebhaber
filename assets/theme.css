@@ -12408,6 +12408,17 @@ section#sidebar-menu[aria-hidden="false"] {
     transform: translate(0%);
 }
 
+/* 
+.klaviyo-form .kl-private-reset-css-Xuajs1:nth-child(2) {
+    padding: 0 10px 0 15px !important;
+}
+*/
+
+.kl-teaser-XJMpsN {
+    margin: 0 !important;
+}
+
+
 .CybotCookiebotDialogBodyButton {
     border-radius: 30px !important;
 }
@@ -12444,17 +12455,6 @@ section#sidebar-menu[aria-hidden="false"] {
 
 #CybotCookiebotDialogFooter.CybotCookiebotScrollContainer {
     border-bottom:none !important ;
-}
-
-
-/* 
-.klaviyo-form .kl-private-reset-css-Xuajs1:nth-child(2) {
-    padding: 0 10px 0 15px !important;
-}
-*/
-
-.kl-teaser-XJMpsN {
-    margin: 0 !important;
 }
 
 
