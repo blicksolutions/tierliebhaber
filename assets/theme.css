@@ -12474,8 +12474,19 @@ section#sidebar-menu[aria-hidden="false"] {
     margin: 0 auto !important;
     font-weight: 600;
     padding: 1em;
+    padding-left: 0 !important;
     text-align: center;
     user-select: none;
     max-width: 33%;
     float: left !important;
+}
+
+  .CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
+    display: block;
+    width: 100%;
+    margin: 0 15px;
+    font-weight: 600;
+    padding: 1em;
+    text-align: center;
+    user-select: none;
 }
