@@ -12478,9 +12478,12 @@ section#sidebar-menu[aria-hidden="false"] {
     float: left !important;
 }
 
+#CybotCookiebotDialogBodyContentText {
+    padding-bottom: 15px;
+}
 
 
-  .CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
+.CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
     display: block;
     width: 100%;
     margin: 0 15px;
