@@ -12479,7 +12479,7 @@ section#sidebar-menu[aria-hidden="false"] {
 }
 
 #CybotCookiebotDialogBodyContentText {
-    padding-bottom: 15px;
+    margin-bottom: 15px !important;
 }
 
 
