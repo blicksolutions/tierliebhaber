@@ -12430,7 +12430,7 @@ section#sidebar-menu[aria-hidden="false"] {
 }
 @media screen and (min-width: 1280px) {
     #CybotCookiebotDialogBodyContent {
-        padding: 1.725em !important;
+        padding: 0 1.725em !important;
     }
 }
 
