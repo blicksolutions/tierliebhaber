@@ -12478,7 +12478,7 @@ section#sidebar-menu[aria-hidden="false"] {
     float: left !important;
 }
 
-#CybotCookiebotDialogBodyContentText #CybotCookiebotDialogBodyButtonDecline {
+#CybotCookiebotDialogBodyContentText .CybotCookiebotDialogBodyButton.CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
     padding-bottom: 15px !important;
 }
 
