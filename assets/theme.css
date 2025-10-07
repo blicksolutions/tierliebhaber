@@ -12477,4 +12477,5 @@ section#sidebar-menu[aria-hidden="false"] {
     text-align: center;
     user-select: none;
     max-width: 33%;
+    float: left !important;
 }
