@@ -9,41 +9,54 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Findet den "Ablehnen"/"Decline"-Button in verschiedenen Templates
   function findDeclineButton() {
+    console.log("[MCB] Searching for decline button...");
+    
     // Desktop-Template
     var desktopBtn = document.querySelector("#CybotCookiebotDialogBodyButtonDecline");
-    if (desktopBtn) return desktopBtn;
+    if (desktopBtn) {
+      console.log("[MCB] ✓ Found desktop button:", desktopBtn.id);
+      return desktopBtn;
+    }
     
     // Mobile-Template: Suche nach Button mit Text "Ablehnen" oder "Decline"
     var allButtons = document.querySelectorAll('#CybotCookiebotDialog button, #CybotCookiebotDialog a');
+    console.log("[MCB] Searching in", allButtons.length, "buttons");
+    
     for (var i = 0; i < allButtons.length; i++) {
       var btn = allButtons[i];
       var text = btn.textContent.toLowerCase().trim();
+      console.log("[MCB] Button", i, ":", text.substring(0, 20), "ID:", btn.id);
+      
       if (text.includes('ablehnen') || text.includes('decline')) {
+        console.log("[MCB] ✓ Found decline button by text!");
         return btn;
       }
     }
     
-    // Fallback: Button mit "Decline" in der ID
-    var declineById = document.querySelector('[id*="Decline"]');
-    if (declineById) return declineById;
-    
+    console.log("[MCB] ✗ No decline button found");
     return null;
   }
 
   // Findet den Content-Container
   function findTextContainer() {
-    // Desktop
-    var desktop = document.querySelector("#CybotCookiebotDialogBodyContentText");
-    if (desktop) return desktop;
+    console.log("[MCB] Searching for text container...");
     
-    // Mobile - kann verschiedene IDs haben
-    var mobile = document.querySelector("#CybotCookiebotDialogBodyContent");
-    if (mobile) return mobile;
+    var selectors = [
+      "#CybotCookiebotDialogBodyContentText",
+      "#CybotCookiebotDialogBodyContent",
+      ".CybotCookiebotDialogBodyContentText",
+      "#CybotCookiebotDialogTabContent"
+    ];
     
-    // Fallback
-    var fallback = document.querySelector(".CybotCookiebotDialogBodyContentText");
-    if (fallback) return fallback;
+    for (var i = 0; i < selectors.length; i++) {
+      var container = document.querySelector(selectors[i]);
+      if (container) {
+        console.log("[MCB] ✓ Found container:", selectors[i]);
+        return container;
+      }
+    }
     
+    console.log("[MCB] ✗ No container found");
     return null;
   }
 
@@ -53,10 +66,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     try {
       const viewportWidth = window.innerWidth;
+      console.log("[MCB] moveDeclineButton called, viewport:", viewportWidth);
+      
       const declineBtn = findDeclineButton();
       const textContainer = findTextContainer();
 
       if (!declineBtn) {
+        console.log("[MCB] ✗ Button not found, aborting");
+        state.isProcessing = false;
+        return;
+      }
+
+      if (!textContainer) {
+        console.log("[MCB] ✗ Container not found, aborting");
         state.isProcessing = false;
         return;
       }
@@ -64,25 +86,30 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!state.originalParent) {
         state.originalParent = declineBtn.parentElement;
         state.originalNextSibling = declineBtn.nextElementSibling;
+        console.log("[MCB] 💾 Saved original position");
       }
 
       const shouldBeMobile = viewportWidth <= 600;
+      console.log("[MCB] Should be mobile?", shouldBeMobile, "Already moved?", state.buttonMoved);
 
       if (shouldBeMobile && !state.buttonMoved) {
-        if (textContainer) {
-          state.wrapper = document.createElement("div");
-          state.wrapper.id = "CybotCookiebotDialogFooter";
-          state.wrapper.style.paddingLeft = "0 !important";
-          state.wrapper.className = "padding-left-0";
+        console.log("[MCB] 📱 Moving to mobile...");
+        
+        state.wrapper = document.createElement("div");
+        state.wrapper.id = "CybotCookiebotDialogFooter";
+        state.wrapper.style.paddingLeft = "0 !important";
+        state.wrapper.className = "padding-left-0";
 
-          state.wrapper.appendChild(declineBtn);
-          textContainer.appendChild(state.wrapper);
-          declineBtn.style.display = "block";
+        state.wrapper.appendChild(declineBtn);
+        textContainer.appendChild(state.wrapper);
+        declineBtn.style.display = "block";
 
-          state.buttonMoved = true;
-        }
+        state.buttonMoved = true;
+        console.log("[MCB] ✅ Moved to content!");
       }
       else if (!shouldBeMobile && state.buttonMoved) {
+        console.log("[MCB] 🖥️ Moving back to desktop...");
+        
         declineBtn.style.visibility = "hidden";
         if (state.wrapper) {
           state.wrapper.style.visibility = "hidden";
@@ -92,21 +119,11 @@ document.addEventListener("DOMContentLoaded", function () {
           const alreadyInParent = state.originalParent.contains(declineBtn);
           
           if (!alreadyInParent) {
-            // Auf Desktop: Als erstes Kind
-            // Auf Mobile original: Button war vermutlich letztes Kind
-            // Prüfe ob es einen nextSibling gab
             if (state.originalNextSibling && state.originalNextSibling.parentElement === state.originalParent) {
-              // Füge VOR dem gespeicherten Sibling ein
               state.originalParent.insertBefore(declineBtn, state.originalNextSibling);
             } else {
-              // War letztes Element - ans Ende
               state.originalParent.appendChild(declineBtn);
             }
-          }
-        } else {
-          const footer = document.querySelector("#CybotCookiebotDialogFooter:not(.padding-left-0)");
-          if (footer) {
-            footer.appendChild(declineBtn);
           }
         }
 
@@ -120,10 +137,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         state.buttonMoved = false;
         state.wrapper = null;
+        console.log("[MCB] ✅ Restored to footer");
+      } else {
+        console.log("[MCB] ℹ️ No action needed");
       }
 
     } catch (error) {
-      // Silent error handling
+      console.error("[MCB] ❌ Error:", error);
     } finally {
       state.isProcessing = false;
     }
@@ -137,9 +157,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   observer.observe(document.body, { childList: true, subtree: true });
 
+  console.log("[MCB] Script loaded, starting init...");
   setTimeout(() => moveDeclineButton(), 100);
-  // Zweiter Versuch für Mobile (manchmal lädt es langsamer)
   setTimeout(() => moveDeclineButton(), 500);
+  setTimeout(() => moveDeclineButton(), 1000);
 
   let lastWidth = window.innerWidth;
   window.addEventListener("resize", function () {
@@ -147,6 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const crossedThreshold = (lastWidth <= 600 && currentWidth > 600) || (lastWidth > 600 && currentWidth <= 600);
     
     if (crossedThreshold) {
+      console.log("[MCB] 📏 Threshold crossed");
       setTimeout(function() {
         moveDeclineButton();
       }, 50);
@@ -157,6 +179,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.addEventListener("orientationchange", function () {
     setTimeout(() => {
+      console.log("[MCB] 🔄 Orientation changed");
       lastWidth = window.innerWidth;
       moveDeclineButton();
     }, 200);
