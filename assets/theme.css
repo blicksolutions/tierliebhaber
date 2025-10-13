@@ -12496,6 +12496,7 @@ section#sidebar-menu[aria-hidden="false"] {
     padding-left: 0 !important;
     text-align: center;
     user-select: none;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
