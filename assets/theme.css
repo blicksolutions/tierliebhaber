@@ -12451,10 +12451,10 @@ section#sidebar-menu[aria-hidden="false"] {
     background-color: #4caf50 !important;
     border-color: #ffffff !important;
     color: #ffffff !important;
-    margin-top: 15px;
+    margin: 15px auto; 
     }
     #CybotCookiebotDialogBodyContent {
-        padding-bottom: 0 !important;
+        padding-bottom: 5px !important;
     }
 }
 .CybotCookiebotDialogBodyButton.CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
