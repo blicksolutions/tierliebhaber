@@ -12460,10 +12460,12 @@ section#sidebar-menu[aria-hidden="false"] {
         margin-top: 10px !important;
     }
 }
+
+
 .CybotCookiebotDialogBodyButton.CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
     background-color: #4caf50 !important;
-    border-color: #ffffff !important;
-    color: #ffffff !important;  
+    border-color:rgb(43, 99, 45) !important;
+    color: #ffffff !important;
 }
 
 #CybotCookiebotDialogFooter.CybotCookiebotScrollContainer {
