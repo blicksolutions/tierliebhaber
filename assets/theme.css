@@ -12409,10 +12409,15 @@ section#sidebar-menu[aria-hidden="false"] {
 }
 
 
+
+
 .kl-teaser-XJMpsN {
     margin: 0 !important;
 }
 
+/*  M.M.
+================= Cookiebot CSS START ============== 
+*/ 
 
 
 .CybotCookiebotDialogBodyButton {
@@ -12487,7 +12492,6 @@ section#sidebar-menu[aria-hidden="false"] {
     padding: 1em ;
     text-align: center;
     user-select: none;
-
 }
 
 #CybotCookiebotDialogBodyButtonDecline.CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
@@ -12514,4 +12518,8 @@ section#sidebar-menu[aria-hidden="false"] {
 .padding-left-0 .CybotCookiebotScrollArea {
     padding-left: 0 !important;
 }
+
+/* M.M.
+================= Cookiebot CSS END ==============
+*/ 
 
