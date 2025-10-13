@@ -12456,6 +12456,9 @@ section#sidebar-menu[aria-hidden="false"] {
     #CybotCookiebotDialogBodyContent {
         padding-bottom: 5px !important;
     }
+    #CybotCookiebotDialogBodyLevelButtonCustomize {
+        margin-top: 10px !important;
+    }
 }
 .CybotCookiebotDialogBodyButton.CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
     background-color: #4caf50 !important;
