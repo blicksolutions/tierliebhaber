@@ -12448,7 +12448,7 @@ section#sidebar-menu[aria-hidden="false"] {
 
 @media screen and (max-width: 600px) {
 #CybotCookiebotDialogBodyButtonDecline {
-    background-color:rgb(189, 235, 190) !important;
+    background-color:#525852!important;
     border-color: #ffffff !important;
     color: #ffffff !important;
     margin: 15px auto 8px!important; 
