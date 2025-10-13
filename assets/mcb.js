@@ -7,47 +7,14 @@ document.addEventListener("DOMContentLoaded", function () {
     isProcessing: false
   };
 
-  // Verschiedene Selektoren für verschiedene Cookiebot-Templates
-  function findDeclineButton() {
-    var selectors = [
-      "#CybotCookiebotDialogBodyButtonDecline",
-      "#CybotCookiebotDialogBodyLevelButtonLevelOptinDeclineAll",
-      "[data-action='decline']",
-      "a[href*='decline']",
-      "button[class*='decline']",
-      ".CybotCookiebotDialogBodyButton[id*='Decline']"
-    ];
-    
-    for (var i = 0; i < selectors.length; i++) {
-      var btn = document.querySelector(selectors[i]);
-      if (btn) return btn;
-    }
-    return null;
-  }
-
-  function findTextContainer() {
-    var selectors = [
-      "#CybotCookiebotDialogBodyContentText",
-      ".CybotCookiebotDialogBodyContentText",
-      "#CybotCookiebotDialogBodyContent",
-      ".CybotCookiebotDialogBodyContent"
-    ];
-    
-    for (var i = 0; i < selectors.length; i++) {
-      var container = document.querySelector(selectors[i]);
-      if (container) return container;
-    }
-    return null;
-  }
-
   function moveDeclineButton() {
     if (state.isProcessing) return;
     state.isProcessing = true;
 
     try {
       const viewportWidth = window.innerWidth;
-      const declineBtn = findDeclineButton();
-      const textContainer = findTextContainer();
+      const declineBtn = document.querySelector("#CybotCookiebotDialogBodyButtonDecline");
+      const textContainer = document.querySelector("#CybotCookiebotDialogBodyContentText");
 
       if (!declineBtn) {
         state.isProcessing = false;
@@ -124,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const observer = new MutationObserver(() => {
-    if (!state.originalParent || !findDeclineButton()) {
+    if (!state.originalParent || !document.querySelector("#CybotCookiebotDialogBodyButtonDecline")) {
       moveDeclineButton();
     }
   });
@@ -132,7 +99,6 @@ document.addEventListener("DOMContentLoaded", function () {
   observer.observe(document.body, { childList: true, subtree: true });
 
   setTimeout(() => moveDeclineButton(), 100);
-  setTimeout(() => moveDeclineButton(), 500); // Zweiter Versuch nach 500ms für langsame Geräte
 
   let lastWidth = window.innerWidth;
   window.addEventListener("resize", function () {
