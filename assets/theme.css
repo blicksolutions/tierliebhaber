@@ -12446,6 +12446,13 @@ section#sidebar-menu[aria-hidden="false"] {
     }
 }
 
+@media screen and (max-width: 600px) {
+#CybotCookiebotDialogBodyButtonDecline {
+    background-color: #4caf50 !important;
+    border-color: #ffffff !important;
+    color: #ffffff !important;  
+    }
+}
 .CybotCookiebotDialogBodyButton.CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
     background-color: #4caf50 !important;
     border-color: #ffffff !important;
@@ -12465,11 +12472,7 @@ section#sidebar-menu[aria-hidden="false"] {
     text-align: center;
     user-select: none;
 }
-#CybotCookiebotDialogBodyButtonDecline {
-    background-color: #4caf50 !important;
-    border-color: #ffffff !important;
-    color: #ffffff !important;  
-    }
+
 
 #CybotCookiebotDialogBodyButtonDecline.CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
     display: block;
