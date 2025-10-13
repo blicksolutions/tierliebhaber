@@ -7,14 +7,54 @@ document.addEventListener("DOMContentLoaded", function () {
     isProcessing: false
   };
 
+  // Findet den "Ablehnen"/"Decline"-Button in verschiedenen Templates
+  function findDeclineButton() {
+    // Desktop-Template
+    var desktopBtn = document.querySelector("#CybotCookiebotDialogBodyButtonDecline");
+    if (desktopBtn) return desktopBtn;
+    
+    // Mobile-Template: Suche nach Button mit Text "Ablehnen" oder "Decline"
+    var allButtons = document.querySelectorAll('#CybotCookiebotDialog button, #CybotCookiebotDialog a');
+    for (var i = 0; i < allButtons.length; i++) {
+      var btn = allButtons[i];
+      var text = btn.textContent.toLowerCase().trim();
+      if (text.includes('ablehnen') || text.includes('decline')) {
+        return btn;
+      }
+    }
+    
+    // Fallback: Button mit "Decline" in der ID
+    var declineById = document.querySelector('[id*="Decline"]');
+    if (declineById) return declineById;
+    
+    return null;
+  }
+
+  // Findet den Content-Container
+  function findTextContainer() {
+    // Desktop
+    var desktop = document.querySelector("#CybotCookiebotDialogBodyContentText");
+    if (desktop) return desktop;
+    
+    // Mobile - kann verschiedene IDs haben
+    var mobile = document.querySelector("#CybotCookiebotDialogBodyContent");
+    if (mobile) return mobile;
+    
+    // Fallback
+    var fallback = document.querySelector(".CybotCookiebotDialogBodyContentText");
+    if (fallback) return fallback;
+    
+    return null;
+  }
+
   function moveDeclineButton() {
     if (state.isProcessing) return;
     state.isProcessing = true;
 
     try {
       const viewportWidth = window.innerWidth;
-      const declineBtn = document.querySelector("#CybotCookiebotDialogBodyButtonDecline");
-      const textContainer = document.querySelector("#CybotCookiebotDialogBodyContentText");
+      const declineBtn = findDeclineButton();
+      const textContainer = findTextContainer();
 
       if (!declineBtn) {
         state.isProcessing = false;
@@ -52,22 +92,21 @@ document.addEventListener("DOMContentLoaded", function () {
           const alreadyInParent = state.originalParent.contains(declineBtn);
           
           if (!alreadyInParent) {
-            const firstChild = state.originalParent.firstElementChild;
-            if (firstChild) {
-              state.originalParent.insertBefore(declineBtn, firstChild);
+            // Auf Desktop: Als erstes Kind
+            // Auf Mobile original: Button war vermutlich letztes Kind
+            // Prüfe ob es einen nextSibling gab
+            if (state.originalNextSibling && state.originalNextSibling.parentElement === state.originalParent) {
+              // Füge VOR dem gespeicherten Sibling ein
+              state.originalParent.insertBefore(declineBtn, state.originalNextSibling);
             } else {
+              // War letztes Element - ans Ende
               state.originalParent.appendChild(declineBtn);
             }
           }
         } else {
           const footer = document.querySelector("#CybotCookiebotDialogFooter:not(.padding-left-0)");
           if (footer) {
-            const firstChild = footer.firstElementChild;
-            if (firstChild) {
-              footer.insertBefore(declineBtn, firstChild);
-            } else {
-              footer.appendChild(declineBtn);
-            }
+            footer.appendChild(declineBtn);
           }
         }
 
@@ -91,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const observer = new MutationObserver(() => {
-    if (!state.originalParent || !document.querySelector("#CybotCookiebotDialogBodyButtonDecline")) {
+    if (!state.originalParent || !findDeclineButton()) {
       moveDeclineButton();
     }
   });
@@ -99,6 +138,8 @@ document.addEventListener("DOMContentLoaded", function () {
   observer.observe(document.body, { childList: true, subtree: true });
 
   setTimeout(() => moveDeclineButton(), 100);
+  // Zweiter Versuch für Mobile (manchmal lädt es langsamer)
+  setTimeout(() => moveDeclineButton(), 500);
 
   let lastWidth = window.innerWidth;
   window.addEventListener("resize", function () {
