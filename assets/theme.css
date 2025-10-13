@@ -12459,8 +12459,10 @@ section#sidebar-menu[aria-hidden="false"] {
     #CybotCookiebotDialogBodyLevelButtonCustomize {
         margin-top: 20px !important;
     }
+    #CybotCookiebotDialogFooter #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
-
+}
 
 .CybotCookiebotDialogBodyButton.CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
     background-color: #4caf50 !important;
@@ -12470,7 +12472,6 @@ section#sidebar-menu[aria-hidden="false"] {
 
 #CybotCookiebotDialogFooter #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
     border-color: #409243 !important;
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 #CybotCookiebotDialogFooter.CybotCookiebotScrollContainer {
@@ -12487,7 +12488,6 @@ section#sidebar-menu[aria-hidden="false"] {
     user-select: none;
 
 }
-
 
 #CybotCookiebotDialogBodyButtonDecline.CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
     display: block;
