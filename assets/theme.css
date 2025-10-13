@@ -12414,6 +12414,7 @@ section#sidebar-menu[aria-hidden="false"] {
 }
 
 
+
 .CybotCookiebotDialogBodyButton {
     border-radius: 30px !important;
 }
@@ -12445,18 +12446,15 @@ section#sidebar-menu[aria-hidden="false"] {
     }
 }
 
-
 .CybotCookiebotDialogBodyButton.CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
     background-color: #4caf50 !important;
     border-color: #ffffff !important;
     color: #ffffff !important;  
 }
 
-
 #CybotCookiebotDialogFooter.CybotCookiebotScrollContainer {
     border-bottom:none !important ;
 }
-
 
 #CybotCookiebotDialogFooter.CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
     display: block;
@@ -12467,6 +12465,11 @@ section#sidebar-menu[aria-hidden="false"] {
     text-align: center;
     user-select: none;
 }
+#CybotCookiebotDialogBodyButtonDecline {
+    background-color: #4caf50 !important;
+    border-color: #ffffff !important;
+    color: #ffffff !important;  
+    }
 
 #CybotCookiebotDialogBodyButtonDecline.CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
     display: block;
@@ -12477,7 +12480,6 @@ section#sidebar-menu[aria-hidden="false"] {
     padding-left: 0 !important;
     text-align: center;
     user-select: none;
-
 }
 
 .CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
