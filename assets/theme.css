@@ -12457,7 +12457,7 @@ section#sidebar-menu[aria-hidden="false"] {
         padding-bottom: 5px !important;
     }
     #CybotCookiebotDialogBodyLevelButtonCustomize {
-        margin-top: 10px !important;
+        margin-top: 20px !important;
     }
 }
 
@@ -12469,7 +12469,7 @@ section#sidebar-menu[aria-hidden="false"] {
 }
 
 #CybotCookiebotDialogFooter #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
-    border-color:rgb(43, 99, 45) !important;
+    border-color: #409243 !important;
 }
 
 #CybotCookiebotDialogFooter.CybotCookiebotScrollContainer {
