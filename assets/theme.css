@@ -12470,6 +12470,7 @@ section#sidebar-menu[aria-hidden="false"] {
 
 #CybotCookiebotDialogFooter #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
     border-color: #409243 !important;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 #CybotCookiebotDialogFooter.CybotCookiebotScrollContainer {
@@ -12484,7 +12485,7 @@ section#sidebar-menu[aria-hidden="false"] {
     padding: 1em ;
     text-align: center;
     user-select: none;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
 }
 
 
