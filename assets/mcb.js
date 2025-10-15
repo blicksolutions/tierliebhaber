@@ -1,3 +1,5 @@
+/* ================= Move Cookiebot-CMP Button "Alle ablehnen into Content Area on mobile template " ============== */ 
+
 (function() {
   'use strict';
   
