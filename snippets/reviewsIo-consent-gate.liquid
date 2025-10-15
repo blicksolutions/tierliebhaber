@@ -1,0 +1,298 @@
+/* ================= Reviews.io Consent Gate (Produktiv) ============== */
+
+(function(){
+  'use strict';
+  if (window.__REVIEWSIO_CONSENT_GATE_LOADED__) return;
+  window.__REVIEWSIO_CONSENT_GATE_LOADED__ = true;
+
+  var BLOCKED_HOSTS = [
+    "widget.reviews.io","api.reviews.io","cdn.reviews.io","media.reviews.io","widgets.reviews.co.uk"
+  ];
+  var DEFAULT_SCRIPTS = [
+    "https://widget.reviews.io/polaris/build.js",
+    "https://widget.reviews.io/rating-snippet/dist.js"
+  ];
+
+  function hasCookiebot(){ return !!(window.Cookiebot && window.Cookiebot.consent); }
+  function marketingOn(){
+    try{
+      if (!hasCookiebot()) return false;
+      return window.Cookiebot.consent.marketing === true;
+    }catch(e){ return false; }
+  }
+  function isBlockedUrl(url){
+    try{
+      var u = new URL(url, location.href);
+      var h = u.hostname;
+      return BLOCKED_HOSTS.some(function(b){ return h === b || h.endsWith("." + b); });
+    }catch(e){ return false; }
+  }
+
+  var __loaded = new Set();
+  var __loading = new Map();
+
+  function loadScript(src){
+    if (!src) return Promise.resolve();
+    if (__loaded.has(src)) return Promise.resolve(src);
+    if (__loading.has(src)) return __loading.get(src);
+
+    var p = new Promise(function(res, rej){
+      var s = document.createElement('script');
+      s.src = src;
+      s.async = true;
+      // KEIN crossOrigin - verhindert CORS-Fehler
+      s.onload = function(){
+        __loaded.add(src);
+        __loading.delete(src);
+        res(src);
+      };
+      s.onerror = function(){
+        __loading.delete(src);
+        rej(new Error("Script load failed: " + src));
+      };
+      document.head.appendChild(s);
+    });
+    __loading.set(src, p);
+    return p;
+  }
+
+  function waitFor(fn, timeout){
+    var t0 = Date.now();
+    return new Promise(function(resolve){
+      (function tick(){
+        try{
+          var v = fn();
+          if (v) { resolve(v); return; }
+        }catch(e){}
+        if (Date.now() - t0 > (timeout || 6000)) {
+          resolve(null);
+          return;
+        }
+        setTimeout(tick, 100);
+      })();
+    });
+  }
+
+  /* ----- Stubs (wichtig für Theme-Kompatibilität) ----- */
+  var __rsCalls = [];
+  var __rsStub = function(selector, options){
+    __rsCalls.push({ selector: selector, options: options });
+    return {};
+  };
+  
+  if (typeof window.ratingSnippet !== "function") {
+    window.ratingSnippet = __rsStub;
+  }
+
+  var __rwCalls = [];
+  var __rwStub = function(action, data){
+    __rwCalls.push({ action: action, data: data });
+    return {};
+  };
+  
+  if (typeof window.ReviewsWidget !== "function") {
+    window.ReviewsWidget = __rwStub;
+  }
+
+  /* ----- Blocker ----- */
+  var blockedScriptQueue = [];
+  function queue(src){
+    if (src && !blockedScriptQueue.includes(src)) {
+      blockedScriptQueue.push(src);
+    }
+  }
+
+  // Patch XHR
+  (function(){
+    var open = XMLHttpRequest.prototype.open;
+    if (!XMLHttpRequest.prototype.__reviewsioPatched) {
+      XMLHttpRequest.prototype.__reviewsioPatched = true;
+      XMLHttpRequest.prototype.open = function(m, u){
+        if (!marketingOn() && isBlockedUrl(u)) return;
+        return open.apply(this, arguments);
+      };
+    }
+  })();
+
+  // Patch fetch
+  (function(){
+    var _f = window.fetch;
+    if (!_f.__reviewsioPatched) {
+      window.fetch = function(r, i){
+        var u = (typeof r === "string") ? r : (r && r.url);
+        if (!marketingOn() && u && isBlockedUrl(u)) {
+          return Promise.reject(new TypeError("Blocked by consent gate"));
+        }
+        return _f.apply(this, arguments);
+      };
+      window.fetch.__reviewsioPatched = true;
+    }
+  })();
+
+  // DOM Blocker
+  function patchElementMethod(name){
+    var orig = Element.prototype[name];
+    if (!orig || orig.__reviewsioPatched) return;
+    
+    function wrapped(child){
+      try{
+        if (child && child.tagName) {
+          var t = child.tagName.toLowerCase();
+          var src = child.src || (child.getAttribute && child.getAttribute("src"));
+          
+          if (t === "script" && src && __loaded.has(src)) return child;
+          
+          if ((t === "script" || t === "iframe") && src && !marketingOn() && isBlockedUrl(src)) {
+            if (t === "script") queue(src);
+            return child;
+          }
+        }
+      }catch(e){}
+      return orig.call(this, child);
+    }
+    wrapped.__reviewsioPatched = true;
+    Element.prototype[name] = wrapped;
+  }
+  
+  patchElementMethod("appendChild");
+  patchElementMethod("insertBefore");
+
+  // MutationObserver
+  var mo = new MutationObserver(function(muts){
+    if (marketingOn()) return;
+    muts.forEach(function(m){
+      (m.addedNodes || []).forEach(function(n){
+        try{
+          if (n && n.tagName) {
+            var t = n.tagName.toLowerCase();
+            var src = n.src || (n.getAttribute && n.getAttribute('src'));
+            if ((t === 'script' || t === 'iframe') && src && isBlockedUrl(src)) {
+              if (t === 'script') queue(src);
+              n.remove();
+            }
+          }
+        }catch(e){}
+      });
+    });
+  });
+  mo.observe(document.documentElement, {childList: true, subtree: true});
+
+  /* ----- Auto-Init + Replay ----- */
+  function autoInit(){
+    try{
+      // rio init
+      if (window.rio && typeof window.rio === "function") {
+        try{ window.rio("init"); }catch(e){}
+      }
+      if (window.rio && typeof window.rio.init === "function") {
+        try{ window.rio.init({}); }catch(e){}
+      }
+
+      // RatingSnippet init
+      if (window.RatingSnippet && typeof window.RatingSnippet.init === "function") {
+        try{ window.RatingSnippet.init(); }catch(e){}
+      }
+
+      // ratingSnippet replay
+      if (typeof window.ratingSnippet === "function" && window.ratingSnippet !== __rsStub) {
+        __rsCalls.forEach(function(call){
+          try{
+            window.ratingSnippet(call.selector, call.options);
+          }catch(e){}
+        });
+        __rsCalls.length = 0;
+      }
+
+      // ReviewsWidget replay
+      if (typeof window.ReviewsWidget === "function" && window.ReviewsWidget !== __rwStub) {
+        __rwCalls.forEach(function(call){
+          try{
+            window.ReviewsWidget(call.action, call.data);
+          }catch(e){}
+        });
+        __rwCalls.length = 0;
+      }
+
+      document.dispatchEvent(new CustomEvent("reviewsio:consent-granted"));
+    }catch(e){}
+  }
+
+  /* ----- Enable ----- */
+  var enabledOnce = false;
+  var enablePromise = null;
+
+  function enable(){
+    if (enabledOnce) return enablePromise || Promise.resolve();
+    if (!marketingOn()) return Promise.resolve();
+
+    enabledOnce = true;
+
+    enablePromise = (async function(){
+      try{
+        // Warte kurz ob Scripts bereits laden
+        await waitFor(function(){
+          return document.querySelector('script[src*="widget.reviews.io"]') ||
+                 window.RatingSnippet ||
+                 window.rio ||
+                 window.REVIEWSIO ||
+                 (typeof window.ratingSnippet === "function" && window.ratingSnippet !== __rsStub);
+        }, 600);
+
+        // Scripts laden
+        var toLoad = (blockedScriptQueue.length ? blockedScriptQueue.slice() : DEFAULT_SCRIPTS.slice());
+        
+        // Deduplizieren & Polaris vor Rating-Snippet
+        var seen = new Set();
+        var dedup = [];
+        toLoad.forEach(function(u){
+          if (u && !seen.has(u)) {
+            seen.add(u);
+            dedup.push(u);
+          }
+        });
+        blockedScriptQueue.length = 0;
+        
+        dedup.sort(function(a, b){
+          var ia = a.includes("/polaris/") ? 0 : a.includes("/rating-snippet/") ? 1 : 2;
+          var ib = b.includes("/polaris/") ? 0 : b.includes("/rating-snippet/") ? 1 : 2;
+          return ia - ib;
+        });
+
+        for (var j = 0; j < dedup.length; j++) {
+          await loadScript(dedup[j]);
+        }
+
+        // Warten auf echte Implementierung
+        await waitFor(function(){
+          return (typeof window.ratingSnippet === "function" && window.ratingSnippet !== __rsStub) ||
+                 window.RatingSnippet ||
+                 window.rio ||
+                 window.REVIEWSIO;
+        }, 6000);
+
+        autoInit();
+
+        if (mo && typeof mo.disconnect === "function") {
+          mo.disconnect();
+        }
+      }catch(err){}
+    })();
+
+    return enablePromise;
+  }
+
+  /* ----- Event Listeners ----- */
+  function on(evt, fn){ window.addEventListener(evt, fn, false); }
+
+  if (marketingOn()) enable();
+  
+  on("CookiebotOnLoad", enable);
+  on("CookiebotOnConsentReady", enable);
+  on("CookiebotOnAccept", enable);
+  
+  document.addEventListener("DOMContentLoaded", enable);
+  window.addEventListener("load", enable);
+  document.addEventListener("visibilitychange", function(){
+    if (document.visibilityState === "visible") enable();
+  });
+})();
