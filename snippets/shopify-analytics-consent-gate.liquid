@@ -1,0 +1,256 @@
+(function(){
+  'use strict';
+  if (window.__TREKKIE_BLOCKER_LOADED__) return;
+  window.__TREKKIE_BLOCKER_LOADED__ = true;
+
+  var trekkieEnabled = false;
+  var trekkieObserver = null;
+
+  function hasCookiebot(){ 
+    return !!(window.Cookiebot && window.Cookiebot.consent); 
+  }
+  
+  function hasStatisticsConsent(){
+    try{
+      if (!hasCookiebot()) return false;
+      return window.Cookiebot.consent.statistics === true;
+    }catch(e){ 
+      return false; 
+    }
+  }
+
+  // Stub-System mit Call-Queue für Replay
+  var __trekkieCalls = [];
+  var trekkieStub = {
+    identify: function() { __trekkieCalls.push(['identify', Array.prototype.slice.call(arguments)]); },
+    page: function() { __trekkieCalls.push(['page', Array.prototype.slice.call(arguments)]); },
+    track: function() { __trekkieCalls.push(['track', Array.prototype.slice.call(arguments)]); },
+    ready: function(fn) { 
+      if (typeof fn === 'function') {
+        if (trekkieEnabled && window.Trekkie && window.Trekkie !== trekkieStub) {
+          fn();
+        } else {
+          __trekkieCalls.push(['ready', [fn]]);
+        }
+      }
+    },
+    produce: function() { __trekkieCalls.push(['produce', Array.prototype.slice.call(arguments)]); }
+  };
+
+  // Stubs immer setzen (werden später durch echtes Trekkie ersetzt)
+  window.Shopify = window.Shopify || {};
+  window.Shopify.analytics = window.Shopify.analytics || {};
+  
+  if (!window.Trekkie) {
+    Object.defineProperty(window, 'Trekkie', {
+      get: function() { return trekkieStub; },
+      set: function(val) { 
+        if (trekkieEnabled) {
+          Object.defineProperty(window, 'Trekkie', {
+            value: val,
+            writable: true,
+            configurable: true
+          });
+        }
+      },
+      configurable: true
+    });
+  }
+  
+  if (!window.ShopifyAnalytics) {
+    Object.defineProperty(window, 'ShopifyAnalytics', {
+      get: function() { return { lib: trekkieStub, meta: {} }; },
+      set: function(val) {
+        if (trekkieEnabled) {
+          Object.defineProperty(window, 'ShopifyAnalytics', {
+            value: val,
+            writable: true,
+            configurable: true
+          });
+        }
+      },
+      configurable: true
+    });
+  }
+
+  function isTrekkieScript(src) {
+    if (!src) return false;
+    return src.includes('trekkie') || 
+           src.includes('shopify_stats') ||
+           src.includes('analytics.js');
+  }
+  
+  // DOM-Blocking
+  var originalAppendChild = Element.prototype.appendChild;
+  if (!originalAppendChild.__trekkiePatched) {
+    Element.prototype.appendChild = function(child) {
+      if (child && child.tagName === 'SCRIPT' && child.src) {
+        if (isTrekkieScript(child.src) && !hasStatisticsConsent()) {
+          return child;
+        }
+      }
+      return originalAppendChild.call(this, child);
+    };
+    Element.prototype.appendChild.__trekkiePatched = true;
+  }
+
+  var originalInsertBefore = Element.prototype.insertBefore;
+  if (!originalInsertBefore.__trekkiePatched) {
+    Element.prototype.insertBefore = function(child, reference) {
+      if (child && child.tagName === 'SCRIPT' && child.src) {
+        if (isTrekkieScript(child.src) && !hasStatisticsConsent()) {
+          return child;
+        }
+      }
+      return originalInsertBefore.call(this, child, reference);
+    };
+    Element.prototype.insertBefore.__trekkiePatched = true;
+  }
+
+  function isMonorailUrl(url) {
+    if (!url) return false;
+    return url.includes('monorail-edge.shopifysvc.com') ||
+           url.includes('/monorail/') ||
+           url.includes('produce_batch');
+  }
+
+  // Fetch-Blocking
+  var _fetch = window.fetch;
+  if (!_fetch.__trekkiePatched) {
+    window.fetch = function(resource, options) {
+      var url = typeof resource === 'string' ? resource : (resource && resource.url);
+      
+      if (isMonorailUrl(url) && !hasStatisticsConsent()) {
+        return Promise.resolve(new Response('{"success":true}', {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' }
+        }));
+      }
+      
+      return _fetch.apply(this, arguments);
+    };
+    window.fetch.__trekkiePatched = true;
+  }
+
+  // Beacon-Blocking
+  var _beacon = navigator.sendBeacon;
+  if (_beacon && !_beacon.__trekkiePatched) {
+    navigator.sendBeacon = function(url, data) {
+      if (isMonorailUrl(url) && !hasStatisticsConsent()) {
+        return true;
+      }
+      
+      return _beacon.call(this, url, data);
+    };
+    navigator.sendBeacon.__trekkiePatched = true;
+  }
+
+  // XHR-Blocking
+  var _xhrOpen = XMLHttpRequest.prototype.open;
+  var _xhrSend = XMLHttpRequest.prototype.send;
+  
+  if (!XMLHttpRequest.prototype.__trekkiePatched) {
+    XMLHttpRequest.prototype.open = function(method, url) {
+      this.__monorailBlocked = isMonorailUrl(url) && !hasStatisticsConsent();
+      
+      if (this.__monorailBlocked) {
+        this.readyState = 1;
+        return;
+      }
+      
+      return _xhrOpen.apply(this, arguments);
+    };
+    
+    XMLHttpRequest.prototype.send = function(data) {
+      if (this.__monorailBlocked) {
+        var self = this;
+        setTimeout(function() {
+          self.readyState = 4;
+          self.status = 200;
+          self.statusText = 'OK';
+          self.responseText = '{"success":true}';
+          if (self.onreadystatechange) self.onreadystatechange();
+          if (self.onload) self.onload();
+        }, 0);
+        return;
+      }
+      
+      return _xhrSend.apply(this, arguments);
+    };
+    
+    XMLHttpRequest.prototype.__trekkiePatched = true;
+  }
+
+  // MutationObserver
+  trekkieObserver = new MutationObserver(function(mutations) {
+    if (hasStatisticsConsent() || trekkieEnabled) return;
+    
+    mutations.forEach(function(mutation) {
+      mutation.addedNodes.forEach(function(node) {
+        if (node.tagName === 'SCRIPT' && node.src && isTrekkieScript(node.src)) {
+          node.remove();
+        }
+      });
+    });
+  });
+  
+  trekkieObserver.observe(document.documentElement, {
+    childList: true,
+    subtree: true
+  });
+
+  // Replay gespeicherter Calls
+  function replayTrekkieCalls() {
+    if (!window.Trekkie || window.Trekkie === trekkieStub) return;
+    
+    __trekkieCalls.forEach(function(call) {
+      try {
+        if (typeof window.Trekkie[call[0]] === 'function') {
+          window.Trekkie[call[0]].apply(window.Trekkie, call[1]);
+        }
+      } catch(e) {
+        console.warn('Trekkie replay error:', e);
+      }
+    });
+    __trekkieCalls.length = 0;
+  }
+
+  // Trekkie aktivieren
+  function enableTrekkie() {
+    if (trekkieEnabled) return;
+    if (!hasStatisticsConsent()) return;
+    
+    trekkieEnabled = true;
+    
+    if (trekkieObserver) {
+      trekkieObserver.disconnect();
+      trekkieObserver = null;
+    }
+    
+    // Script laden
+    var script = document.createElement('script');
+    script.src = 'https://cdn.shopify.com/s/trekkie.storefront.min.js';
+    script.async = true;
+    script.onload = function() {
+      setTimeout(replayTrekkieCalls, 100);
+    };
+    document.head.appendChild(script);
+  }
+
+  // Event-Listener
+  window.addEventListener('CookiebotOnAccept', enableTrekkie);
+  window.addEventListener('CookiebotOnLoad', enableTrekkie);
+  window.addEventListener('CookiebotOnConsentReady', enableTrekkie);
+  
+  // Initial-Check beim Laden
+  if (hasStatisticsConsent()) {
+    enableTrekkie();
+  }
+  
+  // Zusätzlicher Check nach DOMContentLoaded
+  document.addEventListener('DOMContentLoaded', function() {
+    if (hasStatisticsConsent() && !trekkieEnabled) {
+      enableTrekkie();
+    }
+  });
+})();
