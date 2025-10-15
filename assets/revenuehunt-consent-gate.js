@@ -189,7 +189,7 @@
   
   function toggleRevenueHuntSection() {
     var hasConsent = hasMarketingConsent();
-    var revenueHuntSection = document.querySelector('#section-slideshow_dKUeWg');
+    var revenueHuntSection = document.querySelector('#shopify-section-slideshow_dKUeWg');
     
     if (revenueHuntSection) {
       revenueHuntSection.style.display = hasConsent ? 'block' : 'none';
