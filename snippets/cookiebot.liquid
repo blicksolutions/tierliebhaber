@@ -1,14 +1,18 @@
-{% comment %} ================= Block all GDPR Compliance relevant Shopify Analytics Scripts without Marketoing Consent === M.M. 15/10/25 ============== {% endcomment %}
+{% comment %} ================= Block all GDPR Compliance relevant Shopify Analytics Scripts without Marketing Consent === M.M. 15/10/25 ============== {% endcomment %}
 <script>{% render 'shopify-analytics-consent-gate' %}</script>
 
 {% comment %} ================= Move Cookiebot-CMP Button "Alle ablehnen into Content Area on mobile template === M.M. 15/10/25 ============== {% endcomment %}
 <script src="{{ 'mcb.js' | asset_url }}" async></script>
-{% comment %} ================= Block google.api - google fonts without Marketoing Consent === M.M. 15/10/25 ============== {% endcomment %}
+
+{% comment %} ================= Block google.api - google fonts without Marketing Consent === M.M. 15/10/25 ============== {% endcomment %}
 <script src="{{ 'google-fonts-consent-cate.js' | asset_url }}" async></script>
+
+{% comment %} ================= Block RevenueHunt Services (Product-Quiz!!) without Marketing Consen + remove Homepage Section === M.M. 15/10/25 ============== {% endcomment %}
+<script src="{{ 'revenuehunt-consent-gate.js' | asset_url }}" async></script>
+
 
 
 <script>
-
 
   (function () {
     // ---- Toggle debug logs in console
