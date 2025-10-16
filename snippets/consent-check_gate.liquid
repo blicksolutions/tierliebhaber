@@ -1,3 +1,4 @@
+
 (function () {
   'use strict';
   
@@ -10,6 +11,7 @@
     }
   };
 
+  /* ===== Consent Check ===== */
   function hasConsent(cat) {
     try {
       if (window.Cookiebot && Cookiebot.consent) {
@@ -57,7 +59,7 @@
         },
       });
     } catch(e) {
-      log('Cookie guard failed:', e);
+      log('Cookie guard setup failed');
     }
   }
 
@@ -77,35 +79,47 @@
   };
   
   const catFor = (u) => {
-    const h = hostOf(u);
-    if (!h) return null;
-    for (const d of domains) {
-      if (h === d || h.endsWith('.' + d)) return MAP[d];
+    try {
+      const h = hostOf(u);
+      if (!h) return null;
+      for (const d of domains) {
+        if (h === d || h.endsWith('.' + d)) return MAP[d];
+      }
+      return null;
+    } catch(e) {
+      return null;
     }
-    return null;
   };
   
   const shouldBlock = (u) => {
-    const c = catFor(u || '');
-    return c ? !hasConsent(c) : false;
+    try {
+      const c = catFor(u || '');
+      return c ? !hasConsent(c) : false;
+    } catch(e) {
+      return false;
+    }
   };
 
-  /* ===== Script Queue (mit Deduplizierung) ===== */
+  /* ===== Script Queue ===== */
   const pending = [];
-  const pendingSrcs = new Set(); // NEU: Deduplizierung
+  const pendingSrcs = new Set();
   
   function copyAttrs(el) {
     const o = {};
     try {
-      for (const a of el.attributes || []) o[a.name] = a.value;
+      for (const a of el.attributes || []) {
+        try {
+          o[a.name] = a.value;
+        } catch(e) {}
+      }
     } catch(e) {}
     return o;
   }
   
   function queue(el, src) {
-    if (pendingSrcs.has(src)) return; // NEU: Skip Duplikate
-    
     try {
+      if (pendingSrcs.has(src)) return;
+      
       pending.push({
         src,
         attrs: copyAttrs(el),
@@ -116,10 +130,10 @@
         crossOrigin: el.crossOrigin,
         integrity: el.integrity,
       });
-      pendingSrcs.add(src); // NEU: Tracking
+      pendingSrcs.add(src);
       log('blocked script', src, 'cat:', catFor(src));
     } catch(e) {
-      log('queue error:', e);
+      log('queue error');
     }
   }
   
@@ -152,15 +166,15 @@
           log('released script', r.src, c);
           
           pending.splice(i, 1);
-          pendingSrcs.delete(r.src); // NEU: Cleanup
+          pendingSrcs.delete(r.src);
         }
       } catch(e) {
-        log('release error:', e);
+        log('release error');
       }
     }
   }
 
-  /* ===== DOM Interception (mit try-catch) ===== */
+  /* ===== DOM Interception (KORRIGIERT!) ===== */
   const OrigCreate = document.createElement;
   const OrigAppend = Element.prototype.appendChild;
   const OrigBefore = Element.prototype.insertBefore;
@@ -171,12 +185,10 @@
     try {
       if (String(tag).toLowerCase() === 'script') {
         el.setAttribute = function (name, value) {
-          try {
-            if (String(name).toLowerCase() === 'src' && shouldBlock(value)) {
-              queue(el, value);
-              return;
-            }
-          } catch(e) {}
+          if (String(name).toLowerCase() === 'src' && shouldBlock(value)) {
+            queue(el, value);
+            return; // ← Kein OrigSetAttr!
+          }
           return OrigSetAttr.call(el, name, value);
         };
       }
@@ -185,41 +197,37 @@
   };
 
   Element.prototype.appendChild = function (ch) {
-    var shouldQueueScript = false;
-    var src = null;
-    
-    try {
-      if (ch && ch.tagName === 'SCRIPT') {
-        src = ch.getAttribute && ch.getAttribute('src');
+    // WICHTIG: Erst prüfen, DANN try-catch
+    if (ch && ch.tagName === 'SCRIPT') {
+      try {
+        const src = ch.getAttribute && ch.getAttribute('src');
         if (src && shouldBlock(src)) {
-          shouldQueueScript = true;
+          queue(ch, src);
+          return ch; // ← Verhindert appendChild
         }
+      } catch(e) {
+        log('appendChild check error');
+        // Bei Fehler: lieber blockieren als durchlassen
+        return ch;
       }
-    } catch(e) {}
-    
-    if (shouldQueueScript) {
-      queue(ch, src);
-      return ch;
     }
     return OrigAppend.call(this, ch);
   };
 
   Element.prototype.insertBefore = function (n, r) {
-    var shouldQueueScript = false;
-    var src = null;
-    
-    try {
-      if (n && n.tagName === 'SCRIPT') {
-        src = n.getAttribute && n.getAttribute('src');
+    // WICHTIG: Erst prüfen, DANN try-catch
+    if (n && n.tagName === 'SCRIPT') {
+      try {
+        const src = n.getAttribute && n.getAttribute('src');
         if (src && shouldBlock(src)) {
-          shouldQueueScript = true;
+          queue(n, src);
+          return n; // ← Verhindert insertBefore
         }
+      } catch(e) {
+        log('insertBefore check error');
+        // Bei Fehler: lieber blockieren als durchlassen
+        return n;
       }
-    } catch(e) {}
-    
-    if (shouldQueueScript) {
-      queue(n, src);
-      return n;
     }
     return OrigBefore.call(this, n, r);
   };
@@ -236,14 +244,17 @@
           try {
             if (shouldBlock(v)) {
               queue(this, v);
-              return v;
+              return v; // ← Verhindert src-Setter
             }
-          } catch(e) {}
+          } catch(e) {
+            log('src setter error');
+            return v; // ← Bei Fehler: verhindere trotzdem
+          }
           return srcDesc.set.call(this, v);
         },
       });
     } catch(e) {
-      log('src descriptor patch failed:', e);
+      log('src descriptor patch failed');
     }
   }
 
