@@ -5,6 +5,8 @@
 
   {% render 'cookiebot' %}
 
+  {% render 'gemx-traffic-switch' %}
+
 	<link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}">
   <link rel="stylesheet" href="{{ 'ds-op-lp-3.css' | asset_url }}">
 
@@ -366,7 +368,9 @@
     <script type="text/plain" data-cookieconsent="marketing" src="https://www.dwin1.com/86929.js" defer="defer"></script>
 
     <script type="text/plain" data-cookieconsent="marketing" src="https://widget.reviews.io/rating-snippet/dist.js"></script>
+
     <link rel="stylesheet" href="https://widget.reviews.io/rating-snippet/dist.css">
+
     <script>
       ratingSnippet("ruk_rating_snippet", {
         store: "tierliebhaber.de",
@@ -380,6 +384,7 @@
         showEmptyStars: false,
       });
     </script>
+    
     <script type="text/plain" data-cookieconsent="marketing" src="https://customized-whatsapp-widget.chatarmin.com/widget-fetcher.js?w_id=6811de72e886703c08521660&u_id=680a53d680aac276290b3339" async ></script>    
  
 {% if request.page_type == 'policy' or template contains 'privacy' %}
