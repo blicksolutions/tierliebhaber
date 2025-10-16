@@ -1,0 +1,200 @@
+(function(){
+  'use strict';
+  if (window.__REPLO_CONSENT_GATE_LOADED__) return;
+  window.__REPLO_CONSENT_GATE_LOADED__ = true;
+
+  var reploObserver = null;
+  var patchInterval = null;
+  var enabled = false;
+
+  /* ===== Consent Check ===== */
+  function hasCookiebot(){ 
+    return !!(window.Cookiebot && window.Cookiebot.consent); 
+  }
+  
+  function hasMarketingConsent(){
+    try{
+      if (!hasCookiebot()) return false;
+      return window.Cookiebot.consent.marketing === true;
+    }catch(e){ 
+      return false; 
+    }
+  }
+
+  /* ===== URL Check ===== */
+  function isReploUrl(url) {
+    if (!url) return false;
+    return url.includes('replo.app') || 
+           url.includes('replo.io') ||
+           url.includes('replohq.com');
+  }
+
+  /* ===== Fetch Blocking ===== */
+  var _originalFetch = window.fetch;
+  if (!_originalFetch.__reploPatched) {
+    window.fetch = function(resource, options) {
+      var url = typeof resource === 'string' ? resource : (resource && resource.url);
+      
+      if (isReploUrl(url) && !hasMarketingConsent()) {
+        return Promise.reject(new TypeError('Blocked by consent'));
+      }
+      
+      return _originalFetch.apply(this, arguments);
+    };
+    window.fetch.__reploPatched = true;
+  }
+
+  /* ===== Beacon Blocking ===== */
+  var _originalBeacon = navigator.sendBeacon;
+  if (_originalBeacon && !_originalBeacon.__reploPatched) {
+    navigator.sendBeacon = function(url, data) {
+      if (isReploUrl(url) && !hasMarketingConsent()) {
+        return true;
+      }
+      
+      return _originalBeacon.call(this, url, data);
+    };
+    navigator.sendBeacon.__reploPatched = true;
+  }
+
+  /* ===== XHR Blocking ===== */
+  var _originalOpen = XMLHttpRequest.prototype.open;
+  var _originalSend = XMLHttpRequest.prototype.send;
+  
+  if (!XMLHttpRequest.prototype.__reploPatched) {
+    XMLHttpRequest.prototype.open = function(method, url) {
+      this.__reploBlocked = isReploUrl(url) && !hasMarketingConsent();
+      if (this.__reploBlocked) {
+        this.readyState = 1;
+        return;
+      }
+      return _originalOpen.apply(this, arguments);
+    };
+    
+    XMLHttpRequest.prototype.send = function(data) {
+      if (this.__reploBlocked) {
+        var self = this;
+        setTimeout(function(){
+          self.readyState = 4;
+          self.status = 200;
+          self.statusText = 'OK';
+          self.responseText = '{"success":true}';
+          if (self.onreadystatechange) self.onreadystatechange();
+          if (self.onload) self.onload();
+        }, 0);
+        return;
+      }
+      return _originalSend.apply(this, arguments);
+    };
+    
+    XMLHttpRequest.prototype.__reploPatched = true;
+  }
+
+  /* ===== DOM Blocking ===== */
+  var _appendChild = Element.prototype.appendChild;
+  if (!_appendChild.__reploPatched) {
+    Element.prototype.appendChild = function(child) {
+      if (child && child.tagName === 'SCRIPT' && child.src && isReploUrl(child.src)) {
+        if (!hasMarketingConsent()) {
+          return child;
+        }
+      }
+      return _appendChild.call(this, child);
+    };
+    Element.prototype.appendChild.__reploPatched = true;
+  }
+
+  var _insertBefore = Element.prototype.insertBefore;
+  if (!_insertBefore.__reploPatched) {
+    Element.prototype.insertBefore = function(child, ref) {
+      if (child && child.tagName === 'SCRIPT' && child.src && isReploUrl(child.src)) {
+        if (!hasMarketingConsent()) {
+          return child;
+        }
+      }
+      return _insertBefore.call(this, child, ref);
+    };
+    Element.prototype.insertBefore.__reploPatched = true;
+  }
+
+  /* ===== MutationObserver ===== */
+  reploObserver = new MutationObserver(function(mutations) {
+    if (hasMarketingConsent() || enabled) return;
+    
+    mutations.forEach(function(mutation) {
+      mutation.addedNodes.forEach(function(node) {
+        if (node.tagName === 'SCRIPT' && node.src && isReploUrl(node.src)) {
+          node.remove();
+        }
+      });
+    });
+  });
+  
+  reploObserver.observe(document.documentElement, {
+    childList: true,
+    subtree: true
+  });
+
+  /* ===== Shopify Web Pixels API Blocking ===== */
+  function patchShopifyWebPixels() {
+    if (!window.Shopify) window.Shopify = {};
+    if (!window.Shopify.analytics) window.Shopify.analytics = {};
+    
+    if (!window.Shopify.analytics.__reploPatched) {
+      var _originalPublish = window.Shopify.analytics.publish;
+      
+      window.Shopify.analytics.publish = function(eventName, eventData) {
+        if (!hasMarketingConsent()) return;
+        
+        if (_originalPublish && typeof _originalPublish === 'function') {
+          return _originalPublish.apply(this, arguments);
+        }
+      };
+      window.Shopify.analytics.__reploPatched = true;
+    }
+  }
+
+  patchShopifyWebPixels();
+  
+  patchInterval = setInterval(function() {
+    if (enabled || hasMarketingConsent()) {
+      clearInterval(patchInterval);
+      patchInterval = null;
+      return;
+    }
+    patchShopifyWebPixels();
+  }, 100);
+
+  /* ===== Cleanup nach Consent ===== */
+  function enableReplo() {
+    if (enabled) return;
+    if (!hasMarketingConsent()) return;
+    
+    enabled = true;
+    
+    if (patchInterval) {
+      clearInterval(patchInterval);
+      patchInterval = null;
+    }
+    
+    if (reploObserver) {
+      reploObserver.disconnect();
+      reploObserver = null;
+    }
+  }
+
+  /* ===== Event Listeners ===== */
+  window.addEventListener('CookiebotOnAccept', enableReplo);
+  window.addEventListener('CookiebotOnLoad', enableReplo);
+  window.addEventListener('CookiebotOnConsentReady', enableReplo);
+
+  if (hasMarketingConsent()) {
+    enableReplo();
+  }
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    if (hasMarketingConsent() && !enabled) {
+      enableReplo();
+    }
+  });
+})();
