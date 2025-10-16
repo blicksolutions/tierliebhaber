@@ -19,7 +19,6 @@
     }
   }
 
-  // Stub-System mit Call-Queue
   var __trekkieCalls = [];
   var trekkieStub = {
     identify: function() { __trekkieCalls.push(['identify', Array.prototype.slice.call(arguments)]); },
@@ -37,69 +36,87 @@
     produce: function() { __trekkieCalls.push(['produce', Array.prototype.slice.call(arguments)]); }
   };
 
-  // Stubs setzen
   window.Shopify = window.Shopify || {};
   window.Shopify.analytics = window.Shopify.analytics || {};
   
   if (!window.Trekkie) {
-    Object.defineProperty(window, 'Trekkie', {
-      get: function() { return trekkieStub; },
-      set: function(val) { 
-        if (trekkieEnabled) {
-          Object.defineProperty(window, 'Trekkie', {
-            value: val,
-            writable: true,
-            configurable: true
-          });
-        }
-      },
-      configurable: true
-    });
+    try {
+      Object.defineProperty(window, 'Trekkie', {
+        get: function() { return trekkieStub; },
+        set: function(val) { 
+          if (trekkieEnabled) {
+            Object.defineProperty(window, 'Trekkie', {
+              value: val,
+              writable: true,
+              configurable: true
+            });
+          }
+        },
+        configurable: true
+      });
+    } catch(e) {}
   }
   
   if (!window.ShopifyAnalytics) {
-    Object.defineProperty(window, 'ShopifyAnalytics', {
-      get: function() { return { lib: trekkieStub, meta: {} }; },
-      set: function(val) {
-        if (trekkieEnabled) {
-          Object.defineProperty(window, 'ShopifyAnalytics', {
-            value: val,
-            writable: true,
-            configurable: true
-          });
-        }
-      },
-      configurable: true
-    });
+    try {
+      Object.defineProperty(window, 'ShopifyAnalytics', {
+        get: function() { return { lib: trekkieStub, meta: {} }; },
+        set: function(val) {
+          if (trekkieEnabled) {
+            Object.defineProperty(window, 'ShopifyAnalytics', {
+              value: val,
+              writable: true,
+              configurable: true
+            });
+          }
+        },
+        configurable: true
+      });
+    } catch(e) {}
   }
 
-  /* ===== URL-Checks ===== */
   function isTrekkieScript(src) {
     if (!src) return false;
-    return src.includes('trekkie') || 
-           src.includes('shopify_stats') ||
-           src.includes('analytics.js');
+    try {
+      var srcStr = src.toString ? src.toString() : String(src);
+      return srcStr.includes('trekkie') || 
+             srcStr.includes('shopify_stats') ||
+             srcStr.includes('analytics.js');
+    } catch(e) {
+      return false;
+    }
   }
   
   function isShopifyAnalytics(url) {
     if (!url) return false;
-    return url.includes('monorail-edge.shopifysvc.com') ||
-           url.includes('error-analytics-sessions-production.shopifysvc.com') ||
-           url.includes('production.shopifysvc.com') ||
-           url.includes('/monorail/') ||
-           url.includes('produce_batch') ||
-           url.includes('/observeonly');
+    try {
+      var urlStr = url.toString ? url.toString() : String(url);
+      return urlStr.includes('monorail-edge.shopifysvc.com') ||
+             urlStr.includes('error-analytics-sessions-production.shopifysvc.com') ||
+             urlStr.includes('production.shopifysvc.com') ||
+             urlStr.includes('/monorail/') ||
+             urlStr.includes('produce_batch') ||
+             urlStr.includes('/observeonly');
+    } catch(e) {
+      return false;
+    }
   }
 
-  /* ===== DOM-Blocking ===== */
   var originalAppendChild = Element.prototype.appendChild;
   if (!originalAppendChild.__trekkiePatched) {
     Element.prototype.appendChild = function(child) {
-      if (child && child.tagName === 'SCRIPT' && child.src) {
-        if (isTrekkieScript(child.src) && !hasStatisticsConsent()) {
-          return child;
+      var shouldBlock = false;
+      
+      try {
+        if (child && child.tagName === 'SCRIPT') {
+          var src = child.src || (child.getAttribute && child.getAttribute('src'));
+          if (src && isTrekkieScript(src) && !hasStatisticsConsent()) {
+            shouldBlock = true;
+          }
         }
-      }
+      } catch(e) {}
+      
+      if (shouldBlock) return child;
       return originalAppendChild.call(this, child);
     };
     Element.prototype.appendChild.__trekkiePatched = true;
@@ -108,59 +125,69 @@
   var originalInsertBefore = Element.prototype.insertBefore;
   if (!originalInsertBefore.__trekkiePatched) {
     Element.prototype.insertBefore = function(child, reference) {
-      if (child && child.tagName === 'SCRIPT' && child.src) {
-        if (isTrekkieScript(child.src) && !hasStatisticsConsent()) {
-          return child;
+      var shouldBlock = false;
+      
+      try {
+        if (child && child.tagName === 'SCRIPT') {
+          var src = child.src || (child.getAttribute && child.getAttribute('src'));
+          if (src && isTrekkieScript(src) && !hasStatisticsConsent()) {
+            shouldBlock = true;
+          }
         }
-      }
+      } catch(e) {}
+      
+      if (shouldBlock) return child;
       return originalInsertBefore.call(this, child, reference);
     };
     Element.prototype.insertBefore.__trekkiePatched = true;
   }
 
-  /* ===== Fetch-Blocking ===== */
   var _fetch = window.fetch;
   if (!_fetch.__trekkiePatched) {
     window.fetch = function(resource, options) {
-      var url = typeof resource === 'string' ? resource : (resource && resource.url);
-      
-      if (isShopifyAnalytics(url) && !hasStatisticsConsent()) {
-        return Promise.resolve(new Response('{"success":true}', {
-          status: 200,
-          headers: { 'Content-Type': 'application/json' }
-        }));
-      }
+      try {
+        var url = typeof resource === 'string' ? resource : (resource && resource.url);
+        
+        if (isShopifyAnalytics(url) && !hasStatisticsConsent()) {
+          return Promise.resolve(new Response('{"success":true}', {
+            status: 200,
+            headers: { 'Content-Type': 'application/json' }
+          }));
+        }
+      } catch(e) {}
       
       return _fetch.apply(this, arguments);
     };
     window.fetch.__trekkiePatched = true;
   }
 
-  /* ===== Beacon-Blocking ===== */
   var _beacon = navigator.sendBeacon;
   if (_beacon && !_beacon.__trekkiePatched) {
     navigator.sendBeacon = function(url, data) {
-      if (isShopifyAnalytics(url) && !hasStatisticsConsent()) {
-        return true;
-      }
+      try {
+        if (isShopifyAnalytics(url) && !hasStatisticsConsent()) {
+          return true;
+        }
+      } catch(e) {}
       
       return _beacon.call(this, url, data);
     };
     navigator.sendBeacon.__trekkiePatched = true;
   }
 
-  /* ===== XHR-Blocking ===== */
   var _xhrOpen = XMLHttpRequest.prototype.open;
   var _xhrSend = XMLHttpRequest.prototype.send;
   
   if (!XMLHttpRequest.prototype.__trekkiePatched) {
     XMLHttpRequest.prototype.open = function(method, url) {
-      this.__shopifyBlocked = isShopifyAnalytics(url) && !hasStatisticsConsent();
-      
-      if (this.__shopifyBlocked) {
-        this.readyState = 1;
-        return;
-      }
+      try {
+        this.__shopifyBlocked = isShopifyAnalytics(url) && !hasStatisticsConsent();
+        
+        if (this.__shopifyBlocked) {
+          this.readyState = 1;
+          return;
+        }
+      } catch(e) {}
       
       return _xhrOpen.apply(this, arguments);
     };
@@ -169,12 +196,14 @@
       if (this.__shopifyBlocked) {
         var self = this;
         setTimeout(function() {
-          self.readyState = 4;
-          self.status = 200;
-          self.statusText = 'OK';
-          self.responseText = '{"success":true}';
-          if (self.onreadystatechange) self.onreadystatechange();
-          if (self.onload) self.onload();
+          try {
+            self.readyState = 4;
+            self.status = 200;
+            self.statusText = 'OK';
+            self.responseText = '{"success":true}';
+            if (self.onreadystatechange) self.onreadystatechange();
+            if (self.onload) self.onload();
+          } catch(e) {}
         }, 0);
         return;
       }
@@ -185,25 +214,31 @@
     XMLHttpRequest.prototype.__trekkiePatched = true;
   }
 
-  /* ===== MutationObserver ===== */
   trekkieObserver = new MutationObserver(function(mutations) {
     if (hasStatisticsConsent() || trekkieEnabled) return;
     
     mutations.forEach(function(mutation) {
+      if (!mutation.addedNodes) return;
       mutation.addedNodes.forEach(function(node) {
-        if (node.tagName === 'SCRIPT' && node.src && isTrekkieScript(node.src)) {
-          node.remove();
-        }
+        try {
+          if (node.tagName === 'SCRIPT') {
+            var src = node.src || (node.getAttribute && node.getAttribute('src'));
+            if (src && isTrekkieScript(src)) {
+              node.remove();
+            }
+          }
+        } catch(e) {}
       });
     });
   });
   
-  trekkieObserver.observe(document.documentElement, {
-    childList: true,
-    subtree: true
-  });
+  try {
+    trekkieObserver.observe(document.documentElement, {
+      childList: true,
+      subtree: true
+    });
+  } catch(e) {}
 
-  /* ===== Replay ===== */
   function replayTrekkieCalls() {
     if (!window.Trekkie || window.Trekkie === trekkieStub) return;
     
@@ -217,7 +252,6 @@
     __trekkieCalls.length = 0;
   }
 
-  /* ===== Enable ===== */
   function enableTrekkie() {
     if (trekkieEnabled) return;
     if (!hasStatisticsConsent()) return;
@@ -225,20 +259,23 @@
     trekkieEnabled = true;
     
     if (trekkieObserver) {
-      trekkieObserver.disconnect();
+      try {
+        trekkieObserver.disconnect();
+      } catch(e) {}
       trekkieObserver = null;
     }
     
-    var script = document.createElement('script');
-    script.src = 'https://cdn.shopify.com/s/trekkie.storefront.min.js';
-    script.async = true;
-    script.onload = function() {
-      setTimeout(replayTrekkieCalls, 100);
-    };
-    document.head.appendChild(script);
+    try {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.shopify.com/s/trekkie.storefront.min.js';
+      script.async = true;
+      script.onload = function() {
+        setTimeout(replayTrekkieCalls, 100);
+      };
+      document.head.appendChild(script);
+    } catch(e) {}
   }
 
-  /* ===== Event Listeners ===== */
   window.addEventListener('CookiebotOnAccept', enableTrekkie);
   window.addEventListener('CookiebotOnLoad', enableTrekkie);
   window.addEventListener('CookiebotOnConsentReady', enableTrekkie);
