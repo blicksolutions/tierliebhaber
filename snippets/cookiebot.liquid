@@ -33,6 +33,9 @@
 {% comment %} ================= Block Replo Analytics without Marketing Consent === M.M. 15/10/25 ==============  {% endcomment %}
 <script>{% render 'replo-consent_gate' %}</script>
 
+{% comment %} ================= Consent Check Gate  without Marketing Consent === M.M. 15/10/25 ==============  {% endcomment %}
+<script>{% render 'consent-check_gate' %}</script>
+
 <script>
   (function () {
     // ---- Toggle debug logs in console
@@ -241,8 +244,5 @@
 {% render 'vimeo-consent_gate' %}
 
 <!-- Block Typeform Start until Markting Consent (edit Michael Müller 9.9.25) -->
-
 <script>{% render 'typeform-consent_gate' %}</script>
 
-
-<!-- Block Typeform End until Markting Consent (edit Michael Müller 9.9.25) -->
