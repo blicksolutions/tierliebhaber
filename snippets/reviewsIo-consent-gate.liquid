@@ -1,4 +1,4 @@
-/* ================= Reviews.io Consent Gate ============== */
+/* ================= Reviews.io Consent Gate (Display + Tracking Split) ============== */
 
 (function(){
   'use strict';
@@ -8,9 +8,20 @@
   var BLOCKED_HOSTS = [
     "widget.reviews.io","api.reviews.io","cdn.reviews.io","media.reviews.io","widgets.reviews.co.uk"
   ];
-  var DEFAULT_SCRIPTS = [
+  
+  // Scripts für ANZEIGE (ohne Consent)
+  var DISPLAY_SCRIPTS = [
     "https://widget.reviews.io/polaris/build.js",
     "https://widget.reviews.io/rating-snippet/dist.js"
+  ];
+  
+  // URLs die TRACKING enthalten (brauchen Consent)
+  var TRACKING_PATTERNS = [
+    '/track',
+    '/analytics',
+    '/pixel',
+    '/collect',
+    '/event'
   ];
 
   function hasCookiebot(){ return !!(window.Cookiebot && window.Cookiebot.consent); }
@@ -20,6 +31,7 @@
       return window.Cookiebot.consent.marketing === true;
     }catch(e){ return false; }
   }
+  
   function isBlockedUrl(url){
     if (!url) return false;
     try{
@@ -27,6 +39,17 @@
       var u = new URL(urlStr, location.href);
       var h = u.hostname;
       return BLOCKED_HOSTS.some(function(b){ return h === b || h.endsWith("." + b); });
+    }catch(e){ return false; }
+  }
+  
+  // NEU: Prüft ob URL Tracking enthält
+  function isTrackingUrl(url){
+    if (!url) return false;
+    try{
+      var urlStr = url.toString ? url.toString() : String(url);
+      return TRACKING_PATTERNS.some(function(pattern){ 
+        return urlStr.toLowerCase().includes(pattern); 
+      });
     }catch(e){ return false; }
   }
 
@@ -99,7 +122,6 @@
     window.ReviewsWidget = __rwStub;
   }
 
-  /* ----- Blocker ----- */
   var blockedScriptQueue = [];
   function queue(src){
     if (src && !blockedScriptQueue.includes(src)) {
@@ -107,28 +129,30 @@
     }
   }
 
-  /* ----- Patch XHR ----- */
+  /* ----- Patch XHR (NUR Tracking blockieren) ----- */
   (function(){
     var open = XMLHttpRequest.prototype.open;
     if (!XMLHttpRequest.prototype.__reviewsioPatched) {
       XMLHttpRequest.prototype.__reviewsioPatched = true;
       XMLHttpRequest.prototype.open = function(m, u){
         try {
-          if (!marketingOn() && isBlockedUrl(u)) return;
+          // Blockiere NUR Tracking-Requests ohne Consent
+          if (!marketingOn() && isBlockedUrl(u) && isTrackingUrl(u)) return;
         } catch(e) {}
         return open.apply(this, arguments);
       };
     }
   })();
 
-  /* ----- Patch fetch ----- */
+  /* ----- Patch fetch (NUR Tracking blockieren) ----- */
   (function(){
     var _f = window.fetch;
     if (!_f.__reviewsioPatched) {
       window.fetch = function(r, i){
         try {
           var u = (typeof r === "string") ? r : (r && r.url);
-          if (!marketingOn() && u && isBlockedUrl(u)) {
+          // Blockiere NUR Tracking-Requests ohne Consent
+          if (!marketingOn() && u && isBlockedUrl(u) && isTrackingUrl(u)) {
             return Promise.reject(new TypeError("Blocked by consent gate"));
           }
         } catch(e) {}
@@ -138,7 +162,7 @@
     }
   })();
 
-  /* ----- DOM Blocker (KORRIGIERT) ----- */
+  /* ----- DOM Blocker (NUR Tracking-Scripts blockieren) ----- */
   function patchElementMethod(name){
     var orig = Element.prototype[name];
     if (!orig || orig.__reviewsioPatched) return;
@@ -154,7 +178,8 @@
           
           if (t === "script" && src && __loaded.has(src)) return child;
           
-          if ((t === "script" || t === "iframe") && src && !marketingOn() && isBlockedUrl(src)) {
+          // Blockiere NUR wenn es ein Tracking-Script ist UND kein Consent
+          if ((t === "script" || t === "iframe") && src && !marketingOn() && isBlockedUrl(src) && isTrackingUrl(src)) {
             if (t === "script") queue(src);
             shouldBlock = true;
           }
@@ -171,7 +196,7 @@
   patchElementMethod("appendChild");
   patchElementMethod("insertBefore");
 
-  /* ----- MutationObserver ----- */
+  /* ----- MutationObserver (NUR Tracking blockieren) ----- */
   var mo = new MutationObserver(function(muts){
     if (marketingOn()) return;
     muts.forEach(function(m){
@@ -181,7 +206,8 @@
           if (n && n.tagName) {
             var t = n.tagName.toLowerCase();
             var src = n.src || (n.getAttribute && n.getAttribute('src'));
-            if ((t === 'script' || t === 'iframe') && src && isBlockedUrl(src)) {
+            // Blockiere NUR Tracking-Scripts
+            if ((t === 'script' || t === 'iframe') && src && isBlockedUrl(src) && isTrackingUrl(src)) {
               if (t === 'script') queue(src);
               n.remove();
             }
@@ -233,54 +259,21 @@
     }catch(e){}
   }
 
-  /* ----- Enable ----- */
-  var enabledOnce = false;
-  var enablePromise = null;
-
-  function enable(){
-    if (enabledOnce) return enablePromise || Promise.resolve();
-    if (!marketingOn()) return Promise.resolve();
-
-    enabledOnce = true;
-
-    enablePromise = (async function(){
+  /* ----- Display-Scripts IMMER laden (ohne Consent) ----- */
+  var displayLoaded = false;
+  
+  function loadDisplayScripts(){
+    if (displayLoaded) return;
+    displayLoaded = true;
+    
+    (async function(){
       try{
-        await waitFor(function(){
+        for (var i = 0; i < DISPLAY_SCRIPTS.length; i++) {
           try {
-            return document.querySelector('script[src*="widget.reviews.io"]') ||
-                   window.RatingSnippet ||
-                   window.rio ||
-                   window.REVIEWSIO ||
-                   (typeof window.ratingSnippet === "function" && window.ratingSnippet !== __rsStub);
-          } catch(e) {
-            return false;
-          }
-        }, 600);
-
-        var toLoad = (blockedScriptQueue.length ? blockedScriptQueue.slice() : DEFAULT_SCRIPTS.slice());
-        
-        var seen = new Set();
-        var dedup = [];
-        toLoad.forEach(function(u){
-          if (u && !seen.has(u)) {
-            seen.add(u);
-            dedup.push(u);
-          }
-        });
-        blockedScriptQueue.length = 0;
-        
-        dedup.sort(function(a, b){
-          var ia = a.includes("/polaris/") ? 0 : a.includes("/rating-snippet/") ? 1 : 2;
-          var ib = b.includes("/polaris/") ? 0 : b.includes("/rating-snippet/") ? 1 : 2;
-          return ia - ib;
-        });
-
-        for (var j = 0; j < dedup.length; j++) {
-          try {
-            await loadScript(dedup[j]);
+            await loadScript(DISPLAY_SCRIPTS[i]);
           } catch(e) {}
         }
-
+        
         await waitFor(function(){
           try {
             return (typeof window.ratingSnippet === "function" && window.ratingSnippet !== __rsStub) ||
@@ -291,9 +284,32 @@
             return false;
           }
         }, 6000);
-
+        
         autoInit();
+      }catch(e){}
+    })();
+  }
 
+  /* ----- Tracking-Scripts MIT Consent laden ----- */
+  var trackingEnabled = false;
+  
+  function enableTracking(){
+    if (trackingEnabled) return;
+    if (!marketingOn()) return;
+    
+    trackingEnabled = true;
+    
+    (async function(){
+      try{
+        var toLoad = blockedScriptQueue.length ? blockedScriptQueue.slice() : [];
+        blockedScriptQueue.length = 0;
+        
+        for (var j = 0; j < toLoad.length; j++) {
+          try {
+            await loadScript(toLoad[j]);
+          } catch(e) {}
+        }
+        
         if (mo && typeof mo.disconnect === "function") {
           try {
             mo.disconnect();
@@ -301,8 +317,6 @@
         }
       }catch(err){}
     })();
-
-    return enablePromise;
   }
 
   /* ----- Event Listeners ----- */
@@ -312,19 +326,22 @@
     } catch(e) {}
   }
 
-  if (marketingOn()) enable();
+  // Display-Scripts SOFORT laden (ohne Consent)
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadDisplayScripts);
+  } else {
+    loadDisplayScripts();
+  }
   
-  on("CookiebotOnLoad", enable);
-  on("CookiebotOnConsentReady", enable);
-  on("CookiebotOnAccept", enable);
+  // Tracking MIT Consent
+  if (marketingOn()) enableTracking();
+  on("CookiebotOnLoad", enableTracking);
+  on("CookiebotOnConsentReady", enableTracking);
+  on("CookiebotOnAccept", enableTracking);
   
   try {
-    document.addEventListener("DOMContentLoaded", enable);
-    window.addEventListener("load", enable);
-    document.addEventListener("visibilitychange", function(){
-      try {
-        if (document.visibilityState === "visible") enable();
-      } catch(e) {}
+    window.addEventListener("load", function(){
+      if (marketingOn()) enableTracking();
     });
   } catch(e) {}
 })();
