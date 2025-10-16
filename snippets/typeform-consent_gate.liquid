@@ -1,118 +1,147 @@
-  (function () {
-    /* ================= Helpers / Consent ================= */
-    const log = (...a) => {
-      try {
-        console.debug('[TYPEFORM CONSENT]', ...a);
-      } catch (e) {}
-    };
 
-    function hasMarketingConsent() {
-      try {
-        if (typeof Cookiebot !== 'undefined') {
-          if (Cookiebot.consents && typeof Cookiebot.consents.marketing === 'boolean')
-            return Cookiebot.consents.marketing;
-          if (Cookiebot.consent && typeof Cookiebot.consent.marketing === 'boolean') return Cookiebot.consent.marketing;
-        }
-        // Fallback: CookieConsent-String (Cookiebot)
-        const cc = document.cookie.split('; ').find((r) => r.startsWith('CookieConsent='));
-        return cc ? decodeURIComponent(cc.split('=')[1]).includes('marketing:true') : false;
-      } catch (e) {
-        return false;
+(function(){
+  'use strict';
+  
+  /* ===== Helpers ===== */
+  const log = (...a)=>{ 
+    try{ 
+      console.debug('[TYPEFORM CONSENT]',...a);
+    }catch(e){} 
+  };
+
+  function hasMarketingConsent(){
+    try {
+      if (typeof Cookiebot !== 'undefined') {
+        if (Cookiebot.consents && typeof Cookiebot.consents.marketing === 'boolean') return Cookiebot.consents.marketing;
+        if (Cookiebot.consent  && typeof Cookiebot.consent.marketing  === 'boolean') return Cookiebot.consent.marketing;
       }
+      const cc = document.cookie.split('; ').find(r=>r.startsWith('CookieConsent='));
+      return cc ? decodeURIComponent(cc.split('=')[1]).includes('marketing:true') : false;
+    } catch(e){ 
+      return false; 
     }
+  }
 
-    /* ================= Erkennung Typeform ================= */
-    // Typische Typeform-Quellen:
-    // - iframes: https://form.typeform.com/to/...  oder https://typeform.com/to/...
-    // - embed-scripts: https://embed.typeform.com/embed.js (u. a. popover/sidetab)
-    function isTypeformIframe(node) {
-      const src = node && node.tagName === 'IFRAME' ? node.src || '' : '';
+  /* ===== Typeform Detection ===== */
+  function isTypeformIframe(node){
+    try {
+      const src = (node && node.tagName === 'IFRAME') ? (node.src || '') : '';
       return /(^|\/\/)(form\.)?typeform\.com\/(to|forms)\//i.test(src);
+    } catch(e) {
+      return false;
     }
-    function isTypeformScript(node) {
-      const src = node && node.tagName === 'SCRIPT' ? node.src || '' : '';
+  }
+  
+  function isTypeformScript(node){
+    try {
+      const src = (node && node.tagName === 'SCRIPT') ? (node.src || '') : '';
       return /(^|\/\/)embed\.typeform\.com\/embed(\.js)?/i.test(src);
+    } catch(e) {
+      return false;
     }
+  }
 
-    /* ================= Placeholder UI ================= */
-    function makePlaceholder(src) {
+  /* ===== Placeholder UI ===== */
+  function makePlaceholder(src){
+    try {
       const wrap = document.createElement('div');
       wrap.className = 'typeform-consent-placeholder';
       wrap.setAttribute('data-typeform-src', src);
       wrap.innerHTML = `
-      <div class="typeform-consent-box">
-        <div class="typeform-consent-title">Formular blockiert</div>
-        <div class="typeform-consent-text">Dieses Typeform wird erst nach Zustimmung zu Marketing-Cookies geladen.</div>
-        <div class="typeform-consent-actions">
-          <button type="button" class="typeform-consent-allow">Marketing akzeptieren & Formular laden</button>
-          <button type="button" class="typeform-consent-settings">Einstellungen öffnen</button>
+        <div class="typeform-consent-box">
+          <div class="typeform-consent-title">Formular blockiert</div>
+          <div class="typeform-consent-text">Dieses Typeform wird erst nach Zustimmung zu Marketing-Cookies geladen.</div>
+          <div class="typeform-consent-actions">
+            <button type="button" class="typeform-consent-allow">Marketing akzeptieren & Formular laden</button>
+            <button type="button" class="typeform-consent-settings">Einstellungen öffnen</button>
+          </div>
         </div>
-      </div>
-    `;
-      const openDetails = () => {
-        if (typeof Cookiebot !== 'undefined' && typeof Cookiebot.renew === 'function') {
-          Cookiebot.renew(); // direkt Detail-/Änderungsansicht
-        } else if (typeof Cookiebot !== 'undefined' && typeof Cookiebot.show === 'function') {
-          Cookiebot.show();
-        } else {
-          alert('Bitte Marketing-Cookies in den Cookie-Einstellungen aktivieren.');
+      `;
+      
+      const openDetails = function() {
+        try {
+          if (typeof Cookiebot !== 'undefined' && typeof Cookiebot.renew === 'function') {
+            Cookiebot.renew();
+          } else if (typeof Cookiebot !== 'undefined' && typeof Cookiebot.show === 'function') {
+            Cookiebot.show();
+          } else {
+            alert('Bitte Marketing-Cookies in den Cookie-Einstellungen aktivieren.');
+          }
+        } catch(e) {
+          log('Button click error:', e);
         }
       };
+      
       wrap.querySelector('.typeform-consent-allow').addEventListener('click', openDetails);
       wrap.querySelector('.typeform-consent-settings').addEventListener('click', openDetails);
       return wrap;
+    } catch(e) {
+      log('makePlaceholder error:', e);
+      return document.createElement('div');
     }
+  }
 
-    /* ================= Größen-Snapshot ================= */
-    function snapshotIframeMeta(ifr) {
+  /* ===== Snapshot Meta ===== */
+  function snapshotIframeMeta(ifr){
+    try {
       const rect = ifr.getBoundingClientRect();
       return {
-        widthAttr: ifr.getAttribute('width') || '',
+        widthAttr:  ifr.getAttribute('width')  || '',
         heightAttr: ifr.getAttribute('height') || '',
-        style: ifr.getAttribute('style') || '',
-        className: ifr.className || '',
-        allow:
-          ifr.getAttribute('allow') || 'camera; microphone; geolocation; clipboard-read; clipboard-write; autoplay',
-        allowFull: ifr.hasAttribute('allowfullscreen') ? '1' : '',
-        cw: Math.round(rect.width) || '',
-        ch: Math.round(rect.height) || '',
+        style:      ifr.getAttribute('style')  || '',
+        className:  ifr.className || '',
+        allow:      ifr.getAttribute('allow') || 'camera; microphone; geolocation; clipboard-read; clipboard-write; autoplay',
+        allowFull:  ifr.hasAttribute('allowfullscreen') ? '1' : '',
+        cw: Math.round(rect.width)  || '',
+        ch: Math.round(rect.height) || ''
       };
+    } catch(e) {
+      log('snapshotIframeMeta error:', e);
+      return {};
     }
+  }
 
-    /* ================= Iframe -> Placeholder ================= */
-    function replaceIframeWithPlaceholder(iframe) {
-      if (iframe.hasAttribute('data-consent-exempt')) return; // Opt-out für einzelne iframes
+  /* ===== Replace & Restore ===== */
+  function replaceIframeWithPlaceholder(iframe){
+    try {
+      if (iframe.hasAttribute('data-consent-exempt')) return;
+      
       const meta = snapshotIframeMeta(iframe);
-      const src = iframe.src;
+      const src  = iframe.src;
 
       const ph = makePlaceholder(src);
-      Object.entries(meta).forEach(([k, v]) => (ph.dataset[k] = v));
+      Object.entries(meta).forEach(([k,v]) => {
+        try {
+          ph.dataset[k] = v;
+        } catch(e) {}
+      });
 
-      // dimensionieren
       if (meta.widthAttr && meta.heightAttr) {
         ph.style.aspectRatio = `${meta.widthAttr} / ${meta.heightAttr}`;
-        ph.style.width = /^\d+$/.test(meta.widthAttr) ? meta.widthAttr + 'px' : meta.widthAttr;
+        ph.style.width = /^\d+$/.test(meta.widthAttr) ? meta.widthAttr+'px' : meta.widthAttr;
       } else if (meta.cw && meta.ch) {
         ph.style.aspectRatio = `${meta.cw} / ${meta.ch}`;
         ph.style.width = meta.cw + 'px';
       } else {
         ph.style.width = '100%';
-        ph.style.aspectRatio = '3 / 4'; // Typeform ist oft höher – gern anpassen
+        ph.style.aspectRatio = '3 / 4';
       }
 
       iframe.parentNode.insertBefore(ph, iframe);
       iframe.parentNode.removeChild(iframe);
+    } catch(e) {
+      log('replaceIframeWithPlaceholder error:', e);
     }
+  }
 
-    /* ================= Placeholder -> Iframe ================= */
-    function restoreTypeformFromPlaceholder(ph) {
+  function restoreTypeformFromPlaceholder(ph){
+    try {
       const src = ph.getAttribute('data-typeform-src');
       if (!src) return;
 
       const f = document.createElement('iframe');
       f.src = src;
 
-      // Ursprungs-Styles/Klassen/Attribute übernehmen
       const cls = ph.dataset.className || '';
       if (cls) f.className = cls;
 
@@ -129,12 +158,9 @@
         f.style.height = '100%';
       }
 
-      f.setAttribute('frameborder', '0');
-      f.setAttribute(
-        'allow',
-        ph.dataset.allow || 'camera; microphone; geolocation; clipboard-read; clipboard-write; autoplay'
-      );
-      if (ph.dataset.allowFull) f.setAttribute('allowfullscreen', '');
+      f.setAttribute('frameborder','0');
+      f.setAttribute('allow', ph.dataset.allow || 'camera; microphone; geolocation; clipboard-read; clipboard-write; autoplay');
+      if (ph.dataset.allowFull) f.setAttribute('allowfullscreen','');
 
       const wrap = document.createElement('div');
       wrap.className = 'typeform-consent-embed';
@@ -143,122 +169,215 @@
 
       wrap.appendChild(f);
       ph.parentNode.replaceChild(wrap, ph);
+    } catch(e) {
+      log('restoreTypeformFromPlaceholder error:', e);
     }
+  }
 
-    /* ================= Skripte (embed.js) blocken / rehydrieren ================= */
-    function markBlockedScript(node) {
-      node.setAttribute('data-tf-blocked', '1');
+  /* ===== Script Blocking ===== */
+  function markBlockedScript(node){
+    try {
+      node.setAttribute('data-tf-blocked','1');
       node.setAttribute('data-tf-src', node.src || '');
-      try {
-        node.removeAttribute('src');
-      } catch (e) {}
+      try { node.removeAttribute('src'); } catch(e){}
       node.type = 'text/plain';
       log('blocked Typeform script', node.getAttribute('data-tf-src'));
+    } catch(e) {
+      log('markBlockedScript error:', e);
     }
+  }
 
-    async function restoreBlockedScripts() {
+  async function restoreBlockedScripts(){
+    try {
       if (!hasMarketingConsent()) return;
       const blocked = Array.from(document.querySelectorAll('script[data-tf-blocked="1"]'));
       for (const s of blocked) {
-        const src = s.getAttribute('data-tf-src');
-        if (!src) continue;
-        await new Promise((res, rej) => {
-          const el = document.createElement('script');
-          el.src = src;
-          el.async = true;
-          el.onload = res;
-          el.onerror = rej;
-          document.head.appendChild(el);
-        });
+        try {
+          const src = s.getAttribute('data-tf-src');
+          if (!src) continue;
+          await new Promise(function(res, rej){
+            try {
+              const el = document.createElement('script');
+              el.src = src;
+              el.async = true;
+              el.onload = res; 
+              el.onerror = rej;
+              document.head.appendChild(el);
+            } catch(e) {
+              rej(e);
+            }
+          });
+        } catch(e) {
+          log('Script restore error:', e);
+        }
       }
+    } catch(e) {
+      log('restoreBlockedScripts error:', e);
     }
+  }
 
-    /* ================= Sammelfunktionen ================= */
-    function blockAllTypeform(context) {
+  /* ===== Bulk Operations ===== */
+  function blockAllTypeform(context){
+    try {
       const root = context || document;
-      // iframes
-      root.querySelectorAll('iframe').forEach((ifr) => {
-        if (!hasMarketingConsent() && isTypeformIframe(ifr)) replaceIframeWithPlaceholder(ifr);
+      root.querySelectorAll('iframe').forEach(function(ifr){
+        try {
+          if (!hasMarketingConsent() && isTypeformIframe(ifr)) {
+            replaceIframeWithPlaceholder(ifr);
+          }
+        } catch(e) {}
       });
-      // scripts
-      root.querySelectorAll('script[src]').forEach((sc) => {
-        if (!hasMarketingConsent() && isTypeformScript(sc)) markBlockedScript(sc);
+      root.querySelectorAll('script[src]').forEach(function(sc){
+        try {
+          if (!hasMarketingConsent() && isTypeformScript(sc)) {
+            markBlockedScript(sc);
+          }
+        } catch(e) {}
       });
+    } catch(e) {
+      log('blockAllTypeform error:', e);
     }
+  }
 
-    function restoreAllPlaceholders() {
+  function restoreAllPlaceholders(){
+    try {
       if (!hasMarketingConsent()) return;
       document.querySelectorAll('.typeform-consent-placeholder').forEach(restoreTypeformFromPlaceholder);
       restoreBlockedScripts();
+    } catch(e) {
+      log('restoreAllPlaceholders error:', e);
     }
+  }
 
-    /* ================= Initial & Dynamik ================= */
-    // Initial
-    if (!hasMarketingConsent()) {
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => blockAllTypeform(document));
-      } else {
+  /* ===== Initial Blocking ===== */
+  if (!hasMarketingConsent()) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function(){
         blockAllTypeform(document);
-      }
+      });
+    } else {
+      blockAllTypeform(document);
     }
+  }
 
-    // Dynamisch nachgeladen
-    new MutationObserver((ml) => {
-      const consent = hasMarketingConsent();
-      for (const m of ml)
-        for (const n of m.addedNodes) {
-          if (n && n.tagName === 'IFRAME' && isTypeformIframe(n)) {
-            if (!consent) replaceIframeWithPlaceholder(n);
-          } else if (n && n.tagName === 'SCRIPT' && isTypeformScript(n)) {
-            if (!consent) markBlockedScript(n);
-          } else if (n && n.querySelectorAll) {
-            if (!consent) {
-              n.querySelectorAll('iframe').forEach((ifr) => isTypeformIframe(ifr) && replaceIframeWithPlaceholder(ifr));
-              n.querySelectorAll('script[src]').forEach((sc) => isTypeformScript(sc) && markBlockedScript(sc));
-            }
+  /* ===== MutationObserver ===== */
+  try {
+    new MutationObserver(function(ml){
+      try {
+        const consent = hasMarketingConsent();
+        for (const m of ml) {
+          if (!m.addedNodes) continue;
+          for (const n of m.addedNodes) {
+            try {
+              if (n && n.tagName === 'IFRAME' && isTypeformIframe(n)) {
+                if (!consent) replaceIframeWithPlaceholder(n);
+              } else if (n && n.tagName === 'SCRIPT' && isTypeformScript(n)) {
+                if (!consent) markBlockedScript(n);
+              } else if (n && n.querySelectorAll) {
+                if (!consent) {
+                  n.querySelectorAll('iframe').forEach(function(ifr){ 
+                    if (isTypeformIframe(ifr)) replaceIframeWithPlaceholder(ifr);
+                  });
+                  n.querySelectorAll('script[src]').forEach(function(sc){ 
+                    if (isTypeformScript(sc)) markBlockedScript(sc);
+                  });
+                }
+              }
+            } catch(e) {}
           }
         }
-    }).observe(document.documentElement, { childList: true, subtree: true });
+      } catch(e) {
+        log('MutationObserver callback error:', e);
+      }
+    }).observe(document.documentElement, { childList:true, subtree:true });
+  } catch(e) {
+    log('MutationObserver setup error:', e);
+  }
 
-    /* ================= State-Enforcer (Opt-in & Widerruf) ================= */
-    function enforceTypeformConsentState() {
+  /* ===== State Enforcer ===== */
+  function enforceTypeformConsentState(){
+    try {
       if (hasMarketingConsent()) {
         restoreAllPlaceholders();
       } else {
-        // bei Widerruf: laufende Einbettungen wieder blocken
-        document
-          .querySelectorAll('iframe')
-          .forEach((ifr) => isTypeformIframe(ifr) && replaceIframeWithPlaceholder(ifr));
+        document.querySelectorAll('iframe').forEach(function(ifr){ 
+          if (isTypeformIframe(ifr)) replaceIframeWithPlaceholder(ifr);
+        });
       }
+    } catch(e) {
+      log('enforceTypeformConsentState error:', e);
     }
-    window.addEventListener('CookiebotOnConsentReady', enforceTypeformConsentState);
-    window.addEventListener('CookiebotOnAccept', enforceTypeformConsentState);
-    window.addEventListener('CookiebotOnDecline', enforceTypeformConsentState);
+  }
 
-    /* ========= Minimal-CSS (optional ins Theme-CSS) ================= */
+  window.addEventListener('CookiebotOnConsentReady', enforceTypeformConsentState);
+  window.addEventListener('CookiebotOnAccept', enforceTypeformConsentState);
+  window.addEventListener('CookiebotOnDecline', enforceTypeformConsentState);
+
+  /* ===== Styles ===== */
+  try {
     const css = `
-    .typeform-consent-placeholder,
-    .typeform-consent-embed{ display:block; max-width:100%; }
-    .typeform-consent-embed{ position:relative; }
-    .typeform-consent-embed iframe{ width:100%; height:100%; display:block; }
+      .typeform-consent-placeholder,
+      .typeform-consent-embed{ 
+        display:block; 
+        max-width:100%; 
+      }
+      .typeform-consent-embed{ 
+        position:relative; 
+      }
+      .typeform-consent-embed iframe{ 
+        width:100%; 
+        height:100%; 
+        display:block; 
+      }
 
-    .typeform-consent-placeholder{
-      border:1px solid #e5e5e5; background:#fafafa;
-      padding:16px; text-align:center; margin:8px 0; width:100%;
-    }
-    .typeform-consent-title{ font-weight:600; margin-bottom:4px; }
-    .typeform-consent-text{ font-size:14px; color:#444; margin-bottom:10px; }
-    .typeform-consent-actions button{
-      margin:0 4px; padding:8px 12px; cursor:pointer; border-radius:6px;
-    }
-    .typeform-consent-actions .typeform-consent-allow{
-      background:#222; color:#fff; border:0;
-    }
-    .typeform-consent-actions .typeform-consent-settings{
-      background:#fff; color:#222; border:1px solid #222;
-    }
-  `;
+      .typeform-consent-placeholder{
+        border:1px solid #e5e5e5; 
+        background:#fafafa;
+        padding:16px; 
+        text-align:center; 
+        margin:8px 0; 
+        width:100%;
+        border-radius:8px;
+      }
+      .typeform-consent-title{ 
+        font-weight:600; 
+        margin-bottom:4px;
+        font-size:16px;
+      }
+      .typeform-consent-text{ 
+        font-size:14px; 
+        color:#444; 
+        margin-bottom:10px; 
+      }
+      .typeform-consent-actions button{
+        margin:0 4px; 
+        padding:8px 12px; 
+        cursor:pointer; 
+        border-radius:6px;
+        font-size:14px;
+      }
+      .typeform-consent-actions .typeform-consent-allow{
+        background:#222; 
+        color:#fff; 
+        border:0;
+        font-weight:600;
+      }
+      .typeform-consent-actions .typeform-consent-allow:hover{
+        background:#000;
+      }
+      .typeform-consent-actions .typeform-consent-settings{
+        background:#fff; 
+        color:#222; 
+        border:1px solid #222;
+      }
+      .typeform-consent-actions .typeform-consent-settings:hover{
+        background:#f5f5f5;
+      }
+    `;
     const style = document.createElement('style');
     style.textContent = css;
     document.head.appendChild(style);
-  })();
+  } catch(e) {
+    log('Style injection error:', e);
+  }
+})();
