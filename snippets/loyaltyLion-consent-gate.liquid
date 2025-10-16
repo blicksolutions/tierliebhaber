@@ -14,91 +14,116 @@
 
   function isLoyaltyLion(url){
     if (!url) return false;
-    return /loyaltylion\.(net|com)/i.test(url);
+    try {
+      var urlStr = url.toString ? url.toString() : String(url);
+      return /loyaltylion\.(net|com)/i.test(urlStr);
+    } catch(e) {
+      return false;
+    }
   }
 
   var blocked = [];
   var enabled = false;
 
-  /* ===== Synchrones Blocking ===== */
   var _write = document.write;
   document.write = function(html) {
-    if (!hasConsent() && html && isLoyaltyLion(html)) return;
+    try {
+      if (!hasConsent() && html && isLoyaltyLion(html)) return;
+    } catch(e) {}
     return _write.apply(this, arguments);
   };
 
-  /* ===== Script-Tag Interceptor ===== */
   var _createElement = document.createElement;
   document.createElement = function(tag) {
     var el = _createElement.call(document, tag);
     
-    if (tag && tag.toLowerCase() === 'script') {
-      var _srcDesc = Object.getOwnPropertyDescriptor(HTMLScriptElement.prototype, 'src');
-      if (_srcDesc && _srcDesc.set) {
-        Object.defineProperty(el, 'src', {
-          get: function() { return _srcDesc.get.call(this); },
-          set: function(url) {
-            if (!hasConsent() && isLoyaltyLion(url)) {
-              blocked.push(url);
-              this.setAttribute('data-ll-blocked', url);
-              this.type = 'text/plain';
-              return url;
+    try {
+      if (tag && tag.toLowerCase() === 'script') {
+        var _srcDesc = Object.getOwnPropertyDescriptor(HTMLScriptElement.prototype, 'src');
+        if (_srcDesc && _srcDesc.set) {
+          Object.defineProperty(el, 'src', {
+            get: function() { return _srcDesc.get.call(this); },
+            set: function(url) {
+              try {
+                if (!hasConsent() && isLoyaltyLion(url)) {
+                  blocked.push(url);
+                  this.setAttribute('data-ll-blocked', url);
+                  this.type = 'text/plain';
+                  return url;
+                }
+              } catch(e) {}
+              return _srcDesc.set.call(this, url);
             }
-            return _srcDesc.set.call(this, url);
-          }
-        });
+          });
+        }
       }
-    }
+    } catch(e) {}
     return el;
   };
 
-  /* ===== DOM Manipulation Blocker ===== */
   var _appendChild = Element.prototype.appendChild;
   Element.prototype.appendChild = function(child) {
-    if (child && child.tagName === 'SCRIPT') {
-      var src = child.src || child.getAttribute('src');
-      if (!hasConsent() && src && isLoyaltyLion(src)) {
-        blocked.push(src);
-        child.setAttribute('data-ll-blocked', src);
-        child.type = 'text/plain';
-        try { child.removeAttribute('src'); } catch(e){}
-        return child;
+    var shouldBlock = false;
+    var src = null;
+    
+    try {
+      if (child && child.tagName === 'SCRIPT') {
+        src = child.src || (child.getAttribute && child.getAttribute('src'));
+        if (!hasConsent() && src && isLoyaltyLion(src)) {
+          shouldBlock = true;
+          blocked.push(src);
+          child.setAttribute('data-ll-blocked', src);
+          child.type = 'text/plain';
+          try { child.removeAttribute('src'); } catch(e){}
+        }
       }
-    }
+    } catch(e) {}
+    
+    if (shouldBlock) return child;
     return _appendChild.call(this, child);
   };
 
   var _insertBefore = Element.prototype.insertBefore;
   Element.prototype.insertBefore = function(child, ref) {
-    if (child && child.tagName === 'SCRIPT') {
-      var src = child.src || child.getAttribute('src');
-      if (!hasConsent() && src && isLoyaltyLion(src)) {
-        blocked.push(src);
-        child.setAttribute('data-ll-blocked', src);
-        child.type = 'text/plain';
-        try { child.removeAttribute('src'); } catch(e){}
-        return child;
+    var shouldBlock = false;
+    var src = null;
+    
+    try {
+      if (child && child.tagName === 'SCRIPT') {
+        src = child.src || (child.getAttribute && child.getAttribute('src'));
+        if (!hasConsent() && src && isLoyaltyLion(src)) {
+          shouldBlock = true;
+          blocked.push(src);
+          child.setAttribute('data-ll-blocked', src);
+          child.type = 'text/plain';
+          try { child.removeAttribute('src'); } catch(e){}
+        }
       }
-    }
+    } catch(e) {}
+    
+    if (shouldBlock) return child;
     return _insertBefore.call(this, child, ref);
   };
 
-  /* ===== Netzwerk-Level Blocking ===== */
   var _fetch = window.fetch;
   window.fetch = function(url, opts) {
-    var u = typeof url === 'string' ? url : (url && url.url);
-    if (!hasConsent() && u && isLoyaltyLion(u)) {
-      return Promise.reject(new TypeError('Blocked by consent'));
-    }
+    try {
+      var u = typeof url === 'string' ? url : (url && url.url);
+      if (!hasConsent() && u && isLoyaltyLion(u)) {
+        return Promise.reject(new TypeError('Blocked by consent'));
+      }
+    } catch(e) {}
     return _fetch.apply(this, arguments);
   };
 
   var _xhrOpen = XMLHttpRequest.prototype.open;
   XMLHttpRequest.prototype.open = function(method, url) {
-    if (!hasConsent() && isLoyaltyLion(url)) {
-      this._blocked = true;
-      return;
-    }
+    try {
+      if (!hasConsent() && isLoyaltyLion(url)) {
+        this._blocked = true;
+        return;
+      }
+    } catch(e) {}
     return _xhrOpen.apply(this, arguments);
   };
 
@@ -108,60 +133,68 @@
     return _xhrSend.apply(this, arguments);
   };
 
-  /* ===== Mutation Observer ===== */
   var observer = new MutationObserver(function(mutations) {
     if (hasConsent()) return;
     
     mutations.forEach(function(m) {
+      if (!m.addedNodes) return;
       m.addedNodes.forEach(function(node) {
-        if (node.tagName === 'SCRIPT') {
-          var src = node.src || node.getAttribute('src');
-          if (src && isLoyaltyLion(src)) {
-            blocked.push(src);
-            node.setAttribute('data-ll-blocked', src);
-            node.type = 'text/plain';
-            try { node.removeAttribute('src'); } catch(e){}
+        try {
+          if (node.tagName === 'SCRIPT') {
+            var src = node.src || (node.getAttribute && node.getAttribute('src'));
+            if (src && isLoyaltyLion(src)) {
+              blocked.push(src);
+              node.setAttribute('data-ll-blocked', src);
+              node.type = 'text/plain';
+              try { node.removeAttribute('src'); } catch(e){}
+            }
           }
-        }
+        } catch(e) {}
       });
     });
   });
   
-  observer.observe(document.documentElement, {
-    childList: true,
-    subtree: true
-  });
+  try {
+    observer.observe(document.documentElement, {
+      childList: true,
+      subtree: true
+    });
+  } catch(e) {}
 
-  /* ===== Enable nach Consent ===== */
   function enable() {
     if (enabled) return;
     if (!hasConsent()) return;
     
     enabled = true;
     
-    if (observer) observer.disconnect();
+    try {
+      if (observer) observer.disconnect();
+    } catch(e) {}
     
     var unique = Array.from(new Set(blocked));
     
     unique.forEach(function(src) {
-      var script = document.createElement('script');
-      script.src = src;
-      script.async = true;
-      document.head.appendChild(script);
+      try {
+        var script = document.createElement('script');
+        script.src = src;
+        script.async = true;
+        document.head.appendChild(script);
+      } catch(e) {}
     });
     
-    document.querySelectorAll('script[data-ll-blocked]').forEach(function(s) {
-      var src = s.getAttribute('data-ll-blocked');
-      if (src) {
-        var newScript = document.createElement('script');
-        newScript.src = src;
-        newScript.async = true;
-        s.parentNode.replaceChild(newScript, s);
-      }
-    });
+    try {
+      document.querySelectorAll('script[data-ll-blocked]').forEach(function(s) {
+        var src = s.getAttribute('data-ll-blocked');
+        if (src) {
+          var newScript = document.createElement('script');
+          newScript.src = src;
+          newScript.async = true;
+          s.parentNode.replaceChild(newScript, s);
+        }
+      });
+    } catch(e) {}
   }
 
-  /* ===== Event Listeners ===== */
   window.addEventListener('CookiebotOnAccept', enable);
   window.addEventListener('CookiebotOnLoad', enable);
   window.addEventListener('CookiebotOnConsentReady', enable);
@@ -171,7 +204,7 @@
   }, 0);
 })();
 
-/* ============= Section Manager ============= */
+/* ============= LoyaltyLion Section Manager ============= */
 (function(){
   'use strict';
   if (window.__LL_SECTION__) return;
@@ -186,19 +219,23 @@
   }
   
   function toggle() {
-    var section = document.querySelector('#shopify-section-slideshow_xFQ8td');
-    if (section) {
-      section.style.display = hasConsent() ? 'block' : 'none';
-    }
+    try {
+      var section = document.querySelector('#shopify-section-slideshow_xFQ8td');
+      if (section) {
+        section.style.display = hasConsent() ? 'block' : 'none';
+      }
+    } catch(e) {}
   }
   
   toggle();
   
-  window.addEventListener('CookiebotOnAccept', toggle);
-  window.addEventListener('CookiebotOnDecline', toggle);
-  window.addEventListener('CookiebotOnLoad', toggle);
-  
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', toggle);
-  }
+  try {
+    window.addEventListener('CookiebotOnAccept', toggle);
+    window.addEventListener('CookiebotOnDecline', toggle);
+    window.addEventListener('CookiebotOnLoad', toggle);
+    
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', toggle);
+    }
+  } catch(e) {}
 })();
