@@ -1146,9 +1146,9 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 }
 
 .benefits-section  .Image {
-	width: 118px;
-	height: 118px;
-	margin-bottom: 20px;
+	width: 90px;
+	height: auto;
+	margin-bottom: 0;
 }
 
 .benefits-section  .BenefitItem__Title {
@@ -1220,9 +1220,9 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 	}
 
 	.benefits-section  .Image {
-		width: 120px;
-		height: 120px;
-		margin-bottom: 27px;
+		width: 90px;
+		height: auto;
+		margin-bottom:0;
 	}
 
 	.benefits-section  .BenefitItem__Title {
