@@ -12554,6 +12554,36 @@ section#sidebar-menu[aria-hidden="false"] {
     padding: 50px 0;
 }
 
+.ElementsWidget-prefix .ElementsWidget .ElementsWidget__header .header__group--right {
+    flex-basis: auto !important;
+    width: 100% !important;
+    margin-bottom: 0;
+    margin-right: 20px; 
+}
+
+.ElementsWidget-prefix .R-Button--primary {
+    background-color:#ffffff !important;
+    color:rgb(65, 65, 65) !important;
+    border-color:rgb(65, 65, 65) !important;
+    border-radius: 10px !important;
+}
+
+.ElementsWidget-prefix .R-TabControls .R-TabControls__item.isActive, .ElementsWidget-prefix .R-TabControls .R-TabControls__item {
+    font-weight: 500 !important;
+    border-bottom-width: 1px !important; 
+}
+
+.ElementsWidget-prefix .R-TextHeading {
+        font-weight: 500 !important;
+}
+
+.ElementsWidget-prefix .R-PaginationControls .R-PaginationControls__item.isActive {
+    font-weight: 600 !important;
+}
+
+.ElementsWidget-prefix .R-PaginationControls .R-PaginationControls__item {
+    border-bottom-width: 1px !important;
+}
 
 /* M.M.
 ================= PDP Edits show blurred reviews END ==============
