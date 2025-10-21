@@ -8,152 +8,264 @@
  * ------------------------------------------------------------
  */
 {
-  "layout": "theme.gempages.blank",
   "sections": {
-    "gp_section_537089214886511764": {
-      "type": "gp-section-537089214886511764",
-      "settings": {
-        "section_preload": "true",
-        "checksum": "ab846b96265e08de1f3b38f0df789aa20222cea740fbb637ca402176653b85cd_0_1"
-      }
-    },
-    "gp_section_537089215070995604": {
-      "type": "gp-section-537089215070995604",
-      "settings": {
-        "checksum": "7841c29106b2ba534edc7e63918fa229b7f61c6e59401d15c1a2583a178a01ba_0_1"
-      }
-    },
     "gp_section_537089214852891796": {
-      "type": "gp-section-537089214852891796",
       "settings": {
-        "checksum": "97de60b83407b7aefba095311b5f6da839c72b7937c84f7f4f686369d4a1f15c_0_1"
-      }
-    },
-    "gp_section_537089215121327252": {
-      "type": "gp-section-537089215121327252",
-      "settings": {
-        "checksum": "6de098080834ff43d33c9bf28a7d7e6992963a35f411988f4c43d4396abd066f_0_1"
-      }
-    },
-    "gp_section_537089214936777876": {
-      "type": "gp-section-537089214936777876",
-      "settings": {
-        "checksum": "9961897010a855f590b8360f7fc90b3c28640c972742f32c92e5043e7d63a698_0_1"
-      }
-    },
-    "gp_section_537089215171658900": {
-      "type": "gp-section-537089215171658900",
-      "settings": {
-        "checksum": "33b6ed1510f97110c202732f6fc95a51a38b5b4c01d236a677d481560dcd81cc_0_1"
-      }
-    },
-    "gp_section_537089214903223444": {
-      "type": "gp-section-537089214903223444",
-      "settings": {
-        "checksum": "7e3138e877286bf2b8c9cb4cb4a075f908dc3706eea608d796e1d59074089f4b_0_1"
-      }
-    },
-    "gp_section_537089214970332308": {
-      "type": "gp-section-537089214970332308",
-      "settings": {
-        "checksum": "2bf6d344876deee78b7867b4b13f855177b17333bb9d6557ad60c3c47e698022_0_1"
-      }
-    },
-    "gp_section_537089214920000660": {
-      "type": "gp-section-537089214920000660",
-      "settings": {
-        "checksum": "809f730ae81d3bcf29bfcb6daa14a76889278b4d719acb2d3b98b2df0a677787_0_1"
-      }
-    },
-    "gp_section_537089214970397844": {
-      "type": "gp-section-537089214970397844",
-      "settings": {
-        "checksum": "af840f0f494433f5f66ff07303ee76e6c1e2477dbf303a664ddd896a7504e579_0_1"
-      }
-    },
-    "gp_section_537089215003886740": {
-      "type": "gp-section-537089215003886740",
-      "settings": {
-        "checksum": "cdea468802064a254dfd3799b22489f22441f1b0a84a4a91831c1364849c4501_0_1"
-      }
-    },
-    "gp_section_537089214987175060": {
-      "type": "gp-section-537089214987175060",
-      "settings": {
-        "checksum": "12c0c74a133cdd9b7d9d1bb654a505b2d5369c147e9879839e12b594c00ef943_0_1"
-      }
-    },
-    "gp_section_537089214987109524": {
-      "type": "gp-section-537089214987109524",
-      "settings": {
-        "checksum": "462ad202633b950f3bc9302de5b107ace0114cb65e6b39a9e6eb749b9e0589ab_0_1"
-      }
-    },
-    "gp_section_537089214920066196": {
-      "type": "gp-section-537089214920066196",
-      "settings": {
-        "checksum": "9cd866c3744370ea08830a608bd994fa4a59b808d281242cb80f3b6011acb18a_0_1"
-      }
-    },
-    "gp_section_537089214953555092": {
-      "type": "gp-section-537089214953555092",
-      "settings": {
-        "checksum": "b0a30b46f80eb597cc3038fb9327cae36213dbab23edd08487080fbc88f1ff0c_0_1"
-      }
-    },
-    "gp_section_537089215154881684": {
-      "type": "gp-section-537089215154881684",
-      "settings": {
-        "checksum": "ecbcf16d57abeffd58d282d89922f8d19ee7b8c2ce3808c2c0a0a97b2443da7a_0_1"
-      }
-    },
-    "gp_section_537089215138104468": {
-      "type": "gp-section-537089215138104468",
-      "settings": {
-        "checksum": "89beb5f58d8c881c402f7b6a8293690133bd8345b3eb0d9b3eb6542361c7f6b0_0_1"
-      }
-    },
-    "gp_section_537089215154947220": {
-      "type": "gp-section-537089215154947220",
-      "settings": {
-        "checksum": "b689dc818a8c38dcbc86b7639d65333ae8b934b671e3df6dd84985383a778dd7_0_1"
-      }
-    },
-    "gp_section_537089215020663956": {
-      "type": "gp-section-537089215020663956",
-      "settings": {
-        "checksum": "9aac329b37292683825c2ac22dff2f6319d8dda1395e627275a462356ef75dc2_0_1"
-      }
-    },
-    "gp_section_537089214953620628": {
-      "type": "gp-section-537089214953620628",
-      "settings": {
-        "checksum": "3ece9b47017d8bd0a8fcb21556ef5813c58c583a332e2fd4a214b60bd9baf180_0_1"
-      }
-    },
-    "gp_section_537089215037441172": {
-      "type": "gp-section-537089215037441172",
-      "settings": {
-        "checksum": "57423ea19aee433d3827687247ad444e1c2e3e8584a0459916faac0d92926956_0_1"
-      }
-    },
-    "gp_section_537089215104550036": {
-      "type": "gp-section-537089215104550036",
-      "settings": {
-        "checksum": "5c868b5c0e4c230fb6f04ef9ad3f0ecd48d3d9797377525d9bbfe9956ba61df4_0_1"
-      }
-    },
-    "gp_section_537089215054218388": {
-      "type": "gp-section-537089215054218388",
-      "settings": {
-        "checksum": "a66436bea4f14800c50691dc7b66125dac7fa25ea22eb53b4736313501f754b6_0_1"
-      }
+        "checksum": "c75ad34681b0f93bb525a0946bf0793c4ada8e085dfe10c043627f464762b257_0_1_1_0__1",
+        "gg0jyGynJ83_text": "<p>10 Antworten</p>",
+        "ggVY3sp5l0r_text": "<p>12.747 BEWERTUNGEN</p>"
+      },
+      "type": "gp-section-537089214852891796"
     },
     "gp_section_537089214886446228": {
-      "type": "gp-section-537089214886446228",
       "settings": {
-        "checksum": "055e4fa9fccde8b9361ca2f9b09e82727122ea48554a7857fb0f78e1821f48ea_0_1"
-      }
+        "checksum": "6afb3d2235d4f5c9179cb2ec4b9de2de6475727af92c3fc098d2a24704fb3587_0_1_1_0__1",
+        "ggLS5Sp1foT_text": "<p><a href=\"https://tierliebhaber.de/policies/privacy-policy\" target=\"_blank\"><u>Datenschutz</u></a></p>",
+        "gguDMU1EugX_text": "<p><a href=\"https://tierliebhaber.de/policies/legal-notice\" target=\"_blank\"><u>Impressum</u></a></p>"
+      },
+      "type": "gp-section-537089214886446228"
+    },
+    "gp_section_537089214886511764": {
+      "settings": {
+        "checksum": "98878291e2852bb8116141593e24120b132331881ec05b65e9807a3a3776467e_0_1_1_0__1",
+        "section_preload": "true"
+      },
+      "type": "gp-section-537089214886511764"
+    },
+    "gp_section_537089214903223444": {
+      "settings": {
+        "checksum": "5d6504e572732368711ca0c8bcc8c44a5239cf1967ea00e4c7fdebe0f39a11bb_0_1_1_0__1",
+        "gAIKYRTsBYAey_text": "Du sparst bis zu:",
+        "gcWtytYvJXbkW_text": "Noch 7 auf Lager. <span style=\"color:#878787;\">Mehr unterwegs.</span>",
+        "gg8yjUISody_text": "26,65€ pro Flasche <span style=\"color:#0A0A0A;\">(6er Bundle) &amp;</span>",
+        "ggL9ndh4sm4_text": "<s>39,90€</s>",
+        "ggNOEAdxmVy_text": "Preis pro Flasche:",
+        "ggWe6trMqPt_text": "Bestes Angebot:",
+        "ggY8AbhN-r2_text": "Geld-zurück-Garantie",
+        "gggGap30jLB_text": "Endet in 2 Tagen",
+        "ghNoBuhGkoXZk_text": "79,50€ (33% Rabatt)",
+        "ghUyixkLzuGyd_label": "<p>&gt;&gt; JETZT ZUM ANGEBOT</p>",
+        "gvIpsIWjwKSWy_text": "GRATIS Premium-Versand innerhalb 2-3 Werktagen (ab 49€)"
+      },
+      "type": "gp-section-537089214903223444"
+    },
+    "gp_section_537089214920000660": {
+      "settings": {
+        "checksum": "df37d7f14ed120ad8b24f9f9102a5e6d102ec5bfe1d31dc5c59a4b9023961cb6_0_1_1_0__1",
+        "ggrmZJb8nBX_text": "Top 3 Bewertungen aus Deutschland"
+      },
+      "type": "gp-section-537089214920000660"
+    },
+    "gp_section_537089214920066196": {
+      "settings": {
+        "checksum": "8fb2f375dbc820cc2a9eab92e1f0c1f18f161cef1db4750a26faea91dd86faea_0_1_1_0__1"
+      },
+      "type": "gp-section-537089214920066196"
+    },
+    "gp_section_537089214936777876": {
+      "settings": {
+        "checksum": "1db6719eff7f0c54a846a7ac49d25edf136bef83e3a07c2b2fa4af31a490837c_0_1_1_0__1",
+        "ggVit2BHCPz_childItem_0": "<p>Ohne nerviges Zähneputzen</p>",
+        "ggVit2BHCPz_childItem_1": "<p>Entfernt Zahnbelag 100% natürlich</p>",
+        "ggVit2BHCPz_childItem_2": "<p>Kann Zahnstein OP vorbeugen</p>",
+        "ggVit2BHCPz_childItem_3": "<p>30 Tage Geld-Zurück-Garantie</p>"
+      },
+      "type": "gp-section-537089214936777876"
+    },
+    "gp_section_537089214953555092": {
+      "settings": {
+        "checksum": "701e9b91c3574900f482f02948409148966f299e24964fe765e8aca48e2f0244_0_1_1_0__1",
+        "gg3eTrFcUqM_text": "<p><span style=\"color:#000000;\"><strong>Zahlungsmethoden</strong></span></p>",
+        "ggBTx7qIJH9_text": "<p><span style=\"color:#000000;\"><strong>Kredit- &amp; Debitkarte </strong></span><span style=\"background-color:rgb(255,255,255);color:#000000;font-size:16px;\">(Visa, Mastercard)</span></p>",
+        "ggdfChdPVZC_text": "<p><span style=\"color:#0F0F0F;\"><strong>PayPal </strong></span><span style=\"background-color:rgb(255,255,255);color:#0F0F0F;font-size:16px;\">(einfach mit Email Adresse)</span></p>",
+        "ggeKJbA5NO6_text": "<p><span style=\"color:#000000;\"><strong>Ratenzahlung </strong></span><span style=\"background-color:rgb(255,255,255);color:#000000;font-size:16px;\">(bis zu 12 Raten)</span></p>",
+        "gghIben76NL_text": "<p><span style=\"color:#000000;\"><strong>Apple Pay</strong></span><span style=\"background-color:rgb(255,255,255);color:#000000;font-size:16px;\"> (schnell mit wallet zahlen)</span></p>",
+        "ggkAIqs3KtO_text": "<p><span style=\"color:#000000;\"><strong>Auf Rechnung</strong></span><span style=\"background-color:rgb(255,255,255);color:#000000;font-size:16px;\"> (zahle erst in 30 Tagen)</span></p>",
+        "ggkkPC-Vkte_text": "<p><span style=\"color:#000000;\"><strong>Sofortüberweisung </strong></span><span style=\"background-color:rgb(255,255,255);color:#000000;font-size:16px;\">(per Klarna)</span></p>"
+      },
+      "type": "gp-section-537089214953555092"
+    },
+    "gp_section_537089214953620628": {
+      "settings": {
+        "checksum": "51c6fa785750ee69d9988b4556b5208158d215c8dca0210a7aac2ed954758c76_0_1_1_0__1",
+        "ggiUU9_1_t7_text": "<p>10 &nbsp;Fragen beantwortet</p>",
+        "ggx37gD5_rK_text": "<p>Die 10 häufigsten Fragen rund um das Dentalspray</p>"
+      },
+      "type": "gp-section-537089214953620628"
+    },
+    "gp_section_537089214970332308": {
+      "settings": {
+        "checksum": "44f5f2c35317b849ea946cbfc69e317de184b6668abfa7b9c319d41e26f2d4a3_0_1_1_0__1"
+      },
+      "type": "gp-section-537089214970332308"
+    },
+    "gp_section_537089214970397844": {
+      "settings": {
+        "checksum": "608937804cc3b371430ad87c87141f845be6fa3534ca38b4d9710801000d9d36_0_1_1_0__1"
+      },
+      "type": "gp-section-537089214970397844"
+    },
+    "gp_section_537089214987109524": {
+      "settings": {
+        "checksum": "af2eea3bb5dd83b22f2c906cad3bc3aa4589622badd451bea673e10a5baa6a80_0_1_1_0__1"
+      },
+      "type": "gp-section-537089214987109524"
+    },
+    "gp_section_537089214987175060": {
+      "settings": {
+        "checksum": "1011c24a53d670c158834544c226422e5f9e6f2e9a73f04a9ae2b12ac87309f2_0_1_1_0__1",
+        "ggLGrOosepk_childItem_0": "<p><strong>Sichere Transaktion</strong><span style=\"background-color:rgb(255,255,255);color:rgb(47,47,47);font-size:16px;\"> (256-Bit Verschlüsselung - dieselbe wie Banken)</span></p>",
+        "ggLGrOosepk_childItem_1": "<p><strong>Kostenfreier Versand</strong><span style=\"background-color:rgb(255,255,255);color:rgb(47,47,47);font-size:16px;\"> innerhalb Deutschlands zuverlässig per DHL (ab 49€)</span></p>",
+        "ggLGrOosepk_childItem_2": "<p><strong>Made in Germany </strong><span style=\"background-color:rgb(255,255,255);color:rgb(47,47,47);font-size:16px;\">unter strengsten Qualitäts-Standards in DE hergestellt </span><strong>🇩🇪</strong></p>"
+      },
+      "type": "gp-section-537089214987175060"
+    },
+    "gp_section_537089215003886740": {
+      "settings": {
+        "checksum": "2f4537c2e46e6e042098ecf5db665cf64b7a2b3e881a444e8168455a21cf8c0e_0_1_1_0__1",
+        "gg-m9mmz8to_text": "<p>Nur 29,97€</p>",
+        "gg2NVmaNzR1_text": "<p>Probierpreis</p>",
+        "gg9-9X2g0tn_text": "<p>Nur 89,90€</p>",
+        "ggAnESnBhfO_text": "<p><s>39,90€</s></p>",
+        "ggCe6Hn-4JZ_text": "GELD-ZURÜCK-GARANTIE",
+        "ggDD9JgcQiZ_text": "<p>Gesamt:&nbsp;</p>",
+        "ggDpuqLCKOw_text": "<p>900ml Inhalt</p>",
+        "ggGdnc-qgUk_text": "<p>Gesamt:&nbsp;</p>",
+        "ggGv0kC9YYZ_text": "<p>Nur 34,90€</p>",
+        "ggNOFDkrxjp_text": "GELD-ZURÜCK-GARANTIE",
+        "ggQBh_DMg2-_label": "JETZT BESTELLEN",
+        "ggQBh_DMg2-_outOfStockLabel": "Out of stock",
+        "ggQBh_DMg2-_unavailableLabel": "Unavailable",
+        "ggQBh_DMg2-_variantSelectionRequiredMessage": "Please select a variant to add product to cart",
+        "ggRMYQSvjhU_text": "<p><s>239,40€</s></p>",
+        "ggRlVA9on6F_text": "<p>Kundenliebling</p>",
+        "ggU0i8Aj3pB_text": "GRATIS VERSAND",
+        "ggUONDNK5Q1_label": "JETZT BESTELLEN",
+        "ggUONDNK5Q1_outOfStockLabel": "Out of stock",
+        "ggUONDNK5Q1_unavailableLabel": "Unavailable",
+        "ggUONDNK5Q1_variantSelectionRequiredMessage": "Please select a variant to add product to cart",
+        "gg_kky9GNrv_text": "<p>pro Flasche</p>",
+        "ggahsAI7V8S_text": "<p>Nur 34,90€</p>",
+        "ggc82w5lSC4_text": "GRATIS VERSAND",
+        "ggcIxc4H0Rb_label": "JETZT BESTELLEN",
+        "ggcIxc4H0Rb_outOfStockLabel": "Out of stock",
+        "ggcIxc4H0Rb_unavailableLabel": "Unavailable",
+        "ggcIxc4H0Rb_variantSelectionRequiredMessage": "Please select a variant to add product to cart",
+        "gggjI9wLQb7_text": "<p>Maximale Ersparnis</p>",
+        "gghliDlCx66_text": "<p>Nur 159,90€</p>",
+        "ggj7PUFfabX_text": "<p>Gesamt:&nbsp;</p>",
+        "ggoN8GNOiuC_customContent_suffix": "geschenkt",
+        "ggoT1EjSErg_text": "<p>Nur 26,65€</p>",
+        "ggpag3D0TBG_customContent_suffix": "geschenkt",
+        "ggrgPlux06b_customContent_suffix": "geschenkt",
+        "ggrpvvVj_r8_text": "<p><s>119,70€</s></p>",
+        "ggsX1oBgna2_text": "<p>Zum Ausprobieren</p>",
+        "ggtH5lXryuk_text": "<p>Rücknahme: <span style=\"color:#7F7F7F;\">30 Tage Geld-Zurück-Garantie</span></p><p>Hilfe: <span style=\"color:#7F7F7F;\">Werktags 10 - 16 Uhr unter +49 34149980019&nbsp;</span></p>",
+        "ggxkNQrelFG_text": "<p>pro Flasche</p>",
+        "ggyzb6O4Rwi_text": "GELD-ZURÜCK-GARANTIE",
+        "ggzZBr4xnOK_text": "<p>450ml Inhalt</p>",
+        "ggzxhfoCvE0_text": "<p>150ml Inhalt</p>"
+      },
+      "type": "gp-section-537089215003886740"
+    },
+    "gp_section_537089215020663956": {
+      "settings": {
+        "checksum": "9f68aa3adda5423af43c209e4c763b5abc2a5a0bf364143103a85d47f193e561_0_1_1_0__1",
+        "ggTE_RPnOXz_label": "<p>&gt;&gt; JETZT ZUM ANGEBOT</p>",
+        "ggjuxa4nk81_text": "<p>Produktbildergalerie</p>"
+      },
+      "type": "gp-section-537089215020663956"
+    },
+    "gp_section_537089215037441172": {
+      "settings": {
+        "checksum": "b1b49691d5a0fa14e87c2111be825c7ae742cd74546c27e1a969c27822731ace_0_1_1_0__1",
+        "gg-tQCUNM4A_text": "<p>Ja, du kannst das Dentalspray auch schon für deine Kitten verwenden. So beugst du schon frühzeitig vor.</p>",
+        "gg6Jr65EdEa_text": "<p>Unsere fleißigen Mitarbeiter im Lager geben jeden Tag vollgas um unsere Kunden glücklich zu machen. Du kannst dir also sicher sein, dass du dein Paket (an normalen Tagen) innerhalb 2-3 Tagen bereits in den Händen hältst.</p>",
+        "ggN5gluSlql_text": "<p>Das Familienunternehmen setzt auf \"made in germany\". Daher werden alle Tierliebhaber Produkte nicht nur im hauseigenen Team entwickelt, sondern auch in Deutschland herstgestellt. Denn nur so kann ein zertifizierter Qualitätsstandard und damit höchste Ernährungssicherheit ausgestellt werden.</p>",
+        "ggVbMaIBeh5_text": "<p>Ja, das Dentalspray ist auch für Hunde wunderbar geeignet. Dein Hund bekommt morgens und abends je einen Sprühstoß direkt in das Maul oder auf das Futter.</p>",
+        "ggWBauqXOlN_text": "<p>Der Maulraum einer Katze ist so individuell wie unser Fingerabdruck, daher kann es hier keine pauschal Antwort geben. Je nach Härtegrad und allgemeiner Zahngesundheit können erste Resulte schon nach wenigen Wochen sichtbar werden.</p>",
+        "ggcdQqKIxje_text": "<p>Das Dentalspray wird 2x am Tag, idealerweise morgens und abends, direkt in das Maul deiner Katze gesprüht. Wenn sie davon kein Fan ist, kannst du das Spray auch ganz einfach auf ihr Futter geben. Als Empfehlung gilt 1 Sprühstoß auf das Futter oder in das Maul deiner Katze.</p>",
+        "gghh0wIZXzy_childItem_0": "<p>Wie wirkt das Dentalspray?</p>",
+        "gghh0wIZXzy_childItem_1": "<p>Ist das Dentalspray sicher?</p>",
+        "gghh0wIZXzy_childItem_2": "<p>Ist das Dentalspray auch für Kitten geeignet?</p>",
+        "gghh0wIZXzy_childItem_3": "<p>Woher weiß ich, dass die Ergebnisse echt sind?</p>",
+        "gghh0wIZXzy_childItem_4": "<p>Wie wird das Dentalspray angewendet?</p>",
+        "gghh0wIZXzy_childItem_5": "<p>Ist das Dentalspray auch für Hunde geeignet?</p>",
+        "gghh0wIZXzy_childItem_6": "<p>Wie läuft das mit dem Rückgaberecht?</p>",
+        "gghh0wIZXzy_childItem_7": "<p>Wie schnell wirkt die Formel?</p>",
+        "gghh0wIZXzy_childItem_8": "<p>Wer steckt hinter Tierliebhaber?</p>",
+        "gghh0wIZXzy_childItem_9": "<p>Wie lange braucht das Paket bis zu meiner Haustür?</p>",
+        "ggjPbbCPgW5_text": "<p>Im Dentalspray kommt eine fermentierte Kräutermischung mit echten Mikroorganismen zur Wirkung. Die Inhaltsstoffe arbeiten im Maulraum und können damit für frischeren Atem sorgen und dabei helfen gute Zähne und die normale Maulflora zu erhalten.</p>",
+        "gglZPjaghb1_text": "<p><span style=\"color:#000000;\">Du hast recht... im Internetdschungel ist das heutzutage nicht so einfach. Zum Glück gibt es anerkannte und unabhängige Bewertungsplattformen wie trustpilot. Hier haben bereits mehr als 12.000 Kunden die Produkte von Tierliebhaber bewertet. Hier geht's zu den trustpilot Bewertungen - https://de.trustpilot.com/review/tierliebhaber.de</span></p>",
+        "gguKuE-PwoH_text": "<p>Ein junges Familienunternehmen aus Leipzig, auf das bereits mehrs als 300.000 glückliche Kunden vertrauen. Ein Zufall war es, der die Gründer dazu brachte hauseigene Rezepturen für ihr Haustier herzustellen. Dass Jahre später daraus eine erfolgeiche Unternehmensstory entsteht, hätte keiner damit gerechnet :)</p>",
+        "ggyGbHHH_pl_text": "<p>Ganz einfach... Du bestellst das Dentalspray und testest es bei deiner Katze 30 Tage lang aus. Bist du mit dem Ergebnis nicht zufrieden, schickst du das Spray einfach wieder zurück und bekommst dein Geld zurück.</p>"
+      },
+      "type": "gp-section-537089215037441172"
+    },
+    "gp_section_537089215054218388": {
+      "settings": {
+        "checksum": "dfdc23d630800fa1aa7b93a4b3f2296c0c91349e3241f1d02e4762b8e49a9280_0_1_1_0__1",
+        "gg1HfKCTiK4_text": "<p><span style=\"color:#000000;\"><strong>Weitere Kundenrezessionen</strong></span></p>",
+        "ggWuD-ELGsc_label": "<p>&gt;&gt; JETZT ZUM ANGEBOT</p>"
+      },
+      "type": "gp-section-537089215054218388"
+    },
+    "gp_section_537089215070995604": {
+      "settings": {
+        "checksum": "dc6c65ba756b779e978d843e688c96e91e58a1480543e4e23059d0d738d543a2_0_1_1_0__1",
+        "ggAi6rxNMoR_text": "TIERISCH GUTE QUALITÄT",
+        "ggL_0ci7vxV_text": "Entwickelt und hergestellt in Deutschland. Jetzt einfach risikolos testen und Geld-zurück-Garantie nutzen."
+      },
+      "type": "gp-section-537089215070995604"
+    },
+    "gp_section_537089215104550036": {
+      "settings": {
+        "checksum": "8ad85e6792c9f31ee9d2e93122179f3da6509f49846d0c3ff79d1b5a312fdc56_0_1_1_0__1",
+        "gg9w6wf4SpW_text": "<p>Achtung! Dies ist ein exklusives Neukundenangebot, das nur für wenige Tage gilt. Sobald die verhandelte Stückzahl vergriffen ist, endet der Deal. Sichere dir also heute noch das Angebot und teste das Produkt für volle 30 Tage risikofrei zuhause.</p>",
+        "ggz2LfFfZDB_text": "<p><strong>Sei schnell und sicher dir noch heute das Dentalspray mit effektiver Anti-Zahnbelag Formel für sichtbar bessere Zahnhygiene und minzfrischen Maulgeruch in nur wenigen Wochen.</strong></p>"
+      },
+      "type": "gp-section-537089215104550036"
+    },
+    "gp_section_537089215121327252": {
+      "settings": {
+        "checksum": "5e0ddaa466461d849a8bf7acb7e89fc4e365601c71c400b41c86c9921767973b_0_1_1_0__1",
+        "ggBqhtsQ-qZ_text": "<strong>Das Tierliebhaber Dentalspray mit schützender \"Anti Zahnstein\" Formel</strong>",
+        "ggIPVJZlWbf_text": "<p>Entfernt Zahnbelag und sorgt für frischen Atem schon nach wenigen Anwendungen</p>"
+      },
+      "type": "gp-section-537089215121327252"
+    },
+    "gp_section_537089215138104468": {
+      "settings": {
+        "checksum": "a250144f65e2741d9cf99d1b51f59867e4d253a3253835e2269a2379862c8137_0_1_1_0__1",
+        "ggeKWRe8xha_text": "<p>Auszeichnungen</p>"
+      },
+      "type": "gp-section-537089215138104468"
+    },
+    "gp_section_537089215154881684": {
+      "settings": {
+        "checksum": "54d2d1b4b9887d416ca67a723369ef97fb3de66588f1a5c8b83418862b1352ec_0_1_1_0__1",
+        "gg7o9GvGXnH_text": "<p><span style=\"color:#000000;\"><strong>Produktinfos</strong></span></p>",
+        "ggCCB5szKxH_text": "<p>Im Dentalspray kommt eine fermentierte Kräutermischung mit echten Mikroorganismen zur Wirkung. Die Ihaltsstoffe arbeiten im Maulraum und können damit für frischeren Atem sorgen und dabei helfen gesunde Zähne und die normale Maulflora zu erhalten.</p>",
+        "ggEh-SyyvPw_text": "<p>Täglich morgens und abends ins Maul deiner Katze sprühen. Empfohlene Tagesdosis für Katzen ist dabei 1 Sprühstöße. Alternativ kann auch direkt auf das Futter der Katze gesprüht werden. Die Wirkung bleibt dabei die gleiche.</p>",
+        "ggIF336wqvl_childItem_0": "<p><strong>Wirkungsweise</strong></p>",
+        "ggIF336wqvl_childItem_1": "<p><strong>Verzehrempfehlung</strong></p>",
+        "ggIF336wqvl_childItem_2": "<p><strong>Zutaten</strong></p>",
+        "ggwEFhq3gZA_text": "<p>Quellwasser, Mineralstoffe (Meersalz und flüssiges Kalzium), fermentierte Kräuter (aus Basilikum, Brombeerblätter, Römische Kamille, Liebstöckel, Hirtentäschel, Spitzwegerich, Rin-gelblumen, Himbeerblätter, Rosmarin, Salbei, Weidenröschen, Schafgarbe, Lungenkraut, Eibisch, Frauenmantel, Taubnessel, Brennnessel, Thymian), Minze, Melasse</p>"
+      },
+      "type": "gp-section-537089215154881684"
+    },
+    "gp_section_537089215154947220": {
+      "settings": {
+        "checksum": "1158b4b5a07f49ca5bbee57cf9385c7bcfbeb25647aef93c4129d6c8adfecc6f_0_1_1_0__1",
+        "ggSRA4lc7vs_label": "<p><strong>&gt;&gt; JETZT ZUM ANGEBOT</strong></p>"
+      },
+      "type": "gp-section-537089215154947220"
+    },
+    "gp_section_537089215171658900": {
+      "settings": {
+        "checksum": "6e881828aa7fea971c4cb5ef1ff6c08a4f7dc28dcfa1dfe22e9f10de6e305923_0_1_1_0__1"
+      },
+      "type": "gp-section-537089215171658900"
     }
   },
   "order": [
@@ -181,5 +293,6 @@
     "gp_section_537089215104550036",
     "gp_section_537089215054218388",
     "gp_section_537089214886446228"
-  ]
+  ],
+  "layout": "theme.gempages.blank"
 }
