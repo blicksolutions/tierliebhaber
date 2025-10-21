@@ -65,8 +65,8 @@
     },
     "gp_section_589574536689811986": {
       "settings": {
-        "checksum": "6d024aeedd29af4843539feb7842765c1d95708b02568b0aa30cc8073389e097_0_1_1_0__1",
-        "ggk0RpBsnHQ_text": "<p><span style=\"color:#C60B0B;\"><strong>Jetzt Neukundenen-Angebot sichern und bis zu 25% sparen</strong>!&nbsp;</span></p><p>Mit 60-Tage Geld-zurück-Garantie</p>",
+        "checksum": "3503b053073b8f9489617acdb09b332f6c4af15fb4fef7190f4220d87a9bc463_0_1_1_0__1",
+        "ggk0RpBsnHQ_text": "<p><span style=\"color:#C60B0B;\"><strong>Jetzt Neukundenen-Angebot sichern und bis zu 25% sparen</strong>!&nbsp;</span></p><p><span style=\"font-size:22px;\">Mit 60-Tage Geld-zurück-Garantie</span></p>",
         "section_preload": "true"
       },
       "type": "gp-section-589574536689811986"
@@ -133,32 +133,47 @@
     },
     "gp_section_589574536690270738": {
       "settings": {
-        "checksum": "03494cf5ea1512918a5cc9aa0b96b484cef99b6a55321320850e9edd831f3385_0_1_1_0__1",
-        "gg4vnbx4QVK_dayLabel": "Day",
-        "gg4vnbx4QVK_hourLabel": "Stunden",
-        "gg4vnbx4QVK_minuteLabel": "Minuten",
-        "gg4vnbx4QVK_secondLabel": "Sekunden",
-        "gg4vnbx4QVK_weekLabel": "Weeks",
-        "gg5X8LpgxH0_text": "<strong>Jetzt bis zu 104,47</strong><span style=\"color:rgba(0,0,0,var(--O42jJQ,1));\"><strong>€</strong></span><strong> sparen und Giardien-Rückfällen ein Ende setzen!</strong>",
+        "checksum": "1328704640badc8a90b2e9e8ccee1927a7db4d8ab4a97f4aca135f690ee77faa_0_1_1_0__1",
+        "gg1YUgP6Lei_text": "<p>179,90€</p>",
+        "gg5Hzcoo8Bg_text": "<p>Gesamt:</p>",
+        "gg5X8LpgxH0_text": "<strong>Jetzt bis zu 59,50</strong><span style=\"color:rgba(0,0,0,var(--O42jJQ,1));\"><strong>€</strong></span><strong> sparen und Angst-Anfällen ein Ende setzen!</strong>",
+        "gg6BDn9zeps_text": "<p>Kostenloser Versand</p>",
         "ggCCcLLzJ6W_label": "<p><span style=\"font-size:17px;\"><strong>Jetzt sicher zur Kasse</strong></span></p>",
-        "ggEK4fghl32_text": "<p>Reicht für die ersten Wochen</p>",
-        "ggFfZD7DSrk_text": "<p>Das Angebot läuft aus in:</p>",
+        "ggED7HQ-YeV_label": "<p><span style=\"font-size:17px;\"><strong>Jetzt sicher zur Kasse</strong></span></p>",
+        "ggEK4fghl32_text": "<p>Für kurzfristige Beruhigung&nbsp;</p>",
         "ggFqhkZZuTC_text": "<p><strong>Achtung:</strong> Aktuell herrscht eine hohe Nachfrage!</p><p>Jetzt noch schnell Angebot sichern, bevor die letzte Packung vergriffen ist.</p>",
-        "ggKAPeGtAFu_text": "<p>Beste Wahl, um Giardien-Rückfällen vorzubeugen</p>",
+        "ggHnvtxQYIT_text": "<p>pro Packung</p>",
+        "ggKAPeGtAFu_text": "<p>Beste Wahl für langfristige Entspannung (Silvester, lange Autofahrten, neue Umgebung)</p>",
         "ggNQ6BXlzbf_text": "<p>60 Tage Geld-zurück-Garantie</p>",
+        "ggNlSTV0SgU_text": "<p>99,90€</p>",
         "ggOIRERX6UH_displayContent": "You saved {amount_discount}",
+        "ggPcozW_ge__displayContent": "You saved {amount_discount}",
         "ggQJbmg9Qzb_label": "<p><span style=\"font-size:17px;\"><strong>Jetzt sicher zur Kasse</strong></span></p>",
-        "gg_5FsaIjkC_text": "<p>Vorrat für mehrere Monate&nbsp;</p>",
-        "ggaOMvi780e_text": "<p>Normalpreis</p>",
+        "ggQte0t03nd_text": "<p>Chillout Saft</p>",
+        "ggZkckWsyTG_text": "<p><span style=\"font-size:15px;\">Du sparst 19,80€</span></p>",
+        "gg_5FsaIjkC_text": "<p><strong>GRATIS</strong> <strong>Chillout Saft</strong> als Wirkungsbooster (Wert: 34,90€)</p>",
+        "gg_8o379NUP_text": "<p>33,30€</p>",
+        "gga3qo3QvKn_displayContent": "Maximale Ersparnis",
+        "ggaOMvi780e_text": "<p>pro Packung</p>",
+        "ggcwcbLf7WH_text": "<p>60 Geld-zurück-Garantie</p>",
+        "ggdM3_hpAkM_text": "<p>60 Tage Geld-zurück-Garantie</p>",
+        "gggxOyiy9XQ_text": "<p>Gesamt:</p>",
+        "gghGZXy8J9m_text": "<p><span style=\"color:#000000;\"><s>39,90€</s></span></p>",
         "gghKXW0hK7J_text": "<p><strong>1x G-Snack</strong></p>",
         "gghbCXRhiZs_text": "<p>Kostenloser Versand</p>",
         "ggjHW2Nhn2i_text": "<p>+GRATIS Chillout Saft</p>",
         "ggkNTvGxJsW_displayContent": "You saved {amount_discount}",
+        "ggmzIO6CnnA_text": "<p>29,98€</p>",
         "ggnQzHe4-iF_text": "<p><strong>3x Chillout Drops</strong></p>",
+        "ggoRl31fcWa_text": "<p>pro Packung</p>",
         "ggoWijc4SnQ_displayContent": "Chillout Bundle",
-        "ggrrRegZO3b_displayContent": "spare jetzt {amount_discount}",
+        "ggp64aGk9qm_text": "<p><span style=\"font-size:15px;\">Du sparst 59,50€</span></p>",
+        "ggpsHxWIfI0_text": "<p>Beste Wahl für langfristige Entspannung (Silvester, lange Autofahrten, neue Umgebung)</p>",
+        "ggqrbK1lz3D_text": "<p><span style=\"color:#000000;\"><s>39,90€</s></span></p>",
+        "ggtNGW1-mWH_text": "<p><strong>6x Chillout Drops</strong></p>",
+        "ggtkpb_2f5f_text": "<p>Vorrat für mehrere Monate&nbsp;</p>",
         "ggyWu09OpXH_displayContent": "Standard Paket",
-        "ggzzRd3CTvv_text": "<p>Geld-zurück-Garantie</p>"
+        "ggzzRd3CTvv_text": "<p>zzgl. 4,90€ Versandkosten</p>"
       },
       "type": "gp-section-589574536690270738"
     },
@@ -206,6 +221,12 @@
         "ggypqidOZsF_childItem_0": "<p>Alle Vorteile im Überblick</p>"
       },
       "type": "gp-section-589574536690467346"
+    },
+    "gp_section_589736213284389876": {
+      "settings": {
+        "checksum": "aaf6e0ec7c7bc80bcc8e1b6af496b085f7c97da1ad3a43d0f1c69e9167adef67_0_1_1_0__1"
+      },
+      "type": "gp-section-589736213284389876"
     }
   },
   "order": [
@@ -214,6 +235,7 @@
     "gp_section_589574536690008594",
     "gp_section_589574536689877522",
     "gp_section_589574536689943058",
+    "gp_section_589736213284389876",
     "gp_section_589574536690074130",
     "gp_section_589574536690467346",
     "gp_section_589574536690270738",
