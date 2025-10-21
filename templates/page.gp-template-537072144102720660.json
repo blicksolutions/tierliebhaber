@@ -8,152 +8,269 @@
  * ------------------------------------------------------------
  */
 {
-  "layout": "theme.gempages.blank",
   "sections": {
-    "gp_section_537072144689923220": {
-      "type": "gp-section-537072144689923220",
-      "settings": {
-        "section_preload": "true",
-        "checksum": "31df8d7e869d1121618bdf783651117f61933403b6e40dab1db1b07d033dc787_0_1"
-      }
-    },
-    "gp_section_537072144538928276": {
-      "type": "gp-section-537072144538928276",
-      "settings": {
-        "checksum": "5a9c6a0c10c1834ad007d334c65b4c3e1332d5ed95f6335e33a05cc5ab253fa6_0_1"
-      }
-    },
-    "gp_section_537072144589259924": {
-      "type": "gp-section-537072144589259924",
-      "settings": {
-        "checksum": "448886099e70eb0f6cb3861286c74d872a7af6b07f107d3f1815f6a3cf858567_0_1"
-      }
-    },
-    "gp_section_537072144438264980": {
-      "type": "gp-section-537072144438264980",
-      "settings": {
-        "checksum": "14beb8c7d98adfec9d523a6fb1b649d95c23715cdff1b94d30e0e6a7f1f7ad1b_0_1"
-      }
-    },
-    "gp_section_537072144304047252": {
-      "type": "gp-section-537072144304047252",
-      "settings": {
-        "checksum": "8be5c3630a42cc56ccc65b12e3b837c879ac5854a850bd386bff85694d3e7c3f_0_1"
-      }
-    },
-    "gp_section_537072144706700436": {
-      "type": "gp-section-537072144706700436",
-      "settings": {
-        "checksum": "ef105a5c5d6bcf84a795ee782457b68fbfa812338f6901abd6a49ac669bf2682_0_1"
-      }
-    },
-    "gp_section_537072144404710548": {
-      "type": "gp-section-537072144404710548",
-      "settings": {
-        "checksum": "79a9d43dbcb6850eefbb64c8f8f180a6d563c4dfb1e24b224d8efca454b32091_0_1"
-      }
-    },
-    "gp_section_537072144421487764": {
-      "type": "gp-section-537072144421487764",
-      "settings": {
-        "checksum": "eabb067ffaf93e319e6ad81b19ab300c12c2ef891d47fe657ae040d170e2b65d_0_1"
-      }
-    },
-    "gp_section_537072144606037140": {
-      "type": "gp-section-537072144606037140",
-      "settings": {
-        "checksum": "31933db57f24a081aab0d9615443e15f20b34864f08c09cc84a72f83a7515555_0_1"
-      }
-    },
-    "gp_section_537072144555705492": {
-      "type": "gp-section-537072144555705492",
-      "settings": {
-        "checksum": "f6ca81ee4cf9ccc1a9ebe5754ed69c67d70e855d67a78cf8cb2589ca38987e81_0_1"
-      }
-    },
     "gp_section_537072144203383956": {
-      "type": "gp-section-537072144203383956",
       "settings": {
-        "checksum": "675f9e3b1589211a59c2fac0bdcd71a18ed4430b3e6935ac8673de1e38b94a46_0_1"
-      }
-    },
-    "gp_section_537072144270492820": {
-      "type": "gp-section-537072144270492820",
-      "settings": {
-        "checksum": "8abf0c197d2e1a0f8afa85b40fa561b087b301fc7719eb69b7c63160b188e3a4_0_1"
-      }
+        "checksum": "eabd7cbaefed54c8170084d7f8a043ffab4042abdb2e7d175d77435dd9180ab0_0_1_1_0__1",
+        "gg-m9mmz8to_text": "<p>Nur 28,30€</p>",
+        "gg2NVmaNzR1_text": "<p>Probierpreis</p>",
+        "gg9-9X2g0tn_text": "<p>Nur 84,90€</p>",
+        "ggAnESnBhfO_text": "<p><s>34,90€</s></p>",
+        "ggCe6Hn-4JZ_text": "GELD-ZURÜCK-GARANTIE",
+        "ggDD9JgcQiZ_text": "<p>Gesamt:&nbsp;</p>",
+        "ggDpuqLCKOw_text": "<p>6L Inhalt</p>",
+        "ggGdnc-qgUk_text": "<p>Gesamt:&nbsp;</p>",
+        "ggGv0kC9YYZ_text": "<p>Nur 29,90€</p>",
+        "ggNOFDkrxjp_text": "GELD-ZURÜCK-GARANTIE",
+        "ggQBh_DMg2-_label": "JETZT BESTELLEN",
+        "ggQBh_DMg2-_outOfStockLabel": "Out of stock",
+        "ggQBh_DMg2-_unavailableLabel": "Unavailable",
+        "ggQBh_DMg2-_variantSelectionRequiredMessage": "Please select a variant to add product to cart",
+        "ggRMYQSvjhU_text": "<p><s>209,40€</s></p>",
+        "ggRlVA9on6F_text": "<p>Kundenliebling</p>",
+        "ggU0i8Aj3pB_text": "GRATIS VERSAND",
+        "ggUONDNK5Q1_label": "JETZT BESTELLEN",
+        "ggUONDNK5Q1_outOfStockLabel": "Out of stock",
+        "ggUONDNK5Q1_unavailableLabel": "Unavailable",
+        "ggUONDNK5Q1_variantSelectionRequiredMessage": "Please select a variant to add product to cart",
+        "gg_kky9GNrv_text": "<p>pro Flasche</p>",
+        "ggahsAI7V8S_text": "<p>Nur 29,90€</p>",
+        "ggc82w5lSC4_text": "GRATIS VERSAND",
+        "ggcIxc4H0Rb_label": "JETZT BESTELLEN",
+        "ggcIxc4H0Rb_outOfStockLabel": "Out of stock",
+        "ggcIxc4H0Rb_unavailableLabel": "Unavailable",
+        "ggcIxc4H0Rb_variantSelectionRequiredMessage": "Please select a variant to add product to cart",
+        "gggjI9wLQb7_text": "<p>Maximale Ersparnis</p>",
+        "gghliDlCx66_text": "<p>Nur 159,40€</p>",
+        "ggj7PUFfabX_text": "<p>Gesamt:&nbsp;</p>",
+        "ggoN8GNOiuC_customContent_suffix": "geschenkt",
+        "ggoT1EjSErg_text": "<p>Nur 26,57€</p>",
+        "ggpag3D0TBG_customContent_suffix": "geschenkt",
+        "ggrgPlux06b_customContent_suffix": "geschenkt",
+        "ggrpvvVj_r8_text": "<p><s>104,70€</s></p>",
+        "ggsX1oBgna2_text": "<p>Zum Ausprobieren</p>",
+        "ggtH5lXryuk_text": "<p>Rücknahme: <span style=\"color:#7F7F7F;\">30 Tage Geld-Zurück-Garantie</span></p><p>Hilfe: <span style=\"color:#7F7F7F;\">Werktags 10 - 16 Uhr unter +49 34149980019&nbsp;</span></p>",
+        "ggxkNQrelFG_text": "<p>pro Flasche</p>",
+        "ggyzb6O4Rwi_text": "GELD-ZURÜCK-GARANTIE",
+        "ggzZBr4xnOK_text": "<p>3L Inhalt</p>",
+        "ggzxhfoCvE0_text": "<p>1L Inhalt</p>"
+      },
+      "type": "gp-section-537072144203383956"
     },
     "gp_section_537072144253715604": {
-      "type": "gp-section-537072144253715604",
       "settings": {
-        "checksum": "fa5d0c79a6d172759784cf25af0b61aa7d9344c6ec7cf7c19897005349425730_0_1"
-      }
+        "checksum": "a0697b006cf01c5b9d4b083cd813fc9aacdde79b5387b4ccfb3ada7c4145f44d_0_1_1_0__1"
+      },
+      "type": "gp-section-537072144253715604"
     },
-    "gp_section_537072144622814356": {
-      "type": "gp-section-537072144622814356",
+    "gp_section_537072144270492820": {
       "settings": {
-        "checksum": "e89f18b48d8e3430ae342c7912030de9aba23d665e80dde82f80d6cc99feaff7_0_1"
-      }
-    },
-    "gp_section_537072144639591572": {
-      "type": "gp-section-537072144639591572",
-      "settings": {
-        "checksum": "6210fac175f154db28437eb0cb8b07e9ad195583d1be6b0e0fc50a0fbde3c713_0_1"
-      }
-    },
-    "gp_section_537072144320824468": {
-      "type": "gp-section-537072144320824468",
-      "settings": {
-        "checksum": "de7d483ef5191447ddae47a21c695e30d9d736fcde3695efa448c1364b65bf98_0_1"
-      }
-    },
-    "gp_section_537072144354378900": {
-      "type": "gp-section-537072144354378900",
-      "settings": {
-        "checksum": "6b84a63e87cfb264aa96f257d8a665f87ff4f39ba56bda8a5cb14d544372cb22_0_1"
-      }
-    },
-    "gp_section_537072144371156116": {
-      "type": "gp-section-537072144371156116",
-      "settings": {
-        "checksum": "d94b0c178ebbcfeae3e7099a2699b45acd760e87a7d49a77306db809bc7fe365_0_1"
-      }
-    },
-    "gp_section_537072144572482708": {
-      "type": "gp-section-537072144572482708",
-      "settings": {
-        "checksum": "83b95f182d39b677fb7a07eac685a52dd0a5d8ef286771cc323b4eb100eae0a7_0_1"
-      }
-    },
-    "gp_section_537072144471819412": {
-      "type": "gp-section-537072144471819412",
-      "settings": {
-        "checksum": "19cd93f3269051a680d8af71b1f60a92d47a1df4a83f8ad4960296361bd2ea80_0_1"
-      }
-    },
-    "gp_section_537072144455042196": {
-      "type": "gp-section-537072144455042196",
-      "settings": {
-        "checksum": "cb9b1c3b56b86cd5c15f4f4b159e760ef733186e9a52dddb84b2b48161b94ad0_0_1"
-      }
+        "checksum": "9d42d71a47cb68a4130968043f3e2693da66d32e115e1bf80a6cc07125380368_0_1_1_0__1",
+        "ggLGrOosepk_childItem_0": "<p><strong>Sichere Transaktion</strong><span style=\"background-color:rgb(255,255,255);color:rgb(47,47,47);font-size:16px;\"> (256-Bit Verschlüsselung - dieselbe wie Banken)</span></p>",
+        "ggLGrOosepk_childItem_1": "<p><strong>Kostenfreier Versand</strong><span style=\"background-color:rgb(255,255,255);color:rgb(47,47,47);font-size:16px;\"> innerhalb Deutschlands zuverlässig per DHL (ab 49€)</span></p>",
+        "ggLGrOosepk_childItem_2": "<p><strong>Made in Germany </strong><span style=\"background-color:rgb(255,255,255);color:rgb(47,47,47);font-size:16px;\">unter strengsten Qualitäts-Standards in DE hergestellt </span><strong>🇩🇪</strong></p>"
+      },
+      "type": "gp-section-537072144270492820"
     },
     "gp_section_537072144287270036": {
-      "type": "gp-section-537072144287270036",
       "settings": {
-        "checksum": "ffa2ed4c71b88fa0ee3820f49ac0e77e63324ed87627743af66fbdaf462f2628_0_1"
-      }
+        "checksum": "938c6b54ef9f74bb83aac0b369262c8d31bdc4a60387ef6a1f76392f53cea309_0_1_1_0__1",
+        "gg9w6wf4SpW_text": "<p>Achtung! Dies ist ein exklusives Neukundenangebot, das nur für wenige Tage gilt. Sobald die verhandelte Stückzahl vergriffen ist, endet der Deal. Sichere dir also heute noch das Angebot und teste das Produkt für volle 30 Tage risikofrei zuhause.</p>",
+        "ggz2LfFfZDB_text": "<p><strong>Sei schnell und sicher dir noch heute den Hustenkräutersaft mit effektiver Anti-Husten Formel gegen schmerzhaftes und herzzerreißendes Husten, in nur wenigen Wochen.</strong></p>"
+      },
+      "type": "gp-section-537072144287270036"
+    },
+    "gp_section_537072144304047252": {
+      "settings": {
+        "checksum": "28d739df179b98bd47686be5e5c0fdce910551e5424ddc38a3aee9ce10a9e95d_0_1_1_0__1",
+        "ggVit2BHCPz_childItem_0": "<p><strong>Ohne Chemie - komplett natürliche und studienbasierte Wirkstoffe</strong></p>",
+        "ggVit2BHCPz_childItem_1": "<p><strong>Alle Kräuter behalten dank spezieller Filterung ihre Wirkung</strong></p>",
+        "ggVit2BHCPz_childItem_2": "<p><strong>Tausende Pferdehalter nutzen es bereits</strong></p>",
+        "ggVit2BHCPz_childItem_3": "<p>30 Tage Geld-Zurück-Garantie</p>"
+      },
+      "type": "gp-section-537072144304047252"
+    },
+    "gp_section_537072144320824468": {
+      "settings": {
+        "checksum": "b07af91f1e6d0537e6c3ba59285fcf2562ee3b2eb31269a2e72a0715c7afbda2_0_1_1_0__1",
+        "gg7o9GvGXnH_text": "<p><span style=\"color:#000000;\"><strong>Produktinfos</strong></span></p>",
+        "ggCCB5szKxH_text": "<p>Die enthaltenen Kräuter haben in ihrer Kombination eineschleimlösende und beruhigende Wirkung. Die studienbasierten Wirkstoffe befreien die Bronchien. Dadurch kann dein Pferd nicht nur besser atmen, sondern auch der Hustenreiz lässt nach. Auch beim Abhusten hilft die spezielle Kräutermischung.</p>",
+        "ggEh-SyyvPw_text": "<p>Großpferde: 50-100ml täglich (entspricht ca. 3-7 EL)</p><p>Kleinpferde: 35ml täglich (entspricht ca. 2 EL)&nbsp;</p><p>Die Tagesdosis kann auf zwei Portionen am Tag aufgeteilt werden. Ganz einfach übers Futter geben.</p>",
+        "ggIF336wqvl_childItem_0": "<p><strong>Wirkungsweise</strong></p>",
+        "ggIF336wqvl_childItem_1": "<p><strong>Verzehrempfehlung</strong></p>",
+        "ggIF336wqvl_childItem_2": "<p><strong>Zutaten</strong></p>",
+        "ggwEFhq3gZA_text": "<p>Brennnessel (gekocht und filtriert), Thymian (gekocht und filtriert), Fenchel (gekocht und filtriert), Fichte (gekocht und filtriert), Eibischwurzel (gekocht und filtriert), Süßholzwurzel (gekocht und filtriert), Spitzwegerich (gekocht und filtriert), Sonnenhutkraut (gekocht und filtriert), Anisfrüchte (gekocht und filtriert), Johannisbrotschrot (gekocht und filtriert), Isländisches Moos (gekocht und filtriert), Salbei (gekocht und filtriert), Kalmuswurzel (gekocht und filtriert), Lindenblüten (gekocht und filtriert)</p>"
+      },
+      "type": "gp-section-537072144320824468"
+    },
+    "gp_section_537072144354378900": {
+      "settings": {
+        "checksum": "826ac5e0ccf805c0aab41e90840b1dbe80a7df9b7cb16c007f9361860b316d41_0_1_1_0__1",
+        "ggeKWRe8xha_text": "<p>Auszeichnungen</p>"
+      },
+      "type": "gp-section-537072144354378900"
+    },
+    "gp_section_537072144371156116": {
+      "settings": {
+        "checksum": "d9cc77e99896fac2217d7c010c0331aab2beca4f6f2532d763c29af9ca2022ef_0_1_1_0__1",
+        "ggSRA4lc7vs_label": "<p><strong>&gt;&gt; JETZT ZUM ANGEBOT</strong></p>"
+      },
+      "type": "gp-section-537072144371156116"
     },
     "gp_section_537072144387933332": {
-      "type": "gp-section-537072144387933332",
       "settings": {
-        "checksum": "8f7dae41281b9f1957756d311738ffd5f5f318a321a678751f3cb273009bf2e3_0_1"
-      }
+        "checksum": "12249fe6722bf09802a127a92a98678e92a3728a71620a6f82d62b3c9ad726fa_0_1_1_0__1",
+        "gg1HfKCTiK4_text": "<p><span style=\"color:#000000;\"><strong>Weitere Kundenrezessionen</strong></span></p>",
+        "ggWuD-ELGsc_label": "<p>&gt;&gt; JETZT ZUM ANGEBOT</p>"
+      },
+      "type": "gp-section-537072144387933332"
+    },
+    "gp_section_537072144404710548": {
+      "settings": {
+        "checksum": "35791b78a5346db2e3b0b53f55de16d2b05ac17d7dc9ff93891f28d9cca075f6_0_1_1_0__1",
+        "gAIKYRTsBYAey_text": "Du sparst bis zu:",
+        "gcWtytYvJXbkW_text": "Noch 7 auf Lager. <span style=\"color:#878787;\">Mehr unterwegs.</span>",
+        "gg8yjUISody_text": "26,57€ pro Flasche <span style=\"color:#0A0A0A;\">(6er Bundle) &amp;</span>",
+        "ggL9ndh4sm4_text": "<s>34,90€</s>",
+        "ggNOEAdxmVy_text": "Preis pro Flasche:",
+        "ggWe6trMqPt_text": "Bestes Angebot:",
+        "ggY8AbhN-r2_text": "Geld-zurück-Garantie",
+        "gggGap30jLB_text": "Endet in 2 Tagen",
+        "ghNoBuhGkoXZk_text": "50,00€ (23% Rabatt)",
+        "ghUyixkLzuGyd_label": "<p>&gt;&gt; JETZT ZUM ANGEBOT</p>",
+        "gvIpsIWjwKSWy_text": "GRATIS Premium-Versand innerhalb 2-3 Werktagen (ab 49€)"
+      },
+      "type": "gp-section-537072144404710548"
+    },
+    "gp_section_537072144421487764": {
+      "settings": {
+        "checksum": "5cd84c28c37f15740e7ec0f28245451075e29c477fbed5bc87e8217990d5ab3c_0_1_1_0__1"
+      },
+      "type": "gp-section-537072144421487764"
+    },
+    "gp_section_537072144438264980": {
+      "settings": {
+        "checksum": "210398f4c11b4b3d525ce615dd469285ad74aa48dba40a219b28c58661ddbf9f_0_1_1_0__1",
+        "ggIPVJZlWbf_text": "<p>Lindert akuten Husten, beruhigt den Rachenraum und befreit die Atemwege</p>",
+        "ggLplMkheYS_text": "<strong>Der Hustenkräutersaft von Tierliebhaber mit “Anti-Husten” Formel</strong>"
+      },
+      "type": "gp-section-537072144438264980"
+    },
+    "gp_section_537072144455042196": {
+      "settings": {
+        "checksum": "93bf9dda9f86fb7657ba9f1f7271b1eccc4529f3f4dcfc9e3bc86ad3a8a4a849_0_1_1_0__1",
+        "gg-tQCUNM4A_text": "<p>Für Großpferde empfehlen wir : 50–100 ml täglich (entspricht ca. 3-7 EL). Für Kleinpferde wäre die Dosierempfehlung: 35 ml täglich (entspricht ca. 2 EL). Du kannst die empfohlene Tagesdosis auch einfach auf zwei Portionen pro Tag aufteilen.</p>",
+        "gg6Jr65EdEa_text": "<p><span style=\"color:#000000;\">Unsere fleißigen Mitarbeiter im Lager geben jeden Tag vollgas um unsere Kunden glücklich zu machen. Du kannst dir also sicher sein, dass du dein Paket (an normalen Tagen) innerhalb 2-3 Tagen bereits in den Händen hältst.</span></p>",
+        "ggN5gluSlql_text": "<p>Du kannst den Saft ganz einfach über das Futter (z.B. Pellets oder Müsli) geben.</p>",
+        "ggUZy1qeq_r_text": "<p>Bei tragenden Stuten solltest Du auf jeden Fall vorab Rücksprache mit deinem Tierarzt oder Tierheilpraktiker halten.</p>",
+        "ggVqff4Suax_text": "<p>Die spezielle Kräutermischung aus Brennnessel, Thymian, Fenchel, Fichte, Eibischwurzel, Süßholzwurzel, Spitzwegerich, Sonnenhutkraut, Anisfrüchten, Johannisbrotschrot, Isländisches Moos, Salbei, Kalmuswurze und Lindenblüten unterstützt die natürliche Funktionsweise des Atemapparats sowie der Bronchien Deines Pferdes. Zudem kann es beim Abhusten unterstützen und sich positiv auf den Bronchialtrakt auswirken. Auch bei haltungs- und fütterungsbedingten Atemwegsproblemen, kannst Du dein Pferd mit dem Hustenkräutersaft ganz natürlich unterstützen.</p>",
+        "ggWBauqXOlN_text": "<p>Das hängt natürlich vom Zustand deines Pferdes ab. Wie lange hat er schon die Beschwerden und wie akut sind sie? Daher gibt es hier keine pauschale Antwort. Je nachdem wie der Zustand ist, können erste Resultate schon nach wenigen Wochen sichtbar werden. Sind die Beschwerden noch im Anfangsstadium, berichten viele Pferdehalter von tollen Ergebnissen nach wenigen Tagen.</p>",
+        "ggYuuh9lI8l_text": "<p><span style=\"color:#000000;\">Du hast recht... im Internetdschungel ist das heutzutage nicht so einfach. Zum Glück gibt es anerkannte und unabhängige Bewertungsplattformen wie trustpilot. Hier haben bereits mehr als 12.000 Kunden die Produkte von Tierliebhaber bewertet. Hier geht's zu den trustpilot Bewertungen - https://de.trustpilot.com/review/tierliebhaber.de</span></p>",
+        "ggcdQqKIxje_text": "<p>Ja, mit einer Karenzzeit von 48 Stunden.</p>",
+        "gghh0wIZXzy_childItem_0": "<p>Wie wirken der Saft?</p>",
+        "gghh0wIZXzy_childItem_1": "<p>Wie wird der Saft angewendet?</p>",
+        "gghh0wIZXzy_childItem_10": "<p>Wer steckt hinter Tierliebhaber?</p>",
+        "gghh0wIZXzy_childItem_11": "<p>Wie lange braucht das Paket bis zu meiner Haustür?</p>",
+        "gghh0wIZXzy_childItem_2": "<p>Wie wird der Saft dosiert?</p>",
+        "gghh0wIZXzy_childItem_3": "<p>Wie lange sollte der Saft angewendet werden?</p>",
+        "gghh0wIZXzy_childItem_4": "<p>Ist der Saft dopingrelevant?</p>",
+        "gghh0wIZXzy_childItem_5": "<p>Kann der Saft auch bei tragenden Stuten angewendet werden?</p>",
+        "gghh0wIZXzy_childItem_6": "<p>Woher weiß ich, dass die Ergebnisse echt sind?</p>",
+        "gghh0wIZXzy_childItem_7": "<p>Wie läuft das mit dem Rückgaberecht?</p>",
+        "gghh0wIZXzy_childItem_8": "<p>Kann ich die <span style=\"color:#000000;\">Chillout Drops auch langfristig füttern?</span></p>",
+        "gghh0wIZXzy_childItem_9": "<p>Wie schnell wirkt die \"Anti-Husten\" Formel?</p>",
+        "ggjJUXEc5nM_text": "<p>Ja, das kannst du und macht in manchen Situationen sogar Sinn. Bitte arbeite hier in Zyklen. Heißt: Gebe die Drops drei Wochen lang täglich und mache dann für 3-4 Tage Pause, um einen Gewöhnungseffekt zu vermeiden. Dann beginne wieder einen neuen Zyklus.</p>",
+        "gglZPjaghb1_text": "<p>Du solltest den Saft mindestens 14 Tage verwenden. Auch eine Kur von bis zu 6 Wochen können wir dir empfehlen. Solltest du mit dem Saft aufhören und der Husten kommt zurück, startest du am besten sofort wieder mit der Verfütterung. Stelle dafür sicher, immer genug vom Hustensaft im Stall zu haben.</p>",
+        "gguKuE-PwoH_text": "<p><span style=\"color:#000000;\">Ein junges Familienunternehmen aus Leipzig, auf das bereits mehrs als 300.000 glückliche Kunden vertrauen. Ein Zufall war es, der die Gründer dazu brachte hauseigene Rezepturen für ihren kranken Hund herzustellen. Dass Jahre später daraus eine erfolgreiche Unternehmensstory entsteht, hätte keiner damit gerechnet :)</span></p>",
+        "ggyGbHHH_pl_text": "<p><span style=\"color:#000000;\">Ganz einfach... Du bestellst den Hustenkräutersaft und testest es bei deinem Pferd 30 Tage lang aus. Bist du mit dem Ergebnis nicht zufrieden, schickst du den Saft einfach wieder zurück und bekommst dein Geld zurück.</span></p>"
+      },
+      "type": "gp-section-537072144455042196"
+    },
+    "gp_section_537072144471819412": {
+      "settings": {
+        "checksum": "87db502755c8259f983ede14547ee62040b42d9b4d30e6759d21e93ff2b54f50_0_1_1_0__1",
+        "ggiUU9_1_t7_text": "<p>11 Fragen beantwortet</p>",
+        "ggx37gD5_rK_text": "<p>Die 11 häufigsten Fragen rund um den Hustenkräutersaft</p>"
+      },
+      "type": "gp-section-537072144471819412"
     },
     "gp_section_537072144505373844": {
-      "type": "gp-section-537072144505373844",
       "settings": {
-        "checksum": "7bb26942caa470a008c9d1cf78157ebc958aabefdffb3c172f9d534bf66a84de_0_1"
-      }
+        "checksum": "415c39652d2e4bbf4d57b60d268e454aab5da47e36f231035cc96d8f72de824f_0_1_1_0__1",
+        "ggd_kiKl-uN_text": "<p><a href=\"https://tierliebhaber.de/policies/legal-notice\" target=\"_blank\"><u>Impressum</u></a></p>",
+        "ggoy_KyPI7L_text": "<p><a href=\"https://tierliebhaber.de/policies/privacy-policy\" target=\"_blank\"><u>Datenschutz</u></a></p>"
+      },
+      "type": "gp-section-537072144505373844"
+    },
+    "gp_section_537072144538928276": {
+      "settings": {
+        "checksum": "8138cf2cc713a6b2f6b099e0a8843212432f0cfd7dfeda92a950334d1c4dd631_0_1_1_0__1",
+        "ggAi6rxNMoR_text": "TIERISCH GUTE QUALITÄT",
+        "ggL_0ci7vxV_text": "Entwickelt und hergestellt in Deutschland. Jetzt einfach risikolos testen und Geld-zurück-Garantie nutzen."
+      },
+      "type": "gp-section-537072144538928276"
+    },
+    "gp_section_537072144555705492": {
+      "settings": {
+        "checksum": "4893cd859b44826003d95a2dae5bc81f77cf96b6b11a89045e9d9564f1aad402_0_1_1_0__1"
+      },
+      "type": "gp-section-537072144555705492"
+    },
+    "gp_section_537072144572482708": {
+      "settings": {
+        "checksum": "0a1e060b151980b41e34bc32d2f2a0b12d8753627768cc46ff4d447cdb148be8_0_1_1_0__1",
+        "ggTE_RPnOXz_label": "<p>&gt;&gt; JETZT ZUM ANGEBOT</p>",
+        "ggjuxa4nk81_text": "<p>Produktbildergalerie</p>",
+        "ggqq0pPImtx_text": "<p>Erfahrungen glücklicher Kunden</p>"
+      },
+      "type": "gp-section-537072144572482708"
+    },
+    "gp_section_537072144589259924": {
+      "settings": {
+        "checksum": "3b2ac3cdf0ecdf704ab2bf2b91b9e217c6cb7593b99c63c27dcea3922e638cd1_0_1_1_0__1",
+        "gg0jyGynJ83_text": "<p>11 Antworten</p>",
+        "ggVY3sp5l0r_text": "<p>12.747 BEWERTUNGEN</p>"
+      },
+      "type": "gp-section-537072144589259924"
+    },
+    "gp_section_537072144606037140": {
+      "settings": {
+        "checksum": "7947cbb5a0bdaed509c332dca37429c54e8bf6a31b03debb7e2bd38894046a82_0_1_1_0__1",
+        "ggrmZJb8nBX_text": "Top 3 Bewertungen aus Deutschland"
+      },
+      "type": "gp-section-537072144606037140"
+    },
+    "gp_section_537072144622814356": {
+      "settings": {
+        "checksum": "9d00f759626234c574d9481582598cfe527327035ca3706761116f60dbd823e1_0_1_1_0__1"
+      },
+      "type": "gp-section-537072144622814356"
+    },
+    "gp_section_537072144639591572": {
+      "settings": {
+        "checksum": "26629439ec549c3bb27df2b7f0c7029fb5dae639d5f97d02b4106090eebea66c_0_1_1_0__1",
+        "gg3eTrFcUqM_text": "<p><span style=\"color:#000000;\"><strong>Zahlungsmethoden</strong></span></p>",
+        "ggBTx7qIJH9_text": "<p><span style=\"color:#000000;\"><strong>Kredit- &amp; Debitkarte </strong></span><span style=\"background-color:rgb(255,255,255);color:#000000;font-size:16px;\">(Visa, Mastercard)</span></p>",
+        "ggdfChdPVZC_text": "<p><span style=\"color:#0F0F0F;\"><strong>PayPal </strong></span><span style=\"background-color:rgb(255,255,255);color:#0F0F0F;font-size:16px;\">(einfach mit Email Adresse)</span></p>",
+        "ggeKJbA5NO6_text": "<p><span style=\"color:#000000;\"><strong>Ratenzahlung </strong></span><span style=\"background-color:rgb(255,255,255);color:#000000;font-size:16px;\">(bis zu 12 Raten)</span></p>",
+        "gghIben76NL_text": "<p><span style=\"color:#000000;\"><strong>Apple Pay</strong></span><span style=\"background-color:rgb(255,255,255);color:#000000;font-size:16px;\"> (schnell mit wallet zahlen)</span></p>",
+        "ggkAIqs3KtO_text": "<p><span style=\"color:#000000;\"><strong>Auf Rechnung</strong></span><span style=\"background-color:rgb(255,255,255);color:#000000;font-size:16px;\"> (zahle erst in 30 Tagen)</span></p>",
+        "ggkkPC-Vkte_text": "<p><span style=\"color:#000000;\"><strong>Sofortüberweisung </strong></span><span style=\"background-color:rgb(255,255,255);color:#000000;font-size:16px;\">(per Klarna)</span></p>"
+      },
+      "type": "gp-section-537072144639591572"
+    },
+    "gp_section_537072144689923220": {
+      "settings": {
+        "checksum": "4846d0ad646947235777fd0009defa2c690455097be3375189d60e30954a728c_0_1_1_0__1",
+        "section_preload": "true"
+      },
+      "type": "gp-section-537072144689923220"
+    },
+    "gp_section_537072144706700436": {
+      "settings": {
+        "checksum": "4fd92ad0295b22f8fe1e286f7bda861149a40dc6b06b9446467d8bfd02cbd10a_0_1_1_0__1"
+      },
+      "type": "gp-section-537072144706700436"
     }
   },
   "order": [
@@ -181,5 +298,6 @@
     "gp_section_537072144287270036",
     "gp_section_537072144387933332",
     "gp_section_537072144505373844"
-  ]
+  ],
+  "layout": "theme.gempages.blank"
 }
