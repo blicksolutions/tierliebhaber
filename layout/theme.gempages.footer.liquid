@@ -357,8 +357,10 @@
     {%- endif -%}
 
     <div class="PageContainer">
+      {% comment %}
       {% section 'announcement' %}
       {% section 'header' %}
+      {% endcomment %}
 
       <main id="main" role="main">
         {{ content_for_layout }}
