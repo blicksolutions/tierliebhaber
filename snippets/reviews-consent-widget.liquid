@@ -1,0 +1,482 @@
+
+
+<div class="reviews-consent-widget" data-reviews-widget>
+  <div class="reviews-stars">★★★★★</div>
+  <button type="button" class="reviews-accept-btn" data-reviews-accept>
+    Reviews anzeigen & einwilligen
+  </button>
+  <span class="reviews-consent-text">
+    in <a href="#" class="reviews-settings-link" data-reviews-settings>Marketing-Cookies</a>
+  </span>
+</div>
+
+<style>
+.reviews-consent-widget {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+.reviews-consent-widget[data-visible] {
+  display: block;
+}
+
+.reviews-stars {
+  color: #FFD700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  filter: blur(3px);
+  user-select: none;
+}
+
+.reviews-accept-btn {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0 7px;
+  font-family: inherit;
+    border: 1px solid; 
+    border-radius: 10px;
+    margin-top:2px;
+}
+
+.reviews-accept-btn:hover {
+  color: #000;
+}
+
+.reviews-consent-text {
+  font-size: 13px;
+  color: #999;
+}
+
+.reviews-settings-link {
+  color: #666;
+  text-decoration: underline;
+}
+
+.reviews-settings-link:hover {
+  color: #000;
+}
+
+@media (max-width: 640px) {
+  .reviews-consent-widget {
+    flex-wrap: wrap;
+  }
+}
+</style>
+
+<script>
+(function(){
+  'use strict';
+  
+  // Verhindere mehrfache Script-Ausführung
+  if (window.__REVIEWS_WIDGET_INITIALIZED__) return;
+  window.__REVIEWS_WIDGET_INITIALIZED__ = true;
+  
+  function hasMarketingConsent() {
+    try {
+      return !!(window.Cookiebot && window.Cookiebot.consent && window.Cookiebot.consent.marketing);
+    } catch(e) {
+      return false;
+    }
+  }
+
+  function initAllWidgets() {
+    try {
+      const widgets = document.querySelectorAll('[data-reviews-widget]');
+      if (!widgets.length) return;
+
+      // Alle Widgets initialisieren
+      widgets.forEach(function(widget) {
+        // Skip wenn bereits initialisiert
+        if (widget.hasAttribute('data-initialized')) return;
+        widget.setAttribute('data-initialized', 'true');
+
+        // Sichtbarkeit basierend auf Consent
+        if (hasMarketingConsent()) {
+          widget.removeAttribute('data-visible');
+        } else {
+          widget.setAttribute('data-visible', 'true');
+        }
+
+        const acceptBtn = widget.querySelector('[data-reviews-accept]');
+        const settingsLink = widget.querySelector('[data-reviews-settings]');
+
+        // Accept & Show Reviews
+        if (acceptBtn) {
+          acceptBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            try {
+              if (window.Cookiebot && typeof window.Cookiebot.submitCustomConsent === 'function') {
+                const pref = !!(window.Cookiebot.consent && window.Cookiebot.consent.preferences);
+                const stat = !!(window.Cookiebot.consent && window.Cookiebot.consent.statistics);
+                window.Cookiebot.submitCustomConsent(pref, stat, true);
+              } else if (window.Cookiebot && typeof window.Cookiebot.renew === 'function') {
+                window.Cookiebot.renew();
+              }
+            } catch(err) {}
+          });
+        }
+
+        // Settings
+        if (settingsLink) {
+          settingsLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            try {
+              if (window.Cookiebot && typeof window.Cookiebot.renew === 'function') {
+                window.Cookiebot.renew();
+              }
+            } catch(err) {}
+          });
+        }
+      });
+
+      // Handle consent change für ALLE Widgets
+      function handleConsentChange() {
+        try {
+          if (hasMarketingConsent()) {
+            widgets.forEach(function(widget) {
+              widget.removeAttribute('data-visible');
+            });
+          }
+        } catch(e) {}
+      }
+
+      window.addEventListener('CookiebotOnAccept', handleConsentChange);
+      window.addEventListener('CookiebotOnConsentReady', handleConsentChange);
+      
+    } catch(e) {}
+  }
+
+  // Multiple init attempts
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAllWidgets);
+  } else {
+    initAllWidgets();
+  }
+  
+  window.addEventListener('load', function() {
+    setTimeout(initAllWidgets, 100);
+  });
+  
+  setTimeout(initAllWidgets, 500);
+})();
+</script>
+
+{% comment %}
+  Reviews.io Minimal Consent Widget mit Tooltip
+  Snippet: reviews-consent-widget.liquid
+{% endcomment %}
+
+{% comment %}
+  <div class="reviews-consent-widget" data-reviews-widget style="display: none;">
+    <!-- Widget wie im Bild -->
+    <div class="reviews-widget-inline">
+      <div class="reviews-stars">★★★★★</div>
+      <button type="button" class="reviews-link" data-reviews-trigger>
+        Reviews anzeigen
+      </button>
+    </div>
+
+    <!-- Tooltip (erscheint direkt darunter) -->
+    <div class="reviews-tooltip" data-reviews-tooltip>
+      <div class="reviews-tooltip-arrow"></div>
+      <div class="reviews-tooltip-content">
+        <p>Benötigt Marketing-Cookies</p>
+        <div class="reviews-tooltip-actions">
+          <a href="#" class="reviews-settings-link" data-reviews-settings>Einstellungen</a>
+          <button type="button" class="reviews-accept-btn" data-reviews-accept>
+            Akzeptieren & Anzeigen
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+  /* ===== Widget (wie im Bild) ===== */
+  .reviews-consent-widget {
+    position: relative;
+    display: inline-block;
+    margin: 0.5rem 0;
+  }
+
+  .reviews-widget-inline {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .reviews-stars {
+    color: #FFD700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    filter: blur(3px);
+    user-select: none;
+  }
+
+  .reviews-link {
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 14px;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+    font-family: inherit;
+  }
+
+  .reviews-link:hover {
+    color: #000;
+  }
+
+  /* ===== Tooltip ===== */
+  .reviews-tooltip {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 1rem;
+    min-width: 280px;
+    z-index: 1000;
+    display: none;
+  }
+
+  .reviews-tooltip[data-open] {
+    display: block;
+    animation: tooltipFadeIn 0.2s ease;
+  }
+
+  @keyframes tooltipFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .reviews-tooltip-arrow {
+    position: absolute;
+    top: -6px;
+    left: 20px;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-left: 1px solid #e0e0e0;
+    border-top: 1px solid #e0e0e0;
+    transform: rotate(45deg);
+  }
+
+  .reviews-tooltip-content p {
+    margin: 0 0 0.75rem 0;
+    font-size: 0.875rem;
+    color: #444;
+    line-height: 1.4;
+  }
+
+  .reviews-tooltip-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .reviews-settings-link {
+    color: #666;
+    text-decoration: none;
+    font-size: 0.875rem;
+    white-space: nowrap;
+  }
+
+  .reviews-settings-link:hover {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  .reviews-accept-btn {
+    flex: 1;
+    background: #222;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .reviews-accept-btn:hover {
+    background: #000;
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 640px) {
+    .reviews-tooltip {
+      left: 50%;
+      transform: translateX(-50%);
+      min-width: 260px;
+    }
+
+    .reviews-tooltip-arrow {
+      left: 50%;
+      margin-left: -6px;
+    }
+
+    .reviews-tooltip-actions {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .reviews-settings-link {
+      width: 100%;
+      text-align: center;
+    }
+
+    .reviews-accept-btn {
+      width: 100%;
+    }
+  }
+  </style>
+
+  <script>
+  (function(){
+    'use strict';
+
+    function hasMarketingConsent() {
+      try {
+        return !!(window.Cookiebot && window.Cookiebot.consent && window.Cookiebot.consent.marketing);
+      } catch(e) {
+        return false;
+      }
+    }
+
+    function initWidget() {
+      try {
+        const widget = document.querySelector('[data-reviews-widget]');
+        if (!widget) return;
+
+        // Nur anzeigen wenn KEIN Consent
+        if (hasMarketingConsent()) {
+          widget.style.display = 'none';
+          return;
+        } else {
+          widget.style.display = 'inline-block';
+        }
+
+        const tooltip = widget.querySelector('[data-reviews-tooltip]');
+        const trigger = widget.querySelector('[data-reviews-trigger]');
+        const acceptBtn = widget.querySelector('[data-reviews-accept]');
+        const settingsLink = widget.querySelector('[data-reviews-settings]');
+
+        if (!trigger || !tooltip) {
+          console.error('Trigger or Tooltip not found');
+          return;
+        }
+
+        // Toggle tooltip
+        trigger.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          const isOpen = tooltip.hasAttribute('data-open');
+          if (isOpen) {
+            tooltip.removeAttribute('data-open');
+          } else {
+            tooltip.setAttribute('data-open', 'true');
+          }
+        });
+
+        // Close on outside click
+        document.addEventListener('click', function(e) {
+          if (!widget.contains(e.target)) {
+            tooltip.removeAttribute('data-open');
+          }
+        });
+
+        // Accept
+        if (acceptBtn) {
+          acceptBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            try {
+              if (window.Cookiebot && typeof window.Cookiebot.submitCustomConsent === 'function') {
+                const pref = !!(window.Cookiebot.consent && window.Cookiebot.consent.preferences);
+                const stat = !!(window.Cookiebot.consent && window.Cookiebot.consent.statistics);
+                window.Cookiebot.submitCustomConsent(pref, stat, true);
+              } else if (window.Cookiebot && typeof window.Cookiebot.renew === 'function') {
+                window.Cookiebot.renew();
+              } else {
+                alert('Cookiebot nicht verfügbar');
+              }
+            } catch(err) {
+              console.error('Consent error:', err);
+            }
+          });
+        }
+
+        // Settings
+        if (settingsLink) {
+          settingsLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            try {
+              if (window.Cookiebot && typeof window.Cookiebot.renew === 'function') {
+                window.Cookiebot.renew();
+              }
+            } catch(err) {
+              console.error('Settings error:', err);
+            }
+          });
+        }
+
+        // Handle consent change - KEIN RELOAD!
+        function handleConsentChange() {
+          try {
+            if (hasMarketingConsent()) {
+              // Widget verstecken
+              widget.style.display = 'none';
+              tooltip.removeAttribute('data-open');
+
+              // Dein Reviews.io Gate-Script lädt jetzt automatisch Reviews.io nach
+              // Kein Reload nötig!
+            }
+          } catch(e) {
+            console.error('Consent change error:', e);
+          }
+        }
+
+        window.addEventListener('CookiebotOnAccept', handleConsentChange);
+        window.addEventListener('CookiebotOnConsentReady', handleConsentChange);
+
+      } catch(e) {
+        console.error('Widget init error:', e);
+      }
+    }
+
+    // Multiple init attempts
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initWidget);
+    } else {
+      initWidget();
+    }
+
+    window.addEventListener('load', function() {
+      setTimeout(initWidget, 100);
+    });
+
+    setTimeout(initWidget, 500);
+  })();
+  </script>
+{% endcomment %}
