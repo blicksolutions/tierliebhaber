@@ -1,7 +1,7 @@
 /* polaroid slider section */
 
 .section-polaroid-slider {
-  padding: 50px 0 65px;
+  padding: 50px 0 0px;
 }
 
 @media (max-width: 767px) {
@@ -101,6 +101,10 @@
 }
 
 /* -- polaroid slider -- */
+
+.template-product .slick-track {
+  padding: 15px 0;
+}
 
 .slick-track {
   padding: 50px 0;
