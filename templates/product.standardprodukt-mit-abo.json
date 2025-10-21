@@ -16,6 +16,8 @@
         "meta_info_badge_visibility": false,
         "meta_info_badge_text": "<p>Für die beste Wirkung <strong>4 Wochen vor Silvester</strong> mit der Anwendung beginnen!</p>",
         "pdp_info_toggle": true,
+        "cd_start_iso": "2025-10-04T22:00:00Z",
+        "cd_end_iso": "2025-10-12T23:59:59Z",
         "show_share_buttons": false,
         "show_vendor": false,
         "show_sku": false,
@@ -373,6 +375,15 @@
         "slider-subline": "Vom Versand bis zum Kundenservice steckt jede menge ❤️ drin!"
       }
     },
+    "custom_liquid_7bA7zq": {
+      "type": "custom-liquid",
+      "name": "Custom liquid",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "liquid": "<div class=\"reviews-consent-widget consent-widget-container\" data-reviews-widget>\n  <div class=\"reviews-stars\">★★★★★</div>\n  <button type=\"button\" class=\"reviews-accept-btn\" data-reviews-accept>\n    Reviews anzeigen & einwilligen\n  </button>\n  <span class=\"reviews-consent-text\">\n    in <a href=\"#\" class=\"reviews-settings-link\" data-reviews-settings>Marketing-Cookies</a>\n  </span>\n</div>"
+      }
+    },
     "1733229697fef3339c": {
       "type": "apps",
       "blocks": {
@@ -526,6 +537,7 @@
     "bs_product_testimonials_3Ew6jD",
     "16288473445aa6c049",
     "1652874593f2ea11e0",
+    "custom_liquid_7bA7zq",
     "1733229697fef3339c",
     "recommendations",
     "1635243951ca87a38d",
