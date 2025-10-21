@@ -12529,6 +12529,7 @@ section#sidebar-menu[aria-hidden="false"] {
 */ 
 
 
+
 @media screen and (max-width: 1024px) {
 
     .template-product .Product__InfoWrapper .Container {
@@ -12585,6 +12586,23 @@ section#sidebar-menu[aria-hidden="false"] {
     border-bottom-width: 1px !important;
 }
 
+#shopify-section-template--24098916106508__custom_liquid_RCt6P9 p {
+    font-weight: 500 !important;
+    letter-spacing: 1px !important;
+}
+
+@media screen and (min-width: 641px) {
+    #shopify-section-template--24098916106508__16288047979ee0ca29 .u-h6 {
+    font-size: 16px !important;
+}
+}
+
+@media screen and (min-width: 1008px) {
+#shopify-section-template--24098916106508__16288047979ee0ca29 .u-h6 {
+    font-size: 18px !important;
+}
+
+}
 /* M.M.
 ================= PDP Edits show blurred reviews END ==============
 */ 
