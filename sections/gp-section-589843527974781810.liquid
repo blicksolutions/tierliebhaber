@@ -1,0 +1,359 @@
+
+    
+    <style>.gps-589843527974781810 .gp-g-heading-1{font-family:var(--g-h1-ff);font-size:var(--g-h1-size);font-style:var(--g-h1-fs);font-weight:var(--g-h1-weight);letter-spacing:var(--g-h1-ls);line-height:var(--g-h1-lh)}.gps-589843527974781810 .gp-g-paragraph-1{font-family:var(--g-p1-ff);font-size:var(--g-p1-size);font-style:var(--g-p1-fs);font-weight:var(--g-p1-weight);letter-spacing:var(--g-p1-ls);line-height:var(--g-p1-lh)}.gps-589843527974781810 .gp-relative{position:relative}.gps-589843527974781810 .gp-mx-auto{margin-left:auto;margin-right:auto}.gps-589843527974781810 .gp-mb-0{margin-bottom:0}.gps-589843527974781810 .gp-inline-block{display:inline-block}.gps-589843527974781810 .gp-flex{display:flex}.gps-589843527974781810 .gp-inline-flex{display:inline-flex}.gps-589843527974781810 .gp-grid{display:grid}.gps-589843527974781810 .gp-contents{display:contents}.gps-589843527974781810 .\!gp-hidden{display:none!important}.gps-589843527974781810 .gp-hidden{display:none}.gps-589843527974781810 .gp-h-auto{height:auto}.gps-589843527974781810 .gp-h-full{height:100%}.gps-589843527974781810 .gp-w-full{width:100%}.gps-589843527974781810 .gp-max-w-full{max-width:100%}.gps-589843527974781810 .gp-flex-none{flex:none}.gps-589843527974781810 .gp-shrink-0{flex-shrink:0}.gps-589843527974781810 .gp-grid-rows-\[1fr\]{grid-template-rows:1fr}.gps-589843527974781810 .gp-flex-col{flex-direction:column}.gps-589843527974781810 .gp-items-center{align-items:center}.gps-589843527974781810 .gp-justify-center{justify-content:center}.gps-589843527974781810 .gp-overflow-hidden{overflow:hidden}.gps-589843527974781810 .gp-border{border-width:1px}.gps-589843527974781810 .gp-border-transparent{border-color:transparent}.gps-589843527974781810 .gp-text-left{text-align:left}.gps-589843527974781810 .gp-transition-colors{transition-duration:.15s;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-589843527974781810 .gp-duration-200{transition-duration:.2s}.gps-589843527974781810 .gp-ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}@media (max-width:1024px){.gps-589843527974781810 .tablet\:\!gp-hidden{display:none!important}.gps-589843527974781810 .tablet\:gp-hidden{display:none}.gps-589843527974781810 .tablet\:gp-h-auto{height:auto}.gps-589843527974781810 .tablet\:gp-flex-none{flex:none}}@media (max-width:767px){.gps-589843527974781810 .mobile\:\!gp-hidden{display:none!important}.gps-589843527974781810 .mobile\:gp-hidden{display:none}.gps-589843527974781810 .mobile\:gp-h-auto{height:auto}.gps-589843527974781810 .mobile\:gp-flex-none{flex:none}}.gps-589843527974781810 .\[\&\>svg\]\:\!gp-h-\[var\(--size-desktop\)\]>svg{height:var(--size-desktop)!important}.gps-589843527974781810 .\[\&\>svg\]\:\!gp-w-\[var\(--size-desktop\)\]>svg{width:var(--size-desktop)!important}@media (max-width:1024px){.gps-589843527974781810 .tablet\:\[\&\>svg\]\:\!gp-h-\[var\(--size-tablet\)\]>svg{height:var(--size-tablet)!important}.gps-589843527974781810 .tablet\:\[\&\>svg\]\:\!gp-w-\[var\(--size-tablet\)\]>svg{width:var(--size-tablet)!important}}@media (max-width:767px){.gps-589843527974781810 .mobile\:\[\&\>svg\]\:\!gp-h-\[var\(--size-mobile\)\]>svg{height:var(--size-mobile)!important}.gps-589843527974781810 .mobile\:\[\&\>svg\]\:\!gp-w-\[var\(--size-mobile\)\]>svg{width:var(--size-mobile)!important}}.gps-589843527974781810 .\[\&_\*\]\:gp-max-w-full *{max-width:100%}</style>
+    
+    
+    
+
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+
+    
+        <section
+          class="gp-mx-auto gp-max-w-full [&_*]:gp-max-w-full {% if section.settings.section_preload == "false" %}gps-lazy {% endif %}"
+          style="--w:calc(1000px + 2 * var(--g-ct-p, 15px));--w-tablet:calc(var(--g-ct-w, 100%) + 2 * var(--g-ct-p, 15px));--w-mobile:calc(var(--g-ct-w, 100%) + 2 * var(--g-ct-p, 15px));--pl:none;--pl-tablet:none;--pl-mobile:none;--pr:none;--pr-tablet:none;--pr-mobile:none"
+        >
+          
+    <gp-row gp-data='{"background":{"desktop":{"type":"color","color":"transparent","image":{"src":"","width":0,"height":0},"size":"cover","position":{"x":50,"y":50},"repeat":"no-repeat","attachment":"scroll"}},"uid":"gR6So1edvg"}' data-id="gR6So1edvg" id="gR6So1edvg" data-same-height-subgrid-container class="gR6So1edvg gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--blockPadding:base;--pt:var(--g-s-2xl);--pl:0px;--pb:var(--g-s-2xl);--pr:0px;--pt-tablet:var(--g-s-2xl);--pl-tablet:0px;--pb-tablet:var(--g-s-2xl);--pr-tablet:0px;--pt-mobile:var(--g-s-2xl);--pl-mobile:0px;--pb-mobile:var(--g-s-2xl);--pr-mobile:0px;--d:grid;--d-tablet:grid;--d-mobile:none;--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--op:100%;--cg:16px;--rg:0px;--gtc:minmax(0, 12fr);--w:1000px;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pc:start">
+      
+
+      <div
+      data-same-height-display-contents
+      style="--jc:start"
+      class="gNF0S-fdkr gp-relative gp-flex gp-flex-col"
+    >
+      
+    
+
+    
+
+    
+    <gp-row gp-data='{"background":{"desktop":{"attachment":"scroll","color":"transparent","image":{"height":0,"src":"","width":0},"position":{"x":50,"y":50},"repeat":"no-repeat","size":"cover","type":"color"}},"uid":"gfB13Tkbjr"}' data-id="gfB13Tkbjr" id="gfB13Tkbjr" data-same-height-subgrid-container class="gfB13Tkbjr gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:none;--d-tablet:none;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:33px;--pt:0px;--pl:0px;--pb:0px;--pr:0px;--mb-tablet:33px;--pt-tablet:0px;--pl-tablet:0px;--pb-tablet:0px;--pr-tablet:0px;--mb-mobile:33px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--cg:8px;--gtc:minmax(0, 6fr) minmax(0, 6fr);--gtc-mobile:minmax(0, 12fr);--w:100%;--h:auto;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pc:start">
+      
+
+      <div
+      data-same-height-display-contents
+      style="--jc:start"
+      class="gmDubht9AN gp-relative gp-flex gp-flex-col"
+    >
+      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="gSruuEUoP-"
+        class="gSruuEUoP-"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mt:0px;--mb:18px;--pt:0px;--pl:0px;--pb:0px;--pr:0px;--mt-tablet:30px;--mb-tablet:3px;--mt-mobile:30px;--mb-mobile:17px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1761113801785"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <h2
+          data-gp-text
+          class="gp-g-heading-1  gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:left;--ta-mobile:left;--size:22px;--size-tablet:46px;--size-mobile:26px;--weight:bold;--c:#000000;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggSruuEUoP-_text | replace: '$locationOrigin', locationOrigin }}
+        </h2>
+      </div>
+    </div>
+    <div gp-el-wrapper  class="gijDgfi_ZN ">
+      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <gp-icon-list
+      
+      uid="gijDgfi_ZN"
+      data-id="gijDgfi_ZN"
+      style="--shadow:none;--d:flex;--d-mobile:none;--d-tablet:flex;--op:100%;--pageType:GP_STATIC;--mb:26px;--jc:left"
+      className="gijDgfi_ZN"
+      gp-data='{"position":{"desktop":"baseline","mobile":"baseline","tablet":"center"},"iconWidth":{"desktop":"23","mobile":38,"tablet":16}}'
+    >
+      
+          <div class="gp-flex" style="--b:none;--bc:#121212;--bw:1px 1px 1px 1px;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--w:100%;--jc:left">
+            <div class="gp-inline-flex gp-flex-col" style="--rg:16px">
+              
+                    <div
+                      key="0"
+                      data-index="0"
+                      class="gp-icon-list-wrapper gp-flex gp-child-item-gijDgfi_ZN"
+                      style="--cg:8px;--ai:baseline;--ai-tablet:center;--ai-mobile:flex-start"
+                    >
+                      <div class="gp-icon-list-icon gp-inline-flex gp-shrink-0 gp-overflow-hidden" style="--pl:0px;--pr:0px;--pt:0px;--pb:0px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:transparent;--top:unset;--top-tablet:unset;--top-mobile:unset;--pos:relative;--pos-tablet:relative;--pos-mobile:relative">
+                        <span
+                          class="gp-icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--size-desktop)] [&>svg]:!gp-w-[var(--size-desktop)] tablet:[&>svg]:!gp-h-[var(--size-tablet)] tablet:[&>svg]:!gp-w-[var(--size-tablet)] mobile:[&>svg]:!gp-h-[var(--size-mobile)] mobile:[&>svg]:!gp-w-[var(--size-mobile)]"
+                          style="--c:#00C853;--w:100%;--h:100%;--size-desktop:23px;--size-tablet:16px;--size-mobile:38px"
+                        >
+                          <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" data-id="508414807831544168"><path fill="currentColor" strokelinecap="round" strokelinejoin="round" d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                        </span>
+                      </div>
+                      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id
+        class="gp-w-full"
+        style="--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1761113801786"
+      >
+      <div class="gp-flex" >
+        <div
+          data-gp-text
+          class="gp-g-paragraph-1 gp-w-full gp-border gp-border-transparent gp-text-left gp-icon-list-text gp-g-paragraph-1  gp-text-instant"
+          style="--w:100%;--tdt:auto;--size:15px;--size-tablet:16px;--size-mobile:14px;--c:#000000;word-break:break-word;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggijDgfi_ZN_childItem_0 | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+                    </div> 
+                    <div
+                      key="1"
+                      data-index="1"
+                      class="gp-icon-list-wrapper gp-flex gp-child-item-gijDgfi_ZN"
+                      style="--cg:8px;--ai:baseline;--ai-tablet:center;--ai-mobile:flex-start"
+                    >
+                      <div class="gp-icon-list-icon gp-inline-flex gp-shrink-0 gp-overflow-hidden" style="--pl:0px;--pr:0px;--pt:0px;--pb:0px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:transparent;--top:unset;--top-tablet:unset;--top-mobile:unset;--pos:relative;--pos-tablet:relative;--pos-mobile:relative">
+                        <span
+                          class="gp-icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--size-desktop)] [&>svg]:!gp-w-[var(--size-desktop)] tablet:[&>svg]:!gp-h-[var(--size-tablet)] tablet:[&>svg]:!gp-w-[var(--size-tablet)] mobile:[&>svg]:!gp-h-[var(--size-mobile)] mobile:[&>svg]:!gp-w-[var(--size-mobile)]"
+                          style="--c:#00C853;--w:100%;--h:100%;--size-desktop:23px;--size-tablet:16px;--size-mobile:38px"
+                        >
+                          <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" data-id="508414807831544168"><path fill="currentColor" strokelinecap="round" strokelinejoin="round" d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                        </span>
+                      </div>
+                      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id
+        class="gp-w-full"
+        style="--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1761113801787"
+      >
+      <div class="gp-flex" >
+        <div
+          data-gp-text
+          class="gp-g-paragraph-1 gp-w-full gp-border gp-border-transparent gp-text-left gp-icon-list-text gp-g-paragraph-1  gp-text-instant"
+          style="--w:100%;--tdt:auto;--size:15px;--size-tablet:16px;--size-mobile:14px;--c:#000000;word-break:break-word;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggijDgfi_ZN_childItem_1 | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+                    </div> 
+                    <div
+                      key="2"
+                      data-index="2"
+                      class="gp-icon-list-wrapper gp-flex gp-child-item-gijDgfi_ZN"
+                      style="--cg:8px;--ai:baseline;--ai-tablet:center;--ai-mobile:flex-start"
+                    >
+                      <div class="gp-icon-list-icon gp-inline-flex gp-shrink-0 gp-overflow-hidden" style="--pl:0px;--pr:0px;--pt:0px;--pb:0px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:transparent;--top:unset;--top-tablet:unset;--top-mobile:unset;--pos:relative;--pos-tablet:relative;--pos-mobile:relative">
+                        <span
+                          class="gp-icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--size-desktop)] [&>svg]:!gp-w-[var(--size-desktop)] tablet:[&>svg]:!gp-h-[var(--size-tablet)] tablet:[&>svg]:!gp-w-[var(--size-tablet)] mobile:[&>svg]:!gp-h-[var(--size-mobile)] mobile:[&>svg]:!gp-w-[var(--size-mobile)]"
+                          style="--c:#00C853;--w:100%;--h:100%;--size-desktop:23px;--size-tablet:16px;--size-mobile:38px"
+                        >
+                          <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" data-id="508414807831544168"><path fill="currentColor" strokelinecap="round" strokelinejoin="round" d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                        </span>
+                      </div>
+                      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id
+        class="gp-w-full"
+        style="--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1761113801787"
+      >
+      <div class="gp-flex" >
+        <div
+          data-gp-text
+          class="gp-g-paragraph-1 gp-w-full gp-border gp-border-transparent gp-text-left gp-icon-list-text gp-g-paragraph-1  gp-text-instant"
+          style="--w:100%;--tdt:auto;--size:15px;--size-tablet:16px;--size-mobile:14px;--c:#000000;word-break:break-word;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggijDgfi_ZN_childItem_2 | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+                    </div>
+            </div>
+          </div>
+    </gp-icon-list>
+    <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-icon-list-v7-5.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+  
+      </div><div gp-el-wrapper  class="g_-Ed4OhSF ">
+      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <gp-icon-list
+      
+      uid="g_-Ed4OhSF"
+      data-id="g_-Ed4OhSF"
+      style="--shadow:none;--d:none;--d-mobile:flex;--d-tablet:none;--op:100%;--pageType:GP_STATIC;--mb:26px;--jc:left"
+      className="g_-Ed4OhSF"
+      gp-data='{"position":{"desktop":"baseline","mobile":"baseline","tablet":"center"},"iconWidth":{"desktop":41,"mobile":38,"tablet":16}}'
+    >
+      
+          <div class="gp-flex" style="--b:none;--bc:#121212;--bw:1px 1px 1px 1px;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--w:100%;--jc:left">
+            <div class="gp-inline-flex gp-flex-col" style="--rg:16px">
+              
+                    <div
+                      key="0"
+                      data-index="0"
+                      class="gp-icon-list-wrapper gp-flex gp-child-item-g_-Ed4OhSF"
+                      style="--cg:8px;--ai:baseline;--ai-tablet:center;--ai-mobile:flex-start"
+                    >
+                      <div class="gp-icon-list-icon gp-inline-flex gp-shrink-0 gp-overflow-hidden" style="--pl:0px;--pr:0px;--pt:0px;--pb:0px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:transparent;--top:unset;--top-tablet:unset;--top-mobile:unset;--pos:relative;--pos-tablet:relative;--pos-mobile:relative">
+                        <span
+                          class="gp-icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--size-desktop)] [&>svg]:!gp-w-[var(--size-desktop)] tablet:[&>svg]:!gp-h-[var(--size-tablet)] tablet:[&>svg]:!gp-w-[var(--size-tablet)] mobile:[&>svg]:!gp-h-[var(--size-mobile)] mobile:[&>svg]:!gp-w-[var(--size-mobile)]"
+                          style="--c:#00C853;--w:100%;--h:100%;--size-desktop:41px;--size-tablet:16px;--size-mobile:38px"
+                        >
+                          <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" data-id="508414807831544168"><path fill="currentColor" strokelinecap="round" strokelinejoin="round" d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                        </span>
+                      </div>
+                      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id
+        class="gp-w-full"
+        style="--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1761113801788"
+      >
+      <div class="gp-flex" >
+        <div
+          data-gp-text
+          class="gp-g-paragraph-1 gp-w-full gp-border gp-border-transparent gp-text-left gp-icon-list-text gp-g-paragraph-1  gp-text-instant"
+          style="--w:100%;--tdt:auto;--size:19px;--size-tablet:16px;--size-mobile:14px;--c:#000000;word-break:break-word;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.gg_-Ed4OhSF_childItem_0 | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+                    </div> 
+                    <div
+                      key="1"
+                      data-index="1"
+                      class="gp-icon-list-wrapper gp-flex gp-child-item-g_-Ed4OhSF"
+                      style="--cg:8px;--ai:baseline;--ai-tablet:center;--ai-mobile:flex-start"
+                    >
+                      <div class="gp-icon-list-icon gp-inline-flex gp-shrink-0 gp-overflow-hidden" style="--pl:0px;--pr:0px;--pt:0px;--pb:0px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:transparent;--top:unset;--top-tablet:unset;--top-mobile:unset;--pos:relative;--pos-tablet:relative;--pos-mobile:relative">
+                        <span
+                          class="gp-icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--size-desktop)] [&>svg]:!gp-w-[var(--size-desktop)] tablet:[&>svg]:!gp-h-[var(--size-tablet)] tablet:[&>svg]:!gp-w-[var(--size-tablet)] mobile:[&>svg]:!gp-h-[var(--size-mobile)] mobile:[&>svg]:!gp-w-[var(--size-mobile)]"
+                          style="--c:#00C853;--w:100%;--h:100%;--size-desktop:41px;--size-tablet:16px;--size-mobile:38px"
+                        >
+                          <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" data-id="508414807831544168"><path fill="currentColor" strokelinecap="round" strokelinejoin="round" d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                        </span>
+                      </div>
+                      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id
+        class="gp-w-full"
+        style="--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1761113801788"
+      >
+      <div class="gp-flex" >
+        <div
+          data-gp-text
+          class="gp-g-paragraph-1 gp-w-full gp-border gp-border-transparent gp-text-left gp-icon-list-text gp-g-paragraph-1  gp-text-instant"
+          style="--w:100%;--tdt:auto;--size:19px;--size-tablet:16px;--size-mobile:14px;--c:#000000;word-break:break-word;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.gg_-Ed4OhSF_childItem_1 | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+                    </div> 
+                    <div
+                      key="2"
+                      data-index="2"
+                      class="gp-icon-list-wrapper gp-flex gp-child-item-g_-Ed4OhSF"
+                      style="--cg:8px;--ai:baseline;--ai-tablet:center;--ai-mobile:flex-start"
+                    >
+                      <div class="gp-icon-list-icon gp-inline-flex gp-shrink-0 gp-overflow-hidden" style="--pl:0px;--pr:0px;--pt:0px;--pb:0px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:transparent;--top:unset;--top-tablet:unset;--top-mobile:unset;--pos:relative;--pos-tablet:relative;--pos-mobile:relative">
+                        <span
+                          class="gp-icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--size-desktop)] [&>svg]:!gp-w-[var(--size-desktop)] tablet:[&>svg]:!gp-h-[var(--size-tablet)] tablet:[&>svg]:!gp-w-[var(--size-tablet)] mobile:[&>svg]:!gp-h-[var(--size-mobile)] mobile:[&>svg]:!gp-w-[var(--size-mobile)]"
+                          style="--c:#00C853;--w:100%;--h:100%;--size-desktop:41px;--size-tablet:16px;--size-mobile:38px"
+                        >
+                          <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" data-id="508414807831544168"><path fill="currentColor" strokelinecap="round" strokelinejoin="round" d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                        </span>
+                      </div>
+                      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id
+        class="gp-w-full"
+        style="--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1761113801789"
+      >
+      <div class="gp-flex" >
+        <div
+          data-gp-text
+          class="gp-g-paragraph-1 gp-w-full gp-border gp-border-transparent gp-text-left gp-icon-list-text gp-g-paragraph-1  gp-text-instant"
+          style="--w:100%;--tdt:auto;--size:19px;--size-tablet:16px;--size-mobile:14px;--c:#000000;word-break:break-word;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.gg_-Ed4OhSF_childItem_2 | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+                    </div>
+            </div>
+          </div>
+    </gp-icon-list>
+    <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-icon-list-v7-5.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+  
+      </div>
+    </div><div
+      data-same-height-display-contents
+      style="--jc:start"
+      class="gu4E2-YV2K gp-relative gp-flex gp-flex-col"
+    >
+      
+    <div
+      role="presentation"
+      data-id="geVbTAB-EQ"
+      style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:none;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:0px;--ta:center"
+      class="gp-group/image gp-relative force-publish-1761113801790 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto geVbTAB-EQ"
+    >
+      <div
+        
+        style="border-radius:inherit;--jc:center"
+        class="gp-h-full gp-w-full gp-flex pointer-events-auto"
+      >
+        
+    <picture style="border-radius:inherit" class="gp-contents">
+      
+      <source media="(max-width: 767px)" data-srcSet="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/gempages_534104955091420133-e9b2f26d-9787-441b-bd4c-9e669f84221f_768x.png" srcset="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjYwMCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDxkZWZzPgogICAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImctNjAwLTYwMCI+CiAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0icmdiYSg1MSwgNTEsIDUxLCAwKSIgb2Zmc2V0PSIyMCUiIC8+CiAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0icmdiYSg1MSwgNTEsIDUxLCAwKSIgb2Zmc2V0PSI1MCUiIC8+CiAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0icmdiYSg1MSwgNTEsIDUxLCAwKSIgb2Zmc2V0PSI3MCUiIC8+CiAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8L2RlZnM+CiAgICA8cmVjdCB3aWR0aD0iNjAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0icmdiYSg1MSwgNTEsIDUxLCAwKSIgLz4KICAgIDxyZWN0IGlkPSJyIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0idXJsKCNnLTYwMC02MDApIiAvPgogICAgPGFuaW1hdGUgeGxpbms6aHJlZj0iI3IiIGF0dHJpYnV0ZU5hbWU9IngiIGZyb209Ii02MDAiIHRvPSI2MDAiIGR1cj0iMXMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAgLz4KICA8L3N2Zz4=" />
+      <source media="(max-width: 1024px)" data-srcSet="{{ "OP_Creatives_13.png" | file_url }}" srcset="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTA4MCIgaGVpZ2h0PSIxMDgwIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGRlZnM+CiAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZy0xMDgwLTEwODAiPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iMjAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNTAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNzAlIiAvPgogICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPC9kZWZzPgogICAgPHJlY3Qgd2lkdGg9IjEwODAiIGhlaWdodD0iMTA4MCIgZmlsbD0icmdiYSg1MSwgNTEsIDUxLCAwKSIgLz4KICAgIDxyZWN0IGlkPSJyIiB3aWR0aD0iMTA4MCIgaGVpZ2h0PSIxMDgwIiBmaWxsPSJ1cmwoI2ctMTA4MC0xMDgwKSIgLz4KICAgIDxhbmltYXRlIHhsaW5rOmhyZWY9IiNyIiBhdHRyaWJ1dGVOYW1lPSJ4IiBmcm9tPSItMTA4MCIgdG89IjEwODAiIGR1cj0iMXMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAgLz4KICA8L3N2Zz4=" />
+    
+      
+      <img
+        base-src="{{ "OP_Creatives_13.png" | file_url }}" quality-type="{}" quality-percent="{}"
+        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTA4MCIgaGVpZ2h0PSIxMDgwIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGRlZnM+CiAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZy0xMDgwLTEwODAiPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iMjAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNTAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNzAlIiAvPgogICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPC9kZWZzPgogICAgPHJlY3Qgd2lkdGg9IjEwODAiIGhlaWdodD0iMTA4MCIgZmlsbD0icmdiYSg1MSwgNTEsIDUxLCAwKSIgLz4KICAgIDxyZWN0IGlkPSJyIiB3aWR0aD0iMTA4MCIgaGVpZ2h0PSIxMDgwIiBmaWxsPSJ1cmwoI2ctMTA4MC0xMDgwKSIgLz4KICAgIDxhbmltYXRlIHhsaW5rOmhyZWY9IiNyIiBhdHRyaWJ1dGVOYW1lPSJ4IiBmcm9tPSItMTA4MCIgdG89IjEwODAiIGR1cj0iMXMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAgLz4KICA8L3N2Zz4=" data-src="{{ "OP_Creatives_13.png" | file_url }}"
+        alt=""
+        width="100%"
+        style="--aspect:auto;--aspect-tablet:auto;--aspect-mobile:auto;--objf:cover;--h:auto;--h-tablet:auto;--h-mobile:auto;--b:none;--bc:#000000;--bw:1px 1px 1px 1px;--bblr:8px;--bbrr:8px;--btlr:8px;--btrr:8px;--radiusType:rounded;--shadow:none"
+        class="gp-inline-block gp-w-full gp-max-w-full gp_lazyload"
+      />
+    
+    </picture>
+  
+      </div>
+    </div>
+  
+    </div>
+
+      
+    </gp-row>
+  
+  
+    </div>
+
+      
+    </gp-row>
+  
+        </section>
+      
+  
+    
+    
+{% schema %}
+  {
+    
+    "name": "Section 4",
+    "tag": "section",
+    "class": "gps-589843527974781810 gps gpsi",
+    "settings": [{"type":"paragraph","content":"Section design by GemPages. [Click here to start design](https://admin.shopify.com/store/tierliebhaber-animagus/apps/gempages-cro/app/shopify/edit?pageType=GP_STATIC&editorId=589838772791673828&sectionId=589843527974781810)"},{"type":"select","label":"Section Preload","id":"section_preload","options":[{"label":"On","value":"true"},{"label":"Off","value":"false"},{"label":"Off Lazy Script","value":"off_lazy_script"}],"default":"off_lazy_script"},{"type":"text","label":"Checksum","id":"checksum"},{"type":"html","id":"ggSruuEUoP-_text","label":"ggSruuEUoP-_text","default":"Was dich und deinen Hund mit dem Z-Spot erwartet"},{"type":"html","id":"ggijDgfi_ZN_childItem_0","label":"ggijDgfi_ZN_childItem_0","default":"<p><strong>Stoppt den Kreislauf aus Parasiten → Juckreiz → Hautreizung&nbsp;</strong></p><p>Viele Hunde leiden unbemerkt unter Floh- oder Grasmilbenbefall. Typische Folgen: ständiger Juckreiz, Kratzen, Hautrötungen und kleine Wunden.</p><p>👉 Das Spot-on wirkt repellent und hält Parasiten fern</p>"},{"type":"html","id":"ggijDgfi_ZN_childItem_1","label":"ggijDgfi_ZN_childItem_1","default":"<p><strong>Lindert Juckreiz &amp; Unruhe auf natürliche Weise</strong></p><p>Pflanzliche Wirkstoffe wie Geraniol und Margosaöl beruhigen die Haut und verringern Nervenreizungen. So kann dein Hund endlich wieder entspannen und zur Ruhe kommen.</p>"},{"type":"html","id":"ggijDgfi_ZN_childItem_2","label":"ggijDgfi_ZN_childItem_2","default":"<p><strong>Schützt Haut &amp; Fell nachhaltig</strong></p><p><span style=\"background-color:transparent;color:#000000;font-size:11pt;\">Bei regelmäßiger Anwendung entsteht ein pflanzlicher Schutzfilm, der Flöhe &amp; Grasmilben zuverlässig abschreckt.</span></p>"},{"type":"html","id":"gg_-Ed4OhSF_childItem_0","label":"gg_-Ed4OhSF_childItem_0","default":"<p><span style=\"background-color:transparent;color:#000000;font-size:20px;\"><strong>Beruhigen stille Magenübersäuerung – und stoppen damit das Verhalten an der Wurzel</strong></span></p><p><span style=\"background-color:transparent;color:#000000;font-size:16px;\">Viele Hunde leiden unter&nbsp;nicht erkennbarer Reizung im Magen-Darm-Trakt – ausgelöst durch versteckte Übersäuerung. Die Folge: Der Hund frisst Gras oder Kot, leckt sich die Pfoten oder schmatzt – aus einem natürlichen Selbstheilungsinstinkt heraus. Die Drops wirken&nbsp;beruhigend, puffernd und regulierend auf den Säurehaushalt – und helfen so, diesen inneren Stresskreislauf zu beenden.</span></p>"},{"type":"html","id":"gg_-Ed4OhSF_childItem_1","label":"gg_-Ed4OhSF_childItem_1","default":"<p><span style=\"background-color:transparent;color:#000000;font-size:20px;\"><strong>Stoppen stressbedingtes Pfotenlecken &amp; Schmatzen – durch Regulierung des Nervus Vagus</strong></span></p><p><span style=\"background-color:transparent;color:#000000;font-size:16px;\">Ein gereizter Magen-Darm-Trakt löst über das sogenannte „Bauch-Hirn-System“ (vagale Achse)&nbsp;Stressreaktionen und Übersprungshandlungen aus. Die Drops enthalten&nbsp;krampflösende Pflanzenstoffe, die direkt dort wirken, wo viele Symptome entstehen – im sogenannten „zweiten Gehirn“ deines Hundes: dem Darm.</span></p>"},{"type":"html","id":"gg_-Ed4OhSF_childItem_2","label":"gg_-Ed4OhSF_childItem_2","default":"<p><span style=\"background-color:transparent;color:#000000;font-size:20px;\"><strong>Durchbrechen den Teufelskreis aus Reizung → Verhalten → neue Reizung</strong></span></p><p><span style=\"background-color:transparent;color:#000000;font-size:16px;\">Gras oder Kot zu fressen bringt kurzfristig Erleichterung – aber langfristig wird dadurch der Magen-Darm-Trakt noch mehr gereizt. Die Drops stoppen diesen Kreislauf,&nbsp;indem sie das ursprüngliche Ungleichgewicht neutralisieren – sanft, aber gezielt.</span></p>"}],
+    "blocks": [{"type": "@app"}],
+    "locales": {}
+  }
+{% endschema %}
+  
