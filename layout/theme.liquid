@@ -145,18 +145,6 @@
               document.querySelector('.shopify-policy__body').classList.add('Rte');
             });
 
-      setTimeout(()=>{
-                const cookieDeclaration = document.querySelector('.CookieDeclaration__injection')
-                const cookieDeclarationScript = document.createElement('script')
-
-                cookieDeclarationScript.setAttribute('id','CookieDeclaration');
-                cookieDeclarationScript.setAttribute('src','https://consent.cookiebot.com/a4aa9c1a-9639-4e9f-8a23-4aef9c37b3cc/cd.js');
-                cookieDeclarationScript.setAttribute('type','text/javascript');
-                cookieDeclarationScript.setAttribute('async','true');
-
-                cookieDeclaration.appendChild(cookieDeclarationScript)
-            },500)
-
           {%- endif -%}
 
           window.theme = {
