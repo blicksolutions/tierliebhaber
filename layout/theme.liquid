@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}">
 
+
     <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
     <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
     <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-009.js' | asset_url }}"></script>
@@ -36,6 +37,9 @@
 
     {% render 'external-scripts' %}
 
+
+    
+    {% comment %}<!-- ////////// Custom Events M.M. ////////////  -->{% endcomment %}
     <script type="text/plain" data-cookieconsent="marketing">
       document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.Search__Inner').addEventListener('click', () => {
@@ -59,8 +63,6 @@
     {% comment %} Kann vermutlich raus, ist altes Tracking für Mouse-Aktivität und Superchat beides nicht genutzt.  M.M.
     <script src="{{ 'bs-load-third-party-scripts.js' | asset_url }}" defer></script>
     >{% endcomment %}
-
-
 
     <script>
       window.SLIDECART_DISABLE = true;
