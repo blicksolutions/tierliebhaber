@@ -12571,17 +12571,19 @@ section#sidebar-menu[aria-hidden="false"] {
 }
 
 .ElementsWidget-prefix .R-TabControls .R-TabControls__item.isActive, .ElementsWidget-prefix .R-TabControls .R-TabControls__item {
-    font-weight: 600 !important;
     border-bottom-width: 1px !important; 
 }
 
-.ElementsWidget-prefix .R-TextHeading {
-        font-weight: 600 !important;
+
+
+
+
+.ElementsWidget__inner {
+    max-width: 1380px !important;
+    margin: 0 auto;
 }
 
-.ElementsWidget-prefix .R-PaginationControls .R-PaginationControls__item.isActive {
-    font-weight: 600 !important;
-}
+
 
 .ElementsWidget-prefix .R-PaginationControls .R-PaginationControls__item {
     border-bottom-width: 1px !important;
@@ -12629,14 +12631,7 @@ reviewsio-product-reviews-widget {
     max-width: 1280px !important
 }
 
-.ElementsWidget__inner {
-    max-width: 1380px !important;
-    margin: 0 auto;
-}
 
-.ElementsWidget-prefix .R-TextHeading--xxs, .ElementsWidget-prefix .R-TextHeading--inline {
-    font-weight: 600 !important;
-}
 
 
 /* M.M.
