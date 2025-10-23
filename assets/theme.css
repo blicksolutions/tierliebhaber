@@ -12628,3 +12628,16 @@ section#sidebar-menu[aria-hidden="false"] {
 ================= PDP Edits show blurred reviews END ==============
 */ 
 
+
+.ab-test-ds-op-lp-three__original.hidden {
+	display: none !important;
+}
+
+.ab-test-ds-op-lp-three__variant-a {
+	display: none !important;
+}
+
+.ab-test-ds-op-lp-three__variant-a.show {
+	display: block;
+}
+
