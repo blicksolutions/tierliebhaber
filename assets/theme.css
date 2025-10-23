@@ -12634,6 +12634,10 @@ reviewsio-product-reviews-widget {
     margin: 0 auto;
 }
 
+.ElementsWidget-prefix .R-TextHeading--xxs {
+    font-weight: 600 !important;
+}
+
 
 /* M.M.
 ================= PDP Edits show blurred reviews END ==============
