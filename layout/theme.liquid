@@ -7,9 +7,7 @@
     {% comment %}<!-- Split GemX Traffic before Consent M.M. -->{% endcomment %}
     {% render 'gemx-traffic-switch' %}
 
-
     <link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}">
-
 
     <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
     <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
@@ -21,7 +19,6 @@
     <script src="{{ 'bs-subscription-callout.js' | asset_url }}" defer></script>
     <script src="{{ 'bs-sticky-atc.js' | asset_url }}" defer></script>
     <script src="{{ 'bs-mobile-sidebar-nav.js' | asset_url }}" defer></script>
-
 
     <script type="text/plain" data-cookieconsent="marketing">
       fetch('/browsing_context_suggestions.json')
@@ -37,9 +34,7 @@
 
     {% render 'external-scripts' %}
 
-
-    
-    {% comment %}<!-- ////////// Custom Events M.M. ////////////  -->{% endcomment %}
+    {% comment %}  <!-- ////////// Custom Events M.M. ////////////  -->  {% endcomment %}
     <script type="text/plain" data-cookieconsent="marketing">
       document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.Search__Inner').addEventListener('click', () => {
@@ -52,6 +47,10 @@
       });
     </script>
 
+    <script>
+      window.SLIDECART_DISABLE = true;
+    </script>
+
     {% comment %}
       {% render 'replo-head' %}
     {% endcomment %}
@@ -59,17 +58,15 @@
       {% render 'consent_script_blocking' %}
     {% endcomment %}
 
+    {% comment %}
+      Kann vermutlich raus, ist altes Tracking für Mouse-Aktivität und Superchat beides nicht genutzt.  M.M.
+      <script src="{{ 'bs-load-third-party-scripts.js' | asset_url }}" defer></script>
+      >
+    {% endcomment %}
 
-    {% comment %} Kann vermutlich raus, ist altes Tracking für Mouse-Aktivität und Superchat beides nicht genutzt.  M.M.
-    <script src="{{ 'bs-load-third-party-scripts.js' | asset_url }}" defer></script>
-    >{% endcomment %}
-
-    <script>
-      window.SLIDECART_DISABLE = true;
-    </script>
-
-    {% comment %} Slickslider ist auf der Collection Page eingebunden. Soll raus!!!  M.M.{% endcomment %}
+    {% comment %} Slickslider ist auf der Collection Page eingebunden. Soll raus!!!  M.M.
     {% render 'collection-slider' %}
+    {% endcomment %}
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
