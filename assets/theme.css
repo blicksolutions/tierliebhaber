@@ -12571,12 +12571,12 @@ section#sidebar-menu[aria-hidden="false"] {
 }
 
 .ElementsWidget-prefix .R-TabControls .R-TabControls__item.isActive, .ElementsWidget-prefix .R-TabControls .R-TabControls__item {
-    font-weight: 500 !important;
+    font-weight: 600 !important;
     border-bottom-width: 1px !important; 
 }
 
 .ElementsWidget-prefix .R-TextHeading {
-        font-weight: 500 !important;
+        font-weight: 600 !important;
 }
 
 .ElementsWidget-prefix .R-PaginationControls .R-PaginationControls__item.isActive {
@@ -12588,7 +12588,7 @@ section#sidebar-menu[aria-hidden="false"] {
 }
 
 #shopify-section-template--24098916106508__custom_liquid_RCt6P9 p {
-    font-weight: 500 !important;
+    font-weight: 600 !important;
     letter-spacing: 1px !important;
 }
 
