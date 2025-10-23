@@ -6,17 +6,104 @@
 </script>
 
 {% comment %} ================= Implement Klaviyo CRM Service https://www.klaviyo.com/de/  === M.M. 22/10/25 ============== {% endcomment %}
-<script type="text/plain" data-cookieconsent="marketing" async src="https://static.klaviyo.com/onsite/js/Xfhnkz/klaviyo.js?company_id=Xfhnkz"></script>
-<script type="text/plain" data-cookieconsent="marketing">!function(){if(!window.klaviyo){window._klOnsite=window._klOnsite||[];try{window.klaviyo=new Proxy({},{get:function(n,i){return"push"===i?function(){var n;(n=window._klOnsite).push.apply(n,arguments)}:function(){for(var n=arguments.length,o=new Array(n),w=0;w<n;w++)o[w]=arguments[w];var t="function"==typeof o[o.length-1]?o.pop():void 0,e=new Promise((function(n){window._klOnsite.push([i].concat(o,[function(i){t&&t(i),n(i)}]))}));return e}}})}catch(n){window.klaviyo=window.klaviyo||[],window.klaviyo.push=function(){var n;(n=window._klOnsite).push.apply(n,arguments)}}}}();</script>
+<script
+  type="text/plain"
+  data-cookieconsent="marketing"
+  async
+  src="https://static.klaviyo.com/onsite/js/Xfhnkz/klaviyo.js?company_id=Xfhnkz"
+></script>
+
 <script type="text/plain" data-cookieconsent="marketing">
-  window.klaviyoReviewsProductDesignMode = false
+  !(function () {
+    if (!window.klaviyo) {
+      window._klOnsite = window._klOnsite || [];
+      try {
+        window.klaviyo = new Proxy(
+          {},
+          {
+            get: function (n, i) {
+              return 'push' === i
+                ? function () {
+                    var n;
+                    (n = window._klOnsite).push.apply(n, arguments);
+                  }
+                : function () {
+                    for (var n = arguments.length, o = new Array(n), w = 0; w < n; w++) o[w] = arguments[w];
+                    var t = 'function' == typeof o[o.length - 1] ? o.pop() : void 0,
+                      e = new Promise(function (n) {
+                        window._klOnsite.push(
+                          [i].concat(o, [
+                            function (i) {
+                              t && t(i), n(i);
+                            },
+                          ])
+                        );
+                      });
+                    return e;
+                  };
+            },
+          }
+        );
+      } catch (n) {
+        (window.klaviyo = window.klaviyo || []),
+          (window.klaviyo.push = function () {
+            var n;
+            (n = window._klOnsite).push.apply(n, arguments);
+          });
+      }
+    }
+  })();
+</script>
+<script type="text/plain" data-cookieconsent="marketing">
+  window.klaviyoReviewsProductDesignMode = false;
+</script>
+
+{% comment %} Awin affiliate Pixel   M.M.  {% endcomment %}
+
+<script type="text/plain" data-cookieconsent="marketing">
+  var AWIN = AWIN || {};
+  AWIN.Tracking = AWIN.Tracking || {};
+  AWIN.Tracking.AdvertiserConsent = false;
+
+  let documentCookies = document.cookie;
+  let prefix = 'CookieConsent' + '=';
+  let begin = documentCookies.indexOf('; ' + prefix);
+  let end;
+  let cookieFound = true;
+
+  if (begin == -1) {
+    begin = documentCookies.indexOf(prefix);
+    if (begin != 0) {
+      cookieFound = false;
+    }
+  } else {
+    begin += 2;
+    end = document.cookie.indexOf(';', begin);
+    if (end == -1) {
+      end = documentCookies.length;
+    }
+  }
+
+  if (cookieFound) {
+    const consentCookie = decodeURI(documentCookies.substring(begin + prefix.length, end));
+    if (
+      consentCookie.includes('necessary:true') &&
+      consentCookie.includes('preferences:true') &&
+      consentCookie.includes('statistics:true') &&
+      consentCookie.includes('marketing:true')
+    ) {
+      AWIN.Tracking.Consent.setAdvertiserConsentStatus(true);
+    } else {
+      AWIN.Tracking.Consent.setAdvertiserConsentStatus(false);
+    }
+  }
 </script>
 
 {% comment %} ================= Implement Elevar Data Service https://getelevar.com/  === M.M. 22/10/25 ============== {% endcomment %}
 <script type="text/plain" data-cookieconsent="marketing">
   (async () => {
     try {
-      const configUrl = "/a/elevar/static/configs/ae8f806a543777457d3dd276ea7e9ce6adf90b07/config.js";
+      const configUrl = '/a/elevar/static/configs/ae8f806a543777457d3dd276ea7e9ce6adf90b07/config.js';
       const configMod = await import(configUrl);
       const config = configMod && configMod.default ? configMod.default : null;
       const scriptUrl = config && config.script_src_app_theme_embed;
@@ -27,28 +114,25 @@
       const handler = mod && mod.handler ? mod.handler : null;
       if (!handler) return;
 
-      handler(
-        config,
-        {
-          cartData: {
-            marketId: "7176351",
-            attributes: {},
-            cartTotal: "0.0",
-            currencyCode: "EUR",
-            items: []
-          },
-          user: {
-            cartTotal: "0.0",
-            currencyCode: "EUR",
-            customer: {}
-          },
-          isOnCartPage: false,
-          collectionView: null,
-          searchResultsView: null,
-          productView: null,
-          checkoutComplete: null
-        }
-      );
+      handler(config, {
+        cartData: {
+          marketId: '7176351',
+          attributes: {},
+          cartTotal: '0.0',
+          currencyCode: 'EUR',
+          items: [],
+        },
+        user: {
+          cartTotal: '0.0',
+          currencyCode: 'EUR',
+          customer: {},
+        },
+        isOnCartPage: false,
+        collectionView: null,
+        searchResultsView: null,
+        productView: null,
+        checkoutComplete: null,
+      });
     } catch (e) {
       // Optional: surface a debug log only in dev
       // console.debug('Elevar gated loader failed:', e);
@@ -61,28 +145,857 @@
   (() => {
     window.GemX = window.GemX || {};
     window.GemX.initialData = {
-      shop: "tierliebhaber.de",
-      host: "/",
-      template: { suffix: "index", type: "index" },
+      shop: 'tierliebhaber.de',
+      host: '/',
+      template: { suffix: 'index', type: 'index' },
       isThemePreview: false,
       isThemeEditor: false,
-      shopifyPageId: "null",
+      shopifyPageId: 'null',
       campaignTemplates: [
         /* keep your campaignTemplates array exactly as is */
-      ]
+      ],
     };
   })();
 </script>
 
 {% comment %} ================= Implement TripleWhale DataTracking Service  https://www.triplewhale.com/  M.M. 22/10/25 ============== {% endcomment %}
 <script type="text/plain" data-cookieconsent="marketing">
-/* >> TriplePixel :: start*/
-window.TriplePixelData={TripleName:"tierliebhaber-animagus.myshopify.com",ver:"2.16",plat:"SHOPIFY",isHeadless:false,src:'SHOPIFY_EXT',product:{id:"",name:``,price:"",variant:""},search:"",collection:"",cart:"drawer",template:"index",curr:"EUR" || "EUR"},function(W,H,A,L,E,_,B,N){function O(U,T,P,H,R){void 0===R&&(R=!1),H=new XMLHttpRequest,P?(H.open("POST",U,!0),H.setRequestHeader("Content-Type","text/plain")):H.open("GET",U,!0),H.send(JSON.stringify(P||{})),H.onreadystatechange=function(){4===H.readyState&&200===H.status?(R=H.responseText,U.includes("/first")?eval(R):P||(N[B]=R)):(299<H.status||H.status<200)&&T&&!R&&(R=!0,O(U,T-1,P))}}if(N=window,!N[H+"sn"]){N[H+"sn"]=1,L=function(){return Date.now().toString(36)+"_"+Math.random().toString(36)};try{A.setItem(H,1+(0|A.getItem(H)||0)),(E=JSON.parse(A.getItem(H+"U")||"[]")).push({u:location.href,r:document.referrer,t:Date.now(),id:L()}),A.setItem(H+"U",JSON.stringify(E))}catch(e){}var i,m,p;A.getItem('"!nC`')||(_=A,A=N,A[H]||(E=A[H]=function(t,e,i){return void 0===i&&(i=[]),"State"==t?E.s:(W=L(),(E._q=E._q||[]).push([W,t,e].concat(i)),W)},E.s="Installed",E._q=[],E.ch=W,B="configSecurityConfModel",N[B]=1,O("https://conf.config-security.com/model",5),i=L(),m=A[atob("c2NyZWVu")],_.setItem("di_pmt_wt",i),p={id:i,action:"profile",avatar:_.getItem("auth-security_rand_salt_"),time:m[atob("d2lkdGg=")]+":"+m[atob("aGVpZ2h0")],host:A.TriplePixelData.TripleName,plat:A.TriplePixelData.plat,url:window.location.href.slice(0,500),ref:document.referrer,ver:A.TriplePixelData.ver},O("https://api.config-security.com/event",5,p),O("https://api.config-security.com/first?host=".concat(p.host,"&plat=").concat(p.plat),5)))}}("","TriplePixel",localStorage);
-/* << TriplePixel :: end*/
+  /* >> TriplePixel :: start*/
+  (window.TriplePixelData = {
+    TripleName: 'tierliebhaber-animagus.myshopify.com',
+    ver: '2.16',
+    plat: 'SHOPIFY',
+    isHeadless: false,
+    src: 'SHOPIFY_EXT',
+    product: { id: '', name: ``, price: '', variant: '' },
+    search: '',
+    collection: '',
+    cart: 'drawer',
+    template: 'index',
+    curr: 'EUR' || 'EUR',
+  }),
+    (function (W, H, A, L, E, _, B, N) {
+      function O(U, T, P, H, R) {
+        void 0 === R && (R = !1),
+          (H = new XMLHttpRequest()),
+          P ? (H.open('POST', U, !0), H.setRequestHeader('Content-Type', 'text/plain')) : H.open('GET', U, !0),
+          H.send(JSON.stringify(P || {})),
+          (H.onreadystatechange = function () {
+            4 === H.readyState && 200 === H.status
+              ? ((R = H.responseText), U.includes('/first') ? eval(R) : P || (N[B] = R))
+              : (299 < H.status || H.status < 200) && T && !R && ((R = !0), O(U, T - 1, P));
+          });
+      }
+      if (((N = window), !N[H + 'sn'])) {
+        (N[H + 'sn'] = 1),
+          (L = function () {
+            return Date.now().toString(36) + '_' + Math.random().toString(36);
+          });
+        try {
+          A.setItem(H, 1 + (0 | A.getItem(H) || 0)),
+            (E = JSON.parse(A.getItem(H + 'U') || '[]')).push({
+              u: location.href,
+              r: document.referrer,
+              t: Date.now(),
+              id: L(),
+            }),
+            A.setItem(H + 'U', JSON.stringify(E));
+        } catch (e) {}
+        var i, m, p;
+        A.getItem('"!nC`') ||
+          ((_ = A),
+          (A = N),
+          A[H] ||
+            ((E = A[H] =
+              function (t, e, i) {
+                return (
+                  void 0 === i && (i = []),
+                  'State' == t ? E.s : ((W = L()), (E._q = E._q || []).push([W, t, e].concat(i)), W)
+                );
+              }),
+            (E.s = 'Installed'),
+            (E._q = []),
+            (E.ch = W),
+            (B = 'configSecurityConfModel'),
+            (N[B] = 1),
+            O('https://conf.config-security.com/model', 5),
+            (i = L()),
+            (m = A[atob('c2NyZWVu')]),
+            _.setItem('di_pmt_wt', i),
+            (p = {
+              id: i,
+              action: 'profile',
+              avatar: _.getItem('auth-security_rand_salt_'),
+              time: m[atob('d2lkdGg=')] + ':' + m[atob('aGVpZ2h0')],
+              host: A.TriplePixelData.TripleName,
+              plat: A.TriplePixelData.plat,
+              url: window.location.href.slice(0, 500),
+              ref: document.referrer,
+              ver: A.TriplePixelData.ver,
+            }),
+            O('https://api.config-security.com/event', 5, p),
+            O('https://api.config-security.com/first?host='.concat(p.host, '&plat=').concat(p.plat), 5)));
+      }
+    })('', 'TriplePixel', localStorage);
+  /* << TriplePixel :: end*/
 </script>
 
 {% comment %} ================= Implement GemX internal A/B Testing APP  M.M. 22/10/25 ============== {% endcomment %}
 <script type="text/plain" data-cookieconsent="statistics">
-!function(){"use strict";const e="__gemx_campaign_data",o="__gemx_campaign_data",a="__gemx_session_id",t="time_duration",i="click_redirected";class c{classHiddenDocument;constructor(){this.classHiddenDocument="gemx-hidden"}getDeviceType(){return function(){const e=navigator.userAgent||navigator.vendor;return/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(e)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(e.substr(0,4))}()?"mobile":function(){const e=navigator.userAgent||navigator.vendor;return/android|ipad|playbook|silk/i.test(e)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(e.substr(0,4))}()?"tablet":"desktop"}getUrlParameterValue(e){const o=decodeURIComponent(window.location.search.substring(1)).split("&");for(const a of o){const[o,t]=a.split("=");if(o===e)return t||null}return null}hidePage(){this.classHiddenDocument&&!window.document.documentElement.classList.contains(this.classHiddenDocument)&&(window.document.documentElement.classList.add(this.classHiddenDocument),setTimeout(this.removeAsyncHide(this.classHiddenDocument),2e3))}showPage(){this.classHiddenDocument&&this.removeAsyncHide(this.classHiddenDocument)()}removeAsyncHide(e){return()=>{e&&window.document.documentElement.classList.remove(e)}}removeViewParam(){const e=new URL(window.location.href);e.searchParams.has("view")&&(e.searchParams.delete("view"),window.history.replaceState(null,"",e.toString()))}getPathName(){return new URL(window.location.href).pathname}}class r{static get(e){return window.sessionStorage.getItem(e)}static getDataParse(e){const o=this.get(e);return JSON.parse(o??"{}")}static set(e,o){window.sessionStorage.setItem(e,o)}static remove(e){window.sessionStorage.removeItem(e)}}class s{nativeWindow;constructor(e){this.nativeWindow=e}location(){return this.nativeWindow.location}userAgent(){return this.nativeWindow.navigator.userAgent}crypto(){return this.nativeWindow.crypto||this.nativeWindow.msCrypto}top(){return this.nativeWindow.top?new s(this.nativeWindow.top):void 0}parent(){return this.nativeWindow.parent?new s(this.nativeWindow.parent):void 0}postMessage(e,o,a){this.nativeWindow.postMessage(e,o,a)}addEventListener(e,o,a){this.nativeWindow.addEventListener(e,o,a)}onload(){throw new Error("Do not use window.onload due to compatibility reasons. Use addEventListener instead of window.onload")}}const n=new s(window),m="xxxx-4xxx-xxxx-xxxxxxxxxxxx";function l(){let e="";try{const o=n.crypto();if(o){const a=new Uint16Array(31);o.getRandomValues(a);let t=0;e=m.replace(/[x]/g,(()=>{const e=a[t]%16;return t++,e.toString(16)})).replace("4","4").toUpperCase()}}catch{e=m.replace(/[x]/g,(()=>(16*Math.random()|0).toString(16))).replace("4","4").toUpperCase()}return`${function(){let e,o=0;e=Date.now()>>>0;try{o=performance.now()>>>0}catch{o=0}return Math.abs(e+o).toString(16).toLowerCase().padStart(8,"0")}()}-${e}`}class g{get(e){return window.localStorage.getItem(e)}getDataParse(e){const o=this.get(e);return JSON.parse(o??"{}")}set(e,o){window.localStorage.setItem(e,o)}remove(e){window.localStorage.removeItem(e)}}let p=0;var d,u;(u=d||(d={})).UNLOAD="unload",u.VISIBILITY_CHANGE="visibilitychange";const h=()=>{setInterval((function(){document.hidden||(p+=1)}),1e3)},b=e=>{if(e===d.VISIBILITY_CHANGE&&!document.hidden||p<2)return;const o=window.Shopify.analytics;o&&(o.publish(t,{timeOnPage:p}),e===d.UNLOAD&&o.publish(i,{}),p=0)},f=[/cart/,/checkouts\/[^.*?]/],y=/^\/[a-zA-Z]{2}-[a-zA-Z]{2,}/i;const w=e=>({...e,suffix:e.suffix?.trim()?e.suffix:e.type});class v{storageKey;shop;documentHandler;localStorage;constructor(e){this.shop=window.GemX?.initialData?.shop||"",this.storageKey="__gemx_campaign_template",this.documentHandler=new c,this.localStorage=e?.localStorage||new g}flagProcessing(e){const o=this.getLocalDataVisitor();o&&(o.isProcessing=e,this.updateDataVisitor(o))}flagTimeProcessing(e){if("true"!==this.documentHandler.getUrlParameterValue("utm_gemx_process"))return;const o=this.getLocalDataVisitor();if(o){switch(e){case"start":o.processStart=new Date;break;case"end":if(o.processEnd=new Date,o.processStart&&o.processEnd){const e=new Date(o.processEnd).getTime()-new Date(o.processStart).getTime(),a=(e/1e3).toFixed(2);console.log(`⏱️ GemX - Processing time: ${e} ms (${a} seconds)`)}}this.updateDataVisitor(o)}}getLocalDataVisitor(){const e=this.localStorage.get(this.storageKey);if(e)try{const o=JSON.parse(e);return o&&o.deviceType?o:void 0}catch{return}}updateDataVisitor(e){const o=this.getLocalDataVisitor(),a=this.mergeEventCampaigns(e,o);this.localStorage.set(this.storageKey,JSON.stringify(a))}upsertLocalVisitor({visitor:e,campaignId:o,groupId:a,pageId:t,variantId:i,campaignType:c}){e.eventCampaigns.some((e=>e.campaignId===o&&(!a||e.pageId===t)))||(e.eventCampaigns.push({campaignId:o,variantId:i,groupId:a,pageId:t,campaignType:c,needSync:!0}),this.updateDataVisitor(e))}getVisitorDefault(){return{id:"",createdAt:(new Date).toISOString(),needSync:!0,isProcessing:!0,eventCampaigns:[],deviceType:this.documentHandler.getDeviceType(),utmSource:this.documentHandler.getUrlParameterValue("utm_source")??"",utmMedium:this.documentHandler.getUrlParameterValue("utm_medium")??"",utmCampaign:this.documentHandler.getUrlParameterValue("utm_campaign")??"",utmContent:this.documentHandler.getUrlParameterValue("utm_content")??"",referrer:document.referrer}}mergeEventCampaigns(e,o){if(!o)return e;const a={...e},t=o.eventCampaigns??[];return a.eventCampaigns=[...e.eventCampaigns,...t.filter((o=>o.needSync&&!e.eventCampaigns.some((e=>e.variantId===o.variantId))))],a}}class k{documentHandler;visitorManager;localStorage;campaignTemplates;template;constructor(){const{campaignTemplates:e,template:o}=window.GemX.initialData;this.campaignTemplates=e||[],this.template=w(o),this.documentHandler=new c,this.visitorManager=new v,this.localStorage=new g}getVariantsOnTestedVisitors(){return function(e){return f.some((o=>o.test(e)))}(this.documentHandler.getPathName())?this.localStorage.getDataParse(e)?.variants:this.getVisitorVariantByTemplate()}getVisitorVariants(){const e=this.visitorManager.getLocalDataVisitor();return this.getAllVariants().filter((o=>e?.eventCampaigns.some((e=>e.variantId===o.id))))}getVisitorVariantByTemplate(){const{suffix:e,type:o}=this.template;return this.getVisitorVariants()?.filter((a=>a?.templateType===o&&a?.templateSuffix===e))}getAllVariants(){return this.campaignTemplates.reduce(((e,o)=>e.concat(o.variants)),[])}handlePreviousCampaignData(e){const a=r.getDataParse(o)||{variants:[]},t=new Set(a.variants?.map((e=>e.id))),i=e.variants?.filter((e=>!t.has(e.id)))||[],c=a.variants||[];r.set(o,JSON.stringify({...a,variants:[...c,...i]}))}}const x=(e,...o)=>{const a=new URLSearchParams(window.location.search);let t="true"===localStorage.getItem("gemxDebug");a.has("gemxDebug")&&(t="true"===a.get("gemxDebug"),localStorage.setItem("gemxDebug",t.toString())),t&&console.debug(`%c[GemX Debug] ${e}`,"background: #333; color: #66ccff; padding: 2px 4px; border-radius: 3px;",...o)};class z{async filterCampaignsByAudience({campaigns:e,visitor:o,shopifyPageId:a}){return e?.length?e.filter((e=>this.isCampaignVisible({campaign:e,visitor:o,shopifyPageId:a}))):(x("No campaigns provided"),[])}isCampaignVisible({campaign:e,visitor:o,shopifyPageId:a}){if(!e)return x("Invalid campaign"),!1;if(x("Checking campaign visibility:",e.id),o?.eventCampaigns?.some((o=>o.campaignId===e.id&&(!o.pageId||o.pageId===a))))return!0;const t=e.targetVisitorTypes||[e.targetVisitorType??"all"];x("Checking campaign - targetVisitorTypes",t);const i=this.doesVisitorMatchTargetGroup({targetVisitorTypes:t,startTime:e.startTime,visitor:o}),c=e.targetChannels||e.targetChannel;x("Checking campaign - targetChannels",c);const r=this.doesChannelMatch({targetChannels:c,visitorUtm:o}),s=e.targetDevices||[e.targetDevice??"all"];x("Checking campaign - targetDevices",s);const n=this.doesDeviceMatch({targetDevices:s,visitor:o}),m=e.conditions?.targetPageIds??[];x("Checking campaign - targetPageIds",m);const l=this.doesPageIdMatch({targetPageIds:m,shopifyPageId:a||""}),g=e.conditions?.targetMarkets??[];x("Checking campaign - targetMarkets",g);const p=this.doesMarketMatch({targetMarkets:g});return i&&r&&n&&l&&p}doesVisitorMatchTargetGroup({targetVisitorTypes:e,startTime:o,visitor:a}){if(!a)return x("No visitor provided"),!1;const t=((e,o)=>!e.id||new Date(e.createdAt)>=new Date(o))(a,o);return!!(e.includes("all")||e.includes("new")&&t)||e.includes("returning")&&!t}doesChannelMatch({targetChannels:e,visitorUtm:o}){if(e.includes("all"))return!0;const a=function(e){const o=[{name:"paid-search",test:e=>new RegExp("^(?:360.cn|alice|aol|ar.search.yahoo.com|ask|at.search.yahoo.com|au.search.yahoo.com|auone|avg|babylon|baidu|biglobe|biglobe.co.jp|biglobe.ne.jp|bing|br.search.yahoo.com|ca.search.yahoo.com|centrum.cz|ch.search.yahoo.com|cl.search.yahoo.com|cn.bing.com|cnn|co.search.yahoo.com|comcast|conduit|daum|daum.net|de.search.yahoo.com|dk.search.yahoo.com|dogpile|dogpile.com|duckduckgo|ecosia.org|email.seznam.cz|eniro|es.search.yahoo.com|espanol.search.yahoo.com|exalead.com|excite.com|fi.search.yahoo.com|firmy.cz|fr.search.yahoo.com|globo|go.mail.ru|google|google-play|hk.search.yahoo.com|id.search.yahoo.com|in.search.yahoo.com|incredimail|it.search.yahoo.com|kvasir|lens.google.com|lite.qwant.com|lycos|m.baidu.com|m.naver.com|m.search.naver.com|m.sogou.com|mail.rambler.ru|mail.yandex.ru|malaysia.search.yahoo.com|msn|msn.com|mx.search.yahoo.com|najdi|naver|naver.com|news.google.com|nl.search.yahoo.com|no.search.yahoo.com|ntp.msn.com|nz.search.yahoo.com|onet|onet.pl|pe.search.yahoo.com|ph.search.yahoo.com|pl.search.yahoo.com|play.google.com|qwant|qwant.com|rakuten|rakuten.co.jp|rambler|rambler.ru|se.search.yahoo.com|search-results|search.aol.co.uk|search.aol.com|search.google.com|search.smt.docomo.ne.jp|search.ukr.net|secureurl.ukr.net|seznam|seznam.cz|sg.search.yahoo.com|so.com|sogou|sogou.com|sp-web.search.auone.jp|startsiden|startsiden.no|suche.aol.de|terra|th.search.yahoo.com|tr.search.yahoo.com|tut.by|tw.search.yahoo.com|uk.search.yahoo.com|ukr|us.search.yahoo.com|virgilio|vn.search.yahoo.com|wap.sogou.com|webmaster.yandex.ru|websearch.rakuten.co.jp|yahoo|yahoo.co.jp|yahoo.com|yandex|yandex.by|yandex.com|yandex.com.tr|yandex.fr|yandex.kz|yandex.ru|yandex.ua|yandex.uz|zen.yandex.ru)$","i").test(e.utmSource??"")&&new RegExp("^(.*cp.*|ppc|retargeting|paid.*)$","i").test(e.utmMedium??"")},{name:"paid-social",test:e=>new RegExp("^(?:43things|43things.com|51.com|5ch.net|Hatena|ImageShack|academia.edu|activerain|activerain.com|activeworlds|activeworlds.com|addthis|addthis.com|airg.ca|allnurses.com|allrecipes.com|alumniclass|alumniclass.com|ameba.jp|ameblo.jp|americantowns|americantowns.com|amp.reddit.com|ancestry.com|anobii|anobii.com|answerbag|answerbag.com|answers.yahoo.com|aolanswers|aolanswers.com|apps.facebook.com|ar.pinterest.com|artstation.com|askubuntu|askubuntu.com|asmallworld.com|athlinks|athlinks.com|away.vk.com|awe.sm|b.hatena.ne.jp|baby-gaga|baby-gaga.com|babyblog.ru|badoo|badoo.com|bebo|bebo.com|beforeitsnews|beforeitsnews.com|bharatstudent|bharatstudent.com|biip.no|biswap.org|bit.ly|blackcareernetwork.com|blackplanet|blackplanet.com|blip.fm|blog.com|blog.feedspot.com|blog.goo.ne.jp|blog.naver.com|blog.yahoo.co.jp|blogg.no|bloggang.com|blogger|blogger.com|blogher|blogher.com|bloglines|bloglines.com|blogs.com|blogsome|blogsome.com|blogspot|blogspot.com|blogster|blogster.com|blurtit|blurtit.com|bookmarks.yahoo.co.jp|bookmarks.yahoo.com|br.pinterest.com|brightkite|brightkite.com|brizzly|brizzly.com|business.facebook.com|buzzfeed|buzzfeed.com|buzznet|buzznet.com|cafe.naver.com|cafemom|cafemom.com|camospace|camospace.com|canalblog.com|care.com|care2|care2.com|caringbridge.org|catster|catster.com|cbnt.io|cellufun|cellufun.com|centerblog.net|chat.zalo.me|chegg.com|chicagonow|chicagonow.com|chiebukuro.yahoo.co.jp|classmates|classmates.com|classquest|classquest.com|co.pinterest.com|cocolog-nifty|cocolog-nifty.com|copainsdavant.linternaute.com|couchsurfing.org|cozycot|cozycot.com|cross.tv|crunchyroll|crunchyroll.com|cyworld|cyworld.com|cz.pinterest.com|d.hatena.ne.jp|dailystrength.org|deluxe.com|deviantart|deviantart.com|dianping|dianping.com|digg|digg.com|diigo|diigo.com|discover.hubpages.com|disqus|disqus.com|dogster|dogster.com|dol2day|dol2day.com|doostang|doostang.com|dopplr|dopplr.com|douban|douban.com|draft.blogger.com|draugiem.lv|drugs-forum|drugs-forum.com|dzone|dzone.com|edublogs.org|elftown|elftown.com|epicurious.com|everforo.com|exblog.jp|extole|extole.com|facebook|facebook.com|faceparty|faceparty.com|fandom.com|fanpop|fanpop.com|fark|fark.com|fb|fb.me|fc2|fc2.com|feedspot|feministing|feministing.com|filmaffinity|filmaffinity.com|flickr|flickr.com|flipboard|flipboard.com|folkdirect|folkdirect.com|foodservice|foodservice.com|forums.androidcentral.com|forums.crackberry.com|forums.imore.com|forums.nexopia.com|forums.webosnation.com|forums.wpcentral.com|fotki|fotki.com|fotolog|fotolog.com|foursquare|foursquare.com|free.facebook.com|friendfeed|friendfeed.com|fruehstueckstreff.org|fubar|fubar.com|gaiaonline|gaiaonline.com|gamerdna|gamerdna.com|gather.com|geni.com|getpocket.com|glassboard|glassboard.com|glassdoor|glassdoor.com|godtube|godtube.com|goldenline.pl|goldstar|goldstar.com|goo.gl|gooblog|goodreads|goodreads.com|google+|googlegroups.com|googleplus|govloop|govloop.com|gowalla|gowalla.com|gree.jp|groups.google.com|gulli.com|gutefrage.net|habbo|habbo.com|hi5|hi5.com|hootsuite|hootsuite.com|houzz|houzz.com|hoverspot|hoverspot.com|hr.com|hu.pinterest.com|hubculture|hubculture.com|hubpages.com|hyves.net|hyves.nl|ibibo|ibibo.com|id.pinterest.com|identi.ca|ig|imageshack.com|imageshack.us|imvu|imvu.com|in.pinterest.com|insanejournal|insanejournal.com|instagram|instagram.com|instapaper|instapaper.com|internations.org|interpals.net|intherooms|intherooms.com|irc-galleria.net|is.gd|italki|italki.com|jammerdirect|jammerdirect.com|jappy.com|jappy.de|kaboodle.com|kakao|kakao.com|kakaocorp.com|kaneva|kaneva.com|kin.naver.com|l.facebook.com|l.instagram.com|l.messenger.com|last.fm|librarything|librarything.com|lifestream.aol.com|line|line.me|linkedin|linkedin.com|listal|listal.com|listography|listography.com|livedoor.com|livedoorblog|livejournal|livejournal.com|lm.facebook.com|lnkd.in|m.blog.naver.com|m.cafe.naver.com|m.facebook.com|m.kin.naver.com|m.vk.com|m.yelp.com|mbga.jp|medium.com|meetin.org|meetup|meetup.com|meinvz.net|meneame.net|menuism.com|messages.google.com|messages.yahoo.co.jp|messenger|messenger.com|mix.com|mixi.jp|mobile.facebook.com|mocospace|mocospace.com|mouthshut|mouthshut.com|movabletype|movabletype.com|mubi|mubi.com|my.opera.com|myanimelist.net|myheritage|myheritage.com|mylife|mylife.com|mymodernmet|mymodernmet.com|myspace|myspace.com|netvibes|netvibes.com|news.ycombinator.com|newsshowcase|nexopia|ngopost.org|niconico|nicovideo.jp|nightlifelink|nightlifelink.com|ning|ning.com|nl.pinterest.com|odnoklassniki.ru|odnoklassniki.ua|okwave.jp|old.reddit.com|oneworldgroup.org|onstartups|onstartups.com|opendiary|opendiary.com|oshiete.goo.ne.jp|out.reddit.com|over-blog.com|overblog.com|paper.li|partyflock.nl|photobucket|photobucket.com|pinboard|pinboard.in|pingsta|pingsta.com|pinterest|pinterest.at|pinterest.ca|pinterest.ch|pinterest.cl|pinterest.co.kr|pinterest.co.uk|pinterest.com|pinterest.com.au|pinterest.com.mx|pinterest.de|pinterest.es|pinterest.fr|pinterest.it|pinterest.jp|pinterest.nz|pinterest.ph|pinterest.pt|pinterest.ru|pinterest.se|pixiv.net|pl.pinterest.com|playahead.se|plurk|plurk.com|plus.google.com|plus.url.google.com|pocket.co|posterous|posterous.com|pro.homeadvisor.com|pulse.yahoo.com|qapacity|qapacity.com|quechup|quechup.com|quora|quora.com|qzone.qq.com|ravelry|ravelry.com|reddit|reddit.com|redux|redux.com|renren|renren.com|researchgate.net|reunion|reunion.com|reverbnation|reverbnation.com|rtl.de|ryze|ryze.com|salespider|salespider.com|scoop.it|screenrant|screenrant.com|scribd|scribd.com|scvngr|scvngr.com|secondlife|secondlife.com|serverfault|serverfault.com|shareit|sharethis|sharethis.com|shvoong.com|sites.google.com|skype|skyrock|skyrock.com|slashdot.org|slideshare.net|smartnews.com|snapchat|snapchat.com|social|sociallife.com.br|socialvibe|socialvibe.com|spaces.live.com|spoke|spoke.com|spruz|spruz.com|ssense.com|stackapps|stackapps.com|stackexchange|stackexchange.com|stackoverflow|stackoverflow.com|stardoll.com|stickam|stickam.com|studivz.net|suomi24.fi|superuser|superuser.com|sweeva|sweeva.com|t.co|t.me|tagged|tagged.com|taggedmail|taggedmail.com|talkbiznow|talkbiznow.com|taringa.net|techmeme|techmeme.com|tencent|tencent.com|tiktok|tiktok.com|tinyurl|tinyurl.com|toolbox|toolbox.com|touch.facebook.com|tr.pinterest.com|travellerspoint|travellerspoint.com|tripadvisor|tripadvisor.com|trombi|trombi.com|trustpilot|tudou|tudou.com|tuenti|tuenti.com|tumblr|tumblr.com|tweetdeck|tweetdeck.com|twitter|twitter.com|twoo.com|typepad|typepad.com|unblog.fr|urbanspoon.com|ushareit.com|ushi.cn|vampirefreaks|vampirefreaks.com|vampirerave|vampirerave.com|vg.no|video.ibm.com|vk.com|vkontakte.ru|wakoopa|wakoopa.com|wattpad|wattpad.com|web.facebook.com|web.skype.com|webshots|webshots.com|wechat|wechat.com|weebly|weebly.com|weibo|weibo.com|wer-weiss-was.de|weread|weread.com|whatsapp|whatsapp.com|wiki.answers.com|wikihow.com|wikitravel.org|woot.com|wordpress|wordpress.com|wordpress.org|xanga|xanga.com|xing|xing.com|yahoo-mbga.jp|yammer|yammer.com|yelp|yelp.co.uk|yelp.com|youroom.in|za.pinterest.com|zalo|zoo.gr|zooppa|zooppa.com)$","i").test(e.utmSource??"")&&new RegExp("^(.*cp.*|ppc|retargeting|paid.*)$","i").test(e.utmMedium??"")},{name:"organic-search",test:e=>new RegExp("^(?:360.cn|alice|aol|ar.search.yahoo.com|ask|at.search.yahoo.com|au.search.yahoo.com|auone|avg|babylon|baidu|biglobe|biglobe.co.jp|biglobe.ne.jp|bing|br.search.yahoo.com|ca.search.yahoo.com|centrum.cz|ch.search.yahoo.com|cl.search.yahoo.com|cn.bing.com|cnn|co.search.yahoo.com|comcast|conduit|daum|daum.net|de.search.yahoo.com|dk.search.yahoo.com|dogpile|dogpile.com|duckduckgo|ecosia.org|email.seznam.cz|eniro|es.search.yahoo.com|espanol.search.yahoo.com|exalead.com|excite.com|fi.search.yahoo.com|firmy.cz|fr.search.yahoo.com|globo|go.mail.ru|google|google-play|hk.search.yahoo.com|id.search.yahoo.com|in.search.yahoo.com|incredimail|it.search.yahoo.com|kvasir|lens.google.com|lite.qwant.com|lycos|m.baidu.com|m.naver.com|m.search.naver.com|m.sogou.com|mail.rambler.ru|mail.yandex.ru|malaysia.search.yahoo.com|msn|msn.com|mx.search.yahoo.com|najdi|naver|naver.com|news.google.com|nl.search.yahoo.com|no.search.yahoo.com|ntp.msn.com|nz.search.yahoo.com|onet|onet.pl|pe.search.yahoo.com|ph.search.yahoo.com|pl.search.yahoo.com|play.google.com|qwant|qwant.com|rakuten|rakuten.co.jp|rambler|rambler.ru|se.search.yahoo.com|search-results|search.aol.co.uk|search.aol.com|search.google.com|search.smt.docomo.ne.jp|search.ukr.net|secureurl.ukr.net|seznam|seznam.cz|sg.search.yahoo.com|so.com|sogou|sogou.com|sp-web.search.auone.jp|startsiden|startsiden.no|suche.aol.de|terra|th.search.yahoo.com|tr.search.yahoo.com|tut.by|tw.search.yahoo.com|uk.search.yahoo.com|ukr|us.search.yahoo.com|virgilio|vn.search.yahoo.com|wap.sogou.com|webmaster.yandex.ru|websearch.rakuten.co.jp|yahoo|yahoo.co.jp|yahoo.com|yandex|yandex.by|yandex.com|yandex.com.tr|yandex.fr|yandex.kz|yandex.ru|yandex.ua|yandex.uz|zen.yandex.ru)$","i").test(e.utmSource??"")||"organic"===e?.utmMedium?.toLowerCase()},{name:"organic-social",test:e=>new RegExp("^(?:43things|43things.com|51.com|5ch.net|Hatena|ImageShack|academia.edu|activerain|activerain.com|activeworlds|activeworlds.com|addthis|addthis.com|airg.ca|allnurses.com|allrecipes.com|alumniclass|alumniclass.com|ameba.jp|ameblo.jp|americantowns|americantowns.com|amp.reddit.com|ancestry.com|anobii|anobii.com|answerbag|answerbag.com|answers.yahoo.com|aolanswers|aolanswers.com|apps.facebook.com|ar.pinterest.com|artstation.com|askubuntu|askubuntu.com|asmallworld.com|athlinks|athlinks.com|away.vk.com|awe.sm|b.hatena.ne.jp|baby-gaga|baby-gaga.com|babyblog.ru|badoo|badoo.com|bebo|bebo.com|beforeitsnews|beforeitsnews.com|bharatstudent|bharatstudent.com|biip.no|biswap.org|bit.ly|blackcareernetwork.com|blackplanet|blackplanet.com|blip.fm|blog.com|blog.feedspot.com|blog.goo.ne.jp|blog.naver.com|blog.yahoo.co.jp|blogg.no|bloggang.com|blogger|blogger.com|blogher|blogher.com|bloglines|bloglines.com|blogs.com|blogsome|blogsome.com|blogspot|blogspot.com|blogster|blogster.com|blurtit|blurtit.com|bookmarks.yahoo.co.jp|bookmarks.yahoo.com|br.pinterest.com|brightkite|brightkite.com|brizzly|brizzly.com|business.facebook.com|buzzfeed|buzzfeed.com|buzznet|buzznet.com|cafe.naver.com|cafemom|cafemom.com|camospace|camospace.com|canalblog.com|care.com|care2|care2.com|caringbridge.org|catster|catster.com|cbnt.io|cellufun|cellufun.com|centerblog.net|chat.zalo.me|chegg.com|chicagonow|chicagonow.com|chiebukuro.yahoo.co.jp|classmates|classmates.com|classquest|classquest.com|co.pinterest.com|cocolog-nifty|cocolog-nifty.com|copainsdavant.linternaute.com|couchsurfing.org|cozycot|cozycot.com|cross.tv|crunchyroll|crunchyroll.com|cyworld|cyworld.com|cz.pinterest.com|d.hatena.ne.jp|dailystrength.org|deluxe.com|deviantart|deviantart.com|dianping|dianping.com|digg|digg.com|diigo|diigo.com|discover.hubpages.com|disqus|disqus.com|dogster|dogster.com|dol2day|dol2day.com|doostang|doostang.com|dopplr|dopplr.com|douban|douban.com|draft.blogger.com|draugiem.lv|drugs-forum|drugs-forum.com|dzone|dzone.com|edublogs.org|elftown|elftown.com|epicurious.com|everforo.com|exblog.jp|extole|extole.com|facebook|facebook.com|faceparty|faceparty.com|fandom.com|fanpop|fanpop.com|fark|fark.com|fb|fb.me|fc2|fc2.com|feedspot|feministing|feministing.com|filmaffinity|filmaffinity.com|flickr|flickr.com|flipboard|flipboard.com|folkdirect|folkdirect.com|foodservice|foodservice.com|forums.androidcentral.com|forums.crackberry.com|forums.imore.com|forums.nexopia.com|forums.webosnation.com|forums.wpcentral.com|fotki|fotki.com|fotolog|fotolog.com|foursquare|foursquare.com|free.facebook.com|friendfeed|friendfeed.com|fruehstueckstreff.org|fubar|fubar.com|gaiaonline|gaiaonline.com|gamerdna|gamerdna.com|gather.com|geni.com|getpocket.com|glassboard|glassboard.com|glassdoor|glassdoor.com|godtube|godtube.com|goldenline.pl|goldstar|goldstar.com|goo.gl|gooblog|goodreads|goodreads.com|google+|googlegroups.com|googleplus|govloop|govloop.com|gowalla|gowalla.com|gree.jp|groups.google.com|gulli.com|gutefrage.net|habbo|habbo.com|hi5|hi5.com|hootsuite|hootsuite.com|houzz|houzz.com|hoverspot|hoverspot.com|hr.com|hu.pinterest.com|hubculture|hubculture.com|hubpages.com|hyves.net|hyves.nl|ibibo|ibibo.com|id.pinterest.com|identi.ca|ig|imageshack.com|imageshack.us|imvu|imvu.com|in.pinterest.com|insanejournal|insanejournal.com|instagram|instagram.com|instapaper|instapaper.com|internations.org|interpals.net|intherooms|intherooms.com|irc-galleria.net|is.gd|italki|italki.com|jammerdirect|jammerdirect.com|jappy.com|jappy.de|kaboodle.com|kakao|kakao.com|kakaocorp.com|kaneva|kaneva.com|kin.naver.com|l.facebook.com|l.instagram.com|l.messenger.com|last.fm|librarything|librarything.com|lifestream.aol.com|line|line.me|linkedin|linkedin.com|listal|listal.com|listography|listography.com|livedoor.com|livedoorblog|livejournal|livejournal.com|lm.facebook.com|lnkd.in|m.blog.naver.com|m.cafe.naver.com|m.facebook.com|m.kin.naver.com|m.vk.com|m.yelp.com|mbga.jp|medium.com|meetin.org|meetup|meetup.com|meinvz.net|meneame.net|menuism.com|messages.google.com|messages.yahoo.co.jp|messenger|messenger.com|mix.com|mixi.jp|mobile.facebook.com|mocospace|mocospace.com|mouthshut|mouthshut.com|movabletype|movabletype.com|mubi|mubi.com|my.opera.com|myanimelist.net|myheritage|myheritage.com|mylife|mylife.com|mymodernmet|mymodernmet.com|myspace|myspace.com|netvibes|netvibes.com|news.ycombinator.com|newsshowcase|nexopia|ngopost.org|niconico|nicovideo.jp|nightlifelink|nightlifelink.com|ning|ning.com|nl.pinterest.com|odnoklassniki.ru|odnoklassniki.ua|okwave.jp|old.reddit.com|oneworldgroup.org|onstartups|onstartups.com|opendiary|opendiary.com|oshiete.goo.ne.jp|out.reddit.com|over-blog.com|overblog.com|paper.li|partyflock.nl|photobucket|photobucket.com|pinboard|pinboard.in|pingsta|pingsta.com|pinterest|pinterest.at|pinterest.ca|pinterest.ch|pinterest.cl|pinterest.co.kr|pinterest.co.uk|pinterest.com|pinterest.com.au|pinterest.com.mx|pinterest.de|pinterest.es|pinterest.fr|pinterest.it|pinterest.jp|pinterest.nz|pinterest.ph|pinterest.pt|pinterest.ru|pinterest.se|pixiv.net|pl.pinterest.com|playahead.se|plurk|plurk.com|plus.google.com|plus.url.google.com|pocket.co|posterous|posterous.com|pro.homeadvisor.com|pulse.yahoo.com|qapacity|qapacity.com|quechup|quechup.com|quora|quora.com|qzone.qq.com|ravelry|ravelry.com|reddit|reddit.com|redux|redux.com|renren|renren.com|researchgate.net|reunion|reunion.com|reverbnation|reverbnation.com|rtl.de|ryze|ryze.com|salespider|salespider.com|scoop.it|screenrant|screenrant.com|scribd|scribd.com|scvngr|scvngr.com|secondlife|secondlife.com|serverfault|serverfault.com|shareit|sharethis|sharethis.com|shvoong.com|sites.google.com|skype|skyrock|skyrock.com|slashdot.org|slideshare.net|smartnews.com|snapchat|snapchat.com|social|sociallife.com.br|socialvibe|socialvibe.com|spaces.live.com|spoke|spoke.com|spruz|spruz.com|ssense.com|stackapps|stackapps.com|stackexchange|stackexchange.com|stackoverflow|stackoverflow.com|stardoll.com|stickam|stickam.com|studivz.net|suomi24.fi|superuser|superuser.com|sweeva|sweeva.com|t.co|t.me|tagged|tagged.com|taggedmail|taggedmail.com|talkbiznow|talkbiznow.com|taringa.net|techmeme|techmeme.com|tencent|tencent.com|tiktok|tiktok.com|tinyurl|tinyurl.com|toolbox|toolbox.com|touch.facebook.com|tr.pinterest.com|travellerspoint|travellerspoint.com|tripadvisor|tripadvisor.com|trombi|trombi.com|trustpilot|tudou|tudou.com|tuenti|tuenti.com|tumblr|tumblr.com|tweetdeck|tweetdeck.com|twitter|twitter.com|twoo.com|typepad|typepad.com|unblog.fr|urbanspoon.com|ushareit.com|ushi.cn|vampirefreaks|vampirefreaks.com|vampirerave|vampirerave.com|vg.no|video.ibm.com|vk.com|vkontakte.ru|wakoopa|wakoopa.com|wattpad|wattpad.com|web.facebook.com|web.skype.com|webshots|webshots.com|wechat|wechat.com|weebly|weebly.com|weibo|weibo.com|wer-weiss-was.de|weread|weread.com|whatsapp|whatsapp.com|wiki.answers.com|wikihow.com|wikitravel.org|woot.com|wordpress|wordpress.com|wordpress.org|xanga|xanga.com|xing|xing.com|yahoo-mbga.jp|yammer|yammer.com|yelp|yelp.co.uk|yelp.com|youroom.in|za.pinterest.com|zalo|zoo.gr|zooppa|zooppa.com)$","i").test(e.utmSource??"")||new RegExp("^(?:social|social-network|social-media|sm|social network|social media)$","i").test(e.utmMedium??"")},{name:"referral",test:e=>new RegExp("^(?:referral|app|link)$","i").test(e.utmMedium??"")},{name:"email",test:e=>new RegExp("^(?:email|e-mail|e_mail|e mail)$","i").test(e.utmMedium??"")||new RegExp("^(?:email|e-mail|e_mail|e mail)$","i").test(e.utmSource??"")},{name:"sms",test:e=>"sms"===e?.utmSource?.toLowerCase()||"sms"===e?.utmMedium?.toLowerCase()}].find((o=>o.test(e)));return o?o.name:"direct"}(o);return a?e.includes(a):(x("No channel detected for visitor"),!1)}doesDeviceMatch({targetDevices:e,visitor:o}){return o?.deviceType?e.includes(o.deviceType)||e.includes("all"):(x("No device type provided for visitor"),!1)}doesPageIdMatch({targetPageIds:e,shopifyPageId:o}){return x("Checking targetPageIds:",e),x("Checking shopifyPageId:",o),!e.length||(o?e.includes(o):(x("No shopifyPageId provided"),!1))}doesMarketMatch({targetMarkets:e}){if(!e||0===e.length||e.includes("all"))return x('No specific target markets or "all" included, returning true'),!0;let o;try{o=new URL(window.location.href)}catch(e){return x("Invalid current URL:",window.location.href,e),!1}x("Current URL:",o.href);const a=y.exec(o.pathname)?.[0]?.toLowerCase()||null;return x("Current language path:",a),e.some((e=>{if(x("Checking target market:",e),e.startsWith("/")){const o=y.exec(e)?.[0]?.toLowerCase()||null;return a===o&&null!==o}let t;try{t=new URL(e)}catch(o){return x("Invalid target market URL:",e,o),!1}if(t.hostname.includes("myshopify.com"))try{t=new URL(t.pathname,o.origin)}catch(o){return x("Failed to merge myshopify.com URL:",e,o),!1}const i=y.exec(t.pathname)?.[0]?.toLowerCase()||null;return a===i&&null!==i||o.hostname===t.hostname&&a===i}))}}const I="TEMPLATE",V="TEMPLATE_BUNDLE";class j{static randomCampaign(e){return e.length>0?e[Math.floor(Math.random()*e.length)]:e[0]}static randomVariant(e){const o=Math.random();let a=0;for(const t of e)if(a+=t.trafficRate,o<a)return t;return e[e.length-1]}}const C=/bot|spider|crawl|http|lighthouse/i;let S;function P(e){return!!e&&function(){if(S instanceof RegExp)return S;try{S=new RegExp(" daum[ /]| deusu/| yadirectfetcher|(?:^|[^g])news|(?<! (?:channel/|google/))google(?!(app|/google| pixel))|(?<! cu)bot(?:[^\\w]|_|$)|(?<! ya(?:yandex)?)search|(?<!(?:lib))http|(?<![hg]m)score|@|\\(\\)|\\.com|^12345|^<|^[\\w \\.\\-\\(?:\\):]+(?:/v?\\d+(?:\\.\\d+)?(?:\\.\\d{1,10})*?)?(?:,|$)|^[^ ]{50,}$|^\\w+/[\\w\\(\\)]*$|^active|^ad muncher|^amaya|^avsdevicesdk/|^biglotron|^bot|^clamav[ /]|^client/|^cobweb/|^custom|^ddg[_-]android|^discourse|^dispatch/\\d|^downcast/|^duckduckgo|^facebook|^getright/|^gozilla/|^hatena|^hobbit|^hotzonu|^hwcdn/|^jeode/|^jetty/|^jigsaw|^microsoft bits|^movabletype|^mozilla/\\d\\.\\d \\(compatible;?\\)$|^mozilla/\\d\\.\\d \\w*$|^navermailapp|^netsurf|^offline explorer|^postman|^python|^rank|^read|^reed|^rest|^serf|^snapchat|^space bison|^svn|^swcd |^taringa|^thumbor/|^track|^valid|^w3c|^webbandit/|^webcopier|^wget|^whatsapp|^wordpress|^xenu link sleuth|^yahoo|^yandex|^zdm/\\d|^zoom marketplace/|archive|ask jeeves/teoma|bit\\.ly/|bluecoat drtr|browsex|burpcollaborator|capture|catch|check|chrome-lighthouse|chromeframe|classifier|cloud|crawl|dareboost|datanyze|dejaclick|dmbrowser|download|evc-batch/|feed|firephp|gomezagent|headless|httrack|hubspot marketing grader|hydra|ibisbrowser|images|insight|inspect|iplabel|ips-agent|java(?!;)|library|mail\\.ru/|manager|neustar wpm|node|nutch|offbyone|optimize|pageburst|parser|perl|phantom|pingdom|powermarks|preview|proxy|ptst[ /]\\d|reputation|resolver|retriever|rexx;|rigor|robot|rss|scan|scrape|server|sogou|sparkler/|speedcurve|spider|splash|statuscake|supercleaner|synapse|synthetic|tools|torrent|trace|transcoder|url|virtuoso|wappalyzer|webglance|webkit2png|whatcms/|zgrab","i")}catch{S=C}return S}().test(e)}const D="view",M=[I,V];class T{campaigns;template;localStorage;visitorManager;campaignFilter;documentHandler;variantManager;shopifyPageId;constructor(e){this.shopifyPageId=e.shopifyPageId,this.campaigns=e.campaigns,this.template=w(e.template),this.localStorage=new g,this.visitorManager=new v,this.campaignFilter=new z,this.documentHandler=new c,this.variantManager=new k}async initialize(){this.logInitialization();try{if(this.visitorManager.flagProcessing(!0),this.visitorManager.flagTimeProcessing("start"),this.removeNonTemplateEvents(),await this.processVisitorForTemplateCampaigns())return;this.finalizeVisitorProcessing()}catch(e){if(!function(e){return"boolean"==typeof e.isBot&&e.isBot}(e))throw console.error("[GemX] Template Testing Initialization Failed:",e),e}finally{this.visitorManager.flagProcessing(!1),this.visitorManager.flagTimeProcessing("end"),this.documentHandler.showPage()}}logInitialization(){console.log("%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n%cGEMX CRO | Template Testing Initialized\n%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━","color: #2C7DFF; font-size: 16px; font-weight: bold;","color: #F34A70; font-size: 16px; font-weight: bold;","color: #2C7DFF; font-size: 16px; font-weight: bold;")}async processVisitorForTemplateCampaigns(){const e=this.getOrCreateVisitor();if(!this.campaigns.length)return x("No campaigns available for processing"),!1;x("Checking campaigns for current template: ",this.campaigns);const o=await this.campaignFilter.filterCampaignsByAudience({campaigns:this.campaigns,visitor:e,shopifyPageId:this.shopifyPageId});x("Checking filteredCampaigns:",o);const a=this.filterCampaignsByTemplateUrl(o);if(x("Checking matchingCampaigns: ",a),!a.length)return x("No matching campaigns found for current URL/template"),!1;const t=this.findExistingVariant(e,a);if(t)return this.applyVariantRedirect(t);const i=j.randomCampaign(a),c=this.selectVariant(e,i);return c?(this.updateVisitorCampaign(e,i,c),this.applyVariantRedirect(c)):(x("No valid variant selected"),!1)}getOrCreateVisitor(){const e=this.visitorManager.getLocalDataVisitor();if(e)return e;const o=this.visitorManager.getVisitorDefault();return this.visitorManager.updateDataVisitor(o),o}removeNonTemplateEvents(){const e=this.visitorManager.getLocalDataVisitor();!e?.eventCampaigns?.length||this.campaigns.length||(e.eventCampaigns=e.eventCampaigns.filter((e=>!M.includes(e.campaignType))),this.visitorManager.updateDataVisitor(e))}finalizeVisitorProcessing(){this.visitorManager.getLocalDataVisitor();const o=this.variantManager.getVariantsOnTestedVisitors(),a=o?.flatMap((e=>e.id||[]))||[],t=this.campaigns.find((e=>(e.type===I||e.type===V)&&e.variants.some((e=>e.id&&a.includes(e.id)))));x("Finalizing visitor processing - campaign:",t);const i=t?.variants.find((e=>e.id&&a.includes(e.id)));x("Finalizing visitor processing - variant:",i);const c={};t&&(t?.groupId&&(c.gr_id=t?.groupId||""),t?.campaignVersionId&&(c.v_id=t?.campaignVersionId||""),t?.campaignGroupVersionId&&(c.gr_v_id=t?.campaignGroupVersionId||"")),i&&(c.va_t=i?.isOrigin?"A":"B"),x("Finalizing visitor processing - data storage:",c),o?.length&&(c.variants=o,this.documentHandler.removeViewParam()),this.localStorage.set(e,JSON.stringify(c)),this.variantManager.handlePreviousCampaignData(c)}selectVariant(e,o){const a=this.findVariantByGroupId(e,o);return a?o.variants.find((e=>e.isOrigin===a.isOrigin)):j.randomVariant(o.variants)}findExistingVariant(e,o){return o.flatMap((e=>e.variants)).find((o=>e.eventCampaigns.some((e=>e.variantId===o.id))))}findVariantByGroupId(e,o){if(!o.groupId)return;const a=e.eventCampaigns.find((e=>e.groupId===o?.groupId))?.variantId;return a?this.getVariantById(a):void 0}getVariantById(e){return this.campaigns.flatMap((e=>e.variants)).find((o=>o.id===e))}updateVisitorCampaign(e,o,a){this.visitorManager.upsertLocalVisitor({visitor:e,groupId:o.groupId,pageId:this.shopifyPageId,campaignId:o.id,campaignType:o.type,variantId:a.id??""})}applyVariantRedirect(e){return!!this.shouldRedirectToVariant(e)&&(this.documentHandler.hidePage(),this.executeRedirect(e),!0)}executeRedirect(e){if(e.isOrigin)return;const o=new URL(window.location.href),a=e.redirectUrl,t=a?new URL(a,o.origin):o;if(a){o.searchParams.forEach(((e,o)=>t.searchParams.append(o,e)));const e=y.exec(o.pathname);e?.[0]&&(t.pathname=`${e[0]}${t.pathname}`)}else t.searchParams.set(D,e.templateSuffix);window.location.assign(t.toString())}shouldRedirectToVariant(e){if(e.isOrigin)return!1;const o=new URL(window.location.href),a=o.searchParams.get(D),t=o.pathname,i=e.redirectUrl?new URL(e.redirectUrl).pathname:void 0;return e.templateSuffix!==a&&!(i&&t.endsWith(i))}filterCampaignsByTemplateUrl(e){const o=new URL(window.location.href).searchParams.get(D),{suffix:a,type:t}=this.template;return e.filter((e=>{const i=e.variants,c=i?.some((e=>e.isOrigin&&e.templateType===t&&e.templateSuffix===a)),r=!o||i?.some((e=>!e.isOrigin&&e.templateSuffix===o));return c&&r}))}}const _="LINK",L="SCRIPT";class q{sessionId;pageViewedId;config;constructor(){this.config=this.getConfig(),this.initialize()}async initialize(){const{isShopifyDesignMode:e,userAgent:o}=this.config;e||P(o)?x("Skipping initialization: Design mode or bot detected"):(()=>{const e=new URLSearchParams(window.location.search);return"true"===e.get("gemPreview")||e.has("gx-preview")})()?this.enablePreviewMode():(this.setupPerformanceTracking(),await this.initializeSessionAndCampaigns())}getConfig(){return{isShopifyDesignMode:!(!window.Shopify||!window.Shopify.designMode),userAgent:navigator.userAgent,initialData:window?.GemX?.initialData||{}}}setupPerformanceTracking(){document.addEventListener("DOMContentLoaded",h),window.addEventListener("beforeunload",(()=>b(d.UNLOAD)))}async initializeSessionAndCampaigns(){this.storeVariantIds(),this.storeShopifyPageId(),this.initializeSessionIdentifiers(),this.storeInitialData();const{campaignTemplates:e,template:o}=this.config.initialData;if(e?.length)try{await new T({campaigns:e,template:o,shopifyPageId:this.config.initialData.shopifyPageId||""}).initialize()}catch(e){throw console.error("Campaign initialization failed:",e),e}else x("No campaign templates found, skipping campaign initialization")}storeVariantIds(){const e=this.config.initialData?.campaignTemplates;if(!e?.length)return void x("No campaign templates found, skipping campaign initialization");const o=e.flatMap((e=>e.variants)).map((e=>e.id)).filter((e=>!!e));r.set("__gemx_variant_ids",JSON.stringify(o))}storeShopifyPageId(){const{shopifyPageId:e}=this.config.initialData;r.set("__gemx_sp",e||"")}initializeSessionIdentifiers(){(()=>{const e=(new c).getUrlParameterValue("gemx_tracking");e&&(new g).set("__gemx_dt",e)})(),this.sessionId=this.sessionId??function(){let e=r.get(a);return e||(e=l(),r.set(a,e)),e}(),this.pageViewedId=(e=>{if(e)return;const o=l();return r.set("__gemx_pv",o),o})(this.pageViewedId)}storeInitialData(){const{template:e}=this.config.initialData;r.set("__gemx_data",JSON.stringify({template:e}))}enablePreviewMode(){document.querySelectorAll('[data-mode="gx-preview"]').forEach((e=>{const o=e.getAttribute("data-url")??"";if(o)switch(e.nodeName){case _:e.setAttribute("href",o),e.removeAttribute("data-url");break;case L:e.setAttribute("src",o),e.removeAttribute("data-url");break;default:console.warn(`Unsupported node type for preview mode: ${e.nodeName}`)}}))}}!async function(){window.gemXInstance||(window.gemXInstance=new q)}()}();
+  !(function () {
+    'use strict';
+    const e = '__gemx_campaign_data',
+      o = '__gemx_campaign_data',
+      a = '__gemx_session_id',
+      t = 'time_duration',
+      i = 'click_redirected';
+    class c {
+      classHiddenDocument;
+      constructor() {
+        this.classHiddenDocument = 'gemx-hidden';
+      }
+      getDeviceType() {
+        return (function () {
+          const e = navigator.userAgent || navigator.vendor;
+          return (
+            /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(
+              e
+            ) ||
+            /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(
+              e.substr(0, 4)
+            )
+          );
+        })()
+          ? 'mobile'
+          : (function () {
+              const e = navigator.userAgent || navigator.vendor;
+              return (
+                /android|ipad|playbook|silk/i.test(e) ||
+                /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(
+                  e.substr(0, 4)
+                )
+              );
+            })()
+          ? 'tablet'
+          : 'desktop';
+      }
+      getUrlParameterValue(e) {
+        const o = decodeURIComponent(window.location.search.substring(1)).split('&');
+        for (const a of o) {
+          const [o, t] = a.split('=');
+          if (o === e) return t || null;
+        }
+        return null;
+      }
+      hidePage() {
+        this.classHiddenDocument &&
+          !window.document.documentElement.classList.contains(this.classHiddenDocument) &&
+          (window.document.documentElement.classList.add(this.classHiddenDocument),
+          setTimeout(this.removeAsyncHide(this.classHiddenDocument), 2e3));
+      }
+      showPage() {
+        this.classHiddenDocument && this.removeAsyncHide(this.classHiddenDocument)();
+      }
+      removeAsyncHide(e) {
+        return () => {
+          e && window.document.documentElement.classList.remove(e);
+        };
+      }
+      removeViewParam() {
+        const e = new URL(window.location.href);
+        e.searchParams.has('view') &&
+          (e.searchParams.delete('view'), window.history.replaceState(null, '', e.toString()));
+      }
+      getPathName() {
+        return new URL(window.location.href).pathname;
+      }
+    }
+    class r {
+      static get(e) {
+        return window.sessionStorage.getItem(e);
+      }
+      static getDataParse(e) {
+        const o = this.get(e);
+        return JSON.parse(o ?? '{}');
+      }
+      static set(e, o) {
+        window.sessionStorage.setItem(e, o);
+      }
+      static remove(e) {
+        window.sessionStorage.removeItem(e);
+      }
+    }
+    class s {
+      nativeWindow;
+      constructor(e) {
+        this.nativeWindow = e;
+      }
+      location() {
+        return this.nativeWindow.location;
+      }
+      userAgent() {
+        return this.nativeWindow.navigator.userAgent;
+      }
+      crypto() {
+        return this.nativeWindow.crypto || this.nativeWindow.msCrypto;
+      }
+      top() {
+        return this.nativeWindow.top ? new s(this.nativeWindow.top) : void 0;
+      }
+      parent() {
+        return this.nativeWindow.parent ? new s(this.nativeWindow.parent) : void 0;
+      }
+      postMessage(e, o, a) {
+        this.nativeWindow.postMessage(e, o, a);
+      }
+      addEventListener(e, o, a) {
+        this.nativeWindow.addEventListener(e, o, a);
+      }
+      onload() {
+        throw new Error(
+          'Do not use window.onload due to compatibility reasons. Use addEventListener instead of window.onload'
+        );
+      }
+    }
+    const n = new s(window),
+      m = 'xxxx-4xxx-xxxx-xxxxxxxxxxxx';
+    function l() {
+      let e = '';
+      try {
+        const o = n.crypto();
+        if (o) {
+          const a = new Uint16Array(31);
+          o.getRandomValues(a);
+          let t = 0;
+          e = m
+            .replace(/[x]/g, () => {
+              const e = a[t] % 16;
+              return t++, e.toString(16);
+            })
+            .replace('4', '4')
+            .toUpperCase();
+        }
+      } catch {
+        e = m
+          .replace(/[x]/g, () => ((16 * Math.random()) | 0).toString(16))
+          .replace('4', '4')
+          .toUpperCase();
+      }
+      return `${(function () {
+        let e,
+          o = 0;
+        e = Date.now() >>> 0;
+        try {
+          o = performance.now() >>> 0;
+        } catch {
+          o = 0;
+        }
+        return Math.abs(e + o)
+          .toString(16)
+          .toLowerCase()
+          .padStart(8, '0');
+      })()}-${e}`;
+    }
+    class g {
+      get(e) {
+        return window.localStorage.getItem(e);
+      }
+      getDataParse(e) {
+        const o = this.get(e);
+        return JSON.parse(o ?? '{}');
+      }
+      set(e, o) {
+        window.localStorage.setItem(e, o);
+      }
+      remove(e) {
+        window.localStorage.removeItem(e);
+      }
+    }
+    let p = 0;
+    var d, u;
+    ((u = d || (d = {})).UNLOAD = 'unload'), (u.VISIBILITY_CHANGE = 'visibilitychange');
+    const h = () => {
+        setInterval(function () {
+          document.hidden || (p += 1);
+        }, 1e3);
+      },
+      b = (e) => {
+        if ((e === d.VISIBILITY_CHANGE && !document.hidden) || p < 2) return;
+        const o = window.Shopify.analytics;
+        o && (o.publish(t, { timeOnPage: p }), e === d.UNLOAD && o.publish(i, {}), (p = 0));
+      },
+      f = [/cart/, /checkouts\/[^.*?]/],
+      y = /^\/[a-zA-Z]{2}-[a-zA-Z]{2,}/i;
+    const w = (e) => ({ ...e, suffix: e.suffix?.trim() ? e.suffix : e.type });
+    class v {
+      storageKey;
+      shop;
+      documentHandler;
+      localStorage;
+      constructor(e) {
+        (this.shop = window.GemX?.initialData?.shop || ''),
+          (this.storageKey = '__gemx_campaign_template'),
+          (this.documentHandler = new c()),
+          (this.localStorage = e?.localStorage || new g());
+      }
+      flagProcessing(e) {
+        const o = this.getLocalDataVisitor();
+        o && ((o.isProcessing = e), this.updateDataVisitor(o));
+      }
+      flagTimeProcessing(e) {
+        if ('true' !== this.documentHandler.getUrlParameterValue('utm_gemx_process')) return;
+        const o = this.getLocalDataVisitor();
+        if (o) {
+          switch (e) {
+            case 'start':
+              o.processStart = new Date();
+              break;
+            case 'end':
+              if (((o.processEnd = new Date()), o.processStart && o.processEnd)) {
+                const e = new Date(o.processEnd).getTime() - new Date(o.processStart).getTime(),
+                  a = (e / 1e3).toFixed(2);
+                console.log(`⏱️ GemX - Processing time: ${e} ms (${a} seconds)`);
+              }
+          }
+          this.updateDataVisitor(o);
+        }
+      }
+      getLocalDataVisitor() {
+        const e = this.localStorage.get(this.storageKey);
+        if (e)
+          try {
+            const o = JSON.parse(e);
+            return o && o.deviceType ? o : void 0;
+          } catch {
+            return;
+          }
+      }
+      updateDataVisitor(e) {
+        const o = this.getLocalDataVisitor(),
+          a = this.mergeEventCampaigns(e, o);
+        this.localStorage.set(this.storageKey, JSON.stringify(a));
+      }
+      upsertLocalVisitor({ visitor: e, campaignId: o, groupId: a, pageId: t, variantId: i, campaignType: c }) {
+        e.eventCampaigns.some((e) => e.campaignId === o && (!a || e.pageId === t)) ||
+          (e.eventCampaigns.push({ campaignId: o, variantId: i, groupId: a, pageId: t, campaignType: c, needSync: !0 }),
+          this.updateDataVisitor(e));
+      }
+      getVisitorDefault() {
+        return {
+          id: '',
+          createdAt: new Date().toISOString(),
+          needSync: !0,
+          isProcessing: !0,
+          eventCampaigns: [],
+          deviceType: this.documentHandler.getDeviceType(),
+          utmSource: this.documentHandler.getUrlParameterValue('utm_source') ?? '',
+          utmMedium: this.documentHandler.getUrlParameterValue('utm_medium') ?? '',
+          utmCampaign: this.documentHandler.getUrlParameterValue('utm_campaign') ?? '',
+          utmContent: this.documentHandler.getUrlParameterValue('utm_content') ?? '',
+          referrer: document.referrer,
+        };
+      }
+      mergeEventCampaigns(e, o) {
+        if (!o) return e;
+        const a = { ...e },
+          t = o.eventCampaigns ?? [];
+        return (
+          (a.eventCampaigns = [
+            ...e.eventCampaigns,
+            ...t.filter((o) => o.needSync && !e.eventCampaigns.some((e) => e.variantId === o.variantId)),
+          ]),
+          a
+        );
+      }
+    }
+    class k {
+      documentHandler;
+      visitorManager;
+      localStorage;
+      campaignTemplates;
+      template;
+      constructor() {
+        const { campaignTemplates: e, template: o } = window.GemX.initialData;
+        (this.campaignTemplates = e || []),
+          (this.template = w(o)),
+          (this.documentHandler = new c()),
+          (this.visitorManager = new v()),
+          (this.localStorage = new g());
+      }
+      getVariantsOnTestedVisitors() {
+        return (function (e) {
+          return f.some((o) => o.test(e));
+        })(this.documentHandler.getPathName())
+          ? this.localStorage.getDataParse(e)?.variants
+          : this.getVisitorVariantByTemplate();
+      }
+      getVisitorVariants() {
+        const e = this.visitorManager.getLocalDataVisitor();
+        return this.getAllVariants().filter((o) => e?.eventCampaigns.some((e) => e.variantId === o.id));
+      }
+      getVisitorVariantByTemplate() {
+        const { suffix: e, type: o } = this.template;
+        return this.getVisitorVariants()?.filter((a) => a?.templateType === o && a?.templateSuffix === e);
+      }
+      getAllVariants() {
+        return this.campaignTemplates.reduce((e, o) => e.concat(o.variants), []);
+      }
+      handlePreviousCampaignData(e) {
+        const a = r.getDataParse(o) || { variants: [] },
+          t = new Set(a.variants?.map((e) => e.id)),
+          i = e.variants?.filter((e) => !t.has(e.id)) || [],
+          c = a.variants || [];
+        r.set(o, JSON.stringify({ ...a, variants: [...c, ...i] }));
+      }
+    }
+    const x = (e, ...o) => {
+      const a = new URLSearchParams(window.location.search);
+      let t = 'true' === localStorage.getItem('gemxDebug');
+      a.has('gemxDebug') && ((t = 'true' === a.get('gemxDebug')), localStorage.setItem('gemxDebug', t.toString())),
+        t &&
+          console.debug(
+            `%c[GemX Debug] ${e}`,
+            'background: #333; color: #66ccff; padding: 2px 4px; border-radius: 3px;',
+            ...o
+          );
+    };
+    class z {
+      async filterCampaignsByAudience({ campaigns: e, visitor: o, shopifyPageId: a }) {
+        return e?.length
+          ? e.filter((e) => this.isCampaignVisible({ campaign: e, visitor: o, shopifyPageId: a }))
+          : (x('No campaigns provided'), []);
+      }
+      isCampaignVisible({ campaign: e, visitor: o, shopifyPageId: a }) {
+        if (!e) return x('Invalid campaign'), !1;
+        if (
+          (x('Checking campaign visibility:', e.id),
+          o?.eventCampaigns?.some((o) => o.campaignId === e.id && (!o.pageId || o.pageId === a)))
+        )
+          return !0;
+        const t = e.targetVisitorTypes || [e.targetVisitorType ?? 'all'];
+        x('Checking campaign - targetVisitorTypes', t);
+        const i = this.doesVisitorMatchTargetGroup({ targetVisitorTypes: t, startTime: e.startTime, visitor: o }),
+          c = e.targetChannels || e.targetChannel;
+        x('Checking campaign - targetChannels', c);
+        const r = this.doesChannelMatch({ targetChannels: c, visitorUtm: o }),
+          s = e.targetDevices || [e.targetDevice ?? 'all'];
+        x('Checking campaign - targetDevices', s);
+        const n = this.doesDeviceMatch({ targetDevices: s, visitor: o }),
+          m = e.conditions?.targetPageIds ?? [];
+        x('Checking campaign - targetPageIds', m);
+        const l = this.doesPageIdMatch({ targetPageIds: m, shopifyPageId: a || '' }),
+          g = e.conditions?.targetMarkets ?? [];
+        x('Checking campaign - targetMarkets', g);
+        const p = this.doesMarketMatch({ targetMarkets: g });
+        return i && r && n && l && p;
+      }
+      doesVisitorMatchTargetGroup({ targetVisitorTypes: e, startTime: o, visitor: a }) {
+        if (!a) return x('No visitor provided'), !1;
+        const t = ((e, o) => !e.id || new Date(e.createdAt) >= new Date(o))(a, o);
+        return !!(e.includes('all') || (e.includes('new') && t)) || (e.includes('returning') && !t);
+      }
+      doesChannelMatch({ targetChannels: e, visitorUtm: o }) {
+        if (e.includes('all')) return !0;
+        const a = (function (e) {
+          const o = [
+            {
+              name: 'paid-search',
+              test: (e) =>
+                new RegExp(
+                  '^(?:360.cn|alice|aol|ar.search.yahoo.com|ask|at.search.yahoo.com|au.search.yahoo.com|auone|avg|babylon|baidu|biglobe|biglobe.co.jp|biglobe.ne.jp|bing|br.search.yahoo.com|ca.search.yahoo.com|centrum.cz|ch.search.yahoo.com|cl.search.yahoo.com|cn.bing.com|cnn|co.search.yahoo.com|comcast|conduit|daum|daum.net|de.search.yahoo.com|dk.search.yahoo.com|dogpile|dogpile.com|duckduckgo|ecosia.org|email.seznam.cz|eniro|es.search.yahoo.com|espanol.search.yahoo.com|exalead.com|excite.com|fi.search.yahoo.com|firmy.cz|fr.search.yahoo.com|globo|go.mail.ru|google|google-play|hk.search.yahoo.com|id.search.yahoo.com|in.search.yahoo.com|incredimail|it.search.yahoo.com|kvasir|lens.google.com|lite.qwant.com|lycos|m.baidu.com|m.naver.com|m.search.naver.com|m.sogou.com|mail.rambler.ru|mail.yandex.ru|malaysia.search.yahoo.com|msn|msn.com|mx.search.yahoo.com|najdi|naver|naver.com|news.google.com|nl.search.yahoo.com|no.search.yahoo.com|ntp.msn.com|nz.search.yahoo.com|onet|onet.pl|pe.search.yahoo.com|ph.search.yahoo.com|pl.search.yahoo.com|play.google.com|qwant|qwant.com|rakuten|rakuten.co.jp|rambler|rambler.ru|se.search.yahoo.com|search-results|search.aol.co.uk|search.aol.com|search.google.com|search.smt.docomo.ne.jp|search.ukr.net|secureurl.ukr.net|seznam|seznam.cz|sg.search.yahoo.com|so.com|sogou|sogou.com|sp-web.search.auone.jp|startsiden|startsiden.no|suche.aol.de|terra|th.search.yahoo.com|tr.search.yahoo.com|tut.by|tw.search.yahoo.com|uk.search.yahoo.com|ukr|us.search.yahoo.com|virgilio|vn.search.yahoo.com|wap.sogou.com|webmaster.yandex.ru|websearch.rakuten.co.jp|yahoo|yahoo.co.jp|yahoo.com|yandex|yandex.by|yandex.com|yandex.com.tr|yandex.fr|yandex.kz|yandex.ru|yandex.ua|yandex.uz|zen.yandex.ru)$',
+                  'i'
+                ).test(e.utmSource ?? '') &&
+                new RegExp('^(.*cp.*|ppc|retargeting|paid.*)$', 'i').test(e.utmMedium ?? ''),
+            },
+            {
+              name: 'paid-social',
+              test: (e) =>
+                new RegExp(
+                  '^(?:43things|43things.com|51.com|5ch.net|Hatena|ImageShack|academia.edu|activerain|activerain.com|activeworlds|activeworlds.com|addthis|addthis.com|airg.ca|allnurses.com|allrecipes.com|alumniclass|alumniclass.com|ameba.jp|ameblo.jp|americantowns|americantowns.com|amp.reddit.com|ancestry.com|anobii|anobii.com|answerbag|answerbag.com|answers.yahoo.com|aolanswers|aolanswers.com|apps.facebook.com|ar.pinterest.com|artstation.com|askubuntu|askubuntu.com|asmallworld.com|athlinks|athlinks.com|away.vk.com|awe.sm|b.hatena.ne.jp|baby-gaga|baby-gaga.com|babyblog.ru|badoo|badoo.com|bebo|bebo.com|beforeitsnews|beforeitsnews.com|bharatstudent|bharatstudent.com|biip.no|biswap.org|bit.ly|blackcareernetwork.com|blackplanet|blackplanet.com|blip.fm|blog.com|blog.feedspot.com|blog.goo.ne.jp|blog.naver.com|blog.yahoo.co.jp|blogg.no|bloggang.com|blogger|blogger.com|blogher|blogher.com|bloglines|bloglines.com|blogs.com|blogsome|blogsome.com|blogspot|blogspot.com|blogster|blogster.com|blurtit|blurtit.com|bookmarks.yahoo.co.jp|bookmarks.yahoo.com|br.pinterest.com|brightkite|brightkite.com|brizzly|brizzly.com|business.facebook.com|buzzfeed|buzzfeed.com|buzznet|buzznet.com|cafe.naver.com|cafemom|cafemom.com|camospace|camospace.com|canalblog.com|care.com|care2|care2.com|caringbridge.org|catster|catster.com|cbnt.io|cellufun|cellufun.com|centerblog.net|chat.zalo.me|chegg.com|chicagonow|chicagonow.com|chiebukuro.yahoo.co.jp|classmates|classmates.com|classquest|classquest.com|co.pinterest.com|cocolog-nifty|cocolog-nifty.com|copainsdavant.linternaute.com|couchsurfing.org|cozycot|cozycot.com|cross.tv|crunchyroll|crunchyroll.com|cyworld|cyworld.com|cz.pinterest.com|d.hatena.ne.jp|dailystrength.org|deluxe.com|deviantart|deviantart.com|dianping|dianping.com|digg|digg.com|diigo|diigo.com|discover.hubpages.com|disqus|disqus.com|dogster|dogster.com|dol2day|dol2day.com|doostang|doostang.com|dopplr|dopplr.com|douban|douban.com|draft.blogger.com|draugiem.lv|drugs-forum|drugs-forum.com|dzone|dzone.com|edublogs.org|elftown|elftown.com|epicurious.com|everforo.com|exblog.jp|extole|extole.com|facebook|facebook.com|faceparty|faceparty.com|fandom.com|fanpop|fanpop.com|fark|fark.com|fb|fb.me|fc2|fc2.com|feedspot|feministing|feministing.com|filmaffinity|filmaffinity.com|flickr|flickr.com|flipboard|flipboard.com|folkdirect|folkdirect.com|foodservice|foodservice.com|forums.androidcentral.com|forums.crackberry.com|forums.imore.com|forums.nexopia.com|forums.webosnation.com|forums.wpcentral.com|fotki|fotki.com|fotolog|fotolog.com|foursquare|foursquare.com|free.facebook.com|friendfeed|friendfeed.com|fruehstueckstreff.org|fubar|fubar.com|gaiaonline|gaiaonline.com|gamerdna|gamerdna.com|gather.com|geni.com|getpocket.com|glassboard|glassboard.com|glassdoor|glassdoor.com|godtube|godtube.com|goldenline.pl|goldstar|goldstar.com|goo.gl|gooblog|goodreads|goodreads.com|google+|googlegroups.com|googleplus|govloop|govloop.com|gowalla|gowalla.com|gree.jp|groups.google.com|gulli.com|gutefrage.net|habbo|habbo.com|hi5|hi5.com|hootsuite|hootsuite.com|houzz|houzz.com|hoverspot|hoverspot.com|hr.com|hu.pinterest.com|hubculture|hubculture.com|hubpages.com|hyves.net|hyves.nl|ibibo|ibibo.com|id.pinterest.com|identi.ca|ig|imageshack.com|imageshack.us|imvu|imvu.com|in.pinterest.com|insanejournal|insanejournal.com|instagram|instagram.com|instapaper|instapaper.com|internations.org|interpals.net|intherooms|intherooms.com|irc-galleria.net|is.gd|italki|italki.com|jammerdirect|jammerdirect.com|jappy.com|jappy.de|kaboodle.com|kakao|kakao.com|kakaocorp.com|kaneva|kaneva.com|kin.naver.com|l.facebook.com|l.instagram.com|l.messenger.com|last.fm|librarything|librarything.com|lifestream.aol.com|line|line.me|linkedin|linkedin.com|listal|listal.com|listography|listography.com|livedoor.com|livedoorblog|livejournal|livejournal.com|lm.facebook.com|lnkd.in|m.blog.naver.com|m.cafe.naver.com|m.facebook.com|m.kin.naver.com|m.vk.com|m.yelp.com|mbga.jp|medium.com|meetin.org|meetup|meetup.com|meinvz.net|meneame.net|menuism.com|messages.google.com|messages.yahoo.co.jp|messenger|messenger.com|mix.com|mixi.jp|mobile.facebook.com|mocospace|mocospace.com|mouthshut|mouthshut.com|movabletype|movabletype.com|mubi|mubi.com|my.opera.com|myanimelist.net|myheritage|myheritage.com|mylife|mylife.com|mymodernmet|mymodernmet.com|myspace|myspace.com|netvibes|netvibes.com|news.ycombinator.com|newsshowcase|nexopia|ngopost.org|niconico|nicovideo.jp|nightlifelink|nightlifelink.com|ning|ning.com|nl.pinterest.com|odnoklassniki.ru|odnoklassniki.ua|okwave.jp|old.reddit.com|oneworldgroup.org|onstartups|onstartups.com|opendiary|opendiary.com|oshiete.goo.ne.jp|out.reddit.com|over-blog.com|overblog.com|paper.li|partyflock.nl|photobucket|photobucket.com|pinboard|pinboard.in|pingsta|pingsta.com|pinterest|pinterest.at|pinterest.ca|pinterest.ch|pinterest.cl|pinterest.co.kr|pinterest.co.uk|pinterest.com|pinterest.com.au|pinterest.com.mx|pinterest.de|pinterest.es|pinterest.fr|pinterest.it|pinterest.jp|pinterest.nz|pinterest.ph|pinterest.pt|pinterest.ru|pinterest.se|pixiv.net|pl.pinterest.com|playahead.se|plurk|plurk.com|plus.google.com|plus.url.google.com|pocket.co|posterous|posterous.com|pro.homeadvisor.com|pulse.yahoo.com|qapacity|qapacity.com|quechup|quechup.com|quora|quora.com|qzone.qq.com|ravelry|ravelry.com|reddit|reddit.com|redux|redux.com|renren|renren.com|researchgate.net|reunion|reunion.com|reverbnation|reverbnation.com|rtl.de|ryze|ryze.com|salespider|salespider.com|scoop.it|screenrant|screenrant.com|scribd|scribd.com|scvngr|scvngr.com|secondlife|secondlife.com|serverfault|serverfault.com|shareit|sharethis|sharethis.com|shvoong.com|sites.google.com|skype|skyrock|skyrock.com|slashdot.org|slideshare.net|smartnews.com|snapchat|snapchat.com|social|sociallife.com.br|socialvibe|socialvibe.com|spaces.live.com|spoke|spoke.com|spruz|spruz.com|ssense.com|stackapps|stackapps.com|stackexchange|stackexchange.com|stackoverflow|stackoverflow.com|stardoll.com|stickam|stickam.com|studivz.net|suomi24.fi|superuser|superuser.com|sweeva|sweeva.com|t.co|t.me|tagged|tagged.com|taggedmail|taggedmail.com|talkbiznow|talkbiznow.com|taringa.net|techmeme|techmeme.com|tencent|tencent.com|tiktok|tiktok.com|tinyurl|tinyurl.com|toolbox|toolbox.com|touch.facebook.com|tr.pinterest.com|travellerspoint|travellerspoint.com|tripadvisor|tripadvisor.com|trombi|trombi.com|trustpilot|tudou|tudou.com|tuenti|tuenti.com|tumblr|tumblr.com|tweetdeck|tweetdeck.com|twitter|twitter.com|twoo.com|typepad|typepad.com|unblog.fr|urbanspoon.com|ushareit.com|ushi.cn|vampirefreaks|vampirefreaks.com|vampirerave|vampirerave.com|vg.no|video.ibm.com|vk.com|vkontakte.ru|wakoopa|wakoopa.com|wattpad|wattpad.com|web.facebook.com|web.skype.com|webshots|webshots.com|wechat|wechat.com|weebly|weebly.com|weibo|weibo.com|wer-weiss-was.de|weread|weread.com|whatsapp|whatsapp.com|wiki.answers.com|wikihow.com|wikitravel.org|woot.com|wordpress|wordpress.com|wordpress.org|xanga|xanga.com|xing|xing.com|yahoo-mbga.jp|yammer|yammer.com|yelp|yelp.co.uk|yelp.com|youroom.in|za.pinterest.com|zalo|zoo.gr|zooppa|zooppa.com)$',
+                  'i'
+                ).test(e.utmSource ?? '') &&
+                new RegExp('^(.*cp.*|ppc|retargeting|paid.*)$', 'i').test(e.utmMedium ?? ''),
+            },
+            {
+              name: 'organic-search',
+              test: (e) =>
+                new RegExp(
+                  '^(?:360.cn|alice|aol|ar.search.yahoo.com|ask|at.search.yahoo.com|au.search.yahoo.com|auone|avg|babylon|baidu|biglobe|biglobe.co.jp|biglobe.ne.jp|bing|br.search.yahoo.com|ca.search.yahoo.com|centrum.cz|ch.search.yahoo.com|cl.search.yahoo.com|cn.bing.com|cnn|co.search.yahoo.com|comcast|conduit|daum|daum.net|de.search.yahoo.com|dk.search.yahoo.com|dogpile|dogpile.com|duckduckgo|ecosia.org|email.seznam.cz|eniro|es.search.yahoo.com|espanol.search.yahoo.com|exalead.com|excite.com|fi.search.yahoo.com|firmy.cz|fr.search.yahoo.com|globo|go.mail.ru|google|google-play|hk.search.yahoo.com|id.search.yahoo.com|in.search.yahoo.com|incredimail|it.search.yahoo.com|kvasir|lens.google.com|lite.qwant.com|lycos|m.baidu.com|m.naver.com|m.search.naver.com|m.sogou.com|mail.rambler.ru|mail.yandex.ru|malaysia.search.yahoo.com|msn|msn.com|mx.search.yahoo.com|najdi|naver|naver.com|news.google.com|nl.search.yahoo.com|no.search.yahoo.com|ntp.msn.com|nz.search.yahoo.com|onet|onet.pl|pe.search.yahoo.com|ph.search.yahoo.com|pl.search.yahoo.com|play.google.com|qwant|qwant.com|rakuten|rakuten.co.jp|rambler|rambler.ru|se.search.yahoo.com|search-results|search.aol.co.uk|search.aol.com|search.google.com|search.smt.docomo.ne.jp|search.ukr.net|secureurl.ukr.net|seznam|seznam.cz|sg.search.yahoo.com|so.com|sogou|sogou.com|sp-web.search.auone.jp|startsiden|startsiden.no|suche.aol.de|terra|th.search.yahoo.com|tr.search.yahoo.com|tut.by|tw.search.yahoo.com|uk.search.yahoo.com|ukr|us.search.yahoo.com|virgilio|vn.search.yahoo.com|wap.sogou.com|webmaster.yandex.ru|websearch.rakuten.co.jp|yahoo|yahoo.co.jp|yahoo.com|yandex|yandex.by|yandex.com|yandex.com.tr|yandex.fr|yandex.kz|yandex.ru|yandex.ua|yandex.uz|zen.yandex.ru)$',
+                  'i'
+                ).test(e.utmSource ?? '') || 'organic' === e?.utmMedium?.toLowerCase(),
+            },
+            {
+              name: 'organic-social',
+              test: (e) =>
+                new RegExp(
+                  '^(?:43things|43things.com|51.com|5ch.net|Hatena|ImageShack|academia.edu|activerain|activerain.com|activeworlds|activeworlds.com|addthis|addthis.com|airg.ca|allnurses.com|allrecipes.com|alumniclass|alumniclass.com|ameba.jp|ameblo.jp|americantowns|americantowns.com|amp.reddit.com|ancestry.com|anobii|anobii.com|answerbag|answerbag.com|answers.yahoo.com|aolanswers|aolanswers.com|apps.facebook.com|ar.pinterest.com|artstation.com|askubuntu|askubuntu.com|asmallworld.com|athlinks|athlinks.com|away.vk.com|awe.sm|b.hatena.ne.jp|baby-gaga|baby-gaga.com|babyblog.ru|badoo|badoo.com|bebo|bebo.com|beforeitsnews|beforeitsnews.com|bharatstudent|bharatstudent.com|biip.no|biswap.org|bit.ly|blackcareernetwork.com|blackplanet|blackplanet.com|blip.fm|blog.com|blog.feedspot.com|blog.goo.ne.jp|blog.naver.com|blog.yahoo.co.jp|blogg.no|bloggang.com|blogger|blogger.com|blogher|blogher.com|bloglines|bloglines.com|blogs.com|blogsome|blogsome.com|blogspot|blogspot.com|blogster|blogster.com|blurtit|blurtit.com|bookmarks.yahoo.co.jp|bookmarks.yahoo.com|br.pinterest.com|brightkite|brightkite.com|brizzly|brizzly.com|business.facebook.com|buzzfeed|buzzfeed.com|buzznet|buzznet.com|cafe.naver.com|cafemom|cafemom.com|camospace|camospace.com|canalblog.com|care.com|care2|care2.com|caringbridge.org|catster|catster.com|cbnt.io|cellufun|cellufun.com|centerblog.net|chat.zalo.me|chegg.com|chicagonow|chicagonow.com|chiebukuro.yahoo.co.jp|classmates|classmates.com|classquest|classquest.com|co.pinterest.com|cocolog-nifty|cocolog-nifty.com|copainsdavant.linternaute.com|couchsurfing.org|cozycot|cozycot.com|cross.tv|crunchyroll|crunchyroll.com|cyworld|cyworld.com|cz.pinterest.com|d.hatena.ne.jp|dailystrength.org|deluxe.com|deviantart|deviantart.com|dianping|dianping.com|digg|digg.com|diigo|diigo.com|discover.hubpages.com|disqus|disqus.com|dogster|dogster.com|dol2day|dol2day.com|doostang|doostang.com|dopplr|dopplr.com|douban|douban.com|draft.blogger.com|draugiem.lv|drugs-forum|drugs-forum.com|dzone|dzone.com|edublogs.org|elftown|elftown.com|epicurious.com|everforo.com|exblog.jp|extole|extole.com|facebook|facebook.com|faceparty|faceparty.com|fandom.com|fanpop|fanpop.com|fark|fark.com|fb|fb.me|fc2|fc2.com|feedspot|feministing|feministing.com|filmaffinity|filmaffinity.com|flickr|flickr.com|flipboard|flipboard.com|folkdirect|folkdirect.com|foodservice|foodservice.com|forums.androidcentral.com|forums.crackberry.com|forums.imore.com|forums.nexopia.com|forums.webosnation.com|forums.wpcentral.com|fotki|fotki.com|fotolog|fotolog.com|foursquare|foursquare.com|free.facebook.com|friendfeed|friendfeed.com|fruehstueckstreff.org|fubar|fubar.com|gaiaonline|gaiaonline.com|gamerdna|gamerdna.com|gather.com|geni.com|getpocket.com|glassboard|glassboard.com|glassdoor|glassdoor.com|godtube|godtube.com|goldenline.pl|goldstar|goldstar.com|goo.gl|gooblog|goodreads|goodreads.com|google+|googlegroups.com|googleplus|govloop|govloop.com|gowalla|gowalla.com|gree.jp|groups.google.com|gulli.com|gutefrage.net|habbo|habbo.com|hi5|hi5.com|hootsuite|hootsuite.com|houzz|houzz.com|hoverspot|hoverspot.com|hr.com|hu.pinterest.com|hubculture|hubculture.com|hubpages.com|hyves.net|hyves.nl|ibibo|ibibo.com|id.pinterest.com|identi.ca|ig|imageshack.com|imageshack.us|imvu|imvu.com|in.pinterest.com|insanejournal|insanejournal.com|instagram|instagram.com|instapaper|instapaper.com|internations.org|interpals.net|intherooms|intherooms.com|irc-galleria.net|is.gd|italki|italki.com|jammerdirect|jammerdirect.com|jappy.com|jappy.de|kaboodle.com|kakao|kakao.com|kakaocorp.com|kaneva|kaneva.com|kin.naver.com|l.facebook.com|l.instagram.com|l.messenger.com|last.fm|librarything|librarything.com|lifestream.aol.com|line|line.me|linkedin|linkedin.com|listal|listal.com|listography|listography.com|livedoor.com|livedoorblog|livejournal|livejournal.com|lm.facebook.com|lnkd.in|m.blog.naver.com|m.cafe.naver.com|m.facebook.com|m.kin.naver.com|m.vk.com|m.yelp.com|mbga.jp|medium.com|meetin.org|meetup|meetup.com|meinvz.net|meneame.net|menuism.com|messages.google.com|messages.yahoo.co.jp|messenger|messenger.com|mix.com|mixi.jp|mobile.facebook.com|mocospace|mocospace.com|mouthshut|mouthshut.com|movabletype|movabletype.com|mubi|mubi.com|my.opera.com|myanimelist.net|myheritage|myheritage.com|mylife|mylife.com|mymodernmet|mymodernmet.com|myspace|myspace.com|netvibes|netvibes.com|news.ycombinator.com|newsshowcase|nexopia|ngopost.org|niconico|nicovideo.jp|nightlifelink|nightlifelink.com|ning|ning.com|nl.pinterest.com|odnoklassniki.ru|odnoklassniki.ua|okwave.jp|old.reddit.com|oneworldgroup.org|onstartups|onstartups.com|opendiary|opendiary.com|oshiete.goo.ne.jp|out.reddit.com|over-blog.com|overblog.com|paper.li|partyflock.nl|photobucket|photobucket.com|pinboard|pinboard.in|pingsta|pingsta.com|pinterest|pinterest.at|pinterest.ca|pinterest.ch|pinterest.cl|pinterest.co.kr|pinterest.co.uk|pinterest.com|pinterest.com.au|pinterest.com.mx|pinterest.de|pinterest.es|pinterest.fr|pinterest.it|pinterest.jp|pinterest.nz|pinterest.ph|pinterest.pt|pinterest.ru|pinterest.se|pixiv.net|pl.pinterest.com|playahead.se|plurk|plurk.com|plus.google.com|plus.url.google.com|pocket.co|posterous|posterous.com|pro.homeadvisor.com|pulse.yahoo.com|qapacity|qapacity.com|quechup|quechup.com|quora|quora.com|qzone.qq.com|ravelry|ravelry.com|reddit|reddit.com|redux|redux.com|renren|renren.com|researchgate.net|reunion|reunion.com|reverbnation|reverbnation.com|rtl.de|ryze|ryze.com|salespider|salespider.com|scoop.it|screenrant|screenrant.com|scribd|scribd.com|scvngr|scvngr.com|secondlife|secondlife.com|serverfault|serverfault.com|shareit|sharethis|sharethis.com|shvoong.com|sites.google.com|skype|skyrock|skyrock.com|slashdot.org|slideshare.net|smartnews.com|snapchat|snapchat.com|social|sociallife.com.br|socialvibe|socialvibe.com|spaces.live.com|spoke|spoke.com|spruz|spruz.com|ssense.com|stackapps|stackapps.com|stackexchange|stackexchange.com|stackoverflow|stackoverflow.com|stardoll.com|stickam|stickam.com|studivz.net|suomi24.fi|superuser|superuser.com|sweeva|sweeva.com|t.co|t.me|tagged|tagged.com|taggedmail|taggedmail.com|talkbiznow|talkbiznow.com|taringa.net|techmeme|techmeme.com|tencent|tencent.com|tiktok|tiktok.com|tinyurl|tinyurl.com|toolbox|toolbox.com|touch.facebook.com|tr.pinterest.com|travellerspoint|travellerspoint.com|tripadvisor|tripadvisor.com|trombi|trombi.com|trustpilot|tudou|tudou.com|tuenti|tuenti.com|tumblr|tumblr.com|tweetdeck|tweetdeck.com|twitter|twitter.com|twoo.com|typepad|typepad.com|unblog.fr|urbanspoon.com|ushareit.com|ushi.cn|vampirefreaks|vampirefreaks.com|vampirerave|vampirerave.com|vg.no|video.ibm.com|vk.com|vkontakte.ru|wakoopa|wakoopa.com|wattpad|wattpad.com|web.facebook.com|web.skype.com|webshots|webshots.com|wechat|wechat.com|weebly|weebly.com|weibo|weibo.com|wer-weiss-was.de|weread|weread.com|whatsapp|whatsapp.com|wiki.answers.com|wikihow.com|wikitravel.org|woot.com|wordpress|wordpress.com|wordpress.org|xanga|xanga.com|xing|xing.com|yahoo-mbga.jp|yammer|yammer.com|yelp|yelp.co.uk|yelp.com|youroom.in|za.pinterest.com|zalo|zoo.gr|zooppa|zooppa.com)$',
+                  'i'
+                ).test(e.utmSource ?? '') ||
+                new RegExp('^(?:social|social-network|social-media|sm|social network|social media)$', 'i').test(
+                  e.utmMedium ?? ''
+                ),
+            },
+            { name: 'referral', test: (e) => new RegExp('^(?:referral|app|link)$', 'i').test(e.utmMedium ?? '') },
+            {
+              name: 'email',
+              test: (e) =>
+                new RegExp('^(?:email|e-mail|e_mail|e mail)$', 'i').test(e.utmMedium ?? '') ||
+                new RegExp('^(?:email|e-mail|e_mail|e mail)$', 'i').test(e.utmSource ?? ''),
+            },
+            {
+              name: 'sms',
+              test: (e) => 'sms' === e?.utmSource?.toLowerCase() || 'sms' === e?.utmMedium?.toLowerCase(),
+            },
+          ].find((o) => o.test(e));
+          return o ? o.name : 'direct';
+        })(o);
+        return a ? e.includes(a) : (x('No channel detected for visitor'), !1);
+      }
+      doesDeviceMatch({ targetDevices: e, visitor: o }) {
+        return o?.deviceType
+          ? e.includes(o.deviceType) || e.includes('all')
+          : (x('No device type provided for visitor'), !1);
+      }
+      doesPageIdMatch({ targetPageIds: e, shopifyPageId: o }) {
+        return (
+          x('Checking targetPageIds:', e),
+          x('Checking shopifyPageId:', o),
+          !e.length || (o ? e.includes(o) : (x('No shopifyPageId provided'), !1))
+        );
+      }
+      doesMarketMatch({ targetMarkets: e }) {
+        if (!e || 0 === e.length || e.includes('all'))
+          return x('No specific target markets or "all" included, returning true'), !0;
+        let o;
+        try {
+          o = new URL(window.location.href);
+        } catch (e) {
+          return x('Invalid current URL:', window.location.href, e), !1;
+        }
+        x('Current URL:', o.href);
+        const a = y.exec(o.pathname)?.[0]?.toLowerCase() || null;
+        return (
+          x('Current language path:', a),
+          e.some((e) => {
+            if ((x('Checking target market:', e), e.startsWith('/'))) {
+              const o = y.exec(e)?.[0]?.toLowerCase() || null;
+              return a === o && null !== o;
+            }
+            let t;
+            try {
+              t = new URL(e);
+            } catch (o) {
+              return x('Invalid target market URL:', e, o), !1;
+            }
+            if (t.hostname.includes('myshopify.com'))
+              try {
+                t = new URL(t.pathname, o.origin);
+              } catch (o) {
+                return x('Failed to merge myshopify.com URL:', e, o), !1;
+              }
+            const i = y.exec(t.pathname)?.[0]?.toLowerCase() || null;
+            return (a === i && null !== i) || (o.hostname === t.hostname && a === i);
+          })
+        );
+      }
+    }
+    const I = 'TEMPLATE',
+      V = 'TEMPLATE_BUNDLE';
+    class j {
+      static randomCampaign(e) {
+        return e.length > 0 ? e[Math.floor(Math.random() * e.length)] : e[0];
+      }
+      static randomVariant(e) {
+        const o = Math.random();
+        let a = 0;
+        for (const t of e) if (((a += t.trafficRate), o < a)) return t;
+        return e[e.length - 1];
+      }
+    }
+    const C = /bot|spider|crawl|http|lighthouse/i;
+    let S;
+    function P(e) {
+      return (
+        !!e &&
+        (function () {
+          if (S instanceof RegExp) return S;
+          try {
+            S = new RegExp(
+              ' daum[ /]| deusu/| yadirectfetcher|(?:^|[^g])news|(?<! (?:channel/|google/))google(?!(app|/google| pixel))|(?<! cu)bot(?:[^\\w]|_|$)|(?<! ya(?:yandex)?)search|(?<!(?:lib))http|(?<![hg]m)score|@|\\(\\)|\\.com|^12345|^<|^[\\w \\.\\-\\(?:\\):]+(?:/v?\\d+(?:\\.\\d+)?(?:\\.\\d{1,10})*?)?(?:,|$)|^[^ ]{50,}$|^\\w+/[\\w\\(\\)]*$|^active|^ad muncher|^amaya|^avsdevicesdk/|^biglotron|^bot|^clamav[ /]|^client/|^cobweb/|^custom|^ddg[_-]android|^discourse|^dispatch/\\d|^downcast/|^duckduckgo|^facebook|^getright/|^gozilla/|^hatena|^hobbit|^hotzonu|^hwcdn/|^jeode/|^jetty/|^jigsaw|^microsoft bits|^movabletype|^mozilla/\\d\\.\\d \\(compatible;?\\)$|^mozilla/\\d\\.\\d \\w*$|^navermailapp|^netsurf|^offline explorer|^postman|^python|^rank|^read|^reed|^rest|^serf|^snapchat|^space bison|^svn|^swcd |^taringa|^thumbor/|^track|^valid|^w3c|^webbandit/|^webcopier|^wget|^whatsapp|^wordpress|^xenu link sleuth|^yahoo|^yandex|^zdm/\\d|^zoom marketplace/|archive|ask jeeves/teoma|bit\\.ly/|bluecoat drtr|browsex|burpcollaborator|capture|catch|check|chrome-lighthouse|chromeframe|classifier|cloud|crawl|dareboost|datanyze|dejaclick|dmbrowser|download|evc-batch/|feed|firephp|gomezagent|headless|httrack|hubspot marketing grader|hydra|ibisbrowser|images|insight|inspect|iplabel|ips-agent|java(?!;)|library|mail\\.ru/|manager|neustar wpm|node|nutch|offbyone|optimize|pageburst|parser|perl|phantom|pingdom|powermarks|preview|proxy|ptst[ /]\\d|reputation|resolver|retriever|rexx;|rigor|robot|rss|scan|scrape|server|sogou|sparkler/|speedcurve|spider|splash|statuscake|supercleaner|synapse|synthetic|tools|torrent|trace|transcoder|url|virtuoso|wappalyzer|webglance|webkit2png|whatcms/|zgrab',
+              'i'
+            );
+          } catch {
+            S = C;
+          }
+          return S;
+        })().test(e)
+      );
+    }
+    const D = 'view',
+      M = [I, V];
+    class T {
+      campaigns;
+      template;
+      localStorage;
+      visitorManager;
+      campaignFilter;
+      documentHandler;
+      variantManager;
+      shopifyPageId;
+      constructor(e) {
+        (this.shopifyPageId = e.shopifyPageId),
+          (this.campaigns = e.campaigns),
+          (this.template = w(e.template)),
+          (this.localStorage = new g()),
+          (this.visitorManager = new v()),
+          (this.campaignFilter = new z()),
+          (this.documentHandler = new c()),
+          (this.variantManager = new k());
+      }
+      async initialize() {
+        this.logInitialization();
+        try {
+          if (
+            (this.visitorManager.flagProcessing(!0),
+            this.visitorManager.flagTimeProcessing('start'),
+            this.removeNonTemplateEvents(),
+            await this.processVisitorForTemplateCampaigns())
+          )
+            return;
+          this.finalizeVisitorProcessing();
+        } catch (e) {
+          if (
+            !(function (e) {
+              return 'boolean' == typeof e.isBot && e.isBot;
+            })(e)
+          )
+            throw (console.error('[GemX] Template Testing Initialization Failed:', e), e);
+        } finally {
+          this.visitorManager.flagProcessing(!1),
+            this.visitorManager.flagTimeProcessing('end'),
+            this.documentHandler.showPage();
+        }
+      }
+      logInitialization() {
+        console.log(
+          '%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n%cGEMX CRO | Template Testing Initialized\n%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
+          'color: #2C7DFF; font-size: 16px; font-weight: bold;',
+          'color: #F34A70; font-size: 16px; font-weight: bold;',
+          'color: #2C7DFF; font-size: 16px; font-weight: bold;'
+        );
+      }
+      async processVisitorForTemplateCampaigns() {
+        const e = this.getOrCreateVisitor();
+        if (!this.campaigns.length) return x('No campaigns available for processing'), !1;
+        x('Checking campaigns for current template: ', this.campaigns);
+        const o = await this.campaignFilter.filterCampaignsByAudience({
+          campaigns: this.campaigns,
+          visitor: e,
+          shopifyPageId: this.shopifyPageId,
+        });
+        x('Checking filteredCampaigns:', o);
+        const a = this.filterCampaignsByTemplateUrl(o);
+        if ((x('Checking matchingCampaigns: ', a), !a.length))
+          return x('No matching campaigns found for current URL/template'), !1;
+        const t = this.findExistingVariant(e, a);
+        if (t) return this.applyVariantRedirect(t);
+        const i = j.randomCampaign(a),
+          c = this.selectVariant(e, i);
+        return c
+          ? (this.updateVisitorCampaign(e, i, c), this.applyVariantRedirect(c))
+          : (x('No valid variant selected'), !1);
+      }
+      getOrCreateVisitor() {
+        const e = this.visitorManager.getLocalDataVisitor();
+        if (e) return e;
+        const o = this.visitorManager.getVisitorDefault();
+        return this.visitorManager.updateDataVisitor(o), o;
+      }
+      removeNonTemplateEvents() {
+        const e = this.visitorManager.getLocalDataVisitor();
+        !e?.eventCampaigns?.length ||
+          this.campaigns.length ||
+          ((e.eventCampaigns = e.eventCampaigns.filter((e) => !M.includes(e.campaignType))),
+          this.visitorManager.updateDataVisitor(e));
+      }
+      finalizeVisitorProcessing() {
+        this.visitorManager.getLocalDataVisitor();
+        const o = this.variantManager.getVariantsOnTestedVisitors(),
+          a = o?.flatMap((e) => e.id || []) || [],
+          t = this.campaigns.find(
+            (e) => (e.type === I || e.type === V) && e.variants.some((e) => e.id && a.includes(e.id))
+          );
+        x('Finalizing visitor processing - campaign:', t);
+        const i = t?.variants.find((e) => e.id && a.includes(e.id));
+        x('Finalizing visitor processing - variant:', i);
+        const c = {};
+        t &&
+          (t?.groupId && (c.gr_id = t?.groupId || ''),
+          t?.campaignVersionId && (c.v_id = t?.campaignVersionId || ''),
+          t?.campaignGroupVersionId && (c.gr_v_id = t?.campaignGroupVersionId || '')),
+          i && (c.va_t = i?.isOrigin ? 'A' : 'B'),
+          x('Finalizing visitor processing - data storage:', c),
+          o?.length && ((c.variants = o), this.documentHandler.removeViewParam()),
+          this.localStorage.set(e, JSON.stringify(c)),
+          this.variantManager.handlePreviousCampaignData(c);
+      }
+      selectVariant(e, o) {
+        const a = this.findVariantByGroupId(e, o);
+        return a ? o.variants.find((e) => e.isOrigin === a.isOrigin) : j.randomVariant(o.variants);
+      }
+      findExistingVariant(e, o) {
+        return o.flatMap((e) => e.variants).find((o) => e.eventCampaigns.some((e) => e.variantId === o.id));
+      }
+      findVariantByGroupId(e, o) {
+        if (!o.groupId) return;
+        const a = e.eventCampaigns.find((e) => e.groupId === o?.groupId)?.variantId;
+        return a ? this.getVariantById(a) : void 0;
+      }
+      getVariantById(e) {
+        return this.campaigns.flatMap((e) => e.variants).find((o) => o.id === e);
+      }
+      updateVisitorCampaign(e, o, a) {
+        this.visitorManager.upsertLocalVisitor({
+          visitor: e,
+          groupId: o.groupId,
+          pageId: this.shopifyPageId,
+          campaignId: o.id,
+          campaignType: o.type,
+          variantId: a.id ?? '',
+        });
+      }
+      applyVariantRedirect(e) {
+        return !!this.shouldRedirectToVariant(e) && (this.documentHandler.hidePage(), this.executeRedirect(e), !0);
+      }
+      executeRedirect(e) {
+        if (e.isOrigin) return;
+        const o = new URL(window.location.href),
+          a = e.redirectUrl,
+          t = a ? new URL(a, o.origin) : o;
+        if (a) {
+          o.searchParams.forEach((e, o) => t.searchParams.append(o, e));
+          const e = y.exec(o.pathname);
+          e?.[0] && (t.pathname = `${e[0]}${t.pathname}`);
+        } else t.searchParams.set(D, e.templateSuffix);
+        window.location.assign(t.toString());
+      }
+      shouldRedirectToVariant(e) {
+        if (e.isOrigin) return !1;
+        const o = new URL(window.location.href),
+          a = o.searchParams.get(D),
+          t = o.pathname,
+          i = e.redirectUrl ? new URL(e.redirectUrl).pathname : void 0;
+        return e.templateSuffix !== a && !(i && t.endsWith(i));
+      }
+      filterCampaignsByTemplateUrl(e) {
+        const o = new URL(window.location.href).searchParams.get(D),
+          { suffix: a, type: t } = this.template;
+        return e.filter((e) => {
+          const i = e.variants,
+            c = i?.some((e) => e.isOrigin && e.templateType === t && e.templateSuffix === a),
+            r = !o || i?.some((e) => !e.isOrigin && e.templateSuffix === o);
+          return c && r;
+        });
+      }
+    }
+    const _ = 'LINK',
+      L = 'SCRIPT';
+    class q {
+      sessionId;
+      pageViewedId;
+      config;
+      constructor() {
+        (this.config = this.getConfig()), this.initialize();
+      }
+      async initialize() {
+        const { isShopifyDesignMode: e, userAgent: o } = this.config;
+        e || P(o)
+          ? x('Skipping initialization: Design mode or bot detected')
+          : (() => {
+              const e = new URLSearchParams(window.location.search);
+              return 'true' === e.get('gemPreview') || e.has('gx-preview');
+            })()
+          ? this.enablePreviewMode()
+          : (this.setupPerformanceTracking(), await this.initializeSessionAndCampaigns());
+      }
+      getConfig() {
+        return {
+          isShopifyDesignMode: !(!window.Shopify || !window.Shopify.designMode),
+          userAgent: navigator.userAgent,
+          initialData: window?.GemX?.initialData || {},
+        };
+      }
+      setupPerformanceTracking() {
+        document.addEventListener('DOMContentLoaded', h), window.addEventListener('beforeunload', () => b(d.UNLOAD));
+      }
+      async initializeSessionAndCampaigns() {
+        this.storeVariantIds(), this.storeShopifyPageId(), this.initializeSessionIdentifiers(), this.storeInitialData();
+        const { campaignTemplates: e, template: o } = this.config.initialData;
+        if (e?.length)
+          try {
+            await new T({
+              campaigns: e,
+              template: o,
+              shopifyPageId: this.config.initialData.shopifyPageId || '',
+            }).initialize();
+          } catch (e) {
+            throw (console.error('Campaign initialization failed:', e), e);
+          }
+        else x('No campaign templates found, skipping campaign initialization');
+      }
+      storeVariantIds() {
+        const e = this.config.initialData?.campaignTemplates;
+        if (!e?.length) return void x('No campaign templates found, skipping campaign initialization');
+        const o = e
+          .flatMap((e) => e.variants)
+          .map((e) => e.id)
+          .filter((e) => !!e);
+        r.set('__gemx_variant_ids', JSON.stringify(o));
+      }
+      storeShopifyPageId() {
+        const { shopifyPageId: e } = this.config.initialData;
+        r.set('__gemx_sp', e || '');
+      }
+      initializeSessionIdentifiers() {
+        (() => {
+          const e = new c().getUrlParameterValue('gemx_tracking');
+          e && new g().set('__gemx_dt', e);
+        })(),
+          (this.sessionId =
+            this.sessionId ??
+            (function () {
+              let e = r.get(a);
+              return e || ((e = l()), r.set(a, e)), e;
+            })()),
+          (this.pageViewedId = ((e) => {
+            if (e) return;
+            const o = l();
+            return r.set('__gemx_pv', o), o;
+          })(this.pageViewedId));
+      }
+      storeInitialData() {
+        const { template: e } = this.config.initialData;
+        r.set('__gemx_data', JSON.stringify({ template: e }));
+      }
+      enablePreviewMode() {
+        document.querySelectorAll('[data-mode="gx-preview"]').forEach((e) => {
+          const o = e.getAttribute('data-url') ?? '';
+          if (o)
+            switch (e.nodeName) {
+              case _:
+                e.setAttribute('href', o), e.removeAttribute('data-url');
+                break;
+              case L:
+                e.setAttribute('src', o), e.removeAttribute('data-url');
+                break;
+              default:
+                console.warn(`Unsupported node type for preview mode: ${e.nodeName}`);
+            }
+        });
+      }
+    }
+    !(async function () {
+      window.gemXInstance || (window.gemXInstance = new q());
+    })();
+  })();
 </script>
-
