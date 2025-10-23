@@ -12631,6 +12631,7 @@ reviewsio-product-reviews-widget {
 
 .ElementsWidget__inner {
     max-width: 1380px !important;
+    margin: 0 auto;
 }
 
 
