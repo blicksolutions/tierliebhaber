@@ -109,7 +109,7 @@
     },
     "gp_section_589831663631401925": {
       "settings": {
-        "checksum": "596e57537f71f9c5d7d97bc650df2aa7f88b59741f3ae7c6131f314e26c69fcd_0_1_1_0__1",
+        "checksum": "19350715ec48ce5a2322bdcd9a06852f7af9568b0964a6455f3fd2e862c97aed_0_1_1_0__1",
         "gg0qgdCd4b8_text": "<strong>Was einige von über 100.000 glückliche Kunde berichten</strong>",
         "gg1R_oSgtpw_text": "<strong>Versucht dein Hund dir etwas zu sagen?</strong>",
         "gg2rzmQeXQl_text": "<strong>Was einige von über 100.000 glückliche Kunde berichten</strong>",
@@ -155,7 +155,7 @@
     },
     "gp_section_589831663631467461": {
       "settings": {
-        "checksum": "708304afd979952a789c15355b8e3c0283212b551717d94b36ead10228884d32_0_1_1_0__1",
+        "checksum": "ef62fd7bc63dfa09974615c1d8284e64483fa649e05e73b6e6e1bbb84ea0b55d_0_1_1_0__1",
         "gg2xzcbnqvm_text": "<p>Als Probierpaket</p>",
         "gg3-VZ5VVop_text": "<p><strong>99,90€</strong></p>",
         "gg3OHD3AQru_text": "<p><strong>6x Gras &amp; Kotfresser Drops</strong></p>",
@@ -297,6 +297,14 @@
         "checksum": "14e4b55bb3bc780c50ef00c553908e4afb12df8a8344423c10b2ee68144d0d60_0_1_1_0__1"
       },
       "type": "gp-section-589831663631926213"
+    },
+    "gp_section_589997966375257078": {
+      "settings": {
+        "checksum": "21fde4a1ca0c261a33c9c0f1ce902dc6f08ba51a24e88e8449999828abbc3deb_0_1_1_0__1",
+        "ggUmN1rbJy-_text": "<p><span style=\"color:#FFFFFF;\">Noch zuschlagen und zu 30% Neukunden Rabatt sichern!</span></p>",
+        "ggad7mssXyD_text": "<p><span style=\"color:#FFFFFF;\"><strong>✨ EARLY BLACK WEEK SALE ✨</strong></span></p>"
+      },
+      "type": "gp-section-589997966375257078"
     }
   },
   "order": [
@@ -305,6 +313,7 @@
     "gp_section_589831663631729605",
     "gp_section_589831663631336389",
     "gp_section_589831663631401925",
+    "gp_section_589997966375257078",
     "gp_section_589831663631467461",
     "gp_section_589831663631860677",
     "gp_section_589831663631074245",
