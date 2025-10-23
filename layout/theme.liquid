@@ -59,45 +59,6 @@
     <script src="{{ 'bs-sticky-atc.js' | asset_url }}" defer></script>
     <script src="{{ 'bs-mobile-sidebar-nav.js' | asset_url }}" defer></script>
 
-    <script type="text/plain" data-cookieconsent="marketing">
-      var AWIN = AWIN || {};
-      AWIN.Tracking = AWIN.Tracking || {};
-      AWIN.Tracking.AdvertiserConsent = false;
-
-      let documentCookies = document.cookie;
-      let prefix = 'CookieConsent' + '=';
-      let begin = documentCookies.indexOf('; ' + prefix);
-      let end;
-      let cookieFound = true;
-
-      if (begin == -1) {
-        begin = documentCookies.indexOf(prefix);
-        if (begin != 0) {
-          cookieFound = false;
-        }
-      } else {
-        begin += 2;
-        end = document.cookie.indexOf(';', begin);
-        if (end == -1) {
-          end = documentCookies.length;
-        }
-      }
-
-      if (cookieFound) {
-        const consentCookie = decodeURI(documentCookies.substring(begin + prefix.length, end));
-        if (
-          consentCookie.includes('necessary:true') &&
-          consentCookie.includes('preferences:true') &&
-          consentCookie.includes('statistics:true') &&
-          consentCookie.includes('marketing:true')
-        ) {
-          AWIN.Tracking.Consent.setAdvertiserConsentStatus(true);
-        } else {
-          AWIN.Tracking.Consent.setAdvertiserConsentStatus(false);
-        }
-      }
-    </script>
-
     <script>
       window.SLIDECART_DISABLE = true;
     </script>
