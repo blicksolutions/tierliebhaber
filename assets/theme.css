@@ -12634,7 +12634,7 @@ reviewsio-product-reviews-widget {
     margin: 0 auto;
 }
 
-.ElementsWidget-prefix .R-TextHeading--xxs {
+.ElementsWidget-prefix .R-TextHeading--xxs, .ElementsWidget-prefix .R-TextHeading--inline {
     font-weight: 600 !important;
 }
 
