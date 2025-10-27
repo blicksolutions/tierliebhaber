@@ -3,12 +3,11 @@
 <html class="no-js" lang="{{ shop.locale }}">
   <head>
     {% render 'cookiebot' %}
-    <!-- Theme Template: GemPages.Blank  -->
-    <!-- Split GemX Traffic before Consent -->
+
+    {% comment %}<!-- Split GemX Traffic before Consent M.M. -->{% endcomment %}
     {% render 'gemx-traffic-switch' %}
 
     <link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}">
-    <link rel="stylesheet" href="{{ 'ds-op-lp-3.css' | asset_url }}">
 
     <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
     <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
@@ -16,6 +15,10 @@
     <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-010.js' | asset_url }}"></script>
     <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-011.js' | asset_url }}"></script>
     <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-025.js' | asset_url }}"></script>
+
+    <script src="{{ 'bs-subscription-callout.js' | asset_url }}" defer></script>
+    <script src="{{ 'bs-sticky-atc.js' | asset_url }}" defer></script>
+    <script src="{{ 'bs-mobile-sidebar-nav.js' | asset_url }}" defer></script>
 
     <script type="text/plain" data-cookieconsent="marketing">
       fetch('/browsing_context_suggestions.json')
@@ -28,11 +31,10 @@
           }
         });
     </script>
-    <script type="text/plain" data-cookieconsent="marketing" src="https://cdn.ablyft.com/s/55886406.js"></script>
-    <script type="text/plain" data-cookieconsent="marketing">
-      window['ablyft'] = window['ablyft'] || [];
-    </script>
 
+    {% render 'external-scripts' %}
+
+    {% comment %}  <!-- ////////// Custom Events M.M. ////////////  -->  {% endcomment %}
     <script type="text/plain" data-cookieconsent="marketing">
       document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.Search__Inner').addEventListener('click', () => {
@@ -44,62 +46,27 @@
         });
       });
     </script>
-    {% comment %}
-      {% render 'replo-head' %}
-    {% endcomment %}
-    {% render 'consent_script_blocking' %}
-
-    <script src="{{ 'bs-load-third-party-scripts.js' | asset_url }}" defer></script>
-    <script src="{{ 'bs-subscription-callout.js' | asset_url }}" defer></script>
-    <script src="{{ 'bs-sticky-atc.js' | asset_url }}" defer></script>
-    <script src="{{ 'bs-mobile-sidebar-nav.js' | asset_url }}" defer></script>
-
-    <script type="text/plain" data-cookieconsent="marketing">
-      var AWIN = AWIN || {};
-      AWIN.Tracking = AWIN.Tracking || {};
-      AWIN.Tracking.AdvertiserConsent = false;
-
-      let documentCookies = document.cookie;
-      let prefix = 'CookieConsent' + '=';
-      let begin = documentCookies.indexOf('; ' + prefix);
-      let end;
-      let cookieFound = true;
-
-      if (begin == -1) {
-        begin = documentCookies.indexOf(prefix);
-        if (begin != 0) {
-          cookieFound = false;
-        }
-      } else {
-        begin += 2;
-        end = document.cookie.indexOf(';', begin);
-        if (end == -1) {
-          end = documentCookies.length;
-        }
-      }
-
-      if (cookieFound) {
-        const consentCookie = decodeURI(documentCookies.substring(begin + prefix.length, end));
-        if (
-          consentCookie.includes('necessary:true') &&
-          consentCookie.includes('preferences:true') &&
-          consentCookie.includes('statistics:true') &&
-          consentCookie.includes('marketing:true')
-        ) {
-          AWIN.Tracking.Consent.setAdvertiserConsentStatus(true);
-        } else {
-          AWIN.Tracking.Consent.setAdvertiserConsentStatus(false);
-        }
-      }
-    </script>
 
     <script>
       window.SLIDECART_DISABLE = true;
     </script>
 
-    <link rel="stylesheet" href="{{ 'slick.css' | asset_url }}">
-    <link rel="stylesheet" href="{{ 'slick-theme.css' | asset_url }}">
-    <script src="{{ 'slick.min.js' | asset_url }}" defer></script>
+    {% comment %}
+      {% render 'replo-head' %}
+    {% endcomment %}
+    {% comment %}
+      {% render 'consent_script_blocking' %}
+    {% endcomment %}
+
+    {% comment %}
+      Kann vermutlich raus, ist altes Tracking für Mouse-Aktivität und Superchat beides nicht genutzt.  M.M.
+      <script src="{{ 'bs-load-third-party-scripts.js' | asset_url }}" defer></script>
+      >
+    {% endcomment %}
+
+    {% comment %} Slickslider ist auf der Collection Page eingebunden. Soll raus!!!  M.M.
+    {% render 'collection-slider' %}
+    {% endcomment %}
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -169,6 +136,8 @@
     <link rel="stylesheet" href="{{ 'bs-custom.css' | asset_url }}">
     <link rel="stylesheet" href="{{ 'recommended-search-products.css' | asset_url }}">
 
+        <link rel="stylesheet" href="https://widget.reviews.io/rating-snippet/dist.css">
+
     {%- render 'head-styles', layout: 'theme' -%}
 
     <script>
@@ -177,18 +146,6 @@
               document.querySelector('.shopify-policy__title').classList.add('PageHeader', 'Heading', 'u-h1');
               document.querySelector('.shopify-policy__body').classList.add('Rte');
             });
-
-      setTimeout(()=>{
-                const cookieDeclaration = document.querySelector('.CookieDeclaration__injection')
-                const cookieDeclarationScript = document.createElement('script')
-
-                cookieDeclarationScript.setAttribute('id','CookieDeclaration');
-                cookieDeclarationScript.setAttribute('src','https://consent.cookiebot.com/a4aa9c1a-9639-4e9f-8a23-4aef9c37b3cc/cd.js');
-                cookieDeclarationScript.setAttribute('type','text/javascript');
-                cookieDeclarationScript.setAttribute('async','true');
-
-                cookieDeclaration.appendChild(cookieDeclarationScript)
-            },500)
 
           {%- endif -%}
 
@@ -257,20 +214,22 @@
       <script src="{{ 'customer_area.js' | shopify_asset_url }}" defer></script>
     {%- endif -%}
 
+    {%  comment %}
+
+    <!-- Unnötig ist nativ in 98 % aller browser  M.M. -->
     <script
       type="text/plain"
       data-cookieconsent="preferences"
       src="https://polyfill-fastly.net/v3/polyfill.min.js?unknown=polyfill&features=Element.prototype.closest,Element.prototype.remove,Element.prototype.classList,Array.prototype.includes,Array.prototype.fill,Object.assign,CustomEvent,IntersectionObserver,IntersectionObserverEntry,URL"
       defer
     ></script>
+    {%  endcomment %}
+
     <script src="{{ 'libs.min.js' | asset_url }}" defer></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
     <script src="{{ 'theme.min.js' | asset_url }}" defer></script>
     <script src="{{ 'bs-cart-drawer.js' | asset_url }}" defer></script>
     <script src="{{ 'search-manipulation.js' | asset_url }}" defer></script>
-    <script src="{{ 'bs-dentalspray-redirect.js' | asset_url }}"></script>
+    <script src="{{ 'bs-dentalspray-redirect.js' | asset_url }}" ></script>
 
     <script>
       (function () {
@@ -397,21 +356,21 @@
       src="https://widget.reviews.io/rating-snippet/dist.js"
     ></script>
 
-    <link rel="stylesheet" href="https://widget.reviews.io/rating-snippet/dist.css">
 
-    <script>
-      ratingSnippet('ruk_rating_snippet', {
-        store: 'tierliebhaber.de',
-        mode: 'default',
-        color: '#fbd343',
-        linebreak: false,
-        text: "{{ 'product.tabs.reviews' | t }}",
-        singularText: "{{ 'product.tabs.reviews_singular' | t }}",
-        lang: 'de',
-        usePolaris: true,
-        showEmptyStars: false,
-      });
-    </script>
+
+<script type="text/plain" data-cookieconsent="marketing">  ← HINZUGEFÜGT!
+  ratingSnippet('ruk_rating_snippet', {
+    store: 'tierliebhaber.de',
+    mode: 'default',
+    color: '#fbd343',
+    linebreak: false,
+    text: "{{ 'product.tabs.reviews' | t }}",
+    singularText: "{{ 'product.tabs.reviews_singular' | t }}",
+    lang: 'de',
+    usePolaris: true,
+    showEmptyStars: false,
+  });
+</script>
 
     <script
       type="text/plain"
