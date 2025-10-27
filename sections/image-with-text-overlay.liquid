@@ -96,30 +96,7 @@
         </div>
       {%- endif -%}
       {%- if section.settings['html-content'] != blank -%}
-        <div class="ImageHero__ContentOverlay">
-          <div
-            data-lion-integrated-page-section-id="9879a521-4d53-4cb7-8d97-dd9c3b7f3656"
-            data-lion-integrated-page-section-kind="header"
-            class="lion-header lion-integrated-page-section"
-          >
-            <div class="lion-header__join-today" data-i18n-key="sdk.integrated_page.welcome_guest.join_with_incentive">
-              <h1>Willkommen im Tierliebhaber Treueherzen Club!</h1>
-              Komm in den Club und lass dich fürs Shoppen belohnen. Du erhältst <strong>250 Treueherzen</strong> für
-              deine Registrierung.
-            </div>
-            <div class="">
-              Um dich im Treuherzen Club anmelden oder registrieren zu können, musst du in unsere Marketing Cookies und Services einwilligen. 
-            </div>
-            <div class="lion-header__join-buttons">
-
-
-{% render 'generic-consent-widget', 
-  button_text: 'Treueherzenclub Anzeigen', 
-  info_text: 'und Marketing' 
-%}
-            </div>
-          </div>
-        </div>
+        {{ section.settings.html-content }}
       {%- endif -%}
     </div>
   </div>
