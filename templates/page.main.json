@@ -11,6 +11,7 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {}
     },
     "custom_html_3FLGiW": {
@@ -40,8 +41,8 @@
     "image_with_text_overlay_EDBcEQ": {
       "type": "image-with-text-overlay",
       "custom_css": [
-        ".ImageHero__ContentOverlay-2 {color: #000; position: relative; flex-basis: 600px; flex-grow: 0; padding: 0 15px; background: rgba(255, 255, 255, 0.75); padding: 15px 30px 40px 30px; border-radius: 10px; font-size:18px !important;}",
-        ".ImageHero__ContentOverlay-2 h1{font-size: 28px !important; font-weight: 700 !important; margin-bottom: 20px }"
+        ".ImageHero__ContentOverlay-2 {color: #000; position: relative; flex-basis: 600px; flex-grow: 0; padding: 0 15px; background: rgba(255, 255, 255, 0.75); padding: 15px 30px 40px 30px; border-radius: 10px; font-size: 18px !important;}",
+        ".ImageHero__ContentOverlay-2 h1 {font-size: 28px !important; font-weight: 700 !important; margin-bottom: 20px;}"
       ],
       "name": "Image with text (overlay)",
       "settings": {
