@@ -41,7 +41,8 @@
       "type": "image-with-text-overlay",
       "custom_css": [
         ".ImageHero__ContentOverlay-2 {position: relative; flex-basis: 600px; flex-grow: 0; padding: 0 15px; text-shadow: 0 1px rgba(0, 0, 0, 0.5); background: rgba(255, 255, 255, 0.75); padding: 15px 30px 40px 30px; border-radius: 10px !important;}",
-        ".ImageHero__ContentOverlay-2 h1 {text-transform: none; color: #000; font-size: 28px !important; line-height: normal !important; font-weight: 700 !important; text-align: center; display: block; margin-top: 0 !important; margin-bottom: 20px !important;}"
+        ".ImageHero__ContentOverlay-2 h1 {text-transform: none; color: #000; font-size: 28px !important; line-height: normal !important; font-weight: 700 !important; text-align: center; display: block; margin-top: 0 !important; margin-bottom: 20px !important;}",
+        ".ImageHero__ContentOverlay-2 {text-shadow: none !important;}"
       ],
       "name": "Image with text (overlay)",
       "settings": {
