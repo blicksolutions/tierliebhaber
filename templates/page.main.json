@@ -12,9 +12,19 @@
     "main": {
       "type": "main-page",
       "settings": {}
+    },
+    "custom_html_3FLGiW": {
+      "type": "custom-html",
+      "name": "Custom HTML",
+      "settings": {
+        "subheading": "Sub-heading",
+        "title": "Your HTML",
+        "html": "<p>Write your own custom HTML content.</p>"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "custom_html_3FLGiW"
   ]
 }
