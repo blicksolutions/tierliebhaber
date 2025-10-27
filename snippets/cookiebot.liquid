@@ -36,11 +36,9 @@
 {% comment %} ================= Consent Check Gate  without Marketing Consent === M.M. 15/10/25 ==============  {% endcomment %}
 <script>{% render 'polyfill-consent-_gate' %}</script>
 
-<!-- Block Vimeo Start until Markting Consent (edit Michael Müller 9.9.25) -->
-
 {% comment %} ================= Block vimeo without Marketing Consent === M.M. 15/10/25 ==============  {% endcomment %}
 {% render 'vimeo-consent_gate' %}
 
-<!-- Block Typeform Start until Markting Consent (edit Michael Müller 9.9.25) -->
+{% comment %} <!-- Block Typeform Start until Markting Consent (edit Michael Müller 9.9.25) --> {% endcomment %}
 <script>{% render 'typeform-consent_gate' %}</script>
 
