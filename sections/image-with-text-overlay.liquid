@@ -1,43 +1,41 @@
-
 <script>
-(function(){
-  'use strict';
-  
-  var SECTION_ID = 'shopify-section-template--24109613089036__image_with_text_overlay_EDBcEQ';
-  
-  function hasMarketingConsent() {
-    try {
-      return !!(window.Cookiebot && window.Cookiebot.consent && window.Cookiebot.consent.marketing);
-    } catch(e) {
-      return false;
-    }
-  }
+  (function () {
+    'use strict';
 
-  function toggleSection() {
-    try {
-      var section = document.getElementById(SECTION_ID);
-      if (!section) return;
+    var SECTION_ID = 'shopify-section-template--24109613089036__image_with_text_overlay_EDBcEQ';
 
-      if (hasMarketingConsent()) {
-        section.style.display = 'none';
-      } else {
-        section.style.display = '';
+    function hasMarketingConsent() {
+      try {
+        return !!(window.Cookiebot && window.Cookiebot.consent && window.Cookiebot.consent.marketing);
+      } catch (e) {
+        return false;
       }
-    } catch(e) {}
-  }
+    }
 
-  toggleSection();
+    function toggleSection() {
+      try {
+        var section = document.getElementById(SECTION_ID);
+        if (!section) return;
 
-  window.addEventListener('CookiebotOnAccept', toggleSection);
-  window.addEventListener('CookiebotOnDecline', toggleSection);
-  window.addEventListener('CookiebotOnConsentReady', toggleSection);
-  
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', toggleSection);
-  }
-})();
+        if (hasMarketingConsent()) {
+          section.style.display = 'none';
+        } else {
+          section.style.display = '';
+        }
+      } catch (e) {}
+    }
+
+    toggleSection();
+
+    window.addEventListener('CookiebotOnAccept', toggleSection);
+    window.addEventListener('CookiebotOnDecline', toggleSection);
+    window.addEventListener('CookiebotOnConsentReady', toggleSection);
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', toggleSection);
+    }
+  })();
 </script>
-
 
 <section id="section-{{ section.id }}">
   {%- capture mobile_size -%}750x{% if section.settings.image.height >= 960 %}960{% else %}{{ section.settings.image.height }}{% endif %}{%- endcapture -%}
@@ -97,14 +95,39 @@
           {%- endif -%}
         </div>
       {%- endif -%}
-      {%- if section.settings.html-content != blank
-      -%}
+      {%- if section.settings['html-content'] != blank -%}
         <div class="ImageHero__ContentOverlay">
-         {{ section.settings.html-content }}
+          <div
+            data-lion-integrated-page-section-id="9879a521-4d53-4cb7-8d97-dd9c3b7f3656"
+            data-lion-integrated-page-section-kind="header"
+            class="lion-header lion-integrated-page-section"
+          >
+            <div class="lion-header__join-today" data-i18n-key="sdk.integrated_page.welcome_guest.join_with_incentive">
+              <h1>Willkommen im Tierliebhaber Treueherzen Club!</h1>
+              Komm in den Club und lass dich fürs Shoppen belohnen. Du erhältst <strong>250 Treueherzen</strong> für
+              deine Registrierung. Worauf wartest du noch?
+            </div>
+            <div class="lion-header__join-buttons">
+              <a
+                role="button"
+                tabindex="0"
+                aria-disabled="false"
+                class="lion-action-button lion-action-button--primary"
+                href="/account/register"
+                >Registrieren</a
+              >
+              <a
+                role="button"
+                tabindex="0"
+                aria-disabled="false"
+                class="lion-action-button lion-action-button--neutral"
+                href="/account/login"
+                >Einloggen</a
+              >
+            </div>
+          </div>
         </div>
       {%- endif -%}
-
-
     </div>
   </div>
 </section>
