@@ -56,6 +56,14 @@
           {%- endif -%}
         </div>
       {%- endif -%}
+      {%- if section.settings.html != blank
+      -%}
+        <div class="ImageHero__ContentOverlay">
+         {{ section.settings.html-content | escape }}
+        </div>
+      {%- endif -%}
+
+
     </div>
   </div>
 </section>
