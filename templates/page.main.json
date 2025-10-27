@@ -39,17 +39,21 @@
     },
     "image_with_text_overlay_EDBcEQ": {
       "type": "image-with-text-overlay",
+      "custom_css": [
+        ".ImageHero__ContentOverlay-2 {position: relative; flex-basis: 600px; flex-grow: 0; padding: 0 15px; text-shadow: 0 1px rgba(0, 0, 0, 0.5); background: rgba(255, 255, 255, 0.75); padding: 15px 30px 40px 30px; border-radius: 10px !important;}",
+        ".ImageHero__ContentOverlay-2 h1 {text-transform: none; color: #000; font-size: 28px !important; line-height: normal !important; font-weight: 700 !important; text-align: center; display: block; margin-top: 0 !important; margin-bottom: 20px !important;}"
+      ],
       "name": "Image with text (overlay)",
       "settings": {
         "section_size": "large",
         "image": "shopify://shop_images/Tierliebhaber-Treueherzen-Club_050aa8fc-3c6a-417b-8ed3-32c7c187842d.jpg",
-        "text_color": "#ffffff",
+        "text_color": "#000000",
         "overlay_color": "#000000",
-        "overlay_opacity": 21,
+        "overlay_opacity": 0,
         "subheading": "",
         "title": "",
         "content": "",
-        "html-content": "<div class=\"ImageHero__ContentOverlay\">\n  <div class=\"lion-header__join-today\">\n    <h1>Willkommen im Tierliebhaber Treueherzen Club!</h1>\n    Komm in den Club und lass dich fürs Shoppen belohnen. Du erhältst <strong>250 Treueherzen</strong> für deine\n    Registrierung.\n  </div>\n  <div class=\"\">\n    Um dich im Treuherzen Club anmelden oder registrieren zu können, musst du in unsere Marketing Cookies und Services\n    einwilligen.\n  </div>\n  <div class=\"lion-header__join-buttons\">\n    {% render 'generic-consent-widget', button_text: 'Treueherzenclub Anzeigen', info_text: 'und Marketing' %}\n  </div>\n</div>"
+        "html-content": "<div class=\"ImageHero__ContentOverlay-2\">\n  <div class=\"lion-header__join-today\">\n    <h1>Willkommen im Tierliebhaber Treueherzen Club!</h1>\n    Komm in den Club und lass dich fürs Shoppen belohnen. Du erhältst <strong>250 Treueherzen</strong> für deine\n    Registrierung.\n  </div>\n  <div class=\"\">\n    Um dich im Treuherzen Club anmelden oder registrieren zu können, musst du in unsere Marketing Cookies und Services\n    einwilligen.\n  </div>\n  <div class=\"lion-header__join-buttons\">\n    {% render 'generic-consent-widget', button_text: 'Treueherzenclub Anzeigen', info_text: 'und Marketing' %}\n  </div>\n</div>"
       }
     }
   },
