@@ -1,0 +1,171 @@
+{% comment %}
+  Generic Consent Widget (Multi-Instance)
+  Snippet: generic-consent-widget.liquid
+  
+  Parameters:
+  - button_text: Text des Buttons (z.B. "Inhalt anzeigen")
+  - info_text: Info-Text nach dem Button (optional)
+  
+  Usage:
+  {% render 'generic-consent-widget', button_text: 'Video ansehen', info_text: '(Marketing-Cookies)' %}
+{% endcomment %}
+
+{% assign button_text = button_text | default: 'Inhalt anzeigen' %}
+{% assign info_text = info_text | default: '(Marketing-Cookies)' %}
+
+<div class="consent-widget" data-consent-widget>
+  <button type="button" class="consent-widget-btn" data-consent-accept>
+    {{ button_text }}
+  </button>
+  {% if info_text != blank %}
+    <span class="consent-widget-text">
+      {{ info_text }} – <a href="#" class="consent-widget-link" data-consent-settings>Einstellungen</a>
+    </span>
+  {% endif %}
+</div>
+
+<style>
+.consent-widget {
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.consent-widget[data-visible] {
+  display: inline-flex;
+}
+
+.consent-widget-btn {
+  background: #222;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.consent-widget-btn:hover {
+  background: #000;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.consent-widget-text {
+  font-size: 13px;
+  color: #999;
+}
+
+.consent-widget-link {
+  color: #666;
+  text-decoration: underline;
+}
+
+.consent-widget-link:hover {
+  color: #000;
+}
+
+@media (max-width: 640px) {
+  .consent-widget {
+    flex-wrap: wrap;
+  }
+  
+  .consent-widget-btn {
+    width: 100%;
+  }
+}
+</style>
+
+<script>
+(function(){
+  'use strict';
+  
+  if (window.__CONSENT_WIDGET_INITIALIZED__) return;
+  window.__CONSENT_WIDGET_INITIALIZED__ = true;
+  
+  function hasMarketingConsent() {
+    try {
+      return !!(window.Cookiebot && window.Cookiebot.consent && window.Cookiebot.consent.marketing);
+    } catch(e) {
+      return false;
+    }
+  }
+
+  function initAllWidgets() {
+    try {
+      const widgets = document.querySelectorAll('[data-consent-widget]');
+      if (!widgets.length) return;
+
+      widgets.forEach(function(widget) {
+        if (widget.hasAttribute('data-initialized')) return;
+        widget.setAttribute('data-initialized', 'true');
+
+        if (hasMarketingConsent()) {
+          widget.removeAttribute('data-visible');
+        } else {
+          widget.setAttribute('data-visible', 'true');
+        }
+
+        const acceptBtn = widget.querySelector('[data-consent-accept]');
+        const settingsLink = widget.querySelector('[data-consent-settings]');
+
+        if (acceptBtn) {
+          acceptBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            try {
+              if (window.Cookiebot && typeof window.Cookiebot.submitCustomConsent === 'function') {
+                const pref = !!(window.Cookiebot.consent && window.Cookiebot.consent.preferences);
+                const stat = !!(window.Cookiebot.consent && window.Cookiebot.consent.statistics);
+                window.Cookiebot.submitCustomConsent(pref, stat, true);
+              } else if (window.Cookiebot && typeof window.Cookiebot.renew === 'function') {
+                window.Cookiebot.renew();
+              }
+            } catch(err) {}
+          });
+        }
+
+        if (settingsLink) {
+          settingsLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            try {
+              if (window.Cookiebot && typeof window.Cookiebot.renew === 'function') {
+                window.Cookiebot.renew();
+              }
+            } catch(err) {}
+          });
+        }
+      });
+
+      function handleConsentChange() {
+        try {
+          if (hasMarketingConsent()) {
+            widgets.forEach(function(widget) {
+              widget.removeAttribute('data-visible');
+            });
+          }
+        } catch(e) {}
+      }
+
+      window.addEventListener('CookiebotOnAccept', handleConsentChange);
+      window.addEventListener('CookiebotOnConsentReady', handleConsentChange);
+      
+    } catch(e) {}
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAllWidgets);
+  } else {
+    initAllWidgets();
+  }
+  
+  window.addEventListener('load', function() {
+    setTimeout(initAllWidgets, 100);
+  });
+  
+  setTimeout(initAllWidgets, 500);
+})();
+</script>
