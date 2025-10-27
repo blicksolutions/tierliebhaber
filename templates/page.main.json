@@ -21,10 +21,40 @@
         "title": "Your HTML",
         "html": "<p>Write your own custom HTML content.</p>"
       }
+    },
+    "text_with_image_ynaXJQ": {
+      "type": "text-with-image",
+      "disabled": true,
+      "name": "Rich text with image",
+      "settings": {
+        "subheading": "Sub-heading",
+        "title": "Title",
+        "image": "shopify://shop_images/Tierliebhaber-Treueherzen-Club_050aa8fc-3c6a-417b-8ed3-32c7c187842d.jpg",
+        "image_position": "right",
+        "content": "<p>Add your own custom content to give more information about your store, availability details...</p>",
+        "link_text": "",
+        "link_url": ""
+      }
+    },
+    "image_with_text_overlay_EDBcEQ": {
+      "type": "image-with-text-overlay",
+      "name": "Image with text (overlay)",
+      "settings": {
+        "section_size": "large",
+        "image": "shopify://shop_images/Tierliebhaber-Treueherzen-Club_050aa8fc-3c6a-417b-8ed3-32c7c187842d.jpg",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 21,
+        "subheading": "",
+        "title": "Willkommen im Tierliebhaber Treueherzen Club!",
+        "content": "<p>Komm in den Club und lass dich fürs Shoppen belohnen. Du erhältst 250 Treueherzen für deine Registrierung. Worauf wartest du noch?</p>"
+      }
     }
   },
   "order": [
     "main",
-    "custom_html_3FLGiW"
+    "custom_html_3FLGiW",
+    "text_with_image_ynaXJQ",
+    "image_with_text_overlay_EDBcEQ"
   ]
 }
