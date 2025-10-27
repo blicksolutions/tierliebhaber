@@ -49,7 +49,7 @@
         "subheading": "",
         "title": "",
         "content": "",
-        "html-content": "<div class=\"lion-header__join-today\">\n            <h1>Willkommen im Tierliebhaber Treueherzen Club!</h1>\n            Komm in den Club und lass dich fürs Shoppen belohnen. Du erhältst <strong>250 Treueherzen</strong> für deine\n            Registrierung.\n          </div>\n          <div class=\"\">\n            Um dich im Treuherzen Club anmelden oder registrieren zu können, musst du in unsere Marketing Cookies und\n            Services einwilligen.\n          </div>\n          <div class=\"lion-header__join-buttons\">\n            {% render 'generic-consent-widget', button_text: 'Treueherzenclub Anzeigen', info_text: 'und Marketing' %}\n          </div>\n        </div>"
+        "html-content": "<div class=\"ImageHero__ContentOverlay\">\n  <div class=\"lion-header__join-today\">\n    <h1>Willkommen im Tierliebhaber Treueherzen Club!</h1>\n    Komm in den Club und lass dich fürs Shoppen belohnen. Du erhältst <strong>250 Treueherzen</strong> für deine\n    Registrierung.\n  </div>\n  <div class=\"\">\n    Um dich im Treuherzen Club anmelden oder registrieren zu können, musst du in unsere Marketing Cookies und Services\n    einwilligen.\n  </div>\n  <div class=\"lion-header__join-buttons\">\n    {% render 'generic-consent-widget', button_text: 'Treueherzenclub Anzeigen', info_text: 'und Marketing' %}\n  </div>\n</div>"
       }
     }
   },
