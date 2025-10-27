@@ -9,12 +9,12 @@
  */
 {
   "sections": {
-    "collabs": {
-      "type": "apps",
+    "main": {
+      "type": "main-page",
       "settings": {}
     }
   },
   "order": [
-    "collabs"
+    "main"
   ]
 }
