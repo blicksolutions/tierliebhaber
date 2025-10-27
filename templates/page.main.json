@@ -47,7 +47,8 @@
         "overlay_opacity": 21,
         "subheading": "",
         "title": "Willkommen im Tierliebhaber Treueherzen Club!",
-        "content": "<p>Komm in den Club und lass dich fürs Shoppen belohnen. Du erhältst <strong>250 Treueherzen</strong> für deine Registrierung. Worauf wartest du noch?</p>"
+        "content": "",
+        "html-content": "<div class=\"test\">Komm in den Club und lass dich fürs Shoppen belohnen. Du erhältst 250 Treueherzen für deine Registrierung. Worauf wartest du noch?</div>"
       }
     }
   },
