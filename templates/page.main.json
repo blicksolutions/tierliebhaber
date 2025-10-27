@@ -11,6 +11,9 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "custom_css": [
+        ".PageContent {margin: 0;}"
+      ],
       "settings": {}
     },
     "custom_html_3FLGiW": {
