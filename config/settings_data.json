@@ -1625,6 +1625,21 @@
           "button_color": "#363636",
           "button_background": "#ffffff"
         }
+      },
+      "image_with_text_overlay_xTkpUE": {
+        "type": "image-with-text-overlay",
+        "disabled": true,
+        "name": "Image with text (overlay)",
+        "settings": {
+          "section_size": "large",
+          "text_color": "#ffffff",
+          "overlay_color": "#000000",
+          "overlay_opacity": 30,
+          "subheading": "",
+          "title": "Tell your story",
+          "content": "<p>Add your own custom content to give more information about your store, availability details...</p>",
+          "html-content": "<p>Add your own custom content to give more information about your store, availability details...</p>"
+        }
       }
     },
     "content_for_index": [
@@ -1644,6 +1659,7 @@
       "b94622a9-dfd5-4703-963d-0b90d3126168",
       "text_with_image_CLJqMt",
       "slideshow_dKUeWg",
+      "image_with_text_overlay_xTkpUE",
       "1652440853255ce756",
       "1630396737d0d511a7",
       "16282363208edc1fef",
