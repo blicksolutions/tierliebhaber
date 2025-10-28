@@ -800,15 +800,6 @@
           "id": "XEs6zR"
         }
       },
-      "1629450062a372f406": {
-        "type": "custom-html",
-        "disabled": true,
-        "settings": {
-          "subheading": "",
-          "title": "Das sagen unsere Kunden",
-          "html": "<!-- TrustBox widget - Slider -->\n<div class=\"trustpilot-widget\" data-locale=\"de-DE\" data-template-id=\"54ad5defc6454f065c28af8b\" data-businessunit-id=\"60d5db8ab6c75b0001a3a5e3\" data-style-height=\"240px\" data-style-width=\"100%\" data-theme=\"light\" data-stars=\"4,5\" data-review-languages=\"de\" data-font-family=\"Poppins\">\n  <a href=\"https://de.trustpilot.com/review/tierliebhaber.de\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>\n<!-- End TrustBox widget -->"
-        }
-      },
       "1629465395882c28f0": {
         "type": "seo-content",
         "settings": {
@@ -937,86 +928,6 @@
         "disabled": true,
         "settings": {
           "background": "primary"
-        }
-      },
-      "16340327713a2fcd1d": {
-        "type": "featured-in",
-        "blocks": {
-          "738c91bf-23c2-4f02-8766-8439e1996678": {
-            "type": "image",
-            "settings": {
-              "image": "shopify://shop_images/Zahnpflege.png",
-              "image_alt": "",
-              "image_url": "",
-              "max_width": 48
-            }
-          },
-          "27fb777c-1c69-465d-b6eb-ab213ed00f95": {
-            "type": "image",
-            "settings": {
-              "image": "shopify://shop_images/BluePet2021Logo.png",
-              "image_alt": "",
-              "image_url": "",
-              "max_width": 96
-            }
-          },
-          "c0ce6287-61d3-4b74-8029-e2ab00cddc17": {
-            "type": "image",
-            "settings": {
-              "image": "shopify://shop_images/sweet_potato_1.png",
-              "image_alt": "",
-              "image_url": "",
-              "max_width": 40
-            }
-          },
-          "046f8b21-f584-47c1-ab16-f6e7efc3f370": {
-            "type": "image",
-            "settings": {
-              "image": "shopify://shop_images/sweet_potato.png",
-              "image_alt": "",
-              "image_url": "",
-              "max_width": 96
-            }
-          },
-          "99172d79-97a7-443d-a146-2210419a2c8f": {
-            "type": "image",
-            "settings": {
-              "image": "shopify://shop_images/Fermented_Herbs_4.png",
-              "image_alt": "",
-              "image_url": "",
-              "max_width": 88
-            }
-          },
-          "b5c404e8-6ef7-4a80-8d6e-10be0b92ba4f": {
-            "type": "image",
-            "settings": {
-              "image": "shopify://shop_images/vetevo_seaweed.png",
-              "image_alt": "",
-              "image_url": "",
-              "max_width": 128
-            }
-          }
-        },
-        "block_order": [
-          "738c91bf-23c2-4f02-8766-8439e1996678",
-          "27fb777c-1c69-465d-b6eb-ab213ed00f95",
-          "c0ce6287-61d3-4b74-8029-e2ab00cddc17",
-          "046f8b21-f584-47c1-ab16-f6e7efc3f370",
-          "99172d79-97a7-443d-a146-2210419a2c8f",
-          "b5c404e8-6ef7-4a80-8d6e-10be0b92ba4f"
-        ],
-        "disabled": true,
-        "settings": {
-          "title": "Andere tierliebe Marken"
-        }
-      },
-      "16346490400a4b1df7": {
-        "type": "custom-html",
-        "disabled": true,
-        "settings": {
-          "subheading": "",
-          "title": "Wer dahinter steckt...",
-          "html": "<script src=\"https://fast.wistia.com/embed/medias/15pe7zcjtb.jsonp\" async=\"\"></script><script src=\"https://fast.wistia.com/assets/external/E-v1.js\" async=\"\"></script><div class=\"wistia_responsive_padding\" style=\"padding:125.0% 0 0 0;position:relative;\"><div class=\"wistia_responsive_wrapper\" style=\"height:100%;left:0;position:absolute;top:0;width:100%;\"><span class=\"wistia_embed wistia_async_15pe7zcjtb popover=true popoverAnimateThumbnail=true videoFoam=true\" style=\"display:inline-block;height:100%;position:relative;width:100%\"> </span></div></div>"
         }
       },
       "164847561630f9cc4a": {
@@ -1392,16 +1303,6 @@
           "grid_desktop_items_per_row": 4
         }
       },
-      "cfc032c1-c00f-4d3f-827c-a8fdb86b7458": {
-        "type": "bs-bild",
-        "disabled": true,
-        "settings": {
-          "bild_image": "shopify://shop_images/Untitled_design_5.png",
-          "horizontal_alignment": "middle",
-          "bild_image_size_mobile": 100,
-          "bild_image_size_desktop": 20
-        }
-      },
       "b19906e5-1981-4bbf-8ce1-d0a2d3727570": {
         "type": "bs-usp",
         "blocks": {
@@ -1737,7 +1638,6 @@
       "16288779949bca7a14",
       "16282318717ce7acd5",
       "b4edff6c-2010-46ec-a9c1-d1678e7808e8",
-      "cfc032c1-c00f-4d3f-827c-a8fdb86b7458",
       "text_with_image_DUmNND",
       "slideshow_xFQ8td",
       "164847561630f9cc4a",
@@ -1745,9 +1645,6 @@
       "text_with_image_CLJqMt",
       "slideshow_dKUeWg",
       "1652440853255ce756",
-      "16340327713a2fcd1d",
-      "16346490400a4b1df7",
-      "1629450062a372f406",
       "1630396737d0d511a7",
       "16282363208edc1fef",
       "162878573798fbf9f0",
