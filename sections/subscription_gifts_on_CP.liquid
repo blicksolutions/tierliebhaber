@@ -273,7 +273,7 @@
 </style>
 
 <section class="sgift-{{ sec_id }}">
-  <h2 class="visually-hidden">{{ section.settings.a11y_heading | escape }}</h2>
+  <h2 class="visually-hidden" style="display: none;">{{ section.settings.a11y_heading | escape }}</h2>
 
   {%- assign hero_img      = page_obj.image -%}
   {%- assign hero_icon     = page_obj.gift_icon -%}
