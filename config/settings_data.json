@@ -1628,7 +1628,9 @@
       },
       "image_with_text_overlay_xTkpUE": {
         "type": "image-with-text-overlay",
-        "disabled": true,
+        "custom_css": [
+          ".ImageHero__ImageWrapper {display: none !important;}"
+        ],
         "name": "Image with text (overlay)",
         "settings": {
           "section_size": "large",
@@ -1636,9 +1638,9 @@
           "overlay_color": "#000000",
           "overlay_opacity": 30,
           "subheading": "",
-          "title": "Tell your story",
-          "content": "<p>Add your own custom content to give more information about your store, availability details...</p>",
-          "html-content": "<p>Add your own custom content to give more information about your store, availability details...</p>"
+          "title": "",
+          "content": "",
+          "html-content": ""
         }
       }
     },
