@@ -1,0 +1,460 @@
+
+{%- liquid
+  assign page_ref  = collection.metafields.custom.subscription_gift_content_on_page
+  assign popup_ref = collection.metafields.custom.subscription_gift_content_on_popup
+
+  assign page_obj  = page_ref.value
+  assign popup_obj = popup_ref.value
+
+  if page_obj == nil and popup_obj == nil and section.settings.show_on_empty == false
+    break
+  endif
+
+  assign sec_id = section.id
+-%}
+
+<style>
+  .sgift-{{ sec_id }} {
+  --sgift-bg: {{ section.settings.bg }};
+  --sgift-text: {{ section.settings.text }};
+  --sgift-pad-y: {{ section.settings.pad_y | append: 'px' }};
+  }
+
+  .sgift-{{ sec_id }} .sgift-wrap {
+    background: var(--sgift-bg);
+    color: var(--sgift-text);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 12px 16px 12px 12px;
+    margin: 16px auto;
+    max-width: 358px;
+    text-align: right;
+  }
+
+  .sgift-{{ sec_id }} .sgift-media {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+  }
+
+  .sgift-{{ sec_id }} .sgift-media img {
+    display: block;
+    height: auto;
+    max-width: 82px;
+    border-radius: 10px;
+  }
+
+  .sgift-{{ sec_id }} .sgift-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .sgift-{{ sec_id }} .sgift-body {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .sgift-{{ sec_id }} .sgift-title {
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0 0 14px;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+  }
+  .metafield-rich_text_field h3 {
+    font-size: 17px;
+  }
+
+  .sgift-{{ sec_id }} .sgift-title b {
+    font-weight: 800;
+  }
+
+  .sgift-{{ sec_id }} .sgift-text {
+    opacity: 1;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .sgift-{{ sec_id }} .sgift-cta {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: underline;
+    font-size: 12px;
+    line-height: 1.4;
+    color: #C98072;
+  }
+
+  /* Modal */
+  .sgift-{{ sec_id }} .sgift-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .45);
+    opacity: 0;
+    pointer-events: none;
+    transition: .18s ease;
+    z-index: 5;
+  }
+
+  .sgift-{{ sec_id }} .sgift-modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 9999999999;
+  }
+
+  .sgift-{{ sec_id }} .sgift-card {
+    width: min(880px, 100vw);
+    max-height: 90vh;
+    overflow: auto;
+    background: #fff;
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 16px 38px rgba(0, 0, 0, .22);
+    transform: translateY(8px);
+    opacity: 0;
+    transition: .2s ease;
+  }
+
+  /* OPEN STATE lives on the same section element */
+  .sgift-{{ sec_id }}.sgift-open .sgift-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .sgift-{{ sec_id }}.sgift-open .sgift-card {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+
+  .sgift-{{ sec_id }} .sgift-hdr {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+  }
+
+  .sgift-{{ sec_id }} .sgift-hdr h3 {
+    font-size: 20px;
+    margin: 0;
+    font-weight: 700;
+  }
+
+  .sgift-{{ sec_id }} .sgift-x {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    line-height: 1;
+    padding: 6px;
+  }
+
+  .sgift-{{ sec_id }} .sgift-x svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .sgift-{{ sec_id }} .sgift-list {
+    display: grid;
+    gap: 8px;
+    padding: 0 16px 16px;
+  }
+
+  .sgift-{{ sec_id }} .sgift-item {
+    display: grid;
+    grid-template-columns: 1fr 50px;
+    gap: 32px;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 16px;
+    background: #F7F5F2;
+  }
+
+  .sgift-{{ sec_id }} .sgift-item .pic img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .sgift-{{ sec_id }} .sgift-item h4 {
+    font-size: 17px;
+    margin: 0 0 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .sgift-{{ sec_id }} .sgift-item .bullets {
+    margin-top: 8px;
+  }
+
+  .sgift-{{ sec_id }} .sgift-item .bullets li {
+    margin: 4px 0;
+    list-style: none;
+  }
+
+  .sgift-{{ sec_id }} .check {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    background: #e9f5ec;
+    margin-right: 6px;
+    position: relative;
+  }
+
+  .sgift-{{ sec_id }} .check:after {
+    content: "";
+    position: absolute;
+    inset: 3px;
+    background: #3aa65b;
+    clip-path: polygon(14% 56%, 0 43%, 43% 86%, 100% 14%, 86% 0, 43% 57%);
+  }
+
+  html.sgift-lock,
+  body.sgift-lock {
+    overflow: hidden;
+    touch-action: none;
+  }
+  .text .metafield-rich_text_field {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  .sgift-{{ sec_id }} .text ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sgift-{{ sec_id }} .text ul li {
+    position: relative;
+    padding-left: 21px;
+    margin-bottom: 8px;
+    background: none;
+  }
+  .sgift-{{ sec_id }} .text ul li:last-child {
+    margin-bottom: 0px;
+  }
+  .sgift-{{ sec_id }} .text ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background-image: url('https://cdn.shopify.com/s/files/1/0587/2746/5119/files/Check_1.svg?v=1761647703');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  .subscription-gifts {
+    display: none;
+  }
+
+</style>
+
+<section class="sgift-{{ sec_id }}">
+  <h2 class="visually-hidden">{{ section.settings.a11y_heading | escape }}</h2>
+
+  {%- assign hero_img      = page_obj.image -%}
+  {%- assign hero_icon     = page_obj.gift_icon -%}
+  {%- assign hero_heading  = page_obj.heading -%}  
+  {%- assign hero_content  = page_obj.content -%}  
+  {%- assign hero_cta_text = page_obj.popup_link_text | default: 'Mehr Infos zum Spar-Abo' -%}
+
+  {% if page_obj or section.settings.show_on_empty %}
+    <div class="sgift-wrap">
+      <div class="sgift-media">
+        {% if hero_img %}
+          {% assign w = hero_img.width | default: 420 %}
+          {% assign h = hero_img.height | default: 420 %}
+          <img
+            src="{{ hero_img | image_url: width: w }}"
+            alt="{{ hero_img.alt | default: 'Gift' | escape }}"
+            width="{{ w }}" height="{{ h }}"
+            loading="lazy">
+        {% endif %}
+      </div>
+
+      <div class="sgift-body">
+        <div class="sgift-title">
+          {% if hero_icon %}
+            {% assign iw = hero_icon.width | default: 40 %}
+            {% assign ih = hero_icon.height | default: 40 %}
+            <span class="sgift-icon">
+              <img src="{{ hero_icon | image_url: width: 40 }}" alt="{{ hero_icon.alt | default: 'Icon' | escape }}" width="26" height="26" loading="lazy">
+            </span>
+          {% endif %}
+          {{ hero_heading | metafield_tag }}
+        </div>
+
+        <div class="sgift-text">
+          {{ hero_content | metafield_tag }}
+        </div>
+
+        {% if popup_obj %}
+          <a href="#"
+             class="sgift-cta"
+             data-sgift-open="{{ sec_id }}"
+             aria-haspopup="dialog"
+             aria-controls="sgift-modal-{{ sec_id }}">
+            {{ hero_cta_text }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+
+  {% if popup_obj %}
+    {%- assign ph = popup_obj.main_heading -%}
+    {%- assign picon = popup_obj.gift_icon -%}
+
+    <div class="sgift-backdrop" id="sgift-backdrop-{{ sec_id }}"></div>
+    <div class="sgift-modal" id="sgift-modal-{{ sec_id }}" role="dialog" aria-modal="true" aria-labelledby="sgift-title-{{ sec_id }}" aria-hidden="true">
+      <div class="sgift-card" tabindex="-1">
+        <div class="sgift-hdr">
+          <h3 id="sgift-title-{{ sec_id }}">
+            {{ ph | default: 'Deine Vorteile im Spar-ABO' | escape }}
+          </h3>
+          <button class="sgift-x" type="button" aria-label="Close" data-sgift-close="{{ sec_id }}">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18.75 5.25L5.25 18.75" stroke="#343330" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M18.75 18.75L5.25 5.25" stroke="#343330" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="sgift-list">
+          {%- for i in (1..10) -%}
+            {%- assign key_h   = 'heading_'  | append: i -%}
+            {%- assign key_img = 'image_'    | append: i -%}
+            {%- assign key_ct  = 'content_'  | append: i -%}
+
+            {%- assign h   = popup_obj[key_h] -%}
+            {%- assign img = popup_obj[key_img] -%}
+            {%- assign ct  = popup_obj[key_ct] -%}
+
+            {%- if h == blank and img == blank and ct == blank -%}
+              {%- break -%}
+            {%- endif -%}
+
+            <article class="sgift-item">
+              <div class="copy">
+                <h4>
+                  {%- if picon -%}
+                    <img src="{{ picon | image_url: width: 22 }}" width="22" height="22" alt="" loading="lazy" style="border-radius:50%;background:#F0E7E4;padding:3px">
+                  {%- endif -%}
+                  {{ h | escape }}
+                </h4>
+                <div class="text">
+                  {{ ct | metafield_tag }}
+                </div>
+              </div>
+              <div class="pic">
+                {%- if img -%}
+                  <img
+                    src="{{ img | image_url: width: 500 }}"
+                    alt="{{ img.alt | default: '' | escape }}"
+                    loading="lazy"
+                    width="{{ img.width  | default: 240 }}"
+                    height="{{ img.height | default: 300 }}">
+                {%- endif -%}
+              </div>
+            </article>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+</section>
+
+<script>
+(function(){
+  var root     = document.querySelector('.sgift-{{ sec_id }}');
+  if(!root) return;
+
+  var openBtn  = root.querySelector('.sgift-cta');
+  var backdrop = root.querySelector('.sgift-backdrop');
+  var modal    = root.querySelector('.sgift-modal');
+  var card     = modal ? modal.querySelector('.sgift-card') : null;
+  var closeBtn = root.querySelector('.sgift-x');
+
+  function open(){
+    if(!modal) return;
+    root.classList.add('sgift-open');
+    document.documentElement.classList.add('sgift-lock');
+    document.body.classList.add('sgift-lock');
+    modal.setAttribute('aria-hidden','false');
+    setTimeout(function(){ card && card.focus(); }, 10);
+  }
+
+  function close(){
+    root.classList.remove('sgift-open');
+    document.documentElement.classList.remove('sgift-lock');
+    document.body.classList.remove('sgift-lock');
+    modal && modal.setAttribute('aria-hidden','true');
+    openBtn && openBtn.focus();
+  }
+
+  openBtn  && openBtn.addEventListener('click', function(e){ e.preventDefault(); open(); });
+  closeBtn && closeBtn.addEventListener('click', close);
+  backdrop && backdrop.addEventListener('click', close);
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && root.classList.contains('sgift-open')) close();
+  });
+})();
+</script>
+
+
+
+{% schema %}
+{
+  "name": "Collection subscription",
+  "tag": "section",
+  "class": "subscription-gifts",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg",
+      "label": "Background",
+      "default": "#F8F6F4"
+    },
+    {
+      "type": "color",
+      "id": "text",
+      "label": "Text color",
+      "default": "#1C1C1C"
+    },
+    {
+      "type": "text",
+      "id": "a11y_heading",
+      "label": "Accessible heading (visually hidden)",
+      "default": "Subscription gifts"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection subscription gifts"
+    }
+  ]
+}
+{% endschema %}
