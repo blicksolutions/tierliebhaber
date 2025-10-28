@@ -9,6 +9,15 @@
  */
 {
   "sections": {
+    "subscription_gifts_on_cp_KLBWfM": {
+      "type": "subscription_gifts_on_CP",
+      "name": "Collection subscription gifts",
+      "settings": {
+        "bg": "#f7f5f2",
+        "text": "#252525",
+        "a11y_heading": "Subscription gifts"
+      }
+    },
     "ddee7e2a-800b-4859-be96-f251a0f829b6": {
       "type": "bs-usp-mobile",
       "blocks": {
@@ -93,6 +102,8 @@
         "show_filter_color_swatch": true,
         "filter_menu": "",
         "heading": "Am meisten sparst Du hier:",
+        "cd_start": "2025-10-04T22:00:00Z",
+        "cd_end": "2025-10-12T23:59:59Z",
         "cd_heading": "Z-Sale: Dein Extra-Rabatt",
         "cd_subtext": "<p>Jetzt sichern – das Angebot endet bald!</p>",
         "cd_end_iso": "2025-05-18T23:59:59Z",
@@ -144,6 +155,7 @@
     }
   },
   "order": [
+    "subscription_gifts_on_cp_KLBWfM",
     "ddee7e2a-800b-4859-be96-f251a0f829b6",
     "main",
     "recently-viewed-products",
