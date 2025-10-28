@@ -71,6 +71,9 @@
                           <a href="{{ link.url }}" class="Link Link--primary">{{ link.title | escape }}</a>
                         </li>
                       {%- endfor -%}
+                       <li class="Linklist__Item">
+                        <a href="#" onclick="Cookiebot.renew(); return false;">Cookie-Einstellungen</a>
+                        </li>
                     </ul>
                   {%- endif -%}
 
