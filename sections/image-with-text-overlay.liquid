@@ -36,6 +36,47 @@
     }
   })();
 </script>
+<script>
+  (function () {
+    'use strict';
+
+    var SECTION_ID = 'shopify-section-image_with_text_overlay_xTkpUE';
+
+    function hasMarketingConsent() {
+      try {
+        return !!(window.Cookiebot && window.Cookiebot.consent && window.Cookiebot.consent.marketing);
+      } catch (e) {
+        return false;
+      }
+    }
+
+    function toggleSection() {
+      try {
+        var section = document.getElementById(SECTION_ID);
+        if (!section) return;
+
+        if (hasMarketingConsent()) {
+          section.style.display = 'none';
+        } else {
+          section.style.display = '';
+        }
+      } catch (e) {}
+    }
+
+    toggleSection();
+
+    window.addEventListener('CookiebotOnAccept', toggleSection);
+    window.addEventListener('CookiebotOnDecline', toggleSection);
+    window.addEventListener('CookiebotOnConsentReady', toggleSection);
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', toggleSection);
+    }
+  })();
+</script>
+
+
+
 
 <section id="section-{{ section.id }}">
   {%- capture mobile_size -%}750x{% if section.settings.image.height >= 960 %}960{% else %}{{ section.settings.image.height }}{% endif %}{%- endcapture -%}
