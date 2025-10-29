@@ -1,20 +1,24 @@
 <script>
-  (function () {
-    'use strict';
-
-    var SECTION_ID = 'shopify-section-template--24109613089036__image_with_text_overlay_EDBcEQ';
-
-    function hasMarketingConsent() {
-      try {
-        return !!(window.Cookiebot && window.Cookiebot.consent && window.Cookiebot.consent.marketing);
-      } catch (e) {
-        return false;
-      }
+(function(){
+  'use strict';
+  
+  var SECTION_IDS = [
+'shopify-section-template--24109613089036__image_with_text_overlay_EDBcEQ',
+'shopify-section-image_with_text_overlay_xTkpUE'
+  ];
+  
+  function hasMarketingConsent() {
+    try {
+      return !!(window.Cookiebot && window.Cookiebot.consent && window.Cookiebot.consent.marketing);
+    } catch(e) {
+      return false;
     }
+  }
 
-    function toggleSection() {
-      try {
-        var section = document.getElementById(SECTION_ID);
+  function toggleSections() {
+    try {
+      SECTION_IDS.forEach(function(sectionId) {
+        var section = document.getElementById(sectionId);
         if (!section) return;
 
         if (hasMarketingConsent()) {
@@ -22,58 +26,22 @@
         } else {
           section.style.display = '';
         }
-      } catch (e) {}
-    }
+      });
+    } catch(e) {}
+  }
 
-    toggleSection();
+  toggleSections();
 
-    window.addEventListener('CookiebotOnAccept', toggleSection);
-    window.addEventListener('CookiebotOnDecline', toggleSection);
-    window.addEventListener('CookiebotOnConsentReady', toggleSection);
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', toggleSection);
-    }
-  })();
+  window.addEventListener('CookiebotOnAccept', toggleSections);
+  window.addEventListener('CookiebotOnDecline', toggleSections);
+  window.addEventListener('CookiebotOnConsentReady', toggleSections);
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', toggleSections);
+  }
+})();
 </script>
-<script>
-  (function () {
-    'use strict';
 
-    var SECTION_ID = 'shopify-section-image_with_text_overlay_xTkpUE';
-
-    function hasMarketingConsent() {
-      try {
-        return !!(window.Cookiebot && window.Cookiebot.consent && window.Cookiebot.consent.marketing);
-      } catch (e) {
-        return false;
-      }
-    }
-
-    function toggleSection() {
-      try {
-        var section = document.getElementById(SECTION_ID);
-        if (!section) return;
-
-        if (hasMarketingConsent()) {
-          section.style.display = 'none';
-        } else {
-          section.style.display = '';
-        }
-      } catch (e) {}
-    }
-
-    toggleSection();
-
-    window.addEventListener('CookiebotOnAccept', toggleSection);
-    window.addEventListener('CookiebotOnDecline', toggleSection);
-    window.addEventListener('CookiebotOnConsentReady', toggleSection);
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', toggleSection);
-    }
-  })();
-</script>
 
 
 
