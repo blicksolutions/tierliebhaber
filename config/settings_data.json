@@ -1628,11 +1628,7 @@
       },
       "image_with_text_overlay_xTkpUE": {
         "type": "image-with-text-overlay",
-        "custom_css": [
-          ".ImageHero__ContentOverlay-2 {color: #000; position: absolute; left: 8%; max-width: 540px; width: 84%; padding: 0 15px; background: rgba(255, 255, 255, 0.75); padding: 41px 30px 40px 30px; border-radius: 10px;}",
-          ".ImageHero__ContentOverlay-2 h1 {font-size: 28px; font-weight: 700; margin-bottom: 20px;}",
-          "@media (min-width: 769px) {.ImageHero__ContentOverlay-2 {font-size: 18px; } .ImageHero__ContentOverlay-2 h1 {font-size: 48px;}}"
-        ],
+        "custom_css": [],
         "name": "Image with text (overlay)",
         "settings": {
           "section_size": "large",
