@@ -129,6 +129,9 @@
     {% render 'css-variables' %}
 
     {{ content_for_header }}
+
+
+    {% comment %} Bridge to Shopify Consent API {% endcomment %}
     {% render 'cookie-consent' %}
 
     <link rel="stylesheet" href="{{ 'bs-mobile-sidebar-nav.css' | asset_url }}">
