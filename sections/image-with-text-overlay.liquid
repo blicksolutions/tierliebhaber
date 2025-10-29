@@ -2,10 +2,7 @@
   (function () {
     'use strict';
 
-    var SECTION_IDS = [
-      'shopify-section-template--24109613089036__image_with_text_overlay_EDBcEQ',
-      'shopify-section-image_with_text_overlay_xTkpUE'
-    ];
+    var SECTION_ID = 'shopify-section-template--24109613089036__image_with_text_overlay_EDBcEQ';
 
     function hasMarketingConsent() {
       try {
@@ -99,7 +96,7 @@
         </div>
       {%- endif -%}
       {%- if section.settings['html-content'] != blank -%}
-        {{ section.settings['html-content'] }}
+        {{ section.settings.html-content }}
       {%- endif -%}
     </div>
   </div>
