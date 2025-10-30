@@ -1,0 +1,109 @@
+  <script type="text/plain" data-cookieconsent="marketing" src="https://cdn.ablyft.com/s/55886406.js"></script>
+    
+    <script type="text/plain" data-cookieconsent="marketing">
+      window['ablyft'] = window['ablyft'] || [];
+    </script>
+    
+    <script type="text/plain" data-cookieconsent="marketing">
+    (function() {
+      'use strict';
+      
+      // ============ KONFIGURATION ============
+      const CONFIG = {
+        sessionKey: 'ablyft_reload_done',
+        waitTime: 600,        // Kürzer da im Head (Script lädt früher)
+        reloadDelay: 100,
+        debug: true
+      };
+      
+      // ============ HELPER FUNCTIONS ============
+      function log(message, data) {
+        if (CONFIG.debug) {
+          console.log('[ABlyft]', message, data || '');
+        }
+      }
+      
+      function parseAblyftCookie() {
+        const match = document.cookie.match(/ablyft_exps=([^;]+)/);
+        if (!match) return null;
+        
+        try {
+          return JSON.parse(decodeURIComponent(match[1]));
+        } catch(e) {
+          return null;
+        }
+      }
+      
+      // ============ DETECTION ============
+      function checkForExperiments() {
+        const checks = {
+          cookie: function() {
+            const experiments = parseAblyftCookie();
+            return experiments && Object.keys(experiments).length > 0;
+          },
+          
+          windowObject: function() {
+            if (!window.ablyft) return false;
+            
+            return !!(
+              (window.ablyft.experiments && window.ablyft.experiments.length > 0) ||
+              (window.ablyft._experiments && Object.keys(window.ablyft._experiments).length > 0) ||
+              window.ablyft._initialized ||
+              window.ablyft._ready
+            );
+          },
+          
+          dom: function() {
+            return !!(
+              document.querySelector('[data-ablyft]') ||
+              document.querySelector('[class*="ablyft"]')
+            );
+          }
+        };
+        
+        const results = {
+          cookie: checks.cookie(),
+          windowObject: checks.windowObject(),
+          dom: checks.dom()
+        };
+        
+        log('Detection:', results);
+        
+        return Object.values(results).some(r => r === true);
+      }
+      
+      // ============ MAIN LOGIC ============
+      function init() {
+        // Check: Bereits reloaded?
+        if (sessionStorage.getItem(CONFIG.sessionKey)) {
+          log('Already initialized');
+          return;
+        }
+        
+        log('Waiting for ABlyft...');
+        
+        // Warte auf ABlyft Initialisierung
+        setTimeout(function() {
+          if (checkForExperiments()) {
+            log('🎯 Experiments detected - reloading');
+            sessionStorage.setItem(CONFIG.sessionKey, Date.now());
+            
+            setTimeout(function() {
+              window.location.reload();
+            }, CONFIG.reloadDelay);
+          } else {
+            log('No experiments on this page');
+          }
+        }, CONFIG.waitTime);
+      }
+      
+      // ============ START ============
+      // Warte auf DOMContentLoaded um sicher zu sein dass Cookiebot gelaufen ist
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+      
+    })();
+    </script>
