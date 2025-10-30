@@ -4,6 +4,8 @@
   <head>
     {% render 'cookiebot' %}
 
+    {%  render 'ablyft-running-check' %}
+
     {% comment %}<!-- Split GemX Traffic before Consent M.M. -->{% endcomment %}
     {% render 'gemx-traffic-switch' %}
 
@@ -22,6 +24,9 @@
 
     {% render 'external-scripts' %}
 
+
+
+    {% comment %}  ================= Implement ablyft A/B-Testing Service https://ablyft.de/ Old way before 22/10/25 and 30/10/25 ==============
 
     {% comment %} ================= Implement ablyft A/B-Testing Service https://ablyft.de/  === M.M. 22/10/25 ============== {% endcomment %}
     <!-- ABlyft DE Visitor Detection - GATED -->
@@ -59,7 +64,7 @@
           }
       });
     </script>
-
+{% endcomment %}
 
     <script>
       window.SLIDECART_DISABLE = true;
@@ -420,5 +425,9 @@
         });
       </script>
     {% endif %}
+
+
+    {% render 'ablyft-scripts-body' %}
+
   </body>
 </html>
