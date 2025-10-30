@@ -1,17 +1,60 @@
-  <script type="text/plain" data-cookieconsent="marketing" src="https://cdn.ablyft.com/s/55886406.js"></script>
+    {% comment %}
+    ==============================================================================
+    ABlyft A/B-Testing - CORE SCRIPT
+    ==============================================================================
+    WICHTIG: Im <head> laden um FOOC (Flash of Original Content) zu vermeiden
+    Zweck: Variantenauslieferung MUSS vor DOM-Rendering passieren
+    ==============================================================================
+    {% endcomment %}
     
-    <script type="text/plain" data-cookieconsent="marketing">
-      window['ablyft'] = window['ablyft'] || [];
+    {% comment %} Preconnect für schnelleres Laden {% endcomment %}
+    <link rel="preconnect" href="https://cdn.ablyft.com">
+    <link rel="dns-prefetch" href="https://cdn.ablyft.com">
+    
+    {% comment %} Anti-Flicker Snippet {% endcomment %}
+    <style id="ablyft-anti-flicker">
+      body { opacity: 0 !important; transition: opacity 0.2s ease-in; }
+    </style>
+    
+    <script>
+      // Fallback: Body nach max. 2 Sekunden zeigen
+      (function() {
+        var timeout = setTimeout(function() {
+          var style = document.getElementById('ablyft-anti-flicker');
+          if (style && style.parentNode) {
+            style.parentNode.removeChild(style);
+          }
+          document.body.style.opacity = '1';
+          console.log('[ABlyft] Anti-flicker timeout reached');
+        }, 2000);
+        
+        // Wenn ABlyft früher fertig ist, zeige sofort
+        window.ablyftShowBody = function() {
+          clearTimeout(timeout);
+          var style = document.getElementById('ablyft-anti-flicker');
+          if (style && style.parentNode) {
+            style.parentNode.removeChild(style);
+          }
+          document.body.style.opacity = '1';
+          console.log('[ABlyft] Body shown');
+        };
+      })();
     </script>
     
+    {% comment %} ABlyft Core Script - MIT Consent {% endcomment %}
+    <script type="text/plain" data-cookieconsent="marketing" async src="https://cdn.ablyft.com/s/55886406.js"></script>
+    
+    {% comment %} ABlyft Queue Initialisierung & Reload Logic {% endcomment %}
     <script type="text/plain" data-cookieconsent="marketing">
     (function() {
       'use strict';
       
+      window['ablyft'] = window['ablyft'] || [];
+      
       // ============ KONFIGURATION ============
       const CONFIG = {
         sessionKey: 'ablyft_reload_done',
-        waitTime: 600,        // Kürzer da im Head (Script lädt früher)
+        waitTime: 600,
         reloadDelay: 100,
         debug: true
       };
@@ -19,7 +62,7 @@
       // ============ HELPER FUNCTIONS ============
       function log(message, data) {
         if (CONFIG.debug) {
-          console.log('[ABlyft]', message, data || '');
+          console.log('[ABlyft Core]', message, data || '');
         }
       }
       
@@ -76,11 +119,12 @@
       function init() {
         // Check: Bereits reloaded?
         if (sessionStorage.getItem(CONFIG.sessionKey)) {
-          log('Already initialized');
+          log('Already initialized - showing body');
+          window.ablyftShowBody();
           return;
         }
         
-        log('Waiting for ABlyft...');
+        log('Waiting for ABlyft initialization...');
         
         // Warte auf ABlyft Initialisierung
         setTimeout(function() {
@@ -92,13 +136,14 @@
               window.location.reload();
             }, CONFIG.reloadDelay);
           } else {
-            log('No experiments on this page');
+            log('No experiments on this page - showing body');
+            window.ablyftShowBody();
           }
         }, CONFIG.waitTime);
       }
       
       // ============ START ============
-      // Warte auf DOMContentLoaded um sicher zu sein dass Cookiebot gelaufen ist
+      // Starte nach DOMContentLoaded (damit Cookiebot durch ist)
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
       } else {
@@ -107,3 +152,4 @@
       
     })();
     </script>
+    
