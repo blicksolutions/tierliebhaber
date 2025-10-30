@@ -1,0 +1,56 @@
+  {% comment %}
+  ==============================================================================
+  ABlyft Event Tracking & Analytics
+  ==============================================================================
+  Zweck: Custom Events, Country Detection, Interaction Tracking
+  Platzierung: Vor </body> ist OK, da nicht kritisch für Variantenauslieferung
+  ==============================================================================
+  {% endcomment %}
+  
+  {% comment %} Country Detection (Nicht zeitkritisch) {% endcomment %}
+  <script type="text/plain" data-cookieconsent="marketing">
+    fetch('/browsing_context_suggestions.json')
+      .then(response => response.json())
+      .then(json => {
+        if (json.detected_values && json.detected_values.country) {
+          window.isDeVisitor = (json.detected_values.country.handle === "DE");
+          console.log('[ABlyft Tracking] Country detected:', window.isDeVisitor ? 'DE' : 'Other');
+          
+          // Optional: An ABlyft senden
+          if (window.ablyft) {
+            window.ablyft.push({
+              eventType: 'custom',
+              eventName: 'country-detection',
+              eventValue: window.isDeVisitor ? 1 : 0
+            });
+          }
+        }
+      })
+      .catch(err => {
+        console.error('[ABlyft Tracking] Country detection failed:', err);
+        window.isDeVisitor = false;
+      });
+  </script>
+  
+  {% comment %} Custom Event: Search Bar Click Tracking {% endcomment %}
+  <script type="text/plain" data-cookieconsent="marketing">
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('[ABlyft Tracking] Initializing search tracking...');
+      
+      const searchEl = document.querySelector('.Search__Inner');
+      if (searchEl && window.ablyft) {
+        searchEl.addEventListener('click', function() {
+          window['ablyft'].push({
+            eventType: 'custom',
+            eventName: 'tlh-026-clicks-on-searchbar',
+            eventValue: 1
+          });
+          console.log('[ABlyft Tracking] Search click tracked');
+        });
+        
+        console.log('[ABlyft Tracking] Search tracking initialized');
+      } else {
+        console.warn('[ABlyft Tracking] Search element not found or ABlyft not loaded');
+      }
+    });
+  </script
