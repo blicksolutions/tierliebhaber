@@ -44,7 +44,52 @@
 {% comment %} ABlyft Core Script - MIT Consent {% endcomment %}
 <script type="text/plain" data-cookieconsent="marketing" async src="https://cdn.ablyft.com/s/55886406.js"></script>
 
-{% comment %} ABlyft Queue Initialisierung & Reload Logic {% endcomment %}
+{% comment %} ABlyft Consent-Change Detector - lädt OHNE Consent-Requirement {% endcomment %}
+<script>
+(function() {
+  'use strict';
+  
+  // Flag ob Consent NEU gegeben wurde
+  window._ablyftConsentChanged = false;
+  
+  console.log('[ABlyft Pre-Consent] Registering early event listeners...');
+  
+  // Registriere Event-Listener BEVOR Consent gegeben wird
+  function handleConsentEvent(eventName) {
+    return function(e) {
+      console.log('[ABlyft Pre-Consent] ' + eventName + ' event fired');
+      
+      // Check ob Consent GEÄNDERT wurde
+      if (window.Cookiebot) {
+        console.log('[ABlyft Pre-Consent] Cookiebot.changed:', window.Cookiebot.changed);
+        
+        if (window.Cookiebot.changed === true) {
+          console.log('[ABlyft Pre-Consent] ✅ Consent was CHANGED - marking for reload');
+          window._ablyftConsentChanged = true;
+          
+          // Markiere auch in SessionStorage
+          try {
+            sessionStorage.setItem('ablyft_consent_changed', Date.now());
+          } catch(e) {}
+          
+        } else {
+          console.log('[ABlyft Pre-Consent] ❌ Consent NOT changed (existing consent)');
+          window._ablyftConsentChanged = false;
+        }
+      }
+    };
+  }
+  
+  // Registriere Event Listeners
+  window.addEventListener('CookiebotOnAccept', handleConsentEvent('CookiebotOnAccept'), false);
+  window.addEventListener('CookiebotOnDecline', handleConsentEvent('CookiebotOnDecline'), false);
+  
+  console.log('[ABlyft Pre-Consent] Event listeners registered');
+  
+})();
+</script>
+
+{% comment %} ABlyft Reload Logic - lädt NUR mit Marketing-Consent {% endcomment %}
 <script type="text/plain" data-cookieconsent="marketing">
 (function() {
   'use strict';
@@ -53,6 +98,7 @@
   
   const CONFIG = {
     sessionKey: 'ablyft_reload_done',
+    consentChangedKey: 'ablyft_consent_changed',
     waitTime: 600,
     reloadDelay: 100,
     debug: true
@@ -108,62 +154,46 @@
   }
   
   function init() {
+    log('Initializing...');
+    
+    // Check 1: Bereits reloaded?
     if (sessionStorage.getItem(CONFIG.sessionKey)) {
       log('Already reloaded in this session');
       if (window.ablyftShowBody) window.ablyftShowBody();
       return;
     }
     
-    let consentEventFired = false;
+    // Check 2: Wurde Consent GEÄNDERT?
+    const consentWasChanged = window._ablyftConsentChanged === true || 
+                              sessionStorage.getItem(CONFIG.consentChangedKey);
     
-    function handleConsentEvent(eventName) {
-      return function(e) {
-        log(eventName + ' event fired');
-        
-        if (window.Cookiebot && window.Cookiebot.changed === true) {
-          log('✅ Consent was CHANGED by user - reload needed');
-          consentEventFired = true;
-          
-          if (window.Cookiebot.consent && window.Cookiebot.consent.marketing) {
-            log('Marketing consent granted - proceeding with reload check');
-            
-            setTimeout(function() {
-              if (checkForExperiments()) {
-                log('🎯 Experiments detected - reloading');
-                sessionStorage.setItem(CONFIG.sessionKey, Date.now());
-                setTimeout(function() {
-                  window.location.reload();
-                }, CONFIG.reloadDelay);
-              } else {
-                log('No experiments detected');
-                if (window.ablyftShowBody) window.ablyftShowBody();
-              }
-            }, CONFIG.waitTime);
-            
-          } else {
-            log('Marketing consent not granted - no reload needed');
-            if (window.ablyftShowBody) window.ablyftShowBody();
-          }
-          
+    if (consentWasChanged) {
+      log('✅ NEW consent detected (from pre-consent listener)');
+      
+      // Lösche Flag
+      try {
+        sessionStorage.removeItem(CONFIG.consentChangedKey);
+      } catch(e) {}
+      
+      log('Waiting for ABlyft...');
+      
+      setTimeout(function() {
+        if (checkForExperiments()) {
+          log('🎯 Experiments detected - reloading');
+          sessionStorage.setItem(CONFIG.sessionKey, Date.now());
+          setTimeout(function() {
+            window.location.reload();
+          }, CONFIG.reloadDelay);
         } else {
-          log('❌ Consent was NOT changed (page load with existing consent) - no reload needed');
-          consentEventFired = false;
+          log('No experiments detected');
           if (window.ablyftShowBody) window.ablyftShowBody();
         }
-      };
+      }, CONFIG.waitTime);
+      
+    } else {
+      log('❌ No new consent - existing consent loaded');
+      if (window.ablyftShowBody) window.ablyftShowBody();
     }
-    
-    window.addEventListener('CookiebotOnAccept', handleConsentEvent('CookiebotOnAccept'), false);
-    window.addEventListener('CookiebotOnDecline', handleConsentEvent('CookiebotOnDecline'), false);
-    
-    log('Cookiebot event listeners registered');
-    
-    setTimeout(function() {
-      if (!consentEventFired) {
-        log('Timeout: No consent change detected - showing body');
-        if (window.ablyftShowBody) window.ablyftShowBody();
-      }
-    }, 3000);
   }
   
   if (document.readyState === 'loading') {
