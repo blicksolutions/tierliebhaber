@@ -1891,3 +1891,9 @@ div.rc_popup {
 div.rc_popup__hover, a.rc_popup__hover {
     padding-bottom: 0;
 }
+
+.BenefitBadge {
+    width: 50%;
+    border: 1px solid #D5D5D6;
+    border-radius: 8px;
+}
