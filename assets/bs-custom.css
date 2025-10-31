@@ -1901,3 +1901,11 @@ div.rc_popup__hover, a.rc_popup__hover {
     box-shadow: inset 2px 2px 12px -1px #cb363636;
     border: 1px solid #cb36364d;
 }
+
+/*
+.Button--primary:before, .shopify-payment-button__button--unbranded:before, .spr-summary-actions-newreview:before, .spr-button-primary:not(input):before {
+    background-color: #4bd67b;
+    border: 1px solid #349e75;
+    border-radius: 8px;
+}
+*/
