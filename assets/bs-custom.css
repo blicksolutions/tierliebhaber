@@ -1897,3 +1897,6 @@ div.rc_popup__hover, a.rc_popup__hover {
     border: 1px solid #D5D5D6;
     border-radius: 8px !important;
 }
+.free-gift-banner {
+       box-shadow:inset 2px 2px 2px -1px rgba(145, 145, 145, 0.30)
+}
