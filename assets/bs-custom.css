@@ -1811,6 +1811,9 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
     margin-right: 16px;
 }
 
+.ProductMeta.Bestseller .ProductMeta__BestsellerHeader {
+    gap: 0px;
+}
 
 @media (min-width: 768px) {
     .ProductMeta.Bestseller .ProductMeta__BestsellerHeader {
