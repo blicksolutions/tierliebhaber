@@ -1888,3 +1888,6 @@ div.rc_popup {
 .reload-icon[data-v-7bc675e0] {
     margin-bottom: -3px;
 }
+div.rc_popup__hover, a.rc_popup__hover {
+    padding-bottom: 0;
+}
