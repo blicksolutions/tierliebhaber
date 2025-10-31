@@ -1823,3 +1823,8 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 .Product__InfoWrapper .ProductMeta__Title.Heading.u-h2 {
     margin-bottom: 0;
 }
+
+.rc-widget-injection-parent .rc-template__radio-group .rc-radio {
+    height: 46px;
+    border: 1px solid #f6d6cf;
+}
