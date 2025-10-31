@@ -44,46 +44,52 @@
 {% comment %} ABlyft Core Script - MIT Consent {% endcomment %}
 <script type="text/plain" data-cookieconsent="marketing" async src="https://cdn.ablyft.com/s/55886406.js"></script>
 
-{% comment %} ABlyft Consent-Change Detector - lädt OHNE Consent-Requirement {% endcomment %}
-{% comment %} ABlyft Consent-Change Detector - lädt OHNE Consent-Requirement {% endcomment %}
 <script>
 (function() {
   'use strict';
   
   console.log('[ABlyft Pre-Consent] Initializing...');
   
-  // Check: Hatte User bereits Consent VOR diesem Page Load?
-  function hadPreviousConsent() {
-    // Check 1: Cookie existiert bereits?
-    const cookiebotCookie = document.cookie.match(/CookieConsent=([^;]+)/);
-    if (cookiebotCookie) {
-      try {
-        const cookieValue = decodeURIComponent(cookiebotCookie[1]);
-        // Wenn Cookie existiert und marketing consent enthält
-        if (cookieValue.includes('marketing:true')) {
-          console.log('[ABlyft Pre-Consent] Previous marketing consent found in cookie');
-          return true;
+  // Check: Wird Cookie-Banner dem User ANGEZEIGT?
+  function isBannerShownToUser() {
+    // Warte kurz bis Cookiebot initialisiert ist
+    return new Promise(function(resolve) {
+      var checkCount = 0;
+      var maxChecks = 20; // Max 2 Sekunden warten
+      
+      var interval = setInterval(function() {
+        checkCount++;
+        
+        // Check 1: Banner-Element existiert und ist sichtbar
+        var bannerEl = document.querySelector('#CybotCookiebotDialog');
+        if (bannerEl && bannerEl.offsetParent !== null) {
+          console.log('[ABlyft Pre-Consent] Cookie banner IS shown to user');
+          clearInterval(interval);
+          resolve(true);
+          return;
         }
-      } catch(e) {}
-    }
-    
-    // Check 2: SessionStorage Flag (von vorherigem Page Load in dieser Session)
-    if (sessionStorage.getItem('ablyft_had_consent')) {
-      console.log('[ABlyft Pre-Consent] Previous consent found in session');
-      return true;
-    }
-    
-    console.log('[ABlyft Pre-Consent] No previous consent found');
-    return false;
+        
+        // Check 2: Cookiebot sagt "hasResponse = false" (kein vorheriger Consent)
+        if (window.Cookiebot && window.Cookiebot.hasResponse === false) {
+          console.log('[ABlyft Pre-Consent] Cookiebot.hasResponse is false - new consent needed');
+          clearInterval(interval);
+          resolve(true);
+          return;
+        }
+        
+        // Check 3: Timeout - Banner wird NICHT angezeigt
+        if (checkCount >= maxChecks) {
+          console.log('[ABlyft Pre-Consent] Cookie banner NOT shown - existing consent');
+          clearInterval(interval);
+          resolve(false);
+        }
+      }, 100);
+    });
   }
-  
-  // Speichere Initial-State
-  const hadConsentBefore = hadPreviousConsent();
   
   // Flag ob Consent NEU gegeben wurde
   window._ablyftConsentChanged = false;
   
-  console.log('[ABlyft Pre-Consent] Had consent before:', hadConsentBefore);
   console.log('[ABlyft Pre-Consent] Registering event listeners...');
   
   // Event Handler
@@ -91,23 +97,25 @@
     return function(e) {
       console.log('[ABlyft Pre-Consent] ' + eventName + ' event fired');
       
-      // NEUE LOGIK: Consent ist NEU wenn vorher KEIN Consent existierte
-      if (!hadConsentBefore) {
-        console.log('[ABlyft Pre-Consent] ✅ NEW consent detected (no previous consent)');
+      // Check SessionStorage Flag
+      var bannerWasShown = sessionStorage.getItem('ablyft_banner_shown');
+      
+      if (bannerWasShown === 'true') {
+        console.log('[ABlyft Pre-Consent] ✅ NEW consent (banner was shown to user)');
         window._ablyftConsentChanged = true;
         
-        // Markiere dass User jetzt Consent hat
         try {
-          sessionStorage.setItem('ablyft_had_consent', 'true');
           sessionStorage.setItem('ablyft_consent_changed', Date.now());
+          // Lösche Flag damit nach Reload nicht nochmal getriggert wird
+          sessionStorage.removeItem('ablyft_banner_shown');
         } catch(e) {}
         
       } else {
-        console.log('[ABlyft Pre-Consent] ❌ Consent NOT new (reload with existing consent)');
+        console.log('[ABlyft Pre-Consent] ❌ NOT new consent (no banner or reload)');
         window._ablyftConsentChanged = false;
       }
       
-      // Debug: Zeige Cookiebot-Properties
+      // Debug
       if (window.Cookiebot) {
         console.log('[ABlyft Pre-Consent] Debug - Cookiebot.changed:', window.Cookiebot.changed);
         console.log('[ABlyft Pre-Consent] Debug - Cookiebot.hasResponse:', window.Cookiebot.hasResponse);
@@ -121,128 +129,131 @@
   
   console.log('[ABlyft Pre-Consent] Event listeners registered');
   
-  // Markiere dass wir Consent-State gecheckt haben
-  if (hadConsentBefore) {
-    try {
-      sessionStorage.setItem('ablyft_had_consent', 'true');
-    } catch(e) {}
-  }
+  // Check ob Banner angezeigt wird
+  isBannerShownToUser().then(function(isShown) {
+    if (isShown) {
+      console.log('[ABlyft Pre-Consent] Marking: Banner will be/is shown');
+      try {
+        sessionStorage.setItem('ablyft_banner_shown', 'true');
+      } catch(e) {}
+    } else {
+      console.log('[ABlyft Pre-Consent] Marking: No banner (existing consent)');
+      try {
+        sessionStorage.setItem('ablyft_banner_shown', 'false');
+      } catch(e) {}
+    }
+  });
   
 })();
 </script>
 
 {% comment %} ABlyft Reload Logic - lädt NUR mit Marketing-Consent {% endcomment %}
 <script type="text/plain" data-cookieconsent="marketing">
-(function() {
-  'use strict';
-  
-  window['ablyft'] = window['ablyft'] || [];
-  
-  const CONFIG = {
-    sessionKey: 'ablyft_reload_done',
-    consentChangedKey: 'ablyft_consent_changed',
-    waitTime: 600,
-    reloadDelay: 100,
-    debug: true
-  };
-  
-  function log(message, data) {
-    if (CONFIG.debug) {
-      console.log('[ABlyft]', message, data || '');
-    }
-  }
-  
-  function parseAblyftCookie() {
-    const match = document.cookie.match(/ablyft_exps=([^;]+)/);
-    if (!match) return null;
-    try {
-      return JSON.parse(decodeURIComponent(match[1]));
-    } catch(e) {
-      return null;
-    }
-  }
-  
-  function checkForExperiments() {
-    const checks = {
-      cookie: function() {
-        const experiments = parseAblyftCookie();
-        return experiments && Object.keys(experiments).length > 0;
-      },
-      windowObject: function() {
-        if (!window.ablyft) return false;
-        return !!(
-          (window.ablyft.experiments && window.ablyft.experiments.length > 0) ||
-          (window.ablyft._experiments && Object.keys(window.ablyft._experiments).length > 0) ||
-          window.ablyft._initialized ||
-          window.ablyft._ready
-        );
-      },
-      dom: function() {
-        return !!(
-          document.querySelector('[data-ablyft]') ||
-          document.querySelector('[class*="ablyft"]')
-        );
+  (function () {
+    'use strict';
+
+    window['ablyft'] = window['ablyft'] || [];
+
+    const CONFIG = {
+      sessionKey: 'ablyft_reload_done',
+      consentChangedKey: 'ablyft_consent_changed',
+      waitTime: 600,
+      reloadDelay: 100,
+      debug: true,
+    };
+
+    function log(message, data) {
+      if (CONFIG.debug) {
+        console.log('[ABlyft]', message, data || '');
       }
-    };
-    
-    const results = {
-      cookie: checks.cookie(),
-      windowObject: checks.windowObject(),
-      dom: checks.dom()
-    };
-    
-    log('Detection:', results);
-    return Object.values(results).some(r => r === true);
-  }
-  
-  function init() {
-    log('Initializing...');
-    
-    // Check 1: Bereits reloaded?
-    if (sessionStorage.getItem(CONFIG.sessionKey)) {
-      log('Already reloaded in this session');
-      if (window.ablyftShowBody) window.ablyftShowBody();
-      return;
     }
-    
-    // Check 2: Wurde Consent GEÄNDERT?
-    const consentWasChanged = window._ablyftConsentChanged === true || 
-                              sessionStorage.getItem(CONFIG.consentChangedKey);
-    
-    if (consentWasChanged) {
-      log('✅ NEW consent detected (from pre-consent listener)');
-      
-      // Lösche Flag
+
+    function parseAblyftCookie() {
+      const match = document.cookie.match(/ablyft_exps=([^;]+)/);
+      if (!match) return null;
       try {
-        sessionStorage.removeItem(CONFIG.consentChangedKey);
-      } catch(e) {}
-      
-      log('Waiting for ABlyft...');
-      
-      setTimeout(function() {
-        if (checkForExperiments()) {
-          log('🎯 Experiments detected - reloading');
-          sessionStorage.setItem(CONFIG.sessionKey, Date.now());
-          setTimeout(function() {
-            window.location.reload();
-          }, CONFIG.reloadDelay);
-        } else {
-          log('No experiments detected');
-          if (window.ablyftShowBody) window.ablyftShowBody();
-        }
-      }, CONFIG.waitTime);
-      
-    } else {
-      log('❌ No new consent - existing consent loaded');
-      if (window.ablyftShowBody) window.ablyftShowBody();
+        return JSON.parse(decodeURIComponent(match[1]));
+      } catch (e) {
+        return null;
+      }
     }
-  }
-  
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-  
-})();
+
+    function checkForExperiments() {
+      const checks = {
+        cookie: function () {
+          const experiments = parseAblyftCookie();
+          return experiments && Object.keys(experiments).length > 0;
+        },
+        windowObject: function () {
+          if (!window.ablyft) return false;
+          return !!(
+            (window.ablyft.experiments && window.ablyft.experiments.length > 0) ||
+            (window.ablyft._experiments && Object.keys(window.ablyft._experiments).length > 0) ||
+            window.ablyft._initialized ||
+            window.ablyft._ready
+          );
+        },
+        dom: function () {
+          return !!(document.querySelector('[data-ablyft]') || document.querySelector('[class*="ablyft"]'));
+        },
+      };
+
+      const results = {
+        cookie: checks.cookie(),
+        windowObject: checks.windowObject(),
+        dom: checks.dom(),
+      };
+
+      log('Detection:', results);
+      return Object.values(results).some((r) => r === true);
+    }
+
+    function init() {
+      log('Initializing...');
+
+      // Check 1: Bereits reloaded?
+      if (sessionStorage.getItem(CONFIG.sessionKey)) {
+        log('Already reloaded in this session');
+        if (window.ablyftShowBody) window.ablyftShowBody();
+        return;
+      }
+
+      // Check 2: Wurde Consent GEÄNDERT?
+      const consentWasChanged =
+        window._ablyftConsentChanged === true || sessionStorage.getItem(CONFIG.consentChangedKey);
+
+      if (consentWasChanged) {
+        log('✅ NEW consent detected (from pre-consent listener)');
+
+        // Lösche Flag
+        try {
+          sessionStorage.removeItem(CONFIG.consentChangedKey);
+        } catch (e) {}
+
+        log('Waiting for ABlyft...');
+
+        setTimeout(function () {
+          if (checkForExperiments()) {
+            log('🎯 Experiments detected - reloading');
+            sessionStorage.setItem(CONFIG.sessionKey, Date.now());
+            setTimeout(function () {
+              window.location.reload();
+            }, CONFIG.reloadDelay);
+          } else {
+            log('No experiments detected');
+            if (window.ablyftShowBody) window.ablyftShowBody();
+          }
+        }, CONFIG.waitTime);
+      } else {
+        log('❌ No new consent - existing consent loaded');
+        if (window.ablyftShowBody) window.ablyftShowBody();
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
 </script>
