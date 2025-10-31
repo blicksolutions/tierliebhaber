@@ -30,117 +30,6 @@
       class="g_p7ilBNgb gp-custom-code">
       <div>
     <style>
-  @media screen and (max-width: 768px) {
-    #mobile-cta {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 9999;
-      transform: translateY(100%);
-      opacity: 0;
-      transition: transform 0.6s ease, opacity 0.6s ease;
-      font-family: inherit;
-    }
-
-    #mobile-cta.visible {
-      transform: translateY(0%);
-      opacity: 1;
-    }
-
-    #mobile-cta a {
-      text-decoration: none;
-      display: block;
-    }
-
-    .cta-top {
-      background-color: #54C1BA;
-      color: #ffffff;
-      font-size: 18px;
-      font-weight: bold;
-      text-align: center;
-      padding: 14px 20px 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .arrow {
-      font-size: 18px;
-      color: #ffffff;
-      animation: arrowPulse 1.2s infinite ease-in-out;
-      margin-left: 4px;
-    }
-
-    @keyframes arrowPulse {
-      0% { transform: translateX(0); opacity: 1; }
-      50% { transform: translateX(4px); opacity: 0.7; }
-      100% { transform: translateX(0); opacity: 1; }
-    }
-
-    .cta-bottom {
-      background-color: #ffffff;
-      color: #54C1BA;
-      font-size: 13px;
-      text-align: center;
-      padding: 10px 20px 12px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .checkmark {
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      border: 2px solid #54C1BA;
-      position: relative;
-    }
-
-    .checkmark::after {
-      content: '';
-      position: absolute;
-      left: 4px;
-      top: 0px;
-      width: 5px;
-      height: 10px;
-      border: solid #54C1BA;
-      border-width: 0 2px 2px 0;
-      transform: rotate(45deg);
-    }
-  }
-</style>
-
-<div id="mobile-cta">
-  <a href="https://tierliebhaber.de/products/dentalspray-tl0010-fb-d4?variant=54372580622604">
-    <div class="cta-top">
-      Letzte Möglichkeit nutzen und 30% sparen<span class="arrow">→</span>
-    </div>
-    <div class="cta-bottom">
-      <div class="checkmark"></div>
-      90 Tage Geld-zurück-Garantie
-    </div>
-  </a>
-</div>
-
-<script>
-  window.addEventListener('scroll', function () {
-    const scrollTop = window.scrollY;
-    const docHeight = document.body.scrollHeight - window.innerHeight;
-    const scrollPercent = (scrollTop / docHeight) * 100;
-
-    const cta = document.getElementById('mobile-cta');
-    if (scrollPercent > 12) {
-      cta.classList.add('visible');
-    } else {
-      cta.classList.remove('visible');
-    }
-  });
-</script>
-
-<style>
   /* ALLE Klaviyo Popups, Floating Bars und Formulare blockieren */
   .klaviyo-form,
   [data-testid^="klaviyo-form"],
@@ -159,6 +48,32 @@
     </div>
     </div>
   
+      <style id="custom-css-g_p7ilBNgb">
+        .needsclick.kl-private-reset-css-Xuajs1, #superchat-widget {
+    display: none !important;
+}
+.needsclick.kl-private-reset-css-Xuajs1, 
+#superchat-widget, 
+button[aria-label="Open Smile.io Rewards Program"], 
+button[style*="background-color:#F1AF9E"], 
+div[id*="smile"], /* Falls Smile.io in einem div steckt */
+iframe[src*="smile.io"] { /* Falls es sich um ein iFrame handelt */
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    height: 0 !important;
+    width: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+}
+
+img[src="https://rdrct.li/media/ee0b9e08"] {
+  display: none !important;
+}
+
+      </style>
+    
     </div>
 
       
