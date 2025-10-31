@@ -149,111 +149,132 @@
 
 {% comment %} ABlyft Reload Logic - lädt NUR mit Marketing-Consent {% endcomment %}
 <script type="text/plain" data-cookieconsent="marketing">
-  (function () {
-    'use strict';
-
-    window['ablyft'] = window['ablyft'] || [];
-
-    const CONFIG = {
-      sessionKey: 'ablyft_reload_done',
-      consentChangedKey: 'ablyft_consent_changed',
-      waitTime: 600,
-      reloadDelay: 100,
-      debug: true,
+(function() {
+  'use strict';
+  
+  window['ablyft'] = window['ablyft'] || [];
+  
+  const CONFIG = {
+    sessionKey: 'ablyft_reload_done',
+    consentChangedKey: 'ablyft_consent_changed',
+    waitTime: 600,
+    reloadDelay: 100,
+    debug: true
+  };
+  
+  function log(message, data) {
+    if (CONFIG.debug) {
+      console.log('[ABlyft]', message, data || '');
+    }
+  }
+  
+  function parseAblyftCookie() {
+    const match = document.cookie.match(/ablyft_exps=([^;]+)/);
+    if (!match) return null;
+    try {
+      return JSON.parse(decodeURIComponent(match[1]));
+    } catch(e) {
+      return null;
+    }
+  }
+  
+  function checkForExperiments() {
+    const checks = {
+      cookie: function() {
+        const experiments = parseAblyftCookie();
+        return experiments && Object.keys(experiments).length > 0;
+      },
+      windowObject: function() {
+        if (!window.ablyft) return false;
+        return !!(
+          (window.ablyft.experiments && window.ablyft.experiments.length > 0) ||
+          (window.ablyft._experiments && Object.keys(window.ablyft._experiments).length > 0) ||
+          window.ablyft._initialized ||
+          window.ablyft._ready
+        );
+      },
+      dom: function() {
+        return !!(
+          document.querySelector('[data-ablyft]') ||
+          document.querySelector('[class*="ablyft"]')
+        );
+      }
     };
-
-    function log(message, data) {
-      if (CONFIG.debug) {
-        console.log('[ABlyft]', message, data || '');
-      }
+    
+    const results = {
+      cookie: checks.cookie(),
+      windowObject: checks.windowObject(),
+      dom: checks.dom()
+    };
+    
+    log('Detection:', results);
+    return Object.values(results).some(r => r === true);
+  }
+  
+  function init() {
+    log('Initializing...');
+    
+    // ============ KRITISCH: Sofortiger Check ob bereits reloaded ============
+    const reloadDone = sessionStorage.getItem(CONFIG.sessionKey);
+    
+    if (reloadDone) {
+      const timeSinceReload = Date.now() - parseInt(reloadDone);
+      log('Already reloaded ' + timeSinceReload + 'ms ago - stopping');
+      if (window.ablyftShowBody) window.ablyftShowBody();
+      return; // STOP SOFORT
     }
-
-    function parseAblyftCookie() {
-      const match = document.cookie.match(/ablyft_exps=([^;]+)/);
-      if (!match) return null;
-      try {
-        return JSON.parse(decodeURIComponent(match[1]));
-      } catch (e) {
-        return null;
-      }
+    
+    // Check: Wurde Consent GEÄNDERT?
+    const consentWasChanged = window._ablyftConsentChanged === true || 
+                              sessionStorage.getItem(CONFIG.consentChangedKey);
+    
+    log('Consent was changed:', consentWasChanged);
+    
+    if (!consentWasChanged) {
+      log('❌ No new consent - existing consent loaded');
+      if (window.ablyftShowBody) window.ablyftShowBody();
+      return; // STOP
     }
-
-    function checkForExperiments() {
-      const checks = {
-        cookie: function () {
-          const experiments = parseAblyftCookie();
-          return experiments && Object.keys(experiments).length > 0;
-        },
-        windowObject: function () {
-          if (!window.ablyft) return false;
-          return !!(
-            (window.ablyft.experiments && window.ablyft.experiments.length > 0) ||
-            (window.ablyft._experiments && Object.keys(window.ablyft._experiments).length > 0) ||
-            window.ablyft._initialized ||
-            window.ablyft._ready
-          );
-        },
-        dom: function () {
-          return !!(document.querySelector('[data-ablyft]') || document.querySelector('[class*="ablyft"]'));
-        },
-      };
-
-      const results = {
-        cookie: checks.cookie(),
-        windowObject: checks.windowObject(),
-        dom: checks.dom(),
-      };
-
-      log('Detection:', results);
-      return Object.values(results).some((r) => r === true);
-    }
-
-    function init() {
-      log('Initializing...');
-
-      // Check 1: Bereits reloaded?
-      if (sessionStorage.getItem(CONFIG.sessionKey)) {
-        log('Already reloaded in this session');
-        if (window.ablyftShowBody) window.ablyftShowBody();
-        return;
-      }
-
-      // Check 2: Wurde Consent GEÄNDERT?
-      const consentWasChanged =
-        window._ablyftConsentChanged === true || sessionStorage.getItem(CONFIG.consentChangedKey);
-
-      if (consentWasChanged) {
-        log('✅ NEW consent detected (from pre-consent listener)');
-
-        // Lösche Flag
+    
+    // ============ Ab hier: Consent IST neu, Reload nötig ============
+    
+    log('✅ NEW consent detected (from pre-consent listener)');
+    
+    // Lösche Flag sofort
+    try {
+      sessionStorage.removeItem(CONFIG.consentChangedKey);
+    } catch(e) {}
+    
+    log('Waiting for ABlyft...');
+    
+    setTimeout(function() {
+      if (checkForExperiments()) {
+        log('🎯 Experiments detected - will reload in ' + CONFIG.reloadDelay + 'ms');
+        
+        // ============ KRITISCH: Setze Flag VOR Reload ============
         try {
-          sessionStorage.removeItem(CONFIG.consentChangedKey);
-        } catch (e) {}
-
-        log('Waiting for ABlyft...');
-
-        setTimeout(function () {
-          if (checkForExperiments()) {
-            log('🎯 Experiments detected - reloading');
-            sessionStorage.setItem(CONFIG.sessionKey, Date.now());
-            setTimeout(function () {
-              window.location.reload();
-            }, CONFIG.reloadDelay);
-          } else {
-            log('No experiments detected');
-            if (window.ablyftShowBody) window.ablyftShowBody();
-          }
-        }, CONFIG.waitTime);
+          const now = Date.now();
+          sessionStorage.setItem(CONFIG.sessionKey, now);
+          log('Reload flag set:', now);
+        } catch(e) {
+          log('ERROR: Could not set reload flag!', e);
+        }
+        
+        // Kurze Verzögerung damit Flag garantiert gesetzt ist
+        setTimeout(function() {
+          log('Triggering reload NOW');
+          window.location.reload();
+        }, CONFIG.reloadDelay);
+        
       } else {
-        log('❌ No new consent - existing consent loaded');
+        log('No experiments detected');
         if (window.ablyftShowBody) window.ablyftShowBody();
       }
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', init);
-    } else {
-      init();
-    }
-  })();
+    }, CONFIG.waitTime);
+  }
+  
+  // Starte sofort (nicht auf DOMContentLoaded warten)
+  init();
+  
+})();
 </script>
