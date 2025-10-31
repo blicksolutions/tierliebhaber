@@ -1,0 +1,351 @@
+
+    
+    <style>.gps-591140696951095976 .gp-g-paragraph-1{font-family:var(--g-p1-ff);font-size:var(--g-p1-size);font-style:var(--g-p1-fs);font-weight:var(--g-p1-weight);letter-spacing:var(--g-p1-ls);line-height:var(--g-p1-lh)}.gps-591140696951095976 .gp-relative{position:relative}.gps-591140696951095976 .gp-z-1{z-index:1}.gps-591140696951095976 .gp-mx-auto{margin-left:auto;margin-right:auto}.gps-591140696951095976 .gp-mb-0{margin-bottom:0}.gps-591140696951095976 .gp-block{display:block}.gps-591140696951095976 .gp-flex{display:flex}.gps-591140696951095976 .gp-inline-flex{display:inline-flex}.gps-591140696951095976 .gp-grid{display:grid}.gps-591140696951095976 .\!gp-hidden{display:none!important}.gps-591140696951095976 .gp-hidden{display:none}.gps-591140696951095976 .gp-h-full{height:100%}.gps-591140696951095976 .gp-max-w-full{max-width:100%}.gps-591140696951095976 .gp-flex-none{flex:none}.gps-591140696951095976 .gp-shrink-0{flex-shrink:0}.gps-591140696951095976 .gp-grid-rows-\[1fr\]{grid-template-rows:1fr}.gps-591140696951095976 .gp-flex-col{flex-direction:column}.gps-591140696951095976 .gp-items-center{align-items:center}.gps-591140696951095976 .gp-justify-start{justify-content:flex-start}.gps-591140696951095976 .gp-justify-center{justify-content:center}.gps-591140696951095976 .gp-overflow-hidden{overflow:hidden}.gps-591140696951095976 .gp-break-words{overflow-wrap:break-word}.gps-591140696951095976 .gp-text-center{text-align:center}.gps-591140696951095976 .gp-no-underline{text-decoration-line:none}.gps-591140696951095976 .gp-transition-colors{transition-duration:.15s;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-591140696951095976 .gp-duration-200{transition-duration:.2s}.gps-591140696951095976 .gp-ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-591140696951095976 .disabled\:gp-btn-disabled:disabled{cursor:default}.gps-591140696951095976 .disabled\:gp-opacity-30:disabled{opacity:.3}.gps-591140696951095976 .gp-group\/button:active .group-active\/button\:\!gp-text-inherit{color:inherit!important}.gps-591140696951095976 .gp-group[data-state=loading] .group-data-\[state\=loading\]\:gp-invisible{visibility:hidden}@media (max-width:1024px){.gps-591140696951095976 .tablet\:gp-block{display:block}.gps-591140696951095976 .tablet\:\!gp-hidden{display:none!important}.gps-591140696951095976 .tablet\:gp-hidden{display:none}}@media (max-width:767px){.gps-591140696951095976 .mobile\:gp-block{display:block}.gps-591140696951095976 .mobile\:\!gp-hidden{display:none!important}.gps-591140696951095976 .mobile\:gp-hidden{display:none}}.gps-591140696951095976 .\[\&\>svg\]\:\!gp-h-\[var\(--height-desktop\)\]>svg{height:var(--height-desktop)!important}.gps-591140696951095976 .\[\&\>svg\]\:\!gp-w-auto>svg{width:auto!important}@media (max-width:1024px){.gps-591140696951095976 .tablet\:\[\&\>svg\]\:\!gp-h-\[var\(--height-tablet\)\]>svg{height:var(--height-tablet)!important}}@media (max-width:767px){.gps-591140696951095976 .mobile\:\[\&\>svg\]\:\!gp-h-\[var\(--height-mobile\)\]>svg{height:var(--height-mobile)!important}}.gps-591140696951095976 .\[\&_\*\]\:gp-max-w-full *{max-width:100%}.gps-591140696951095976 .\[\&_p\]\:gp-whitespace-pre-line p{white-space:pre-line}</style>
+    
+    
+    
+
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+
+    
+        <section
+          class="gp-mx-auto gp-max-w-full [&_*]:gp-max-w-full {% if section.settings.section_preload == "false" %}gps-lazy {% endif %}"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--pl:none;--pl-tablet:none;--pl-mobile:none;--pr:none;--pr-tablet:none;--pr-mobile:none"
+        >
+          
+    <gp-row gp-data='{"background":{"desktop":{"attachment":"scroll","color":"#00000000","image":{"height":0,"src":"","width":0},"position":{"x":50,"y":50},"repeat":"no-repeat","size":"cover","type":"color","video":"","videoHtml5":""}},"uid":"gKU43qfXFa"}' data-id="gKU43qfXFa" id="gKU43qfXFa" data-same-height-subgrid-container class="gKU43qfXFa gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--blockPadding:base;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--op-mobile:100%;--op-tablet:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--pt:48px;--pb:97px;--pt-mobile:28px;--pl-mobile:0px;--pb-mobile:113px;--pr-mobile:0px;--mb-tablet:0px;--pt-tablet:48px;--pl-tablet:0px;--pb-tablet:97px;--pr-tablet:0px;--cg:32px;--gtc:minmax(0, 12fr);--w:100%;--w-tablet:100%;--w-mobile:100%;--bgc:#00000000;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pc:start">
+      
+
+      <div
+      data-same-height-display-contents
+      style="--jc:start"
+      class="geHI0cgfNG gp-relative gp-flex gp-flex-col"
+    >
+      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="gLeaHr16FH"
+        class="gLeaHr16FH"
+        style="--ta:center;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--op-mobile:100%;--op-tablet:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:48px;--pl:20px;--pr:20px;--mt-mobile:300px;--mb-mobile:28px;--pl-mobile:20px;--pr-mobile:20px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1761877210046"
+      >
+      <div class="gp-flex" style="--jc:center">
+        <div
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:1240px;--w-tablet:1240px;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:16px;--size-mobile:14px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--ls:normal;--c:#575757;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pl:0px;--pr:0px;--pl-mobile:0px;--pr-mobile:0px;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggLeaHr16FH_text | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+      <style id="custom-css-gLeaHr16FH">
+        .gLeaHr16FH {
+
+}
+.gLeaHr16FH p {
+
+}
+      </style>
+    <div gp-el-wrapper style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--op-mobile:100%;--op-tablet:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:12px;--pt:0px;--pb:0px;--mb-mobile:21px;--pt-mobile:0px;--pb-mobile:0px" class="gun4JngGb1 ">
+      
+    <div data-id="gun4JngGb1" class="gp-flex gp-justify-start">
+      <div style="--w:100%;--w-tablet:100%;--w-mobile:100%;--bs:solid;--bbw:1px;--bbw-tablet:1px;--bbw-mobile:1px;--t:gp-rotate(0deg);--bc:#CCCCCC" class="gp-block tablet:gp-block mobile:gp-block"></div>
+      <div class="gp-items-center gp-hidden tablet:gp-hidden mobile:gp-hidden" style="--w:100%;--w-tablet:100%;--w-mobile:100%;--bc:#CCCCCC;--t:gp-rotate(0deg)">
+        <div class="gp-hidden" style="--bc:#CCCCCC;--bs:solid;--bbw:1px;--bbw-tablet:1px;--bbw-mobile:1px;--minw:100%;--w:100%;--w-tablet:100%;--w-mobile:100%"></div>
+        
+            <span
+              class="gp-inline-flex gp-flex-none gp-items-center gp-justify-center"
+              style="--mr:var(--g-s-xs);--w:20px;--h:20px;--t:gp-rotate(0);--c:var(--g-c-text-1, text-1)"
+            >
+              <svg style="width: 100%; height: 100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M428.8 137.6h-86.177a115.52 115.52 0 0 0 2.176-22.4c0-47.914-35.072-83.2-92-83.2-45.314 0-57.002 48.537-75.707 78.784-7.735 12.413-16.994 23.317-25.851 33.253l-.131.146-.129.148C135.662 161.807 127.764 168 120.8 168h-2.679c-5.747-4.952-13.536-8-22.12-8H32c-17.673 0-32 12.894-32 28.8v230.4C0 435.106 14.327 448 32 448h64c8.584 0 16.373-3.048 22.12-8h2.679c28.688 0 67.137 40 127.2 40h21.299c62.542 0 98.8-38.658 99.94-91.145 12.482-17.813 18.491-40.785 15.985-62.791A93.148 93.148 0 0 0 393.152 304H428.8c45.435 0 83.2-37.584 83.2-83.2 0-45.099-38.101-83.2-83.2-83.2zm0 118.4h-91.026c12.837 14.669 14.415 42.825-4.95 61.05 11.227 19.646 1.687 45.624-12.925 53.625 6.524 39.128-10.076 61.325-50.6 61.325H248c-45.491 0-77.21-35.913-120-39.676V215.571c25.239-2.964 42.966-21.222 59.075-39.596 11.275-12.65 21.725-25.3 30.799-39.875C232.355 112.712 244.006 80 252.8 80c23.375 0 44 8.8 44 35.2 0 35.2-26.4 53.075-26.4 70.4h158.4c18.425 0 35.2 16.5 35.2 35.2 0 18.975-16.225 35.2-35.2 35.2zM88 384c0 13.255-10.745 24-24 24s-24-10.745-24-24 10.745-24 24-24 24 10.745 24 24z" /></svg>
+            </span>
+          
+        
+            <span
+              class="gp-inline-flex gp-flex-none gp-items-center gp-justify-center gp-g-paragraph-1"
+              style="--tt:horizontal;--c:var(--g-c-text-1, text-1);--mr:var(--g-s-s);--ml:var(--g-s-s)"
+            >
+              Title
+            </span>
+          
+        <div class="gp-flex" style="--bc:#CCCCCC;--bs:solid;--bbw:1px;--bbw-tablet:1px;--bbw-mobile:1px;--minw:100%;--w:100%;--w-tablet:100%;--w-mobile:100%"></div>
+      </div>
+    </div>
+  
+      </div>
+    
+
+    
+
+    
+    <gp-row gp-data='{"background":{"desktop":{"attachment":"scroll","color":"transparent","image":{"height":0,"src":"","width":0},"position":{"x":50,"y":50},"repeat":"no-repeat","size":"cover","type":"color"}},"uid":"gjWcl_v513"}' data-id="gjWcl_v513" id="gjWcl_v513" data-same-height-subgrid-container class="gjWcl_v513 gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--op-mobile:100%;--op-tablet:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ml:auto;--mr:auto;--pt:13px;--pl:20px;--pb:13px;--pr:20px;--ml-mobile:auto;--mr-mobile:auto;--pt-mobile:0px;--pl-mobile:15px;--pb-mobile:0px;--pr-mobile:15px;--cg:0px;--gtc:minmax(0, 12fr);--gtc-mobile:minmax(0, 12fr);--w:1240px;--w-tablet:var(--g-ct-w, 100%);--w-mobile:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pc:start">
+      
+
+      <div
+      data-same-height-display-contents
+      style="--jc:center;--o-mobile:0"
+      class="gowqHv1dqQ gp-relative gp-flex gp-flex-col"
+    >
+      
+    
+
+    
+
+    
+    <gp-row gp-data='{"background":{"desktop":{"attachment":"scroll","color":"transparent","image":{"height":0,"src":"","width":0},"position":{"x":50,"y":50},"repeat":"no-repeat","size":"cover","type":"color"}},"uid":"gGSkIERYB_"}' data-id="gGSkIERYB_" id="gGSkIERYB_" data-same-height-subgrid-container class="gGSkIERYB_ gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--op-mobile:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb-mobile:21px;--pl-mobile:5px;--cg:8px;--gtc:minmax(0, 4fr) minmax(0, 4fr) minmax(0, 4fr);--gtc-tablet:minmax(0, 4fr) minmax(0, 4fr) minmax(0, 4fr);--gtc-mobile:minmax(0, 4fr) minmax(0, 4fr) minmax(0, 4fr);--w:100%;--w-mobile:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pc:start">
+      
+
+      <div
+      data-same-height-display-contents
+      style="--jc:start"
+      class="gK3tU3fG-X gp-relative gp-flex gp-flex-col"
+    >
+      
+    <gp-button
+      gp-data='{"btnLink":{"link":"https://tierliebhaber.de/policies/refund-policy","target":"_blank"}}'
+      
+      class="gp-flex gp-flex-col"
+    >
+      <div style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--op-mobile:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb-mobile:14px;--ta:left" >
+        <style>[data-id="gfKKRCdYiC"].gp-button-base::before, [data-id="gfKKRCdYiC-interaction"].gp-button-base::before {
+      
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    border-style: none;
+  border-width: 1px 1px 1px 1px;
+  
+  
+    
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      
+  
+    }
+  
+      
+  [data-id="gfKKRCdYiC"]:hover::before, [data-id="gfKKRCdYiC-interaction"]:hover::before {
+    
+    
+  }</style>
+        
+        <a
+          data-id="gfKKRCdYiC" dataId="gfKKRCdYiC" data-state="idle" aria-label="<p>Widerrufsbelehrung</p>"
+          
+          href="https://tierliebhaber.de/policies/refund-policy" target="_blank"
+          style="--w:Auto;--w-tablet:Auto;--w-mobile:Auto;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--pl:0px;--pr:0px;--pt:0px;--pb:0px;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--hvr-bblr:0px;--hvr-bbrr:0px;--hvr-btlr:0px;--hvr-btrr:0px;--shadow:none;--bgi:;--hvr-bgi:;--hvr-bg:#00000000;--bg:#00000000;--c:#575757;--fs:normal;--ff:var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:16px;--size-mobile:14px;--lh:130%;--lh-tablet:150%;--lh-mobile:150%;--ls:normal"
+          class="gfKKRCdYiC gp-text-center gp-button-base gp-group gp-relative gp-inline-flex gp-max-w-full gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-200 disabled:gp-btn-disabled disabled:gp-opacity-30 "
+        >
+        
+        <div class="gp-inline-flex">
+          
+    <span
+      style="--fs:normal;--ff:var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:16px;--size-mobile:14px;--lh:130%;--lh-tablet:150%;--lh-mobile:150%;--ls:normal;--ts:none;word-break:break-word;--mr:8px;--height-desktop:1em;--height-tablet:1em;--height-mobile:1em"
+      class="gp-button-icon gp-z-1 gp-inline-flex gp-shrink-0 gp-items-center gp-justify-center group-data-[state=loading]:gp-invisible [&>svg]:!gp-h-[var(--height-desktop)] [&>svg]:!gp-w-auto tablet:[&>svg]:!gp-h-[var(--height-tablet)] mobile:[&>svg]:!gp-h-[var(--height-mobile)]"
+    >
+      <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817616300409192">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M180.24,132.24l-80,80a6,6,0,0,1-8.48-8.48L167.51,128,91.76,52.24a6,6,0,0,1,8.48-8.48l80,80A6,6,0,0,1,180.24,132.24Z" /></svg>
+    </span>
+  
+          
+    <span
+      data-gp-text
+      style="--fs:normal;--ff:var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:16px;--size-mobile:14px;--lh:130%;--lh-tablet:150%;--lh-mobile:150%;--ls:normal;--ts:none;word-break:break-word"
+      class="gp-content-product-button group-active/button:!gp-text-inherit gp-relative gp-flex gp-h-full gp-items-center gp-overflow-hidden gp-break-words group-data-[state=loading]:gp-invisible [&_p]:gp-whitespace-pre-line gp-text button-text"
+    >
+      {{ section.settings.ggfKKRCdYiC_label }}
+    </span>
+        </div>
+        
+        </a>
+      </div>
+      <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-button-v7-5.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+    </gp-button>
+  
+    </div><div
+      data-same-height-display-contents
+      style="--jc:start"
+      class="gv3Yocrl78 gp-relative gp-flex gp-flex-col"
+    >
+      
+    <gp-button
+      gp-data='{"btnLink":{"link":"https://tierliebhaber.de/policies/terms-of-service","target":"_blank"}}'
+      
+      class="gp-flex gp-flex-col"
+    >
+      <div style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--op-mobile:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb-mobile:14px;--ta:left" >
+        <style>[data-id="ga_Jumc0Em"].gp-button-base::before, [data-id="ga_Jumc0Em-interaction"].gp-button-base::before {
+      
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    border-style: none;
+  border-width: 1px 1px 1px 1px;
+  
+  
+    
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      
+  
+    }
+  
+      
+  [data-id="ga_Jumc0Em"]:hover::before, [data-id="ga_Jumc0Em-interaction"]:hover::before {
+    
+    
+  }</style>
+        
+        <a
+          data-id="ga_Jumc0Em" dataId="ga_Jumc0Em" data-state="idle" aria-label="<p>AGB</p>"
+          
+          href="https://tierliebhaber.de/policies/terms-of-service" target="_blank"
+          style="--w:Auto;--w-tablet:Auto;--w-mobile:Auto;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--pl:0px;--pr:0px;--pt:0px;--pb:0px;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--hvr-bblr:0px;--hvr-bbrr:0px;--hvr-btlr:0px;--hvr-btrr:0px;--shadow:none;--bgi:;--hvr-bgi:;--hvr-bg:#00000000;--bg:#00000000;--c:#575757;--fs:normal;--ff:var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:16px;--size-mobile:14px;--lh:130%;--lh-tablet:150%;--lh-mobile:150%;--ls:normal"
+          class="ga_Jumc0Em gp-text-center gp-button-base gp-group gp-relative gp-inline-flex gp-max-w-full gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-200 disabled:gp-btn-disabled disabled:gp-opacity-30 "
+        >
+        
+        <div class="gp-inline-flex">
+          
+    <span
+      style="--fs:normal;--ff:var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:16px;--size-mobile:14px;--lh:130%;--lh-tablet:150%;--lh-mobile:150%;--ls:normal;--ts:none;word-break:break-word;--mr:8px;--height-desktop:1em;--height-tablet:1em;--height-mobile:1em"
+      class="gp-button-icon gp-z-1 gp-inline-flex gp-shrink-0 gp-items-center gp-justify-center group-data-[state=loading]:gp-invisible [&>svg]:!gp-h-[var(--height-desktop)] [&>svg]:!gp-w-auto tablet:[&>svg]:!gp-h-[var(--height-tablet)] mobile:[&>svg]:!gp-h-[var(--height-mobile)]"
+    >
+      <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817616300409192">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M180.24,132.24l-80,80a6,6,0,0,1-8.48-8.48L167.51,128,91.76,52.24a6,6,0,0,1,8.48-8.48l80,80A6,6,0,0,1,180.24,132.24Z" /></svg>
+    </span>
+  
+          
+    <span
+      data-gp-text
+      style="--fs:normal;--ff:var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:16px;--size-mobile:14px;--lh:130%;--lh-tablet:150%;--lh-mobile:150%;--ls:normal;--ts:none;word-break:break-word"
+      class="gp-content-product-button group-active/button:!gp-text-inherit gp-relative gp-flex gp-h-full gp-items-center gp-overflow-hidden gp-break-words group-data-[state=loading]:gp-invisible [&_p]:gp-whitespace-pre-line gp-text button-text"
+    >
+      {{ section.settings.gga_Jumc0Em_label }}
+    </span>
+        </div>
+        
+        </a>
+      </div>
+      <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-button-v7-5.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+    </gp-button>
+  
+    </div><div
+      data-same-height-display-contents
+      style="--jc:start"
+      class="gcg0dPUMjE gp-relative gp-flex gp-flex-col"
+    >
+      
+    <gp-button
+      gp-data='{"btnLink":{"link":"https://tierliebhaber.de/policies/privacy-policy","target":"_blank"}}'
+      
+      class="gp-flex gp-flex-col"
+    >
+      <div style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--op-mobile:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:left" >
+        <style>[data-id="gTch7wbhNZ"].gp-button-base::before, [data-id="gTch7wbhNZ-interaction"].gp-button-base::before {
+      
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    border-style: none;
+  border-width: 1px 1px 1px 1px;
+  
+  
+    
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      
+  
+    }
+  
+      
+  [data-id="gTch7wbhNZ"]:hover::before, [data-id="gTch7wbhNZ-interaction"]:hover::before {
+    
+    
+  }</style>
+        
+        <a
+          data-id="gTch7wbhNZ" dataId="gTch7wbhNZ" data-state="idle" aria-label="<p>Datenschutz</p>"
+          
+          href="https://tierliebhaber.de/policies/privacy-policy" target="_blank"
+          style="--w:Auto;--w-tablet:Auto;--w-mobile:Auto;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--pl:0px;--pr:0px;--pt:0px;--pb:0px;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--hvr-bblr:0px;--hvr-bbrr:0px;--hvr-btlr:0px;--hvr-btrr:0px;--shadow:none;--bgi:;--hvr-bgi:;--hvr-bg:#00000000;--bg:#00000000;--c:#575757;--fs:normal;--ff:var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:16px;--size-mobile:14px;--lh:130%;--lh-tablet:150%;--lh-mobile:150%;--ls:normal"
+          class="gTch7wbhNZ gp-text-center gp-button-base gp-group gp-relative gp-inline-flex gp-max-w-full gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-200 disabled:gp-btn-disabled disabled:gp-opacity-30 "
+        >
+        
+        <div class="gp-inline-flex">
+          
+    <span
+      style="--fs:normal;--ff:var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:16px;--size-mobile:14px;--lh:130%;--lh-tablet:150%;--lh-mobile:150%;--ls:normal;--ts:none;word-break:break-word;--mr:8px;--height-desktop:1em;--height-tablet:1em;--height-mobile:1em"
+      class="gp-button-icon gp-z-1 gp-inline-flex gp-shrink-0 gp-items-center gp-justify-center group-data-[state=loading]:gp-invisible [&>svg]:!gp-h-[var(--height-desktop)] [&>svg]:!gp-w-auto tablet:[&>svg]:!gp-h-[var(--height-tablet)] mobile:[&>svg]:!gp-h-[var(--height-mobile)]"
+    >
+      <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817616300409192">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M180.24,132.24l-80,80a6,6,0,0,1-8.48-8.48L167.51,128,91.76,52.24a6,6,0,0,1,8.48-8.48l80,80A6,6,0,0,1,180.24,132.24Z" /></svg>
+    </span>
+  
+          
+    <span
+      data-gp-text
+      style="--fs:normal;--ff:var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:16px;--size-mobile:14px;--lh:130%;--lh-tablet:150%;--lh-mobile:150%;--ls:normal;--ts:none;word-break:break-word"
+      class="gp-content-product-button group-active/button:!gp-text-inherit gp-relative gp-flex gp-h-full gp-items-center gp-overflow-hidden gp-break-words group-data-[state=loading]:gp-invisible [&_p]:gp-whitespace-pre-line gp-text button-text"
+    >
+      {{ section.settings.ggTch7wbhNZ_label }}
+    </span>
+        </div>
+        
+        </a>
+      </div>
+      <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-button-v7-5.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+    </gp-button>
+  
+    </div>
+
+      
+    </gp-row>
+  
+  
+    </div>
+
+      
+    </gp-row>
+  
+  
+    </div>
+
+      
+    </gp-row>
+  
+        </section>
+      
+  
+    
+    
+{% schema %}
+  {
+    
+    "name": "Section 24",
+    "tag": "section",
+    "class": "gps-591140696951095976 gps gpsi",
+    "settings": [{"type":"paragraph","content":"Section design by GemPages. [Click here to start design](https://admin.shopify.com/store/tierliebhaber-animagus/apps/gempages-cro/app/shopify/edit?pageType=GP_STATIC&editorId=591140696849646248&sectionId=591140696951095976)"},{"type":"select","label":"Section Preload","id":"section_preload","options":[{"label":"On","value":"true"},{"label":"Off","value":"false"},{"label":"Off Lazy Script","value":"off_lazy_script"}],"default":"off_lazy_script"},{"type":"text","label":"Checksum","id":"checksum"},{"type":"html","id":"ggLeaHr16FH_text","label":"ggLeaHr16FH_text","default":"<p>Hinweis:Das Angebot dient nicht der Diagnose, Behandlung, Heilung oder Vorbeugung von Krankheiten; das Angebot stellt keine medizinische Beratung dar. Das Angebot ist kein Ersatz für Medikamente oder andere Behandlungen, die von einem Arzt oder Gesundheitsdienstleister verschrieben werden. Die Nutzer sollten einen Arzt konsultieren, bevor sie eine Behandlung beginnen.</p><p>Wir möchten darauf hinweisen, dass Gesunde Haustiere keine Diagnosen stellt oder Prognosen abgibt. Die Wirkung unserer Produkte kann individuell variieren und ersetzt in keinem Fall eine laufende oder zukünftige medizinische Behandlung. Unsere Empfehlungen und Produkte dienen ausschließlich der allgemeinen Gesundheitsförderung, der Vorbeugung sowie dem Erhalt des Wohlbefindens Ihres Tieres. Bitte beachten Sie, dass notwendige Besuche bei Tierärztinnen und Tierärzten weiterhin unerlässlich sind.</p><p>&nbsp;</p><p>Haftungsausschluss: Das Haustier Gesundheitsportal \"Gesunde Haustiere\" bietet umfassende, qualitativ hochwertige und verständlich geschriebene Informationen über Haustiere, insbesondere Gesundheit, Krankheiten, Interviews und neue wissenschaftliche Erkenntnisse in der Naturheilkunde. Die Redaktion wird durch Tiermediziner, Tierärzte und Ernährungsberater bei der kontinuierlichen Erstellung und Qualitätssicherung unserer Inhalte unterstützt. Unsere Informationen sollen keinesfalls als Ersatz für einen Tierarztbesuch angesehen werden. Unsere Inhalte dienen daher nicht der eigenmächtigen Diagnosestellung sowie Behandlung.</p><p>Diese Website ist kein Teil der Facebook-Website oder Facebook, Inc. Darüber hinaus wird diese Website von Facebook in keiner Weise unterstützt. Facebook ist eine Marke von Facebook, Inc. Die oben genannten Ergebnisse sind unsere persönlichen Erfahrungen und die einiger Kunden. Bitte verstehe, dass unsere Ergebnisse nicht typisch sind und von Person zu Person abweichen können. Die hier gezeigten Produkte sind nicht geeignet, um Krankheiten zu diagnostizieren, zu behandeln, zu heilen oder zu verhindern. Zudem ersetzen sie keinen ärztlichen Rat oder vom Arzt verschriebene Medikamente. Im Zweifel sollte vor der Anwendung immer der Rat des Tierarztes eingeholt werde.</p>"},{"type":"html","id":"ggfKKRCdYiC_label","label":"ggfKKRCdYiC_label","default":"<p>Widerrufsbelehrung</p>"},{"type":"html","id":"gga_Jumc0Em_label","label":"gga_Jumc0Em_label","default":"<p>AGB</p>"},{"type":"html","id":"ggTch7wbhNZ_label","label":"ggTch7wbhNZ_label","default":"<p>Datenschutz</p>"}],
+    "blocks": [{"type": "@app"}],
+    "locales": {}
+  }
+{% endschema %}
+  

@@ -1,0 +1,183 @@
+
+    
+    <style>.gps-591140696951489192 .gp-relative{position:relative}.gps-591140696951489192 .gp-mx-auto{margin-left:auto;margin-right:auto}.gps-591140696951489192 .gp-mb-0{margin-bottom:0}.gps-591140696951489192 .gp-flex{display:flex}.gps-591140696951489192 .gp-grid{display:grid}.gps-591140696951489192 .\!gp-hidden{display:none!important}.gps-591140696951489192 .gp-hidden{display:none}.gps-591140696951489192 .gp-max-w-full{max-width:100%}.gps-591140696951489192 .gp-grid-rows-\[1fr\]{grid-template-rows:1fr}.gps-591140696951489192 .gp-flex-col{flex-direction:column}.gps-591140696951489192 .gp-transition-colors{transition-duration:.15s;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-591140696951489192 .gp-duration-200{transition-duration:.2s}.gps-591140696951489192 .gp-ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}@media (max-width:1024px){.gps-591140696951489192 .tablet\:\!gp-hidden{display:none!important}.gps-591140696951489192 .tablet\:gp-hidden{display:none}}@media (max-width:767px){.gps-591140696951489192 .mobile\:\!gp-hidden{display:none!important}.gps-591140696951489192 .mobile\:gp-hidden{display:none}}.gps-591140696951489192 .\[\&_\*\]\:gp-max-w-full *{max-width:100%}</style>
+    
+    
+    
+
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+
+    
+        <section
+          class="gp-mx-auto gp-max-w-full [&_*]:gp-max-w-full {% if section.settings.section_preload == "false" %}gps-lazy {% endif %}"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--pl:none;--pl-tablet:none;--pl-mobile:none;--pr:none;--pr-tablet:none;--pr-mobile:none"
+        >
+          
+    <gp-row gp-data='{"background":{"desktop":{"attachment":"scroll","color":"transparent","image":{"height":0,"src":"","width":0},"position":{"x":50,"y":50},"repeat":"no-repeat","size":"cover","type":"color"}},"uid":"gjDSoZp-Ka"}' data-id="gjDSoZp-Ka" id="gjDSoZp-Ka" data-same-height-subgrid-container class="gjDSoZp-Ka gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--blockPadding:base;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--pt:var(--g-s-2xl);--pb:var(--g-s-2xl);--cg:32px;--gtc:minmax(0, 12fr);--w:100%;--w-tablet:100%;--w-mobile:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pc:start">
+      
+
+      <div
+      data-same-height-display-contents
+      style="--jc:start"
+      class="gLPeJMYQQt gp-relative gp-flex gp-flex-col"
+    >
+      
+  
+    <div
+      
+      style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:left;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+      data-keep-class="true"
+      class="g_p7ilBNgb gp-custom-code">
+      <div>
+    <style>
+  @media screen and (max-width: 768px) {
+    #mobile-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      transform: translateY(100%);
+      opacity: 0;
+      transition: transform 0.6s ease, opacity 0.6s ease;
+      font-family: inherit;
+    }
+
+    #mobile-cta.visible {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+
+    #mobile-cta a {
+      text-decoration: none;
+      display: block;
+    }
+
+    .cta-top {
+      background-color: #54C1BA;
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      padding: 14px 20px 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .arrow {
+      font-size: 18px;
+      color: #ffffff;
+      animation: arrowPulse 1.2s infinite ease-in-out;
+      margin-left: 4px;
+    }
+
+    @keyframes arrowPulse {
+      0% { transform: translateX(0); opacity: 1; }
+      50% { transform: translateX(4px); opacity: 0.7; }
+      100% { transform: translateX(0); opacity: 1; }
+    }
+
+    .cta-bottom {
+      background-color: #ffffff;
+      color: #54C1BA;
+      font-size: 13px;
+      text-align: center;
+      padding: 10px 20px 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .checkmark {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid #54C1BA;
+      position: relative;
+    }
+
+    .checkmark::after {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 0px;
+      width: 5px;
+      height: 10px;
+      border: solid #54C1BA;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+  }
+</style>
+
+<div id="mobile-cta">
+  <a href="https://tierliebhaber.de/products/dentalspray-tl0010-fb-d4?variant=54372580622604">
+    <div class="cta-top">
+      Letzte Möglichkeit nutzen und 30% sparen<span class="arrow">→</span>
+    </div>
+    <div class="cta-bottom">
+      <div class="checkmark"></div>
+      90 Tage Geld-zurück-Garantie
+    </div>
+  </a>
+</div>
+
+<script>
+  window.addEventListener('scroll', function () {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+
+    const cta = document.getElementById('mobile-cta');
+    if (scrollPercent > 12) {
+      cta.classList.add('visible');
+    } else {
+      cta.classList.remove('visible');
+    }
+  });
+</script>
+
+<style>
+  /* ALLE Klaviyo Popups, Floating Bars und Formulare blockieren */
+  .klaviyo-form,
+  [data-testid^="klaviyo-form"],
+  [class*="klaviyo-form"],
+  [class*="kl-private-reset-css-"],
+  .klaviyo-close-form,
+  .go3279073480,
+  .go300628013,
+  .klaviyo-form-version-cid_1 {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+</style>
+    </div>
+    </div>
+  
+    </div>
+
+      
+    </gp-row>
+  
+        </section>
+      
+  
+    
+    
+{% schema %}
+  {
+    
+    "name": "Section 25",
+    "tag": "section",
+    "class": "gps-591140696951489192 gps gpsi",
+    "settings": [{"type":"paragraph","content":"Section design by GemPages. [Click here to start design](https://admin.shopify.com/store/tierliebhaber-animagus/apps/gempages-cro/app/shopify/edit?pageType=GP_STATIC&editorId=591140696849646248&sectionId=591140696951489192)"},{"type":"select","label":"Section Preload","id":"section_preload","options":[{"label":"On","value":"true"},{"label":"Off","value":"false"},{"label":"Off Lazy Script","value":"off_lazy_script"}],"default":"off_lazy_script"},{"type":"text","label":"Checksum","id":"checksum"}],
+    "blocks": [{"type": "@app"}],
+    "locales": {}
+  }
+{% endschema %}
+  
