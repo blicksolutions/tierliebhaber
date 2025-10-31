@@ -1837,3 +1837,9 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 .rc-widget-injection-parent .rc_widget__option__label.rc-radio__label {
     margin-left: 8px;
 }
+
+@media screen and (min-width: 1008px) {
+    .Product__Info {
+        width: 400px;
+    }
+}
