@@ -1860,3 +1860,9 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 .rc-widget-injection-parent .VariantSelector__ListItem--selected {
     box-shadow: 2px 2px 2px -1px rgba(145, 145, 145, 0.30);
 }
+media (min-width: 768px) {
+    .rc-widget-injection-parent .rc-widget .rc-option__text {
+        font-size: 17px;
+
+    }
+}
