@@ -1827,11 +1827,11 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 .rc-widget-injection-parent .rc-widget .rc-template__radio-group .rc-radio {
     height: 44px;
     border: 1px solid #d4d0d0;
-    box-shadow:inset 2px 2px 2px -1px rgba(145, 145, 145, 0.30)
+    box-shadow:inset 2px 2px 2px -1px rgba(145, 145, 145, 0.30);
 }
 .rc-widget-injection-parent .rc-widget .rc-template__radio-group .rc-radio.rc-option--active {
     border: 1px solid #f6d6cf;
-        box-shadow: 2px 2px 2px -1px rgba(145, 145, 145, 0.30)
+        box-shadow: 2px 2px 2px -1px rgba(145, 145, 145, 0.30);
 }
 
 .rc-widget-injection-parent .rc_widget__option__label.rc-radio__label {
@@ -1898,5 +1898,5 @@ div.rc_popup__hover, a.rc_popup__hover {
     border-radius: 8px !important;
 }
 .free-gift-banner {
-       box-shadow:inset 2px 2px 2px -1px rgba(145, 145, 145, 0.30)
+       box-shadow:inset 2px 2px 2px -1px rgba(145, 145, 145, 0.30);
 }
