@@ -1,177 +1,170 @@
-    {% comment %}
-    ==============================================================================
-    ABlyft A/B-Testing - CORE SCRIPT
-    ==============================================================================
-    WICHTIG: Im <head> laden um FOOC (Flash of Original Content) zu vermeiden
-    Zweck: Variantenauslieferung MUSS vor DOM-Rendering passieren
-    ==============================================================================
-    {% endcomment %}
-    
-    {% comment %} Preconnect für schnelleres Laden {% endcomment %}
-    <link rel="preconnect" href="https://cdn.ablyft.com">
-    <link rel="dns-prefetch" href="https://cdn.ablyft.com">
-    
-    {% comment %} Anti-Flicker Snippet {% endcomment %}
-    <style id="ablyft-anti-flicker">
-      body { opacity: 0 !important; transition: opacity 0.2s ease-in; }
-    </style>
-    
-    <script>
-      // Fallback: Body nach max. 2 Sekunden zeigen
-      (function() {
-        var timeout = setTimeout(function() {
-          var style = document.getElementById('ablyft-anti-flicker');
-          if (style && style.parentNode) {
-            style.parentNode.removeChild(style);
-          }
-          document.body.style.opacity = '1';
-          console.log('[ABlyft] Anti-flicker timeout reached');
-        }, 2000);
-        
-        // Wenn ABlyft früher fertig ist, zeige sofort
-        window.ablyftShowBody = function() {
-          clearTimeout(timeout);
-          var style = document.getElementById('ablyft-anti-flicker');
-          if (style && style.parentNode) {
-            style.parentNode.removeChild(style);
-          }
-          document.body.style.opacity = '1';
-          console.log('[ABlyft] Body shown');
-        };
-      })();
-    </script>
-    
-    {% comment %} ABlyft Core Script - MIT Consent {% endcomment %}
-    <script type="text/plain" data-cookieconsent="marketing" async src="https://cdn.ablyft.com/s/55886406.js"></script>
-    
-    {% comment %} ABlyft Queue Initialisierung & Reload Logic {% endcomment %}
-<script type="text/plain" data-cookieconsent="marketing">
-(function() {
-  'use strict';
-  
-  window['ablyft'] = window['ablyft'] || [];
-  
-  const CONFIG = {
-    sessionKey: 'ablyft_reload_done',
-    waitTime: 600,
-    reloadDelay: 100,
-    debug: true
-  };
-  
-  function log(message, data) {
-    if (CONFIG.debug) {
-      console.log('[ABlyft]', message, data || '');
-    }
-  }
-  
-  function parseAblyftCookie() {
-    const match = document.cookie.match(/ablyft_exps=([^;]+)/);
-    if (!match) return null;
-    try {
-      return JSON.parse(decodeURIComponent(match[1]));
-    } catch(e) {
-      return null;
-    }
-  }
-  
-  function checkForExperiments() {
-    const checks = {
-      cookie: function() {
-        const experiments = parseAblyftCookie();
-        return experiments && Object.keys(experiments).length > 0;
-      },
-      windowObject: function() {
-        if (!window.ablyft) return false;
-        return !!(
-          (window.ablyft.experiments && window.ablyft.experiments.length > 0) ||
-          (window.ablyft._experiments && Object.keys(window.ablyft._experiments).length > 0) ||
-          window.ablyft._initialized ||
-          window.ablyft._ready
-        );
-      },
-      dom: function() {
-        return !!(
-          document.querySelector('[data-ablyft]') ||
-          document.querySelector('[class*="ablyft"]')
-        );
+{% comment %}
+  ==============================================================================
+  ABlyft A/B-Testing - CORE SCRIPT
+  ==============================================================================
+  WICHTIG: Im <head> laden um FOOC (Flash of Original Content) zu vermeiden
+  Zweck: Variantenauslieferung MUSS vor DOM-Rendering passieren
+  ==============================================================================
+{% endcomment %}
+
+{% comment %} Preconnect für schnelleres Laden {% endcomment %}
+<link rel="preconnect" href="https://cdn.ablyft.com">
+<link rel="dns-prefetch" href="https://cdn.ablyft.com">
+
+{% comment %} Anti-Flicker Snippet {% endcomment %}
+<style id="ablyft-anti-flicker">
+  body { opacity: 0 !important; transition: opacity 0.2s ease-in; }
+</style>
+
+<script>
+  // Fallback: Body nach max. 2 Sekunden zeigen
+  (function () {
+    var timeout = setTimeout(function () {
+      var style = document.getElementById('ablyft-anti-flicker');
+      if (style && style.parentNode) {
+        style.parentNode.removeChild(style);
       }
+      document.body.style.opacity = '1';
+      console.log('[ABlyft] Anti-flicker timeout reached');
+    }, 2000);
+
+    // Wenn ABlyft früher fertig ist, zeige sofort
+    window.ablyftShowBody = function () {
+      clearTimeout(timeout);
+      var style = document.getElementById('ablyft-anti-flicker');
+      if (style && style.parentNode) {
+        style.parentNode.removeChild(style);
+      }
+      document.body.style.opacity = '1';
+      console.log('[ABlyft] Body shown');
     };
-    
-    const results = {
-      cookie: checks.cookie(),
-      windowObject: checks.windowObject(),
-      dom: checks.dom()
+  })();
+</script>
+
+{% comment %} ABlyft Core Script - MIT Consent {% endcomment %}
+<script type="text/plain" data-cookieconsent="marketing" async src="https://cdn.ablyft.com/s/55886406.js"></script>
+
+{% comment %} ABlyft Queue Initialisierung & Reload Logic {% endcomment %}
+<script type="text/plain" data-cookieconsent="marketing">
+  (function () {
+    'use strict';
+
+    window['ablyft'] = window['ablyft'] || [];
+
+    const CONFIG = {
+      sessionKey: 'ablyft_reload_done',
+      waitTime: 600,
+      reloadDelay: 100,
+      debug: true,
     };
-    
-    log('Detection:', results);
-    return Object.values(results).some(r => r === true);
-  }
-  
-  function init() {
-    if (sessionStorage.getItem(CONFIG.sessionKey)) {
-      log('Already reloaded in this session');
-      if (window.ablyftShowBody) window.ablyftShowBody();
-      return;
+
+    function log(message, data) {
+      if (CONFIG.debug) {
+        console.log('[ABlyft]', message, data || '');
+      }
     }
-    
-    let consentEventFired = false;
-    
-    function handleConsentEvent(eventName) {
-      return function(e) {
-        log(eventName + ' event fired');
-        
-        if (window.Cookiebot && window.Cookiebot.changed === true) {
-          log('✅ Consent was CHANGED by user - reload needed');
-          consentEventFired = true;
-          
-          if (window.Cookiebot.consent && window.Cookiebot.consent.marketing) {
-            log('Marketing consent granted - proceeding with reload check');
-            
-            setTimeout(function() {
-              if (checkForExperiments()) {
-                log('🎯 Experiments detected - reloading');
-                sessionStorage.setItem(CONFIG.sessionKey, Date.now());
-                setTimeout(function() {
-                  window.location.reload();
-                }, CONFIG.reloadDelay);
-              } else {
-                log('No experiments detected');
-                if (window.ablyftShowBody) window.ablyftShowBody();
-              }
-            }, CONFIG.waitTime);
-            
+
+    function parseAblyftCookie() {
+      const match = document.cookie.match(/ablyft_exps=([^;]+)/);
+      if (!match) return null;
+      try {
+        return JSON.parse(decodeURIComponent(match[1]));
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function checkForExperiments() {
+      const checks = {
+        cookie: function () {
+          const experiments = parseAblyftCookie();
+          return experiments && Object.keys(experiments).length > 0;
+        },
+        windowObject: function () {
+          if (!window.ablyft) return false;
+          return !!(
+            (window.ablyft.experiments && window.ablyft.experiments.length > 0) ||
+            (window.ablyft._experiments && Object.keys(window.ablyft._experiments).length > 0) ||
+            window.ablyft._initialized ||
+            window.ablyft._ready
+          );
+        },
+        dom: function () {
+          return !!(document.querySelector('[data-ablyft]') || document.querySelector('[class*="ablyft"]'));
+        },
+      };
+
+      const results = {
+        cookie: checks.cookie(),
+        windowObject: checks.windowObject(),
+        dom: checks.dom(),
+      };
+
+      log('Detection:', results);
+      return Object.values(results).some((r) => r === true);
+    }
+
+    function init() {
+      if (sessionStorage.getItem(CONFIG.sessionKey)) {
+        log('Already reloaded in this session');
+        if (window.ablyftShowBody) window.ablyftShowBody();
+        return;
+      }
+
+      let consentEventFired = false;
+
+      function handleConsentEvent(eventName) {
+        return function (e) {
+          log(eventName + ' event fired');
+
+          if (window.Cookiebot && window.Cookiebot.changed === true) {
+            log('✅ Consent was CHANGED by user - reload needed');
+            consentEventFired = true;
+
+            if (window.Cookiebot.consent && window.Cookiebot.consent.marketing) {
+              log('Marketing consent granted - proceeding with reload check');
+
+              setTimeout(function () {
+                if (checkForExperiments()) {
+                  log('🎯 Experiments detected - reloading');
+                  sessionStorage.setItem(CONFIG.sessionKey, Date.now());
+                  setTimeout(function () {
+                    window.location.reload();
+                  }, CONFIG.reloadDelay);
+                } else {
+                  log('No experiments detected');
+                  if (window.ablyftShowBody) window.ablyftShowBody();
+                }
+              }, CONFIG.waitTime);
+            } else {
+              log('Marketing consent not granted - no reload needed');
+              if (window.ablyftShowBody) window.ablyftShowBody();
+            }
           } else {
-            log('Marketing consent not granted - no reload needed');
+            log('❌ Consent was NOT changed (page load with existing consent) - no reload needed');
+            consentEventFired = false;
             if (window.ablyftShowBody) window.ablyftShowBody();
           }
-          
-        } else {
-          log('❌ Consent was NOT changed (page load with existing consent) - no reload needed');
-          consentEventFired = false;
+        };
+      }
+
+      window.addEventListener('CookiebotOnAccept', handleConsentEvent('CookiebotOnAccept'), false);
+      window.addEventListener('CookiebotOnDecline', handleConsentEvent('CookiebotOnDecline'), false);
+
+      log('Cookiebot event listeners registered');
+
+      setTimeout(function () {
+        if (!consentEventFired) {
+          log('Timeout: No consent change detected - showing body');
           if (window.ablyftShowBody) window.ablyftShowBody();
         }
-      };
+      }, 3000);
     }
-    
-    window.addEventListener('CookiebotOnAccept', handleConsentEvent('CookiebotOnAccept'), false);
-    window.addEventListener('CookiebotOnDecline', handleConsentEvent('CookiebotOnDecline'), false);
-    
-    log('Cookiebot event listeners registered');
-    
-    setTimeout(function() {
-      if (!consentEventFired) {
-        log('Timeout: No consent change detected - showing body');
-        if (window.ablyftShowBody) window.ablyftShowBody();
-      }
-    }, 3000);
-  }
-  
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-  
-})();
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
 </script>
-    
