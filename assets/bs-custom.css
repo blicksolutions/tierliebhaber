@@ -1820,3 +1820,6 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
         gap: 0px;
     }
 }
+.Product__InfoWrapper .ProductMeta__Title.Heading.u-h2 {
+    margin-bottom: 0;
+}
