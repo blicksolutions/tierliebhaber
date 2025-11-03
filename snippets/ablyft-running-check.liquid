@@ -151,6 +151,7 @@
 </script>
 
 {% comment %} ABlyft Reload Logic - lädt NUR mit Marketing-Consent {% endcomment %}
+{% comment %} ABlyft Reload Logic {% endcomment %}
 <script type="text/plain" data-cookieconsent="marketing">
 (function() {
   'use strict';
@@ -160,7 +161,8 @@
   const CONFIG = {
     sessionKey: 'ablyft_reload_done',
     consentChangedKey: 'ablyft_consent_changed',
-    waitTime: 600,
+    ablyftReloadKey: 'ablyft_native_reload',  // NEU: Track ABlyft's eigenen Reload
+    waitTime: 800,  // Länger warten um ABlyft's Reload zu erwischen
     reloadDelay: 100,
     debug: true
   };
@@ -217,17 +219,18 @@
   function init() {
     log('Initializing...');
     
-    // ============ KRITISCH: Sofortiger Check ob bereits reloaded ============
-    const reloadDone = sessionStorage.getItem(CONFIG.sessionKey);
+    // Check 1: Wurde bereits reloaded (von uns oder ABlyft)?
+    const ourReloadDone = sessionStorage.getItem(CONFIG.sessionKey);
+    const ablyftReloadDone = sessionStorage.getItem(CONFIG.ablyftReloadKey);
     
-    if (reloadDone) {
-      const timeSinceReload = Date.now() - parseInt(reloadDone);
-      log('Already reloaded ' + timeSinceReload + 'ms ago - stopping');
+    if (ourReloadDone || ablyftReloadDone) {
+      const source = ourReloadDone ? 'our script' : 'ABlyft native';
+      log('Already reloaded by ' + source + ' - stopping');
       if (window.ablyftShowBody) window.ablyftShowBody();
-      return; // STOP SOFORT
+      return;
     }
     
-    // Check: Wurde Consent GEÄNDERT?
+    // Check 2: Wurde Consent geändert?
     const consentWasChanged = window._ablyftConsentChanged === true || 
                               sessionStorage.getItem(CONFIG.consentChangedKey);
     
@@ -236,34 +239,67 @@
     if (!consentWasChanged) {
       log('❌ No new consent - existing consent loaded');
       if (window.ablyftShowBody) window.ablyftShowBody();
-      return; // STOP
+      return;
     }
     
-    // ============ Ab hier: Consent IST neu, Reload nötig ============
+    // ============ NEU: Überwache ob ABlyft selbst reloaded ============
     
-    log('✅ NEW consent detected (from pre-consent listener)');
+    log('✅ NEW consent detected - monitoring for reload...');
     
-    // Lösche Flag sofort
+    // Lösche Consent-Changed Flag
     try {
       sessionStorage.removeItem(CONFIG.consentChangedKey);
     } catch(e) {}
     
+    // Überwache location.reload Aufrufe
+    var originalReload = window.location.reload;
+    var reloadCalled = false;
+    
+    window.location.reload = function() {
+      if (reloadCalled) {
+        log('⛔ Duplicate reload blocked');
+        return;
+      }
+      
+      reloadCalled = true;
+      log('🔄 Reload called - checking source...');
+      
+      // Prüfe Call Stack um Quelle zu identifizieren
+      var stack = new Error().stack;
+      if (stack && stack.includes('ablyft') || stack.includes('55886406')) {
+        log('Reload triggered by ABlyft native script');
+        try {
+          sessionStorage.setItem(CONFIG.ablyftReloadKey, Date.now());
+        } catch(e) {}
+      } else {
+        log('Reload triggered by our script');
+        try {
+          sessionStorage.setItem(CONFIG.sessionKey, Date.now());
+        } catch(e) {}
+      }
+      
+      // Führe Reload aus
+      originalReload.call(window.location);
+    };
+    
     log('Waiting for ABlyft...');
     
     setTimeout(function() {
+      
+      // Wenn ABlyft bereits reloaded hat, dann sind wir fertig
+      if (reloadCalled) {
+        log('ABlyft already triggered reload - our job is done');
+        return;
+      }
+      
+      // Check ob Experimente laufen
       if (checkForExperiments()) {
-        log('🎯 Experiments detected - will reload in ' + CONFIG.reloadDelay + 'ms');
+        log('🎯 Experiments detected - triggering our reload');
         
-        // ============ KRITISCH: Setze Flag VOR Reload ============
         try {
-          const now = Date.now();
-          sessionStorage.setItem(CONFIG.sessionKey, now);
-          log('Reload flag set:', now);
-        } catch(e) {
-          log('ERROR: Could not set reload flag!', e);
-        }
+          sessionStorage.setItem(CONFIG.sessionKey, Date.now());
+        } catch(e) {}
         
-        // Kurze Verzögerung damit Flag garantiert gesetzt ist
         setTimeout(function() {
           log('Triggering reload NOW');
           window.location.reload();
@@ -273,10 +309,10 @@
         log('No experiments detected');
         if (window.ablyftShowBody) window.ablyftShowBody();
       }
+      
     }, CONFIG.waitTime);
   }
   
-  // Starte sofort (nicht auf DOMContentLoaded warten)
   init();
   
 })();
