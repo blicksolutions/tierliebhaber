@@ -1,19 +1,14 @@
 <!doctype html>
 
-
-
-
-      
-
 <html class="no-js" lang="{{ shop.locale }}">
   <head>
-
+{% comment %}
     <script src="https://cdn.ablyft.com/s/44409432.js"></script>
+    {% endcomment %}
 
     {% render 'cookiebot' %}
-    {% comment %}
+
     {%  render 'ablyft-running-check' %}
-          {% endcomment %}
 
     {% comment %}<!-- Split GemX Traffic before Consent M.M. -->{% endcomment %}
     {% render 'gemx-traffic-switch' %}
@@ -35,7 +30,7 @@
 
 
 
-    {% comment %}  ================= Implement ablyft A/B-Testing Service https://ablyft.de/ Old way before 22/10/25 and 30/10/25 ============== {% endcomment %}
+    {% comment %}  ================= Implement ablyft A/B-Testing Service https://ablyft.de/ Old way before 22/10/25 and 30/10/25 ==============
 
     {% comment %} ================= Implement ablyft A/B-Testing Service https://ablyft.de/  === M.M. 22/10/25 ============== {% endcomment %}
     <!-- ABlyft DE Visitor Detection - GATED -->
@@ -73,7 +68,7 @@
           }
       });
     </script>
-
+{% endcomment %}
 
     <script>
       window.SLIDECART_DISABLE = true;
