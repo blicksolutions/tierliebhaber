@@ -5,17 +5,28 @@
 <script src="{{ 'bs-recharge-variant-selector.js' | asset_url }}"></script>
 
 <script>
-  $(document).ready(function(){
-      var currentUrl = window.location.href.toLowerCase(); // Convert URL to lowercase
-      if(currentUrl.indexOf('dental') !== -1 || currentUrl.indexOf('zahn') !== -1) {
-          $('.acc_tl_upsell_24').hide();
-          $('#sidebar-cart').hide();
-          $('.ProductForm__AddToCart').on('click', function(){
-              setTimeout(function(){
-                  $('#sidebar-cart').show();
-              }, 500);
-          });
+  document.addEventListener('DOMContentLoaded', function() {
+    var currentUrl = window.location.href.toLowerCase();
+    
+    if (currentUrl.indexOf('dental') !== -1 || currentUrl.indexOf('zahn') !== -1) {
+      // Elemente verstecken
+      var accElement = document.querySelector('.acc_tl_upsell_24');
+      var sidebarCart = document.getElementById('sidebar-cart');
+      
+      if (accElement) accElement.style.display = 'none';
+      if (sidebarCart) sidebarCart.style.display = 'none';
+      
+      // Click-Event auf AddToCart Button
+      var addToCartButton = document.querySelector('.ProductForm__AddToCart');
+      
+      if (addToCartButton) {
+        addToCartButton.addEventListener('click', function() {
+          setTimeout(function() {
+            if (sidebarCart) sidebarCart.style.display = 'block';
+          }, 500);
+        });
       }
+    }
   });
 </script>
 
