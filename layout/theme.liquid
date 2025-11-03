@@ -2,18 +2,20 @@
 
 <html class="no-js" lang="{{ shop.locale }}">
   <head>
-{% comment %}
-    <script src="https://cdn.ablyft.com/s/44409432.js"></script>
+    {% comment %}
+      <script src="https://cdn.ablyft.com/s/44409432.js"></script>
     {% endcomment %}
 
     {% render 'cookiebot' %}
 
-    {%  render 'ablyft-running-check' %}
+    {% render 'ablyft-running-check' %}
 
     {% comment %}<!-- Split GemX Traffic before Consent M.M. -->{% endcomment %}
     {% render 'gemx-traffic-switch' %}
 
     <link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}">
+
+     <script defer src="/assets/js/jquery-3.7.1.slim.min.js"></script>
 
     <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
     <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
@@ -28,47 +30,46 @@
 
     {% render 'external-scripts' %}
 
+    {% comment %}
+      ================= Implement ablyft A/B-Testing Service https://ablyft.de/ Old way before 22/10/25 and 30/10/25 ==============
 
-
-    {% comment %}  ================= Implement ablyft A/B-Testing Service https://ablyft.de/ Old way before 22/10/25 and 30/10/25 ==============
-
-    {% comment %} ================= Implement ablyft A/B-Testing Service https://ablyft.de/  === M.M. 22/10/25 ============== {% endcomment %}
-    <!-- ABlyft DE Visitor Detection - GATED -->
-    <script type="text/plain" data-cookieconsent="marketing">
-      fetch('/browsing_context_suggestions.json')
-       .then(response => response.json())
-       .then(json => {
-        if(json.detected_values.country.handle == "DE") {
-      	  window.isDeVisitor = true;
-        } else {
-      	  window.isDeVisitor = false;
-        }
-       });
-    </script>
-
-    <!-- ABlyft Scripts - GATED -->
-    <script type="text/plain" data-cookieconsent="marketing" src="https://cdn.ablyft.com/s/55886406.js"></script>
-    
-    <script type="text/plain" data-cookieconsent="marketing">
-      window['ablyft'] = window['ablyft'] || [];
-    </script>
-
-    {% comment %}  <!-- ////////// LH-026 Search Tracking - GATED. ////////////  -->  {% endcomment %}
-    <script type="text/plain" data-cookieconsent="marketing">
-      document.addEventListener('DOMContentLoaded',() => {
-          const searchEl = document.querySelector('.Search__Inner');
-          if (searchEl && window.ablyft) {
-            searchEl.addEventListener('click',() =>  {
-                window['ablyft'].push({
-                    eventType: 'custom',
-                    eventName: 'tlh-026-clicks-on-searchbar',
-                    eventValue: 1
-                });
-            });
+      {% comment %} ================= Implement ablyft A/B-Testing Service https://ablyft.de/  === M.M. 22/10/25 ============== {% endcomment %}
+      <!-- ABlyft DE Visitor Detection - GATED -->
+      <script type="text/plain" data-cookieconsent="marketing">
+        fetch('/browsing_context_suggestions.json')
+         .then(response => response.json())
+         .then(json => {
+          if(json.detected_values.country.handle == "DE") {
+        	  window.isDeVisitor = true;
+          } else {
+        	  window.isDeVisitor = false;
           }
-      });
-    </script>
-{% endcomment %}
+         });
+      </script>
+
+      <!-- ABlyft Scripts - GATED -->
+      <script type="text/plain" data-cookieconsent="marketing" src="https://cdn.ablyft.com/s/55886406.js"></script>
+
+      <script type="text/plain" data-cookieconsent="marketing">
+        window['ablyft'] = window['ablyft'] || [];
+      </script>
+
+      {% comment %}  <!-- ////////// LH-026 Search Tracking - GATED. ////////////  -->  {% endcomment %}
+      <script type="text/plain" data-cookieconsent="marketing">
+        document.addEventListener('DOMContentLoaded',() => {
+            const searchEl = document.querySelector('.Search__Inner');
+            if (searchEl && window.ablyft) {
+              searchEl.addEventListener('click',() =>  {
+                  window['ablyft'].push({
+                      eventType: 'custom',
+                      eventName: 'tlh-026-clicks-on-searchbar',
+                      eventValue: 1
+                  });
+              });
+            }
+        });
+      </script>
+    {% endcomment %}
 
     <script>
       window.SLIDECART_DISABLE = true;
@@ -87,8 +88,9 @@
       >
     {% endcomment %}
 
-    {% comment %} Slickslider ist auf der Collection Page eingebunden. Soll raus!!!  M.M.
-    {% render 'collection-slider' %}
+    {% comment %}
+      Slickslider ist auf der Collection Page eingebunden. Soll raus!!!  M.M.
+      {% render 'collection-slider' %}
     {% endcomment %}
 
     <meta charset="utf-8">
@@ -152,7 +154,6 @@
 
     {{ content_for_header }}
 
-
     {% comment %} Bridge to Shopify Consent API {% endcomment %}
     {% render 'cookie-consent' %}
 
@@ -166,70 +167,70 @@
     {%- render 'head-styles', layout: 'theme' -%}
 
     <script>
-          {%- if request.page_type == 'policy' -%}
-            document.addEventListener('DOMContentLoaded', function() {
-              document.querySelector('.shopify-policy__title').classList.add('PageHeader', 'Heading', 'u-h1');
-              document.querySelector('.shopify-policy__body').classList.add('Rte');
-            });
+      {%- if request.page_type == 'policy' -%}
+        document.addEventListener('DOMContentLoaded', function() {
+          document.querySelector('.shopify-policy__title').classList.add('PageHeader', 'Heading', 'u-h1');
+          document.querySelector('.shopify-policy__body').classList.add('Rte');
+        });
 
-          {%- endif -%}
+      {%- endif -%}
 
-          window.theme = {
-            pageType: {{ request.page_type | json }},
-            moneyFormat: {{ shop.money_format | json }},
-            moneyWithCurrencyFormat: {{ shop.money_with_currency_format | json }},
-            productImageSize: {{ settings.product_image_size | json }},
-            searchMode: {{ settings.search_mode | json }},
-            showPageTransition: {{ settings.show_page_transition | json }},
-            showElementStaggering: {{ settings.show_element_staggering | json }},
-            showImageZooming: {{ settings.show_image_zooming | json }}
-          };
+      window.theme = {
+        pageType: {{ request.page_type | json }},
+        moneyFormat: {{ shop.money_format | json }},
+        moneyWithCurrencyFormat: {{ shop.money_with_currency_format | json }},
+        productImageSize: {{ settings.product_image_size | json }},
+        searchMode: {{ settings.search_mode | json }},
+        showPageTransition: {{ settings.show_page_transition | json }},
+        showElementStaggering: {{ settings.show_element_staggering | json }},
+        showImageZooming: {{ settings.show_image_zooming | json }}
+      };
 
-          window.routes = {
-            rootUrl: {{ routes.root_url | json }},
-            rootUrlWithoutSlash: {% if routes.root_url == '/' %}''{% else %}{{ routes.root_url | json }}{% endif %},
-            cartUrl: {{ routes.cart_url | json }},
-            cartAddUrl: {{ routes.cart_add_url | json }},
-            cartChangeUrl: {{ routes.cart_change_url | json }},
-            searchUrl: {{ routes.search_url | json }},
-            productRecommendationsUrl: {{ routes.product_recommendations_url | json }}
-          };
+      window.routes = {
+        rootUrl: {{ routes.root_url | json }},
+        rootUrlWithoutSlash: {% if routes.root_url == '/' %}''{% else %}{{ routes.root_url | json }}{% endif %},
+        cartUrl: {{ routes.cart_url | json }},
+        cartAddUrl: {{ routes.cart_add_url | json }},
+        cartChangeUrl: {{ routes.cart_change_url | json }},
+        searchUrl: {{ routes.search_url | json }},
+        productRecommendationsUrl: {{ routes.product_recommendations_url | json }}
+      };
 
-          window.languages = {
-            cartAddNote: {{ 'cart.general.add_note' | t | json }},
-            cartEditNote: {{ 'cart.general.edit_note' | t | json }},
-            productImageLoadingError: {{ 'product.slideshow.image_loading_error' | t | json }},
-            productFormAddToCart: {% if product.template_suffix == 'pre-order' %}{{ 'product.form.pre_order' | t | json }}{% elsif product.template_suffix == 'donation' %}{{ 'product.form.add_to_cart_donation' | t | json }}{%else%}{{ 'product.form.add_to_cart' | t | json }}{% endif %},
-            productFormUnavailable: {{ 'product.form.unavailable' | t | json }},
-            productFormSoldOut: {{ 'product.form.sold_out' | t | json }},
-            shippingEstimatorOneResult: {{ 'cart.shipping_estimator.one_result_title' | t | json }},
-            shippingEstimatorMoreResults: {{ 'cart.shipping_estimator.more_results_title' | t | json }},
-            shippingEstimatorNoResults: {{ 'cart.shipping_estimator.no_results_title' | t | json }}
-          };
+      window.languages = {
+        cartAddNote: {{ 'cart.general.add_note' | t | json }},
+        cartEditNote: {{ 'cart.general.edit_note' | t | json }},
+        productImageLoadingError: {{ 'product.slideshow.image_loading_error' | t | json }},
+        productFormAddToCart: {% if product.template_suffix == 'pre-order' %}{{ 'product.form.pre_order' | t | json }}{% elsif product.template_suffix == 'donation' %}{{ 'product.form.add_to_cart_donation' | t | json }}{%else%}{{ 'product.form.add_to_cart' | t | json }}{% endif %},
+        productFormUnavailable: {{ 'product.form.unavailable' | t | json }},
+        productFormSoldOut: {{ 'product.form.sold_out' | t | json }},
+        shippingEstimatorOneResult: {{ 'cart.shipping_estimator.one_result_title' | t | json }},
+        shippingEstimatorMoreResults: {{ 'cart.shipping_estimator.more_results_title' | t | json }},
+        shippingEstimatorNoResults: {{ 'cart.shipping_estimator.no_results_title' | t | json }}
+      };
 
-          window.lazySizesConfig = {
-            loadHidden: false,
-            hFac: 0.5,
-            expFactor: 2,
-            ricTimeout: 150,
-            lazyClass: 'Image--lazyLoad',
-            loadingClass: 'Image--lazyLoading',
-            loadedClass: 'Image--lazyLoaded'
-          };
+      window.lazySizesConfig = {
+        loadHidden: false,
+        hFac: 0.5,
+        expFactor: 2,
+        ricTimeout: 150,
+        lazyClass: 'Image--lazyLoad',
+        loadingClass: 'Image--lazyLoading',
+        loadedClass: 'Image--lazyLoaded'
+      };
 
-          {% if customer %}
-            window.Shopify.isUserLoggedIn = true;
-          {% else %}
-            window.Shopify.isUserLoggedIn = false;
-          {% endif %}
+      {% if customer %}
+        window.Shopify.isUserLoggedIn = true;
+      {% else %}
+        window.Shopify.isUserLoggedIn = false;
+      {% endif %}
 
-          document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
-          document.documentElement.style.setProperty('--window-height', window.innerHeight + 'px');
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+      document.documentElement.style.setProperty('--window-height', window.innerHeight + 'px');
 
-          (function() {
-            document.documentElement.className += ((window.CSS && window.CSS.supports('(position: sticky) or (position: -webkit-sticky)')) ? ' supports-sticky' : ' no-supports-sticky');
-            document.documentElement.className += (window.matchMedia('(-moz-touch-enabled: 1), (hover: none)')).matches ? ' no-supports-hover' : ' supports-hover';
-          }());
+      (function() {
+        document.documentElement.className += ((window.CSS && window.CSS.supports('(position: sticky) or (position: -webkit-sticky)')) ? ' supports-sticky' : ' no-supports-sticky');
+        document.documentElement.className += (window.matchMedia('(-moz-touch-enabled: 1), (hover: none)')).matches ? ' no-supports-hover' : ' supports-hover';
+      }());
     </script>
 
     <script src="{{ 'lazysizes.min.js' | asset_url }}" async></script>
@@ -239,22 +240,21 @@
       <script src="{{ 'customer_area.js' | shopify_asset_url }}" defer></script>
     {%- endif -%}
 
-    {%  comment %}
-
-    <!-- Unnötig ist nativ in 98 % aller browser  M.M. -->
-    <script
-      type="text/plain"
-      data-cookieconsent="preferences"
-      src="https://polyfill-fastly.net/v3/polyfill.min.js?unknown=polyfill&features=Element.prototype.closest,Element.prototype.remove,Element.prototype.classList,Array.prototype.includes,Array.prototype.fill,Object.assign,CustomEvent,IntersectionObserver,IntersectionObserverEntry,URL"
-      defer
-    ></script>
-    {%  endcomment %}
+    {% comment %}
+      <!-- Unnötig ist nativ in 98 % aller browser  M.M. -->
+      <script
+        type="text/plain"
+        data-cookieconsent="preferences"
+        src="https://polyfill-fastly.net/v3/polyfill.min.js?unknown=polyfill&features=Element.prototype.closest,Element.prototype.remove,Element.prototype.classList,Array.prototype.includes,Array.prototype.fill,Object.assign,CustomEvent,IntersectionObserver,IntersectionObserverEntry,URL"
+        defer
+      ></script>
+    {% endcomment %}
 
     <script src="{{ 'libs.min.js' | asset_url }}" defer></script>
     <script src="{{ 'theme.min.js' | asset_url }}" defer></script>
     <script src="{{ 'bs-cart-drawer.js' | asset_url }}" defer></script>
     <script src="{{ 'search-manipulation.js' | asset_url }}" defer></script>
-    <script src="{{ 'bs-dentalspray-redirect.js' | asset_url }}" ></script>
+    <script src="{{ 'bs-dentalspray-redirect.js' | asset_url }}"></script>
 
     <script>
       (function () {
@@ -377,24 +377,25 @@
       src="https://widget.reviews.io/rating-snippet/dist.js"
     ></script>
 
-<script type="text/plain" data-cookieconsent="marketing">  ← HINZUGEFÜGT!
-  document.addEventListener('DOMContentLoaded', function() {
-    if (typeof ratingSnippet === 'function') {
-        ratingSnippet('ruk_rating_snippet', {
-      store: 'tierliebhaber.de',
-      mode: 'default',
-      color: '#fbd343',
-      linebreak: false,
-      text: "{{ 'product.tabs.reviews' | t }}",
-      singularText: "{{ 'product.tabs.reviews_singular' | t }}",
-      lang: 'de',
-      usePolaris: true,
-      showEmptyStars: false,
-      
-    });
-    }
-  });
-</script>
+    <script type="text/plain" data-cookieconsent="marketing">
+      ← HINZUGEFÜGT!
+      document.addEventListener('DOMContentLoaded', function() {
+        if (typeof ratingSnippet === 'function') {
+            ratingSnippet('ruk_rating_snippet', {
+          store: 'tierliebhaber.de',
+          mode: 'default',
+          color: '#fbd343',
+          linebreak: false,
+          text: "{{ 'product.tabs.reviews' | t }}",
+          singularText: "{{ 'product.tabs.reviews_singular' | t }}",
+          lang: 'de',
+          usePolaris: true,
+          showEmptyStars: false,
+
+        });
+        }
+      });
+    </script>
 
     <script
       type="text/plain"
@@ -433,8 +434,6 @@
       </script>
     {% endif %}
 
-
     {% render 'ablyft-scripts-body' %}
-
   </body>
 </html>
