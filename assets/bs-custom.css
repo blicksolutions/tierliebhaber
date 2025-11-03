@@ -1897,12 +1897,11 @@ div.rc_popup__hover, a.rc_popup__hover {
     border: 1px solid #D5D5D6;
     border-radius: 8px !important;
 }
-/*
 .free-gift-banner {
-    box-shadow: inset 2px 2px 12px -1px #cb363636;
-    border: 1px solid #cb36364d;
+   /*  box-shadow: inset 2px 2px 12px -1px #cb363636;
+    border: 1px solid #cb36364d; */
+    background-color: rgba(246, 166, 150, 0.0784313725) !important;
 }
-*/
 
 /*
 .Button--primary:before, .shopify-payment-button__button--unbranded:before, .spr-summary-actions-newreview:before, .spr-button-primary:not(input):before {
