@@ -1,193 +1,359 @@
-{% comment %}
-  ==============================================================================
-  ABlyft A/B-Testing - CORE SCRIPT
-  ==============================================================================
-  WICHTIG: Im <head> laden um FOOC (Flash of Original Content) zu vermeiden
-  Zweck: Variantenauslieferung MUSS vor DOM-Rendering passieren
-  ==============================================================================
+    {% comment %}
+    ==============================================================================
+    ABlyft A/B-Testing - CORE SCRIPT
+    ==============================================================================
+    WICHTIG: Im <head> laden um FOOC (Flash of Original Content) zu vermeiden
+    Zweck: Variantenauslieferung MUSS vor DOM-Rendering passieren
+    ==============================================================================
+    {% endcomment %}
+    
+    {% comment %} Preconnect für schnelleres Laden {% endcomment %}
+    <link rel="preconnect" href="https://cdn.ablyft.com">
+    <link rel="dns-prefetch" href="https://cdn.ablyft.com">
+    
+    {% comment %} Anti-Flicker Snippet {% endcomment %}
+    <style id="ablyft-anti-flicker">
+      body { opacity: 0 !important; transition: opacity 0.2s ease-in; }
+    </style>
+    
+    <script>
+      // Fallback: Body nach max. 2 Sekunden zeigen
+      (function() {
+        var timeout = setTimeout(function() {
+          var style = document.getElementById('ablyft-anti-flicker');
+          if (style && style.parentNode) {
+            style.parentNode.removeChild(style);
+          }
+          document.body.style.opacity = '1';
+          console.log('[ABlyft] Anti-flicker timeout reached');
+        }, 2000);
+        
+        // Wenn ABlyft früher fertig ist, zeige sofort
+        window.ablyftShowBody = function() {
+          clearTimeout(timeout);
+          var style = document.getElementById('ablyft-anti-flicker');
+          if (style && style.parentNode) {
+            style.parentNode.removeChild(style);
+          }
+          document.body.style.opacity = '1';
+          console.log('[ABlyft] Body shown');
+        };
+      })();
+    </script>
+    
+    {% comment %} ABlyft Core Script - MIT Consent {% endcomment %}
+    <script type="text/plain" data-cookieconsent="marketing" async src="https://cdn.ablyft.com/s/55886406.js"></script>
+
+
+    
+{% comment %} ABlyft Consent-Change Detector {% endcomment %}
+<script>
+(function() {
+  'use strict';
+  
+  console.log('[ABlyft Pre-Consent] Initializing...');
+  
+  // Check: Wird Cookie-Banner dem User ANGEZEIGT?
+  function isBannerShownToUser() {
+    // Warte kurz bis Cookiebot initialisiert ist
+    return new Promise(function(resolve) {
+      var checkCount = 0;
+      var maxChecks = 20; // Max 2 Sekunden warten
+      
+      var interval = setInterval(function() {
+        checkCount++;
+        
+        // Check 1: Banner-Element existiert und ist sichtbar
+        var bannerEl = document.querySelector('#CybotCookiebotDialog');
+        if (bannerEl && bannerEl.offsetParent !== null) {
+          console.log('[ABlyft Pre-Consent] Cookie banner IS shown to user');
+          clearInterval(interval);
+          resolve(true);
+          return;
+        }
+        
+        // Check 2: Cookiebot sagt "hasResponse = false" (kein vorheriger Consent)
+        if (window.Cookiebot && window.Cookiebot.hasResponse === false) {
+          console.log('[ABlyft Pre-Consent] Cookiebot.hasResponse is false - new consent needed');
+          clearInterval(interval);
+          resolve(true);
+          return;
+        }
+        
+        // Check 3: Timeout - Banner wird NICHT angezeigt
+        if (checkCount >= maxChecks) {
+          console.log('[ABlyft Pre-Consent] Cookie banner NOT shown - existing consent');
+          clearInterval(interval);
+          resolve(false);
+        }
+      }, 100);
+    });
+  }
+  
+  // Flag ob Consent NEU gegeben wurde
+  window._ablyftConsentChanged = false;
+  
+  console.log('[ABlyft Pre-Consent] Registering event listeners...');
+  
+  // Event Handler
+  function handleConsentEvent(eventName) {
+    return function(e) {
+      console.log('[ABlyft Pre-Consent] ' + eventName + ' event fired');
+      
+      // Check SessionStorage Flag
+      var bannerWasShown = sessionStorage.getItem('ablyft_banner_shown');
+      
+      if (bannerWasShown === 'true') {
+        console.log('[ABlyft Pre-Consent] ✅ NEW consent (banner was shown to user)');
+        window._ablyftConsentChanged = true;
+        
+        try {
+          sessionStorage.setItem('ablyft_consent_changed', Date.now());
+          // Lösche Flag damit nach Reload nicht nochmal getriggert wird
+          sessionStorage.removeItem('ablyft_banner_shown');
+        } catch(e) {}
+        
+      } else {
+        console.log('[ABlyft Pre-Consent] ❌ NOT new consent (no banner or reload)');
+        window._ablyftConsentChanged = false;
+      }
+      
+      // Debug
+      if (window.Cookiebot) {
+        console.log('[ABlyft Pre-Consent] Debug - Cookiebot.changed:', window.Cookiebot.changed);
+        console.log('[ABlyft Pre-Consent] Debug - Cookiebot.hasResponse:', window.Cookiebot.hasResponse);
+      }
+    };
+  }
+  
+  // Registriere Event Listeners
+  window.addEventListener('CookiebotOnAccept', handleConsentEvent('CookiebotOnAccept'), false);
+  window.addEventListener('CookiebotOnDecline', handleConsentEvent('CookiebotOnDecline'), false);
+  
+  console.log('[ABlyft Pre-Consent] Event listeners registered');
+  
+  // Check ob Banner angezeigt wird
+  isBannerShownToUser().then(function(isShown) {
+    if (isShown) {
+      console.log('[ABlyft Pre-Consent] Marking: Banner will be/is shown');
+      try {
+        sessionStorage.setItem('ablyft_banner_shown', 'true');
+      } catch(e) {}
+    } else {
+      console.log('[ABlyft Pre-Consent] Marking: No banner (existing consent)');
+      try {
+        sessionStorage.setItem('ablyft_banner_shown', 'false');
+      } catch(e) {}
+    }
+  });
+  
+})();
+</script>
+
+{% comment %} 
+<script>
+// ============ DEBUG: ABlyft Reload Detection ============
+(function() {
+  console.log('[ABlyft Debug] Monitoring location.reload calls...');
+  
+  var originalReload = window.location.reload.bind(window.location);
+  var reloadCount = 0;
+  
+  window.location.reload = function() {
+    reloadCount++;
+    
+    var stack = new Error().stack;
+    console.log('[ABlyft Debug] 🔄 Reload #' + reloadCount + ' triggered!');
+    console.log('[ABlyft Debug] Stack trace:', stack);
+    
+    // Check if ABlyft triggered it
+    if (stack.includes('ablyft') || stack.includes('55886406')) {
+      console.log('[ABlyft Debug] ✅ Reload triggered BY ABLYFT');
+      try {
+        sessionStorage.setItem('ablyft_did_reload', Date.now());
+      } catch(e) {}
+    } else {
+      console.log('[ABlyft Debug] ⚠️ Reload triggered by SOMETHING ELSE');
+      console.log('[ABlyft Debug] Stack:', stack);
+    }
+    
+    originalReload();
+  };
+  
+  // Check if ABlyft already reloaded
+  var previousReload = sessionStorage.getItem('ablyft_did_reload');
+  if (previousReload) {
+    console.log('[ABlyft Debug] ABlyft already reloaded', (Date.now() - parseInt(previousReload)) + 'ms ago');
+  }
+})();
+</script>
 {% endcomment %}
 
-<!-- Preconnect zu ABlyft -->
-<link rel="preconnect" href="https://cdn.ablyft.com">
-
-<!-- Anti-Flicker Snippet -->
-<style id="ablyft-anti-flicker">
-  body { opacity: 0 !important; }
-</style>
-<script>
-  window.ablyftShowBody = function () {
-    document.body.style.opacity = '1';
-    var style = document.getElementById('ablyft-anti-flicker');
-    if (style && style.parentNode) {
-      style.parentNode.removeChild(style);
-    }
-  };
-  setTimeout(function () {
-    if (document.body.style.opacity === '0') {
-      window.ablyftShowBody();
-    }
-  }, 2000);
-</script>
-
-{% comment %} ABlyft Consent Detection {% endcomment %}
-<script>
-  (function () {
-    'use strict';
-
-    // Flag ob Consent NEU gegeben wurde
-    window._ablyftConsentChanged = false;
-
-    // Markiere ob Banner angezeigt wurde
-    function checkIfBannerShown() {
-      return new Promise(function (resolve) {
-        var checks = 0;
-        var interval = setInterval(function () {
-          checks++;
-
-          // Check: Banner sichtbar?
-          var banner = document.querySelector('#CybotCookiebotDialog');
-          if (banner && banner.offsetParent !== null) {
-            clearInterval(interval);
-            sessionStorage.setItem('ablyft_banner_shown', 'true');
-            resolve(true);
-            return;
-          }
-
-          // Check: Cookiebot sagt "kein Response"?
-          if (window.Cookiebot && window.Cookiebot.hasResponse === false) {
-            clearInterval(interval);
-            sessionStorage.setItem('ablyft_banner_shown', 'true');
-            resolve(true);
-            return;
-          }
-
-          // Timeout: Kein Banner
-          if (checks >= 20) {
-            clearInterval(interval);
-            sessionStorage.setItem('ablyft_banner_shown', 'false');
-            resolve(false);
-          }
-        }, 100);
-      });
-    }
-
-    // Event Handler
-    window.addEventListener(
-      'CookiebotOnAccept',
-      function () {
-        var bannerWasShown = sessionStorage.getItem('ablyft_banner_shown') === 'true';
-
-        if (bannerWasShown) {
-          window._ablyftConsentChanged = true;
-          sessionStorage.setItem('ablyft_consent_changed', Date.now());
-          sessionStorage.removeItem('ablyft_banner_shown');
-        }
-      },
-      false
-    );
-
-    // Start Check
-    checkIfBannerShown();
-  })();
-</script>
-
-{% comment %} ABlyft Core Script - MIT Consent {% endcomment %}
-<script type="text/plain" data-cookieconsent="marketing" async src="https://cdn.ablyft.com/s/55886406.js"></script>
-
-{% comment %} ABlyft Initialization Wait {% endcomment %}
+{% comment %} ABlyft Reload Logic - lädt NUR mit Marketing-Consent     {% endcomment %}
 <script type="text/plain" data-cookieconsent="marketing">
-  (function () {
-    'use strict';
-
-    window['ablyft'] = window['ablyft'] || [];
-
-    const CONFIG = {
-      maxWaitTime: 500, // Max 500ms auf ABlyft warten
-      checkInterval: 50, // Alle 50ms checken
-      debug: false, // Auf false setzen für Production!
+(function() {
+  'use strict';
+  
+  window['ablyft'] = window['ablyft'] || [];
+  
+  const CONFIG = {
+    sessionKey: 'ablyft_reload_done',
+    consentChangedKey: 'ablyft_consent_changed',
+    ablyftReloadKey: 'ablyft_native_reload',  // NEU: Track ABlyft's eigenen Reload
+    waitTime: 800,  // Länger warten um ABlyft's Reload zu erwischen
+    reloadDelay: 100,
+    debug: true
+  };
+  
+  function log(message, data) {
+    if (CONFIG.debug) {
+      console.log('[ABlyft]', message, data || '');
+    }
+  }
+  
+  function parseAblyftCookie() {
+    const match = document.cookie.match(/ablyft_exps=([^;]+)/);
+    if (!match) return null;
+    try {
+      return JSON.parse(decodeURIComponent(match[1]));
+    } catch(e) {
+      return null;
+    }
+  }
+  
+  function checkForExperiments() {
+    const checks = {
+      cookie: function() {
+        const experiments = parseAblyftCookie();
+        return experiments && Object.keys(experiments).length > 0;
+      },
+      windowObject: function() {
+        if (!window.ablyft) return false;
+        return !!(
+          (window.ablyft.experiments && window.ablyft.experiments.length > 0) ||
+          (window.ablyft._experiments && Object.keys(window.ablyft._experiments).length > 0) ||
+          window.ablyft._initialized ||
+          window.ablyft._ready
+        );
+      },
+      dom: function() {
+        return !!(
+          document.querySelector('[data-ablyft]') ||
+          document.querySelector('[class*="ablyft"]')
+        );
+      }
     };
-
-    function log(message) {
-      if (CONFIG.debug) {
-        console.log('[ABlyft]', message);
-      }
+    
+    const results = {
+      cookie: checks.cookie(),
+      windowObject: checks.windowObject(),
+      dom: checks.dom()
+    };
+    
+    log('Detection:', results);
+    return Object.values(results).some(r => r === true);
+  }
+  
+  function init() {
+    log('Initializing...');
+    
+    // Check 1: Wurde bereits reloaded (von uns oder ABlyft)?
+    const ourReloadDone = sessionStorage.getItem(CONFIG.sessionKey);
+    const ablyftReloadDone = sessionStorage.getItem(CONFIG.ablyftReloadKey);
+    
+    if (ourReloadDone || ablyftReloadDone) {
+      const source = ourReloadDone ? 'our script' : 'ABlyft native';
+      log('Already reloaded by ' + source + ' - stopping');
+      if (window.ablyftShowBody) window.ablyftShowBody();
+      return;
     }
-
-    // Check ob ABlyft fertig ist
-    function isAblyftReady() {
-      // Check 1: Cookie gesetzt?
-      if (document.cookie.match(/ablyft_exps=([^;]+)/)) {
-        return true;
-      }
-
-      // Check 2: Window Object ready?
-      if (window.ablyft && (window.ablyft._ready || window.ablyft._initialized || window.ablyft.experiments)) {
-        return true;
-      }
-
-      return false;
+    
+    // Check 2: Wurde Consent geändert?
+    const consentWasChanged = window._ablyftConsentChanged === true || 
+                              sessionStorage.getItem(CONFIG.consentChangedKey);
+    
+    log('Consent was changed:', consentWasChanged);
+    
+    if (!consentWasChanged) {
+      log('❌ No new consent - existing consent loaded');
+      if (window.ablyftShowBody) window.ablyftShowBody();
+      return;
     }
-
-    // Warte auf ABlyft
-    function waitForAblyft() {
-      return new Promise(function (resolve) {
-        var startTime = Date.now();
-        var checks = 0;
-
-        var interval = setInterval(function () {
-          checks++;
-          var elapsed = Date.now() - startTime;
-
-          if (isAblyftReady()) {
-            clearInterval(interval);
-            log('ABlyft ready after ' + elapsed + 'ms');
-            resolve(true);
-            return;
-          }
-
-          if (elapsed >= CONFIG.maxWaitTime) {
-            clearInterval(interval);
-            log('Timeout after ' + elapsed + 'ms');
-            resolve(false);
-          }
-        }, CONFIG.checkInterval);
-      });
-    }
-
-    // Main Init
-    function init() {
-      // Check: Neuer Consent?
-      var consentWasChanged = window._ablyftConsentChanged === true || sessionStorage.getItem('ablyft_consent_changed');
-
-      // Lösche Flag
-      try {
-        sessionStorage.removeItem('ablyft_consent_changed');
-      } catch (e) {}
-
-      if (consentWasChanged) {
-        log('New consent - waiting for ABlyft...');
-
-        // Warte auf ABlyft, dann zeige Body
-        waitForAblyft().then(function () {
-          if (window.ablyftShowBody) {
-            window.ablyftShowBody();
-          }
-        });
+    
+    // ============ NEU: Überwache ob ABlyft selbst reloaded ============
+    
+    log('✅ NEW consent detected - monitoring for reload...');
+    
+    // Lösche Consent-Changed Flag
+    try {
+      sessionStorage.removeItem(CONFIG.consentChangedKey);
+    } catch(e) {}
+    
+    // Überwache location.reload Aufrufe
+    var originalReload = window.location.reload;
+    var reloadCalled = false;
+    
+    window.location.reload = function() {
+      if (reloadCalled) {
+        log('⛔ Duplicate reload blocked');
+        return;
+      }
+      
+      reloadCalled = true;
+      log('🔄 Reload called - checking source...');
+      
+      // Prüfe Call Stack um Quelle zu identifizieren
+      var stack = new Error().stack;
+      if (stack && stack.includes('ablyft') || stack.includes('55886406')) {
+        log('Reload triggered by ABlyft native script');
+        try {
+          sessionStorage.setItem(CONFIG.ablyftReloadKey, Date.now());
+        } catch(e) {}
       } else {
-        log('Existing consent - showing body');
-
-        // Zeige Body sofort
-        if (window.ablyftShowBody) {
-          window.ablyftShowBody();
-        }
+        log('Reload triggered by our script');
+        try {
+          sessionStorage.setItem(CONFIG.sessionKey, Date.now());
+        } catch(e) {}
       }
-    }
-
-    // Starte
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', init);
-    } else {
-      init();
-    }
-  })();
+      
+      // Führe Reload aus
+      originalReload.call(window.location);
+    };
+    
+    log('Waiting for ABlyft...');
+    
+    setTimeout(function() {
+      
+      // Wenn ABlyft bereits reloaded hat, dann sind wir fertig
+      if (reloadCalled) {
+        log('ABlyft already triggered reload - our job is done');
+        return;
+      }
+      
+      // Check ob Experimente laufen
+      if (checkForExperiments()) {
+        log('🎯 Experiments detected - triggering our reload');
+        
+        try {
+          sessionStorage.setItem(CONFIG.sessionKey, Date.now());
+        } catch(e) {}
+        
+        setTimeout(function() {
+          log('Triggering reload NOW');
+          window.location.reload();
+        }, CONFIG.reloadDelay);
+        
+      } else {
+        log('No experiments detected');
+        if (window.ablyftShowBody) window.ablyftShowBody();
+      }
+      
+    }, CONFIG.waitTime);
+  }
+  
+  init();
+  
+})();
 </script>
+
+ 
