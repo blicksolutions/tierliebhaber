@@ -1802,11 +1802,7 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 /* M.M. Design Fixes
 /******************************************************************/
 
-@media (min-width: 768px) {
-    .ProductMeta.Bestseller .ProductMeta__BestsellerHeader {
-        padding: 10px;
-    }
-}
+
 .Product__InfoWrapper .ProductMeta__Title.Heading.u-h2 {
     margin-right: 16px;
 }
@@ -1815,11 +1811,6 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
     gap: 0px;
 }
 
-@media (min-width: 768px) {
-    .ProductMeta.Bestseller .ProductMeta__BestsellerHeader {
-        gap: 0px;
-    }
-}
 .Product__InfoWrapper .ProductMeta__Title.Heading.u-h2 {
     margin-bottom: 0;
 }
@@ -1829,41 +1820,22 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
     border: 1px solid #d4d0d0;
     box-shadow:inset 2px 2px 2px -1px rgba(145, 145, 145, 0.30);
 }
+
 .rc-widget-injection-parent .rc-widget .rc-template__radio-group .rc-radio.rc-option--active {
     border: 1px solid #f6d6cf;
         box-shadow: 2px 2px 2px -1px rgba(145, 145, 145, 0.30);
 }
 
-@media screen and (min-width: 1008px) {
-    .Product__Info {
-        width: 400px;
-    }
-}
 .rc-widget-injection-parent .rc-template__radio-group .rc-radio-group__options {
     gap: 12px;
 }
 
-
-@media (min-width: 768px) {
-    .rc-widget-injection-parent .rc-template__radio-group .rc-radio-group__options {
-        gap: 16px;
-    }
-    .rc-widget-injection-parent .rc_widget__option__label.rc-radio__label {
-    margin-left: 8px;
-}
-
-}
 .rc-widget-injection-parent .rc-widget .rc-template__radio-group .rc-radio {
     width: 50%;
 }
 
 .rc-widget-injection-parent .VariantSelector__ListItem--selected {
     box-shadow: 2px 2px 2px -1px rgba(145, 145, 145, 0.30);
-}
-@media (min-width: 768px) {
-    .rc-widget-injection-parent .rc-widget .rc-option__text {
-        font-size: 17px;
-    }
 }
 
 .rc-widget-injection-parent .rc-template__radio-group .rc-radio {
@@ -1875,12 +1847,34 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 .rc-widget-injection-parent .VariantSelector__ListItem--selected {
     border-width: 2px;
 }
+
 @media (min-width: 768px) {
+    .rc-widget-injection-parent .rc-template__radio-group .rc-radio-group__options {
+    gap: 16px;
+    }
+    .rc-widget-injection-parent .rc_widget__option__label.rc-radio__label {
+    margin-left: 8px;
+    }
+    .rc-widget-injection-parent .rc-widget .rc-option__text {
+    font-size: 17px;
+    }
     .rc-widget-injection-parent .rc-plans__usps .rc-plans__usp-text {
-        font-size: 16px;
-        line-height: 22px;
+    font-size: 16px;
+    line-height: 22px;
+    }
+    .ProductMeta.Bestseller .ProductMeta__BestsellerHeader {
+    gap: 0px;
+    padding: 10px;
     }
 }
+
+@media screen and (min-width: 1008px) {
+    .Product__Info {
+        width: 400px;
+    }
+}
+
+
 div.rc_popup {
     padding:15px 0px 0 13px !important;
 }
