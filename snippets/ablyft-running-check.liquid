@@ -150,8 +150,46 @@
 })();
 </script>
 
-{% comment %} ABlyft Reload Logic - lädt NUR mit Marketing-Consent {% endcomment %}
-{% comment %} ABlyft Reload Logic {% endcomment %}
+
+<script>
+// ============ DEBUG: ABlyft Reload Detection ============
+(function() {
+  console.log('[ABlyft Debug] Monitoring location.reload calls...');
+  
+  var originalReload = window.location.reload.bind(window.location);
+  var reloadCount = 0;
+  
+  window.location.reload = function() {
+    reloadCount++;
+    
+    var stack = new Error().stack;
+    console.log('[ABlyft Debug] 🔄 Reload #' + reloadCount + ' triggered!');
+    console.log('[ABlyft Debug] Stack trace:', stack);
+    
+    // Check if ABlyft triggered it
+    if (stack.includes('ablyft') || stack.includes('55886406')) {
+      console.log('[ABlyft Debug] ✅ Reload triggered BY ABLYFT');
+      try {
+        sessionStorage.setItem('ablyft_did_reload', Date.now());
+      } catch(e) {}
+    } else {
+      console.log('[ABlyft Debug] ⚠️ Reload triggered by SOMETHING ELSE');
+      console.log('[ABlyft Debug] Stack:', stack);
+    }
+    
+    originalReload();
+  };
+  
+  // Check if ABlyft already reloaded
+  var previousReload = sessionStorage.getItem('ablyft_did_reload');
+  if (previousReload) {
+    console.log('[ABlyft Debug] ABlyft already reloaded', (Date.now() - parseInt(previousReload)) + 'ms ago');
+  }
+})();
+</script>
+
+
+{% comment %} ABlyft Reload Logic - lädt NUR mit Marketing-Consent 
 <script type="text/plain" data-cookieconsent="marketing">
 (function() {
   'use strict';
@@ -318,4 +356,4 @@
 })();
 </script>
 
-    
+    {% endcomment %}
