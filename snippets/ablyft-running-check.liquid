@@ -224,3 +224,167 @@ ABlyft A/B-Testing - OPTIMIERT
   
 })();
 </script>
+
+{% comment %} ABlyft Performance Optimizer - Global {% endcomment %}
+<script type="text/plain" data-cookieconsent="marketing">
+(function() {
+  'use strict';
+  
+  const CONFIG = {
+    debug: false,
+    lazyLoadThreshold: 800,  // Pixel below viewport
+  };
+  
+  function log(message) {
+    if (CONFIG.debug) {
+      console.log('[ABlyft Optimizer]', message);
+    }
+  }
+  
+  // Warte bis ABlyft DOM manipuliert hat
+  function waitForAblyftImages() {
+    return new Promise(function(resolve) {
+      var attempts = 0;
+      var maxAttempts = 20;
+      
+      var interval = setInterval(function() {
+        attempts++;
+        
+        // Check ob ABlyft Bilder geladen wurden
+        var ablyftImages = document.querySelectorAll('img[src*="assets.ablyft.com"]');
+        
+        if (ablyftImages.length > 0) {
+          clearInterval(interval);
+          log('Found ' + ablyftImages.length + ' ABlyft images');
+          resolve(ablyftImages);
+          return;
+        }
+        
+        if (attempts >= maxAttempts) {
+          clearInterval(interval);
+          log('No ABlyft images found');
+          resolve([]);
+        }
+      }, 100);
+    });
+  }
+  
+  // Check ob Bild im Viewport ist
+  function isInViewport(element, threshold) {
+    var rect = element.getBoundingClientRect();
+    var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    
+    // Ist Bild above the fold + threshold?
+    return rect.top <= (windowHeight + threshold);
+  }
+  
+  // Aktiviere Lazy Loading für Bilder below the fold
+  function optimizeImages(images) {
+    var optimizedCount = 0;
+    var immediateCount = 0;
+    
+    Array.from(images).forEach(function(img) {
+      
+      // Skip wenn bereits geladen
+      if (img.complete) {
+        return;
+      }
+      
+      // Check ob below the fold
+      if (!isInViewport(img, CONFIG.lazyLoadThreshold)) {
+        
+        // Speichere Original-Src
+        var originalSrc = img.src;
+        
+        // Setze data-src und entferne src
+        img.setAttribute('data-ablyft-lazy', originalSrc);
+        img.removeAttribute('src');
+        
+        // Füge native Lazy Loading hinzu
+        img.loading = 'lazy';
+        
+        optimizedCount++;
+        log('Lazy loading enabled for image: ' + originalSrc.substring(0, 50) + '...');
+        
+      } else {
+        immediateCount++;
+      }
+    });
+    
+    log('Optimization complete:');
+    log('- Images loading immediately: ' + immediateCount);
+    log('- Images with lazy loading: ' + optimizedCount);
+    
+    // Starte Lazy Loading
+    if (optimizedCount > 0) {
+      enableLazyLoading();
+    }
+  }
+  
+  // Intersection Observer für Lazy Loading
+  function enableLazyLoading() {
+    // Check Browser Support
+    if (!('IntersectionObserver' in window)) {
+      log('IntersectionObserver not supported - loading all images');
+      loadAllLazyImages();
+      return;
+    }
+    
+    var lazyImages = document.querySelectorAll('img[data-ablyft-lazy]');
+    
+    var imageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var img = entry.target;
+          var lazySrc = img.getAttribute('data-ablyft-lazy');
+          
+          if (lazySrc) {
+            img.src = lazySrc;
+            img.removeAttribute('data-ablyft-lazy');
+            observer.unobserve(img);
+            log('Lazy loaded: ' + lazySrc.substring(0, 50) + '...');
+          }
+        }
+      });
+    }, {
+      rootMargin: CONFIG.lazyLoadThreshold + 'px'
+    });
+    
+    lazyImages.forEach(function(img) {
+      imageObserver.observe(img);
+    });
+    
+    log('Intersection Observer active for ' + lazyImages.length + ' images');
+  }
+  
+  // Fallback: Lade alle Bilder (für alte Browser)
+  function loadAllLazyImages() {
+    var lazyImages = document.querySelectorAll('img[data-ablyft-lazy]');
+    
+    lazyImages.forEach(function(img) {
+      var lazySrc = img.getAttribute('data-ablyft-lazy');
+      if (lazySrc) {
+        img.src = lazySrc;
+        img.removeAttribute('data-ablyft-lazy');
+      }
+    });
+  }
+  
+  // Start Optimization
+  function init() {
+    log('Starting optimization...');
+    
+    waitForAblyftImages().then(function(images) {
+      if (images.length > 0) {
+        optimizeImages(images);
+      } else {
+        log('No ABlyft images to optimize');
+      }
+    });
+  }
+  
+  // Warte kurz damit ABlyft Zeit hat DOM zu manipulieren
+  setTimeout(init, 300);
+  
+})();
+</script>
