@@ -114,7 +114,7 @@ ABlyft A/B-Testing - OPTIMIERT
 })();
 </script>
 
-{% comment %} ABlyft Reload & Wait Logic {% endcomment %}
+{% comment %} ABlyft Wait & Show - KEIN Reload {% endcomment %}
 <script type="text/plain" data-cookieconsent="marketing">
 (function() {
   'use strict';
@@ -122,7 +122,6 @@ ABlyft A/B-Testing - OPTIMIERT
   window['ablyft'] = window['ablyft'] || [];
   
   const CONFIG = {
-    sessionKey: 'ablyft_reload_done',
     maxWaitTime: 500,    // Max 500ms auf ABlyft warten
     checkInterval: 50,
     debug: false  // Auf FALSE für Production!
@@ -136,12 +135,20 @@ ABlyft A/B-Testing - OPTIMIERT
   
   // Check ob ABlyft fertig ist
   function isAblyftReady() {
+    // Check 1: Cookie gesetzt?
     if (document.cookie.match(/ablyft_exps=([^;]+)/)) {
       return true;
     }
-    if (window.ablyft && (window.ablyft._ready || window.ablyft._initialized)) {
+    
+    // Check 2: Window Object initialisiert?
+    if (window.ablyft && (
+        window.ablyft._ready ||
+        window.ablyft._initialized ||
+        window.ablyft.experiments
+    )) {
       return true;
     }
+    
     return false;
   }
   
@@ -149,6 +156,7 @@ ABlyft A/B-Testing - OPTIMIERT
   function waitForAblyft() {
     return new Promise(function(resolve) {
       var startTime = Date.now();
+      
       var interval = setInterval(function() {
         var elapsed = Date.now() - startTime;
         
@@ -170,47 +178,38 @@ ABlyft A/B-Testing - OPTIMIERT
   
   // Main Init
   function init() {
-    // Check: Bereits reloaded?
-    var reloadDone = sessionStorage.getItem(CONFIG.sessionKey);
-    
-    if (reloadDone) {
-      log('Already reloaded - showing body');
-      waitForAblyft().then(function() {
-        if (window.ablyftShowBody) {
-          window.ablyftShowBody();
-        }
-      });
-      return;
-    }
+    log('Initializing...');
     
     // Check: Neuer Consent?
     var consentWasChanged = window._ablyftConsentChanged === true ||
                             sessionStorage.getItem('ablyft_consent_changed');
     
+    // Lösche Flag
     try {
       sessionStorage.removeItem('ablyft_consent_changed');
     } catch(e) {}
     
     if (consentWasChanged) {
-      log('New consent - waiting for ABlyft, then reload');
+      log('New consent - waiting for ABlyft to manipulate DOM...');
       
       // Warte bis ABlyft DOM manipuliert hat
-      waitForAblyft().then(function() {
-        log('ABlyft ready - triggering reload for proper initialization');
+      waitForAblyft().then(function(ready) {
+        if (ready) {
+          log('ABlyft finished DOM manipulation - showing page');
+        } else {
+          log('ABlyft timeout - showing page anyway');
+        }
         
-        // Setze Flag
-        try {
-          sessionStorage.setItem(CONFIG.sessionKey, Date.now());
-        } catch(e) {}
-        
-        // Reload
-        setTimeout(function() {
-          window.location.reload();
-        }, 100);
+        // ✅ WICHTIG: NUR Body zeigen, KEIN Reload!
+        if (window.ablyftShowBody) {
+          window.ablyftShowBody();
+        }
       });
       
     } else {
-      log('Existing consent - ABlyft already loaded correctly');
+      log('Existing consent - showing page immediately');
+      
+      // Zeige Body sofort
       if (window.ablyftShowBody) {
         window.ablyftShowBody();
       }
