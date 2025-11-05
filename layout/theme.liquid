@@ -2,7 +2,6 @@
 
 <html class="no-js" lang="{{ shop.locale }}">
   <head>
-
     {% render 'cookiebot' %}
 
     {% render 'ablyft-running-check' %}
@@ -13,7 +12,6 @@
     <script src="{{ 'jquery-3.7.1.slim.min.js' | asset_url }}"></script>
 
     <link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}">
-
 
     <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
     <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
@@ -375,41 +373,41 @@
       src="https://widget.reviews.io/rating-snippet/dist.js"
     ></script>
 
-    {%  comment %}
-    <script type="text/plain" data-cookieconsent="marketing">
-      ← HINZUGEFÜGT!
-      document.addEventListener('DOMContentLoaded', function() {
-        if (typeof ratingSnippet === 'function') {
-            ratingSnippet('ruk_rating_snippet', {
-          store: 'tierliebhaber.de',
-          mode: 'default',
-          color: '#fbd343',
-          linebreak: false,
-          text: "{{ 'product.tabs.reviews' | t }}",
-          singularText: "{{ 'product.tabs.reviews_singular' | t }}",
-          lang: 'de',
-          usePolaris: true,
-          showEmptyStars: false,
+    {% comment %}
+      <script type="text/plain" data-cookieconsent="marketing">
 
+        document.addEventListener('DOMContentLoaded', function() {
+          if (typeof ratingSnippet === 'function') {
+              ratingSnippet('ruk_rating_snippet', {
+            store: 'tierliebhaber.de',
+            mode: 'default',
+            color: '#fbd343',
+            linebreak: false,
+            text: "{{ 'product.tabs.reviews' | t }}",
+            singularText: "{{ 'product.tabs.reviews_singular' | t }}",
+            lang: 'de',
+            usePolaris: true,
+            showEmptyStars: false,
+
+          });
+          }
         });
-        }
+      </script>
+    {% endcomment %}
+
+    <script type="text/plain" data-cookieconsent="marketing">
+      ratingSnippet('ruk_rating_snippet', {
+        store: 'tierliebhaber.de',
+        mode: 'default',
+        color: '#fbd343',
+        linebreak: false,
+        text: "{{ 'product.tabs.reviews' | t }}",
+        singularText: "{{ 'product.tabs.reviews_singular' | t }}",
+        lang: 'de',
+        usePolaris: true,
+        showEmptyStars: false,
       });
     </script>
-    {%  endcomment %}
-
-<script type="text/plain" data-cookieconsent="marketing">
-ratingSnippet("ruk_rating_snippet", {
-  store: "tierliebhaber.de",
-  mode: "default",
-  color: "#0E1311",
-  linebreak: false,
-  text: "Reviews",
-  singularText: "Review",
-  lang: "en",
-  usePolaris: true,
-  showEmptyStars: false,
-});
-</script>
 
     <script
       type="text/plain"
