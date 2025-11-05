@@ -369,31 +369,27 @@
       defer="defer"
     ></script>
 
-    <script
-      type="text/plain"
-      data-cookieconsent="marketing"
-      src="https://widget.reviews.io/rating-snippet/dist.js"
-    ></script>
+   <script src="https://widget.reviews.io/rating-snippet/dist.js"></script>
+  <div id="ruk_rating_snippet"></div>
+  <script>
+  if (typeof ratingSnippet === 'function') {
+    ratingSnippet("ruk_rating_snippet", {
+      store: "tierliebhaber.de",
+      mode: "default",
+      color: "#fbd343",
+      linebreak: false,
+      text: "{{ 'product.tabs.reviews' | t }}",
+      singularText: "{{ 'product.tabs.reviews_singular' | t }}",
+      lang: "de",
+      usePolaris: true,
+      showEmptyStars: false,
+      dictionary: {
+        "review_found_helpful": "War diese Bewertung hilfreich?"
+      }
+    });
+  }
+</script>
 
-    <script type="text/plain" data-cookieconsent="marketing">
-      ← HINZUGEFÜGT!
-      document.addEventListener('DOMContentLoaded', function() {
-        if (typeof ratingSnippet === 'function') {
-            ratingSnippet('ruk_rating_snippet', {
-          store: 'tierliebhaber.de',
-          mode: 'default',
-          color: '#fbd343',
-          linebreak: false,
-          text: "{{ 'product.tabs.reviews' | t }}",
-          singularText: "{{ 'product.tabs.reviews_singular' | t }}",
-          lang: 'de',
-          usePolaris: true,
-          showEmptyStars: false,
-
-        });
-        }
-      });
-    </script>
 
     <script
       type="text/plain"
