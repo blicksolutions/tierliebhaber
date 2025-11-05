@@ -18,10 +18,10 @@
   --sgift-bg: {{ section.settings.bg }};
   --sgift-text: {{ section.settings.text }};
   --sgift-pad-y: {{ section.settings.pad_y | append: 'px' }};
+    background: var(--sgift-bg);
   }
 
   .sgift-{{ sec_id }} .sgift-wrap {
-    background: var(--sgift-bg);
     color: var(--sgift-text);
     border-radius: 8px;
     display: flex;
@@ -29,7 +29,7 @@
     gap: 9px;
     padding: 12px 16px 12px 12px;
     margin: 16px auto;
-    max-width: 100%;
+    max-width: 545px;
     text-align: right;
   }
 
