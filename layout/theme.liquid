@@ -374,6 +374,8 @@
       data-cookieconsent="marketing"
       src="https://widget.reviews.io/rating-snippet/dist.js"
     ></script>
+
+    {%  comment %}
     <script type="text/plain" data-cookieconsent="marketing">
       ← HINZUGEFÜGT!
       document.addEventListener('DOMContentLoaded', function() {
@@ -393,6 +395,22 @@
         }
       });
     </script>
+    {%  endcomment %}
+
+
+<script>
+ratingSnippet("ruk_rating_snippet", {
+  store: "tierliebhaber.de",
+  mode: "default",
+  color: "#0E1311",
+  linebreak: false,
+  text: "Reviews",
+  singularText: "Review",
+  lang: "en",
+  usePolaris: true,
+  showEmptyStars: false,
+});
+</script>
 
     <script
       type="text/plain"
