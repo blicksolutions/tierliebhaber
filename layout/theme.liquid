@@ -376,22 +376,23 @@
     ></script>
 
     <script type="text/plain" data-cookieconsent="marketing">
-  if (typeof ratingSnippet === 'function') {
-    ratingSnippet("ruk_rating_snippet", {
-      store: "tierliebhaber.de",
-      mode: "default",
-      color: "#fbd343",
-      linebreak: false,
-      text: "{{ 'product.tabs.reviews' | t }}",
-      singularText: "{{ 'product.tabs.reviews_singular' | t }}",
-      lang: "de",
-      usePolaris: true,
-      showEmptyStars: false,
-      dictionary: {
-        "review_found_helpful": "War diese Bewertung hilfreich?"
-      }
-    });
-  }
+      ← HINZUGEFÜGT!
+      document.addEventListener('DOMContentLoaded', function() {
+        if (typeof ratingSnippet === 'function') {
+            ratingSnippet('ruk_rating_snippet', {
+          store: 'tierliebhaber.de',
+          mode: 'default',
+          color: '#fbd343',
+          linebreak: false,
+          text: "{{ 'product.tabs.reviews' | t }}",
+          singularText: "{{ 'product.tabs.reviews_singular' | t }}",
+          lang: 'de',
+          usePolaris: true,
+          showEmptyStars: false,
+
+        });
+        }
+      });
     </script>
 
     <script
