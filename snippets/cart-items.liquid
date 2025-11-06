@@ -54,7 +54,6 @@
         data-req-shipping="{{ line_item.requires_shipping }}"
         data-variant-id="{{ line_item.id }}"
         data-product-id="{{ line_item.product.id }}"
-		data-sku="{{ line_item.sku }}"
 		{% unless line_item.variant.metafields.blicksolutions.product-specific-gift.value.id == blank %}
 			data-triggers="{{ line_item.variant.metafields.blicksolutions.product-specific-gift.value.id }}"
 		{% endunless %}
