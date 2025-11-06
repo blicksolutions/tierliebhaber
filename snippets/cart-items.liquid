@@ -79,7 +79,7 @@
             {{ line_item.product.title }}
           </a>
         </h2>
-      {% if line_item.product.metafields.custom.teaser_texte %} <div class="custom-teaser-texte">{{line_item.product.metafields.custom.teaser_texte }}</div>{% endif %}
+      {% comment %} {% if line_item.product.metafields.custom.teaser_texte %} <div class="custom-teaser-texte">{{line_item.product.metafields.custom.teaser_texte }}</div>{% endif %} {% endcomment %}
       {% unless line_item.product.tags contains 'free-gift' %}
         <div class="CartItem__Meta Heading Text--subdued">
           {%- unless line_item.product.has_only_default_variant or line_item.product.type == 'Donation' -%}
