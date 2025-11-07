@@ -90,9 +90,16 @@
             {%- render 'product-meta', product: product, show_description: true, show_like_badge: false, show_price: false -%}
           {%-endif-%}
 
+
+          {%- if product.template_suffix != 'coming-soon' -%}
+            {%- render 'product-form', product: product, sticky_atc: true -%}
+          {%- endif -%}
+
+          {%  comment  %}
           {%- if product.template_suffix != 'coming-soon' -%}
             {%- render 'product-form', product: product, show_shipping: false, show_benefits: false, atc: "Jetzt Spenden" -%}
           {%- endif -%}
+           {% endcomment %}
 
           {%- if section.settings.stack_images and product_aside != blank and media_count > 0 -%}
             <div class="Product__QuickNav hidden-pocket">
