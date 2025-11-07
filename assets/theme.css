@@ -2319,10 +2319,16 @@ body:not(.is-tabbing) .flickity-enabled:focus {
         margin: 0 auto;
     }
 
+    .Collapsible__Content .Rte {
+        text-align: left; 
+    }
+
     .Collapsible--large .Collapsible__Content {
         padding-bottom: 45px;
     }
 }
+
+.Collapsible__Button[aria-expanded=true]+.Collapsible__Inner
 
 /**
  * ----------------------------------------------------------------------------
