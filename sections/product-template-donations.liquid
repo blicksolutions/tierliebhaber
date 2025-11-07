@@ -1,9 +1,8 @@
 <style>
-
   .ProductMeta__PriceList{
-  display: none !important; 
+  display: none !important;
   }
-  </style>
+</style>
 
 {%- capture section_settings -%}
 {
@@ -19,7 +18,12 @@
 }
 {%- endcapture -%}
 
-<section class="Product Product--{{ section.settings.image_size }}" data-section-id="{{ section.id }}" data-section-type="product" data-section-settings='{{ section_settings }}'>
+<section
+  class="Product Product--{{ section.settings.image_size }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="product"
+  data-section-settings="{{ section_settings }}"
+>
   <div class="Product__Wrapper">
     {%- capture action_list_items -%}
       {%- if section.settings.enable_image_zoom -%}
@@ -87,37 +91,34 @@
       {%- endfor -%}
     {%- endcapture -%}
 
-
     {% comment %}
-    <div class="Product__InfoWrapper">
-      <div class="Product__Info {% if media_count == 0 %}Product__Info--noGallery{% endif %}">
-        <div class="Container">
-          {%- assign description_length = product.description | size -%}
-          {%- if section.settings.custom_title -%}
-            {%- render 'product-meta', product: product, show_description: true, show_like_badge: false, show_price: false, custom_title: section.settings.custom_title -%}
-          {%-else-%}
-            {%- render 'product-meta', product: product, show_description: true, show_like_badge: false, show_price: false -%}
-          {%-endif-%}
+      <div class="Product__InfoWrapper">
+        <div class="Product__Info {% if media_count == 0 %}Product__Info--noGallery{% endif %}">
+          <div class="Container">
+            {%- assign description_length = product.description | size -%}
+            {%- if section.settings.custom_title -%}
+              {%- render 'product-meta', product: product, show_description: true, show_like_badge: false, show_price: false, custom_title: section.settings.custom_title -%}
+            {%-else-%}
+              {%- render 'product-meta', product: product, show_description: true, show_like_badge: false, show_price: false -%}
+            {%-endif-%}
 
-          
-          {%- if product.template_suffix != 'coming-soon' -%}
-            {%- render 'product-form', product: product, show_shipping: false, show_benefits: false, atc: "Jetzt Spenden" -%}
-          {%- endif -%}
 
-          {%- if section.settings.stack_images and product_aside != blank and media_count > 0 -%}
-            <div class="Product__QuickNav hidden-pocket">
-              <div class="Product__QuickNavWrapper">
-                <a href="#ProductAside" class="Heading Link Link--secondary u-h7">{{ 'product.form.view_info' | t }} {% render 'icon' with 'select-arrow-right' %}</a>
-                <a href="#ProductGallery" class="Heading Link Link--secondary u-h7">{{ 'product.form.view_images' | t }} {% render 'icon' with 'select-arrow-right' %}</a>
+            {%- if product.template_suffix != 'coming-soon' -%}
+              {%- render 'product-form', product: product, show_shipping: false, show_benefits: false, atc: "Jetzt Spenden" -%}
+            {%- endif -%}
+
+            {%- if section.settings.stack_images and product_aside != blank and media_count > 0 -%}
+              <div class="Product__QuickNav hidden-pocket">
+                <div class="Product__QuickNavWrapper">
+                  <a href="#ProductAside" class="Heading Link Link--secondary u-h7">{{ 'product.form.view_info' | t }} {% render 'icon' with 'select-arrow-right' %}</a>
+                  <a href="#ProductGallery" class="Heading Link Link--secondary u-h7">{{ 'product.form.view_images' | t }} {% render 'icon' with 'select-arrow-right' %}</a>
+                </div>
               </div>
-            </div>
-          {%- endif -%}
+            {%- endif -%}
+          </div>
         </div>
       </div>
-    </div>
     {% endcomment %}
-
-
 
     <div class="Product__InfoWrapper">
       <div class="Product__Info {% if media_count == 0 %}Product__Info--noGallery{% endif %}">
@@ -127,27 +128,42 @@
           {% endif %}
 
           {%- if section.settings.custom_title -%}
-            {%- render 'product-meta', product: product, show_description: true, show_like_badge: false,  custom_title: section.settings.custom_title -%}
-          {%-else-%}
+            {%- render 'product-meta',
+              product: product,
+              show_description: true,
+              show_like_badge: false,
+              custom_title: section.settings.custom_title
+            -%}
+          {%- else -%}
             {%- render 'product-meta', product: product, show_description: true, show_like_badge: false -%}
-          {%-endif-%}
+          {%- endif -%}
 
           {%- if product.template_suffix != 'coming-soon' -%}
-            {%- render 'product-form', product: product, show_shipping: false, show_benefits: false, atc: "Jetzt Spenden" -%}
+            {%- render 'product-form',
+              product: product,
+              show_shipping: false,
+              show_benefits: false,
+              atc: 'Jetzt Spenden'
+            -%}
           {%- endif -%}
 
           {%- if section.settings.stack_images and product_aside != blank and media_count > 0 -%}
             <div class="Product__QuickNav hidden-pocket">
               <div class="Product__QuickNavWrapper">
-                <a href="#ProductAside" class="Heading Link Link--secondary u-h7">{{ 'product.form.view_info' | t }} {% render 'icon' with 'select-arrow-right' %}</a>
-                <a href="#ProductGallery" class="Heading Link Link--secondary u-h7">{{ 'product.form.view_images' | t }} {% render 'icon' with 'select-arrow-right' %}</a>
+                <a href="#ProductAside" class="Heading Link Link--secondary u-h7">
+                  {{- 'product.form.view_info' | t }}
+                  {% render 'icon' with 'select-arrow-right' -%}
+                </a>
+                <a href="#ProductGallery" class="Heading Link Link--secondary u-h7">
+                  {{- 'product.form.view_images' | t }}
+                  {% render 'icon' with 'select-arrow-right' -%}
+                </a>
               </div>
             </div>
           {%- endif -%}
         </div>
       </div>
     </div>
-
 
     {%- if product_aside != blank -%}
       <div class="Product__Aside">
@@ -159,11 +175,11 @@
 </section>
 
 {%- comment -%}
---------------------------------------------------------------------------------------------------------------------
-FEATURED IMAGE
+  --------------------------------------------------------------------------------------------------------------------
+  FEATURED IMAGE
 
-We allow merchants to use one image as a "featured image" by adding the alt tag "featured"
---------------------------------------------------------------------------------------------------------------------
+  We allow merchants to use one image as a "featured image" by adding the alt tag "featured"
+  --------------------------------------------------------------------------------------------------------------------
 {%- endcomment -%}
 
 {%- for media in product.media -%}
@@ -180,11 +196,21 @@ We allow merchants to use one image as a "featured image" by adding the alt tag 
   {%- assign mobile_featured_media = mobile_featured_media | default: desk_featured_media -%}
   {%- assign desk_featured_media = desk_featured_media | default: mobile_featured_media -%}
 
-  <div class="Product__FeatureImageWrapper" style="background: url({{ desk_featured_media | img_url: '1x1', format: 'jpg' }})">
-    <div class="Product__FeatureImage Product__FeatureImage--{{ section.settings.featured_image_size }} Image--lazyLoad Image--zoomOut hide-no-js" data-expand="-25" data-bgset="{{ mobile_featured_media | img_url: 'x850' }} [(max-width: 640px)] | {{ desk_featured_media | img_url: '1500x' }}"></div>
+  <div
+    class="Product__FeatureImageWrapper"
+    style="background: url({{ desk_featured_media | img_url: '1x1', format: 'jpg' }})"
+  >
+    <div
+      class="Product__FeatureImage Product__FeatureImage--{{ section.settings.featured_image_size }} Image--lazyLoad Image--zoomOut hide-no-js"
+      data-expand="-25"
+      data-bgset="{{ mobile_featured_media | img_url: 'x850' }} [(max-width: 640px)] | {{ desk_featured_media | img_url: '1500x' }}"
+    ></div>
 
     <noscript>
-      <div class="Product__FeatureImage Product__FeatureImage--{{ section.settings.featured_image_size }}" style="background-image: url({{ desk_featured_media | img_url: '1500x' }})"></div>
+      <div
+        class="Product__FeatureImage Product__FeatureImage--{{ section.settings.featured_image_size }}"
+        style="background-image: url({{ desk_featured_media | img_url: '1500x' }})"
+      ></div>
     </noscript>
   </div>
 
@@ -204,7 +230,6 @@ We allow merchants to use one image as a "featured image" by adding the alt tag 
     }
   </style>
 {%- endif -%}
-
 
 <script>
   window.ShopifyXR=window.ShopifyXR||function(){(ShopifyXR.q=ShopifyXR.q||[]).push(arguments)};
@@ -241,128 +266,126 @@ We allow merchants to use one image as a "featured image" by adding the alt tag 
 </script>
 
 <style>
-
-    .ProductForm__AddToCart span{
-        font-size: 13pt;
-    }
-
-    .Product__InfoWrapper{
-        position: relative;
-    }
-
-    .Product__Wrapper{
-        margin: 0;
-        max-width: unset;
-        display: flex;
-        justify-content: center;
-    }
-
-    .Product__Info{
-        position: relative;
-        top:0 !important;
-        margin: 0;
-    }
-
-    .ProductForm__Label{
-        display: none;
-    }
-
-    .Product__InfoWrapper .Container{
-        flex-direction: column;
-        display: flex;
-        align-items: center;
-    }
-
-    .Product__InfoWrapper .Container .SizeSwatchList {
-        display: flex;
-        justify-content: center;
-    }
-
-    .Product__InfoWrapper .Container .SizeSwatchList .HorizontalList__Item label {
-      border-radius: 5px;
-      border-width: 2px !important;
-      padding: 5px 20px;
+  .ProductForm__AddToCart span{
       font-size: 13pt;
-      font-weight: 600;
+  }
+
+  .Product__InfoWrapper{
+      position: relative;
+  }
+
+  .Product__Wrapper{
+      margin: 0;
+      max-width: unset;
+      display: flex;
+      justify-content: center;
+  }
+
+  .Product__Info{
+      position: relative;
+      top:0 !important;
+      margin: 0;
+  }
+
+  .ProductForm__Label{
+      display: none;
+  }
+
+  .Product__InfoWrapper .Container{
+      flex-direction: column;
+      display: flex;
+      align-items: center;
+  }
+
+  .Product__InfoWrapper .Container .SizeSwatchList {
+      display: flex;
+      justify-content: center;
+  }
+
+  .Product__InfoWrapper .Container .SizeSwatchList .HorizontalList__Item label {
+    border-radius: 5px;
+    border-width: 2px !important;
+    padding: 5px 20px;
+    font-size: 13pt;
+    font-weight: 600;
+  }
+
+  .ProductMeta{
+    font-size: 14pt;
+    line-height: 24px;
+  }
+
+  .ProductMeta mark{
+    box-shadow: inset 0px -11px 0px 0px #ABCDBE;
+    background: transparent;
+  }
+
+  .ProductMeta{
+      text-align: center;
+  }
+
+  .Charity__Header {
+    margin-top: 0;
+  }
+
+  .Charity__Header .SectionHeader__Heading.Heading{
+    font-size: 16pt !important;
+  }
+
+  .Charity__Title .Heading, .ProductMeta__Title {
+    font-weight: 700 !important;
+    font-size: 18pt !important;
+  }
+
+  .Charity__Title {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .Charity {
+    margin: 0;
+    max-width: unset;
+    margin-bottom: 150px;
+    padding: 0;
+  }
+
+  .Charity section{
+    max-width: 612px;
+    margin: auto;
+    margin-bottom: -100px;
+  }
+
+  .Charity__Wrapper {
+    background: #ABCDBE1A;
+    padding: 50px 50px 0 50px;
+    display: flex;
+  }
+
+  .Charity__Wrapper img{
+    border-radius: 5px;
+  }
+
+  .shopify-section--bordered + .shopify-section--bordered{
+    border-top: none;
+  }
+
+  @media screen and (max-width: 600px){
+    .Charity__Wrapper{
+      padding: 20px 20px 0 20px;
     }
 
-    .ProductMeta{
-      font-size: 14pt;
-      line-height: 24px;
+    .Charity__Header, .Charity__Container {
+      padding: 0 30px;
     }
 
-    .ProductMeta mark{
-      box-shadow: inset 0px -11px 0px 0px #ABCDBE;
-      background: transparent;
-    }
-
-    .ProductMeta{
-        text-align: center;
+    .Charity__Header .SectionHeader__Heading.Heading {
+      font-size: 13pt !important;
     }
 
     .Charity__Header {
-      margin-top: 0;
-    }
-
-    .Charity__Header .SectionHeader__Heading.Heading{
-      font-size: 16pt !important;
-    }
-
-    .Charity__Title .Heading, .ProductMeta__Title {
-      font-weight: 700 !important;
-      font-size: 18pt !important;
-    }
-
-    .Charity__Title {
-      padding: 10px;
       margin-bottom: 10px;
     }
-
-    .Charity {
-      margin: 0;
-      max-width: unset;
-      margin-bottom: 150px;
-      padding: 0;
-    }
-
-    .Charity section{
-      max-width: 612px;
-      margin: auto;
-      margin-bottom: -100px;
-    }
-
-    .Charity__Wrapper {
-      background: #ABCDBE1A;
-      padding: 50px 50px 0 50px;
-      display: flex;
-    }
-
-    .Charity__Wrapper img{
-      border-radius: 5px;
-    }
-
-    .shopify-section--bordered + .shopify-section--bordered{
-      border-top: none;
-    }
-
-    @media screen and (max-width: 600px){
-      .Charity__Wrapper{
-        padding: 20px 20px 0 20px;
-      }
-
-      .Charity__Header, .Charity__Container {
-        padding: 0 30px;
-      }
-
-      .Charity__Header .SectionHeader__Heading.Heading {
-        font-size: 13pt !important;
-      }
-
-      .Charity__Header {
-        margin-bottom: 10px;
-      }
-    }
-
+  }
 </style>
 
 {% schema %}
