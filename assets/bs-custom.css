@@ -1932,7 +1932,7 @@ div.rc_popup__hover, a.rc_popup__hover {
 */
 
 #shopify-section-template--23834062520588__custom_liquid_RCt6P9 p {
-    font-weight: 500;
+    font-weight: 500 !important;
     font-size: 16px;
     letter-spacing: 0.05em;
 }
