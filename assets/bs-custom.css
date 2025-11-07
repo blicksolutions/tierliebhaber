@@ -1226,7 +1226,7 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 	}
 
 	.benefits-section  .BenefitItem__Title {
-		font-size: 24px !important;
+		font-size: 22px !important;
         padding-bottom: 10px;
 	}
 
@@ -1250,6 +1250,10 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
     .Benefits .swiper-wrapper {
         gap: 80px;
     }
+    	.benefits-section  .BenefitItem__Title {
+		font-size: 24px !important;
+        padding-bottom: 10px;
+	}
 }
 
 @media (min-width: 1440px) {
