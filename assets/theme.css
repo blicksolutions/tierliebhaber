@@ -2322,6 +2322,11 @@ body:not(.is-tabbing) .flickity-enabled:focus {
     .Collapsible--large .Collapsible__Content {
         padding-bottom: 45px;
     }
+
+    .Collapsible__Inner .Collapsible__Content .Rte {
+        text-align: left; 
+        padding-top: 24px;
+    }
 }
 
 /**
