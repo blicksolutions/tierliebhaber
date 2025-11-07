@@ -120,9 +120,9 @@
           {% endif %}
 
           {%- if section.settings.custom_title -%}
-            {%- render 'product-meta', product: product, show_description: true, show_like_badge: false, show_price: false, custom_title: section.settings.custom_title -%}
+            {%- render 'product-meta', product: product, show_description: true, show_like_badge: false,  custom_title: section.settings.custom_title -%}
           {%-else-%}
-            {%- render 'product-meta', product: product, show_description: true, show_like_badge: false, show_price: false -%}
+            {%- render 'product-meta', product: product, show_description: true, show_like_badge: false -%}
           {%-endif-%}
 
           {%- if product.template_suffix != 'coming-soon' -%}
