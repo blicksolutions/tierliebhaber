@@ -7,6 +7,8 @@
     {% comment %}<!-- Split GemX Traffic before Consent M.M. -->{% endcomment %}
     {% render 'gemx-traffic-switch' %}
 
+    {% render 'custom-gempages-voluum-tracking' %}
+
     <link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}">
 
     <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
@@ -64,8 +66,9 @@
       >
     {% endcomment %}
 
-    {% comment %} Slickslider ist auf der Collection Page eingebunden. Soll raus!!!  M.M.
-    {% render 'collection-slider' %}
+    {% comment %}
+      Slickslider ist auf der Collection Page eingebunden. Soll raus!!!  M.M.
+      {% render 'collection-slider' %}
     {% endcomment %}
 
     <meta charset="utf-8">
@@ -136,75 +139,75 @@
     <link rel="stylesheet" href="{{ 'bs-custom.css' | asset_url }}">
     <link rel="stylesheet" href="{{ 'recommended-search-products.css' | asset_url }}">
 
-        <link rel="stylesheet" href="https://widget.reviews.io/rating-snippet/dist.css">
+    <link rel="stylesheet" href="https://widget.reviews.io/rating-snippet/dist.css">
 
     {%- render 'head-styles', layout: 'theme' -%}
 
     <script>
-          {%- if request.page_type == 'policy' -%}
-            document.addEventListener('DOMContentLoaded', function() {
-              document.querySelector('.shopify-policy__title').classList.add('PageHeader', 'Heading', 'u-h1');
-              document.querySelector('.shopify-policy__body').classList.add('Rte');
-            });
+      {%- if request.page_type == 'policy' -%}
+        document.addEventListener('DOMContentLoaded', function() {
+          document.querySelector('.shopify-policy__title').classList.add('PageHeader', 'Heading', 'u-h1');
+          document.querySelector('.shopify-policy__body').classList.add('Rte');
+        });
 
-          {%- endif -%}
+      {%- endif -%}
 
-          window.theme = {
-            pageType: {{ request.page_type | json }},
-            moneyFormat: {{ shop.money_format | json }},
-            moneyWithCurrencyFormat: {{ shop.money_with_currency_format | json }},
-            productImageSize: {{ settings.product_image_size | json }},
-            searchMode: {{ settings.search_mode | json }},
-            showPageTransition: {{ settings.show_page_transition | json }},
-            showElementStaggering: {{ settings.show_element_staggering | json }},
-            showImageZooming: {{ settings.show_image_zooming | json }}
-          };
+      window.theme = {
+        pageType: {{ request.page_type | json }},
+        moneyFormat: {{ shop.money_format | json }},
+        moneyWithCurrencyFormat: {{ shop.money_with_currency_format | json }},
+        productImageSize: {{ settings.product_image_size | json }},
+        searchMode: {{ settings.search_mode | json }},
+        showPageTransition: {{ settings.show_page_transition | json }},
+        showElementStaggering: {{ settings.show_element_staggering | json }},
+        showImageZooming: {{ settings.show_image_zooming | json }}
+      };
 
-          window.routes = {
-            rootUrl: {{ routes.root_url | json }},
-            rootUrlWithoutSlash: {% if routes.root_url == '/' %}''{% else %}{{ routes.root_url | json }}{% endif %},
-            cartUrl: {{ routes.cart_url | json }},
-            cartAddUrl: {{ routes.cart_add_url | json }},
-            cartChangeUrl: {{ routes.cart_change_url | json }},
-            searchUrl: {{ routes.search_url | json }},
-            productRecommendationsUrl: {{ routes.product_recommendations_url | json }}
-          };
+      window.routes = {
+        rootUrl: {{ routes.root_url | json }},
+        rootUrlWithoutSlash: {% if routes.root_url == '/' %}''{% else %}{{ routes.root_url | json }}{% endif %},
+        cartUrl: {{ routes.cart_url | json }},
+        cartAddUrl: {{ routes.cart_add_url | json }},
+        cartChangeUrl: {{ routes.cart_change_url | json }},
+        searchUrl: {{ routes.search_url | json }},
+        productRecommendationsUrl: {{ routes.product_recommendations_url | json }}
+      };
 
-          window.languages = {
-            cartAddNote: {{ 'cart.general.add_note' | t | json }},
-            cartEditNote: {{ 'cart.general.edit_note' | t | json }},
-            productImageLoadingError: {{ 'product.slideshow.image_loading_error' | t | json }},
-            productFormAddToCart: {% if product.template_suffix == 'pre-order' %}{{ 'product.form.pre_order' | t | json }}{% elsif product.template_suffix == 'donation' %}{{ 'product.form.add_to_cart_donation' | t | json }}{%else%}{{ 'product.form.add_to_cart' | t | json }}{% endif %},
-            productFormUnavailable: {{ 'product.form.unavailable' | t | json }},
-            productFormSoldOut: {{ 'product.form.sold_out' | t | json }},
-            shippingEstimatorOneResult: {{ 'cart.shipping_estimator.one_result_title' | t | json }},
-            shippingEstimatorMoreResults: {{ 'cart.shipping_estimator.more_results_title' | t | json }},
-            shippingEstimatorNoResults: {{ 'cart.shipping_estimator.no_results_title' | t | json }}
-          };
+      window.languages = {
+        cartAddNote: {{ 'cart.general.add_note' | t | json }},
+        cartEditNote: {{ 'cart.general.edit_note' | t | json }},
+        productImageLoadingError: {{ 'product.slideshow.image_loading_error' | t | json }},
+        productFormAddToCart: {% if product.template_suffix == 'pre-order' %}{{ 'product.form.pre_order' | t | json }}{% elsif product.template_suffix == 'donation' %}{{ 'product.form.add_to_cart_donation' | t | json }}{%else%}{{ 'product.form.add_to_cart' | t | json }}{% endif %},
+        productFormUnavailable: {{ 'product.form.unavailable' | t | json }},
+        productFormSoldOut: {{ 'product.form.sold_out' | t | json }},
+        shippingEstimatorOneResult: {{ 'cart.shipping_estimator.one_result_title' | t | json }},
+        shippingEstimatorMoreResults: {{ 'cart.shipping_estimator.more_results_title' | t | json }},
+        shippingEstimatorNoResults: {{ 'cart.shipping_estimator.no_results_title' | t | json }}
+      };
 
-          window.lazySizesConfig = {
-            loadHidden: false,
-            hFac: 0.5,
-            expFactor: 2,
-            ricTimeout: 150,
-            lazyClass: 'Image--lazyLoad',
-            loadingClass: 'Image--lazyLoading',
-            loadedClass: 'Image--lazyLoaded'
-          };
+      window.lazySizesConfig = {
+        loadHidden: false,
+        hFac: 0.5,
+        expFactor: 2,
+        ricTimeout: 150,
+        lazyClass: 'Image--lazyLoad',
+        loadingClass: 'Image--lazyLoading',
+        loadedClass: 'Image--lazyLoaded'
+      };
 
-          {% if customer %}
-            window.Shopify.isUserLoggedIn = true;
-          {% else %}
-            window.Shopify.isUserLoggedIn = false;
-          {% endif %}
+      {% if customer %}
+        window.Shopify.isUserLoggedIn = true;
+      {% else %}
+        window.Shopify.isUserLoggedIn = false;
+      {% endif %}
 
-          document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
-          document.documentElement.style.setProperty('--window-height', window.innerHeight + 'px');
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+      document.documentElement.style.setProperty('--window-height', window.innerHeight + 'px');
 
-          (function() {
-            document.documentElement.className += ((window.CSS && window.CSS.supports('(position: sticky) or (position: -webkit-sticky)')) ? ' supports-sticky' : ' no-supports-sticky');
-            document.documentElement.className += (window.matchMedia('(-moz-touch-enabled: 1), (hover: none)')).matches ? ' no-supports-hover' : ' supports-hover';
-          }());
+      (function() {
+        document.documentElement.className += ((window.CSS && window.CSS.supports('(position: sticky) or (position: -webkit-sticky)')) ? ' supports-sticky' : ' no-supports-sticky');
+        document.documentElement.className += (window.matchMedia('(-moz-touch-enabled: 1), (hover: none)')).matches ? ' no-supports-hover' : ' supports-hover';
+      }());
     </script>
 
     <script src="{{ 'lazysizes.min.js' | asset_url }}" async></script>
@@ -214,22 +217,21 @@
       <script src="{{ 'customer_area.js' | shopify_asset_url }}" defer></script>
     {%- endif -%}
 
-    {%  comment %}
-
-    <!-- Unnötig ist nativ in 98 % aller browser  M.M. -->
-    <script
-      type="text/plain"
-      data-cookieconsent="preferences"
-      src="https://polyfill-fastly.net/v3/polyfill.min.js?unknown=polyfill&features=Element.prototype.closest,Element.prototype.remove,Element.prototype.classList,Array.prototype.includes,Array.prototype.fill,Object.assign,CustomEvent,IntersectionObserver,IntersectionObserverEntry,URL"
-      defer
-    ></script>
-    {%  endcomment %}
+    {% comment %}
+      <!-- Unnötig ist nativ in 98 % aller browser  M.M. -->
+      <script
+        type="text/plain"
+        data-cookieconsent="preferences"
+        src="https://polyfill-fastly.net/v3/polyfill.min.js?unknown=polyfill&features=Element.prototype.closest,Element.prototype.remove,Element.prototype.classList,Array.prototype.includes,Array.prototype.fill,Object.assign,CustomEvent,IntersectionObserver,IntersectionObserverEntry,URL"
+        defer
+      ></script>
+    {% endcomment %}
 
     <script src="{{ 'libs.min.js' | asset_url }}" defer></script>
     <script src="{{ 'theme.min.js' | asset_url }}" defer></script>
     <script src="{{ 'bs-cart-drawer.js' | asset_url }}" defer></script>
     <script src="{{ 'search-manipulation.js' | asset_url }}" defer></script>
-    <script src="{{ 'bs-dentalspray-redirect.js' | asset_url }}" ></script>
+    <script src="{{ 'bs-dentalspray-redirect.js' | asset_url }}"></script>
 
     <script>
       (function () {
@@ -356,21 +358,20 @@
       src="https://widget.reviews.io/rating-snippet/dist.js"
     ></script>
 
-
-
-<script type="text/plain" data-cookieconsent="marketing">  ← HINZUGEFÜGT!
-  ratingSnippet('ruk_rating_snippet', {
-    store: 'tierliebhaber.de',
-    mode: 'default',
-    color: '#fbd343',
-    linebreak: false,
-    text: "{{ 'product.tabs.reviews' | t }}",
-    singularText: "{{ 'product.tabs.reviews_singular' | t }}",
-    lang: 'de',
-    usePolaris: true,
-    showEmptyStars: false,
-  });
-</script>
+    <script type="text/plain" data-cookieconsent="marketing">
+      ← HINZUGEFÜGT!
+      ratingSnippet('ruk_rating_snippet', {
+        store: 'tierliebhaber.de',
+        mode: 'default',
+        color: '#fbd343',
+        linebreak: false,
+        text: "{{ 'product.tabs.reviews' | t }}",
+        singularText: "{{ 'product.tabs.reviews_singular' | t }}",
+        lang: 'de',
+        usePolaris: true,
+        showEmptyStars: false,
+      });
+    </script>
 
     <script
       type="text/plain"
