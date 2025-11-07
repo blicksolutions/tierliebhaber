@@ -2324,8 +2324,10 @@ body:not(.is-tabbing) .flickity-enabled:focus {
     }
 
     .Collapsible__Inner .Collapsible__Content .Rte {
-        text-align: left; 
         padding-top: 24px;
+    }
+    .template-product .Container .Collapsible__Inner .Collapsible__Content .Rte {
+        text-align: left; 
     }
 }
 
