@@ -741,9 +741,9 @@ button.swiper-pagination-bullet {
 }
 
 .BenefitItem__Image {
-    height: 100px;
+    height: auto;
     margin-bottom: 16px;
-    width: auto;
+    width: 100px;
 }
 
 .BenefitItem__Title {
