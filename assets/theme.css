@@ -2324,8 +2324,6 @@ body:not(.is-tabbing) .flickity-enabled:focus {
     }
 }
 
-.Collapsible__Button[aria-expanded=true]+.Collapsible__Inner
-
 /**
  * ----------------------------------------------------------------------------
  * Base drawer
