@@ -2309,7 +2309,7 @@ body:not(.is-tabbing) .flickity-enabled:focus {
 
     .Collapsible--large .Collapsible__Button {
         padding: 34px 0;
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .Collapsible--large .Collapsible__Content {
