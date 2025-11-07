@@ -122,7 +122,7 @@
           {%- render 'product-meta', product: product, show_description: true, meta_badge_text: section.settings.meta_info_badge_text, meta_badge_visibility: section.settings.meta_info_badge_visibility, pdp_info_toggle_btn: section.settings.pdp_info_toggle -%}
 
           {%- if product.template_suffix != 'coming-soon' -%}
-            {%- render 'product-form', product: product, sticky_atc: true, show_benefits: false -%}
+            {%- render 'product-form', product: product, sticky_atc: true, show_benefits: false, custom_title: section.settings.custom_title -%}
           {%- endif -%}
 
           {%- if section.settings.stack_images and product_aside != blank and media_count > 0 -%}
