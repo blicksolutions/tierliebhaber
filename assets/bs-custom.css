@@ -1227,7 +1227,7 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 
 	.benefits-section  .BenefitItem__Title {
 		font-size: 24px !important;
-                padding-bottom: 10px;
+        padding-bottom: 10px;
 	}
 
 	.benefits-section  .BenefitItem__Text {
@@ -1238,6 +1238,7 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 		padding-top: 0;
 	}
 }
+
 
 @media (min-width: 1200px) {
 	.benefits-section  .Container {
@@ -1930,9 +1931,3 @@ div.rc_popup__hover, a.rc_popup__hover {
     border-radius: 8px;
 }
 */
-
-#shopify-section-template--23834062520588__custom_liquid_RCt6P9 p {
-    font-weight: 500 !important;
-    font-size: 16px;
-    letter-spacing: 0.05em;
-}
