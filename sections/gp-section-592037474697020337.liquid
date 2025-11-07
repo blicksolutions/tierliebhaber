@@ -47,7 +47,7 @@
   .tl-transform-section {
     max-width: 960px;
     margin: 0 auto 80px auto;
-    padding: 60px 28px 50px 28px; /* mehr Abstand oben + etwas mehr innen */
+    padding: 56px 28px 40px 28px; /* etwas mehr Abstand oben */
     background: #ffffff;
     border-radius: 16px;
     box-shadow: 0 12px 35px rgba(0,0,0,0.06);
@@ -55,26 +55,23 @@
     color: #1f2933;
   }
 
-  /* === Titelbereich (oben) === */
   .tl-transform-heading {
     text-align: center;
-    font-size: 28px;          /* deutlich größer */
-    font-weight: 800;         /* extra fett */
-    line-height: 1.35;
-    margin: 0 0 14px 0;       /* etwas Abstand zur Subline */
-    color: #111827;
+    font-size: 32px; /* größer */
+    line-height: 1.3;
+    font-weight: 800; /* fetter */
+    margin-bottom: 16px; /* etwas mehr Abstand */
   }
 
   .tl-transform-sub {
     text-align: center;
-    font-size: 16px;
-    line-height: 1.8;
+    font-size: 17px;
+    line-height: 1.7;
     color: #4b5563;
-    max-width: 760px;         /* etwas breiter, damit es luftiger wirkt */
-    margin: 0 auto 40px auto; /* mehr Abstand nach unten zum Grid */
+    max-width: 700px;
+    margin: 0 auto 40px auto; /* mehr Abstand nach unten */
   }
 
-  /* === Grid mit Vorteilen === */
   .tl-transform-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -116,7 +113,7 @@
     color: #4b5563;
   }
 
-  /* === Zeitstrahl / Diagramm === */
+  /* ===== Zeitstrahl / Diagramm ===== */
   .tl-progress-section {
     margin-top: 10px;
     border-top: 1px solid #e5e7eb;
@@ -215,120 +212,17 @@
   }
 
   .tl-chip-yellow { background: #fef9c3; color: #854d0e; }
-  .tl-chip-lime   { background: #ecfccb; color: #3f6212; }
-  .tl-chip-green  { background: #ecfdf3; color: #15803d; }
+  .tl-chip-lime { background: #ecfccb; color: #3f6212; }
+  .tl-chip-green { background: #ecfdf3; color: #15803d; }
 
   @media (max-width: 768px) {
-    .tl-transform-section { padding: 32px 18px 32px 18px; margin-bottom: 48px; }
-    .tl-transform-heading { font-size: 22px; }
-    .tl-transform-sub { margin-bottom: 30px; }
+    .tl-transform-section { padding: 32px 18px; margin-bottom: 48px; }
+    .tl-transform-heading { font-size: 24px; }
+    .tl-transform-sub { font-size: 15px; margin-bottom: 28px; }
     .tl-transform-grid { grid-template-columns: 1fr; }
     .tl-progress-steps { grid-template-columns: 1fr; text-align: left; }
   }
 </style>
-
-<section class="tl-transform-section" id="futterumstellung">
-  <h2 class="tl-transform-heading">
-    So verändert sich dein Hund nach der Futterumstellung
-  </h2>
-  <p class="tl-transform-sub">
-    Viele Hundehalter berichten schon nach wenigen Tagen von sichtbaren Veränderungen – zuerst im Napf, 
-    dann im Verhalten. Denn ehrliches Nassfutter wirkt nicht nur im Magen, sondern auf den ganzen Hund.
-  </p>
-
-  <div class="tl-transform-grid">
-    <div class="tl-transform-item">
-      <div class="tl-transform-icon">✓</div>
-      <div>
-        <div class="tl-transform-text-title">Mehr Appetit & Freude beim Fressen</div>
-        <div class="tl-transform-text-body">
-          Kein Zögern mehr am Napf: Dein Hund frisst wieder gerne, statt das Futter zu „prüfen“ oder stehen zu lassen.
-        </div>
-      </div>
-    </div>
-
-    <div class="tl-transform-item">
-      <div class="tl-transform-icon">✓</div>
-      <div>
-        <div class="tl-transform-text-title">Ruhige, gesunde Verdauung</div>
-        <div class="tl-transform-text-body">
-          Fester Kot, weniger Blähungen, kein Durchfall nach dem Fressen – der Darm kommt wieder ins Gleichgewicht.
-        </div>
-      </div>
-    </div>
-
-    <div class="tl-transform-item">
-      <div class="tl-transform-icon">✓</div>
-      <div>
-        <div class="tl-transform-text-title">Glänzendes Fell & gesunde Haut</div>
-        <div class="tl-transform-text-body">
-          Hochwertige Proteine und natürliche Fette unterstützen Haut & Fell – dein Hund wirkt insgesamt gepflegter.
-        </div>
-      </div>
-    </div>
-
-    <div class="tl-transform-item">
-      <div class="tl-transform-icon">✓</div>
-      <div>
-        <div class="tl-transform-text-title">Mehr Energie & Lebensfreude</div>
-        <div class="tl-transform-text-body">
-          Statt müde und „platt“ nach dem Fressen ist dein Hund wacher, aktiver und gleichzeitig ausgeglichener im Alltag.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="tl-progress-section">
-    <div class="tl-progress-title">Typischer Verlauf mit Tierliebhaber Nassfutter</div>
-    <div class="tl-progress-sub">
-      Natürlich reagiert jeder Hund anders – viele Kunden berichten jedoch von genau diesem Verlauf, 
-      wenn sie konsequent bei der Futterumstellung bleiben.
-    </div>
-
-    <div class="tl-progress-wrapper">
-      <div class="tl-progress-bar" id="progressBar">
-        <div class="tl-progress-fill"></div>
-        <div class="tl-progress-dot tl-progress-dot-1"></div>
-        <div class="tl-progress-dot tl-progress-dot-2"></div>
-        <div class="tl-progress-dot tl-progress-dot-3"></div>
-      </div>
-
-      <div class="tl-progress-steps">
-        <div class="tl-progress-step">
-          <div class="tl-progress-step-label tl-chip-yellow">ab Tag 3</div>
-          Erste Entspannung bei Magen & Darm: weniger Schleim im Kot, weniger Bauchgrummeln 
-          und dein Hund frisst wieder etwas lieber aus dem Napf.
-        </div>
-
-        <div class="tl-progress-step">
-          <div class="tl-progress-step-label tl-chip-lime">Tag 7–10</div>
-          Die Verdauung stabilisiert sich: der Kot wird fester, Durchfall-Phasen nehmen deutlich ab 
-          und Blähungen gehen spürbar zurück – besonders bei sensiblen Hunden.
-        </div>
-
-        <div class="tl-progress-step">
-          <div class="tl-progress-step-label tl-chip-green">ab Woche 4</div>
-          Der gesamte Organismus kommt zur Ruhe: der Magen reagiert weniger empfindlich, 
-          das Immunsystem wird entlastet und viele Hunde mit Allergietendenzen zeigen 
-          weniger Juckreiz, Haut- und Fellprobleme.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      const bar = document.querySelector('.tl-progress-bar');
-      if (entry.isIntersecting) {
-        bar.classList.add('active');
-      }
-    });
-  }, { threshold: 0.4 });
-
-  observer.observe(document.querySelector('#futterumstellung'));
-</script>
     </div>
     </div>
   
@@ -336,7 +230,7 @@
     <div data-id="gFBW6OmObK"
         class="gFBW6OmObK"
         style="--ta:center;--bs:none;--bw:0px;--bc:transparent;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb-mobile:0px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--dynamic-source-color:#F4F4F4"
-        data-test-force-publish="1762497004781"
+        data-test-force-publish="1762497412229"
       >
       <div class="gp-flex" style="--jc:center">
         <h2
@@ -373,7 +267,7 @@
     <div data-id="g8f9qvciHA"
         class="g8f9qvciHA"
         style="--ta:left;--bs:none;--bw:0px;--bc:transparent;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:var(--g-s-s);--mt-mobile:var(--g-s-2xl);--mb-mobile:var(--g-s-s);--dynamic-source-color:#F4F4F4"
-        data-test-force-publish="1762497004782"
+        data-test-force-publish="1762497412230"
       >
       <div class="gp-flex" style="--jc:left">
         <h3
@@ -390,7 +284,7 @@
     <div data-id="gYYmGzBoI9"
         class="gYYmGzBoI9"
         style="--ta:left;--bs:none;--bw:0px;--bc:transparent;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--dynamic-source-color:#F4F4F4"
-        data-test-force-publish="1762497004782"
+        data-test-force-publish="1762497412231"
       >
       <div class="gp-flex" style="--jc:left">
         <div
@@ -413,7 +307,7 @@
       role="presentation"
       data-id="g7qqxFYvjO"
       style="--bs:none;--bw:0px;--bc:transparent;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:left"
-      class="gp-group/image gp-relative force-publish-1762497004782 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto g7qqxFYvjO"
+      class="gp-group/image gp-relative force-publish-1762497412231 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto g7qqxFYvjO"
     >
       <div
         
@@ -465,7 +359,7 @@
     <div data-id="gghVHWEvbD"
         class="gghVHWEvbD"
         style="--ta:left;--bs:none;--bw:0px;--bc:transparent;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:var(--g-s-s);--mt-mobile:var(--g-s-2xl);--mb-mobile:var(--g-s-s);--dynamic-source-color:#F4F4F4"
-        data-test-force-publish="1762497004783"
+        data-test-force-publish="1762497412233"
       >
       <div class="gp-flex" style="--jc:left">
         <h3
@@ -482,7 +376,7 @@
     <div data-id="gAA7ItOkMK"
         class="gAA7ItOkMK"
         style="--ta:left;--bs:none;--bw:0px;--bc:transparent;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--dynamic-source-color:#F4F4F4"
-        data-test-force-publish="1762497004783"
+        data-test-force-publish="1762497412233"
       >
       <div class="gp-flex" style="--jc:left">
         <div
@@ -505,7 +399,7 @@
       role="presentation"
       data-id="gnGN6F1BNT"
       style="--bs:none;--bw:0px;--bc:transparent;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:left"
-      class="gp-group/image gp-relative force-publish-1762497004783 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto gnGN6F1BNT"
+      class="gp-group/image gp-relative force-publish-1762497412233 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto gnGN6F1BNT"
     >
       <div
         
@@ -557,7 +451,7 @@
     <div data-id="gZNx3YUD-n"
         class="gZNx3YUD-n"
         style="--ta:left;--bs:none;--bw:0px;--bc:transparent;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:var(--g-s-s);--mt-mobile:var(--g-s-2xl);--mb-mobile:var(--g-s-s);--dynamic-source-color:#F4F4F4"
-        data-test-force-publish="1762497004784"
+        data-test-force-publish="1762497412234"
       >
       <div class="gp-flex" style="--jc:left">
         <h3
@@ -574,7 +468,7 @@
     <div data-id="g9xSe10RlG"
         class="g9xSe10RlG"
         style="--ta:left;--bs:none;--bw:0px;--bc:transparent;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--dynamic-source-color:#F4F4F4"
-        data-test-force-publish="1762497004784"
+        data-test-force-publish="1762497412235"
       >
       <div class="gp-flex" style="--jc:left">
         <div
@@ -597,7 +491,7 @@
       role="presentation"
       data-id="gn8URuEwcu"
       style="--bs:none;--bw:0px;--bc:transparent;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:left"
-      class="gp-group/image gp-relative force-publish-1762497004785 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto gn8URuEwcu"
+      class="gp-group/image gp-relative force-publish-1762497412235 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto gn8URuEwcu"
     >
       <div
         
@@ -649,7 +543,7 @@
       role="presentation"
       data-id="gjOG6XpWH4"
       style="--bs:none;--bw:0px;--bc:transparent;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:left"
-      class="gp-group/image gp-relative force-publish-1762497004785 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto gjOG6XpWH4"
+      class="gp-group/image gp-relative force-publish-1762497412236 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto gjOG6XpWH4"
     >
       <div
         
@@ -687,7 +581,7 @@
     <div data-id="gWCgpxW0bD"
         class="gWCgpxW0bD"
         style="--ta:left;--bs:none;--bw:0px;--bc:transparent;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:var(--g-s-s);--mt-mobile:var(--g-s-2xl);--mb-mobile:var(--g-s-s);--dynamic-source-color:#F4F4F4"
-        data-test-force-publish="1762497004786"
+        data-test-force-publish="1762497412236"
       >
       <div class="gp-flex" style="--jc:left">
         <h3
@@ -704,7 +598,7 @@
     <div data-id="gMC8xDzf4i"
         class="gMC8xDzf4i"
         style="--ta:left;--bs:none;--bw:0px;--bc:transparent;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--dynamic-source-color:#F4F4F4"
-        data-test-force-publish="1762497004786"
+        data-test-force-publish="1762497412236"
       >
       <div class="gp-flex" style="--jc:left">
         <div
@@ -741,7 +635,7 @@
     <div data-id="gGKRIiOUDd"
         class="gGKRIiOUDd"
         style="--ta:left;--bs:none;--bw:0px;--bc:transparent;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:var(--g-s-s);--mt-mobile:var(--g-s-2xl);--mb-mobile:var(--g-s-s);--dynamic-source-color:#F4F4F4"
-        data-test-force-publish="1762497004787"
+        data-test-force-publish="1762497412237"
       >
       <div class="gp-flex" style="--jc:left">
         <h3
@@ -758,7 +652,7 @@
     <div data-id="ge5wqB8f0C"
         class="ge5wqB8f0C"
         style="--ta:left;--bs:none;--bw:0px;--bc:transparent;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--dynamic-source-color:#F4F4F4"
-        data-test-force-publish="1762497004787"
+        data-test-force-publish="1762497412238"
       >
       <div class="gp-flex" style="--jc:left">
         <div
@@ -781,7 +675,7 @@
       role="presentation"
       data-id="g24w5KUVRG"
       style="--bs:none;--bw:0px;--bc:transparent;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--ta:left"
-      class="gp-group/image gp-relative force-publish-1762497004787 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto g24w5KUVRG"
+      class="gp-group/image gp-relative force-publish-1762497412238 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto g24w5KUVRG"
     >
       <div
         
