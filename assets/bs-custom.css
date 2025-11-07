@@ -1203,7 +1203,7 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 	}
 
 	.Benefits .swiper-wrapper {
-		gap: 102px;
+		gap: 80px;
 	}
 
 	.benefits-section .swiper-pagination-benefits {
@@ -1246,6 +1246,10 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 		max-width: 1324px;
 		margin: 0 auto;
 	}
+
+    .Benefits .swiper-wrapper {
+        gap: 100px;
+    }
 }
 
 
