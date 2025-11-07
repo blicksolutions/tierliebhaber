@@ -232,7 +232,7 @@
     }
 
     .tl-progress-step {
-      text-align: left;          /* Chips + Text linksbündig */
+      text-align: left;
     }
   }
 </style>
@@ -334,20 +334,31 @@
 </section>
 
 <script>
-  const section = document.querySelector('#futterumstellung');
+  document.addEventListener("DOMContentLoaded", () => {
+    const section = document.querySelector("#futterumstellung");
+    const progressBar = document.querySelector(".tl-progress-bar");
 
-  if (section) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const bar = document.querySelector('.tl-progress-bar');
-        if (entry.isIntersecting && bar) {
-          bar.classList.add('active');
-        }
-      });
-    }, { threshold: 0.4 });
+    if (section && progressBar) {
+      let hasPlayed = false;
 
-    observer.observe(section);
-  }
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && !hasPlayed) {
+              progressBar.classList.add("active");
+              hasPlayed = true;
+            } else if (!entry.isIntersecting && hasPlayed) {
+              progressBar.classList.remove("active");
+              hasPlayed = false;
+            }
+          });
+        },
+        { threshold: 0.4 }
+      );
+
+      observer.observe(section);
+    }
+  });
 </script>
     </div>
     </div>
