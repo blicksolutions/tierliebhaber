@@ -16,7 +16,7 @@
         "show_vendor": false,
         "show_sku": false,
         "show_taxes_included": false,
-        "selector_mode": "block",
+        "selector_mode": "dropdown",
         "show_color_swatch": false,
         "show_color_carousel": false,
         "show_quantity_selector": false,
@@ -160,7 +160,9 @@
         "image_alt": "",
         "image_min_width": 340,
         "cta_title": "Schnell & einfach",
-        "microcopy": "<p><em>Wir melden uns in der Regel </em></p><p><em>innerhalb von 1-2 Werktagen mit einer Antwort bei dir!</em></p>"
+        "microcopy": "<p><em>Wir melden uns in der Regel </em></p><p><em>innerhalb von 1-2 Werktagen mit einer Antwort bei dir!</em></p>",
+        "microcopy-html": "",
+        "datenschutz": ""
       }
     }
   },
