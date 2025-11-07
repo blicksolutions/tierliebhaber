@@ -2331,28 +2331,14 @@ body:not(.is-tabbing) .flickity-enabled:focus {
     }
 
     .Collapsible--large .Collapsible__Button {
-        padding: 34px 0;
         font-size: 18px;
     }
     .Collapsible__Content .Collapsible--large .Collapsible__Button {
         font-size: 16px;
-        font-weight: 500;
-        border-bottom: 1px solid #edebeb;
-        width: 96%;
-        margin: 0 auto;
     }
 
     .Collapsible--large .Collapsible__Content {
         padding-bottom: 45px;
-    }
-
-    .Collapsible__Inner .Collapsible__Content .Rte {
-        padding-top: 24px;
-    }
-
-    .template-product .Container .Collapsible__Inner .Collapsible__Content .Rte {
-        text-align: left; 
-        margin-left: 2%;
     }
 }
 
