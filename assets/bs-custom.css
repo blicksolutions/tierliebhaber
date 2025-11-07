@@ -1252,6 +1252,18 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
     }
 }
 
+@media (min-width: 1440px) {
+	.benefits-section  .Container {
+		padding: 0px 89px;
+		max-width: 1324px;
+		margin: 0 auto;
+	}
+
+    .Benefits .swiper-wrapper {
+        gap: 100px;
+    }
+}
+
 
 /******************************************************************/
 /* PDP Gallery
