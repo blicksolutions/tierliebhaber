@@ -16,6 +16,8 @@
         "meta_info_badge_visibility": false,
         "meta_info_badge_text": "<p>Für die beste Wirkung <strong>4 Wochen vor Silvester</strong> mit der Anwendung beginnen!</p>",
         "pdp_info_toggle": true,
+        "cd_start_iso": "2025-10-04T22:00:00Z",
+        "cd_end_iso": "2025-10-12T23:59:59Z",
         "show_share_buttons": false,
         "show_vendor": false,
         "show_sku": false,
@@ -276,6 +278,7 @@
         },
         "item_4Wc7hB": {
           "type": "item",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Bildschirmfoto_2024-01-15_um_10.34.35.png",
             "item-headline": "Wir sind Tierliebhaber, weil Tiere die eigene Lebensqualität ins Unermessliche steigern.",
