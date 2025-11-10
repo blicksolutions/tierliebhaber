@@ -26,47 +26,6 @@
 
     {% render 'external-scripts' %}
 
-    {% comment %}
-      ================= Implement ablyft A/B-Testing Service https://ablyft.de/ Old way before 22/10/25 and 30/10/25 ==============
-
-      {% comment %} ================= Implement ablyft A/B-Testing Service https://ablyft.de/  === M.M. 22/10/25 ============== {% endcomment %}
-      <!-- ABlyft DE Visitor Detection - GATED -->
-      <script type="text/plain" data-cookieconsent="marketing">
-        fetch('/browsing_context_suggestions.json')
-         .then(response => response.json())
-         .then(json => {
-          if(json.detected_values.country.handle == "DE") {
-        	  window.isDeVisitor = true;
-          } else {
-        	  window.isDeVisitor = false;
-          }
-         });
-      </script>
-
-      <!-- ABlyft Scripts - GATED -->
-      <script type="text/plain" data-cookieconsent="marketing" src="https://cdn.ablyft.com/s/55886406.js"></script>
-
-      <script type="text/plain" data-cookieconsent="marketing">
-        window['ablyft'] = window['ablyft'] || [];
-      </script>
-
-      {% comment %}  <!-- ////////// LH-026 Search Tracking - GATED. ////////////  -->  {% endcomment %}
-      <script type="text/plain" data-cookieconsent="marketing">
-        document.addEventListener('DOMContentLoaded',() => {
-            const searchEl = document.querySelector('.Search__Inner');
-            if (searchEl && window.ablyft) {
-              searchEl.addEventListener('click',() =>  {
-                  window['ablyft'].push({
-                      eventType: 'custom',
-                      eventName: 'tlh-026-clicks-on-searchbar',
-                      eventValue: 1
-                  });
-              });
-            }
-        });
-      </script>
-    {% endcomment %}
-
     <script>
       window.SLIDECART_DISABLE = true;
     </script>
