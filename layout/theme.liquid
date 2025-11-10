@@ -76,7 +76,7 @@
     </title>
 
     <link rel="stylesheet" href="{{ 'swiper-bundle.min.css' | asset_url }}">
-    <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
+
 
     {%- if page_description -%}
       <meta name="description" content="{{ page_description | escape }}">
@@ -361,6 +361,8 @@
         });
       </script>
     {% endcomment %}
+
+    <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
 
     <script
       type="text/plain"
