@@ -367,18 +367,12 @@
       defer="defer"
     ></script>
 
-    <script
-      type="text/plain"
-      data-cookieconsent="marketing"
-      src="https://widget.reviews.io/rating-snippet/dist.js"
-    ></script>
+    <script src="https://widget.reviews.io/rating-snippet/dist.js"></script>
 
- 
-      <script type="text/plain" data-cookieconsent="marketing">
-
-        document.addEventListener('DOMContentLoaded', function() {
-          if (typeof ratingSnippet === 'function') {
-              ratingSnippet('ruk_rating_snippet', {
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        if (typeof ratingSnippet === 'function') {
+          ratingSnippet('ruk_rating_snippet', {
             store: 'tierliebhaber.de',
             mode: 'default',
             color: '#fbd343',
@@ -388,28 +382,26 @@
             lang: 'de',
             usePolaris: true,
             showEmptyStars: false,
-
           });
-          }
-        });
-      </script>
-   
-
-    {% comment %}
-    <script type="text/plain" data-cookieconsent="marketing">
-      ratingSnippet('ruk_rating_snippet', {
-        store: 'tierliebhaber.de',
-        mode: 'default',
-        color: '#fbd343',
-        linebreak: false,
-        text: "{{ 'product.tabs.reviews' | t }}",
-        singularText: "{{ 'product.tabs.reviews_singular' | t }}",
-        lang: 'de',
-        usePolaris: true,
-        showEmptyStars: false,
+        }
       });
     </script>
-     {% endcomment %}
+
+    {% comment %}
+      <script type="text/plain" data-cookieconsent="marketing">
+        ratingSnippet('ruk_rating_snippet', {
+          store: 'tierliebhaber.de',
+          mode: 'default',
+          color: '#fbd343',
+          linebreak: false,
+          text: "{{ 'product.tabs.reviews' | t }}",
+          singularText: "{{ 'product.tabs.reviews_singular' | t }}",
+          lang: 'de',
+          usePolaris: true,
+          showEmptyStars: false,
+        });
+      </script>
+    {% endcomment %}
 
     <script
       type="text/plain"
