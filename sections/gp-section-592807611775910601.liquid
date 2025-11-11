@@ -1,0 +1,687 @@
+
+    
+    
+    <style>.gps-592807611775910601 .gp-g-paragraph-1{font-family:var(--g-p1-ff);font-size:var(--g-p1-size);font-style:var(--g-p1-fs);font-weight:var(--g-p1-weight);letter-spacing:var(--g-p1-ls);line-height:var(--g-p1-lh)}.gps-592807611775910601 .gp-relative{position:relative}.gps-592807611775910601 .gp-mx-auto{margin-left:auto;margin-right:auto}.gps-592807611775910601 .gp-mb-0{margin-bottom:0}.gps-592807611775910601 .gp-flex{display:flex}.gps-592807611775910601 .gp-inline-flex{display:inline-flex}.gps-592807611775910601 .gp-grid{display:grid}.gps-592807611775910601 .\!gp-hidden{display:none!important}.gps-592807611775910601 .gp-hidden{display:none}.gps-592807611775910601 .gp-h-full{height:100%}.gps-592807611775910601 .gp-max-w-full{max-width:100%}.gps-592807611775910601 .gp-grid-rows-\[1fr\]{grid-template-rows:1fr}.gps-592807611775910601 .gp-flex-col{flex-direction:column}.gps-592807611775910601 .gp-items-center{align-items:center}.gps-592807611775910601 .gp-justify-center{justify-content:center}.gps-592807611775910601 .gp-overflow-hidden{overflow:hidden}.gps-592807611775910601 .gp-break-words{overflow-wrap:break-word}.gps-592807611775910601 .gp-text-g-text-3{color:var(--g-c-text-3)}.gps-592807611775910601 .gp-no-underline{text-decoration-line:none}.gps-592807611775910601 .gp-transition-colors{transition-duration:.15s;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-592807611775910601 .gp-duration-200{transition-duration:.2s}.gps-592807611775910601 .gp-ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-592807611775910601 .disabled\:gp-btn-disabled:disabled{cursor:default}.gps-592807611775910601 .disabled\:gp-opacity-30:disabled{opacity:.3}.gps-592807611775910601 .gp-group\/button:active .group-active\/button\:\!gp-text-inherit{color:inherit!important}.gps-592807611775910601 .gp-group[data-state=loading] .group-data-\[state\=loading\]\:gp-invisible{visibility:hidden}@media (max-width:1024px){.gps-592807611775910601 .tablet\:\!gp-hidden{display:none!important}.gps-592807611775910601 .tablet\:gp-hidden{display:none}}@media (max-width:767px){.gps-592807611775910601 .mobile\:\!gp-hidden{display:none!important}.gps-592807611775910601 .mobile\:gp-hidden{display:none}}.gps-592807611775910601 .\[\&_\*\]\:gp-max-w-full *{max-width:100%}.gps-592807611775910601 .\[\&_p\]\:gp-whitespace-pre-line p{white-space:pre-line}</style>
+    
+  
+    
+    
+    
+
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+
+    
+        <section
+          class="gp-mx-auto gp-max-w-full [&_*]:gp-max-w-full {% if section.settings.section_preload == "false" %}gps-lazy {% endif %}"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--pl:none;--pl-tablet:none;--pl-mobile:none;--pr:none;--pr-tablet:none;--pr-mobile:none"
+        >
+          
+    <gp-row gp-data='{"background":{"desktop":{"attachment":"scroll","color":"#F6F6F6","image":{"height":0,"src":"","width":0},"position":{"x":50,"y":50},"repeat":"no-repeat","size":"cover","type":"color"}},"uid":"gMmW28Egqt"}' data-id="gMmW28Egqt" id="gMmW28Egqt" data-same-height-subgrid-container class="gMmW28Egqt gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--bs:none;--bw:0px;--bc:transparent;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--pt:var(--g-s-4xl);--pl:15px;--pb:var(--g-s-4xl);--pr:15px;--pt-mobile:50px;--pl-mobile:15px;--pb-mobile:0px;--pr-mobile:15px;--pt-tablet:var(--g-s-4xl);--pl-tablet:15px;--pb-tablet:var(--g-s-4xl);--pr-tablet:15px;--cg:var(--g-s-2xl);--gtc:minmax(0, 12fr);--w:100%;--w-tablet:100%;--w-mobile:100%;--bgc:#F6F6F6;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pc:start">
+      
+
+      <div
+      data-same-height-display-contents
+      style="--jc:start"
+      class="gQEaLe19FP gp-relative gp-flex gp-flex-col"
+    >
+      
+    
+
+    
+
+    
+    <gp-row gp-data='{"background":{"desktop":{"attachment":"scroll","color":"transparent","image":{"height":0,"src":"","width":0},"position":{"x":50,"y":50},"repeat":"no-repeat","size":"cover","type":"color"}},"uid":"gwJMtN_qht"}' data-id="gwJMtN_qht" id="gwJMtN_qht" data-same-height-subgrid-container class="gwJMtN_qht gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--bs:none;--bw:0px;--bc:transparent;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--pb:var(--g-s-l);--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--cg:var(--g-s-2xl);--gtc:minmax(0, 12fr);--w:1170px;--w-tablet:100%;--w-mobile:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pc:start">
+      
+
+      <div
+      data-same-height-display-contents
+      style="--jc:start"
+      class="g88Bsbj3ec gp-relative gp-flex gp-flex-col"
+    >
+      
+  
+    <div
+      
+      style="--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:var(--g-s-l);--ta:left;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+      data-keep-class="true"
+      class="goOhJjhKIo gp-custom-code">
+      <div>
+    <style>
+  .tl-transform-section {
+    max-width: 960px;
+    margin: 0 auto 80px auto;
+    padding: 56px 32px 40px 32px !important;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.06);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #1f2933;
+  }
+
+  .tl-transform-heading {
+    text-align: center !important;
+    font-size: 32px !important;
+    line-height: 1.3 !important;
+    font-weight: 800 !important;
+    margin: 0 0 18px 0 !important;
+  }
+
+  .tl-transform-sub {
+    text-align: center !important;
+    font-size: 17px !important;
+    line-height: 1.7 !important;
+    color: #4b5563 !important;
+    max-width: 720px !important;
+    margin: 0 auto 40px auto !important;
+  }
+
+  .tl-transform-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 36px;
+    margin-bottom: 32px;
+  }
+
+  .tl-transform-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .tl-transform-icon {
+    flex: 0 0 26px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #16a34a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    box-shadow: 0 0 0 3px rgba(22,163,74,0.18);
+    margin-top: 2px;
+  }
+
+  .tl-transform-text-title {
+    font-weight: 600;
+    margin-bottom: 2px;
+    font-size: 15px;
+  }
+
+  .tl-transform-text-body {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #4b5563;
+  }
+
+  /* ===== Zeitstrahl / Diagramm ===== */
+  .tl-progress-section {
+    margin-top: 10px;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 24px;
+  }
+
+  .tl-progress-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  .tl-progress-sub {
+    font-size: 14px;
+    color: #6b7280;
+    text-align: center;
+    max-width: 520px;
+    margin: 0 auto 22px auto;
+  }
+
+  .tl-progress-wrapper {
+    margin-top: 6px;
+  }
+
+  .tl-progress-bar {
+    position: relative;
+    height: 8px;
+    border-radius: 999px;
+    background: #e5e7eb;
+    overflow: hidden;
+    margin-bottom: 28px;
+  }
+
+  .tl-progress-fill {
+    position: absolute;
+    inset: 0;
+    width: 0%;
+    background: linear-gradient(90deg, #facc15, #84cc16, #22c55e, #16a34a);
+    border-radius: inherit;
+    transition: width 7s ease-out; /* ⬅️ hier verlangsamt */
+  }
+
+  .tl-progress-bar.active .tl-progress-fill {
+    width: 100%;
+  }
+
+  .tl-progress-dot {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    background: #ffffff;
+    opacity: 0;
+    transition: opacity 0.7s ease-out 0.5s; /* ⬅️ sanftere Verzögerung */
+  }
+
+  .tl-progress-bar.active .tl-progress-dot {
+    opacity: 1;
+  }
+
+  .tl-progress-dot-1 { left: 25%; border: 3px solid #eab308; box-shadow: 0 0 0 4px rgba(234,179,8,0.25); }
+  .tl-progress-dot-2 { left: 60%; border: 3px solid #84cc16; box-shadow: 0 0 0 4px rgba(132,204,22,0.25); }
+  .tl-progress-dot-3 { left: 100%; border: 3px solid #16a34a; box-shadow: 0 0 0 4px rgba(22,163,74,0.25); }
+
+  .tl-progress-steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .tl-progress-step {
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #4b5563;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: all 0.8s ease-out; /* ⬅️ auch leicht verlangsamt */
+  }
+
+  .tl-progress-bar.active ~ .tl-progress-steps .tl-progress-step {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .tl-progress-step-label {
+    display: inline-block;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    margin-bottom: 4px;
+  }
+
+  .tl-progress-step-text {
+    margin-top: 2px;
+  }
+
+  .tl-chip-yellow { background: #fef9c3; color: #854d0e; }
+  .tl-chip-lime   { background: #ecfccb; color: #3f6212; }
+  .tl-chip-green  { background: #ecfdf3; color: #15803d; }
+
+  @media (max-width: 768px) {
+    .tl-transform-section { padding: 32px 18px 32px 18px !important; margin-bottom: 48px; }
+    .tl-transform-heading { font-size: 24px !important; }
+    .tl-transform-sub { font-size: 15px !important; margin-bottom: 28px !important; }
+
+    .tl-transform-grid { grid-template-columns: 1fr; }
+
+    .tl-progress-steps {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .tl-progress-step {
+      text-align: left;
+    }
+  }
+</style>
+
+<section class="tl-transform-section" id="futterumstellung">
+  <h2 class="tl-transform-heading">
+    So verändert sich dein Hund nach der Futterumstellung
+  </h2>
+  <p class="tl-transform-sub">
+    Viele Hundehalter berichten schon nach wenigen Tagen von sichtbaren Veränderungen – zuerst im Napf,
+    dann im Verhalten. Denn ehrliches Nassfutter wirkt nicht nur im Magen, sondern auf den ganzen Hund.
+  </p>
+
+  <div class="tl-transform-grid">
+    <div class="tl-transform-item">
+      <div class="tl-transform-icon">✓</div>
+      <div>
+        <div class="tl-transform-text-title">Mehr Appetit &amp; Freude beim Fressen</div>
+        <div class="tl-transform-text-body">
+          Kein Zögern mehr am Napf: Dein Hund frisst wieder gerne, statt das Futter zu „prüfen“ oder stehen zu lassen.
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-transform-item">
+      <div class="tl-transform-icon">✓</div>
+      <div>
+        <div class="tl-transform-text-title">Ruhige, gesunde Verdauung</div>
+        <div class="tl-transform-text-body">
+          Fester Kot, weniger Blähungen, kein Durchfall nach dem Fressen – der Darm kommt wieder ins Gleichgewicht.
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-transform-item">
+      <div class="tl-transform-icon">✓</div>
+      <div>
+        <div class="tl-transform-text-title">Glänzendes Fell &amp; gesunde Haut</div>
+        <div class="tl-transform-text-body">
+          Hochwertige Proteine und natürliche Fette unterstützen Haut &amp; Fell – dein Hund wirkt insgesamt gepflegter.
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-transform-item">
+      <div class="tl-transform-icon">✓</div>
+      <div>
+        <div class="tl-transform-text-title">Mehr Energie &amp; Lebensfreude</div>
+        <div class="tl-transform-text-body">
+          Statt müde und „platt“ nach dem Fressen ist dein Hund wacher, aktiver und gleichzeitig ausgeglichener im Alltag.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tl-progress-section">
+    <div class="tl-progress-title">Typischer Verlauf mit Tierliebhaber Nassfutter</div>
+    <div class="tl-progress-sub">
+      Natürlich reagiert jeder Hund anders – viele Kunden berichten jedoch von genau diesem Verlauf,
+      wenn sie konsequent bei der Futterumstellung bleiben.
+    </div>
+
+    <div class="tl-progress-wrapper">
+      <div class="tl-progress-bar" id="progressBar">
+        <div class="tl-progress-fill"></div>
+        <div class="tl-progress-dot tl-progress-dot-1"></div>
+        <div class="tl-progress-dot tl-progress-dot-2"></div>
+        <div class="tl-progress-dot tl-progress-dot-3"></div>
+      </div>
+
+      <div class="tl-progress-steps">
+        <div class="tl-progress-step">
+          <div class="tl-progress-step-label tl-chip-yellow">ab Tag 3</div>
+          <div class="tl-progress-step-text">
+            Erste Entspannung bei Magen &amp; Darm: weniger Schleim im Kot, weniger Bauchgrummeln
+            und dein Hund frisst wieder etwas lieber aus dem Napf.
+          </div>
+        </div>
+
+        <div class="tl-progress-step">
+          <div class="tl-progress-step-label tl-chip-lime">Tag 7–10</div>
+          <div class="tl-progress-step-text">
+            Die Verdauung stabilisiert sich: der Kot wird fester, Durchfall-Phasen nehmen deutlich ab
+            und Blähungen gehen spürbar zurück – besonders bei sensiblen Hunden.
+          </div>
+        </div>
+
+        <div class="tl-progress-step">
+          <div class="tl-progress-step-label tl-chip-green">ab Woche 4</div>
+          <div class="tl-progress-step-text">
+            Der gesamte Organismus kommt zur Ruhe: der Magen reagiert weniger empfindlich,
+            das Immunsystem wird entlastet und viele Hunde mit Allergietendenzen zeigen
+            weniger Juckreiz, Haut- und Fellprobleme.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const section = document.querySelector("#futterumstellung");
+    const progressBar = document.querySelector(".tl-progress-bar");
+
+    if (section && progressBar) {
+      let hasPlayed = false;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && !hasPlayed) {
+              progressBar.classList.add("active");
+              hasPlayed = true;
+            } else if (!entry.isIntersecting && hasPlayed) {
+              progressBar.classList.remove("active");
+              hasPlayed = false;
+            }
+          });
+        },
+        { threshold: 0.4 }
+      );
+
+      observer.observe(section);
+    }
+  });
+</script>
+    </div>
+    </div>
+  
+    <gp-button
+      gp-data='{"btnLink":{"link":"","target":"_self","type":"open-page"}}'
+      
+      class="gp-flex gp-flex-col"
+    >
+      <div style="--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--d:block;--d-mobile:none;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:35px;--pt:0px;--pl:0px;--pb:0px;--pr:0px;--mb-mobile:35px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--mb-tablet:35px;--pt-tablet:0px;--pl-tablet:0px;--pb-tablet:0px;--pr-tablet:0px;--ta:center" >
+        <style>[data-id="gCc2Dl4K-2"].gp-button-base::before, [data-id="gCc2Dl4K-2-interaction"].gp-button-base::before {
+      
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    border-style: none;
+  
+  
+  
+    
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+      
+  
+    }
+  
+      
+  [data-id="gCc2Dl4K-2"]:hover::before, [data-id="gCc2Dl4K-2-interaction"]:hover::before {
+    
+    
+  }</style>
+        
+        <button
+          data-id="gCc2Dl4K-2" dataId="gCc2Dl4K-2" data-state="idle" aria-label="<p>Jetzt bis zu 50% Sonder-Rabatt sichern!</p>"
+          
+          type="button"
+          style="--w:60%;--w-tablet:60%;--w-mobile:90%;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--pl:24px;--pr:24px;--pt:12px;--pb:12px;--pl-mobile:24px;--pr-mobile:24px;--pt-mobile:12px;--pb-mobile:12px;--bblr:40px;--bbrr:40px;--btlr:40px;--btrr:40px;--hvr-bblr:40px;--hvr-bbrr:40px;--hvr-btlr:40px;--hvr-btrr:40px;--bgi:;--hvr-bgi:;--hvr-bg:var(--g-c-highlight, highlight);--bg:#E4893A;--c:var(--g-c-text-3, text-3);--size:20px;--size-tablet:16px;--size-mobile:18px;--weight:bold"
+          class="gCc2Dl4K-2 gp-button-base gp-group gp-relative gp-inline-flex gp-max-w-full gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-200 disabled:gp-btn-disabled disabled:gp-opacity-30 gp-text-g-text-3 gp-g-paragraph-1"
+        >
+        
+        <div class="gp-inline-flex">
+          
+          
+    <span
+      data-gp-text
+      style="--size:20px;--size-tablet:16px;--size-mobile:18px;--weight:bold;word-break:break-word"
+      class="gp-content-product-button group-active/button:!gp-text-inherit gp-relative gp-flex gp-h-full gp-items-center gp-overflow-hidden gp-break-words group-data-[state=loading]:gp-invisible [&_p]:gp-whitespace-pre-line gp-text button-text"
+    >
+      {{ section.settings.ggCc2Dl4K-2_label }}
+    </span>
+        </div>
+        
+        </button>
+      </div>
+      <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-button-v7-5.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+    </gp-button>
+  
+  
+    <div
+      
+      style="--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--ta:left;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+      data-keep-class="true"
+      class="gbyv8G2liI gp-custom-code">
+      <div>
+    <style>
+  .tl-experts-section {
+    max-width: 1120px;
+    margin: 0 auto 100px auto;
+    padding: 60px 40px 64px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 16px 45px rgba(0,0,0,0.07);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #1f2933;
+  }
+
+  .tl-transform-heading {
+    text-align: center;
+    font-size: 32px;
+    line-height: 1.3;
+    font-weight: 800;
+    margin-bottom: 14px;
+  }
+
+  .tl-transform-sub {
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #4b5563;
+    max-width: 720px;
+    margin: 0 auto 40px auto;
+  }
+
+  .tl-experts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+  }
+
+  .tl-expert-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 34px 30px;
+    box-shadow: 0 14px 35px rgba(15,23,42,0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .tl-expert-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 42px rgba(15,23,42,0.08);
+  }
+
+  .tl-expert-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 16px;
+  }
+
+  .tl-expert-photo {
+    width: 85px;
+    height: 85px;
+    border-radius: 999px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .tl-expert-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .tl-expert-meta {
+    flex: 1;
+  }
+
+  .tl-expert-name {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .tl-expert-role {
+    font-size: 15px;
+    font-weight: 600;
+    color: #6b7280;
+    margin-bottom: 2px;
+  }
+
+  .tl-expert-location {
+    font-size: 13px;
+    color: #9ca3af;
+  }
+
+  .tl-expert-body {
+    margin-top: 16px;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #374151;
+  }
+
+  .tl-expert-body p {
+    margin: 0 0 12px;
+  }
+
+  .tl-expert-body p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 1024px) {
+    .tl-experts-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .tl-experts-section {
+      padding: 36px 20px 42px;
+      margin-bottom: 64px;
+    }
+    .tl-transform-heading {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .tl-transform-sub {
+      font-size: 16px;
+      margin-bottom: 28px;
+    }
+    .tl-experts-grid {
+      grid-template-columns: 1fr;
+      gap: 22px;
+    }
+    .tl-expert-photo {
+      width: 75px;
+      height: 75px;
+    }
+    .tl-expert-card {
+      padding: 26px 20px;
+    }
+    .tl-expert-name {
+      font-size: 17px;
+    }
+    .tl-expert-role {
+      font-size: 14px;
+    }
+    .tl-expert-body {
+      font-size: 14.5px;
+    }
+  }
+</style>
+
+<section class="tl-experts-section">
+  <h2 class="tl-transform-heading">
+    Entwickelt mit deutschen Tierärzten, Tierheilpraktikerin und zertifizierter Ernährungsexpertin
+  </h2>
+  <p class="tl-transform-sub">
+    Hinter der Rezeptur steht ein Expertenteam, das täglich mit Hunden arbeitet – von der Praxis bis zur Ernährungsberatung. 
+    So kannst du dir sicher sein, dass im Napf nur das landet, was deinem Hund wirklich guttut.
+  </p>
+
+  <div class="tl-experts-grid">
+    <!-- Christina -->
+    <article class="tl-expert-card">
+      <div>
+        <div class="tl-expert-header">
+          <div class="tl-expert-photo">
+            <img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/gempages_534104955091420133-52495d46-df23-4602-a930-111d5a7f6abf.webp" alt="Tierärztin Christina Pfülb">
+          </div>
+          <div class="tl-expert-meta">
+            <div class="tl-expert-name">Christina Pfülb</div>
+            <div class="tl-expert-role">Tierärztin</div>
+            <div class="tl-expert-location">Praxis bei Bad Kissingen</div>
+          </div>
+        </div>
+        <div class="tl-expert-body">
+          <p>„Ich war von Anfang an Teil des Entwicklungsteams – von der Auswahl der Proteinquellen bis zur finalen Zusammensetzung. Wichtig war mir, dass das Futter nicht nur gut schmeckt, sondern auch wirkt – besonders bei Haut- und Darmproblemen, mit denen viele Hunde heute kämpfen.</p>
+          <p>Schon nach wenigen Tagen berichten viele meiner Patientenbesitzer von weniger Juckreiz, festerem Kot und glänzenderem Fell. Für mich ein klares Zeichen: Der positive Effekt war direkt spürbar.“</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Evelyn -->
+    <article class="tl-expert-card">
+      <div>
+        <div class="tl-expert-header">
+          <div class="tl-expert-photo">
+            <img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/gempages_534104955091420133-86af55ed-61d3-4c0d-aefd-465348c450bb.webp" alt="Ernährungsexpertin Evelyn Rupprecht">
+          </div>
+          <div class="tl-expert-meta">
+            <div class="tl-expert-name">Evelyn Rupprecht</div>
+            <div class="tl-expert-role">Zertifizierte Ernährungsexpertin für Hunde</div>
+          </div>
+        </div>
+        <div class="tl-expert-body">
+          <p>„Bei der Entwicklung der Rezeptur war mir wichtig: ausgewogenes Nährstoffprofil, optimales Verhältnis von Protein zu Fett und keine unnötigen Füllstoffe. Natürlich mussten auch meine sechs Hunde überzeugt werden – wenn sie den Napf nicht leer fressen, hat das Produkt keine Chance.</p>
+          <p>Deshalb haben wir nur das Beste verwendet: frisches Fleisch, nährstoffreiche Innereien, kaltgepresste Öle – ohne künstliche Zusätze. Meine Hunde lieben es.“</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Sabrina -->
+    <article class="tl-expert-card">
+      <div>
+        <div class="tl-expert-header">
+          <div class="tl-expert-photo">
+            <img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/gempages_534104955091420133-ac485258-ebc4-459b-9ec0-59b8b5bbb551.webp" alt="Tierheilpraktikerin Sabrina Toth">
+          </div>
+          <div class="tl-expert-meta">
+            <div class="tl-expert-name">Sabrina Toth</div>
+            <div class="tl-expert-role">Tierheilpraktikerin</div>
+            <div class="tl-expert-location">Praxis in Leipzig</div>
+          </div>
+        </div>
+        <div class="tl-expert-body">
+          <p>„Von Anfang an war ich in die Entwicklung eingebunden – vor allem bei der Abstimmung der Kräuter, der Verträglichkeit und der Darmschonung. Viele reden von Natur – wir haben sie wirklich umgesetzt: bekömmliche Zutaten, sorgfältige Verarbeitung und ein Fokus auf Hunde mit empfindlicher Verdauung.</p>
+          <p>In meiner Praxis begleite ich oft Futterumstellungen – aber so sanft, problemlos und stressfrei wie mit diesem Futter habe ich es selten erlebt. Selbst chronisch sensible Hunde haben es sofort vertragen. Für mich ein echtes Herzensprojekt.“</p>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+    </div>
+    </div>
+  
+    </div>
+
+      
+    </gp-row>
+  
+  
+    </div>
+
+      
+    </gp-row>
+  
+        </section>
+      
+  
+    
+{% schema %}
+  {
+    
+    "name": "Section 5",
+    "tag": "section",
+    "class": "gps-592807611775910601 gps gpsi",
+    "settings": [{"type":"paragraph","content":"Section design by GemPages. [Click here to start design](https://admin.shopify.com/store/tierliebhaber-animagus/apps/gempages-cro/app/shopify/edit?pageType=GP_STATIC&editorId=592807611624063689&sectionId=592807611775910601)"},{"type":"select","label":"Section Preload","id":"section_preload","options":[{"label":"On","value":"true"},{"label":"Off","value":"false"},{"label":"Off Lazy Script","value":"off_lazy_script"}],"default":"off_lazy_script"},{"type":"text","label":"Checksum","id":"checksum"},{"type":"html","id":"ggCc2Dl4K-2_label","label":"ggCc2Dl4K-2_label","default":"<p>Jetzt bis zu 50% Sonder-Rabatt sichern!</p>"}],
+    "blocks": [{"type": "@app"}],
+    "locales": {}
+  }
+{% endschema %}
