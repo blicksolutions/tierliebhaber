@@ -1,0 +1,1416 @@
+
+    
+    
+    <style>.gps-592819216575824585 .-gp-rotate-90,.gps-592819216575824585 .gp-rotate-180,.gps-592819216575824585 .gp-rotate-90{--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1}.gps-592819216575824585 .gp-relative{position:relative}.gps-592819216575824585 .gp-mx-auto{margin-left:auto;margin-right:auto}.gps-592819216575824585 .gp-mb-0{margin-bottom:0}.gps-592819216575824585 .gp-inline-block{display:inline-block}.gps-592819216575824585 .gp-flex{display:flex}.gps-592819216575824585 .gp-inline-flex{display:inline-flex}.gps-592819216575824585 .gp-grid{display:grid}.gps-592819216575824585 .gp-contents{display:contents}.gps-592819216575824585 .\!gp-hidden{display:none!important}.gps-592819216575824585 .gp-hidden{display:none}.gps-592819216575824585 .gp-h-auto{height:auto}.gps-592819216575824585 .gp-h-full{height:100%}.gps-592819216575824585 .gp-min-h-0{min-height:0}.gps-592819216575824585 .gp-w-full{width:100%}.gps-592819216575824585 .gp-max-w-full{max-width:100%}.gps-592819216575824585 .gp-flex-none{flex:none}.gps-592819216575824585 .-gp-rotate-90{--tw-rotate:-90deg}.gps-592819216575824585 .-gp-rotate-90,.gps-592819216575824585 .gp-rotate-180{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.gps-592819216575824585 .gp-rotate-180{--tw-rotate:180deg}.gps-592819216575824585 .gp-rotate-90{--tw-rotate:90deg;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.gps-592819216575824585 .gp-cursor-pointer{cursor:pointer}.gps-592819216575824585 .gp-grid-rows-\[0fr\]{grid-template-rows:0fr}.gps-592819216575824585 .gp-grid-rows-\[1fr\]{grid-template-rows:1fr}.gps-592819216575824585 .gp-flex-col{flex-direction:column}.gps-592819216575824585 .gp-items-center{align-items:center}.gps-592819216575824585 .gp-justify-center{justify-content:center}.gps-592819216575824585 .gp-gap-\[16px\]{gap:16px}.gps-592819216575824585 .gp-overflow-hidden{overflow:hidden}.gps-592819216575824585 .gp-overflow-clip{overflow:clip}.gps-592819216575824585 .gp-break-all{word-break:break-all}.gps-592819216575824585 .gp-transition-all{transition-duration:.15s;transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-592819216575824585 .gp-transition-colors{transition-duration:.15s;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-592819216575824585 .gp-duration-200{transition-duration:.2s}.gps-592819216575824585 .gp-duration-500{transition-duration:.5s}.gps-592819216575824585 .gp-ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}@media (hover:hover) and (pointer:fine){.gps-592819216575824585 .gp-group:hover .group-hover\:\[color\:var\(--icon-expand-hover-color\)\]{color:var(--icon-expand-hover-color)}.gps-592819216575824585 .gp-group:hover .group-hover\:\[color\:var\(--text-hover-color\)\!important\]{color:var(--text-hover-color)!important}}@media (max-width:1024px){.gps-592819216575824585 .tablet\:\!gp-hidden{display:none!important}.gps-592819216575824585 .tablet\:gp-hidden{display:none}.gps-592819216575824585 .tablet\:gp-h-auto{height:auto}.gps-592819216575824585 .tablet\:gp-flex-none{flex:none}}@media (max-width:767px){.gps-592819216575824585 .mobile\:\!gp-hidden{display:none!important}.gps-592819216575824585 .mobile\:gp-hidden{display:none}.gps-592819216575824585 .mobile\:gp-h-auto{height:auto}.gps-592819216575824585 .mobile\:gp-flex-none{flex:none}}.gps-592819216575824585 .\[\&\>svg\]\:\!gp-h-\[var\(--height-iconCollapseSize\)\]>svg{height:var(--height-iconCollapseSize)!important}.gps-592819216575824585 .\[\&\>svg\]\:\!gp-w-full>svg{width:100%!important}.gps-592819216575824585 .\[\&_\*\]\:gp-max-w-full *{max-width:100%}</style>
+    
+  
+    
+    
+    
+
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+
+    
+        <section
+          class="gp-mx-auto gp-max-w-full [&_*]:gp-max-w-full {% if section.settings.section_preload == "false" %}gps-lazy {% endif %}"
+          style="--w:calc(900px + 2 * var(--g-ct-p, 15px));--w-tablet:calc(var(--g-ct-w, 100%) + 2 * var(--g-ct-p, 15px));--w-mobile:calc(95% + 2 * var(--g-ct-p, 15px));--pl:var(--g-ct-p, 15px);--pl-tablet:var(--g-ct-p, 15px);--pl-mobile:none;--pr:var(--g-ct-p, 15px);--pr-tablet:var(--g-ct-p, 15px);--pr-mobile:none"
+        >
+          
+    <gp-row gp-data='{"background":{"desktop":{"color":"rgb(254, 254, 254)","type":"color"}},"uid":"gNVwD-SGxO"}' data-id="gNVwD-SGxO" id="gNVwD-SGxO" data-same-height-subgrid-container class="gNVwD-SGxO gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--d:grid;--d-mobile:grid;--d-tablet:grid;--pageType:GP_STATIC;--mt:0px;--ml:auto;--mb:60px;--mr:auto;--pt:10px;--pl:0px;--pb:0px;--pr:0px;--mt-mobile:0px;--ml-mobile:10px;--mb-mobile:0px;--mr-mobile:auto;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--mt-tablet:0px;--ml-tablet:auto;--mb-tablet:0px;--mr-tablet:auto;--pt-tablet:10px;--pl-tablet:0px;--pb-tablet:30px;--pr-tablet:0px;--cg:5px;--cg-tablet:32px;--gtc:minmax(0, 12fr);--gtc-mobile:minmax(0, 12fr);--w:900px;--w-tablet:var(--g-ct-w, 100%);--w-mobile:95%;--bgc:rgb(254, 254, 254);--bgi:url();--pc:center;--pc-mobile:start">
+      
+
+      <div
+      data-same-height-display-contents
+      style="--jc:start"
+      class="gArmZ2yTg9 gp-relative gp-flex gp-flex-col"
+    >
+      
+    
+
+    
+
+    
+    <gp-row gp-data='{"background":{"desktop":{"attachment":"scroll","color":"transparent","image":{"height":0,"src":"","width":0},"position":{"x":50,"y":50},"repeat":"no-repeat","size":"cover","type":"color"}},"uid":"gENoTjEcxg"}' data-id="gENoTjEcxg" id="gENoTjEcxg" data-same-height-subgrid-container class="gENoTjEcxg gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--pt:0px;--pl:0px;--pb:0px;--pr:0px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--pt-tablet:0px;--pl-tablet:0px;--pb-tablet:0px;--pr-tablet:0px;--cg:8px;--gtc:minmax(0, 12fr);--gtc-mobile:minmax(0, 12fr);--w:var(--g-ct-w, 1200px);--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pc:start">
+      
+
+      <div
+      data-same-height-display-contents
+      style="--jc:start"
+      class="gfoOPNfnmt gp-relative gp-flex gp-flex-col"
+    >
+      
+    
+
+    
+
+    
+    <gp-row gp-data='{"background":{"desktop":{"attachment":"scroll","color":"transparent","image":{"height":0,"src":"","width":0},"position":{"x":50,"y":50},"repeat":"no-repeat","size":"cover","type":"color"}},"uid":"gxWthscfMK"}' data-id="gxWthscfMK" id="gxWthscfMK" data-same-height-subgrid-container class="gxWthscfMK gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:0px;--pt:0px;--pl:0px;--pb:0px;--pr:0px;--mb-mobile:30px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--mb-tablet:0px;--pt-tablet:0px;--pl-tablet:0px;--pb-tablet:0px;--pr-tablet:0px;--cg:8px;--gtc:minmax(0, 12fr);--gtc-mobile:minmax(0, 12fr);--w:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pc:start">
+      
+
+      <div
+      data-same-height-display-contents
+      style="--jc:start"
+      class="gPXkDv-jIv gp-relative gp-flex gp-flex-col"
+    >
+      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="gETDbITP80"
+        class="gETDbITP80"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mt:0px;--mb:31px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1762877792855"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <h2
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--ta-mobile:center;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-heading, heading);--size:32px;--size-tablet:32px;--size-mobile:22px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--weight:bold;--c:#3A3A3A;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggETDbITP80_text | replace: '$locationOrigin', locationOrigin }}
+        </h2>
+      </div>
+    </div>
+    <div gp-el-wrapper style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ml:0px;--mb:26px;--pt:0px;--pl:0px;--pb:0px;--pr:0px;--ml-mobile:0px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--ml-tablet:0px;--mb-tablet:26px;--pt-tablet:0px;--pl-tablet:0px;--pb-tablet:0px;--pr-tablet:0px" class="gb65IUOhdm ">
+      
+    <gp-accordion data-id="gb65IUOhdm" class="gp-flex gp-flex-col gp-w-full" style="--gg:1px;border-radius:inherit"
+      gp-data='{"uid":"gb65IUOhdm","setting":{"iconSvg":"<svg width=\"17\" height=\"16\" viewBox=\"0 0 17 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                  <path d=\"M5.64645 2.64645C5.84171 2.45118 6.15829 2.45118 6.35355 2.64645L11.3536 7.64645C11.5488 7.84171 11.5488 8.15829 11.3536 8.35355L6.35355 13.3536C6.15829 13.5488 5.84171 13.5488 5.64645 13.3536C5.45118 13.1583 5.45118 12.8417 5.64645 12.6464L10.2929 8L5.64645 3.35355C5.45118 3.15829 5.45118 2.84171 5.64645 2.64645Z\" fill=\"currentColor\"/>\n                  </svg>","isIconPlus":false,"activeKey":"1,2","expanded":true,"expandItem":false,"iconPosition":"left","iconGlobalSize":{"desktop":{"gap":"16px"}},"iconCollapse":"<svg height=\"20\" width=\"20\" xmlns=\"http://www.w3.org/2000/svg\"  viewBox=\"0 0 256 256\" fill=\"currentColor\" data-id=\"508817558491496808\">\n              <path fill=\"currentColor\" strokeLinecap=\"round\" strokeLinejoin=\"round\" fill=\"currentColor\" d=\"M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z\" /></svg>","iconExpand":"<svg height=\"20\" width=\"20\" xmlns=\"http://www.w3.org/2000/svg\"  viewBox=\"0 0 256 256\" fill=\"currentColor\" data-id=\"508817562042171752\">\n              <path fill=\"currentColor\" strokeLinecap=\"round\" strokeLinejoin=\"round\" fill=\"currentColor\" d=\"M216.49,168.49a12,12,0,0,1-17,0L128,97,56.49,168.49a12,12,0,0,1-17-17l80-80a12,12,0,0,1,17,0l80,80A12,12,0,0,1,216.49,168.49Z\" /></svg>","iconCollapseSize":26,"layoutHeader":"text-only","expandedMode":"multiple","configIconSize":16,"parentUid":"gb65IUOhdm","childListNumber":[],"chidlrenUid":["gDdinz9OiT","g1jO5MLec_","g5ZK6rxArW","gXM6OAIdTr","gzYBrACiGI","gvi1oaDs55","gwiTYLRtWS","gHO0Iq9_gX","gImCepOXUg","gkCYeRRugH","gsxCpbRwXY","gz_VT2rVIy"]},"styles":{"bgColor":{"active":"transparent","hover":"#00000000","normal":"#00000000"},"color":{"active":"#121212","hover":"#121212","normal":"#121212"},"headerBorder":{"active":{"border":"solid","borderWidth":"Mixed","color":"#121212","isCustom":true,"position":"bottom","width":"0px 0px 1px 0px"},"hover":{"border":"solid","borderWidth":"Mixed","color":"#121212","isCustom":true,"position":"bottom","width":"0px 0px 1px 0px"},"normal":{"border":"solid","borderWidth":"Mixed","color":"#3a3a3a","isCustom":true,"position":"bottom","width":"0px 0px 1px 0px"}},"textColor":{"active":"#121212","hover":"#121212","normal":"#3A3A3A"},"iconColor":{"active":"#121212","hover":"#121212","normal":"#121212"},"contentSizePadding":{"desktop":{"gap":"1px","padding":{"bottom":"8px","left":"24px","right":"24px","top":"8px","type":"medium"}}},"headerContentPadding":{"desktop":{"gap":"","padding":{"bottom":"8px","left":"24px","right":"24px","top":"8px","type":"custom"}}},"widthHeightSize":{"desktop":{"gap":"","height":"Auto","width":"100%"}}}}'
+        >
+        <div class=" gp-hidden gp-rotate-90 -gp-rotate-90 gp-rotate-180"></div>
+      
+          <div class="gp-flex" style="--jc:left;--jc-mobile:left">
+            
+  <div class="gp-overflow-clip gp-group" style="--text-hover-color:#121212;--icon-expand-hover-color:#121212;--icon-expand-active-color:#121212;--icon-active-color:#121212;--icon-hover-color:#121212;--w:100%;--w-tablet:100%;--w-mobile:100%;--bs:solid;--bw:1px 1px 1px 1px;--bc:#00000000;--bg:#00000000;--shadow:none;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px">
+    <div data-index="0" class="gb65IUOhdm gp-overflow-hidden gp-child-item-gb65IUOhdm gp-accordion-item">
+      <div aria-hidden uid="gDdinz9OiT" id="gDdinz9OiT" data-index="0"
+        class="gp-flex gp-accordion-item_header gp-cursor-pointer gp-items-center gp-gap-[16px] gb65IUOhdm gp-accordion-item-gb65IUOhdm-0" style="--pl:24px;--pr:24px;--pt:8px;--pb:8px;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--fd:row;--jc:;--hvr-bgc:#00000000;--bgc:#00000000;--bs:solid;--hvr-bs:solid;--bw:0px 0px 1px 0px;--hvr-bw:0px 0px 1px 0px;--bc:#3a3a3a;--hvr-bc:#121212">
+        
+          <div class="gp-inline-flex">
+            <span style="--c:#121212;width:26px;height:26px"
+            data-index="0"
+            class="group-hover:[color:var(--icon-expand-hover-color)] gp-collapsible-icon gp-accordion-item_icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden gp-transition-all gp-duration-200 [&>svg]:!gp-h-[var(--height-iconCollapseSize)] [&>svg]:!gp-w-full">
+              <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817558491496808">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z" /></svg>
+            </span>
+          </div>
+          
+        <div class="gp-flex gp-w-full gp-items-center gp-break-all" style="--gg:16px;--jc:left;--jc-mobile:left">
+          
+          
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id
+        
+        style="--c:#3A3A3A;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1762877792856"
+      >
+      <div  >
+        <div
+          data-gp-text
+          class="gp-overflow-hidden gp-accordion-text-content group-hover:[color:var(--text-hover-color)!important]  gp-text-instant"
+          style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:20px;--size-tablet:16px;--size-mobile:16px;--lh:180%;--lh-tablet:180%;--lh-mobile:180%;word-break:break-word;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggb65IUOhdm_childItem_0 }}
+        </div>
+      </div>
+    </div>
+    
+          
+        </div>
+      </div>
+      <div data-index="0" data-show="false" class="gp-accordion-item_body gp-transition-all gp-grid gp-duration-500 gp-overflow-hidden gp-grid-rows-[0fr]" style="grid-template-rows:0fr;grid-template-columns:minmax(auto, 100%)">
+        <div data-index="0" class="gp-accordion-item_body-inner gp-transition-all gp-duration-500 gp-min-h-0" style="--pl:24px;--pr:24px">
+          <div
+      data-same-height-display-contents
+      style="--ai:normal;--jc:normal;--o:0"
+      class="g3HqS1bPp- gp-relative gp-flex gp-flex-col"
+    >
+      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="gmGrIMHyTK"
+        class="gmGrIMHyTK"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1762877792856"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--ta-mobile:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:25px;--size-tablet:16px;--size-mobile:16px;--lh:150%;--lh-tablet:180%;--lh-mobile:150%;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggmGrIMHyTK_text | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+          </div>
+            
+          <div class="gp-flex" style="--jc:left;--jc-mobile:left">
+            
+  <div class="gp-overflow-clip gp-group" style="--text-hover-color:#121212;--icon-expand-hover-color:#121212;--icon-expand-active-color:#121212;--icon-active-color:#121212;--icon-hover-color:#121212;--w:100%;--w-tablet:100%;--w-mobile:100%;--bs:solid;--bw:1px 1px 1px 1px;--bc:#00000000;--bg:#00000000;--shadow:none;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px">
+    <div data-index="1" class="gb65IUOhdm gp-overflow-hidden gp-child-item-gb65IUOhdm gp-accordion-item">
+      <div aria-hidden uid="g1jO5MLec_" id="g1jO5MLec_" data-index="1"
+        class="gp-flex gp-accordion-item_header gp-cursor-pointer gp-items-center gp-gap-[16px] gb65IUOhdm gp-accordion-item-gb65IUOhdm-1" style="--pl:24px;--pr:24px;--pt:8px;--pb:8px;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--fd:row;--jc:;--hvr-bgc:#00000000;--bgc:#00000000;--bs:solid;--hvr-bs:solid;--bw:0px 0px 1px 0px;--hvr-bw:0px 0px 1px 0px;--bc:#3a3a3a;--hvr-bc:#121212">
+        
+          <div class="gp-inline-flex">
+            <span style="--c:#121212;width:26px;height:26px"
+            data-index="1"
+            class="group-hover:[color:var(--icon-expand-hover-color)] gp-collapsible-icon gp-accordion-item_icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden gp-transition-all gp-duration-200 [&>svg]:!gp-h-[var(--height-iconCollapseSize)] [&>svg]:!gp-w-full">
+              <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817558491496808">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z" /></svg>
+            </span>
+          </div>
+          
+        <div class="gp-flex gp-w-full gp-items-center gp-break-all" style="--gg:16px;--jc:left;--jc-mobile:left">
+          
+          
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id
+        
+        style="--c:#3A3A3A;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1762877792857"
+      >
+      <div  >
+        <div
+          data-gp-text
+          class="gp-overflow-hidden gp-accordion-text-content group-hover:[color:var(--text-hover-color)!important]  gp-text-instant"
+          style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:20px;--size-tablet:16px;--size-mobile:16px;--lh:180%;--lh-tablet:180%;--lh-mobile:180%;word-break:break-word;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggb65IUOhdm_childItem_1 }}
+        </div>
+      </div>
+    </div>
+    
+          
+        </div>
+      </div>
+      <div data-index="1" data-show="false" class="gp-accordion-item_body gp-transition-all gp-grid gp-duration-500 gp-overflow-hidden gp-grid-rows-[0fr]" style="grid-template-rows:0fr;grid-template-columns:minmax(auto, 100%)">
+        <div data-index="1" class="gp-accordion-item_body-inner gp-transition-all gp-duration-500 gp-min-h-0" style="--pl:24px;--pr:24px">
+          <div
+      data-same-height-display-contents
+      style="--ai:normal;--jc:normal;--o:0"
+      class="gEGwFPIPPa gp-relative gp-flex gp-flex-col"
+    >
+      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="gltbt0HRev"
+        class="gltbt0HRev"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1762877792858"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--ta-mobile:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:20px;--size-tablet:20px;--size-mobile:16px;--lh:150%;--lh-tablet:180%;--lh-mobile:150%;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggltbt0HRev_text | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+          </div>
+            
+          <div class="gp-flex" style="--jc:left;--jc-mobile:left">
+            
+  <div class="gp-overflow-clip gp-group" style="--text-hover-color:#121212;--icon-expand-hover-color:#121212;--icon-expand-active-color:#121212;--icon-active-color:#121212;--icon-hover-color:#121212;--w:100%;--w-tablet:100%;--w-mobile:100%;--bs:solid;--bw:1px 1px 1px 1px;--bc:#00000000;--bg:#00000000;--shadow:none;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px">
+    <div data-index="2" class="gb65IUOhdm gp-overflow-hidden gp-child-item-gb65IUOhdm gp-accordion-item">
+      <div aria-hidden uid="g5ZK6rxArW" id="g5ZK6rxArW" data-index="2"
+        class="gp-flex gp-accordion-item_header gp-cursor-pointer gp-items-center gp-gap-[16px] gb65IUOhdm gp-accordion-item-gb65IUOhdm-2" style="--pl:24px;--pr:24px;--pt:8px;--pb:8px;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--fd:row;--jc:;--hvr-bgc:#00000000;--bgc:#00000000;--bs:solid;--hvr-bs:solid;--bw:0px 0px 1px 0px;--hvr-bw:0px 0px 1px 0px;--bc:#3a3a3a;--hvr-bc:#121212">
+        
+          <div class="gp-inline-flex">
+            <span style="--c:#121212;width:26px;height:26px"
+            data-index="2"
+            class="group-hover:[color:var(--icon-expand-hover-color)] gp-collapsible-icon gp-accordion-item_icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden gp-transition-all gp-duration-200 [&>svg]:!gp-h-[var(--height-iconCollapseSize)] [&>svg]:!gp-w-full">
+              <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817558491496808">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z" /></svg>
+            </span>
+          </div>
+          
+        <div class="gp-flex gp-w-full gp-items-center gp-break-all" style="--gg:16px;--jc:left;--jc-mobile:left">
+          
+          
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id
+        
+        style="--c:#3A3A3A;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1762877792858"
+      >
+      <div  >
+        <div
+          data-gp-text
+          class="gp-overflow-hidden gp-accordion-text-content group-hover:[color:var(--text-hover-color)!important]  gp-text-instant"
+          style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:20px;--size-tablet:16px;--size-mobile:16px;--lh:180%;--lh-tablet:180%;--lh-mobile:180%;word-break:break-word;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggb65IUOhdm_childItem_2 }}
+        </div>
+      </div>
+    </div>
+    
+          
+        </div>
+      </div>
+      <div data-index="2" data-show="false" class="gp-accordion-item_body gp-transition-all gp-grid gp-duration-500 gp-overflow-hidden gp-grid-rows-[0fr]" style="grid-template-rows:0fr;grid-template-columns:minmax(auto, 100%)">
+        <div data-index="2" class="gp-accordion-item_body-inner gp-transition-all gp-duration-500 gp-min-h-0" style="--pl:24px;--pr:24px">
+          <div
+      data-same-height-display-contents
+      
+      class="gVIbtoNJYY gp-relative gp-flex gp-flex-col"
+    >
+      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="g5sVV31oKk"
+        class="g5sVV31oKk"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1762877792859"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--ta-mobile:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:20px;--size-tablet:20px;--size-mobile:16px;--lh:150%;--lh-tablet:180%;--lh-mobile:150%;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.gg5sVV31oKk_text | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+          </div>
+            
+          <div class="gp-flex" style="--jc:left;--jc-mobile:left">
+            
+  <div class="gp-overflow-clip gp-group" style="--text-hover-color:#121212;--icon-expand-hover-color:#121212;--icon-expand-active-color:#121212;--icon-active-color:#121212;--icon-hover-color:#121212;--w:100%;--w-tablet:100%;--w-mobile:100%;--bs:solid;--bw:1px 1px 1px 1px;--bc:#00000000;--bg:#00000000;--shadow:none;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px">
+    <div data-index="3" class="gb65IUOhdm gp-overflow-hidden gp-child-item-gb65IUOhdm gp-accordion-item">
+      <div aria-hidden uid="gXM6OAIdTr" id="gXM6OAIdTr" data-index="3"
+        class="gp-flex gp-accordion-item_header gp-cursor-pointer gp-items-center gp-gap-[16px] gb65IUOhdm gp-accordion-item-gb65IUOhdm-3" style="--pl:24px;--pr:24px;--pt:8px;--pb:8px;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--fd:row;--jc:;--hvr-bgc:#00000000;--bgc:#00000000;--bs:solid;--hvr-bs:solid;--bw:0px 0px 1px 0px;--hvr-bw:0px 0px 1px 0px;--bc:#3a3a3a;--hvr-bc:#121212">
+        
+          <div class="gp-inline-flex">
+            <span style="--c:#121212;width:26px;height:26px"
+            data-index="3"
+            class="group-hover:[color:var(--icon-expand-hover-color)] gp-collapsible-icon gp-accordion-item_icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden gp-transition-all gp-duration-200 [&>svg]:!gp-h-[var(--height-iconCollapseSize)] [&>svg]:!gp-w-full">
+              <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817558491496808">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z" /></svg>
+            </span>
+          </div>
+          
+        <div class="gp-flex gp-w-full gp-items-center gp-break-all" style="--gg:16px;--jc:left;--jc-mobile:left">
+          
+          
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id
+        
+        style="--c:#3A3A3A;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1762877792859"
+      >
+      <div  >
+        <div
+          data-gp-text
+          class="gp-overflow-hidden gp-accordion-text-content group-hover:[color:var(--text-hover-color)!important]  gp-text-instant"
+          style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:20px;--size-tablet:16px;--size-mobile:16px;--lh:180%;--lh-tablet:180%;--lh-mobile:180%;word-break:break-word;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggb65IUOhdm_childItem_3 }}
+        </div>
+      </div>
+    </div>
+    
+          
+        </div>
+      </div>
+      <div data-index="3" data-show="false" class="gp-accordion-item_body gp-transition-all gp-grid gp-duration-500 gp-overflow-hidden gp-grid-rows-[0fr]" style="grid-template-rows:0fr;grid-template-columns:minmax(auto, 100%)">
+        <div data-index="3" class="gp-accordion-item_body-inner gp-transition-all gp-duration-500 gp-min-h-0" style="--pl:24px;--pr:24px">
+          <div
+      data-same-height-display-contents
+      
+      class="gY0fZE05S9 gp-relative gp-flex gp-flex-col"
+    >
+      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="g27gDVjU86"
+        class="g27gDVjU86"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1762877792860"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--ta-mobile:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:20px;--size-tablet:20px;--size-mobile:16px;--lh:150%;--lh-tablet:180%;--lh-mobile:150%;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.gg27gDVjU86_text | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+          </div>
+            
+          <div class="gp-flex" style="--jc:left;--jc-mobile:left">
+            
+  <div class="gp-overflow-clip gp-group" style="--text-hover-color:#121212;--icon-expand-hover-color:#121212;--icon-expand-active-color:#121212;--icon-active-color:#121212;--icon-hover-color:#121212;--w:100%;--w-tablet:100%;--w-mobile:100%;--bs:solid;--bw:1px 1px 1px 1px;--bc:#00000000;--bg:#00000000;--shadow:none;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px">
+    <div data-index="4" class="gb65IUOhdm gp-overflow-hidden gp-child-item-gb65IUOhdm gp-accordion-item">
+      <div aria-hidden uid="gzYBrACiGI" id="gzYBrACiGI" data-index="4"
+        class="gp-flex gp-accordion-item_header gp-cursor-pointer gp-items-center gp-gap-[16px] gb65IUOhdm gp-accordion-item-gb65IUOhdm-4" style="--pl:24px;--pr:24px;--pt:8px;--pb:8px;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--fd:row;--jc:;--hvr-bgc:#00000000;--bgc:#00000000;--bs:solid;--hvr-bs:solid;--bw:0px 0px 1px 0px;--hvr-bw:0px 0px 1px 0px;--bc:#3a3a3a;--hvr-bc:#121212">
+        
+          <div class="gp-inline-flex">
+            <span style="--c:#121212;width:26px;height:26px"
+            data-index="4"
+            class="group-hover:[color:var(--icon-expand-hover-color)] gp-collapsible-icon gp-accordion-item_icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden gp-transition-all gp-duration-200 [&>svg]:!gp-h-[var(--height-iconCollapseSize)] [&>svg]:!gp-w-full">
+              <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817558491496808">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z" /></svg>
+            </span>
+          </div>
+          
+        <div class="gp-flex gp-w-full gp-items-center gp-break-all" style="--gg:16px;--jc:left;--jc-mobile:left">
+          
+          
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id
+        
+        style="--c:#3A3A3A;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1762877792860"
+      >
+      <div  >
+        <div
+          data-gp-text
+          class="gp-overflow-hidden gp-accordion-text-content group-hover:[color:var(--text-hover-color)!important]  gp-text-instant"
+          style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:20px;--size-tablet:16px;--size-mobile:16px;--lh:180%;--lh-tablet:180%;--lh-mobile:180%;word-break:break-word;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggb65IUOhdm_childItem_4 }}
+        </div>
+      </div>
+    </div>
+    
+          
+        </div>
+      </div>
+      <div data-index="4" data-show="false" class="gp-accordion-item_body gp-transition-all gp-grid gp-duration-500 gp-overflow-hidden gp-grid-rows-[0fr]" style="grid-template-rows:0fr;grid-template-columns:minmax(auto, 100%)">
+        <div data-index="4" class="gp-accordion-item_body-inner gp-transition-all gp-duration-500 gp-min-h-0" style="--pl:24px;--pr:24px">
+          <div
+      data-same-height-display-contents
+      style="--ai:normal;--jc:normal;--o:0"
+      class="gV3rYP2Z9f gp-relative gp-flex gp-flex-col"
+    >
+      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="gyb3Qt38KZ"
+        class="gyb3Qt38KZ"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1762877792861"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--ta-mobile:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:20px;--size-tablet:20px;--size-mobile:16px;--lh:180%;--lh-tablet:180%;--lh-mobile:150%;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggyb3Qt38KZ_text | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+          </div>
+            
+          <div class="gp-flex" style="--jc:left;--jc-mobile:left">
+            
+  <div class="gp-overflow-clip gp-group" style="--text-hover-color:#121212;--icon-expand-hover-color:#121212;--icon-expand-active-color:#121212;--icon-active-color:#121212;--icon-hover-color:#121212;--w:100%;--w-tablet:100%;--w-mobile:100%;--bs:solid;--bw:1px 1px 1px 1px;--bc:#00000000;--bg:#00000000;--shadow:none;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px">
+    <div data-index="5" class="gb65IUOhdm gp-overflow-hidden gp-child-item-gb65IUOhdm gp-accordion-item">
+      <div aria-hidden uid="gvi1oaDs55" id="gvi1oaDs55" data-index="5"
+        class="gp-flex gp-accordion-item_header gp-cursor-pointer gp-items-center gp-gap-[16px] gb65IUOhdm gp-accordion-item-gb65IUOhdm-5" style="--pl:24px;--pr:24px;--pt:8px;--pb:8px;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--fd:row;--jc:;--hvr-bgc:#00000000;--bgc:#00000000;--bs:solid;--hvr-bs:solid;--bw:0px 0px 1px 0px;--hvr-bw:0px 0px 1px 0px;--bc:#3a3a3a;--hvr-bc:#121212">
+        
+          <div class="gp-inline-flex">
+            <span style="--c:#121212;width:26px;height:26px"
+            data-index="5"
+            class="group-hover:[color:var(--icon-expand-hover-color)] gp-collapsible-icon gp-accordion-item_icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden gp-transition-all gp-duration-200 [&>svg]:!gp-h-[var(--height-iconCollapseSize)] [&>svg]:!gp-w-full">
+              <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817558491496808">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z" /></svg>
+            </span>
+          </div>
+          
+        <div class="gp-flex gp-w-full gp-items-center gp-break-all" style="--gg:16px;--jc:left;--jc-mobile:left">
+          
+          
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id
+        
+        style="--c:#3A3A3A;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1762877792861"
+      >
+      <div  >
+        <div
+          data-gp-text
+          class="gp-overflow-hidden gp-accordion-text-content group-hover:[color:var(--text-hover-color)!important]  gp-text-instant"
+          style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:20px;--size-tablet:16px;--size-mobile:16px;--lh:180%;--lh-tablet:180%;--lh-mobile:180%;word-break:break-word;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggb65IUOhdm_childItem_5 }}
+        </div>
+      </div>
+    </div>
+    
+          
+        </div>
+      </div>
+      <div data-index="5" data-show="false" class="gp-accordion-item_body gp-transition-all gp-grid gp-duration-500 gp-overflow-hidden gp-grid-rows-[0fr]" style="grid-template-rows:0fr;grid-template-columns:minmax(auto, 100%)">
+        <div data-index="5" class="gp-accordion-item_body-inner gp-transition-all gp-duration-500 gp-min-h-0" style="--pl:24px;--pr:24px">
+          <div
+      data-same-height-display-contents
+      
+      class="gvS_syPrCM gp-relative gp-flex gp-flex-col"
+    >
+      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="g4Kr-CZeBo"
+        class="g4Kr-CZeBo"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb-mobile:0px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1762877792862"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--ta-mobile:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:20px;--size-tablet:20px;--size-mobile:16px;--lh:150%;--lh-tablet:180%;--lh-mobile:150%;--c:#4D4D4D;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.gg4Kr-CZeBo_text | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+    <div
+      role="presentation"
+      data-id="gdwh35BP-I"
+      style="--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb-mobile:22px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--ta:center"
+      class="gp-group/image gp-relative force-publish-1762877792862 gp-flex-none gp-h-auto mobile:gp-flex-none mobile:gp-h-auto tablet:gp-flex-none tablet:gp-h-auto gdwh35BP-I"
+    >
+      <div
+        
+        style="border-radius:inherit;--jc:center"
+        class="gp-h-full gp-w-full gp-flex pointer-events-auto"
+      >
+        
+    <picture style="border-radius:inherit" class="gp-contents">
+      
+      <source media="(max-width: 767px)" data-srcSet="{{ "gempages_534104955091420133-1b31b1b4-9af9-4662-83a7-7f1d55d547fc.png" | file_url }}" srcset="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzM1NiIgaGVpZ2h0PSI3MDYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZGVmcz4KICAgICAgPGxpbmVhckdyYWRpZW50IGlkPSJnLTMzNTYtNzA2Ij4KICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDUxLCA1MSwgNTEsIDApIiBvZmZzZXQ9IjIwJSIgLz4KICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDUxLCA1MSwgNTEsIDApIiBvZmZzZXQ9IjUwJSIgLz4KICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDUxLCA1MSwgNTEsIDApIiBvZmZzZXQ9IjcwJSIgLz4KICAgICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDwvZGVmcz4KICAgIDxyZWN0IHdpZHRoPSIzMzU2IiBoZWlnaHQ9IjcwNiIgZmlsbD0icmdiYSg1MSwgNTEsIDUxLCAwKSIgLz4KICAgIDxyZWN0IGlkPSJyIiB3aWR0aD0iMzM1NiIgaGVpZ2h0PSI3MDYiIGZpbGw9InVybCgjZy0zMzU2LTcwNikiIC8+CiAgICA8YW5pbWF0ZSB4bGluazpocmVmPSIjciIgYXR0cmlidXRlTmFtZT0ieCIgZnJvbT0iLTMzNTYiIHRvPSIzMzU2IiBkdXI9IjFzIiByZXBlYXRDb3VudD0iaW5kZWZpbml0ZSIgIC8+CiAgPC9zdmc+" />
+      <source media="(max-width: 1024px)" data-srcSet="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/gempages_534104955091420133-1b31b1b4-9af9-4662-83a7-7f1d55d547fc_1024x.png" srcset="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzM1NiIgaGVpZ2h0PSI3MDYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZGVmcz4KICAgICAgPGxpbmVhckdyYWRpZW50IGlkPSJnLTMzNTYtNzA2Ij4KICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDUxLCA1MSwgNTEsIDApIiBvZmZzZXQ9IjIwJSIgLz4KICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDUxLCA1MSwgNTEsIDApIiBvZmZzZXQ9IjUwJSIgLz4KICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDUxLCA1MSwgNTEsIDApIiBvZmZzZXQ9IjcwJSIgLz4KICAgICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDwvZGVmcz4KICAgIDxyZWN0IHdpZHRoPSIzMzU2IiBoZWlnaHQ9IjcwNiIgZmlsbD0icmdiYSg1MSwgNTEsIDUxLCAwKSIgLz4KICAgIDxyZWN0IGlkPSJyIiB3aWR0aD0iMzM1NiIgaGVpZ2h0PSI3MDYiIGZpbGw9InVybCgjZy0zMzU2LTcwNikiIC8+CiAgICA8YW5pbWF0ZSB4bGluazpocmVmPSIjciIgYXR0cmlidXRlTmFtZT0ieCIgZnJvbT0iLTMzNTYiIHRvPSIzMzU2IiBkdXI9IjFzIiByZXBlYXRDb3VudD0iaW5kZWZpbml0ZSIgIC8+CiAgPC9zdmc+" />
+    
+      
+      <img
+        base-src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/gempages_534104955091420133-1b31b1b4-9af9-4662-83a7-7f1d55d547fc.png" quality-type="{&quot;desktop&quot;:&quot;high&quot;}" quality-percent="{&quot;desktop&quot;:100}"
+        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzM1NiIgaGVpZ2h0PSI3MDYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZGVmcz4KICAgICAgPGxpbmVhckdyYWRpZW50IGlkPSJnLTMzNTYtNzA2Ij4KICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDUxLCA1MSwgNTEsIDApIiBvZmZzZXQ9IjIwJSIgLz4KICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDUxLCA1MSwgNTEsIDApIiBvZmZzZXQ9IjUwJSIgLz4KICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDUxLCA1MSwgNTEsIDApIiBvZmZzZXQ9IjcwJSIgLz4KICAgICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDwvZGVmcz4KICAgIDxyZWN0IHdpZHRoPSIzMzU2IiBoZWlnaHQ9IjcwNiIgZmlsbD0icmdiYSg1MSwgNTEsIDUxLCAwKSIgLz4KICAgIDxyZWN0IGlkPSJyIiB3aWR0aD0iMzM1NiIgaGVpZ2h0PSI3MDYiIGZpbGw9InVybCgjZy0zMzU2LTcwNikiIC8+CiAgICA8YW5pbWF0ZSB4bGluazpocmVmPSIjciIgYXR0cmlidXRlTmFtZT0ieCIgZnJvbT0iLTMzNTYiIHRvPSIzMzU2IiBkdXI9IjFzIiByZXBlYXRDb3VudD0iaW5kZWZpbml0ZSIgIC8+CiAgPC9zdmc+" data-src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/gempages_534104955091420133-1b31b1b4-9af9-4662-83a7-7f1d55d547fc.png"
+        alt=""
+        width="100%"
+        style="--aspect:auto;--aspect-tablet:auto;--aspect-mobile:auto;--objf:cover;--w:100%;--w-tablet:100%;--w-mobile:100%;--h:auto;--h-tablet:auto;--h-mobile:auto;--b:none;--bc:#000000;--bw:1px 1px 1px 1px;--radiusType:none;--shadow:none"
+        class="gp-inline-block gp-w-full gp-max-w-full gp_lazyload"
+      />
+    
+    </picture>
+  
+      </div>
+    </div>
+  
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="gL-si9InBQ"
+        class="gL-si9InBQ"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb-mobile:14px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1762877792863"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--ta-mobile:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:20px;--size-tablet:20px;--size-mobile:16px;--lh:180%;--lh-tablet:180%;--lh-mobile:150%;--c:#4D4D4D;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggL-si9InBQ_text | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+          </div>
+            
+          <div class="gp-flex" style="--jc:left;--jc-mobile:left">
+            
+  <div class="gp-overflow-clip gp-group" style="--text-hover-color:#121212;--icon-expand-hover-color:#121212;--icon-expand-active-color:#121212;--icon-active-color:#121212;--icon-hover-color:#121212;--w:100%;--w-tablet:100%;--w-mobile:100%;--bs:solid;--bw:1px 1px 1px 1px;--bc:#00000000;--bg:#00000000;--shadow:none;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px">
+    <div data-index="6" class="gb65IUOhdm gp-overflow-hidden gp-child-item-gb65IUOhdm gp-accordion-item">
+      <div aria-hidden uid="gwiTYLRtWS" id="gwiTYLRtWS" data-index="6"
+        class="gp-flex gp-accordion-item_header gp-cursor-pointer gp-items-center gp-gap-[16px] gb65IUOhdm gp-accordion-item-gb65IUOhdm-6" style="--pl:24px;--pr:24px;--pt:8px;--pb:8px;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--fd:row;--jc:;--hvr-bgc:#00000000;--bgc:#00000000;--bs:solid;--hvr-bs:solid;--bw:0px 0px 1px 0px;--hvr-bw:0px 0px 1px 0px;--bc:#3a3a3a;--hvr-bc:#121212">
+        
+          <div class="gp-inline-flex">
+            <span style="--c:#121212;width:26px;height:26px"
+            data-index="6"
+            class="group-hover:[color:var(--icon-expand-hover-color)] gp-collapsible-icon gp-accordion-item_icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden gp-transition-all gp-duration-200 [&>svg]:!gp-h-[var(--height-iconCollapseSize)] [&>svg]:!gp-w-full">
+              <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817558491496808">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z" /></svg>
+            </span>
+          </div>
+          
+        <div class="gp-flex gp-w-full gp-items-center gp-break-all" style="--gg:16px;--jc:left;--jc-mobile:left">
+          
+          
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id
+        
+        style="--c:#3A3A3A;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1762877792863"
+      >
+      <div  >
+        <div
+          data-gp-text
+          class="gp-overflow-hidden gp-accordion-text-content group-hover:[color:var(--text-hover-color)!important]  gp-text-instant"
+          style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:20px;--size-tablet:16px;--size-mobile:16px;--lh:180%;--lh-tablet:180%;--lh-mobile:180%;word-break:break-word;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggb65IUOhdm_childItem_6 }}
+        </div>
+      </div>
+    </div>
+    
+          
+        </div>
+      </div>
+      <div data-index="6" data-show="false" class="gp-accordion-item_body gp-transition-all gp-grid gp-duration-500 gp-overflow-hidden gp-grid-rows-[0fr]" style="grid-template-rows:0fr;grid-template-columns:minmax(auto, 100%)">
+        <div data-index="6" class="gp-accordion-item_body-inner gp-transition-all gp-duration-500 gp-min-h-0" style="--pl:24px;--pr:24px">
+          <div
+      data-same-height-display-contents
+      style="--ai:normal;--jc:normal;--o:0"
+      class="gF3YUOTeE0 gp-relative gp-flex gp-flex-col"
+    >
+      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="gUUBgxM-UL"
+        class="gUUBgxM-UL"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1762877792864"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--ta-mobile:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:20px;--size-tablet:20px;--size-mobile:16px;--lh:150%;--lh-tablet:180%;--lh-mobile:150%;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggUUBgxM-UL_text | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+          </div>
+            
+          <div class="gp-flex" style="--jc:left;--jc-mobile:left">
+            
+  <div class="gp-overflow-clip gp-group" style="--text-hover-color:#121212;--icon-expand-hover-color:#121212;--icon-expand-active-color:#121212;--icon-active-color:#121212;--icon-hover-color:#121212;--w:100%;--w-tablet:100%;--w-mobile:100%;--bs:solid;--bw:1px 1px 1px 1px;--bc:#00000000;--bg:#00000000;--shadow:none;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px">
+    <div data-index="7" class="gb65IUOhdm gp-overflow-hidden gp-child-item-gb65IUOhdm gp-accordion-item">
+      <div aria-hidden uid="gHO0Iq9_gX" id="gHO0Iq9_gX" data-index="7"
+        class="gp-flex gp-accordion-item_header gp-cursor-pointer gp-items-center gp-gap-[16px] gb65IUOhdm gp-accordion-item-gb65IUOhdm-7" style="--pl:24px;--pr:24px;--pt:8px;--pb:8px;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--fd:row;--jc:;--hvr-bgc:#00000000;--bgc:#00000000;--bs:solid;--hvr-bs:solid;--bw:0px 0px 1px 0px;--hvr-bw:0px 0px 1px 0px;--bc:#3a3a3a;--hvr-bc:#121212">
+        
+          <div class="gp-inline-flex">
+            <span style="--c:#121212;width:26px;height:26px"
+            data-index="7"
+            class="group-hover:[color:var(--icon-expand-hover-color)] gp-collapsible-icon gp-accordion-item_icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden gp-transition-all gp-duration-200 [&>svg]:!gp-h-[var(--height-iconCollapseSize)] [&>svg]:!gp-w-full">
+              <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817558491496808">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z" /></svg>
+            </span>
+          </div>
+          
+        <div class="gp-flex gp-w-full gp-items-center gp-break-all" style="--gg:16px;--jc:left;--jc-mobile:left">
+          
+          
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id
+        
+        style="--c:#3A3A3A;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1762877792864"
+      >
+      <div  >
+        <div
+          data-gp-text
+          class="gp-overflow-hidden gp-accordion-text-content group-hover:[color:var(--text-hover-color)!important]  gp-text-instant"
+          style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:20px;--size-tablet:16px;--size-mobile:16px;--lh:180%;--lh-tablet:180%;--lh-mobile:180%;word-break:break-word;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggb65IUOhdm_childItem_7 }}
+        </div>
+      </div>
+    </div>
+    
+          
+        </div>
+      </div>
+      <div data-index="7" data-show="false" class="gp-accordion-item_body gp-transition-all gp-grid gp-duration-500 gp-overflow-hidden gp-grid-rows-[0fr]" style="grid-template-rows:0fr;grid-template-columns:minmax(auto, 100%)">
+        <div data-index="7" class="gp-accordion-item_body-inner gp-transition-all gp-duration-500 gp-min-h-0" style="--pl:24px;--pr:24px">
+          <div
+      data-same-height-display-contents
+      style="--ai:normal;--jc:normal;--o:0"
+      class="giTZSQXbcQ gp-relative gp-flex gp-flex-col"
+    >
+      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="gDRDYpLXKm"
+        class="gDRDYpLXKm"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1762877792865"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--ta-mobile:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:20px;--size-tablet:20px;--size-mobile:16px;--lh:180%;--lh-tablet:180%;--lh-mobile:150%;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggDRDYpLXKm_text | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+          </div>
+            
+          <div class="gp-flex" style="--jc:left;--jc-mobile:left">
+            
+  <div class="gp-overflow-clip gp-group" style="--text-hover-color:#121212;--icon-expand-hover-color:#121212;--icon-expand-active-color:#121212;--icon-active-color:#121212;--icon-hover-color:#121212;--w:100%;--w-tablet:100%;--w-mobile:100%;--bs:solid;--bw:1px 1px 1px 1px;--bc:#00000000;--bg:#00000000;--shadow:none;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px">
+    <div data-index="8" class="gb65IUOhdm gp-overflow-hidden gp-child-item-gb65IUOhdm gp-accordion-item">
+      <div aria-hidden uid="gImCepOXUg" id="gImCepOXUg" data-index="8"
+        class="gp-flex gp-accordion-item_header gp-cursor-pointer gp-items-center gp-gap-[16px] gb65IUOhdm gp-accordion-item-gb65IUOhdm-8" style="--pl:24px;--pr:24px;--pt:8px;--pb:8px;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--fd:row;--jc:;--hvr-bgc:#00000000;--bgc:#00000000;--bs:solid;--hvr-bs:solid;--bw:0px 0px 1px 0px;--hvr-bw:0px 0px 1px 0px;--bc:#3a3a3a;--hvr-bc:#121212">
+        
+          <div class="gp-inline-flex">
+            <span style="--c:#121212;width:26px;height:26px"
+            data-index="8"
+            class="group-hover:[color:var(--icon-expand-hover-color)] gp-collapsible-icon gp-accordion-item_icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden gp-transition-all gp-duration-200 [&>svg]:!gp-h-[var(--height-iconCollapseSize)] [&>svg]:!gp-w-full">
+              <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817558491496808">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z" /></svg>
+            </span>
+          </div>
+          
+        <div class="gp-flex gp-w-full gp-items-center gp-break-all" style="--gg:16px;--jc:left;--jc-mobile:left">
+          
+          
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id
+        
+        style="--c:#3A3A3A;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1762877792865"
+      >
+      <div  >
+        <div
+          data-gp-text
+          class="gp-overflow-hidden gp-accordion-text-content group-hover:[color:var(--text-hover-color)!important]  gp-text-instant"
+          style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:20px;--size-tablet:16px;--size-mobile:16px;--lh:180%;--lh-tablet:180%;--lh-mobile:180%;word-break:break-word;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggb65IUOhdm_childItem_8 }}
+        </div>
+      </div>
+    </div>
+    
+          
+        </div>
+      </div>
+      <div data-index="8" data-show="false" class="gp-accordion-item_body gp-transition-all gp-grid gp-duration-500 gp-overflow-hidden gp-grid-rows-[0fr]" style="grid-template-rows:0fr;grid-template-columns:minmax(auto, 100%)">
+        <div data-index="8" class="gp-accordion-item_body-inner gp-transition-all gp-duration-500 gp-min-h-0" style="--pl:24px;--pr:24px">
+          <div
+      data-same-height-display-contents
+      style="--ai:normal;--jc:normal;--o:0"
+      class="gdSkSyF0LO gp-relative gp-flex gp-flex-col"
+    >
+      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="gzfkiKMara"
+        class="gzfkiKMara"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1762877792866"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--ta-mobile:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:20px;--size-tablet:20px;--size-mobile:16px;--lh:180%;--lh-tablet:180%;--lh-mobile:150%;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggzfkiKMara_text | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+          </div>
+            
+          <div class="gp-flex" style="--jc:left;--jc-mobile:left">
+            
+  <div class="gp-overflow-clip gp-group" style="--text-hover-color:#121212;--icon-expand-hover-color:#121212;--icon-expand-active-color:#121212;--icon-active-color:#121212;--icon-hover-color:#121212;--w:100%;--w-tablet:100%;--w-mobile:100%;--bs:solid;--bw:1px 1px 1px 1px;--bc:#00000000;--bg:#00000000;--shadow:none;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px">
+    <div data-index="9" class="gb65IUOhdm gp-overflow-hidden gp-child-item-gb65IUOhdm gp-accordion-item">
+      <div aria-hidden uid="gkCYeRRugH" id="gkCYeRRugH" data-index="9"
+        class="gp-flex gp-accordion-item_header gp-cursor-pointer gp-items-center gp-gap-[16px] gb65IUOhdm gp-accordion-item-gb65IUOhdm-9" style="--pl:24px;--pr:24px;--pt:8px;--pb:8px;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--fd:row;--jc:;--hvr-bgc:#00000000;--bgc:#00000000;--bs:solid;--hvr-bs:solid;--bw:0px 0px 1px 0px;--hvr-bw:0px 0px 1px 0px;--bc:#3a3a3a;--hvr-bc:#121212">
+        
+          <div class="gp-inline-flex">
+            <span style="--c:#121212;width:26px;height:26px"
+            data-index="9"
+            class="group-hover:[color:var(--icon-expand-hover-color)] gp-collapsible-icon gp-accordion-item_icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden gp-transition-all gp-duration-200 [&>svg]:!gp-h-[var(--height-iconCollapseSize)] [&>svg]:!gp-w-full">
+              <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817558491496808">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z" /></svg>
+            </span>
+          </div>
+          
+        <div class="gp-flex gp-w-full gp-items-center gp-break-all" style="--gg:16px;--jc:left;--jc-mobile:left">
+          
+          
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id
+        
+        style="--c:#3A3A3A;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1762877792866"
+      >
+      <div  >
+        <div
+          data-gp-text
+          class="gp-overflow-hidden gp-accordion-text-content group-hover:[color:var(--text-hover-color)!important]  gp-text-instant"
+          style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:20px;--size-tablet:16px;--size-mobile:16px;--lh:180%;--lh-tablet:180%;--lh-mobile:180%;word-break:break-word;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggb65IUOhdm_childItem_9 }}
+        </div>
+      </div>
+    </div>
+    
+          
+        </div>
+      </div>
+      <div data-index="9" data-show="false" class="gp-accordion-item_body gp-transition-all gp-grid gp-duration-500 gp-overflow-hidden gp-grid-rows-[0fr]" style="grid-template-rows:0fr;grid-template-columns:minmax(auto, 100%)">
+        <div data-index="9" class="gp-accordion-item_body-inner gp-transition-all gp-duration-500 gp-min-h-0" style="--pl:24px;--pr:24px">
+          <div
+      data-same-height-display-contents
+      style="--ai:normal;--jc:normal;--o:0"
+      class="gQsFWG2NE0 gp-relative gp-flex gp-flex-col"
+    >
+      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="gHiocvz_dW"
+        class="gHiocvz_dW"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1762877792867"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--ta-mobile:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:20px;--size-tablet:20px;--size-mobile:16px;--lh:150%;--lh-tablet:180%;--lh-mobile:150%;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggHiocvz_dW_text | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+          </div>
+            
+          <div class="gp-flex" style="--jc:left;--jc-mobile:left">
+            
+  <div class="gp-overflow-clip gp-group" style="--text-hover-color:#121212;--icon-expand-hover-color:#121212;--icon-expand-active-color:#121212;--icon-active-color:#121212;--icon-hover-color:#121212;--w:100%;--w-tablet:100%;--w-mobile:100%;--bs:solid;--bw:1px 1px 1px 1px;--bc:#00000000;--bg:#00000000;--shadow:none;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px">
+    <div data-index="10" class="gb65IUOhdm gp-overflow-hidden gp-child-item-gb65IUOhdm gp-accordion-item">
+      <div aria-hidden uid="gsxCpbRwXY" id="gsxCpbRwXY" data-index="10"
+        class="gp-flex gp-accordion-item_header gp-cursor-pointer gp-items-center gp-gap-[16px] gb65IUOhdm gp-accordion-item-gb65IUOhdm-10" style="--pl:24px;--pr:24px;--pt:8px;--pb:8px;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--fd:row;--jc:;--hvr-bgc:#00000000;--bgc:#00000000;--bs:solid;--hvr-bs:solid;--bw:0px 0px 1px 0px;--hvr-bw:0px 0px 1px 0px;--bc:#3a3a3a;--hvr-bc:#121212">
+        
+          <div class="gp-inline-flex">
+            <span style="--c:#121212;width:26px;height:26px"
+            data-index="10"
+            class="group-hover:[color:var(--icon-expand-hover-color)] gp-collapsible-icon gp-accordion-item_icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden gp-transition-all gp-duration-200 [&>svg]:!gp-h-[var(--height-iconCollapseSize)] [&>svg]:!gp-w-full">
+              <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817558491496808">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z" /></svg>
+            </span>
+          </div>
+          
+        <div class="gp-flex gp-w-full gp-items-center gp-break-all" style="--gg:16px;--jc:left;--jc-mobile:left">
+          
+          
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id
+        
+        style="--c:#3A3A3A;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1762877792867"
+      >
+      <div  >
+        <div
+          data-gp-text
+          class="gp-overflow-hidden gp-accordion-text-content group-hover:[color:var(--text-hover-color)!important]  gp-text-instant"
+          style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:20px;--size-tablet:16px;--size-mobile:16px;--lh:180%;--lh-tablet:180%;--lh-mobile:180%;word-break:break-word;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggb65IUOhdm_childItem_10 }}
+        </div>
+      </div>
+    </div>
+    
+          
+        </div>
+      </div>
+      <div data-index="10" data-show="false" class="gp-accordion-item_body gp-transition-all gp-grid gp-duration-500 gp-overflow-hidden gp-grid-rows-[0fr]" style="grid-template-rows:0fr;grid-template-columns:minmax(auto, 100%)">
+        <div data-index="10" class="gp-accordion-item_body-inner gp-transition-all gp-duration-500 gp-min-h-0" style="--pl:24px;--pr:24px">
+          <div
+      data-same-height-display-contents
+      style="--ai:normal;--jc:normal;--o:0"
+      class="gaHkCeABAN gp-relative gp-flex gp-flex-col"
+    >
+      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="gqz8Fo03Rx"
+        class="gqz8Fo03Rx"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1762877792868"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--ta-mobile:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:20px;--size-tablet:20px;--size-mobile:16px;--lh:150%;--lh-tablet:180%;--lh-mobile:150%;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggqz8Fo03Rx_text | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+          </div>
+            
+          <div class="gp-flex" style="--jc:left;--jc-mobile:left">
+            
+  <div class="gp-overflow-clip gp-group" style="--text-hover-color:#121212;--icon-expand-hover-color:#121212;--icon-expand-active-color:#121212;--icon-active-color:#121212;--icon-hover-color:#121212;--w:100%;--w-tablet:100%;--w-mobile:100%;--bs:solid;--bw:1px 1px 1px 1px;--bc:#00000000;--bg:#00000000;--shadow:none;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px">
+    <div data-index="11" class="gb65IUOhdm gp-overflow-hidden gp-child-item-gb65IUOhdm gp-accordion-item">
+      <div aria-hidden uid="gz_VT2rVIy" id="gz_VT2rVIy" data-index="11"
+        class="gp-flex gp-accordion-item_header gp-cursor-pointer gp-items-center gp-gap-[16px] gb65IUOhdm gp-accordion-item-gb65IUOhdm-11" style="--pl:24px;--pr:24px;--pt:8px;--pb:8px;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--fd:row;--jc:;--hvr-bgc:#00000000;--bgc:#00000000;--bs:solid;--hvr-bs:solid;--bw:0px 0px 1px 0px;--hvr-bw:0px 0px 1px 0px;--bc:#3a3a3a;--hvr-bc:#121212">
+        
+          <div class="gp-inline-flex">
+            <span style="--c:#121212;width:26px;height:26px"
+            data-index="11"
+            class="group-hover:[color:var(--icon-expand-hover-color)] gp-collapsible-icon gp-accordion-item_icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden gp-transition-all gp-duration-200 [&>svg]:!gp-h-[var(--height-iconCollapseSize)] [&>svg]:!gp-w-full">
+              <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817558491496808">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z" /></svg>
+            </span>
+          </div>
+          
+        <div class="gp-flex gp-w-full gp-items-center gp-break-all" style="--gg:16px;--jc:left;--jc-mobile:left">
+          
+          
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id
+        
+        style="--c:#3A3A3A;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1762877792868"
+      >
+      <div  >
+        <div
+          data-gp-text
+          class="gp-overflow-hidden gp-accordion-text-content group-hover:[color:var(--text-hover-color)!important]  gp-text-instant"
+          style="--w:100%;--tdt:auto;--ts:none;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:20px;--size-tablet:16px;--size-mobile:16px;--lh:180%;--lh-tablet:180%;--lh-mobile:180%;word-break:break-word;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggb65IUOhdm_childItem_11 }}
+        </div>
+      </div>
+    </div>
+    
+          
+        </div>
+      </div>
+      <div data-index="11" data-show="false" class="gp-accordion-item_body gp-transition-all gp-grid gp-duration-500 gp-overflow-hidden gp-grid-rows-[0fr]" style="grid-template-rows:0fr;grid-template-columns:minmax(auto, 100%)">
+        <div data-index="11" class="gp-accordion-item_body-inner gp-transition-all gp-duration-500 gp-min-h-0" style="--pl:24px;--pr:24px">
+          <div
+      data-same-height-display-contents
+      style="--ai:normal;--jc:normal;--o:0"
+      class="gWKwgrBRpg gp-relative gp-flex gp-flex-col"
+    >
+      
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="gmEtaPOrZs"
+        class="gmEtaPOrZs"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--dynamic-source-color:#F4F4F4"
+        data-test-force-publish="1762877792869"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          data-gp-text
+          class=" gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ts:none;--ta:left;--ta-mobile:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-sans-serif, 'sans-serif'), var(--g-font-body, body);--weight:400;--size:20px;--size-tablet:20px;--size-mobile:16px;--lh:150%;--lh-tablet:180%;--lh-mobile:150%;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+        >
+          {{ section.settings.ggmEtaPOrZs_text | replace: '$locationOrigin', locationOrigin }}
+        </div>
+      </div>
+    </div>
+    
+    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+          </div>
+            
+    </gp-accordion>
+    
+    <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-accordion-v7-5.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+    
+  
+      </div>
+  
+    <div
+      
+      style="--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--pageType:GP_STATIC;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--pt:0px;--pl:0px;--pb:0px;--pr:0px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--pt-tablet:0px;--pl-tablet:0px;--pb-tablet:0px;--pr-tablet:0px;--ta:left;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+      data-keep-class="true"
+      class="g6JIxMXSW5 gp-custom-code">
+      <div>
+    <section class="tlh-flavor-section" aria-label="Diese 8 Premium-Sorten sind im Probierpaket enthalten" tabindex="0">
+  <div class="tlh-flavor-head">
+    <span class="h-chip">
+      <i class="dot dot-pulse" aria-hidden="true"></i>
+      <span class="chip-text">
+        <span>Diese 8 Sorten sind im</span>
+        <span class="em">PROBIER-PAKET</span>
+        <span>enthalten</span>
+      </span>
+    </span>
+    <div class="tlh-flavor-ctr">
+      <button class="tlh-nav prev" aria-label="Zur vorherigen Sorte" type="button">‹</button>
+      <div class="tlh-count" aria-live="polite">
+        <span class="tlh-count-num">1</span><span class="tlh-count-total">/8</span>
+      </div>
+      <button class="tlh-nav next" aria-label="Zur nächsten Sorte" type="button">›</button>
+    </div>
+  </div>
+
+  <div class="tlh-flavor-viewport" dir="ltr">
+    <ul class="tlh-flavor-track js-free" role="list" data-flavors="8">
+      
+      <li class="tlh-slide">
+        <figure class="tlh-card">
+          <picture class="tlh-media">
+            <img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/gempages_534104955091420133-a3d341ed-4d6e-4985-9b61-31421a4d772c.webp" alt="Ente mit Reis">
+          </picture>
+          <figcaption class="tlh-info">
+            <h4>Ente mit Reis</h4>
+            <ul class="tlh-bullets">
+              <li>Zart & saftig – hohe Akzeptanz</li>
+              <li>Reis: magenfreundliche Energie</li>
+            </ul>
+          </figcaption>
+        </figure>
+      </li>
+
+      
+      <li class="tlh-slide">
+        <figure class="tlh-card">
+          <picture class="tlh-media">
+            <img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/gempages_534104955091420133-d1e55ac2-1c82-4af8-96a9-1e17ee2e2446.webp" alt="Huhn mit Gemüse">
+          </picture>
+          <figcaption class="tlh-info">
+            <h4>Huhn mit Gemüse</h4>
+            <ul class="tlh-bullets">
+              <li>Extra mager – sanft zum Bauch</li>
+              <li>Gemüse: Darmbalance & Vitamine</li>
+            </ul>
+          </figcaption>
+        </figure>
+      </li>
+
+      
+      <li class="tlh-slide">
+        <figure class="tlh-card">
+          <picture class="tlh-media">
+            <img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/gempages_534104955091420133-2f3e8075-d3f0-4d62-9914-b77de206732b.webp" alt="Pferd mit Kartoffel">
+          </picture>
+          <figcaption class="tlh-info">
+            <h4>Pferd mit Kartoffel</h4>
+            <ul class="tlh-bullets">
+              <li>Sehr verträglich – beliebt bei Sensibelchen</li>
+              <li>Kartoffel: sanfte, sättigende Energie</li>
+            </ul>
+          </figcaption>
+        </figure>
+      </li>
+
+      
+      <li class="tlh-slide">
+        <figure class="tlh-card">
+          <picture class="tlh-media">
+            <img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/gempages_534104955091420133-01058916-2c90-4400-8dbe-ccd0d791d20e.webp" alt="Kaninchen mit Gemüse">
+          </picture>
+          <figcaption class="tlh-info">
+            <h4>Kaninchen mit Gemüse</h4>
+            <ul class="tlh-bullets">
+              <li>Fein & leicht – gute Bekömmlichkeit</li>
+              <li>Gemüse: Ballaststoffe für die Verdauung</li>
+            </ul>
+          </figcaption>
+        </figure>
+      </li>
+
+      
+      <li class="tlh-slide">
+        <figure class="tlh-card">
+          <picture class="tlh-media">
+            <img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/gempages_534104955091420133-143e9992-97ab-41a5-a6d7-dca210869770.webp" alt="Lamm mit Apfel">
+          </picture>
+          <figcaption class="tlh-info">
+            <h4>Lamm mit Apfel</h4>
+            <ul class="tlh-bullets">
+              <li>Saftig & nährstoffreich</li>
+              <li>Apfel: natürliche Antioxidantien</li>
+            </ul>
+          </figcaption>
+        </figure>
+      </li>
+
+      
+      <li class="tlh-slide">
+        <figure class="tlh-card">
+          <picture class="tlh-media">
+            <img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/gempages_534104955091420133-30159ed5-8b17-4d02-bd09-2893883e85a8.webp" alt="Ziege mit Pastinake">
+          </picture>
+          <figcaption class="tlh-info">
+            <h4>Ziege mit Pastinake</h4>
+            <ul class="tlh-bullets">
+              <li>Aromatisch & gut verträglich</li>
+              <li>Pastinake: mild & sättigend</li>
+            </ul>
+          </figcaption>
+        </figure>
+      </li>
+
+      
+      <li class="tlh-slide">
+        <figure class="tlh-card">
+          <picture class="tlh-media">
+            <img class="img-rind" src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/gempages_534104955091420133-f8794758-f193-48af-bc9b-40301157e145.webp" alt="Rind mit Gemüse">
+          </picture>
+          <figcaption class="tlh-info">
+            <h4>Rind mit Gemüse</h4>
+            <ul class="tlh-bullets">
+              <li>Kräftiger Geschmack – hohe Akzeptanz</li>
+              <li>Gemüse: ausgewogen & bunt</li>
+            </ul>
+          </figcaption>
+        </figure>
+      </li>
+
+      
+      <li class="tlh-slide">
+        <figure class="tlh-card">
+          <picture class="tlh-media">
+            <img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/gempages_534104955091420133-c3915329-7199-42d3-9b18-177b8fcbf4c6.webp" alt="Pute mit Reis">
+          </picture>
+          <figcaption class="tlh-info">
+            <h4>Pute mit Reis</h4>
+            <ul class="tlh-bullets">
+              <li>Sehr mager – sanft zum Bauch</li>
+              <li>Reis: schonend bei empfindlichem Magen</li>
+            </ul>
+          </figcaption>
+        </figure>
+      </li>
+    </ul>
+
+    <div class="tlh-peek-hint" aria-hidden="true">
+      Weiter wischen <span class="tlh-peek-arrow">→</span>
+    </div>
+  </div>
+</section>
+    </div>
+    </div>
+  
+      <style id="custom-css-g6JIxMXSW5">
+        /* === Flavor Slider (free scroll, endless) === */
+:root{
+  --ink:#0f1f1c; --muted:#5b6f6b; --bd:#e9eceb; --chip:#f1f7f5;
+  --ok:#33cc7a;
+  --card-bg:#fff; --shadow:0 6px 24px rgba(15,31,28,.06), 0 2px 8px rgba(15,31,28,.05);
+  --radius:18px;
+}
+
+.tlh-flavor-section{margin:16px 0 8px;color:var(--ink);font-family:inherit}
+.tlh-flavor-head{display:flex;align-items:center;justify-content:space-between;margin:0 4px 10px;gap:10px;flex-wrap:wrap}
+
+/* Chip – enger, mobil entspannter */
+.h-chip{
+  display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:14px;
+  padding:8px 12px;border:1px solid var(--bd);border-radius:999px;background:#fff;
+  box-shadow:0 1px 2px rgba(0,0,0,.04); line-height:1.25; max-width:100%;
+}
+.h-chip .chip-text{display:flex;align-items:center;gap:.5ch;flex-wrap:wrap}
+.h-chip .em{
+  text-transform:uppercase; font-size:1.16em; letter-spacing:.2px;
+  padding-inline:.15ch; white-space:nowrap; /* kein Umbruch von PROBIER-PAKET */
+}
+@media (max-width:600px){
+  .h-chip{font-size:13.5px; padding:8px 10px}
+  .h-chip .chip-text{gap:.4ch}
+  .h-chip .em{font-size:1.12em; letter-spacing:.15px; padding-inline:.1ch}
+}
+
+/* Signalpunkt fix rund */
+.dot{
+  width:12px;height:12px;border-radius:999px;flex:0 0 12px;
+  background:radial-gradient(circle at 50% 50%, #5bffb1 0%, #33cc7a 45%, #25a561 100%);
+  box-shadow:0 0 0 4px rgba(51,204,122,.12)
+}
+.dot-pulse{position:relative}
+.dot-pulse::after{
+  content:"";position:absolute;inset:-6px;border-radius:999px;
+  box-shadow:0 0 0 0 rgba(51,204,122,.22);animation:pulse 2.2s ease-out infinite
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(51,204,122,.22)}
+  70%{box-shadow:0 0 0 10px rgba(51,204,122,0)}
+  100%{box-shadow:0 0 0 0 rgba(51,204,122,0)}
+}
+
+/* Counter/Buttons */
+.tlh-flavor-ctr{display:flex;align-items:center;gap:10px}
+.tlh-count{display:inline-flex;align-items:center;gap:4px;font-weight:700}
+.tlh-count .tlh-count-num{
+  display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;
+  border-radius:999px;background:#fff;border:1px solid var(--bd);box-shadow:0 1px 1px rgba(0,0,0,.04);
+  font-size:13px;font-weight:800
+}
+.tlh-count .tlh-count-total{font-size:13px;color:var(--muted)}
+.tlh-nav{width:34px;height:34px;border-radius:999px;border:1px solid var(--bd);background:#fff;
+  display:grid;place-items:center;cursor:pointer;font-size:18px;color:var(--ink);
+  transition:transform .15s ease, box-shadow .15s ease}
+.tlh-nav:hover{transform:translateY(-1px);box-shadow:0 6px 14px rgba(0,0,0,.06)}
+
+/* Track */
+.tlh-flavor-viewport{position:relative}
+.tlh-flavor-track{
+  display:flex;gap:12px;overflow-x:auto; /* frei scrollen */
+  -webkit-overflow-scrolling:touch; overscroll-behavior-x:contain;
+  padding:4px 8px 6px;margin:0;list-style:none
+}
+.tlh-slide{flex:0 0 84%;max-width:520px}
+@media (min-width:860px){.tlh-slide{flex-basis:46%}}
+@media (min-width:1200px){.tlh-slide{flex-basis:31%}}
+
+/* Karten */
+.tlh-card{margin:0;background:var(--card-bg);border:1px solid var(--bd);border-radius:var(--radius);
+  box-shadow:var(--shadow);overflow:hidden;display:grid;grid-template-rows:auto 1fr;min-height:376px}
+.tlh-media{display:block;width:100%;background:#fff;aspect-ratio:16/11}
+
+/* Bilder tiefer (noch mehr Dose/Fleisch) */
+.tlh-media img{width:100%;height:100%;object-fit:cover;object-position:center 88%}
+.tlh-media .img-rind{object-position:center 86%}
+
+/* Caption kompakt */
+.tlh-info{padding:8px 12px 8px;display:flex;flex-direction:column;gap:6px;min-height:98px}
+.tlh-info h4{font-size:16px;margin:0;font-weight:800}
+
+/* Bullets */
+.tlh-bullets{margin:0;padding:0;list-style:none;display:grid;gap:5px}
+.tlh-bullets li{font-size:14px;color:var(--ink);background:var(--chip);border:1px solid #e6efec;border-radius:12px;padding:6px 9px;display:inline-block;width:max-content;max-width:100%}
+@media (max-width:600px){.tlh-bullets li{font-size:13px;padding:6px 8px}}
+
+.tlh-peek-hint{position:absolute;right:8px;bottom:8px;font-size:12px;color:var(--muted);
+  background:#fff;border:1px solid var(--bd);padding:4px 8px;border-radius:999px;box-shadow:0 1px 4px rgba(0,0,0,.05);display:none;align-items:center;gap:6px}
+.tlh-peek-arrow{display:inline-block;animation:peek 1.8s ease-in-out infinite}
+@keyframes peek{0%,60%,100%{transform:translateX(0)}30%{transform:translateX(6px)}}
+
+.tlh-flavor-track::-webkit-scrollbar{height:8px}
+.tlh-flavor-track::-webkit-scrollbar-thumb{background:#e9efed;border-radius:999px}
+
+      </style>
+    
+      <script id="custom-js-g6JIxMXSW5">
+        try {
+          /* TLH Flavor Slider – MULTI INSTANCE SAFE (free scroll, endless) */
+(function(){
+  function enhanceSection(sec){
+    if (!sec || sec.dataset.tlhInit === '1') return;
+    sec.dataset.tlhInit = '1';
+
+    const track   = sec.querySelector('.tlh-flavor-track');
+    const btnPrev = sec.querySelector('.tlh-nav.prev');
+    const btnNext = sec.querySelector('.tlh-nav.next');
+    const countEl = sec.querySelector('.tlh-count-num');
+    const peek    = sec.querySelector('.tlh-peek-hint');
+
+    if (!track || track.dataset.tlhBuilt === '1') return;
+
+    // --- Originals (vor dem Klonen) ---
+    const originals = Array.from(track.children);
+    const N = originals.length;
+
+    // Absicherung: nicht doppelt initialisieren
+    if (N === 0) return;
+    track.dataset.tlhBuilt = '1';
+
+    // --- Triple-Belt für Endlos-Scroll ---
+    const prefix = originals.map(n => n.cloneNode(true));
+    const suffix = originals.map(n => n.cloneNode(true));
+    prefix.forEach(n => track.insertBefore(n, track.firstChild));
+    suffix.forEach(n => track.appendChild(n));
+
+    const all = Array.from(track.children); // 3N
+    let step = 0;
+
+    function measureStep(){
+      const a = all[N], b = all[N+1];
+      step = Math.max(1, Math.round(b.offsetLeft - a.offsetLeft));
+    }
+    function setScrollX(px){ track.scrollLeft = px; }
+
+    function logicalIndexFromX(x){
+      const approx = Math.round(x / step) - N;      // 0..N-1 ungefähr
+      return ((approx % N) + N) % N;
+    }
+    function updateCounterFromX(x){
+      if (countEl) countEl.textContent = logicalIndexFromX(x) + 1;
+    }
+
+    function normalizeIfNeeded(){
+      const x = track.scrollLeft;
+      const leftEdge  = (N - 4) * step;             // großzügige Puffer
+      const rightEdge = (2*N + 4) * step;
+      if (x < leftEdge)  setScrollX(x + N*step);
+      if (x > rightEdge) setScrollX(x - N*step);
+    }
+
+    function ready(){
+      measureStep();
+      setScrollX(N * step);                         // mittleres Band
+      updateCounterFromX(track.scrollLeft);
+      // kleiner Peek-Hinweis mobil
+      setTimeout(()=>{
+        if (peek && window.innerWidth < 860){
+          peek.style.display='inline-flex';
+          setTimeout(()=>peek.style.display='none', 1600);
+        }
+      }, 400);
+    }
+
+    if (document.readyState === 'complete') ready();
+    else window.addEventListener('load', ready);
+
+    function go(dir){
+      normalizeIfNeeded();
+      const currentDomIndex = Math.round(track.scrollLeft / step);
+      const target = currentDomIndex + dir;
+      track.scrollTo({ left: target * step, behavior: 'smooth' });
+      updateCounterFromX(target * step);
+    }
+    btnNext && btnNext.addEventListener('click', ()=>go(+1));
+    btnPrev && btnPrev.addEventListener('click', ()=>go(-1));
+
+    // Live-Update + Endlos-Normalisierung
+    track.addEventListener('scroll', ()=>{
+      normalizeIfNeeded();
+      updateCounterFromX(track.scrollLeft);
+    }, {passive:true});
+
+    // Desktop Drag (pro Instanz)
+    let dragging=false, sx=0, sl=0;
+    track.addEventListener('pointerdown', e=>{
+      dragging=true; track.setPointerCapture(e.pointerId);
+      sx=e.clientX; sl=track.scrollLeft;
+    });
+    track.addEventListener('pointermove', e=>{
+      if(!dragging) return;
+      setScrollX(sl - (e.clientX - sx));
+    });
+    track.addEventListener('pointerup', ()=>{ dragging=false; });
+
+    // Resize nur für diese Sektion
+    const onResize = ()=>{
+      const li = logicalIndexFromX(track.scrollLeft);
+      measureStep();
+      setScrollX((N + li) * step);
+      updateCounterFromX(track.scrollLeft);
+    };
+    window.addEventListener('resize', onResize);
+  }
+
+  // Alle vorhandenen Sektionen initialisieren
+  document.querySelectorAll('.tlh-flavor-section').forEach(enhanceSection);
+
+  // Optional: falls Builder nachträglich Sektionen einfügt
+  const mo = new MutationObserver(() => {
+    document.querySelectorAll('.tlh-flavor-section:not([data-tlh-init])')
+      .forEach(enhanceSection);
+  });
+  mo.observe(document.documentElement, { childList:true, subtree:true });
+})();
+
+        } catch(err){}
+      </script>
+    
+    </div>
+
+      
+    </gp-row>
+  
+  
+    </div>
+
+      
+    </gp-row>
+  
+  
+    </div>
+
+      
+    </gp-row>
+  
+        </section>
+      
+  
+    
+{% schema %}
+  {
+    
+    "name": "Section 13",
+    "tag": "section",
+    "class": "gps-592819216575824585 gps gpsi",
+    "settings": [{"type":"paragraph","content":"Section design by GemPages. [Click here to start design](https://admin.shopify.com/store/tierliebhaber-animagus/apps/gempages-cro/app/shopify/edit?pageType=GP_STATIC&editorId=592819216424370889&sectionId=592819216575824585)"},{"type":"select","label":"Section Preload","id":"section_preload","options":[{"label":"On","value":"true"},{"label":"Off","value":"false"},{"label":"Off Lazy Script","value":"off_lazy_script"}],"default":"off_lazy_script"},{"type":"text","label":"Checksum","id":"checksum"},{"type":"html","id":"ggETDbITP80_text","label":"ggETDbITP80_text","default":"<span style=\"color:#3A3A3A;\"><strong>Häufige Fragen von anderen Hundehaltern</strong></span>"},{"type":"html","id":"ggb65IUOhdm_childItem_0","label":"ggb65IUOhdm_childItem_0","default":"<p>Was macht das Nassfutter so besonders?</p>"},{"type":"html","id":"ggb65IUOhdm_childItem_1","label":"ggb65IUOhdm_childItem_1","default":"<p>Warum eignet sich das Nassfutter besonders gut für eine Futterumstellung?</p>"},{"type":"html","id":"ggb65IUOhdm_childItem_2","label":"ggb65IUOhdm_childItem_2","default":"<p>Ist das Nassfutter auch für Allergiker geeignet?</p>"},{"type":"html","id":"ggb65IUOhdm_childItem_3","label":"ggb65IUOhdm_childItem_3","default":"<p>Was unterscheidet dieses Nassfutter von anderen Marken?</p>"},{"type":"html","id":"ggb65IUOhdm_childItem_4","label":"ggb65IUOhdm_childItem_4","default":"<p>Wie wird das Nassfutter hergestellt?</p>"},{"type":"html","id":"ggb65IUOhdm_childItem_5","label":"ggb65IUOhdm_childItem_5","default":"<p>Wie lange reicht das Probierpaket?</p>"},{"type":"html","id":"ggb65IUOhdm_childItem_6","label":"ggb65IUOhdm_childItem_6","default":"<p>Was ist, wenn meinem Hund das Futter nicht schmeckt?</p>"},{"type":"html","id":"ggb65IUOhdm_childItem_7","label":"ggb65IUOhdm_childItem_7","default":"<p>Wie lange ist das Nassfutter haltbar?</p>"},{"type":"html","id":"ggb65IUOhdm_childItem_8","label":"ggb65IUOhdm_childItem_8","default":"<p>Wie erkenne ich, ob mein Hund das Futter gut verträgt?</p>"},{"type":"html","id":"ggb65IUOhdm_childItem_9","label":"ggb65IUOhdm_childItem_9","default":"<p>Wie läuft das mit dem Rückgaberecht?</p>"},{"type":"html","id":"ggb65IUOhdm_childItem_10","label":"ggb65IUOhdm_childItem_10","default":"<p>Wer steckt hinter Tierliebhaber?</p>"},{"type":"html","id":"ggb65IUOhdm_childItem_11","label":"ggb65IUOhdm_childItem_11","default":"<p>Wie lange braucht das Paket bis zu meiner Haustür?</p>"},{"type":"html","id":"ggmGrIMHyTK_text","label":"ggmGrIMHyTK_text","default":"<p>Stell dir vor, dein Hund bekommt endlich nur das, was er wirklich braucht: viel frisches Fleisch, gesunde Kräuter und keine versteckten Zusätze. Die Formel unterstützt seine Verdauung, beruhigt den Magen und hilft, Beschwerden wie Blähungen, Unruhe oder ständiges Grasfressen in den Griff zu bekommen – ganz ohne unnötigen Schnickschnack.</p>"},{"type":"html","id":"ggltbt0HRev_text","label":"ggltbt0HRev_text","default":"<p>Weil es genau das enthält, was Hunde gut vertragen – und nichts, was ihnen unnötig auf den Magen schlägt: nur eine tierische Proteinquelle, viel frisches Fleisch, leicht verdauliche Zutaten und keinerlei versteckte Zusätze. Dadurch fällt es vielen Hunden deutlich leichter, sich an das neue Futter zu gewöhnen – selbst bei empfindlichem Magen.</p>"},{"type":"html","id":"gg5sVV31oKk_text","label":"gg5sVV31oKk_text","default":"<p>Ja! Jede Sorte enthält nur eine Proteinquelle (z. B. Lamm oder Ente) – das macht unser Futter ideal für Hunde mit Allergien oder Futtermittelunverträglichkeiten.</p>"},{"type":"html","id":"gg27gDVjU86_text","label":"gg27gDVjU86_text","default":"<p>Im Gegensatz zu vielen herkömmlichen Marken enthält unser Nassfutter keine Nebenerzeugnisse, keine künstlichen Zusätze und kein Getreide. Dafür gibt’s über 90 % Fleisch, nährstoffreiche Innereien und eine Rezeptur, die auch sensiblen Hundemägen gut tut.</p>"},{"type":"html","id":"ggyb3Qt38KZ_text","label":"ggyb3Qt38KZ_text","default":"<p>In Deutschland, unter strengsten Qualitätskontrollen – mit hochwertigem Fleisch und Gemüse, das schonend verarbeitet wird, um möglichst viele Nährstoffe zu erhalten.</p>"},{"type":"html","id":"gg4Kr-CZeBo_text","label":"gg4Kr-CZeBo_text","default":"<p><span style=\"color:#4D4D4D;\">Das kommt auf die Größe deines Hundes an. Für kleine Hunde reicht das Paket ca. 6–8 Tage, für mittelgroße Hunde ca. 3–5 Tage. So kannst du die Sorten in Ruhe testen.</span></p><p>&nbsp;</p><p><span style=\"color:#4D4D4D;\"><strong>Fütterungsempfehlung:</strong></span></p>"},{"type":"html","id":"ggL-si9InBQ_text","label":"ggL-si9InBQ_text","default":"<p>Diese Angaben verstehen sich als Richtwerte, denn der individuelle Bedarf deines Hundes&nbsp;hängt neben dem Körpergewicht auch vom Alter, von der Aktivität und von der Rasse ab.&nbsp;Verteile die Dose mindestens auf zwei Mahlzeiten am Tag und verfüttere&nbsp;deinem Hund den Inhalt nicht direkt aus dem Kühlschrank, sondern immer zimmerwarm.</p>"},{"type":"html","id":"ggUUBgxM-UL_text","label":"ggUUBgxM-UL_text","default":"<p><span style=\"color:#4D4D4D;\">Kein Problem. Du hast 30 Tage Zeit das Futter zu testen und danach nochmal ganze 30 Tage um das Paket zurückzuschicken – also ganz ohne Risiko. Melde dich einfach bei unserem Kundenservice und du erhältst jeden Cent zurück ohne Wenn und Aber.</span></p>"},{"type":"html","id":"ggDRDYpLXKm_text","label":"ggDRDYpLXKm_text","default":"<p>Ungeöffnet sind die Dosen mindestens 24 Monate haltbar – ganz ohne künstliche Konservierungsstoffe.</p><p><br>Nach dem Öffnen solltest du sie luftdicht verschließen und zügig aufbrauchen. Wichtig: Nicht direkt aus dem Kühlschrank verfüttern, sondern immer zimmerwarm servieren, damit der Hundemagen nicht überreizt wird.</p>"},{"type":"html","id":"ggzfkiKMara_text","label":"ggzfkiKMara_text","default":"<p>Ein Zeichen für gute Verträglichkeit kann sein, dass dein Hund das Futter gerne frisst, danach zufrieden wirkt und die Verdauung ruhig abläuft - ohne Blähungen oder Magenbeschwerden.</p>"},{"type":"html","id":"ggHiocvz_dW_text","label":"ggHiocvz_dW_text","default":"<p>Ganz einfach… Du bestellst das Nassfutter Probierpaket und testest es mit deinem Hund 30 Tage in Ruhe aus. Wenn du nicht zufrieden bist, schickst du das Paket einfach innerhalb der nächsten 30 Tagen zurück und bekommst dein Geld zurück – auch wenn die Dosen schon leer sind :)</p>"},{"type":"html","id":"ggqz8Fo03Rx_text","label":"ggqz8Fo03Rx_text","default":"<p>Ein junges Familienunternehmen aus Leipzig, auf das bereits mehrs als 500.000 glückliche Kunden vertrauen. Ein Zufall war es, der die Gründer dazu brachte hauseigene Rezepturen für ihren kranken Hund herzustellen. Dass Jahre später daraus eine erfolgreiche Unternehmensstory entsteht, hätte keiner damit gerechnet :)</p>"},{"type":"html","id":"ggmEtaPOrZs_text","label":"ggmEtaPOrZs_text","default":"<p>Unsere fleißigen Mitarbeiter im Lager geben jeden Tag vollgas um unsere Kunden glücklich zu machen. Du kannst dir also sicher sein, dass du dein Paket (an normalen Tagen) innerhalb 2-3 Tagen bereits in den Händen hältst.</p>"}],
+    "blocks": [{"type": "@app"}],
+    "locales": {}
+  }
+{% endschema %}
