@@ -13692,7 +13692,7 @@ ease;
     }
 }
 
-/* M.M. *** START ****
+/* M.M. *** START SWIPER ****
 =================  not needed anymore  ?? Swiper  =============
 */ 
 
@@ -14636,6 +14636,8 @@ button.swiper-pagination-bullet {
     line-height: 1.333em
 }
 
-
+/* M.M. *** END SWIPER ****
+=================  not needed anymore  ?? Swiper  =============
+*/ 
 
 
