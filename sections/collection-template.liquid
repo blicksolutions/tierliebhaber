@@ -39,6 +39,15 @@
       <div class="ProductListWrapper">
         <div class="ProductList ProductList--grid {% if paginate.pages > 1 %}ProductList--removeMargin{% endif %} Grid" data-mobile-count="{{ mobile_items_per_row }}" data-desktop-count="{{ desktop_items_per_row }}">
           {%- for product in collection.products -%}
+            {% if forloop.index == 4 and collection.metafields.custom.expert_recommendation.value != blank %}
+                <div class="Grid__Cell 1/{{ mobile_items_per_row }}--phone 1/{{ tablet_items_per_row }}--tablet-and-up 1/{{ desktop_items_per_row }}--{% if section.settings.filter_position == 'drawer' %}lap-and-up{% else %}desk{% endif %}">
+                  <div class="expert-recommendation-cell">
+                  {{ collection.metafields.custom.expert_recommendation.value.expert_image | image_url: width: 900 | image_tag  }}
+                  {{ collection.metafields.custom.expert_recommendation.value.expert_text | metafield_tag }}
+                  <b>{{ collection.metafields.custom.expert_recommendation.value.expert_name }}</b>
+                  </div>
+                </div>
+              {% endif %}
               {% unless product.tags contains 'free-gift' %}
                 <div class="Grid__Cell 1/{{ mobile_items_per_row }}--phone 1/{{ tablet_items_per_row }}--tablet-and-up 1/{{ desktop_items_per_row }}--{% if section.settings.filter_position == 'drawer' %}lap-and-up{% else %}desk{% endif %}">
                   {%- render 'product-item', product: product, show_product_info: true, show_vendor: section.settings.show_vendor, show_color_swatch: section.settings.show_color_swatch, show_labels: true, show_badges: true -%}
@@ -504,7 +513,7 @@
           {% render 'bs-black-week-collection-banner' %}
           {% comment %} blackweek collection filter end {% endcomment %}
         {%- endif -%}
-        
+
         {%- assign current_datetime = 'now' | date: '%Y-%m-%d %H:%M' -%}
         {%- assign cutoff_datetime = '2025-10-05 00:00' -%}
 
@@ -519,170 +528,119 @@
         {%- endif -%}
 
         {%- unless should_hide -%}
-        <div class="subscriptionReminderCallout">
-          <span class="subscriptionReminderCallout__head">Abonnieren und 15% sparen</span>
-          <div class="subscriptionReminderCallout__bubbles">
-            <div class="subscriptionReminderCallout__bubble">
-              <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6.16355 9.89535L3.45264 7.18444L3.84209 6.79553L6.16355 9.11698L11.1577 4.1228L11.5466 4.51171L6.16355 9.89535Z" fill="black"/>
-              </svg>
-              Kein Bestellaufwand
-            </div>
-            <div class="subscriptionReminderCallout__bubble">
-              <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6.16355 9.89535L3.45264 7.18444L3.84209 6.79553L6.16355 9.11698L11.1577 4.1228L11.5466 4.51171L6.16355 9.89535Z" fill="black"/>
-              </svg>
-              Jederzeit kündigen
+          <div class="subscriptionReminderCallout">
+            <span class="subscriptionReminderCallout__head">Abonnieren und 15% sparen</span>
+            <div class="subscriptionReminderCallout__bubbles">
+              <div class="subscriptionReminderCallout__bubble">
+                <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6.16355 9.89535L3.45264 7.18444L3.84209 6.79553L6.16355 9.11698L11.1577 4.1228L11.5466 4.51171L6.16355 9.89535Z" fill="black"/>
+                </svg>
+                Kein Bestellaufwand
+              </div>
+              <div class="subscriptionReminderCallout__bubble">
+                <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6.16355 9.89535L3.45264 7.18444L3.84209 6.79553L6.16355 9.11698L11.1577 4.1228L11.5466 4.51171L6.16355 9.89535Z" fill="black"/>
+                </svg>
+                Jederzeit kündigen
+              </div>
             </div>
           </div>
-        </div>
-      {%- endunless -%}
+        {%- endunless -%}
         {%- if section.settings.toolbar_position == 'top' -%}
           {{- collection_toolbar -}}
         {%- endif -%}
         {% comment %}
-        {% render 'countdown_banner', section: section %}
+          {% render 'countdown_banner', section: section %}
         {% endcomment %}
-        
-        {%- assign current_date = "now" | date: "%s" -%}
-        {%- assign release_date = "2025-10-04 22:00:00" | date: "%s" -%}
 
-        {%- if current_date >= release_date -%}
-        {%- if collection.handle == 'alle-produkte-1' or collection.handle == 'kundenlieblinge' -%}
-        {%- assign discount_filter_param = 'filter.p.m.custom.discount_filter_on_cp' -%}
-        {%- assign discount_filter = nil -%}
+        {%- assign now_ts = 'now' | date: '%s' -%}
+        {%- assign start_iso = section.settings.cd_start | default: '' -%}
+        {%- assign end_iso = section.settings.cd_end | default: '' -%}
 
-        {%- for f in collection.filters -%}
-          {%- if f.param_name == discount_filter_param -%}
-            {%- assign discount_filter = f -%}
-            {%- break -%}
+        {%- if start_iso != '' and end_iso != '' -%}
+          {%- assign start_ts = start_iso | date: '%s' -%}
+          {%- assign end_ts = end_iso | date: '%s' -%}
+
+          {%- assign section_collections_ok = false -%}
+          {%- if collection.handle == 'alle-produkte-1' or collection.handle == 'kundenlieblinge' -%}
+            {%- assign section_collections_ok = true -%}
           {%- endif -%}
-        {%- endfor -%}
 
-        {%- if discount_filter and discount_filter.values.size > 0 -%}
-          <div class="metafield_wrapper">
-            <div class="Container">
-              {%- if section.settings.heading != blank -%}
-                <h1 class="discount-circles__heading">{{ section.settings.heading }}</h1>
+          {%- if section_collections_ok and now_ts >= start_ts and now_ts < end_ts -%}
+            {%- assign discount_filter_param = 'filter.p.m.custom.discount_filter_on_cp' -%}
+            {%- assign discount_filter = null -%}
+
+            {%- for f in collection.filters -%}
+              {%- if f.param_name == discount_filter_param -%}
+                {%- assign discount_filter = f -%}
+                {%- break -%}
               {%- endif -%}
+            {%- endfor -%}
 
-              <div class="discount-circles">
-                {%- for v in discount_filter.values -%}
-                  {%- if v.count > 0 -%}
-                    <a
-                      {% if v.active %}
-                        href="{{ v.url_to_remove }}"
-                        class="discount-circles__item is-active"
-                        aria-pressed="true"
-                      {% else %}
-                        href="{{ v.url_to_add }}"
-                        class="discount-circles__item"
-                        aria-pressed="false"
-                      {% endif %}
-                      aria-label="{{ v.label }} filter"
-                    >
-                      {% if v.active %}
-                        <img class="active_filter" src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/approve-accept-icon.svg?v=1759312528" height="30" width="30" alt="">
-                      {% endif %}
-                      <span class="discount-circles__circle">
-                        <span class="discount-circles__percent">{{ v.label }}</span>
-                      </span>
-                      <div class="discount-circles__caption">{{ v.label }}</div>
-                    </a>
+            {%- if discount_filter and discount_filter.values.size > 0 -%}
+              <div class="metafield_wrapper">
+                <div class="Container">
+                  {%- if section.settings.heading != blank -%}
+                    <h1 class="discount-circles__heading">{{ section.settings.heading }}</h1>
                   {%- endif -%}
-                {%- endfor -%}
+
+                  <div class="discount-circles">
+                    {%- for v in discount_filter.values -%}
+                      {%- if v.count > 0 -%}
+                        <a
+                          {% if v.active %}
+                            href="{{ v.url_to_remove }}"
+                            class="discount-circles__item is-active"
+                            aria-pressed="true"
+                          {% else %}
+                            href="{{ v.url_to_add }}"
+                            class="discount-circles__item"
+                            aria-pressed="false"
+                          {% endif %}
+                          aria-label="{{ v.label }} filter"
+                        >
+                          {% if v.active %}
+                            <img
+                              class="active_filter"
+                              src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/approve-accept-icon.svg?v=1759312528"
+                              height="30"
+                              width="30"
+                              alt=""
+                            >
+                          {% endif %}
+                          <span class="discount-circles__circle">
+                            <span class="discount-circles__percent">{{ v.label }}</span>
+                          </span>
+                          <div class="discount-circles__caption">{{ v.label }}</div>
+                        </a>
+                      {%- endif -%}
+                    {%- endfor -%}
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
 
-
-          <style>
-            .metafield_wrapper {
-              padding: 40px 0 0;
-            }
-            .discount-circles__heading {
-              text-align: center;
-              margin: 0 0 20px;
-              font-weight: 600;
-              line-height: 1.25;
-              font-size: 18px;
-            }
-            .discount-circles {
-              display: flex;
-              gap: 20px;
-              align-items: start;
-              margin: 12px 0 16px;
-              justify-content: center;
-            }
-            .discount-circles__item {
-              text-decoration: none;
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              gap: 10px;
-              position: relative;
-            }
-            .discount-circles__item .active_filter {
-                position: absolute;
-                right: -1px;
-                top: -4px;
-                width: 20px;
-                height: auto;
-            }
-            .discount-circles__circle {
-              width: 110px;
-              height: 110px;
-              border-radius: 999px;
-              display: grid;
-              place-items: center;
-              background: #000000;
-              border: 4px solid #ee7bae;
-              box-shadow: 0 0 0 2px rgba(36, 178, 228, 0.25) inset;
-              color: #fff;
-            }
-            .discount-circles__item.is-active .discount-circles__circle {
-              border-color: #ee7bae;
-              box-shadow: 0 0 0 4px rgba(53, 224, 255, 0.25) inset;
-            }
-            .discount-circles__percent {
-              font-size: 28px;
-              font-weight: 800;
-              letter-spacing: 0.3px;
-            }
-            .discount-circles__caption {
-              font-size: 18px;
-              line-height: 1.4;
-              text-align: center;
-              font-weight: 700;
-            }
-            .discount-circles__clear-wrap {
-              margin-top: 10px;
-              text-align: center;
-            }
-            @media (max-width: 680px) {
-              .discount-circles {
-                gap: 12px;
-              }
-              .discount-circles__circle {
-                width: 80px;
-                height: 80px;
-              }
-              .discount-circles__percent {
-                font-size: 22px;
-              }
-              .discount-circles__caption {
-                font-size: 16px;
-              }
-              .discount-circles__item .active_filter {
-                width: 16px;
-              }
-            }
-
-          </style>
+              <style>
+                .metafield_wrapper { padding: 40px 0 0; }
+                .discount-circles__heading { text-align:center; margin:0 0 20px; font-weight:600; line-height:1.25; font-size:18px; }
+                .discount-circles { display:flex; gap:20px; align-items:start; margin:12px 0 16px; justify-content:center; }
+                .discount-circles__item { text-decoration:none; display:flex; flex-direction:column; align-items:center; gap:10px; position:relative; }
+                .discount-circles__item .active_filter { position:absolute; right:-1px; top:-4px; width:20px; height:auto; }
+                .discount-circles__circle { width:110px; height:110px; border-radius:999px; display:grid; place-items:center; background:#000; border:4px solid #ee7bae; box-shadow:0 0 0 2px rgba(36,178,228,.25) inset; color:#fff; }
+                .discount-circles__item.is-active .discount-circles__circle { border-color:#ee7bae; box-shadow:0 0 0 4px rgba(53,224,255,.25) inset; }
+                .discount-circles__percent { font-size:28px; font-weight:800; letter-spacing:.3px; }
+                .discount-circles__caption { font-size:18px; line-height:1.4; text-align:center; font-weight:700; }
+                @media (max-width:680px){
+                  .discount-circles { gap:12px; }
+                  .discount-circles__circle { width:80px; height:80px; }
+                  .discount-circles__percent { font-size:22px; }
+                  .discount-circles__caption { font-size:16px; }
+                  .discount-circles__item .active_filter { width:16px; }
+                }
+              </style>
+            {%- endif -%}
+          {%- endif -%}
         {%- endif -%}
-      {%- endif -%}
-      {%- endif -%}
-        
+
         <div class="CollectionInner">
           {%- if show_filters and section.settings.filter_position == 'sidebar' -%}
             <div class="CollectionInner__Sidebar {% if collection_toolbar != blank and section.settings.toolbar_position == 'top' %}CollectionInner__Sidebar--withTopToolbar{% endif %} hidden-pocket">
@@ -901,6 +859,20 @@
       "id": "heading",
       "label": "Metafield filter Heading",
       "default": "Am meisten sparst Du hier:"
+    },
+    {
+      "type": "text",
+      "id": "cd_start",
+      "label": "Start date-time (ISO 8601)",
+      "info": "e.g. 2025-10-04T22:00:00Z",
+      "default": "2025-10-04T22:00:00Z"
+    },
+    {
+      "type": "text",
+      "id": "cd_end",
+      "label": "End date-time (ISO 8601)",
+      "info": "e.g. 2025-12-31T23:59:59Z",
+      "default": "2025-10-12T23:59:59Z"
     },
     {
       "type": "header",
