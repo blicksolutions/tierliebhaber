@@ -215,6 +215,7 @@
     <script src="{{ 'libs.min.js' | asset_url }}" defer></script>
     <script src="{{ 'theme.min.js' | asset_url }}" defer></script>
     <script src="{{ 'bs-cart-drawer.js' | asset_url }}" defer></script>
+    <script src="{{ 'cart-notification.js' | asset_url }}" defer></script>
     <script src="{{ 'search-manipulation.js' | asset_url }}" defer></script>
     {% comment %}
     <script src="{{ 'bs-dentalspray-redirect.js' | asset_url }}"></script>
@@ -316,6 +317,7 @@
 
     {%- if template != 'cart' -%}
       {% section 'cart-drawer' %}
+      {% render 'product_add_notification' %}
     {%- endif -%}
 
     <div class="PageContainer">
