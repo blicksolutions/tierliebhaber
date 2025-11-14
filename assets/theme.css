@@ -13536,6 +13536,269 @@ ease;
     }
 }
 
+
+/* M.M. *** START bs-mobile-sidebar-nav  ****
+=================  WAS: bs-mobile-sidebar-nav.css in theme.liquid  =============
+*/ 
+
+
+/******************************************************************/
+/* Navigation Drawer
+/******************************************************************/
+
+.SidebarMenu.SidebarMenu.Drawer {
+	width: 100%;
+	background-color: white;
+	max-height: none !important;
+}
+
+.SidebarMenu.SidebarMenu.Drawer.submenu-is-open {
+	overflow-y: hidden;
+}
+
+.SidebarMenu.Drawer:before {
+	content: none !important;
+}
+
+.SidebarMenu .Drawer__Header {
+	justify-content: space-between;
+	height: 64px;
+	max-height: 64px;
+}
+
+.SidebarMenu .Drawer__Close {
+	position: relative;
+	left: -15px;
+	top: unset;
+}
+
+.SidebarMenu.Drawer--fromLeft {
+	transform: translate(calc(-100vw));
+}
+
+.SidebarMenu .SidebarMenu__wrapper {
+	overflow-y: auto;
+	height: calc(100dvh - 64px);
+}
+
+/******************************************************************/
+/* Navigation Header
+/******************************************************************/
+
+.SidebarMenu .Header__LogoImage {
+	margin-left: 16px;
+}
+
+/******************************************************************/
+/* Navigation Search
+/******************************************************************/
+
+.SidebarMenu .Search {
+	position: relative;
+	opacity: 1;
+	visibility: visible;
+	z-index: 1;
+	top: 20px;
+	pointer-events: all;
+	transform: translateY(-25px) !important;
+}
+
+.SidebarMenu .Search__Inner {
+	/* height: 100dvh; */
+    max-height: calc(100dvh - 64px);
+}
+
+/******************************************************************/
+/* Bestseller swiper
+/******************************************************************/
+
+.SidebarMenu .bestseller {
+	padding: 5px 16px 22px 16px;
+}
+
+.SidebarMenu .bestseller__categories {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 10px;
+	margin-bottom: 18px;
+}
+
+.SidebarMenu .bestseller__category {
+	border-radius: 25px;
+	border: 1px solid #ccc;
+	background: white;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 0 10px;
+	font-size: 16px;
+	font-weight: 500;
+	color: #525252;
+	cursor: pointer;
+	transition: background-color .3s ease-out, border-color .3s ease-out;
+	-webkit-tap-highlight-color:transparent;
+}
+
+.SidebarMenu .bestseller__category.active {
+	border-radius: 25px;
+	border: 1px solid #F1AF9E;
+	background: #F3D2C9;
+}
+
+.SidebarMenu .bestseller__title {
+	font-size: 18px;
+	line-height: 22.5px;
+	font-style: normal;
+	font-weight: 500;
+	color: #525252;
+}
+
+.SidebarMenu .bestseller__swiper, 
+.SidebarMenu .bestseller__swiper-wrapper {
+	z-index: 0;
+}
+
+.SidebarMenu .bestseller .swiper-slide {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 10px;
+	padding: 10px 0;
+}
+
+.SidebarMenu .bestseller__link {
+	display: flex;
+	align-items: center;
+	border-radius: 59px;
+	height: 56px;
+	border: 1px solid #CCC;
+	font-size: 12px;
+	line-height: 14px;
+	padding-right: 10px;
+	-webkit-tap-highlight-color:transparent;
+}
+
+.SidebarMenu .bestseller__link.bestseller__link--highlight {
+	border: 1px solid #D4AF37;
+	background: linear-gradient(270deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%), #FFF;
+}
+
+.SidebarMenu .bestseller__image {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	margin-left: 10px;
+	margin-right: 10px;
+	flex: 0 0 auto;
+}
+
+
+/******************************************************************/
+/* Menu
+/******************************************************************/
+
+.SidebarMenu .SidebarMenu__menu li {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	list-style: none;
+	margin: 0 18px;
+	color: #1C1B1B;
+	max-height: 54px;
+	border-bottom: 1px #ccc solid;
+	font-size: 16px;
+	line-height: 20px;
+	font-style: normal;
+	font-weight: 500;
+	cursor: pointer;
+	-webkit-tap-highlight-color:transparent;
+}
+
+.SidebarMenu .SidebarMenu__item-has-submenu {
+	padding: 16px 0;
+	user-select: none;
+	-webkit-tap-highlight-color:transparent;
+}
+
+.SidebarMenu .SidebarMenu__menu li a {
+	color: #1C1B1B;
+	width: 100%;
+	padding: 18px 0;
+	max-height: 54px;
+	-webkit-tap-highlight-color:transparent;
+}
+
+.SidebarMenu .SidebarMenu__menu li:last-child {
+	border-bottom: none
+}
+
+.SidebarMenu .SidebarMenu__menu {
+	background-color: #f5f5f5;
+	padding: 16px 0;
+}
+
+/* submenu */
+
+.SidebarMenu .SidebarMenu__submenu {
+	opacity: 0;
+	visibility: hidden;
+	position: absolute;
+	top: 60px;
+	left: 0;
+	width: 100%;
+	height: 100dvh;
+	transform: translate(100%);
+	background-color: white;
+	transition: transform .3s ease-out, opacity .3s ease-out, visibility .3s ease-out;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+@media only screen and (max-width:375px){
+ .SidebarMenu .SidebarMenu__submenu {
+  height: calc(100dvh - 60px); 
+ } 
+}
+.SidebarMenu .SidebarMenu__submenu.SidebarMenu__submenu--open {
+	z-index: 20;
+	transform: translate(0);
+	opacity: 1;
+	visibility: visible;
+}
+
+/* second-level submenu */
+
+.SidebarMenu .SidebarMenu__submenu.SidebarMenu__sub-level-2 {
+	top: 0;
+}
+
+.SidebarMenu .SidebarMenu__submenu-close {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 16px;
+	margin-bottom: 6px;
+	background-color: #f5f5f5;
+	color: #525252;
+	width: 100%;
+	font-size: 22px;
+	font-weight: 400;
+	line-height: 27.5px;
+	cursor: pointer;
+	user-select: none;
+	max-height: 56px;
+}
+
+/* #smile-ui-lite-container, #superchat-widget {
+	display: none !important;
+} */
+
+
+/* M.M. *** END bs-mobile-sidebar-nav  ****
+=================  WAS: bs-mobile-sidebar-nav.css in theme.liquid  =============
+*/ 
+
+
 /* M.M. *** START SWIPER ****
 =================  not needed anymore  ?? Swiper  =============
 */ 
@@ -14641,3 +14904,5 @@ button.swiper-pagination-bullet {
 /* M.M. *** END ****
 =================  not needed anymore  TLH Test 010   ==============
 */ 
+
+
