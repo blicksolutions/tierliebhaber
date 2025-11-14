@@ -12834,3 +12834,855 @@ reviewsio-product-reviews-widget {
 .CartItem .custom-teaser-texte {
     font-size: 13px;
 }
+/* style for product add notification */
+/* Product Notification Drawer Styles */
+.ProductNotification {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ProductNotification.is-visible {
+  opacity: 1;
+}
+
+.ProductNotification.is-visible .ProductNotification__Content {
+  transform: translateX(0);
+}
+
+.ProductNotification__Overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+/* Desktop: Right side drawer */
+.ProductNotification__Content {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 450px;
+  background: #f5f5f5;
+  padding: 0;
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.15);
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.ProductNotification__Close {
+  position: static;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.ProductNotification__Close:hover {
+  color: #000;
+}
+
+/* Drawer Header */
+.ProductNotification__Header {
+  padding:15px;
+  display:flex;
+  justify-content: space-between;
+}
+
+.ProductNotification__HeaderTitle {
+  font-size: 20px;
+  font-weight: 400;
+  color: #000;
+  margin: 0;
+}
+
+/* Success Message Banner */
+.ProductNotification__SuccessMessage {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #86BC99;
+  color: #fff;
+  padding: 5px 16px;
+  border-radius: 0px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.ProductNotification__SuccessIcon {
+  flex-shrink: 0;
+  stroke: currentColor;
+}
+
+/* Product Card */
+.ProductNotification__Card {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+  flex: 0 0 auto;
+  padding: 0 15px;
+}
+
+/* Added Upsells Section */
+.ProductNotification__AddedUpsells {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 24px;
+}
+
+.ProductNotification__AddedUpsells:empty {
+  display: none;
+}
+
+/* Added Upsell Product Card (matched to main product card) */
+.AddedUpsellCard {
+  display: flex;
+  gap: 10px;
+  padding: 0 15px;
+}
+
+.AddedUpsellCard__ImageWrapper {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 0px;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.AddedUpsellCard__Image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.AddedUpsellCard__Details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.AddedUpsellCard__Title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.AddedUpsellCard__Variant {
+  font-size: 12px;
+  color: #666;
+  margin: 0;
+}
+
+.AddedUpsellCard__VariantValue {
+  font-weight: 500;
+  color: #333;
+}
+
+.AddedUpsellCard__PriceContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.AddedUpsellCard__ComparePrice {
+  font-size: 14px;
+  color: #999;
+  text-decoration: line-through;
+  display: none;
+}
+
+.AddedUpsellCard__ComparePrice.has-compare-price {
+  display: inline;
+}
+
+.AddedUpsellCard__Price {
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+}
+
+.AddedUpsellCard__Price.on-sale {
+  color: #e74c3c;
+}
+
+.AddedUpsellCard__QuantityWrapper {
+  margin-top: 12px;
+}
+
+.AddedUpsellCard .QuantitySelector {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #0d0d0d24;
+  border-radius: 0px;
+  overflow: hidden;
+}
+
+.AddedUpsellCard .QuantitySelector__Button {
+  width: 25px;
+  height: 35px;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  transition: background-color 0.2s ease;
+}
+
+.AddedUpsellCard .QuantitySelector__Button:hover {
+  background-color: #f5f5f5;
+}
+
+.AddedUpsellCard .QuantitySelector__Input {
+  width: 35px;
+  height: 32px;
+  border: none;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #000;
+}
+
+.ProductNotification__ImageWrapper {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 0px;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.ProductNotification__Image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Product Details */
+.ProductNotification__Details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  justify-content:space-between;
+}
+
+.ProductNotification__ProductTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.ProductNotification__ProductVariant {
+  font-size: 12px;
+  color: #666;
+  margin: 0;
+}
+
+.ProductNotification__VariantValue {
+  font-weight: 500;
+  color: #333;
+}
+
+/* Price Container */
+.ProductNotification__PriceContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 0;
+}
+
+.ProductNotification__ComparePrice {
+  font-size: 14px;
+  color: #999;
+  text-decoration: line-through;
+  display: none; /* Hidden by default, shown when compare price exists */
+}
+
+.ProductNotification__ComparePrice.has-compare-price {
+  display: inline;
+}
+
+.ProductNotification__ProductPrice {
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+}
+
+.ProductNotification__ProductPrice.on-sale {
+  color: #e74c3c;
+}
+
+/* Quantity Selector */
+.ProductNotification__QuantityWrapper {
+  margin-top: 0px;
+}
+
+.QuantitySelector {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #0d0d0d24;
+  border-radius: 0px;
+  overflow: hidden;
+}
+
+.QuantitySelector__Button {
+  width: 25px;
+  height: 35px;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.QuantitySelector__Button:hover {
+  background-color: #f5f5f5;
+}
+
+.QuantitySelector__Button:active {
+  background-color: #e0e0e0;
+}
+
+.QuantitySelector__Button svg {
+  pointer-events: none;
+}
+
+.QuantitySelector__Input {
+  width: 35px;
+  height: 32px;
+  border: none;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #000;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.QuantitySelector__Input::-webkit-outer-spin-button,
+.QuantitySelector__Input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.QuantitySelector__Input:focus {
+  outline: none;
+}
+
+/* Action Buttons */
+.ProductNotification__Actions {
+    display: flex;
+    gap: 12px;
+    margin-top: auto;
+    padding: 15px;
+    flex-direction: column;
+    background: #fff;
+    position: sticky;
+    bottom: 0;
+}
+
+.ProductNotification__Button {
+  flex: 1;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.ProductNotification__Button--Secondary {
+    background: transparent;
+    color: #F1AF9E;
+    border: 1px solid #F1AF9E;
+}
+.ProductNotification__Button--Secondary:hover {
+    background: #F1AF9E;
+    color: #fff;
+    border: 1px solid #F1AF9E;
+}
+
+
+/* Upsell Products Section */
+.ProductNotification__Upsells {
+  margin-top: 32px;
+  padding: 15px;
+  border-top: 1px solid #fff;
+}
+
+.ProductNotification__UpsellTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 16px 0;
+}
+
+.ProductNotification__UpsellList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Upsell Product Item */
+.UpsellProduct {
+    display: flex;
+    gap: 12px;
+    position: relative;
+    padding: 10px 48px 10px 10px;
+    background: #fff;
+    border-radius: 8px;
+    transition: border-color .2s 
+ease;
+}
+.UpsellProduct__AddButton svg path{
+    fill:#fff;
+    stroke:#fff;
+}
+.UpsellProduct:hover {
+  border-color: #ccc;
+}
+
+.UpsellProduct__ImageWrapper {
+  flex-shrink: 0;
+  width: 80px;
+  height: auto;
+  border-radius: 0;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.UpsellProduct__Image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.UpsellProduct__Info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.UpsellProduct__Title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  margin: 0 0 4px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.UpsellProduct__Variant {
+  font-size: 13px;
+  color: #666;
+  margin: 0 0 6px 0;
+}
+
+.UpsellProduct__PriceContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.UpsellProduct__ComparePrice {
+  font-size: 14px;
+  color: #999;
+  text-decoration: line-through;
+  display: none;
+}
+
+.UpsellProduct__ComparePrice.has-compare-price {
+  display: inline;
+}
+
+.UpsellProduct__Price {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+}
+
+.UpsellProduct__Price.on-sale {
+  color: #e74c3c;
+}
+
+.UpsellProduct__AddButton {
+  flex-shrink: 0;
+  width: 48px;
+  height: 100%;
+  position:absolute;
+  right:0;
+  top:0;
+  background: #F4B5A4;
+  border: none;
+  border-radius: 0 8px 8px 0px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+  align-self: center;
+}
+
+.UpsellProduct__AddButton:hover {
+  background: #f0a090;
+}
+
+.UpsellProduct__AddButton svg {
+  stroke: #fff;
+  width: 20px;
+  height: 20px;
+}
+
+.UpsellProduct__AddButton.is-loading {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Variant Selector Modal */
+.VariantSelector {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.VariantSelector.is-visible {
+  opacity: 1;
+}
+
+.VariantSelector__Overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+.VariantSelector__Content {
+  position: relative;
+  background: #fff;
+  border-radius: 12px;
+  padding: 32px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.VariantSelector__Close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.VariantSelector__Close:hover {
+  color: #000;
+}
+
+.VariantSelector__Title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 24px 0;
+  padding-right: 40px;
+}
+
+.VariantSelector__Options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.VariantSelector__Option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.VariantSelector__Option:hover {
+  border-color: #000;
+  background: #f9f9f9;
+}
+
+.VariantSelector__Option.is-unavailable {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.VariantSelector__OptionInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.VariantSelector__OptionTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+}
+
+.VariantSelector__OptionPrice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.VariantSelector__ComparePrice {
+  font-size: 14px;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.VariantSelector__Price {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+}
+
+.VariantSelector__Price.on-sale {
+  color: #e74c3c;
+}
+
+.VariantSelector__Unavailable {
+  font-size: 13px;
+  color: #999;
+  font-weight: 500;
+}
+
+.ProductNotification__Button--Primary {
+  background:#F1AF9E;
+  color: #fff;
+}
+
+.ProductNotification__Button--Primary:hover {
+  background: transparent;
+  color:#F1AF9E;
+  border: 1px solid #F1AF9E;
+}
+
+/* Mobile: Bottom slide-up */
+@media (max-width: 768px) {
+  .ProductNotification__Content {
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: none;
+    max-height: 85vh;
+    padding: 24px;
+    transform: translateY(100%);
+    box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .ProductNotification.is-visible .ProductNotification__Content {
+    transform: translateY(0);
+  }
+
+  .ProductNotification__Card {
+    flex-direction: row;
+    gap: 16px;
+    margin-bottom: 10px;
+  }
+
+  .ProductNotification__ImageWrapper {
+    width: 100px;
+    height: 100px;
+  }
+
+  .ProductNotification__ProductTitle {
+    font-size: 14px;
+  }
+
+.ProductNotification__Actions {
+    display: flex;
+    gap: 12px;
+    margin-top: auto;
+    padding: 15px;
+    flex-direction: column;
+    background: #fff;
+    position: sticky;
+    bottom: 0;
+}
+
+  .AddedUpsellCard {
+    flex-direction: row;
+    gap: 16px;
+    padding: 0 15px;
+  }
+
+  .AddedUpsellCard__ImageWrapper {
+    width: 100px;
+    height: 100px;
+  }
+
+  .AddedUpsellCard__Title {
+    font-size: 20px;
+  }
+
+  .AddedUpsellCard__Price {
+    font-size: 20px;
+  }
+  .ProductNotification__Header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+}
+.ProductNotification__Upsells{
+    margin-top:5px;
+}
+.ProductNotification__HeaderTitle {
+    font-size:16px;
+}
+}
+
+@media (max-width: 480px) {
+  .ProductNotification__Content {
+    padding: 0;
+  }
+
+  .ProductNotification__Card {
+    gap: 12px;
+  }
+
+  .ProductNotification__ImageWrapper {
+    width: 110px;
+    height: 110px;
+  }
+
+  .ProductNotification__ProductTitle {
+    font-size: 14px;
+  }
+
+  .ProductNotification__ProductPrice {
+    font-size: 14px;
+  }
+
+  .ProductNotification__ComparePrice {
+    font-size: 14px;
+  }
+
+  .AddedUpsellCard {
+    gap: 12px;
+  }
+
+  .AddedUpsellCard__ImageWrapper {
+    width: 110px;
+    height: 110px;
+  }
+
+  .AddedUpsellCard__Title {
+    font-size: 14px;
+  }
+
+  .AddedUpsellCard__Price {
+    font-size: 14px;
+  }
+}
+/*expert-recommendation-cell*/
+.expert-recommendation-cell{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+    background: #ffeaec;
+}
+.expert-recommendation-cell img {
+    width: 120px;
+    margin-bottom:20px
+}
+.expert-recommendation-cell p{
+    font-weight: 400;
+    font-size: 12px;
+    
+    margin-bottom:13px;
+    line-height: 16px;
+}
+.expert-recommendation-cell b{
+    color: #6a6a6a;
+    font-size: 10px;
+    align-self: flex-start;
+}
+@media (min-width: 1140px) {
+    .expert-recommendation-cell {
+        padding: 20px;
+    }
+    .expert-recommendation-cell img {
+        width: 320px;
+        margin-bottom: 20px;
+}
+.expert-recommendation-cell p{
+    font-size: 13px;
+    line-height: 21.45px;
+}
+.expert-recommendation-cell b{
+    font-size: 17px;
+}
+}

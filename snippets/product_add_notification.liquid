@@ -1,0 +1,106 @@
+<!-- Product Notification Drawer -->
+<div id="product-notification-drawer" class="ProductNotification" style="display: none;">
+  <!-- Overlay -->
+  <div class="ProductNotification__Overlay"></div>
+  
+  <!-- Notification Content -->
+  <div class="ProductNotification__Content">
+    <!-- Close Button -->
+
+
+    <!-- Header -->
+    <div class="ProductNotification__Header">
+      <h2 class="ProductNotification__HeaderTitle">Produkt hinzugefügt</h2>
+          <button class="ProductNotification__Close" data-action="close-notification" aria-label="Close notification">
+      <svg width="30" height="30" viewBox="0 0 20 20" fill="none">
+        <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+      </svg>
+    </button>
+    </div>
+
+    <!-- Success Message -->
+    <div class="ProductNotification__SuccessMessage">
+      <svg width="30" height="30" viewBox="0 0 20 20" fill="none" class="ProductNotification__SuccessIcon">
+        <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>Dieser Artikel wurde deinem Warenkorb hinzugefügt.</span>
+    </div>
+
+    <!-- Product Info Card -->
+    <div class="ProductNotification__Card">
+      <!-- Product Image -->
+      <div class="ProductNotification__ImageWrapper">
+        <img class="ProductNotification__Image" src="" alt="Product image" />
+      </div>
+
+      <!-- Product Details -->
+      <div class="ProductNotification__Details">
+        <!-- Product Title -->
+        <h3 class="ProductNotification__ProductTitle">Product Name</h3>
+        
+        <!-- Variant Info -->
+        <p class="ProductNotification__ProductVariant">Variante: <span class="ProductNotification__VariantValue">Default</span></p>
+        
+        <!-- Price Container -->
+        <div class="ProductNotification__PriceContainer">
+          <span class="ProductNotification__ComparePrice"></span>
+          <span class="ProductNotification__ProductPrice">$0.00</span>
+        </div>
+
+        <!-- Quantity Selector -->
+        <div class="ProductNotification__QuantityWrapper">
+          <div class="QuantitySelector">
+            <button class="QuantitySelector__Button QuantitySelector__Button--Minus" 
+                    data-action="decrease-notification-qty" 
+                    aria-label="Decrease quantity">
+              <svg width="12" height="2" viewBox="0 0 12 2" fill="none">
+                <path d="M0 1H12" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </button>
+            
+            <input type="number" 
+                   class="QuantitySelector__Input" 
+                   value="1" 
+                   min="1" 
+                   readonly 
+                   aria-label="Quantity" />
+            
+            <button class="QuantitySelector__Button QuantitySelector__Button--Plus" 
+                    data-action="increase-notification-qty" 
+                    aria-label="Increase quantity">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M6 0V12M0 6H12" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Added Upsell Products (products that were added from upsells) -->
+    <div class="ProductNotification__AddedUpsells" style="display: none;">
+      <!-- Added upsell products will be inserted here -->
+    </div>
+
+    <!-- Upsell Products Section -->
+    <div class="ProductNotification__Upsells" style="display: none;">
+      <h3 class="ProductNotification__UpsellTitle">Andere Kunden kauften auch:</h3>
+      <div class="ProductNotification__UpsellList">
+        <!-- Upsell products will be inserted here dynamically -->
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="ProductNotification__Actions">
+      <button class="ProductNotification__Button ProductNotification__Button--Secondary" 
+              data-action="continue-shopping">
+        WEITER EINKAUFEN
+      </button>
+      
+      <button class="ProductNotification__Button ProductNotification__Button--Primary" 
+              data-action="view-cart">
+        ZUM WARENKORB
+      </button>
+    </div>
+  </div>
+</div>
