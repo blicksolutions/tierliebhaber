@@ -54,7 +54,7 @@
     "cart_enable_notes": false,
     "cart_show_free_shipping_threshold": true,
     "cart_free_shipping_threshold": "49",
-    "cart_black_week_badge": false,
+    "cart_black_week_badge": true,
     "favicon": "shopify://shop_images/Favicon.png",
     "enable_superchat": false,
     "superchat_delay": 30,
@@ -1525,8 +1525,8 @@
           "image_WiPMGy": {
             "type": "image",
             "settings": {
-              "image": "shopify://shop_images/Nassfutter_von_Tierliebhaber.png",
-              "mobile_image": "shopify://shop_images/Nassfutter_von_Tierliebhaber_mobile.png",
+              "image": "shopify://shop_images/20251111_JL_Shop-Banner-Black-Weeks-Desktop.png",
+              "mobile_image": "shopify://shop_images/20251111_JL_Shop-Banner-Black-Weeks-mobile.png",
               "apply_overlay": false,
               "content_offset_mobile_left": 50,
               "content_offset_mobile_top": 50,
