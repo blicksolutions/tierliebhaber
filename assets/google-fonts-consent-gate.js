@@ -60,40 +60,59 @@
     }
   })();
 
-  // DOM Blocker für <link> Tags
-  function patchElementMethod(methodName){
-    var original = Element.prototype[methodName];
-    if (!original || original.__googlefontsPatched) return;
+// DOM Blocker für <link> Tags
+function patchElementMethod(methodName){
+  var original = Element.prototype[methodName];
+  if (!original || original.__googlefontsPatched) return;
+  
+  function wrapped(){
+    var child = arguments[0];
+    var refChild = arguments[1];
     
-    function wrapped(child){
-      try{
-        if (child && child.tagName) {
-          var tagName = child.tagName.toLowerCase();
-          
-          // Block <link rel="stylesheet" href="fonts.googleapis.com...">
-          if (tagName === "link") {
-            var href = child.href || (child.getAttribute && child.getAttribute("href"));
-            var rel = child.rel || (child.getAttribute && child.getAttribute("rel"));
-            
-            if (href && __loaded.has(href)) return child;
-            
-            if (href && rel === "stylesheet" && !marketingOn() && isBlockedUrl(href)) {
-              if (!blockedFontsQueue.includes(href)) {
-                blockedFontsQueue.push(href);
-              }
-              return child; // nicht einfügen
-            }
-          }
+    try{
+      // Nur bei <link> Tags prüfen
+      if (child && child.tagName && child.tagName.toLowerCase() === "link") {
+        var href = child.href || (child.getAttribute && child.getAttribute("href"));
+        var rel = child.rel || (child.getAttribute && child.getAttribute("rel"));
+        
+        // Skip wenn schon geladen
+        if (href && __loaded.has(href)) {
+          return original.apply(this, arguments);
         }
-      }catch(e){}
-      return original.call(this, child);
+        
+        // Block nur wenn es wirklich Google Fonts ist
+        if (href && rel === "stylesheet" && isBlockedUrl(href) && !marketingOn()) {
+          if (!blockedFontsQueue.includes(href)) {
+            blockedFontsQueue.push(href);
+          }
+          
+          // WICHTIG: Gib trotzdem das Element zurück, aber füge es nicht ein
+          // Erstelle stattdessen einen Platzhalter
+          var placeholder = document.createElement('link');
+          placeholder.rel = 'preload';
+          placeholder.as = 'style';
+          placeholder.href = 'data:text/css,';
+          placeholder.setAttribute('data-consent-blocked', 'google-fonts');
+          placeholder.setAttribute('data-original-href', href);
+          
+          return original.call(this, placeholder, refChild);
+        }
+      }
+    }catch(e){
+      // Bei Fehler: Lass das Original durchlaufen
+      console.warn('[Google Fonts Gate] Error in patch:', e);
     }
-    wrapped.__googlefontsPatched = true;
-    Element.prototype[methodName] = wrapped;
+    
+    // Standard-Fall: Original Methode aufrufen
+    return original.apply(this, arguments);
   }
   
-  patchElementMethod("appendChild");
-  patchElementMethod("insertBefore");
+  wrapped.__googlefontsPatched = true;
+  Element.prototype[methodName] = wrapped;
+}
+
+patchElementMethod("appendChild");
+patchElementMethod("insertBefore");
 
   // MutationObserver für nachträglich eingefügte Links
   var mo = new MutationObserver(function(mutations){
