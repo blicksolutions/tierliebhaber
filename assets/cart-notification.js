@@ -474,7 +474,7 @@
         .then(r => r.json())
         .then(cart => {
           updateCartCount(cart);
-          refreshCartDrawer();
+           refreshCartDrawerHTML(cart);
           
           const lineItem = cart.items.find(item => item.variant_id === variantId);
           if (lineItem) {
@@ -626,7 +626,7 @@
     .then(response => response.json())
     .then(cart => {
       updateCartCount(cart);
-      refreshCartDrawer();
+       refreshCartDrawerHTML(cart);
       
       if (newQuantity === 0) {
         // Re-enable the upsell button before removing the card
@@ -709,7 +709,7 @@
       currentQuantity = newQuantity;
       
       updateCartCount(cart);
-      refreshCartDrawer();
+       refreshCartDrawerHTML(cart);
       
       if (newQuantity === 0) {
         closeNotification();
@@ -726,23 +726,67 @@
   }
 
   // Refresh cart drawer
-  function refreshCartDrawer() {
-    const cartDrawer = document.querySelector('#sidebar-cart');
-    if (!cartDrawer) return;
+// Refresh cart drawer HTML - Updated version
+function refreshCartDrawerHTML(cartData) {
+  const cartDrawer = document.querySelector('#sidebar-cart');
+  if (!cartDrawer) return;
 
-    fetch(window.location.origin + '?view=ajax-cart')
-      .then(response => response.text())
-      .then(html => {
-        const temp = document.createElement('div');
-        temp.innerHTML = html;
-        const newCartContent = temp.querySelector('#sidebar-cart');
+  // Fetch fresh cart HTML
+  fetch(window.location.origin + '?view=ajax-cart&timestamp=' + Date.now())
+    .then(response => response.text())
+    .then(html => {
+      const temp = document.createElement('div');
+      temp.innerHTML = html;
+      
+      // Update the cart items list
+      const newCartItems = temp.querySelector('.Cart__ItemList');
+      const currentCartItems = cartDrawer.querySelector('.Cart__ItemList');
+      
+      if (newCartItems && currentCartItems) {
+        currentCartItems.innerHTML = newCartItems.innerHTML;
+      }
+      
+      // Update the footer totals
+      const newFooter = temp.querySelector('.Drawer__Footer__Inner');
+      const currentFooter = cartDrawer.querySelector('.Drawer__Footer__Inner');
+      
+      if (newFooter && currentFooter) {
+        // Keep the dcart element if it exists
+        const dcartElement = currentFooter.querySelector('.Drawer__Footer__Coupon-dcart');
+        currentFooter.innerHTML = newFooter.innerHTML;
         
-        if (newCartContent) {
-          cartDrawer.innerHTML = newCartContent.innerHTML;
+        // Re-append dcart if it was there
+        if (dcartElement) {
+          const couponContent = currentFooter.querySelector('.Drawer__Footer__Coupon-content');
+          if (couponContent) {
+            couponContent.appendChild(dcartElement);
+          }
         }
-      })
-      .catch(error => {});
-  }
+      }
+      
+      // Update cart values data attribute
+      const newCartValues = temp.querySelector('.Cart__values');
+      const currentCartValues = cartDrawer.querySelector('.Cart__values');
+      
+      if (newCartValues && currentCartValues) {
+        currentCartValues.dataset.cartTotalPriceFloat = newCartValues.dataset.cartTotalPriceFloat;
+      }
+      
+      // Trigger a change event to update progress bar and other UI
+      setTimeout(() => {
+        const changeEvent = new Event('change', { bubbles: true });
+        cartDrawer.dispatchEvent(changeEvent);
+        
+        // Also call the window function if it exists
+        if (typeof window.unlockCheckoutButton === 'function') {
+          window.unlockCheckoutButton();
+        }
+      }, 100);
+    })
+    .catch(error => {
+      console.error('Cart refresh error:', error);
+    });
+}
 
   // Update cart count
   function updateCartCount(cartData) {
