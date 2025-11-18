@@ -561,10 +561,10 @@
           {%- assign start_ts = start_iso | date: '%s' -%}
           {%- assign end_ts = end_iso | date: '%s' -%}
 
-          {%- assign section_collections_ok = false -%}
-          {%- if collection.handle == 'alle-produkte-1' or collection.handle == 'kundenlieblinge' -%}
+          {%- assign section_collections_ok = true -%}
+          {% comment %} {%- if collection.handle == 'alle-produkte-1' or collection.handle == 'kundenlieblinge' -%}
             {%- assign section_collections_ok = true -%}
-          {%- endif -%}
+          {%- endif -%} {% endcomment %}
 
           {%- if section_collections_ok and now_ts >= start_ts and now_ts < end_ts -%}
             {%- assign discount_filter_param = 'filter.p.m.custom.discount_filter_on_cp' -%}
