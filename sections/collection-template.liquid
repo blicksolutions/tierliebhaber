@@ -518,9 +518,9 @@
         {%- assign cutoff_datetime = '2025-10-05 00:00' -%}
 
         {%- assign is_restricted_collection = false -%}
-        {%- if collection.handle == 'alle-produkte-1' or collection.handle == 'kundenlieblinge' -%}
+        {% comment %} {%- if collection.handle == 'alle-produkte-1' or collection.handle == 'kundenlieblinge' -%}
           {%- assign is_restricted_collection = true -%}
-        {%- endif -%}
+        {%- endif -%} {% endcomment %}
 
         {%- assign should_hide = false -%}
         {%- if current_datetime > cutoff_datetime and is_restricted_collection -%}
