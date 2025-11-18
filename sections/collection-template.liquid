@@ -517,7 +517,7 @@
         {%- assign current_datetime = 'now' | date: '%Y-%m-%d %H:%M' -%}
         {%- assign cutoff_datetime = '2025-10-05 00:00' -%}
 
-        {%- assign is_restricted_collection = false -%}
+        {%- assign is_restricted_collection = true -%}
         {% comment %} {%- if collection.handle == 'alle-produkte-1' or collection.handle == 'kundenlieblinge' -%}
           {%- assign is_restricted_collection = true -%}
         {%- endif -%} {% endcomment %}
