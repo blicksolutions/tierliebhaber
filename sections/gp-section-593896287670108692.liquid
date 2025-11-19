@@ -46,7 +46,7 @@
       data-keep-class="true"
       class="g57Qf_bcde gp-custom-code">
       <div>
-    <!-- CHILLOUT OFFERS - JAVVY STYLE (compact gifts) -->
+    <!-- CHILLOUT OFFERS - FINAL VERSION -->
 <section class="tl-chillout-offers">
 
   <div class="tl-chillout-offers-header">
@@ -71,11 +71,17 @@
                alt="1x Chillout Drops">
         </div>
 
-        <div class="tl-offer-price-row">
-          <span class="tl-offer-old-price">43,90€</span>
-          <span class="tl-offer-price">43,90€</span>
+        <!-- PRICE ROW + PRO PACKUNG -->
+        <div class="tl-offer-price-wrapper">
+          <div class="tl-offer-price-left">
+            <span class="tl-offer-old-price">43,90€</span>
+            <span class="tl-offer-price">43,90€</span>
+          </div>
+          <div class="tl-offer-price-right">
+            <span class="tl-offer-per-pack-inline">pro Packung</span>
+          </div>
         </div>
-        <p class="tl-offer-per-pack">pro Packung</p>
+        <!-- kein Spar-Chip beim 1er -->
 
         <ul class="tl-offer-benefits">
           <li>Für kurzfristige Beruhigung</li>
@@ -108,11 +114,21 @@
                alt="3x Chillout Drops Bundle">
         </div>
 
-        <div class="tl-offer-price-row">
-          <span class="tl-offer-old-price">43,90€</span>
-          <span class="tl-offer-price">33,30€</span>
+        <!-- PRICE ROW + PRO PACKUNG -->
+        <div class="tl-offer-price-wrapper">
+          <div class="tl-offer-price-left">
+            <span class="tl-offer-old-price">43,90€</span>
+            <span class="tl-offer-price">33,30€</span>
+          </div>
+          <div class="tl-offer-price-right">
+            <span class="tl-offer-per-pack-inline">pro Packung</span>
+          </div>
         </div>
-        <p class="tl-offer-per-pack">pro Packung – Du sparst 19,80€</p>
+
+        <!-- SPAR-CHIP -->
+        <div class="tl-offer-saving-chip">
+          Du sparst 19,80€
+        </div>
 
         <ul class="tl-offer-benefits">
           <li>Beste Wahl für Entspannungs-Kur</li>
@@ -145,11 +161,21 @@
                alt="6x Chillout Drops">
         </div>
 
-        <div class="tl-offer-price-row">
-          <span class="tl-offer-old-price">43,90€</span>
-          <span class="tl-offer-price">29,98€</span>
+        <!-- PRICE ROW + PRO PACKUNG -->
+        <div class="tl-offer-price-wrapper">
+          <div class="tl-offer-price-left">
+            <span class="tl-offer-old-price">43,90€</span>
+            <span class="tl-offer-price">29,98€</span>
+          </div>
+          <div class="tl-offer-price-right">
+            <span class="tl-offer-per-pack-inline">pro Packung</span>
+          </div>
         </div>
-        <p class="tl-offer-per-pack">pro Packung – Du sparst 59,50€</p>
+
+        <!-- SPAR-CHIP -->
+        <div class="tl-offer-saving-chip">
+          Du sparst 59,50€
+        </div>
 
         <ul class="tl-offer-benefits">
           <li>Beste Wahl für langfristige Entspannung</li>
@@ -174,7 +200,7 @@
   <div class="tl-freegifts tl-freegifts--active">
     <div class="tl-freegifts-headline-row">
       <span class="tl-freegifts-label">GRATIS-Geschenke im Chillout Bundle</span>
-      <span class="tl-freegifts-hint">Wird beim Standard Paket &amp; 6er Paket nicht mitgeliefert.</span>
+      <span class="tl-freegifts-hint">Beim Standard Paket &amp; 6er Paket nicht enthalten.</span>
     </div>
 
     <div class="tl-freegifts-grid">
@@ -183,12 +209,14 @@
       <div class="tl-freegift-item">
         <div class="tl-freegift-left">
           <div class="tl-freegift-thumb">
-            <img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/153.png?v=1763519051"
+            <img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/151.png?v=1763519051"
                  alt="Chillout Saft">
           </div>
           <div class="tl-freegift-body">
             <p class="tl-freegift-name">Chillout Saft</p>
-            <p class="tl-freegift-desc">Flüssiger Wirkungsbooster für noch tiefere Entspannung.</p>
+            <p class="tl-freegift-desc">
+              Flüssiger Wirkungsbooster, der die Wirkung der Drops zusätzlich unterstützt.
+            </p>
           </div>
         </div>
         <div class="tl-freegift-right">
@@ -207,7 +235,9 @@
           </div>
           <div class="tl-freegift-body">
             <p class="tl-freegift-name">Chillout Guide</p>
-            <p class="tl-freegift-desc">Schritt-für-Schritt-Anleitung für entspanntere Hunde.</p>
+            <p class="tl-freegift-desc">
+              Schritt-für-Schritt-Anleitung, wie du deinen Hund im Alltag besser entspannst.
+            </p>
           </div>
         </div>
         <div class="tl-freegift-right">
@@ -230,7 +260,7 @@
   .tl-chillout-offers {
     max-width: 1120px;
     margin: 0 auto 60px auto;
-    padding: 32px 16px 32px;
+    padding: 32px 16px 28px;
     background: #fdfbf5;
     border-radius: 18px;
     box-shadow: 0 14px 40px rgba(0,0,0,0.06);
@@ -349,13 +379,6 @@
     height: auto;
   }
 
-  .tl-offer-price-row {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-    margin-bottom: 4px;
-  }
-
   .tl-offer-old-price {
     font-size: 14px;
     color: #9ca3af;
@@ -368,10 +391,41 @@
     color: #111827;
   }
 
-  .tl-offer-per-pack {
+  /* PRICE ROW INLINE */
+  .tl-offer-price-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+    margin-top: 4px;
+  }
+
+  .tl-offer-price-left {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+
+  .tl-offer-price-right {
+    display: flex;
+    align-items: center;
+  }
+
+  .tl-offer-per-pack-inline {
     font-size: 13px;
     color: #6b7280;
-    margin: 0 0 10px;
+  }
+
+  /* SAVING CHIP */
+  .tl-offer-saving-chip {
+    display: inline-flex;
+    background: #dcfce7;
+    color: #166534;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    margin-bottom: 10px;
   }
 
   .tl-offer-benefits {
@@ -446,9 +500,9 @@
   /* FREE GIFTS – KOMPAKTE LEISTE */
 
   .tl-freegifts {
-    margin-top: 18px;
-    padding: 12px 14px 10px;
-    border-radius: 12px;
+    margin-top: 16px;
+    padding: 10px 12px 8px;
+    border-radius: 10px;
     background: #fefce8;
     border: 1px solid #facc15;
   }
@@ -457,12 +511,12 @@
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
-    gap: 6px 12px;
-    margin-bottom: 8px;
+    gap: 4px 10px;
+    margin-bottom: 6px;
   }
 
   .tl-freegifts-label {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
   }
 
@@ -474,29 +528,33 @@
   .tl-freegifts-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
+    gap: 6px;
   }
 
   .tl-freegift-item {
     display: flex;
-    align-items: center;
-    gap: 8px;
+    align-items: flex-start;
+    gap: 6px;
     background: #fff;
-    border-radius: 10px;
-    padding: 6px 8px;
+    border-radius: 8px;
+    padding: 5px 6px;
   }
 
   .tl-freegift-left {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 6px;
     min-width: 0;
   }
 
   .tl-freegift-thumb img {
-    border-radius: 8px;
+    border-radius: 6px;
     display: block;
-    max-width: 52px;
+    max-width: 40px;
+  }
+
+  .tl-freegift-body {
+    text-align: left;
   }
 
   .tl-freegift-body p {
@@ -505,38 +563,39 @@
 
   .tl-freegift-name {
     font-weight: 700;
-    font-size: 12px;
+    font-size: 11px;
+    margin-bottom: 2px;
   }
 
   .tl-freegift-desc {
     color: #6b7280;
-    font-size: 11px;
+    font-size: 10px;
     line-height: 1.4;
   }
 
   .tl-freegift-right {
     margin-left: auto;
     text-align: right;
-    font-size: 11px;
-    min-width: 110px;
+    font-size: 10px;
+    min-width: 96px;
   }
 
   .tl-freegift-old {
     display: block;
     color: #4b5563;
-    margin-bottom: 3px;
+    margin-bottom: 2px;
   }
 
   .tl-freegift-chip {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 2px 7px;
+    padding: 1px 6px;
     border-radius: 999px;
-    font-size: 10px;
+    font-size: 9px;
     font-weight: 700;
     white-space: nowrap;
-    margin-top: 2px;
+    margin-top: 1px;
   }
 
   .tl-freegift-chip-active {
@@ -550,8 +609,8 @@
   }
 
   .tl-freegifts-note {
-    margin: 8px 0 0;
-    font-size: 11px;
+    margin: 6px 0 0;
+    font-size: 10px;
     color: #4b5563;
   }
 
@@ -616,7 +675,7 @@
 
     cards.forEach(card => {
       card.addEventListener("click", function(e) {
-        // wenn direkt auf CTA geklickt wird, nichts an der Darstellung ändern
+        // wenn direkt auf CTA geklickt wird, Darstellung nicht beeinflussen
         if (e.target.tagName.toLowerCase() === "a") return;
 
         cards.forEach(c => c.classList.remove("is-active"));
