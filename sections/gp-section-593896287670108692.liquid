@@ -46,7 +46,7 @@
       data-keep-class="true"
       class="g57Qf_bcde gp-custom-code">
       <div>
-    <!-- CHILLOUT OFFERS - JAVVY STYLE -->
+    <!-- CHILLOUT OFFERS - JAVVY STYLE (final) -->
 <section class="tl-chillout-offers">
 
   <div class="tl-chillout-offers-header">
@@ -54,7 +54,7 @@
     <h2 class="tl-chillout-title">Wähle das passende Chillout Paket für deinen Hund</h2>
     <p class="tl-chillout-sub">
       Tipp: Das Chillout Bundle in der Mitte ist unser meistgewähltes Paket –
-      inkl. GRATIS Chillout Saft & Chillout Guide.
+      inkl. GRATIS Chillout Saft &amp; Chillout Guide.
     </p>
   </div>
 
@@ -66,7 +66,6 @@
         <p class="tl-offer-name">Standard Paket</p>
         <p class="tl-offer-qty">1x Chillout Drops</p>
 
-        <!-- Produktbild -->
         <div class="tl-offer-image">
           <img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/126.png"
                alt="1x Chillout Drops">
@@ -82,7 +81,7 @@
           <li>Für kurzfristige Beruhigung</li>
           <li>60 Tage Geld-zurück-Garantie</li>
           <li class="tl-offer-benefit-muted">Kein kostenloser Versand</li>
-          <li class="tl-offer-benefit-muted">Ohne Gratis Chillout Saft & Guide</li>
+          <li class="tl-offer-benefit-muted">Ohne Gratis Chillout Saft &amp; Guide</li>
         </ul>
 
         <!-- DIRECT CHECKOUT: 1x -->
@@ -102,7 +101,7 @@
 
         <p class="tl-offer-name">Chillout Bundle</p>
         <p class="tl-offer-qty">3x Chillout Drops</p>
-        <p class="tl-offer-tagline">inkl. GRATIS Chillout Saft & Chillout Guide</p>
+        <p class="tl-offer-tagline">inkl. GRATIS Chillout Saft &amp; Chillout Guide</p>
 
         <div class="tl-offer-image">
           <img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/150.png?v=1763519051"
@@ -171,15 +170,15 @@
 
   </div>
 
-  <!-- FREE GIFTS AREA – visuell wie bei Javvy, nur fürs Bundle hervorgehoben -->
-  <div class="tl-freegifts tl-freegifts-visible">
+  <!-- FREE GIFTS AREA – immer sichtbar, je nach Paket aktiv/inaktiv -->
+  <div class="tl-freegifts tl-freegifts--active">
     <h3 class="tl-freegifts-title">Nur im Chillout Bundle: Deine GRATIS-Geschenke</h3>
     <div class="tl-freegifts-grid">
 
+      <!-- GESCHENK 1: SAFT -->
       <div class="tl-freegift-item">
         <div class="tl-freegift-thumb">
-          <!-- Hier eigenes Bild für Saft einsetzen -->
-          <img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/150.png?v=1763519051"
+          <img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/153.png?v=1763519051"
                alt="Chillout Saft">
         </div>
         <div class="tl-freegift-body">
@@ -189,13 +188,15 @@
         <div class="tl-freegift-price">
           <span class="tl-freegift-old">34,90€</span>
           <span class="tl-freegift-free">GRATIS</span>
+          <span class="tl-freegift-status tl-freegift-status-active">Im Chillout Bundle enthalten</span>
+          <span class="tl-freegift-status tl-freegift-status-inactive">Nicht in diesem Paket enthalten</span>
         </div>
       </div>
 
+      <!-- GESCHENK 2: GUIDE -->
       <div class="tl-freegift-item">
         <div class="tl-freegift-thumb">
-          <!-- Hier eigenes Bild für Guide einsetzen -->
-          <img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/126.png"
+          <img src="https://cdn.shopify.com/s/files/1/0587/2746/5119/files/153.png?v=1763519051"
                alt="Chillout Guide">
         </div>
         <div class="tl-freegift-body">
@@ -205,6 +206,8 @@
         <div class="tl-freegift-price">
           <span class="tl-freegift-old">29,99€</span>
           <span class="tl-freegift-free">GRATIS</span>
+          <span class="tl-freegift-status tl-freegift-status-active">Im Chillout Bundle enthalten</span>
+          <span class="tl-freegift-status tl-freegift-status-inactive">Nicht in diesem Paket enthalten</span>
         </div>
       </div>
 
@@ -408,13 +411,13 @@
     text-decoration: none;
     border: none;
     background: #111827;
-    color: #f9fafb;
+    color: #ffffff !important;
     margin-top: auto;
   }
 
   .tl-offer-cta-main {
     background: #84cc16;
-    color: #052e16;
+    color: #ffffff !important;
   }
 
   .tl-offer-cta:hover {
@@ -441,11 +444,6 @@
     border-radius: 14px;
     background: #fefce8;
     border: 1px solid #facc15;
-    display: none;
-  }
-
-  .tl-freegifts-visible {
-    display: block;
   }
 
   .tl-freegifts-title {
@@ -471,24 +469,26 @@
   .tl-freegift-item {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     background: #fff;
     border-radius: 12px;
-    padding: 8px 10px;
+    padding: 6px 8px;
   }
 
   .tl-freegift-thumb img {
     border-radius: 10px;
     display: block;
+    max-width: 70px;
   }
 
   .tl-freegift-body p {
     margin: 0;
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .tl-freegift-name {
     font-weight: 700;
+    font-size: 13px;
   }
 
   .tl-freegift-desc {
@@ -498,7 +498,8 @@
   .tl-freegift-price {
     margin-left: auto;
     text-align: right;
-    font-size: 12px;
+    font-size: 11px;
+    min-width: 110px;
   }
 
   .tl-freegift-old {
@@ -518,10 +519,56 @@
     font-size: 11px;
   }
 
+  .tl-freegift-status {
+    display: block;
+    margin-top: 4px;
+  }
+
+  .tl-freegift-status-active {
+    color: #16a34a;
+    font-weight: 600;
+  }
+
+  .tl-freegift-status-inactive {
+    color: #9ca3af;
+    font-weight: 500;
+  }
+
   .tl-freegifts-note {
     margin: 10px 0 0;
     font-size: 12px;
     color: #4b5563;
+  }
+
+  /* Zustand: Bundle aktiv vs. andere Pakete */
+  .tl-freegifts--inactive .tl-freegift-item {
+    opacity: .45;
+  }
+
+  .tl-freegifts--inactive .tl-freegift-free {
+    text-decoration: line-through;
+    background: #e5e7eb;
+    color: #6b7280;
+  }
+
+  .tl-freegifts--inactive .tl-freegift-status-active {
+    display: none;
+  }
+
+  .tl-freegifts--inactive .tl-freegift-status-inactive {
+    display: block;
+  }
+
+  .tl-freegifts--active .tl-freegift-item {
+    opacity: 1;
+  }
+
+  .tl-freegifts--active .tl-freegift-status-active {
+    display: block;
+  }
+
+  .tl-freegifts--active .tl-freegift-status-inactive {
+    display: none;
   }
 
   /* MOBILE */
@@ -541,18 +588,32 @@
     const cards = document.querySelectorAll(".tl-offer-card");
     const giftsBox = document.querySelector(".tl-freegifts");
 
+    function setGiftState(isBundle) {
+      if (!giftsBox) return;
+      if (isBundle) {
+        giftsBox.classList.add("tl-freegifts--active");
+        giftsBox.classList.remove("tl-freegifts--inactive");
+      } else {
+        giftsBox.classList.add("tl-freegifts--inactive");
+        giftsBox.classList.remove("tl-freegifts--active");
+      }
+    }
+
+    // initial: Bundle aktiv
+    setGiftState(true);
+
     cards.forEach(card => {
       card.addEventListener("click", function(e) {
-        // CTA-Klick nicht doppelt überschreiben
+        // wenn direkt auf CTA geklickt wird, nichts ändern
         if (e.target.tagName.toLowerCase() === "a") return;
 
         cards.forEach(c => c.classList.remove("is-active"));
         card.classList.add("is-active");
 
         if (card.dataset.offer === "bundle") {
-          giftsBox.classList.add("tl-freegifts-visible");
+          setGiftState(true);
         } else {
-          giftsBox.classList.remove("tl-freegifts-visible");
+          setGiftState(false);
         }
       });
     });
