@@ -35,7 +35,14 @@
         <div class="CartItem__Meta Heading Text--subdued">
           
           <div class="CartItem__PriceList">
-            <span class="CartItem__Price Price">{{ line_item.price | money_without_trailing_zeros }}</span>
+            {%- if line_item.compare_at_price > line_item.price -%}
+              <div class="CartItem__Price__Wrapper">
+                <span class="CartItem__OriginalPrice Price Price--compareAt">{{ line_item.compare_at_price | money_without_trailing_zeros }}</span>
+                <span class="CartItem__Price Price">{{ line_item.price | money_without_trailing_zeros }}</span>
+              </div>
+            {%- else -%}
+              <span class="CartItem__Price Price">{{ line_item.price | money_without_trailing_zeros }}</span>
+            {%- endif -%}
           </div>
 
           {%- unless line_item.product.selected_or_first_available_variant -%}
