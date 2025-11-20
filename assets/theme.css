@@ -5166,7 +5166,7 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
 
 .Cart .Drawer__Footer,
 .Cart__OffscreenNoteContainer {
-    padding: 14px 24px 24px
+    padding: 16px 16px 16px;
 }
 
 .Cart__Checkout {
@@ -5281,7 +5281,7 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
     }
     .Cart .Drawer__Footer,
     .Cart__OffscreenNoteContainer {
-        padding: 20px 30px 30px
+        padding: 16px;
     }
     .Cart__NoteButton+.Cart__Taxes {
         margin-top: 4px
