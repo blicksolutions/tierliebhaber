@@ -15111,3 +15111,7 @@ div.rc_popup__hover, a.rc_popup__hover {
 .ProductMeta__PaymentList.HorizontalList {
     z-index: 9999;
 }
+
+#CookiebotWidget:not(.CookiebotWidget-inactive) {
+    bottom: 71px !important;
+}
