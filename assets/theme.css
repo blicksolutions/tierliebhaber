@@ -15103,7 +15103,7 @@ div.rc_popup__hover, a.rc_popup__hover {
     z-index: 999 !important; 
 }
 
-.chatarmin-widget-wrapper {
-    bottom: 48px !important;
-}
 
+.ProductMeta__PaymentList.HorizontalList {
+    z-index: 9999;
+}
