@@ -11,19 +11,18 @@
 
     <script src="{{ 'jquery-3.7.1.slim.min.js' | asset_url }}"></script>
 
-  {% comment %}
-    <link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}">
-  {% endcomment %}
-
     {% comment %}
-    <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
-    <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
-    <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-009.js' | asset_url }}"></script>
-    <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-010.js' | asset_url }}"></script>
-    <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-011.js' | asset_url }}"></script>
-    <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-025.js' | asset_url }}"></script>
+      <link rel="stylesheet" href="{{ 'bs-ab-tlh-010.css' | asset_url }}">
     {% endcomment %}
 
+    {% comment %}
+      <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh001.js' | asset_url }}"></script>
+      <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh004.js' | asset_url }}"></script>
+      <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-009.js' | asset_url }}"></script>
+      <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-010.js' | asset_url }}"></script>
+      <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-011.js' | asset_url }}"></script>
+      <script type="text/plain" data-cookieconsent="marketing" src="{{ 'bs-ab-tlh-025.js' | asset_url }}"></script>
+    {% endcomment %}
 
     <script src="{{ 'bs-subscription-callout.js' | asset_url }}" defer></script>
     <script src="{{ 'bs-sticky-atc.js' | asset_url }}" defer></script>
@@ -80,9 +79,6 @@
       {% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
     </title>
 
-    
-
-
     {%- if page_description -%}
       <meta name="description" content="{{ page_description | escape }}">
     {%- endif -%}
@@ -117,17 +113,14 @@
     {% comment %} Bridge to Shopify Consent API {% endcomment %}
     {% render 'cookie-consent' %}
 
-    
     <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
-    
-    {% comment %}
-      <link rel="stylesheet" href="{{ 'swiper-bundle.min.css' | asset_url }}">
-      <link rel="stylesheet" href="{{ 'bs-mobile-sidebar-nav.css' | asset_url }}">
-       <link rel="stylesheet" href="{{ 'recommended-search-products.css' | asset_url }}">
-    {% endcomment %}
 
-    <link rel="stylesheet" href="{{ 'bs-custom.css' | asset_url }}">
-   
+    {% comment %}
+        <link rel="stylesheet" href="{{ 'swiper-bundle.min.css' | asset_url }}">
+        <link rel="stylesheet" href="{{ 'bs-mobile-sidebar-nav.css' | asset_url }}">
+         <link rel="stylesheet" href="{{ 'recommended-search-products.css' | asset_url }}">
+      <link rel="stylesheet" href="{{ 'bs-custom.css' | asset_url }}">
+    {% endcomment %}
 
     <link rel="stylesheet" href="https://widget.reviews.io/rating-snippet/dist.css">
 
@@ -223,7 +216,7 @@
     <script src="{{ 'cart-notification.js' | asset_url }}" defer></script>
     <script src="{{ 'search-manipulation.js' | asset_url }}" defer></script>
     {% comment %}
-    <script src="{{ 'bs-dentalspray-redirect.js' | asset_url }}"></script>
+      <script src="{{ 'bs-dentalspray-redirect.js' | asset_url }}"></script>
     {% endcomment %}
 
     <script>
