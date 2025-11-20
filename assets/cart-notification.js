@@ -1,5 +1,6 @@
 // Product Notification Drawer - Production Version with ReCharge Support
 // Features: Variant selection, cart filtering, remove on quantity 0, subscription price support
+// STANDALONE VERSION - No external dependencies required
 
 (function() {
   'use strict';
@@ -15,12 +16,22 @@
 
   // Helper function to get the actual displayed price from the product page
   function getActualDisplayedPrice() {
-    // Try to get the highlighted/active price (the one that's currently visible)
+    // Strategy 1: Check if Universal Pricing System is loaded (from separate script)
+    if (typeof window.getCurrentDisplayedPrice === 'function') {
+      const priceData = window.getCurrentDisplayedPrice();
+      if (priceData) {
+        console.log('✅ Using universal pricing system:', priceData);
+        return priceData.price;
+      }
+    }
+
+    // Strategy 2: Read from DOM - covers ReCharge, ABlyft, and standard Shopify
     const priceSelectors = [
-      '.ProductMeta__Price .Price--highlight',
-      '.ProductMeta__PriceList .Price--highlight',
-      '.product__price .price-item--sale',
-      '.price__regular .price-item--regular'
+      '.ProductMeta__Price .Price--highlight',           // Standard Shopify
+      '.ProductMeta__PriceList .Price--highlight',       // Shopify variant
+      '.product__price .price-item--sale',                // Theme specific
+      '.price__regular .price-item--regular',             // Theme specific
+      '.tl-0050-section.active .tl-0050-section-price-current' // ABlyft A/B Test
     ];
     
     for (const selector of priceSelectors) {
@@ -30,10 +41,14 @@
         const priceMatch = priceText.match(/[\d.,]+/);
         if (priceMatch) {
           const price = priceMatch[0].replace(',', '.');
-          return Math.round(parseFloat(price) * 100); // Convert to cents
+          const priceInCents = Math.round(parseFloat(price) * 100);
+          console.log('✅ Price from DOM:', selector, '→', priceInCents);
+          return priceInCents;
         }
       }
     }
+    
+    console.log('⚠️ No displayed price found, using variant price');
     return null;
   }
 
@@ -61,12 +76,12 @@
     currentQuantity = quantity;
 
     // CRITICAL: Get the actual displayed price (including subscription discount)
-    const originalCompareAtPrice = variant.compare_at_price; // Bewahre original compare_at_price
+    const originalCompareAtPrice = variant.compare_at_price;
     const displayedPrice = getActualDisplayedPrice();
     
     if (displayedPrice !== null && displayedPrice !== variant.price) {
       console.log('✅ Price override - Original:', variant.price, 'New:', displayedPrice);
-      // Store original price as compare_at_price for strikethrough (nur wenn noch kein compare_at_price existiert)
+      // Store original price as compare_at_price for strikethrough
       if (!originalCompareAtPrice || originalCompareAtPrice <= variant.price) {
         variant.compare_at_price = variant.price;
       }
@@ -84,7 +99,6 @@
         
         // Check if we should show notification or go straight to cart
         if (upsellProducts.length === 0 && productDetail.upsell_products && productDetail.upsell_products.length > 0) {
-          // All upsells are in cart, open cart drawer directly
           openCartDrawer();
           return;
         }
@@ -100,16 +114,10 @@
           }
         }
 
-        // Update notification content
         updateNotificationContent(variant, quantity);
-
-        // Store upsell products globally
         window._currentUpsellProducts = upsellProducts;
-
-        // Update upsell products
         updateUpsellProducts(upsellProducts);
 
-        // Show the drawer
         notificationDrawer.style.display = 'block';
         setTimeout(() => {
           notificationDrawer.classList.add('is-visible');
@@ -134,7 +142,6 @@
     const cartVariantIds = cart.items.map(item => item.variant_id);
     
     return upsellProducts.filter(product => {
-      // Get all variant IDs for this product
       const productVariantIds = [];
       
       if (product.variants && product.variants.length > 0) {
@@ -155,7 +162,6 @@
         productVariantIds.push(parseInt(vid, 10));
       }
       
-      // Check if any variant is in cart
       return !productVariantIds.some(vid => cartVariantIds.includes(vid));
     });
   }
@@ -176,7 +182,6 @@
     if (titleEl) {
       const name = variant.product_title || variant.name || 'Product';
       const cleanedName = name.split(' - ')[0].trim();
-      
       titleEl.textContent = cleanedName;
     }
 
@@ -294,8 +299,6 @@
 
   // Create upsell product element
   function createUpsellProductElement(product, index) {
-    const hasMultipleVariants = product.variants && product.variants.length > 1;
-    
     const div = document.createElement('div');
     div.className = 'UpsellProduct';
 
@@ -316,7 +319,6 @@
       imageSrc = imageSrc.replace(/\.(jpg|jpeg|png|gif|webp)/, '_200x200.$1');
     }
 
-    // Get first variant for single variant products
     const firstVariant = product.variants && product.variants.length > 0 ? product.variants[0] : product;
     
     let formattedPrice, formattedComparePrice;
@@ -338,8 +340,6 @@
     const hasComparePrice = comparePrice && comparePrice > price;
     const priceClass = hasComparePrice ? 'UpsellProduct__Price on-sale' : 'UpsellProduct__Price';
     const comparePriceClass = hasComparePrice ? 'UpsellProduct__ComparePrice has-compare-price' : 'UpsellProduct__ComparePrice';
-
-    // Show first variant title for all products (if not "Default Title")
     const variantTitle = firstVariant.title && firstVariant.title !== 'Default Title' ? firstVariant.title : '';
 
     div.innerHTML = `
@@ -366,96 +366,8 @@
 
   // Add upsell product to cart
   function addUpsellToCart(product, buttonElement) {
-    // Always add the first available variant directly
     const variant = product.variants && product.variants.length > 0 ? product.variants[0] : product;
     addVariantToCart(variant, product, buttonElement);
-  }
-
-  // Show variant selector modal
-  function showVariantSelector(product, buttonElement) {
-    const modal = createVariantSelectorModal(product);
-    document.body.appendChild(modal);
-    
-    setTimeout(() => modal.classList.add('is-visible'), 10);
-    
-    // Handle variant selection
-    modal.addEventListener('click', function(e) {
-      const variantOption = e.target.closest('[data-variant-index]');
-      if (variantOption) {
-        const variantIndex = parseInt(variantOption.dataset.variantIndex);
-        const selectedVariant = product.variants[variantIndex];
-        
-        addVariantToCart(selectedVariant, product, buttonElement);
-        closeVariantSelector(modal);
-      }
-      
-      if (e.target.closest('[data-action="close-variant-selector"]') || e.target.classList.contains('VariantSelector__Overlay')) {
-        closeVariantSelector(modal);
-      }
-    });
-  }
-
-  // Create variant selector modal
-  function createVariantSelectorModal(product) {
-    const modal = document.createElement('div');
-    modal.className = 'VariantSelector';
-    
-    const variantsHTML = product.variants.map((variant, index) => {
-      let price = variant.price;
-      let comparePrice = variant.compare_at_price;
-      
-      let formattedPrice, formattedComparePrice;
-      if (typeof Shopify !== 'undefined' && Shopify.formatMoney) {
-        formattedPrice = Shopify.formatMoney(price, window.theme.moneyFormat || '{{amount}}');
-        if (comparePrice) {
-          formattedComparePrice = Shopify.formatMoney(comparePrice, window.theme.moneyFormat || '{{amount}}');
-        }
-      } else {
-        formattedPrice = '€' + (price / 100).toFixed(2).replace('.', ',');
-        if (comparePrice) {
-          formattedComparePrice = '€' + (comparePrice / 100).toFixed(2).replace('.', ',');
-        }
-      }
-      
-      const hasComparePrice = comparePrice && comparePrice > price;
-      const available = variant.available !== false;
-      
-      return `
-        <div class="VariantSelector__Option ${!available ? 'is-unavailable' : ''}" data-variant-index="${index}">
-          <div class="VariantSelector__OptionInfo">
-            <span class="VariantSelector__OptionTitle">${variant.title}</span>
-            <div class="VariantSelector__OptionPrice">
-              ${hasComparePrice ? `<span class="VariantSelector__ComparePrice">${formattedComparePrice}</span>` : ''}
-              <span class="VariantSelector__Price ${hasComparePrice ? 'on-sale' : ''}">${formattedPrice}</span>
-            </div>
-          </div>
-          ${!available ? '<span class="VariantSelector__Unavailable">Out of Stock</span>' : ''}
-        </div>
-      `;
-    }).join('');
-    
-    modal.innerHTML = `
-      <div class="VariantSelector__Overlay"></div>
-      <div class="VariantSelector__Content">
-        <button class="VariantSelector__Close" data-action="close-variant-selector" aria-label="Close">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </button>
-        <h3 class="VariantSelector__Title">Select a variant</h3>
-        <div class="VariantSelector__Options">
-          ${variantsHTML}
-        </div>
-      </div>
-    `;
-    
-    return modal;
-  }
-
-  // Close variant selector
-  function closeVariantSelector(modal) {
-    modal.classList.remove('is-visible');
-    setTimeout(() => modal.remove(), 300);
   }
 
   // Add specific variant to cart
@@ -593,8 +505,6 @@
     const comparePriceClass = hasComparePrice ? 'AddedUpsellCard__ComparePrice has-compare-price' : 'AddedUpsellCard__ComparePrice';
 
     const variantTitle = product.title && product.title !== 'Default Title' ? product.title : lineItem.variant_title;
-    
-    // Get the product title and split on '-' to get the first part
     const productName = product.product_title || product.name || lineItem.product_title || 'Product';
     const cleanedProductName = productName.split(' - ')[0].trim();
 
@@ -660,7 +570,6 @@
       refreshCartDrawerHTML(cart);
       
       if (newQuantity === 0) {
-        // Re-enable the upsell button before removing the card
         const variantId = parseInt(cardElement.dataset.variantId);
         const upsellItems = notificationDrawer.querySelectorAll('.UpsellProduct');
         upsellItems.forEach(item => {
@@ -761,14 +670,12 @@
     const cartDrawer = document.querySelector('#sidebar-cart');
     if (!cartDrawer) return;
 
-    // Fetch fresh cart HTML
     fetch(window.location.origin + '?view=ajax-cart&timestamp=' + Date.now())
       .then(response => response.text())
       .then(html => {
         const temp = document.createElement('div');
         temp.innerHTML = html;
         
-        // Update the cart items list
         const newCartItems = temp.querySelector('.Cart__ItemList');
         const currentCartItems = cartDrawer.querySelector('.Cart__ItemList');
         
@@ -776,16 +683,13 @@
           currentCartItems.innerHTML = newCartItems.innerHTML;
         }
         
-        // Update the footer totals
         const newFooter = temp.querySelector('.Drawer__Footer__Inner');
         const currentFooter = cartDrawer.querySelector('.Drawer__Footer__Inner');
         
         if (newFooter && currentFooter) {
-          // Keep the dcart element if it exists
           const dcartElement = currentFooter.querySelector('.Drawer__Footer__Coupon-dcart');
           currentFooter.innerHTML = newFooter.innerHTML;
           
-          // Re-append dcart if it was there
           if (dcartElement) {
             const couponContent = currentFooter.querySelector('.Drawer__Footer__Coupon-content');
             if (couponContent) {
@@ -794,7 +698,6 @@
           }
         }
         
-        // Update cart values data attribute
         const newCartValues = temp.querySelector('.Cart__values');
         const currentCartValues = cartDrawer.querySelector('.Cart__values');
         
@@ -802,12 +705,10 @@
           currentCartValues.dataset.cartTotalPriceFloat = newCartValues.dataset.cartTotalPriceFloat;
         }
         
-        // Trigger a change event to update progress bar and other UI
         setTimeout(() => {
           const changeEvent = new Event('change', { bubbles: true });
           cartDrawer.dispatchEvent(changeEvent);
           
-          // Also call the window function if it exists
           if (typeof window.unlockCheckoutButton === 'function') {
             window.unlockCheckoutButton();
           }
@@ -858,7 +759,6 @@
       });
     }
 
-    // Main product quantity
     const decreaseBtn = notificationDrawer.querySelector('[data-action="decrease-notification-qty"]');
     if (decreaseBtn) {
       decreaseBtn.addEventListener('click', function() {
@@ -893,7 +793,6 @@
       }
     });
 
-    // Event delegation for dynamic elements
     notificationDrawer.addEventListener('click', function(e) {
       const addButton = e.target.closest('[data-action="add-upsell"]');
       if (addButton) {
@@ -932,7 +831,6 @@
     });
   }
 
-  // Listen for product:added event
   document.addEventListener('product:added', function(e) {
     if (e.detail && typeof window._showProductNotification === 'function') {
       setTimeout(function() {
@@ -943,6 +841,6 @@
     }
   });
 
-  console.log('✅ Product Notification Script Loaded with ReCharge Support');
+  console.log('✅ Product Notification Drawer Loaded (STANDALONE with ReCharge + ABlyft Support)');
 
 })();
