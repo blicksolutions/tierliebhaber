@@ -10836,12 +10836,13 @@ reviewsio-product-reviews-widget {
     border: 1px solid #f1af9e
 }
 
+/*
 .ProductNotification__Button--Secondary:hover {
     background: #f1af9e;
     color: #fff;
     border: 1px solid #f1af9e
 }
-
+*/
 .ProductNotification__Upsells {
     margin-top: 32px;
     padding: 15px;
