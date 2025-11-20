@@ -1,5 +1,5 @@
-// Product Notification Drawer - Production Version
-// Features: Variant selection, cart filtering, remove on quantity 0, clean code
+// Product Notification Drawer - Production Version with ReCharge Support
+// Features: Variant selection, cart filtering, remove on quantity 0, subscription price support
 
 (function() {
   'use strict';
@@ -12,6 +12,30 @@
   let currentCart = null;
 
   if (!notificationDrawer) return;
+
+  // Helper function to get the actual displayed price from the product page
+  function getActualDisplayedPrice() {
+    // Try to get the highlighted/active price (the one that's currently visible)
+    const priceSelectors = [
+      '.ProductMeta__Price .Price--highlight',
+      '.ProductMeta__PriceList .Price--highlight',
+      '.product__price .price-item--sale',
+      '.price__regular .price-item--regular'
+    ];
+    
+    for (const selector of priceSelectors) {
+      const priceEl = document.querySelector(selector);
+      if (priceEl && priceEl.offsetParent !== null) { // Check if visible
+        const priceText = priceEl.textContent.trim();
+        const priceMatch = priceText.match(/[\d.,]+/);
+        if (priceMatch) {
+          const price = priceMatch[0].replace(',', '.');
+          return Math.round(parseFloat(price) * 100); // Convert to cents
+        }
+      }
+    }
+    return null;
+  }
 
   // Main function to show product notification
   window._showProductNotification = function(productDetail) {
@@ -35,6 +59,19 @@
     
     currentVariantId = variantId;
     currentQuantity = quantity;
+
+    // CRITICAL: Get the actual displayed price (including subscription discount)
+    const originalCompareAtPrice = variant.compare_at_price; // Bewahre original compare_at_price
+    const displayedPrice = getActualDisplayedPrice();
+    
+    if (displayedPrice !== null && displayedPrice !== variant.price) {
+      console.log('✅ Price override - Original:', variant.price, 'New:', displayedPrice);
+      // Store original price as compare_at_price for strikethrough (nur wenn noch kein compare_at_price existiert)
+      if (!originalCompareAtPrice || originalCompareAtPrice <= variant.price) {
+        variant.compare_at_price = variant.price;
+      }
+      variant.price = displayedPrice;
+    }
 
     // Fetch cart to check existing items and get line key
     fetch('/cart.js')
@@ -136,12 +173,7 @@
     updateNotificationImage(variant);
 
     const titleEl = notificationDrawer.querySelector('.ProductNotification__ProductTitle');
-    // if (titleEl) {
-    //   titleEl.textContent = variant.product_title || variant.name || 'Product';
-    // }
     if (titleEl) {
-      //console.log("variant.product_title: ", variant.product_title, "variant.name: ", variant.name);
-      
       const name = variant.product_title || variant.name || 'Product';
       const cleanedName = name.split(' - ')[0].trim();
       
@@ -178,7 +210,7 @@
     if (typeof Shopify !== 'undefined' && Shopify.formatMoney) {
       formattedPrice = Shopify.formatMoney(variant.price, window.theme.moneyFormat || '{{amount}}');
     } else {
-      formattedPrice = '€' + (variant.price / 100).toFixed(2);
+      formattedPrice = '€' + (variant.price / 100).toFixed(2).replace('.', ',');
     }
 
     const hasComparePrice = variant.compare_at_price && variant.compare_at_price > variant.price;
@@ -188,7 +220,7 @@
       if (typeof Shopify !== 'undefined' && Shopify.formatMoney) {
         formattedComparePrice = Shopify.formatMoney(variant.compare_at_price, window.theme.moneyFormat || '{{amount}}');
       } else {
-        formattedComparePrice = '€' + (variant.compare_at_price / 100).toFixed(2);
+        formattedComparePrice = '€' + (variant.compare_at_price / 100).toFixed(2).replace('.', ',');
       }
 
       comparePriceEl.textContent = formattedComparePrice;
@@ -262,7 +294,6 @@
 
   // Create upsell product element
   function createUpsellProductElement(product, index) {
-    console.log("testing", product);
     const hasMultipleVariants = product.variants && product.variants.length > 1;
     
     const div = document.createElement('div');
@@ -298,9 +329,9 @@
         formattedComparePrice = Shopify.formatMoney(comparePrice, window.theme.moneyFormat || '{{amount}}');
       }
     } else {
-      formattedPrice = '€' + (price / 100).toFixed(2);
+      formattedPrice = '€' + (price / 100).toFixed(2).replace('.', ',');
       if (comparePrice) {
-        formattedComparePrice = '€' + (comparePrice / 100).toFixed(2);
+        formattedComparePrice = '€' + (comparePrice / 100).toFixed(2).replace('.', ',');
       }
     }
 
@@ -380,9 +411,9 @@
           formattedComparePrice = Shopify.formatMoney(comparePrice, window.theme.moneyFormat || '{{amount}}');
         }
       } else {
-        formattedPrice = '€' + (price / 100).toFixed(2);
+        formattedPrice = '€' + (price / 100).toFixed(2).replace('.', ',');
         if (comparePrice) {
-          formattedComparePrice = '€' + (comparePrice / 100).toFixed(2);
+          formattedComparePrice = '€' + (comparePrice / 100).toFixed(2).replace('.', ',');
         }
       }
       
@@ -474,7 +505,7 @@
         .then(r => r.json())
         .then(cart => {
           updateCartCount(cart);
-           refreshCartDrawerHTML(cart);
+          refreshCartDrawerHTML(cart);
           
           const lineItem = cart.items.find(item => item.variant_id === variantId);
           if (lineItem) {
@@ -551,9 +582,9 @@
         formattedComparePrice = Shopify.formatMoney(product.compare_at_price, window.theme.moneyFormat || '{{amount}}');
       }
     } else {
-      formattedPrice = '€' + ((product.price || lineItem.price) / 100).toFixed(2);
+      formattedPrice = '€' + ((product.price || lineItem.price) / 100).toFixed(2).replace('.', ',');
       if (product.compare_at_price) {
-        formattedComparePrice = '€' + (product.compare_at_price / 100).toFixed(2);
+        formattedComparePrice = '€' + (product.compare_at_price / 100).toFixed(2).replace('.', ',');
       }
     }
 
@@ -626,7 +657,7 @@
     .then(response => response.json())
     .then(cart => {
       updateCartCount(cart);
-       refreshCartDrawerHTML(cart);
+      refreshCartDrawerHTML(cart);
       
       if (newQuantity === 0) {
         // Re-enable the upsell button before removing the card
@@ -709,7 +740,7 @@
       currentQuantity = newQuantity;
       
       updateCartCount(cart);
-       refreshCartDrawerHTML(cart);
+      refreshCartDrawerHTML(cart);
       
       if (newQuantity === 0) {
         closeNotification();
@@ -725,68 +756,67 @@
     });
   }
 
-  // Refresh cart drawer
-// Refresh cart drawer HTML - Updated version
-function refreshCartDrawerHTML(cartData) {
-  const cartDrawer = document.querySelector('#sidebar-cart');
-  if (!cartDrawer) return;
+  // Refresh cart drawer HTML
+  function refreshCartDrawerHTML(cartData) {
+    const cartDrawer = document.querySelector('#sidebar-cart');
+    if (!cartDrawer) return;
 
-  // Fetch fresh cart HTML
-  fetch(window.location.origin + '?view=ajax-cart&timestamp=' + Date.now())
-    .then(response => response.text())
-    .then(html => {
-      const temp = document.createElement('div');
-      temp.innerHTML = html;
-      
-      // Update the cart items list
-      const newCartItems = temp.querySelector('.Cart__ItemList');
-      const currentCartItems = cartDrawer.querySelector('.Cart__ItemList');
-      
-      if (newCartItems && currentCartItems) {
-        currentCartItems.innerHTML = newCartItems.innerHTML;
-      }
-      
-      // Update the footer totals
-      const newFooter = temp.querySelector('.Drawer__Footer__Inner');
-      const currentFooter = cartDrawer.querySelector('.Drawer__Footer__Inner');
-      
-      if (newFooter && currentFooter) {
-        // Keep the dcart element if it exists
-        const dcartElement = currentFooter.querySelector('.Drawer__Footer__Coupon-dcart');
-        currentFooter.innerHTML = newFooter.innerHTML;
+    // Fetch fresh cart HTML
+    fetch(window.location.origin + '?view=ajax-cart&timestamp=' + Date.now())
+      .then(response => response.text())
+      .then(html => {
+        const temp = document.createElement('div');
+        temp.innerHTML = html;
         
-        // Re-append dcart if it was there
-        if (dcartElement) {
-          const couponContent = currentFooter.querySelector('.Drawer__Footer__Coupon-content');
-          if (couponContent) {
-            couponContent.appendChild(dcartElement);
+        // Update the cart items list
+        const newCartItems = temp.querySelector('.Cart__ItemList');
+        const currentCartItems = cartDrawer.querySelector('.Cart__ItemList');
+        
+        if (newCartItems && currentCartItems) {
+          currentCartItems.innerHTML = newCartItems.innerHTML;
+        }
+        
+        // Update the footer totals
+        const newFooter = temp.querySelector('.Drawer__Footer__Inner');
+        const currentFooter = cartDrawer.querySelector('.Drawer__Footer__Inner');
+        
+        if (newFooter && currentFooter) {
+          // Keep the dcart element if it exists
+          const dcartElement = currentFooter.querySelector('.Drawer__Footer__Coupon-dcart');
+          currentFooter.innerHTML = newFooter.innerHTML;
+          
+          // Re-append dcart if it was there
+          if (dcartElement) {
+            const couponContent = currentFooter.querySelector('.Drawer__Footer__Coupon-content');
+            if (couponContent) {
+              couponContent.appendChild(dcartElement);
+            }
           }
         }
-      }
-      
-      // Update cart values data attribute
-      const newCartValues = temp.querySelector('.Cart__values');
-      const currentCartValues = cartDrawer.querySelector('.Cart__values');
-      
-      if (newCartValues && currentCartValues) {
-        currentCartValues.dataset.cartTotalPriceFloat = newCartValues.dataset.cartTotalPriceFloat;
-      }
-      
-      // Trigger a change event to update progress bar and other UI
-      setTimeout(() => {
-        const changeEvent = new Event('change', { bubbles: true });
-        cartDrawer.dispatchEvent(changeEvent);
         
-        // Also call the window function if it exists
-        if (typeof window.unlockCheckoutButton === 'function') {
-          window.unlockCheckoutButton();
+        // Update cart values data attribute
+        const newCartValues = temp.querySelector('.Cart__values');
+        const currentCartValues = cartDrawer.querySelector('.Cart__values');
+        
+        if (newCartValues && currentCartValues) {
+          currentCartValues.dataset.cartTotalPriceFloat = newCartValues.dataset.cartTotalPriceFloat;
         }
-      }, 100);
-    })
-    .catch(error => {
-      console.error('Cart refresh error:', error);
-    });
-}
+        
+        // Trigger a change event to update progress bar and other UI
+        setTimeout(() => {
+          const changeEvent = new Event('change', { bubbles: true });
+          cartDrawer.dispatchEvent(changeEvent);
+          
+          // Also call the window function if it exists
+          if (typeof window.unlockCheckoutButton === 'function') {
+            window.unlockCheckoutButton();
+          }
+        }, 100);
+      })
+      .catch(error => {
+        console.error('Cart refresh error:', error);
+      });
+  }
 
   // Update cart count
   function updateCartCount(cartData) {
@@ -912,5 +942,7 @@ function refreshCartDrawerHTML(cartData) {
       }, 100);
     }
   });
+
+  console.log('✅ Product Notification Script Loaded with ReCharge Support');
 
 })();
