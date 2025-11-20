@@ -10820,14 +10820,16 @@ reviewsio-product-reviews-widget {
 
 .ProductNotification__Button {
     flex: 1;
-    padding: 14px 24px;
+    padding: 14px 28px;
     border: none;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 14px;
+    line-height: 16px;
     font-weight: 600;
     cursor: pointer;
-    transition: .2s;
-    text-align: center
+    text-align: center;
+    margin-top: 5px;
+    letter-spacing: .2em;
 }
 
 .ProductNotification__Button--Secondary {
@@ -10843,6 +10845,7 @@ reviewsio-product-reviews-widget {
     border: 1px solid #f1af9e
 }
 */
+
 .ProductNotification__Upsells {
     margin-top: 32px;
     padding: 15px;
