@@ -11143,6 +11143,7 @@ reviewsio-product-reviews-widget {
     position: sticky;
     bottom: 0;
     border: 1px solidrgb(227, 225, 225);
+    border-radius: 8px;
     -webkit-box-shadow: 0px 0px 18px 2px rgba(224, 224, 224, 0.9);
     -moz-box-shadow: 0px 0px 18px 2px rgba(224, 224, 224, 0.9);
     box-shadow: 0px 0px 18px 2px rgba(224, 224, 224, 0.9);
