@@ -9706,6 +9706,10 @@ body[data-drawer-id-opened] div[id^=trustbadge-container] {
     margin-bottom: 10px;
     margin-top: 10px
 }
+#sidebar-cart .Drawer__Footer .Drawer__Footer__Total {
+    margin-bottom: 5px;
+}
+
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Delivery small,
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Subtotal small,
