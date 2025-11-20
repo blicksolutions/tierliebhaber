@@ -15089,6 +15089,7 @@ div.rc_popup__hover, a.rc_popup__hover {
 }
 */
 
-.as-tl-0033 .chatarmin-widget-wrapper, #CookiebotWidget {
+.as-tl-0033 .chatarmin-widget-wrapper, #CookiebotWidget, .chatarmin-widget-wrapper {
     z-index: 999 !important; 
 }
+
