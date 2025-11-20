@@ -11093,13 +11093,13 @@ reviewsio-product-reviews-widget {
     background: #f1af9e;
     color: #fff
 }
-
+/*
 .ProductNotification__Button--Primary:hover {
     background: 0 0;
     color: #f1af9e;
     border: 1px solid #f1af9e
 }
-
+*/
 @media (max-width:768px) {
     .ProductNotification__Content {
         top: auto;
