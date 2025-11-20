@@ -1907,13 +1907,13 @@ input.spr-button-primary[disabled] {
 }
 
 .Drawer--fromLeft .Drawer__Container {
-    padding-left: 18px;
-    padding-right: 24px
+    padding-left: 12px;
+    padding-right: 16px
 }
 
 .Drawer--fromRight .Drawer__Container {
-    padding-left: 24px;
-    padding-right: 18px
+    padding-left: 16px;
+    padding-right: 12px
 }
 
 .Drawer__Header {
@@ -3247,8 +3247,8 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
     }
     .Drawer--fromLeft .Drawer__Container,
     .Drawer--fromRight .Drawer__Container {
-        padding-left: 30px;
-        padding-right: 30px
+        padding-left: 12px;
+        padding-right: 12px
     }
     .Drawer__Close {
         left: 30px
