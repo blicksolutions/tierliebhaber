@@ -238,39 +238,31 @@
     updateNotificationImage(variant);
 
     const titleEl = upsellDrawer.querySelector('.ProductNotification__ProductTitle');
-    if (titleEl) {
-      const name = variant.product_title || variant.name || 'Product';
-      const cleanedName = name.split(' - ')[0].trim();
-      titleEl.textContent = cleanedName;
-    }
-
-    // Update variant info INCLUDING subscription interval
-    const variantEl = upsellDrawer.querySelector('.ProductNotification__VariantValue');
-    const variantContainer = upsellDrawer.querySelector('.ProductNotification__ProductVariant');
+    const subscriptionInfoEl = upsellDrawer.querySelector('.ProductNotification__SubscriptionInfo');
     
-    if (variantEl && variantContainer) {
-      let variantText = '';
+    if (titleEl) {
+      const productName = variant.product_title || variant.name || 'Product';
+      const cleanedProductName = productName.split(' - ')[0].trim();
       
-      // Show variant title
+      // Build title with variant (e.g., "Dentalspray – 150ml")
+      let fullTitle = cleanedProductName;
+      
       if (variant.title && variant.title !== 'Default Title') {
-        variantText = variant.title;
+        fullTitle = `${cleanedProductName} – ${variant.title}`;
       }
       
-      // Add subscription interval if exists
+      titleEl.textContent = fullTitle;
+      console.log('✅ Product title:', fullTitle);
+    }
+    
+    // Show subscription interval in separate line (only if subscription)
+    if (subscriptionInfoEl) {
       if (subscriptionInterval) {
-        if (variantText) {
-          variantText += ` • ${subscriptionInterval}`;
-        } else {
-          variantText = subscriptionInterval;
-        }
+        subscriptionInfoEl.textContent = subscriptionInterval;
+        subscriptionInfoEl.style.display = 'block';
         console.log('✅ Showing subscription interval:', subscriptionInterval);
-      }
-      
-      if (variantText) {
-        variantEl.innerHTML = variantText;
-        variantContainer.style.display = 'block';
       } else {
-        variantContainer.style.display = 'none';
+        subscriptionInfoEl.style.display = 'none';
       }
     }
 
