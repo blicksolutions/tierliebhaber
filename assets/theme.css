@@ -9740,7 +9740,7 @@ body[data-drawer-id-opened] div[id^=trustbadge-container] {
 
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Inner {
     position: relative;
-    padding-bottom: 5
+    padding-bottom: 5px;
 }
 
 #sidebar-cart .Drawer__Footer .scDiscount .scError {
