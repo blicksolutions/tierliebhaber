@@ -414,7 +414,7 @@
       </div>
       <div class="UpsellProduct__Info">
         <h4 class="UpsellProduct__Title">${product.title}</h4>
-        ${variantTitle ? `<p class="UpsellProduct__Variant">Variante: ${variantTitle}</p>` : ''}
+        ${variantTitle ? `<p class="UpsellProduct__Variant">${variantTitle}</p>` : ''}
         <div class="UpsellProduct__PriceContainer">
           ${hasComparePrice ? `<span class="${comparePriceClass}">${formattedComparePrice}</span>` : ''}
           <span class="${priceClass}">${formattedPrice}</span>
@@ -576,7 +576,7 @@
       </div>
       <div class="AddedUpsellCard__Details">
         <h4 class="AddedUpsellCard__Title">${cleanedProductName}</h4>
-        ${variantTitle && variantTitle !== 'Default Title' ? `<p class="AddedUpsellCard__Variant">Variante: <span class="AddedUpsellCard__VariantValue">${variantTitle}</span></p>` : ''}
+        ${variantTitle && variantTitle !== 'Default Title' ? `<p class="AddedUpsellCard__Variant"><span class="AddedUpsellCard__VariantValue">${variantTitle}</span></p>` : ''}
         <div class="AddedUpsellCard__PriceContainer">
           ${hasComparePrice ? `<span class="${comparePriceClass}">${formattedComparePrice}</span>` : ''}
           <span class="${priceClass}">${formattedPrice}</span>
