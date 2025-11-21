@@ -84,7 +84,7 @@
               <div class="AspectRatio AspectRatio--withFallback" style="padding-bottom: {{ 100.0 | divided_by: media.aspect_ratio }}%; --aspect-ratio: {{ media.aspect_ratio }};">
                 {% assign image_url = media | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
 
-				<link rel="preload" href="{{ media | img_url: '160x' }}" as="image">
+				        <link rel="preload" href="{{ media | img_url: '160x' }}" as="image">
 
                 <img class="Image--lazyLoad Image--fadeIn" data-src="{{ image_url }}" data-widths="[{{ supported_sizes }}]" data-sizes="auto" data-expand="-100" alt="{{ media.alt | escape }}" data-max-width="{{ media.width }}" data-max-height="{{ media.height }}" data-original-src="{{ media | img_url: 'master' }}" fetchpriority="high">
                 <span class="Image__Loader"></span>
