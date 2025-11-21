@@ -9598,11 +9598,11 @@ body[data-drawer-id-opened] div[id^=trustbadge-container] {
 #sidebar-cart .Drawer__Footer .Drawer__Footer__Coupon {
     border-top: 1px solid #e5e5e5;
     border-bottom: 1px solid #e5e5e5;
-    background: #fff;
+    background: #ffffff;
 }
 
 #sidebar-cart.Drawer__Footer__CouponActive .Drawer__Footer__Coupon {
-    background: #fff
+    background: #ffffff;
 }
 
 @media screen and (max-width:640px) {
