@@ -13877,7 +13877,7 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 
 .rc-widget-injection-parent .VariantSelector__List[data-js-variant-selector-list] {
     display: flex;
-	padding: 8px;
+	padding: 8px 8px 16px;
     flex-direction: row;
     flex-wrap: wrap;
 	gap: 6px;
