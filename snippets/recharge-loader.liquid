@@ -94,7 +94,6 @@ body:has(.rc-widget-injection-parent) .ProductForm__Variants {
 </style>
 
 <script>
-
 // ========================================
 // RECHARGE SMART OVERRIDE - FINAL VERSION
 // CSS versteckt Variants SOFORT
@@ -105,6 +104,16 @@ body:has(.rc-widget-injection-parent) .ProductForm__Variants {
   'use strict';
 
   console.log('🧠 ReCharge Smart Override - Final Version');
+
+  // Check if in Theme Editor
+  const isThemeEditor = window.self !== window.top || 
+                        window.location.search.includes('preview_theme_id') ||
+                        document.body.classList.contains('template-password');
+  
+  if (isThemeEditor) {
+    console.log('🎨 Theme Editor detected - applying instant CSS only');
+    // CSS wird trotzdem injiziert am Ende des Scripts
+  }
 
   const originalAddEventListener = window.addEventListener;
   const originalAttachEvent = window.attachEvent;
@@ -205,41 +214,20 @@ body:has(.rc-widget-injection-parent) .ProductForm__Variants {
     }, maxChecks * 100);
   }
 
-  // Override addEventListener
-  window.addEventListener = function(type, listener, options) {
-    
-    if (type === 'load' && !rechargeLoadCalled) {
-      const listenerStr = listener.toString();
+  // Override addEventListener (skip in Theme Editor)
+  if (!isThemeEditor) {
+    window.addEventListener = function(type, listener, options) {
       
-      if (listenerStr.includes('rechargecdn.com') || 
-          listenerStr.includes('widget.min.js') ||
-          listenerStr.includes('asyncLoad')) {
-        
-        console.log('🎯 Intercepted ReCharge App Embed load event!');
-        console.log('🧠 Using smart loading (waiting for dependencies)');
-        
-        rechargeLoadCalled = true;
-        loadRechargeWhenReady(listener);
-        
-        return;
-      }
-    }
-
-    return originalAddEventListener.call(window, type, listener, options);
-  };
-
-  // Override attachEvent
-  if (originalAttachEvent) {
-    window.attachEvent = function(event, listener) {
-      
-      if (event === 'onload' && !rechargeLoadCalled) {
+      if (type === 'load' && !rechargeLoadCalled) {
         const listenerStr = listener.toString();
         
         if (listenerStr.includes('rechargecdn.com') || 
             listenerStr.includes('widget.min.js') ||
             listenerStr.includes('asyncLoad')) {
           
-          console.log('🎯 Intercepted ReCharge attachEvent!');
+          console.log('🎯 Intercepted ReCharge App Embed load event!');
+          console.log('🧠 Using smart loading (waiting for dependencies)');
+          
           rechargeLoadCalled = true;
           loadRechargeWhenReady(listener);
           
@@ -247,11 +235,35 @@ body:has(.rc-widget-injection-parent) .ProductForm__Variants {
         }
       }
 
-      return originalAttachEvent.call(window, event, listener);
+      return originalAddEventListener.call(window, type, listener, options);
     };
-  }
 
-  console.log('✅ ReCharge Smart Override active');
+    // Override attachEvent
+    if (originalAttachEvent) {
+      window.attachEvent = function(event, listener) {
+        
+        if (event === 'onload' && !rechargeLoadCalled) {
+          const listenerStr = listener.toString();
+          
+          if (listenerStr.includes('rechargecdn.com') || 
+              listenerStr.includes('widget.min.js') ||
+              listenerStr.includes('asyncLoad')) {
+            
+            console.log('🎯 Intercepted ReCharge attachEvent!');
+            rechargeLoadCalled = true;
+            loadRechargeWhenReady(listener);
+            
+            return;
+          }
+        }
+
+        return originalAttachEvent.call(window, event, listener);
+      };
+    }
+
+    console.log('✅ ReCharge Smart Override active');
+  }
+  
   console.log('ℹ️ Standard Variants werden via CSS versteckt (instant)');
 
 })();
