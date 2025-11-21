@@ -13957,9 +13957,9 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 }
 
 .rc-widget-injection-parent .VariantSelector__OptionSavings {
-    color: #525252;
+    color: #2a2a2a;
     text-align: right;
-    font-size: 10px;
+    font-size: 12px;
     font-style: normal;
     font-weight: 400;
     line-height: 12.15px;
@@ -13976,8 +13976,8 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 
 @media (min-width: 768px) {
     .rc-widget-injection-parent .VariantSelector__OptionSavings {
-        font-size: 12px;
-        line-height: 15px;
+        font-size: 14px;
+        line-height: 16px;
     }
 }
 
