@@ -13758,7 +13758,7 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 }
 
 .rc-widget-injection-parent .rc-selling-plans {
-	padding: 8px;
+	padding: 0 8px 18px;
 	border-radius: 0px 0px 10px 10px;
     border-right: 1px solid #CCC;
     border-bottom: 1px solid #CCC;
