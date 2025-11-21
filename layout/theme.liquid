@@ -9,6 +9,11 @@
     {% comment %}<!-- Split GemX Traffic before Consent M.M. -->{% endcomment %}
     {% render 'gemx-traffic-switch' %}
 
+    {% comment %} :::::::  recharge loade speed-up m.m. :::::::  {% endcomment %}
+    <link rel="preconnect" href="https://cdn.rechargepayments.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.rechargepayments.com">
+    {% render 'recharge-loader' %}
+
     <script src="{{ 'jquery-3.7.1.slim.min.js' | asset_url }}"></script>
 
     {% comment %}

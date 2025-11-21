@@ -59,9 +59,14 @@
 
 {%- form 'product', product, data-productid: product.id, class: 'ProductForm' -%}
   {%- if template.suffix == 'standardprodukt-mit-abo' or template.suffix == 'abo-ohne-reviews' -%}
+
     <!-- Begin ReCharge code -->
-    <div class="rc-widget-injection-parent"></div>
+    <div class="recharge-loading-container">
+      <div class="rc-widget-injection-parent"></div>
+      <div class="recharge-loading-skeleton"></div>
+    </div>
     <!-- End ReCharge code -->
+
   {%- else -%}
     <style>
       .rc-container-wrapper{
