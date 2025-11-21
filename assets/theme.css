@@ -15117,6 +15117,12 @@ div.rc_popup__hover, a.rc_popup__hover {
 }
 
 
+.SidebarMenu__wrapper .bestseller {
+    overflow: hidden;
+}
+
+
+
 /* ========================================
    Reviews CSS Local
    ======================================== */
@@ -15349,3 +15355,4 @@ margin:0 15px;
 /* ========================================
    Reviews CSS Local END
    ======================================== */
+
