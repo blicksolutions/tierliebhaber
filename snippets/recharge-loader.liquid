@@ -95,7 +95,8 @@ body:has(.rc-widget-injection-parent) .ProductForm__Variants {
 
 <script>
 
-  // ========================================
+  
+// ========================================
 // RECHARGE SMART OVERRIDE - FINAL VERSION
 // CSS versteckt Variants SOFORT
 // JavaScript lädt ReCharge schnell
@@ -106,32 +107,14 @@ body:has(.rc-widget-injection-parent) .ProductForm__Variants {
 
   console.log('🧠 ReCharge Smart Override - Final Version');
 
-  // Check if in Theme Editor/Customizer
+  // Check if in Theme Editor
   const isThemeEditor = window.self !== window.top || 
-                        window.location.search.includes('preview_theme_id');
+                        window.location.search.includes('preview_theme_id') ||
+                        document.body.classList.contains('template-password');
   
   if (isThemeEditor) {
-    console.log('🎨 Theme Customizer detected - loading ReCharge directly');
-    
-    // Load ReCharge script directly
-    const loadRechargeDirectly = () => {
-      if (document.querySelector('script[src*="rechargecdn.com"]')) {
-        console.log('ℹ️ ReCharge script already present');
-        return;
-      }
-      
-      const script = document.createElement('script');
-      script.src = 'https://static.rechargecdn.com/assets/js/widget.min.js?shop=tierliebhaber-animagus.myshopify.com';
-      script.async = true;
-      script.onload = () => console.log('✅ ReCharge loaded in Theme Editor');
-      document.head.appendChild(script);
-    };
-    
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', loadRechargeDirectly);
-    } else {
-      setTimeout(loadRechargeDirectly, 500);
-    }
+    console.log('🎨 Theme Editor detected - applying instant CSS only');
+    // CSS wird trotzdem injiziert am Ende des Scripts
   }
 
   const originalAddEventListener = window.addEventListener;
@@ -233,41 +216,20 @@ body:has(.rc-widget-injection-parent) .ProductForm__Variants {
     }, maxChecks * 100);
   }
 
-  // Override addEventListener
-  window.addEventListener = function(type, listener, options) {
-    
-    if (type === 'load' && !rechargeLoadCalled) {
-      const listenerStr = listener.toString();
+  // Override addEventListener (skip in Theme Editor)
+  if (!isThemeEditor) {
+    window.addEventListener = function(type, listener, options) {
       
-      if (listenerStr.includes('rechargecdn.com') || 
-          listenerStr.includes('widget.min.js') ||
-          listenerStr.includes('asyncLoad')) {
-        
-        console.log('🎯 Intercepted ReCharge App Embed load event!');
-        console.log('🧠 Using smart loading (waiting for dependencies)');
-        
-        rechargeLoadCalled = true;
-        loadRechargeWhenReady(listener);
-        
-        return;
-      }
-    }
-
-    return originalAddEventListener.call(window, type, listener, options);
-  };
-
-  // Override attachEvent
-  if (originalAttachEvent) {
-    window.attachEvent = function(event, listener) {
-      
-      if (event === 'onload' && !rechargeLoadCalled) {
+      if (type === 'load' && !rechargeLoadCalled) {
         const listenerStr = listener.toString();
         
         if (listenerStr.includes('rechargecdn.com') || 
             listenerStr.includes('widget.min.js') ||
             listenerStr.includes('asyncLoad')) {
           
-          console.log('🎯 Intercepted ReCharge attachEvent!');
+          console.log('🎯 Intercepted ReCharge App Embed load event!');
+          console.log('🧠 Using smart loading (waiting for dependencies)');
+          
           rechargeLoadCalled = true;
           loadRechargeWhenReady(listener);
           
@@ -275,11 +237,35 @@ body:has(.rc-widget-injection-parent) .ProductForm__Variants {
         }
       }
 
-      return originalAttachEvent.call(window, event, listener);
+      return originalAddEventListener.call(window, type, listener, options);
     };
-  }
 
-  console.log('✅ ReCharge Smart Override active');
+    // Override attachEvent
+    if (originalAttachEvent) {
+      window.attachEvent = function(event, listener) {
+        
+        if (event === 'onload' && !rechargeLoadCalled) {
+          const listenerStr = listener.toString();
+          
+          if (listenerStr.includes('rechargecdn.com') || 
+              listenerStr.includes('widget.min.js') ||
+              listenerStr.includes('asyncLoad')) {
+            
+            console.log('🎯 Intercepted ReCharge attachEvent!');
+            rechargeLoadCalled = true;
+            loadRechargeWhenReady(listener);
+            
+            return;
+          }
+        }
+
+        return originalAttachEvent.call(window, event, listener);
+      };
+    }
+
+    console.log('✅ ReCharge Smart Override active');
+  }
+  
   console.log('ℹ️ Standard Variants werden via CSS versteckt (instant)');
 
 })();
@@ -323,8 +309,6 @@ if (!document.getElementById('recharge-smart-styles')) {
 }
 
 console.log('✅ ReCharge instant hide CSS injected');
-
-
 
 </script>
 
