@@ -10,7 +10,7 @@ window.replaceVariantSelector = () => {
                         <path d="M8.41206 15.0238L4.17627 10.788L4.78479 10.1803L8.41206 13.8076L16.2155 6.00421L16.8231 6.61188L8.41206 15.0238Z" fill="black"/>
                     </svg>
                     <p class="rc-plans__usp-text">
-                        15% Ersparnis pro Bestellung
+                        15% Ersparnis pro Lieferung
                     </p>
                 </li>
                 <li class="rc-plans__usp" data-js-usp-free-shipping="true">
