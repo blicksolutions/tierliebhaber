@@ -131,6 +131,50 @@
       <div class="Product__Gallery {% if section.settings.stack_images %}Product__Gallery--stack{% endif %} {% if section.settings.show_thumbnails and media_count > 1 %}Product__Gallery--withThumbnails{% else %}Product__Gallery--withDots{% endif %}">
         <span id="ProductGallery" class="Anchor"></span>
 
+        {%- comment -%}LCP Placeholder - Overlay über Slideshow{%- endcomment -%}
+<div class="Product__GalleryPlaceholder" id="ProductGalleryPlaceholder">
+  <div class="AspectRatio AspectRatio--withFallback" style="padding-bottom: {{ 100.0 | divided_by: product.featured_media.aspect_ratio }}%; --aspect-ratio: {{ product.featured_media.aspect_ratio }};">
+    <img 
+      src="{{ product.featured_media | img_url: '800x' }}"
+      srcset="{{ product.featured_media | img_url: '400x' }} 400w, {{ product.featured_media | img_url: '600x' }} 600w, {{ product.featured_media | img_url: '800x' }} 800w, {{ product.featured_media | img_url: '1000x' }} 1000w, {{ product.featured_media | img_url: '1200x' }} 1200w"
+      sizes="(max-width: 640px) 100vw, 550px"
+      alt="{{ product.featured_media.alt | escape }}"
+      width="{{ product.featured_media.width }}"
+      height="{{ product.featured_media.height }}"
+      fetchpriority="high"
+      decoding="async"
+      class="Image--lazyLoaded Image--fadeIn"
+    >
+  </div>
+</div>
+<style>
+  .Product__GalleryPlaceholder {
+    position: relative;
+    z-index: 2;
+    background: #fff;
+  }
+  .Product__Slideshow {
+    position: relative;
+    z-index: 1;
+  }
+  .Product__GalleryPlaceholder--hidden {
+    display: none;
+  }
+  /* Wenn Placeholder sichtbar, Slideshow unsichtbar aber im DOM */
+  .Product__Gallery:not(.Product__Gallery--slideshowReady) .Product__Slideshow {
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
+  }
+  .Product__Gallery--slideshowReady .Product__GalleryPlaceholder {
+    display: none;
+  }
+  .Product__Gallery--slideshowReady .Product__Slideshow {
+    visibility: visible;
+    position: relative;
+  }
+</style>
+
         {%- if action_list_items != blank -%}
           <div class="Product__ActionList hidden-lap-and-up {% if product.media[initial_media_index].media_type != 'image' %}is-hidden{% endif %}">
             {{ action_list_items }}
@@ -439,6 +483,36 @@ This is the root container for the zoom functionality. Must not be removed, as o
 
 <script>
 	const productTitle = {{ product.title | json }};
+</script>
+
+<script>
+(function() {
+  function activateSlideshow() {
+    var gallery = document.querySelector('.Product__Gallery');
+    var slideshow = document.querySelector('.Product__Slideshow');
+    
+    if (!slideshow || !gallery) return;
+    
+    var checkFlickity = setInterval(function() {
+      if (slideshow.classList.contains('flickity-enabled')) {
+        clearInterval(checkFlickity);
+        gallery.classList.add('Product__Gallery--slideshowReady');
+      }
+    }, 50);
+    
+    // Fallback
+    setTimeout(function() {
+      clearInterval(checkFlickity);
+      gallery.classList.add('Product__Gallery--slideshowReady');
+    }, 3000);
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', activateSlideshow);
+  } else {
+    activateSlideshow();
+  }
+})();
 </script>
 
 {% schema %}
