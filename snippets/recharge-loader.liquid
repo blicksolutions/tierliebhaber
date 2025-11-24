@@ -1,17 +1,14 @@
 <style>
 /* ========================================
-   RECHARGE SKELETON LOADER
-   Dynamic height - 290px nur während Loading
+   RECHARGE SKELETON LOADER - PRODUCTION
    ======================================== */
 
-/* Container: min-height nur wenn leer (loading) */
 .rc-widget-injection-parent {
   position: relative;
 }
 
-/* Skeleton: Fixed height nur während Loading */
 .rc-widget-injection-parent:empty {
-  min-height: 350px;
+  min-height: 318px;
   background: #f8f8f8;
   border-radius: 8px;
   display: flex;
@@ -20,17 +17,20 @@
   overflow: hidden;
 }
 
-/* Wenn ReCharge geladen ist: Auto height */
+@media screen and (max-width: 1007px) {
+  .rc-widget-injection-parent:empty {
+    min-height: 308px;
+  }
+}
+
 .rc-widget-injection-parent:not(:empty) {
   min-height: auto;
 }
 
-/* CRITICAL: Hide Variants SOFORT wenn ReCharge Container existiert */
 body:has(.rc-widget-injection-parent) .ProductForm__Variants {
   display: none !important;
 }
 
-/* Animated loading bar oben */
 .rc-widget-injection-parent:empty::before {
   content: '';
   position: absolute;
@@ -47,7 +47,6 @@ body:has(.rc-widget-injection-parent) .ProductForm__Variants {
   100% { left: 100%; }
 }
 
-/* Loading Text in der Mitte */
 .rc-widget-injection-parent:empty::after {
   content: 'Abo-Optionen werden geladen...';
   color: #999;
@@ -55,7 +54,6 @@ body:has(.rc-widget-injection-parent) .ProductForm__Variants {
   font-weight: 400;
 }
 
-/* Smooth Fade-In wenn ReCharge lädt */
 .rc-widget-injection-parent > * {
   animation: slideInUp 0.4s ease-out;
 }
@@ -70,111 +68,65 @@ body:has(.rc-widget-injection-parent) .ProductForm__Variants {
     transform: translateY(0);
   }
 }
-
-/* Optional: Alternative shimmer effect */
-
-.rc-widget-injection-parent:empty {
-  background: linear-gradient(
-    90deg,
-    #f0f0f0 0%,
-    #e0e0e0 20%,
-    #f0f0f0 40%,
-    #f0f0f0 100%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-
 </style>
 
 <script>
-
-  
-// ========================================
-// RECHARGE SMART OVERRIDE - FINAL VERSION
-// CSS versteckt Variants SOFORT
-// JavaScript lädt ReCharge schnell
-// ========================================
-
 (function() {
   'use strict';
 
-  console.log('🧠 ReCharge Smart Override - Final Version');
-
-  // Check if in Theme Editor
   const isThemeEditor = window.self !== window.top || 
-                        window.location.search.includes('preview_theme_id') ||
-                        document.body.classList.contains('template-password');
+                        window.location.search.includes('preview_theme_id');
   
   if (isThemeEditor) {
-    console.log('🎨 Theme Editor detected - applying instant CSS only');
-    // CSS wird trotzdem injiziert am Ende des Scripts
+    const loadRechargeDirectly = () => {
+      if (document.querySelector('script[src*="rechargecdn.com"]')) return;
+      
+      const script = document.createElement('script');
+      script.src = 'https://static.rechargecdn.com/assets/js/widget.min.js?shop=tierliebhaber-animagus.myshopify.com';
+      script.async = true;
+      document.head.appendChild(script);
+    };
+    
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', loadRechargeDirectly);
+    } else {
+      setTimeout(loadRechargeDirectly, 500);
+    }
   }
 
   const originalAddEventListener = window.addEventListener;
   const originalAttachEvent = window.attachEvent;
   let rechargeLoadCalled = false;
 
-  // Funktion um zu prüfen ob ReCharge bereit ist
   function isRechargeReady() {
-    if (typeof Shopify === 'undefined' || !Shopify.routes) {
-      return false;
-    }
-
-    const productJson = document.querySelector('[data-product-json], script[type="application/json"][data-product]');
-    if (!productJson) {
-      return false;
-    }
-
-    const productForm = document.querySelector('form[action*="/cart/add"], .ProductForm, [data-product-form]');
-    if (!productForm) {
-      return false;
-    }
-
-    const rechargeContainer = document.querySelector('.rc-widget-injection-parent, #rc-container, [data-recharge-container]');
-    if (!rechargeContainer) {
-      return false;
-    }
-
+    if (typeof Shopify === 'undefined' || !Shopify.routes) return false;
+    if (!document.querySelector('[data-product-json], script[type="application/json"][data-product]')) return false;
+    if (!document.querySelector('form[action*="/cart/add"], .ProductForm, [data-product-form]')) return false;
+    if (!document.querySelector('.rc-widget-injection-parent, #rc-container, [data-recharge-container]')) return false;
     return true;
   }
 
   function loadRechargeWhenReady(listenerFunction) {
     if (isRechargeReady()) {
-      console.log('⚡ Dependencies ready - loading ReCharge immediately!');
       setTimeout(listenerFunction, 0);
       return;
     }
 
     if (document.readyState === 'loading') {
-      console.log('⏳ Waiting for DOMContentLoaded...');
       originalAddEventListener.call(window, 'DOMContentLoaded', function() {
-        console.log('✅ DOMContentLoaded fired');
-        
         if (isRechargeReady()) {
-          console.log('⚡ Loading ReCharge now!');
           listenerFunction();
         } else {
           waitForDependencies(listenerFunction);
         }
       });
     } else if (document.readyState === 'interactive') {
-      console.log('📊 DOM interactive - checking dependencies...');
-      
       if (isRechargeReady()) {
-        console.log('⚡ Loading ReCharge now!');
         setTimeout(listenerFunction, 0);
       } else {
         waitForDependencies(listenerFunction);
       }
     } else {
-      console.log('📦 Page already fully loaded');
       listenerFunction();
     }
   }
@@ -187,11 +139,9 @@ body:has(.rc-widget-injection-parent) .ProductForm__Variants {
       checkCount++;
       
       if (isRechargeReady()) {
-        console.log(`✅ Dependencies ready after ${checkCount * 100}ms`);
         clearInterval(checkInterval);
         listenerFunction();
       } else if (checkCount >= maxChecks) {
-        console.warn('⚠️ Timeout waiting for dependencies - loading anyway');
         clearInterval(checkInterval);
         listenerFunction();
       }
@@ -199,7 +149,6 @@ body:has(.rc-widget-injection-parent) .ProductForm__Variants {
 
     const observer = new MutationObserver(() => {
       if (isRechargeReady()) {
-        console.log('✅ Dependencies detected via MutationObserver');
         clearInterval(checkInterval);
         observer.disconnect();
         listenerFunction();
@@ -211,105 +160,70 @@ body:has(.rc-widget-injection-parent) .ProductForm__Variants {
       subtree: true
     });
 
-    setTimeout(() => {
-      observer.disconnect();
-    }, maxChecks * 100);
+    setTimeout(() => observer.disconnect(), maxChecks * 100);
   }
 
-  // Override addEventListener (skip in Theme Editor)
-  if (!isThemeEditor) {
-    window.addEventListener = function(type, listener, options) {
+  window.addEventListener = function(type, listener, options) {
+    if (type === 'load' && !rechargeLoadCalled) {
+      const listenerStr = listener.toString();
       
-      if (type === 'load' && !rechargeLoadCalled) {
+      if (listenerStr.includes('rechargecdn.com') || 
+          listenerStr.includes('widget.min.js') ||
+          listenerStr.includes('asyncLoad')) {
+        
+        rechargeLoadCalled = true;
+        loadRechargeWhenReady(listener);
+        return;
+      }
+    }
+    return originalAddEventListener.call(window, type, listener, options);
+  };
+
+  if (originalAttachEvent) {
+    window.attachEvent = function(event, listener) {
+      if (event === 'onload' && !rechargeLoadCalled) {
         const listenerStr = listener.toString();
         
         if (listenerStr.includes('rechargecdn.com') || 
             listenerStr.includes('widget.min.js') ||
             listenerStr.includes('asyncLoad')) {
           
-          console.log('🎯 Intercepted ReCharge App Embed load event!');
-          console.log('🧠 Using smart loading (waiting for dependencies)');
-          
           rechargeLoadCalled = true;
           loadRechargeWhenReady(listener);
-          
           return;
         }
       }
-
-      return originalAddEventListener.call(window, type, listener, options);
+      return originalAttachEvent.call(window, event, listener);
     };
-
-    // Override attachEvent
-    if (originalAttachEvent) {
-      window.attachEvent = function(event, listener) {
-        
-        if (event === 'onload' && !rechargeLoadCalled) {
-          const listenerStr = listener.toString();
-          
-          if (listenerStr.includes('rechargecdn.com') || 
-              listenerStr.includes('widget.min.js') ||
-              listenerStr.includes('asyncLoad')) {
-            
-            console.log('🎯 Intercepted ReCharge attachEvent!');
-            rechargeLoadCalled = true;
-            loadRechargeWhenReady(listener);
-            
-            return;
-          }
-        }
-
-        return originalAttachEvent.call(window, event, listener);
-      };
-    }
-
-    console.log('✅ ReCharge Smart Override active');
   }
-  
-  console.log('ℹ️ Standard Variants werden via CSS versteckt (instant)');
-
 })();
 
-// CSS für instant hide + animations + dynamic height
 if (!document.getElementById('recharge-smart-styles')) {
   const style = document.createElement('style');
   style.id = 'recharge-smart-styles';
   style.textContent = `
-    /* ReCharge Container - Dynamic Height */
     .rc-widget-injection-parent:empty {
-      min-height: 350px; /* Nur während Loading */
+      min-height: 318px;
     }
-    
+    @media screen and (max-width: 1007px) {
+      .rc-widget-injection-parent:empty {
+        min-height: 308px;
+      }
+    }
     .rc-widget-injection-parent:not(:empty) {
-      min-height: auto; /* Auto wenn geladen */
+      min-height: auto;
     }
-    
-    /* CRITICAL: Hide Variants INSTANTLY */
     body:has(.rc-widget-injection-parent) .ProductForm__Variants {
       display: none !important;
     }
-    
-    /* Fade in animation */
     .rc-widget-injection-parent > * {
       animation: fadeInRecharge 0.4s ease-out;
     }
-    
     @keyframes fadeInRecharge {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   `;
   document.head.appendChild(style);
 }
-
-console.log('✅ ReCharge instant hide CSS injected');
-
 </script>
-
-
