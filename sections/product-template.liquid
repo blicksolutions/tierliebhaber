@@ -132,48 +132,48 @@
         <span id="ProductGallery" class="Anchor"></span>
 
         {%- comment -%}LCP Placeholder - Overlay über Slideshow{%- endcomment -%}
-<div class="Product__GalleryPlaceholder" id="ProductGalleryPlaceholder">
-  <div class="AspectRatio AspectRatio--withFallback" style="padding-bottom: {{ 100.0 | divided_by: product.featured_media.aspect_ratio }}%; --aspect-ratio: {{ product.featured_media.aspect_ratio }};">
-    <img 
-      src="{{ product.featured_media | img_url: '800x' }}"
-      srcset="{{ product.featured_media | img_url: '400x' }} 400w, {{ product.featured_media | img_url: '600x' }} 600w, {{ product.featured_media | img_url: '800x' }} 800w, {{ product.featured_media | img_url: '1000x' }} 1000w, {{ product.featured_media | img_url: '1200x' }} 1200w"
-      sizes="(max-width: 640px) 100vw, 550px"
-      alt="{{ product.featured_media.alt | escape }}"
-      width="{{ product.featured_media.width }}"
-      height="{{ product.featured_media.height }}"
-      fetchpriority="high"
-      decoding="async"
-      class="Image--lazyLoaded Image--fadeIn"
-    >
-  </div>
-</div>
-<style>
-  .Product__GalleryPlaceholder {
-    position: relative;
-    z-index: 2;
-    background: #fff;
-  }
-  .Product__Slideshow {
-    position: relative;
-    z-index: 1;
-  }
-  .Product__GalleryPlaceholder--hidden {
-    display: none;
-  }
-  /* Wenn Placeholder sichtbar, Slideshow unsichtbar aber im DOM */
-  .Product__Gallery:not(.Product__Gallery--slideshowReady) .Product__Slideshow {
-    visibility: hidden;
-    position: absolute;
-    width: 100%;
-  }
-  .Product__Gallery--slideshowReady .Product__GalleryPlaceholder {
-    display: none;
-  }
-  .Product__Gallery--slideshowReady .Product__Slideshow {
-    visibility: visible;
-    position: relative;
-  }
-</style>
+        <div class="Product__GalleryPlaceholder" id="ProductGalleryPlaceholder">
+          <div class="AspectRatio AspectRatio--withFallback" style="padding-bottom: {{ 100.0 | divided_by: product.featured_media.aspect_ratio }}%; --aspect-ratio: {{ product.featured_media.aspect_ratio }};">
+            <img 
+              src="{{ product.featured_media | img_url: '800x' }}"
+              srcset="{{ product.featured_media | img_url: '400x' }} 400w, {{ product.featured_media | img_url: '600x' }} 600w, {{ product.featured_media | img_url: '800x' }} 800w, {{ product.featured_media | img_url: '1000x' }} 1000w, {{ product.featured_media | img_url: '1200x' }} 1200w"
+              sizes="(max-width: 640px) 100vw, 550px"
+              alt="{{ product.featured_media.alt | escape }}"
+              width="{{ product.featured_media.width }}"
+              height="{{ product.featured_media.height }}"
+              fetchpriority="high"
+              decoding="async"
+              class="Image--lazyLoaded Image--fadeIn"
+            >
+          </div>
+        </div>
+        <style>
+          .Product__GalleryPlaceholder {
+            position: relative;
+            z-index: 2;
+            background: #fff;
+          }
+          .Product__Slideshow {
+            position: relative;
+            z-index: 1;
+          }
+          .Product__GalleryPlaceholder--hidden {
+            display: none;
+          }
+          /* Wenn Placeholder sichtbar, Slideshow unsichtbar aber im DOM */
+          .Product__Gallery:not(.Product__Gallery--slideshowReady) .Product__Slideshow {
+            visibility: hidden;
+            position: absolute;
+            width: 100%;
+          }
+          .Product__Gallery--slideshowReady .Product__GalleryPlaceholder {
+            display: none;
+          }
+          .Product__Gallery--slideshowReady .Product__Slideshow {
+            visibility: visible;
+            position: relative;
+          }
+        </style>
 
         {%- if action_list_items != blank -%}
           <div class="Product__ActionList hidden-lap-and-up {% if product.media[initial_media_index].media_type != 'image' %}is-hidden{% endif %}">
