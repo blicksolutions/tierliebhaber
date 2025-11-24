@@ -5728,6 +5728,7 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
     margin-top: 24px
 }
 
+
 .ProductList--grid {
     padding: 0 12px
 }
@@ -5753,6 +5754,7 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
 }
 
 @media screen and (min-width:641px) {
+
     .CollectionToolbar--reverse,
     .CollectionToolbar__Group {
         flex-direction: row-reverse
@@ -5789,19 +5791,32 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
         margin-top: 50px
     }
     .ProductList--grid {
-        padding: 0 24px;
-        margin-left: -24px
+        padding: 0 12px;
+        margin-left: 0px
     }
     .ProductList--removeMargin {
         margin-bottom: -50px !important
     }
     .ProductList--grid>.Grid__Cell {
-        padding-left: 24px;
-        margin-bottom: 50px
+        padding-left: 8px;
+        padding-right: 8px;
+        margin-bottom: 42px
     }
 }
 
 @media screen and (min-width:1008px) {
+
+    .ProductList--grid {
+        padding: 0 24px;
+        margin-left: 0px
+    }
+
+    .ProductList--grid>.Grid__Cell {
+        padding-left: 12px;
+        padding-right: 12px;
+        margin-bottom: 42px
+    }
+
     .ArticleList .Grid__Cell,
     .ArticleListWrapper {
         margin-bottom: 100px
@@ -5916,7 +5931,7 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
     }
     .CollectionItem__Content,
     .ProductList--grid {
-        padding: 0 50px
+       /*  padding: 0 50px */
     }
     .CollectionItem__Content--bottomCenter,
     .CollectionItem__Content--bottomLeft,
@@ -5942,18 +5957,20 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
     }
     .ProductList--grid[data-desktop-count="3"],
     .ProductList--grid[data-desktop-count="4"] {
-        margin-left: calc(-1 * var(--horizontal-spacing-four-products-per-row))
+       /*  margin-left: calc(-1 * var(--horizontal-spacing-four-products-per-row)) */ 
     }
     .ProductList--grid[data-desktop-count="3"]>.Grid__Cell,
     .ProductList--grid[data-desktop-count="4"]>.Grid__Cell {
-        padding-left: var(--horizontal-spacing-four-products-per-row);
-        margin-bottom: var(--vertical-spacing-four-products-per-row)
+        padding-left: 12px;
+        padding-right: 12px;
+        margin-bottom: var(--vertical-spacing-four-products-per-row);
     }
     .ProductList--removeMargin[data-desktop-count="3"],
     .ProductList--removeMargin[data-desktop-count="4"] {
         margin-bottom: calc(-1 * var(--vertical-spacing-four-products-per-row)) !important
     }
 }
+
 
 .ProductList--carousel .Carousel__Cell {
     width: 62%;
