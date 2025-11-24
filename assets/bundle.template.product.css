@@ -37,7 +37,7 @@
 .ProductMeta .ProductBadges {
     align-items: center;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     margin: 0 auto 8px
 }
 
