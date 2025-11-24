@@ -148,26 +148,97 @@
 {% endschema %}
 
 
+
 <script>
-  $(document).ready(function () {
-    $('#flip').click(function () {
-      $('#panel').slideToggle('slow');
+// 1. Flip/Toggle Funktionalität
+document.addEventListener('DOMContentLoaded', function() {
+  const flipButton = document.getElementById('flip');
+  const panel = document.getElementById('panel');
+  
+  if (flipButton && panel) {
+    flipButton.addEventListener('click', function() {
+      // slideToggle Ersatz mit CSS transition
+      if (panel.style.display === 'none' || !panel.style.display) {
+        // Slide Down
+        panel.style.display = 'block';
+        panel.style.height = '0px';
+        panel.style.overflow = 'hidden';
+        panel.style.transition = 'height 0.5s ease';
+        
+        // Trigger reflow
+        panel.offsetHeight;
+        
+        // Animate to full height
+        panel.style.height = panel.scrollHeight + 'px';
+        
+        // Nach Animation: height auf auto setzen
+        setTimeout(() => {
+          panel.style.height = 'auto';
+        }, 500);
+      } else {
+        // Slide Up
+        panel.style.height = panel.scrollHeight + 'px';
+        panel.style.overflow = 'hidden';
+        panel.style.transition = 'height 0.5s ease';
+        
+        // Trigger reflow
+        panel.offsetHeight;
+        
+        // Animate to 0
+        panel.style.height = '0px';
+        
+        // Nach Animation: display none
+        setTimeout(() => {
+          panel.style.display = 'none';
+        }, 500);
+      }
+    });
+  }
+});
+
+// 2. Smooth Scroll für Anchor-Links
+document.addEventListener('DOMContentLoaded', function() {
+  // Alle Links die mit # beginnen (außer # alleine)
+  const anchorLinks = document.querySelectorAll('a[href^="#"]:not([href="#"])');
+  
+  anchorLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      const target = document.querySelector(href);
+      
+      // Nur preventDefault wenn Ziel existiert
+      if (target) {
+        e.preventDefault();
+        
+        // Smooth scroll zum Ziel
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+        
+        // Optional: URL updaten ohne zu springen
+        if (history.pushState) {
+          history.pushState(null, null, href);
+        }
+      }
     });
   });
+});
+
 </script>
 
 <style>
-    .panel {
-      padding: 5px;
-      text-align: center;
-      background-color:transparent;
-      border: solid 1pxrgb(168, 168, 168);
-      border: 1px solid rgb(213, 213, 213);
-      margin: 16px auto 0px;
-      text-align: left;
-      padding: 9px 17px;
-      box-shadow: 1px 1px 8px #d5d5d5;
-    }
+
+  .panel {
+    padding: 5px;
+    text-align: center;
+    background-color:transparent;
+    border: 1px solid rgb(213, 213, 213);
+    margin: 16px auto 0px;
+    text-align: left;
+    padding: 9px 17px;
+    box-shadow: 1px 1px 8px #d5d5d5;
+  }
   .panel a {text-decoration: underline;}
 
     #flip {
