@@ -14705,11 +14705,18 @@ button.ProductForm__AddToCart.ProductForm__StickyATC.Button.Button--primary.Butt
 }
 
 .Product__InfoWrapper .ProductMeta.Bestseller .ProductMeta__BestsellerHeader {
-	flex-direction: row-reverse;
-	flex-wrap: wrap;
-	justify-content: flex-end;
 	border-radius: 10px;
 	margin-bottom: 7px;
+    align-items: start;
+}
+
+.Product__InfoWrapper .ProductMeta.Bestseller .ProductMeta__BestsellerHeader .bestseller-wrapper-mm {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 5px; 
+    margin-bottom: 5px;
 }
 
 .Product__InfoWrapper .ProductMeta__Title.Heading.u-h2 {

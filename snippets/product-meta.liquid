@@ -11,11 +11,9 @@
 
 <div class="ProductMeta {% if product.metafields.badge.text == 'Bestseller' %}Bestseller{% endif %}" {% if product.metafields.badge.text == 'Bestseller' %} data-js-bestseller="true" {% endif %}>
     {% if product.metafields.badge.text == 'Bestseller' %}
+
         <div class="ProductMeta__BestsellerHeader">
-            {%- if product.metafields.badge.text -%}
-                {%- render 'product-badge', product: product -%}
-            {%- endif -%}
-    
+            <div class="bestseller-wrapper-mm">
             <h1 class="ProductMeta__Title Heading u-h2">
                 {%- if template.name == 'product' -%}
                     {%-if custom_title-%}{{custom_title}}{%-else-%}{{- product.title -}}{%-endif-%}
@@ -24,9 +22,13 @@
                 {%- endif -%}
             </h1>
 
+            {%- if product.metafields.badge.text -%}
+                {%- render 'product-badge', product: product -%}
+            {%- endif -%}
+          </div>
             <div class="ruk_rating_snippet" data-sku={{ product.selected_or_first_available_variant.sku }}></div>
-    
         </div>
+        
     {% else %}
         {%- if section.settings.show_vendor and product.vendor != blank -%}
             <h2 class="ProductMeta__Vendor Heading u-h6">
