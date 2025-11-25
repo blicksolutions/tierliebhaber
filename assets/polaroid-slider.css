@@ -1,7 +1,11 @@
 /* polaroid slider section */
 
+.template-product .section-polaroid-slider {
+  background-color: #f2f1f1cf;
+}
+
 .section-polaroid-slider {
-  padding: 50px 0 100px;
+  padding: 50px 0 64px;
 }
 
 @media (max-width: 767px) {
