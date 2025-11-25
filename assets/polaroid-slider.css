@@ -226,13 +226,12 @@
     position: absolute;
     background:rgba(255, 255, 255, 0.71);
 }
-}
 .section-polaroid-slider .swiper-button-next {
   right: 20px;
 }
-
 .section-polaroid-slider .swiper-button-prev {
   left: 20px;
+}
 }
 
 .section-polaroid-slider .swiper-button-prev:after,
