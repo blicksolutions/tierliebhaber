@@ -3068,8 +3068,8 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
     position: absolute;
     content: "";
     top: 50%;
-    left: -.4em;
-    width: calc(100% + .8em);
+    left: -.2em;
+    width: 100%;
     height: 1px;
     background: currentColor
 }
