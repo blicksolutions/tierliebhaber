@@ -1,7 +1,7 @@
 /* polaroid slider section */
 
 .template-product .section-polaroid-slider {
-  background-color: #f2f1f1cf;
+  background-color: #f2f1f1cf !important;
 }
 
 .section-polaroid-slider {
