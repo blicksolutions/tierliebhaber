@@ -1,9 +1,5 @@
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 <link rel="stylesheet" href="{{ 'polaroid-slider.css' | asset_url }}">
-
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
-<script type="text/javascript" src="{{ 'polaroid-slider.js' | asset_url }}" defer></script>
+<script type="text/javascript" src="{{ 'swiper-polaroid-slider.js' | asset_url }}" defer></script>
 
 <section class="section-polaroid-slider" style="background-color: {{ section.settings.background-color }}">
     <div class="headline-wrapper">
@@ -14,20 +10,32 @@
         {{ section.settings.slider-subline }}
       </h3>
     </div>
-    <div class="slider">
-        {%- for slider in section.blocks -%}
-           <div class="item">
-            <div class="polaroid">
-              <div class="image">
-				<img src="{{ slider.settings.image | img_url: '400x' }}" alt="" {% if forloop.index >= 4 and forloop.index < forloop.length %} loading="lazy"{% endif %}>
-			  </div>
-              <div class="headlines">
-                <h2>{{ slider.settings.item-headline }}</h2>
-                <h3>{{ slider.settings.item-subline }}</h3>
+    
+    <div class="slider-container">
+      <!-- Navigation Arrows -->
+      <div class="swiper-button-prev"></div>
+      
+      <div class="slider-wrapper">
+        <div class="slider swiper">
+          <div class="swiper-wrapper">
+            {%- for slider in section.blocks -%}
+              <div class="swiper-slide">
+                <div class="polaroid">
+                  <div class="image">
+                    <img src="{{ slider.settings.image | img_url: '350x' }}" alt="" {% if forloop.index >= 4 and forloop.index < forloop.length %} loading="lazy"{% endif %}>
+                  </div>
+                  <div class="headlines">
+                    <h2>{{ slider.settings.item-headline }}</h2>
+                    <h3>{{ slider.settings.item-subline }}</h3>
+                  </div>
+                </div>
               </div>
-            </div>
+            {%- endfor -%}
           </div>
-        {%- endfor -%}
+        </div>
+      </div>
+      
+      <div class="swiper-button-next"></div>
     </div>
 </section>
 
@@ -53,37 +61,37 @@
       "label": "Subline",
       "default": "Subline"
     }
-	],
-    "blocks": [
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Polaroid item",
+      "settings": [	
         {
-          "type": "item",
-          "name": "Polaroid item",
-          "settings": [	
-            {
-              "type": "image_picker",
-              "id": "image",
-              "label": "Image"
-            },
-            {
-              "type": "text",
-              "id": "item-headline",
-              "label": "Item Headline",
-              "default": "Headline"
-            },
-            {
-              "type": "text",
-              "id": "item-subline",
-              "label": "Item Subline",
-              "default": "Subline"
-            }
-          ]
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "item-headline",
+          "label": "Item Headline",
+          "default": "Headline"
+        },
+        {
+          "type": "text",
+          "id": "item-subline",
+          "label": "Item Subline",
+          "default": "Subline"
         }
-      ],
-    "presets": [
-      {
-        "name": "Polaroid Slider",
-        "category": "Custom"
-      }
-    ]
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Polaroid Slider",
+      "category": "Custom"
+    }
+  ]
 }
 {% endschema %}
