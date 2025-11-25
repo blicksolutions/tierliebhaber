@@ -1,0 +1,69 @@
+{% if collection.metafields.custom.mobile_collection_banner %}
+  <style>
+    .collection-banner-container {
+      display: none;
+      position: relative;
+      width: 100%;
+      background-image: url('{{ collection.metafields.custom.mobile_collection_banner.value.background_image | image_url: width: 1080 }}');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 30px 20px;
+      text-align: center;
+      min-height:400px;
+    }
+
+    .banner-content {
+      position: relative;
+      z-index: 2;
+      color: #ffffff;
+    }
+
+    .banner-heading {
+      font-size: 32px;
+    letter-spacing: 1.92px;
+    font-weight: bold;
+    margin-bottom: 21px;
+    line-height: normal;
+      text-transform: uppercase;
+    }
+
+    .banner-subheading {
+    font-size: 14px;
+    margin-bottom: 20px;
+    line-height: 20px;
+    }
+    
+    .banner-product-image {
+        margin-top: 2.5rem;
+    }
+    .banner-product-image img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Mobile-only display */
+    @media screen and (max-width: 767px) {
+      .collection-banner-container {
+        display: block;
+      }
+    }
+  </style>
+  <div class="collection-banner-container">
+    <div class="banner-content">
+      <h2 class="banner-heading">{{ collection.metafields.custom.mobile_collection_banner.value.heading }}</h2>
+      <div class="banner-subheading">
+        {{ collection.metafields.custom.mobile_collection_banner.value.subheading | metafield_tag }}
+      </div>
+      <div class="banner-product-image">
+        {{
+          collection.metafields.custom.mobile_collection_banner.value.product_image
+          | image_url: width: 800
+          | image_tag: alt: collection.metafields.custom.mobile_collection_banner.value.heading
+        }}
+      </div>
+    </div>
+  </div>
+{% endif %}
