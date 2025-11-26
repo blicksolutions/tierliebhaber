@@ -15131,7 +15131,7 @@ div.rc_popup__hover, a.rc_popup__hover {
 }
 
 .chatarmin-widget-wrapper {
-    bottom: 48px !important;
+    bottom: 64px !important;
 }
 
 .ProductMeta__PaymentList.HorizontalList {
@@ -15139,7 +15139,7 @@ div.rc_popup__hover, a.rc_popup__hover {
 }
 
 #CookiebotWidget:not(.CookiebotWidget-inactive) {
-    bottom: 71px !important;
+    bottom: 88px !important;
 }
 
 
