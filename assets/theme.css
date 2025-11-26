@@ -15130,17 +15130,29 @@ div.rc_popup__hover, a.rc_popup__hover {
     z-index: 999 !important; 
 }
 
+
+.chatarmin-widget-wrapper {
+    bottom: 32px !important;
+}
+#CookiebotWidget:not(.CookiebotWidget-inactive) {
+    bottom: 44px !important;
+}
+
+
+@media screen and (max-width: 1008px) {
 .chatarmin-widget-wrapper {
     bottom: 64px !important;
+}
+#CookiebotWidget:not(.CookiebotWidget-inactive) {
+    bottom: 88px !important;
+}
 }
 
 .ProductMeta__PaymentList.HorizontalList {
     z-index: 9999;
 }
 
-#CookiebotWidget:not(.CookiebotWidget-inactive) {
-    bottom: 88px !important;
-}
+
 
 
 
