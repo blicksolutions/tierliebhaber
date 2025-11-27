@@ -11482,7 +11482,8 @@ reviewsio-product-reviews-widget {
     line-height: 27.5px;
     cursor: pointer;
     user-select: none;
-    max-height: 56px
+    max-height: 56px;
+    margin-top: 5px;
 }
 
 .Search .search-result__bestseller-products {
