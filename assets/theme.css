@@ -11355,7 +11355,8 @@ reviewsio-product-reviews-widget {
     line-height: 22.5px;
     font-style: normal;
     font-weight: 500;
-    color: #525252
+    color: #525252;
+    margin-bottom: 5px;
 }
 
 .SidebarMenu .bestseller .swiper-slide {
