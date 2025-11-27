@@ -41,6 +41,12 @@ section:has(.AnnouncementBar) {
 	}
 
 }
+@media (min-width: 768px) {
+	  div#shopify-section-announcement #section-announcement .AnnouncementBar #new_topbar .topbar_inner span {
+		font-size: 11px !important;
+	  }
+	}
+
 
 @media (max-width: 1024px) {
 
@@ -55,7 +61,6 @@ section:has(.AnnouncementBar) {
 
 	  div#shopify-section-announcement #section-announcement .AnnouncementBar #new_topbar .topbar_inner span {
 		font-family: "Work Sans";
-		font-size: 11px !important;
 		font-weight: 600 !important;
 		line-height: 9.38px !important;
 		text-align: left !important;
@@ -97,6 +102,13 @@ section:has(.AnnouncementBar) {
 	}
 }
 
+
+@media (max-width: 415px) {
+	    .AnnouncementBar .topbar_inner:not(:nth-child(2)) {
+        padding: 0 0 !important;
+		}
+}
+
 @media (max-width: 767px) {
     .AnnouncementBar .topbar_inner {
         display: flex !important;
@@ -105,7 +117,7 @@ section:has(.AnnouncementBar) {
     }
     
     .AnnouncementBar .topbar_inner:not(:nth-child(2)) {
-        padding: 0 !important;
+        padding: 0 2% !important;
     }
    
     .AnnouncementBar #new_topbar {
@@ -116,6 +128,7 @@ section:has(.AnnouncementBar) {
         font-size: 10px !important;
     }
 }
+
 .second-announcement-bar {
     display: flex;
     padding: 5px 10px;
