@@ -22,6 +22,19 @@ section:has(.AnnouncementBar) {
 	top: 0 !important;
 }
 
+@media (max-width: 767px) {
+	  div#shopify-section-announcement #section-announcement .AnnouncementBar #new_topbar .topbar_inner {
+		flex-direction: row;
+		max-width: 150px;
+		width: 33%;
+	  }
+		div#shopify-section-announcement #section-announcement .AnnouncementBar #new_topbar .topbar_inner span {
+		font-family: "Work Sans";
+		font-size: 8px !important;
+		}
+
+}
+
 @media (max-width: 1024px) {
 
 	div#shopify-section-announcement #section-announcement .AnnouncementBar #new_topbar {
@@ -29,13 +42,11 @@ section:has(.AnnouncementBar) {
 		align-items: center;
 	  }
 	  div#shopify-section-announcement #section-announcement .AnnouncementBar #new_topbar .topbar_inner {
-		flex-direction: row;
-		max-width: 150px;
-		width: 33%;
 	  }
+
 	  div#shopify-section-announcement #section-announcement .AnnouncementBar #new_topbar .topbar_inner span {
 		font-family: "Work Sans";
-		font-size: 8px !important;
+		font-size: 11px !important;
 		font-weight: 600 !important;
 		line-height: 9.38px !important;
 		text-align: left !important;
