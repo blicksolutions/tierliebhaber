@@ -66,6 +66,12 @@ div#shopify-section-announcement #section-announcement .AnnouncementBar #new_top
 	}
 }
 
+@media (min-width: 1200px) {
+	div#shopify-section-announcement #section-announcement .AnnouncementBar #new_topbar .topbar_inner span {
+	font-size: 16px;
+	}
+}
+
 
 
 @media (max-width: 1024px) {
