@@ -15139,6 +15139,7 @@ div.rc_popup__hover, a.rc_popup__hover {
 }
 #CookiebotWidget:not(.CookiebotWidget-inactive) {
     bottom: 44px !important;
+    display: none;
 }
 
 
