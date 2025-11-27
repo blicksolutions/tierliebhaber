@@ -1862,7 +1862,7 @@ input.spr-button-primary[disabled] {
     width: calc(100vw - 65px);
     height: 100vh;
     max-height: none;
-    z-index: 20;
+    z-index: 99999;
     transition: transform .5s var(--drawer-transition-timing), visibility .5s var(--drawer-transition-timing);
     background: var(--background);
     box-shadow: none
@@ -9565,7 +9565,7 @@ body[data-drawer-id-opened] div[id^=trustbadge-container] {
 }
 
 #sidebar-cart {
-    z-index: 999999
+    z-index: 99999
 }
 
 #sidebar-cart .CartItemWrapper[data-free-gift=true] .QuantitySelector {
@@ -15151,10 +15151,6 @@ div.rc_popup__hover, a.rc_popup__hover {
 .ProductMeta__PaymentList.HorizontalList {
     z-index: 9999;
 }
-
-
-
-
 
 
 
