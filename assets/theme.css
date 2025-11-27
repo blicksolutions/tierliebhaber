@@ -15387,3 +15387,9 @@ margin:0 15px;
    Reviews CSS Local END
    ======================================== */
 
+
+
+
+.SidebarMenu__submenu li:last-child {
+    margin-bottom: 50px;
+}
