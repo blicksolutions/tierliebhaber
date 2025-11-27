@@ -41,6 +41,13 @@ section:has(.AnnouncementBar) {
 	}
 
 }
+
+@media (min-width: 600px) {
+	  div#shopify-section-announcement #section-announcement .AnnouncementBar #new_topbar .topbar_inner span {
+		font-size: 10px !important;
+	  }
+	}
+
 @media (min-width: 768px) {
 	  div#shopify-section-announcement #section-announcement .AnnouncementBar #new_topbar .topbar_inner span {
 		font-size: 11px !important;
