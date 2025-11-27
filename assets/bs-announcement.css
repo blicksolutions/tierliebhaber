@@ -22,6 +22,13 @@ section:has(.AnnouncementBar) {
 	top: 0 !important;
 }
 
+
+
+div#shopify-section-announcement #section-announcement .AnnouncementBar #new_topbar .topbar_inner span {
+	font-family: "Work Sans";
+	font-size: 8px;
+}
+
 @media (max-width: 767px) {
 	div#shopify-section-announcement #section-announcement .AnnouncementBar #new_topbar .topbar_inner {
 		flex-direction: row;
@@ -30,7 +37,6 @@ section:has(.AnnouncementBar) {
 	}
 	div#shopify-section-announcement #section-announcement .AnnouncementBar #new_topbar .topbar_inner span {
 		font-family: "Work Sans";
-		font-size: 8px !important;
 	}
 
 	.AnnouncementBar #new_topbar .topbar_inner .announcement__wrapper {
@@ -44,15 +50,22 @@ section:has(.AnnouncementBar) {
 
 @media (min-width: 600px) {
 	  div#shopify-section-announcement #section-announcement .AnnouncementBar #new_topbar .topbar_inner span {
-		font-size: 10px !important;
+		font-size: 10px;
 	  }
 	}
 
 @media (min-width: 768px) {
 	  div#shopify-section-announcement #section-announcement .AnnouncementBar #new_topbar .topbar_inner span {
-		font-size: 11px !important;
+		font-size: 11px;
 	  }
 	}
+
+@media (min-width: 1008px) {
+	div#shopify-section-announcement #section-announcement .AnnouncementBar #new_topbar .topbar_inner span {
+	font-size: 14px;
+	}
+}
+
 
 
 @media (max-width: 1024px) {
