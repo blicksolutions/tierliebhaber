@@ -25,7 +25,7 @@ section:has(.AnnouncementBar) {
 @media (max-width: 767px) {
 	div#shopify-section-announcement #section-announcement .AnnouncementBar #new_topbar .topbar_inner {
 		flex-direction: row;
-		max-width: 150px;
+		/* max-width: 150px; */
 		width: 33%;
 	}
 	div#shopify-section-announcement #section-announcement .AnnouncementBar #new_topbar .topbar_inner span {
