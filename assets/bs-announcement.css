@@ -23,15 +23,22 @@ section:has(.AnnouncementBar) {
 }
 
 @media (max-width: 767px) {
-	  div#shopify-section-announcement #section-announcement .AnnouncementBar #new_topbar .topbar_inner {
+	div#shopify-section-announcement #section-announcement .AnnouncementBar #new_topbar .topbar_inner {
 		flex-direction: row;
 		max-width: 150px;
 		width: 33%;
-	  }
-		div#shopify-section-announcement #section-announcement .AnnouncementBar #new_topbar .topbar_inner span {
+	}
+	div#shopify-section-announcement #section-announcement .AnnouncementBar #new_topbar .topbar_inner span {
 		font-family: "Work Sans";
 		font-size: 8px !important;
-		}
+	}
+
+	.AnnouncementBar #new_topbar .topbar_inner .announcement__wrapper {
+		display: flex;
+		width: 110px;
+		gap: 2px;
+		align-items: center;
+	}
 
 }
 
@@ -42,6 +49,8 @@ section:has(.AnnouncementBar) {
 		align-items: center;
 	  }
 	  div#shopify-section-announcement #section-announcement .AnnouncementBar #new_topbar .topbar_inner {
+		flex-direction: row;
+		width: 33%;
 	  }
 
 	  div#shopify-section-announcement #section-announcement .AnnouncementBar #new_topbar .topbar_inner span {
@@ -72,7 +81,7 @@ section:has(.AnnouncementBar) {
 	  
 	  .AnnouncementBar #new_topbar .topbar_inner .announcement__wrapper {
 		display: flex;
-		width: 110px;
+		width: auto;
 		gap: 2px;
 		align-items: center;
 	  }
