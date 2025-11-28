@@ -508,7 +508,7 @@
       {%- endcomment -%}
 
       <div class="CollectionMain">
-        {% render 'mobile-collection-banner', collection: collection %}
+        
         {% if section.settings.show_black_week_banner == true %}
           {% comment %} blackweek collection filter start {% endcomment %}
           {% render 'bs-black-week-collection-banner' %}
@@ -639,6 +639,7 @@
                 }
               </style>
             {%- endif -%}
+            {% render 'mobile-collection-banner', collection: collection %}
           {%- endif -%}
         {%- endif -%}
 
