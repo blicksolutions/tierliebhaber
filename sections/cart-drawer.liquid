@@ -137,7 +137,7 @@
             </p>
             <div class="CartUpsells__Items">
               <div class="Drawer__Container">
-                {% render 'cart-upsell-item', line_item: upsell_item: upsell_item %}
+                {% render 'cart-upsell-item', line_item: upsell_item %}
               </div>
             </div>
           </div>
@@ -386,3 +386,13 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'cart-upsell-item', line_item: upsell_item: upsell_item %}"
+  to: "{% render 'cart-upsell-item', line_item: upsell_item %}"
+  position: 6216..6271
+{% endcomment %}
